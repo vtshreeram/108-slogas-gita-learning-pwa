@@ -46,6 +46,7 @@ export default function Home() {
   const [audioState, setAudioState] = useState<"idle" | "playing" | "paused" | "unavailable">("idle");
   const [audioCurrentTime, setAudioCurrentTime] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
+  const [jumpRef, setJumpRef] = useState("");
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [state, setState] = useState<AppState>({
@@ -121,6 +122,17 @@ export default function Home() {
   const dailyGoal = state.activeMode === "lite" ? 1 : DAILY_TARGET;
   const firstPending = Math.max(0, SHLOKAS.findIndex((item) => !fullDone(state.completed[item.id])));
   const todayFocus = SHLOKAS.slice(firstPending, Math.min(firstPending + dailyGoal, SHLOKAS.length));
+  const chapterList = useMemo(() => [...new Set(SHLOKAS.map((s) => s.chapter))].sort((a, b) => a - b), []);
+
+  const jumpToReference = (reference: string) => {
+    const normalized = reference.trim();
+    const idx = SHLOKAS.findIndex((s) => s.reference === normalized);
+    if (idx >= 0) {
+      setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }));
+      return true;
+    }
+    return false;
+  };
 
   const markStep = (id: string, step: LoopStep) => {
     setState((prev) => {
@@ -253,6 +265,42 @@ export default function Home() {
             ))}
           </div>
           <div className="flex items-center gap-1.5">
+            <select
+              value={active.chapter}
+              onChange={(e) => {
+                const ch = Number(e.target.value);
+                const idx = SHLOKAS.findIndex((s) => s.chapter === ch);
+                if (idx >= 0) setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }));
+              }}
+              className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-[11px] text-[#5d492b]"
+            >
+              {chapterList.map((chapter) => (
+                <option key={chapter} value={chapter}>
+                  Ch {chapter}
+                </option>
+              ))}
+            </select>
+            <input
+              value={jumpRef}
+              onChange={(e) => setJumpRef(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  const ok = jumpToReference(jumpRef);
+                  if (ok) setJumpRef("");
+                }
+              }}
+              placeholder="18.66"
+              className="w-16 rounded-md border border-[#ccb385] bg-white px-2 py-1 text-[11px] text-[#5d492b] placeholder:text-[#9a8663]"
+            />
+            <button
+              onClick={() => {
+                const ok = jumpToReference(jumpRef);
+                if (ok) setJumpRef("");
+              }}
+              className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-[11px] text-[#5d492b]"
+            >
+              Go
+            </button>
             <span className="text-[11px] text-[#5d492b]">Mode</span>
             <div className="flex rounded-full border border-[#c7ad7d] bg-[#f7edd4] p-0.5">
               <button className={`rounded-full px-2.5 py-1 text-[11px] ${state.activeMode === "normal" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "normal" }))}>

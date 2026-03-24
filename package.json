@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audio:fetch": "python3 scripts/fetch_audio_from_links.py --missing-only",
+    "audio:verify": "python3 scripts/fetch_audio_from_links.py --verify"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
