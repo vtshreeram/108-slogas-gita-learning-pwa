@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { CheckCircle2, ChevronLeft, ChevronRight, Flame, Headphones, Hourglass, Target } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AlertCircle, CheckCircle2, ChevronLeft, ChevronRight, Flame, Hourglass, Pause, Play, Square, Target } from "lucide-react";
 import { DAILY_TARGET, JOURNEY_DAYS, LoopStep, SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
@@ -42,6 +42,9 @@ export default function Home() {
   const [ready, setReady] = useState(false);
   const [confirmLearnedOpen, setConfirmLearnedOpen] = useState(false);
   const [completedOpen, setCompletedOpen] = useState(false);
+  const [audioAvailable, setAudioAvailable] = useState(true);
+  const [audioState, setAudioState] = useState<"idle" | "playing" | "paused" | "unavailable">("idle");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [state, setState] = useState<AppState>({
     startedAt: todayIso(),
@@ -111,6 +114,7 @@ export default function Home() {
   const activeGlobalIndex = safeActiveIndex + 1;
   const isFirst = activeGlobalIndex === 1;
   const isLast = activeGlobalIndex === TOTAL_SHLOKAS;
+  const audioSrc = `/audio/${active.reference}.mp3`;
 
   const dailyGoal = state.activeMode === "lite" ? 1 : DAILY_TARGET;
   const firstPending = Math.max(0, SHLOKAS.findIndex((item) => !fullDone(state.completed[item.id])));
@@ -148,13 +152,37 @@ export default function Home() {
     });
   };
 
-  const speak = (text: string, slow: boolean) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    const u = new SpeechSynthesisUtterance(text.replace(/\n/g, " "));
-    u.rate = slow ? 0.72 : 1;
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
+  const playAudio = async () => {
+    if (!audioRef.current || !audioAvailable) return;
+    try {
+      await audioRef.current.play();
+      setAudioState("playing");
+    } catch {
+      setAudioAvailable(false);
+      setAudioState("unavailable");
+    }
   };
+
+  const pauseAudio = () => {
+    if (!audioRef.current || !audioAvailable) return;
+    audioRef.current.pause();
+    setAudioState("paused");
+  };
+
+  const stopAudio = () => {
+    if (!audioRef.current || !audioAvailable) return;
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+    setAudioState("idle");
+  };
+
+  useEffect(() => {
+    if (!audioRef.current) return;
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+    setAudioAvailable(true);
+    setAudioState("idle");
+  }, [active.reference]);
 
   if (!ready || !active) return <main className="min-h-screen bg-[#f2e8d0]" />;
 
@@ -227,11 +255,14 @@ export default function Home() {
               <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))} disabled={isLast} className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:opacity-50">
                 Next <ChevronRight className="ml-0.5 inline h-3.5 w-3.5" />
               </button>
-              <button className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs" onClick={() => speak(active.transliteration, true)}>
-                <Headphones className="mr-1 inline h-3.5 w-3.5" /> Slow
+              <button onClick={playAudio} disabled={!audioAvailable} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
+                <Play className="mr-1 inline h-3.5 w-3.5" /> Play
               </button>
-              <button className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs" onClick={() => speak(active.transliteration, false)}>
-                <Headphones className="mr-1 inline h-3.5 w-3.5" /> Normal
+              <button onClick={pauseAudio} disabled={!audioAvailable || audioState !== "playing"} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
+                <Pause className="mr-1 inline h-3.5 w-3.5" /> Pause
+              </button>
+              <button onClick={stopAudio} disabled={!audioAvailable || audioState === "idle"} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
+                <Square className="mr-1 inline h-3.5 w-3.5" /> Stop
               </button>
               <button onClick={() => setConfirmLearnedOpen(true)} className="rounded-lg border border-[#8f6422] bg-[#8f6422] px-3 py-1.5 text-xs font-semibold text-white">
                 Mark Learned
@@ -261,6 +292,12 @@ export default function Home() {
               <span />
             )}
           </section>
+          {!audioAvailable ? (
+            <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#8a3f2f]">
+              <AlertCircle className="h-3.5 w-3.5" />
+              File not available: /public/audio/{active.reference}.mp3
+            </p>
+          ) : null}
 
           <section className="mt-1.5 min-h-0 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:p-3">
             {state.contentMode === "sanskrit" ? (
@@ -300,6 +337,19 @@ export default function Home() {
           </section>
         </article>
       </div>
+      <audio
+        ref={audioRef}
+        src={audioSrc}
+        preload="metadata"
+        onLoadedMetadata={() => setAudioAvailable(true)}
+        onPlay={() => setAudioState("playing")}
+        onPause={() => setAudioState((prev) => (prev === "unavailable" ? prev : "paused"))}
+        onEnded={() => setAudioState("idle")}
+        onError={() => {
+          setAudioAvailable(false);
+          setAudioState("unavailable");
+        }}
+      />
 
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
         <DialogContent className="max-w-sm border-[#ccb385] !bg-white p-4 shadow-2xl">
