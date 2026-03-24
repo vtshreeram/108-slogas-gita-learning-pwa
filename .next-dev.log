@@ -129,3 +129,136 @@ Require stack:
 }
  GET /favicon.png 500 in 43ms
  GET / 200 in 211ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.jp851mdcaki'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.jp851mdcaki'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.nukxwvjhtli'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.nukxwvjhtli'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.2c4vccd4qmb'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.2c4vccd4qmb'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.6amcgl3cius'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.6amcgl3cius'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.s2ncwecv35'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.s2ncwecv35'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.9kltsn9ife'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.9kltsn9ife'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.4cyim7lord3'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.4cyim7lord3'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.161t3sd8vye'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.161t3sd8vye'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.qpnvzc3wrz8'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.qpnvzc3wrz8'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.ipt4p9vqe1a'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.ipt4p9vqe1a'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.9rqti43mpt'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.9rqti43mpt'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.up349fi92sf'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.up349fi92sf'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'
+}
+ GET /favicon.png 500 in 32ms
