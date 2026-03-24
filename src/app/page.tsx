@@ -43,6 +43,7 @@ const fullDone = (step?: StepProgress) => Boolean(step?.listen && step.repeat &&
 export default function Home() {
   const [ready, setReady] = useState(false);
   const [confirmLearnedOpen, setConfirmLearnedOpen] = useState(false);
+  const [completedOpen, setCompletedOpen] = useState(false);
   const [lastLearned, setLastLearned] = useState<{ id: string; previous?: StepProgress } | null>(null);
   const [state, setState] = useState<AppState>({
     startedAt: todayIso(),
@@ -89,20 +90,23 @@ export default function Home() {
     () => SHLOKAS.filter((item) => fullDone(state.completed[item.id])).length,
     [state.completed],
   );
+  const completedShlokas = useMemo(
+    () => SHLOKAS.filter((item) => fullDone(state.completed[item.id])),
+    [state.completed],
+  );
 
   const recallRate = state.recallAttempts ? Math.round((state.recallWins / state.recallAttempts) * 100) : 0;
   const dayNumber = Math.min(Math.ceil(JOURNEY_DAYS), Math.floor(completedCount / DAILY_TARGET) + 1);
   const streak = Math.max(1, daysBetween(state.startedAt, todayIso()) + 1);
 
-  const pending = useMemo(() => SHLOKAS.filter((item) => !fullDone(state.completed[item.id])), [state.completed]);
-
   const planSize = state.activeMode === "lite" ? 1 : DAILY_TARGET;
-  const todayPlan = pending.slice(0, planSize);
-
-  const boundedIndex = Math.min(state.activeIndex, Math.max(0, todayPlan.length - 1));
-  const active = todayPlan[boundedIndex];
+  const boundedIndex = Math.min(state.activeIndex, Math.max(0, SHLOKAS.length - 1));
+  const active = SHLOKAS[boundedIndex];
   const activeProgress = active ? state.completed[active.id] ?? defaultStepProgress() : defaultStepProgress();
-  const activeGlobalIndex = active ? SHLOKAS.findIndex((item) => item.id === active.id) + 1 : 0;
+  const activeGlobalIndex = boundedIndex + 1;
+  const windowStart = Math.floor(boundedIndex / planSize) * planSize;
+  const todayPlan = SHLOKAS.slice(windowStart, Math.min(windowStart + planSize, SHLOKAS.length));
+  const indexInsideWindow = boundedIndex - windowStart;
 
   const markStep = (id: string, step: LoopStep) => {
     setState((prev) => {
@@ -119,7 +123,7 @@ export default function Home() {
   };
 
   const setMode = (mode: "normal" | "lite") => {
-    setState((prev) => ({ ...prev, activeMode: mode, activeIndex: 0, expandedText: false }));
+    setState((prev) => ({ ...prev, activeMode: mode, expandedText: false }));
   };
 
   const speak = (text: string, slow: boolean) => {
@@ -163,9 +167,8 @@ export default function Home() {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (todayPlan.length <= 1) return;
       if (event.key === "ArrowRight") {
-        setState((prev) => ({ ...prev, activeIndex: Math.min(todayPlan.length - 1, prev.activeIndex + 1) }));
+        setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) }));
       }
       if (event.key === "ArrowLeft") {
         setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) }));
@@ -173,7 +176,7 @@ export default function Home() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [todayPlan.length]);
+  }, []);
 
   if (!ready) return <main className="min-h-screen bg-[#f2e8d0]" />;
 
@@ -197,18 +200,24 @@ export default function Home() {
                 {todayPlan.map((item, idx) => (
                   <button
                     key={item.id}
-                    onClick={() => setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }))}
-                    className={`rounded-full border px-2.5 py-1 text-[11px] md:text-xs ${idx === boundedIndex ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
+                    onClick={() => setState((prev) => ({ ...prev, activeIndex: windowStart + idx, expandedText: false }))}
+                    className={`rounded-full border px-2.5 py-1 text-[11px] md:text-xs ${idx === indexInsideWindow ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
                   >
                     {item.reference}
                   </button>
                 ))}
               </>
             ) : (
-              <span className="text-[11px] text-[#6a5432]">Today 1 card</span>
+              <span className="text-[11px] text-[#6a5432]">{todayPlan[0]?.reference ?? "1 card"}</span>
             )}
           </div>
           <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => setCompletedOpen(true)}
+              className="rounded-md border border-[#c7ad7d] bg-white px-2 py-1 text-[11px] text-[#5d492b]"
+            >
+              Completed ({completedCount})
+            </button>
             <span className="text-[11px] text-[#5d492b]">Mode</span>
             <div className="flex rounded-full border border-[#c7ad7d] bg-[#f7edd4] p-0.5">
               <button
@@ -227,12 +236,7 @@ export default function Home() {
           </div>
         </section>
 
-	        {todayPlan.length === 0 ? (
-          <section className="flex min-h-0 flex-1 items-center justify-center rounded-3xl border border-[#ccb385] bg-[#fff7df] p-10 text-center text-[#5e4928]">
-            All selected shlokas completed. Use recall practice daily to retain fluency.
-          </section>
-	        ) : (
-	          <div className="flex min-h-0 flex-1 flex-col gap-2">
+		        <div className="flex min-h-0 flex-1 flex-col gap-2">
               {lastLearned ? (
                 <section className="flex items-center justify-between rounded-lg border border-[#b7d8a7] bg-[#edf8e7] px-2.5 py-1.5 text-xs text-[#2a4a1d]">
                   <span>{lastLearned.id} marked as learned.</span>
@@ -246,22 +250,25 @@ export default function Home() {
                 <div className="flex flex-wrap items-start justify-between gap-1.5">
                   <div>
                     <p className="text-xs uppercase tracking-[0.18em] text-[#8a6b3d]">{active.id}</p>
-                    <h2 className="font-serif text-lg md:text-xl">Bhagavad Gita {active.reference}</h2>
+                    <h2 className="font-serif text-lg md:text-xl">
+                      Bhagavad Gita {active.reference}{" "}
+                      {fullDone(activeProgress) ? <CheckCircle2 className="mb-0.5 inline h-4 w-4 text-[#2e6b1f]" /> : null}
+                    </h2>
                     <p className="text-[11px] text-[#6a5432]">
-                      Verse {activeGlobalIndex}/{TOTAL_SHLOKAS} • Today {boundedIndex + 1}/{todayPlan.length}
+                      Verse {activeGlobalIndex}/{TOTAL_SHLOKAS} • Set {indexInsideWindow + 1}/{todayPlan.length}
                     </p>
                   </div>
                   <div className="flex flex-wrap items-center gap-1.5">
                     <button
                       onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))}
-                      disabled={todayPlan.length <= 1 || boundedIndex === 0}
+                      disabled={boundedIndex === 0}
                       className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Back
                     </button>
                     <button
-                      onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(todayPlan.length - 1, prev.activeIndex + 1), expandedText: false }))}
-                      disabled={todayPlan.length <= 1 || boundedIndex === todayPlan.length - 1}
+                      onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))}
+                      disabled={boundedIndex === SHLOKAS.length - 1}
                       className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       Next
@@ -278,12 +285,6 @@ export default function Home() {
                     >
                       Mark as Learned
                     </button>
-                    {fullDone(activeProgress) ? (
-                      <span className="inline-flex items-center gap-1 rounded-full border border-[#4f7c39] bg-[#e5f2dc] px-2 py-1 text-[11px] font-semibold text-[#224318]">
-                        <CheckCircle2 className="h-3.5 w-3.5" />
-                        Learned
-                      </span>
-                    ) : null}
                   </div>
                 </div>
 
@@ -354,8 +355,7 @@ export default function Home() {
                 </section>
               </article>
             ) : null}
-          </div>
-        )}
+	          </div>
       </div>
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
         <DialogContent className="max-w-sm border-[#ccb385] !bg-white p-4 shadow-2xl">
@@ -382,6 +382,37 @@ export default function Home() {
               Yes, Mark Learned
             </button>
           </DialogFooter>
+        </DialogContent>
+      </Dialog>
+      <Dialog open={completedOpen} onOpenChange={setCompletedOpen}>
+        <DialogContent className="max-w-lg border-[#ccb385] !bg-white p-4 shadow-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-base">Completed Shlokas</DialogTitle>
+            <DialogDescription className="text-xs text-[#5f4a2b]">
+              {completedShlokas.length} learned shlokas
+            </DialogDescription>
+          </DialogHeader>
+          {completedShlokas.length === 0 ? (
+            <p className="text-xs text-[#6b5532]">No completed shlokas yet.</p>
+          ) : (
+            <div className="max-h-72 overflow-y-auto rounded-lg border border-[#e1d0ae] bg-[#fffaf0] p-2">
+              <div className="flex flex-wrap gap-1.5">
+                {completedShlokas.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setCompletedOpen(false);
+                      const idx = SHLOKAS.findIndex((s) => s.id === item.id);
+                      setState((prev) => ({ ...prev, activeIndex: Math.max(0, idx), expandedText: false }));
+                    }}
+                    className="rounded-full border border-[#9fc48f] bg-[#edf8e7] px-2 py-1 text-[11px] text-[#315126]"
+                  >
+                    {item.reference}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </DialogContent>
       </Dialog>
     </main>
