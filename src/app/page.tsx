@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, Flame, Headphones, Hourglass, Target } from "lucide-react";
 import { DAILY_TARGET, JOURNEY_DAYS, LoopStep, SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 type StepProgress = Record<LoopStep, boolean>;
 type ItemProgress = Record<string, StepProgress>;
@@ -16,6 +17,7 @@ type AppState = {
   recallAttempts: number;
   activeIndex: number;
   contentMode: "transliteration" | "english" | "sanskrit";
+  expandedText: boolean;
 };
 
 const STORAGE_KEY = "gita-learning-state-v2";
@@ -40,6 +42,8 @@ const fullDone = (step?: StepProgress) => Boolean(step?.listen && step.repeat &&
 
 export default function Home() {
   const [ready, setReady] = useState(false);
+  const [confirmLearnedOpen, setConfirmLearnedOpen] = useState(false);
+  const [lastLearned, setLastLearned] = useState<{ id: string; previous?: StepProgress } | null>(null);
   const [state, setState] = useState<AppState>({
     startedAt: todayIso(),
     lastActiveDate: todayIso(),
@@ -49,6 +53,7 @@ export default function Home() {
     recallAttempts: 0,
     activeIndex: 0,
     contentMode: "transliteration",
+    expandedText: false,
   });
 
   useEffect(() => {
@@ -97,6 +102,7 @@ export default function Home() {
   const boundedIndex = Math.min(state.activeIndex, Math.max(0, todayPlan.length - 1));
   const active = todayPlan[boundedIndex];
   const activeProgress = active ? state.completed[active.id] ?? defaultStepProgress() : defaultStepProgress();
+  const activeGlobalIndex = active ? SHLOKAS.findIndex((item) => item.id === active.id) + 1 : 0;
 
   const markStep = (id: string, step: LoopStep) => {
     setState((prev) => {
@@ -113,7 +119,7 @@ export default function Home() {
   };
 
   const setMode = (mode: "normal" | "lite") => {
-    setState((prev) => ({ ...prev, activeMode: mode, activeIndex: 0 }));
+    setState((prev) => ({ ...prev, activeMode: mode, activeIndex: 0, expandedText: false }));
   };
 
   const speak = (text: string, slow: boolean) => {
@@ -125,11 +131,55 @@ export default function Home() {
     speechSynthesis.speak(utterance);
   };
 
+  const markAsLearned = (id: string, previous?: StepProgress) => {
+    setLastLearned({ id, previous });
+    setState((prev) => ({
+      ...prev,
+      completed: {
+        ...prev.completed,
+        [id]: {
+          listen: true,
+          repeat: true,
+          understand: true,
+          recall: true,
+        },
+      },
+    }));
+  };
+
+  const undoMarkAsLearned = () => {
+    if (!lastLearned) return;
+    setState((prev) => {
+      const nextCompleted = { ...prev.completed };
+      if (lastLearned.previous) {
+        nextCompleted[lastLearned.id] = lastLearned.previous;
+      } else {
+        delete nextCompleted[lastLearned.id];
+      }
+      return { ...prev, completed: nextCompleted };
+    });
+    setLastLearned(null);
+  };
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (todayPlan.length <= 1) return;
+      if (event.key === "ArrowRight") {
+        setState((prev) => ({ ...prev, activeIndex: Math.min(todayPlan.length - 1, prev.activeIndex + 1) }));
+      }
+      if (event.key === "ArrowLeft") {
+        setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) }));
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [todayPlan.length]);
+
   if (!ready) return <main className="min-h-screen bg-[#f2e8d0]" />;
 
   return (
     <main className="h-screen overflow-hidden bg-[radial-gradient(circle_at_20%_10%,_#fff7df_0%,_#f4e9cb_45%,_#e8d9b4_100%)] px-2 py-2 text-[#2f2415] md:px-3 md:py-3">
-      <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-2">
+	      <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-2">
         <header className="rounded-2xl border border-[#cdb58b] bg-[#fff7df]/90 p-2.5 shadow-[0_8px_20px_rgba(105,74,28,0.1)] md:p-3">
           <h1 className="font-serif text-xl leading-tight md:text-2xl">Gita Memorization Focus Cards</h1>
           <div className="mt-1.5 grid grid-cols-2 gap-1.5 md:grid-cols-4">
@@ -141,57 +191,99 @@ export default function Home() {
         </header>
 
         <section className="flex flex-wrap items-center justify-between gap-1.5 rounded-xl border border-[#d4be94] bg-[#fbf3df] px-2.5 py-1.5">
-          <div className="text-xs text-[#5d492b] md:text-sm">Mode controls your daily card count.</div>
-          <div className="flex rounded-full border border-[#c7ad7d] bg-[#f7edd4] p-0.5">
-            <button
-              className={`rounded-full px-3 py-1 text-xs md:text-sm ${state.activeMode === "normal" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`}
-              onClick={() => setMode("normal")}
-            >
-              Normal (2)
-            </button>
-            <button
-              className={`rounded-full px-3 py-1 text-xs md:text-sm ${state.activeMode === "lite" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`}
-              onClick={() => setMode("lite")}
-            >
-              Lite (1)
-            </button>
-          </div>
-        </section>
-
-        {todayPlan.length === 0 ? (
-          <section className="flex min-h-0 flex-1 items-center justify-center rounded-3xl border border-[#ccb385] bg-[#fff7df] p-10 text-center text-[#5e4928]">
-            All selected shlokas completed. Use recall practice daily to retain fluency.
-          </section>
-        ) : (
-          <div className="flex min-h-0 flex-1 flex-col gap-2">
+          <div className="flex flex-wrap items-center gap-1.5">
             {todayPlan.length > 1 ? (
-              <section className="flex gap-1.5">
+              <>
                 {todayPlan.map((item, idx) => (
                   <button
                     key={item.id}
-                    onClick={() => setState((prev) => ({ ...prev, activeIndex: idx }))}
-                    className={`rounded-full border px-3 py-1.5 text-xs md:text-sm ${idx === boundedIndex ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-[#fbf3df] text-[#654f2e]"}`}
+                    onClick={() => setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }))}
+                    className={`rounded-full border px-2.5 py-1 text-[11px] md:text-xs ${idx === boundedIndex ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
                   >
                     {item.reference}
                   </button>
                 ))}
-              </section>
-            ) : null}
+              </>
+            ) : (
+              <span className="text-[11px] text-[#6a5432]">Today 1 card</span>
+            )}
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-[11px] text-[#5d492b]">Mode</span>
+            <div className="flex rounded-full border border-[#c7ad7d] bg-[#f7edd4] p-0.5">
+              <button
+                className={`rounded-full px-2.5 py-1 text-[11px] md:text-xs ${state.activeMode === "normal" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`}
+                onClick={() => setMode("normal")}
+              >
+                Normal (2)
+              </button>
+              <button
+                className={`rounded-full px-2.5 py-1 text-[11px] md:text-xs ${state.activeMode === "lite" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`}
+                onClick={() => setMode("lite")}
+              >
+                Lite (1)
+              </button>
+            </div>
+          </div>
+        </section>
 
+	        {todayPlan.length === 0 ? (
+          <section className="flex min-h-0 flex-1 items-center justify-center rounded-3xl border border-[#ccb385] bg-[#fff7df] p-10 text-center text-[#5e4928]">
+            All selected shlokas completed. Use recall practice daily to retain fluency.
+          </section>
+	        ) : (
+	          <div className="flex min-h-0 flex-1 flex-col gap-2">
+              {lastLearned ? (
+                <section className="flex items-center justify-between rounded-lg border border-[#b7d8a7] bg-[#edf8e7] px-2.5 py-1.5 text-xs text-[#2a4a1d]">
+                  <span>{lastLearned.id} marked as learned.</span>
+                  <button onClick={undoMarkAsLearned} className="rounded-md border border-[#5f8b49] bg-white px-2 py-0.5 font-semibold text-[#355e26]">
+                    Undo
+                  </button>
+                </section>
+              ) : null}
             {active ? (
               <article className="flex min-h-0 flex-1 flex-col rounded-[1.35rem] border border-[#b9995e] bg-gradient-to-b from-[#fffaf0] to-[#f7ebcf] p-3 shadow-[0_14px_30px_rgba(90,63,20,0.14)] md:p-4">
                 <div className="flex flex-wrap items-start justify-between gap-1.5">
                   <div>
                     <p className="text-xs uppercase tracking-[0.18em] text-[#8a6b3d]">{active.id}</p>
                     <h2 className="font-serif text-lg md:text-xl">Bhagavad Gita {active.reference}</h2>
+                    <p className="text-[11px] text-[#6a5432]">
+                      Verse {activeGlobalIndex}/{TOTAL_SHLOKAS} • Today {boundedIndex + 1}/{todayPlan.length}
+                    </p>
                   </div>
-                  <div className="flex gap-1.5">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <button
+                      onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))}
+                      disabled={todayPlan.length <= 1 || boundedIndex === 0}
+                      className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Back
+                    </button>
+                    <button
+                      onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(todayPlan.length - 1, prev.activeIndex + 1), expandedText: false }))}
+                      disabled={todayPlan.length <= 1 || boundedIndex === todayPlan.length - 1}
+                      className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Next
+                    </button>
                     <button className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs" onClick={() => speak(active.transliteration, true)}>
                       <Headphones className="mr-1 inline h-3.5 w-3.5" /> Slow
                     </button>
                     <button className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs" onClick={() => speak(active.transliteration, false)}>
                       <Headphones className="mr-1 inline h-3.5 w-3.5" /> Normal
                     </button>
+                    <button
+                      onClick={() => setConfirmLearnedOpen(true)}
+                      className="rounded-lg border border-[#8f6422] bg-[#8f6422] px-3 py-1.5 text-xs font-semibold text-white"
+                    >
+                      Mark as Learned
+                    </button>
+                    {fullDone(activeProgress) ? (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-[#4f7c39] bg-[#e5f2dc] px-2 py-1 text-[11px] font-semibold text-[#224318]">
+                        <CheckCircle2 className="h-3.5 w-3.5" />
+                        Learned
+                      </span>
+                    ) : null}
                   </div>
                 </div>
 
@@ -214,20 +306,28 @@ export default function Home() {
                   >
                     Sanskrit
                   </button>
+                  <button
+                    onClick={() => setState((prev) => ({ ...prev, expandedText: !prev.expandedText }))}
+                    className="rounded-full border border-[#ccb385] bg-white px-3 py-1 text-xs text-[#654f2e]"
+                  >
+                    {state.expandedText ? "Collapse" : "Expand"}
+                  </button>
                 </section>
 
                 <section className="mt-1.5 min-h-0 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:p-3">
                   {state.contentMode === "sanskrit" ? (
-                    <p className="line-clamp-8 whitespace-pre-line font-serif text-base leading-[1.35] text-[#2f2415] md:text-xl">
+                    <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line font-serif text-base leading-[1.35] text-[#2f2415] md:text-xl`}>
                       {active.sanskrit.replace(/\n{2,}/g, "\n")}
                     </p>
                   ) : null}
                   {state.contentMode === "transliteration" ? (
-                    <p className="line-clamp-8 whitespace-pre-line text-xs leading-6 text-[#4e3d21] md:text-sm">{active.transliteration}</p>
+                    <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line text-xs leading-6 text-[#4e3d21] md:text-sm`}>
+                      {active.transliteration}
+                    </p>
                   ) : null}
                   {state.contentMode === "english" ? (
                     <>
-                      <p className="line-clamp-8 text-xs leading-6 text-[#4e3d21] md:text-sm">{active.english}</p>
+                      <p className={`${state.expandedText ? "" : "line-clamp-8"} text-xs leading-6 text-[#4e3d21] md:text-sm`}>{active.english}</p>
                       <p className="mt-1 text-[11px] text-[#7a6440]">Translation: {active.translationAuthor}</p>
                     </>
                   ) : null}
@@ -257,6 +357,33 @@ export default function Home() {
           </div>
         )}
       </div>
+      <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
+        <DialogContent className="max-w-sm border-[#ccb385] !bg-white p-4 shadow-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-base">Mark This Shloka as Learned?</DialogTitle>
+            <DialogDescription className="text-xs text-[#5f4a2b]">
+              This will mark listen, repeat, understand, and recall as completed.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="mt-2">
+            <button
+              onClick={() => setConfirmLearnedOpen(false)}
+              className="rounded-md border border-[#ccb385] bg-white px-3 py-1.5 text-xs text-[#5c482a]"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => {
+                if (active) markAsLearned(active.id, activeProgress);
+                setConfirmLearnedOpen(false);
+              }}
+              className="rounded-md border border-[#8f6422] bg-[#8f6422] px-3 py-1.5 text-xs font-semibold text-white"
+            >
+              Yes, Mark Learned
+            </button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </main>
   );
 }
