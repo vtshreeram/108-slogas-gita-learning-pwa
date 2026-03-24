@@ -44,6 +44,8 @@ export default function Home() {
   const [completedOpen, setCompletedOpen] = useState(false);
   const [audioAvailable, setAudioAvailable] = useState(true);
   const [audioState, setAudioState] = useState<"idle" | "playing" | "paused" | "unavailable">("idle");
+  const [audioCurrentTime, setAudioCurrentTime] = useState(0);
+  const [audioDuration, setAudioDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [state, setState] = useState<AppState>({
@@ -176,12 +178,36 @@ export default function Home() {
     setAudioState("idle");
   };
 
+  const togglePlayPause = async () => {
+    if (!audioRef.current || !audioAvailable) return;
+    if (audioState === "playing") {
+      pauseAudio();
+      return;
+    }
+    await playAudio();
+  };
+
+  const seekAudio = (nextTime: number) => {
+    if (!audioRef.current || !audioAvailable) return;
+    audioRef.current.currentTime = nextTime;
+    setAudioCurrentTime(nextTime);
+  };
+
+  const formatTime = (secs: number) => {
+    const total = Math.max(0, Math.floor(secs));
+    const m = Math.floor(total / 60);
+    const s = total % 60;
+    return `${m}:${String(s).padStart(2, "0")}`;
+  };
+
   useEffect(() => {
     if (!audioRef.current) return;
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
     setAudioAvailable(true);
     setAudioState("idle");
+    setAudioCurrentTime(0);
+    setAudioDuration(0);
   }, [active.reference]);
 
   if (!ready || !active) return <main className="min-h-screen bg-[#f2e8d0]" />;
@@ -255,11 +281,9 @@ export default function Home() {
               <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))} disabled={isLast} className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:opacity-50">
                 Next <ChevronRight className="ml-0.5 inline h-3.5 w-3.5" />
               </button>
-              <button onClick={playAudio} disabled={!audioAvailable} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
-                <Play className="mr-1 inline h-3.5 w-3.5" /> Play
-              </button>
-              <button onClick={pauseAudio} disabled={!audioAvailable || audioState !== "playing"} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
-                <Pause className="mr-1 inline h-3.5 w-3.5" /> Pause
+              <button onClick={togglePlayPause} disabled={!audioAvailable} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
+                {audioState === "playing" ? <Pause className="mr-1 inline h-3.5 w-3.5" /> : <Play className="mr-1 inline h-3.5 w-3.5" />}
+                {audioState === "playing" ? "Pause" : "Play"}
               </button>
               <button onClick={stopAudio} disabled={!audioAvailable || audioState === "idle"} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
                 <Square className="mr-1 inline h-3.5 w-3.5" /> Stop
@@ -291,6 +315,22 @@ export default function Home() {
             ) : (
               <span />
             )}
+          </section>
+          <section className="mt-1.5 rounded-lg border border-[#dccca7] bg-[#fffaf0] px-2.5 py-1.5">
+            <div className="flex items-center gap-2">
+              <span className="w-10 text-[11px] text-[#6f5935]">{formatTime(audioCurrentTime)}</span>
+              <input
+                type="range"
+                min={0}
+                max={audioDuration || 0}
+                step={0.1}
+                value={Math.min(audioCurrentTime, audioDuration || 0)}
+                onChange={(e) => seekAudio(Number(e.target.value))}
+                disabled={!audioAvailable || !audioDuration}
+                className="h-1.5 w-full accent-[#8f6422] disabled:opacity-50"
+              />
+              <span className="w-10 text-right text-[11px] text-[#6f5935]">{formatTime(audioDuration)}</span>
+            </div>
           </section>
           {!audioAvailable ? (
             <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#8a3f2f]">
@@ -341,13 +381,22 @@ export default function Home() {
         ref={audioRef}
         src={audioSrc}
         preload="metadata"
-        onLoadedMetadata={() => setAudioAvailable(true)}
+        onLoadedMetadata={(e) => {
+          setAudioAvailable(true);
+          setAudioDuration(Number.isFinite(e.currentTarget.duration) ? e.currentTarget.duration : 0);
+        }}
+        onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
         onPlay={() => setAudioState("playing")}
         onPause={() => setAudioState((prev) => (prev === "unavailable" ? prev : "paused"))}
-        onEnded={() => setAudioState("idle")}
+        onEnded={() => {
+          setAudioState("idle");
+          setAudioCurrentTime(0);
+        }}
         onError={() => {
           setAudioAvailable(false);
           setAudioState("unavailable");
+          setAudioCurrentTime(0);
+          setAudioDuration(0);
         }}
       />
 
