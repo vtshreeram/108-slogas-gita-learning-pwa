@@ -262,3 +262,4 @@ Require stack:
   path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'
 }
  GET /favicon.png 500 in 32ms
+ GET / 200 in 164ms
