@@ -24,3 +24,5 @@ https://nextjs.org/telemetry
  GET / 200 in 59ms
  ✓ Compiled /_not-found/page in 147ms
  GET /favicon.ico 404 in 454ms
+ GET /favicon.ico 200 in 344ms
+ GET /favicon.ico 200 in 259ms
