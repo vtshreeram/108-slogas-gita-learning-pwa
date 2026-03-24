@@ -43,3 +43,88 @@ https://nextjs.org/telemetry
  ✓ Compiled in 119ms
  GET / 200 in 230ms
  GET /favicon.ico 200 in 255ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/app-build-manifest.json'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 918ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.zcwap49cu5f'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/static/development/_buildManifest.js.tmp.zcwap49cu5f'
+}
+[Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/app-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '../chunks/ssr/[turbopack]_runtime.js'
+Require stack:
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/pages/_document.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/require.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/load-components.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/build/utils.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/build/swc/options.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/build/swc/index.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/config.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/next.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/lib/start-server.js
+    at Object.<anonymous> (.next/server/pages/_document.js:1:7) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/page/app-build-manifest.json'
+}
+ ⨯ Error: Cannot find module '../chunks/ssr/[turbopack]_runtime.js'
+Require stack:
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/pages/_document.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/require.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/load-components.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/build/utils.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/build/swc/options.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/build/swc/index.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/build/next-config-ts/transpile-config.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/config.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/next.js
+- /Users/vtshreeram/orchids-projects/gita-learning-pwa/node_modules/next/dist/server/lib/start-server.js
+    at Object.<anonymous> (.next/server/pages/_document.js:1:7) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET / 500 in 59ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'
+}
+ GET /favicon.png 500 in 39ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/vtshreeram/orchids-projects/gita-learning-pwa/.next/server/app/_not-found/page/app-build-manifest.json'
+}
+ GET /favicon.png 500 in 43ms
