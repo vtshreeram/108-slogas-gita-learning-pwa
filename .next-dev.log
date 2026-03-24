@@ -1,0 +1,26 @@
+
+> nextjs-new@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Port 3000 is in use by process 62415, using available port 3002 instead.
+   ▲ Next.js 15.5.9 (Turbopack)
+   - Local:        http://localhost:3002
+   - Network:      http://192.168.1.2:3002
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 710ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1527ms
+ GET / 200 in 56ms
+ GET / 200 in 160ms
+ GET / 200 in 57ms
+ GET / 200 in 77ms
+ ✓ Compiled /favicon.ico in 94ms
+ GET / 200 in 59ms
+ ✓ Compiled /_not-found/page in 147ms
+ GET /favicon.ico 404 in 454ms
