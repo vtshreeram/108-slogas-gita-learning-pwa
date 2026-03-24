@@ -15,7 +15,7 @@ type AppState = {
   recallWins: number;
   recallAttempts: number;
   activeIndex: number;
-  contentMode: "sanskrit" | "transliteration" | "english";
+  contentMode: "transliteration" | "english" | "sanskrit";
 };
 
 const STORAGE_KEY = "gita-learning-state-v2";
@@ -48,7 +48,7 @@ export default function Home() {
     recallWins: 0,
     recallAttempts: 0,
     activeIndex: 0,
-    contentMode: "sanskrit",
+    contentMode: "transliteration",
   });
 
   useEffect(() => {
@@ -197,12 +197,6 @@ export default function Home() {
 
                 <section className="mt-2 flex flex-wrap gap-1.5">
                   <button
-                    onClick={() => setState((prev) => ({ ...prev, contentMode: "sanskrit" }))}
-                    className={`rounded-full border px-3 py-1 text-xs ${state.contentMode === "sanskrit" ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
-                  >
-                    Sanskrit
-                  </button>
-                  <button
                     onClick={() => setState((prev) => ({ ...prev, contentMode: "transliteration" }))}
                     className={`rounded-full border px-3 py-1 text-xs ${state.contentMode === "transliteration" ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
                   >
@@ -214,11 +208,19 @@ export default function Home() {
                   >
                     English
                   </button>
+                  <button
+                    onClick={() => setState((prev) => ({ ...prev, contentMode: "sanskrit" }))}
+                    className={`rounded-full border px-3 py-1 text-xs ${state.contentMode === "sanskrit" ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
+                  >
+                    Sanskrit
+                  </button>
                 </section>
 
                 <section className="mt-1.5 min-h-0 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:p-3">
                   {state.contentMode === "sanskrit" ? (
-                    <p className="line-clamp-8 whitespace-pre-line font-serif text-base leading-[1.5] text-[#2f2415] md:text-xl">{active.sanskrit}</p>
+                    <p className="line-clamp-8 whitespace-pre-line font-serif text-base leading-[1.35] text-[#2f2415] md:text-xl">
+                      {active.sanskrit.replace(/\n{2,}/g, "\n")}
+                    </p>
                   ) : null}
                   {state.contentMode === "transliteration" ? (
                     <p className="line-clamp-8 whitespace-pre-line text-xs leading-6 text-[#4e3d21] md:text-sm">{active.transliteration}</p>
