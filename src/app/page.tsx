@@ -42,7 +42,6 @@ export default function Home() {
   const [ready, setReady] = useState(false);
   const [confirmLearnedOpen, setConfirmLearnedOpen] = useState(false);
   const [completedOpen, setCompletedOpen] = useState(false);
-  const [lastLearned, setLastLearned] = useState<{ id: string; previous?: StepProgress } | null>(null);
 
   const [state, setState] = useState<AppState>({
     startedAt: todayIso(),
@@ -61,7 +60,18 @@ export default function Home() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as AppState;
-        setState({ ...parsed, lastActiveDate: todayIso() });
+        const safeIndex = Math.max(0, Math.min(SHLOKAS.length - 1, Number(parsed.activeIndex ?? 0) || 0));
+        setState({
+          startedAt: parsed.startedAt ?? todayIso(),
+          lastActiveDate: todayIso(),
+          activeMode: parsed.activeMode === "lite" ? "lite" : "normal",
+          completed: parsed.completed ?? {},
+          recallWins: Number(parsed.recallWins ?? 0) || 0,
+          recallAttempts: Number(parsed.recallAttempts ?? 0) || 0,
+          activeIndex: safeIndex,
+          contentMode: parsed.contentMode ?? "transliteration",
+          expandedText: Boolean(parsed.expandedText),
+        });
       }
     } catch {
       // defaults
@@ -95,9 +105,12 @@ export default function Home() {
   const streak = Math.max(1, daysBetween(state.startedAt, todayIso()) + 1);
   const progressPct = Math.round((completedCount / TOTAL_SHLOKAS) * 100);
 
-  const active = SHLOKAS[Math.min(state.activeIndex, SHLOKAS.length - 1)];
+  const safeActiveIndex = Math.max(0, Math.min(SHLOKAS.length - 1, state.activeIndex));
+  const active = SHLOKAS[safeActiveIndex];
   const activeProgress = active ? state.completed[active.id] ?? defaultStepProgress() : defaultStepProgress();
-  const activeGlobalIndex = Math.min(state.activeIndex, SHLOKAS.length - 1) + 1;
+  const activeGlobalIndex = safeActiveIndex + 1;
+  const isFirst = activeGlobalIndex === 1;
+  const isLast = activeGlobalIndex === TOTAL_SHLOKAS;
 
   const dailyGoal = state.activeMode === "lite" ? 1 : DAILY_TARGET;
   const firstPending = Math.max(0, SHLOKAS.findIndex((item) => !fullDone(state.completed[item.id])));
@@ -116,26 +129,23 @@ export default function Home() {
     });
   };
 
-  const markAsLearned = (id: string, previous?: StepProgress) => {
-    setLastLearned({ id, previous });
+  const markAsLearned = (id: string) => {
     setState((prev) => ({
       ...prev,
       completed: {
         ...prev.completed,
         [id]: { listen: true, repeat: true, understand: true, recall: true },
       },
+      activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1),
     }));
   };
 
-  const undoMarkAsLearned = () => {
-    if (!lastLearned) return;
+  const undoLearnedForActive = () => {
     setState((prev) => {
       const completed = { ...prev.completed };
-      if (lastLearned.previous) completed[lastLearned.id] = lastLearned.previous;
-      else delete completed[lastLearned.id];
+      delete completed[active.id];
       return { ...prev, completed };
     });
-    setLastLearned(null);
   };
 
   const speak = (text: string, slow: boolean) => {
@@ -176,7 +186,13 @@ export default function Home() {
               <button
                 key={item.id}
                 onClick={() => setState((prev) => ({ ...prev, activeIndex: SHLOKAS.findIndex((s) => s.id === item.id), expandedText: false }))}
-                className={`rounded-full border px-2.5 py-1 text-[11px] ${active.id === item.id ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
+                className={`rounded-full border px-2.5 py-1 text-[11px] ${
+                  fullDone(state.completed[item.id])
+                    ? "border-[#73a25f] bg-[#e8f5df] text-[#2c5d1f]"
+                    : active.id === item.id
+                      ? "border-[#8f6422] bg-[#8f6422] text-white"
+                      : "border-[#ccb385] bg-white text-[#654f2e]"
+                }`}
               >
                 {item.reference}
               </button>
@@ -195,13 +211,6 @@ export default function Home() {
           </div>
         </section>
 
-        {lastLearned ? (
-          <section className="flex items-center justify-between rounded-lg border border-[#b7d8a7] bg-[#edf8e7] px-2.5 py-1.5 text-xs text-[#2a4a1d]">
-            <span>{lastLearned.id} marked as learned.</span>
-            <button onClick={undoMarkAsLearned} className="rounded-md border border-[#5f8b49] bg-white px-2 py-0.5 font-semibold text-[#355e26]">Undo</button>
-          </section>
-        ) : null}
-
         <article className="flex min-h-0 flex-1 flex-col rounded-[1.35rem] border border-[#b9995e] bg-gradient-to-b from-[#fffaf0] to-[#f7ebcf] p-3 shadow-[0_14px_30px_rgba(90,63,20,0.14)] md:p-4">
           <div className="flex flex-wrap items-start justify-between gap-1.5">
             <div>
@@ -212,10 +221,10 @@ export default function Home() {
               <p className="text-[11px] text-[#6a5432]">Verse {activeGlobalIndex}/{TOTAL_SHLOKAS}</p>
             </div>
             <div className="flex flex-wrap items-center gap-1.5">
-              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))} disabled={activeGlobalIndex === 1} className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:opacity-50">
+              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))} disabled={isFirst} className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:opacity-50">
                 <ChevronLeft className="mr-0.5 inline h-3.5 w-3.5" /> Back
               </button>
-              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))} disabled={activeGlobalIndex === TOTAL_SHLOKAS} className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:opacity-50">
+              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))} disabled={isLast} className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:opacity-50">
                 Next <ChevronRight className="ml-0.5 inline h-3.5 w-3.5" />
               </button>
               <button className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs" onClick={() => speak(active.transliteration, true)}>
@@ -229,20 +238,28 @@ export default function Home() {
               </button>
             </div>
           </div>
-
-          <section className="mt-2 flex flex-wrap gap-1.5">
-            {(["transliteration", "english", "sanskrit"] as const).map((mode) => (
-              <button
-                key={mode}
-                onClick={() => setState((prev) => ({ ...prev, contentMode: mode }))}
-                className={`rounded-full border px-3 py-1 text-xs ${state.contentMode === mode ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
-              >
-                {mode[0].toUpperCase() + mode.slice(1)}
+          <section className="mt-2 flex flex-wrap items-center justify-between gap-1.5">
+            <div className="flex flex-wrap gap-1.5">
+              {(["transliteration", "english", "sanskrit"] as const).map((mode) => (
+                <button
+                  key={mode}
+                  onClick={() => setState((prev) => ({ ...prev, contentMode: mode }))}
+                  className={`rounded-full border px-3 py-1 text-xs ${state.contentMode === mode ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
+                >
+                  {mode[0].toUpperCase() + mode.slice(1)}
+                </button>
+              ))}
+              <button onClick={() => setState((prev) => ({ ...prev, expandedText: !prev.expandedText }))} className="rounded-full border border-[#ccb385] bg-white px-3 py-1 text-xs text-[#654f2e]">
+                {state.expandedText ? "Collapse" : "Expand"}
               </button>
-            ))}
-            <button onClick={() => setState((prev) => ({ ...prev, expandedText: !prev.expandedText }))} className="rounded-full border border-[#ccb385] bg-white px-3 py-1 text-xs text-[#654f2e]">
-              {state.expandedText ? "Collapse" : "Expand"}
-            </button>
+            </div>
+            {fullDone(activeProgress) ? (
+              <button onClick={undoLearnedForActive} className="rounded-lg border border-[#73a25f] bg-[#e8f5df] px-3 py-1.5 text-xs font-semibold text-[#2c5d1f]">
+                Undo Learned
+              </button>
+            ) : (
+              <span />
+            )}
           </section>
 
           <section className="mt-1.5 min-h-0 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:p-3">
@@ -296,7 +313,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => {
-                markAsLearned(active.id, activeProgress);
+                markAsLearned(active.id);
                 setConfirmLearnedOpen(false);
               }}
               className="rounded-md border border-[#8f6422] bg-[#8f6422] px-3 py-1.5 text-xs font-semibold text-white"

@@ -38,3 +38,8 @@ https://nextjs.org/telemetry
  GET / 200 in 64ms
  ✓ Compiled in 345ms
  ✓ Compiled in 273ms
+ ✓ Compiled in 194ms
+ ✓ Compiled in 162ms
+ ✓ Compiled in 119ms
+ GET / 200 in 230ms
+ GET /favicon.ico 200 in 255ms
