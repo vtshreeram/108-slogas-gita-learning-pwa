@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AlertCircle, CheckCircle2, ChevronLeft, ChevronRight, Flame, Hourglass, Pause, Play, Square, Target } from "lucide-react";
+import { AlertCircle, CheckCircle2, ChevronLeft, ChevronRight, Flame, Hourglass, Pause, Play, Square, Target, VolumeX } from "lucide-react";
 import { DAILY_TARGET, JOURNEY_DAYS, LoopStep, SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
@@ -306,9 +306,9 @@ export default function Home() {
             </section>
 
             {!audioAvailable ? (
-              <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#8a3f2f]">
-                <AlertCircle className="h-3.5 w-3.5" />
-                File not available: /public/audio/{active.reference}.mp3
+              <p className="mt-1 inline-flex items-center gap-1 rounded-md border border-[#d4a88a] bg-[#fdf0e8] px-2 py-1 text-[11px] text-[#7a3a20]">
+                <VolumeX className="h-3.5 w-3.5 shrink-0" />
+                Audio not yet available for this verse
               </p>
             ) : null}
 
@@ -553,9 +553,9 @@ export default function Home() {
             </div>
           </section>
           {!audioAvailable ? (
-            <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#8a3f2f]">
-              <AlertCircle className="h-3.5 w-3.5" />
-              File not available: /public/audio/{active.reference}.mp3
+            <p className="mt-1 inline-flex items-center gap-1 rounded-md border border-[#d4a88a] bg-[#fdf0e8] px-2 py-1 text-[11px] text-[#7a3a20]">
+              <VolumeX className="h-3.5 w-3.5 shrink-0" />
+              Audio not yet available for this verse
             </p>
           ) : null}
 
@@ -622,15 +622,23 @@ export default function Home() {
           >
             <ChevronLeft className="mx-auto h-4 w-4" />
           </button>
-          <button
-            onClick={togglePlayPause}
-            disabled={!audioAvailable}
-            className={`rounded-lg border px-1 py-2 text-[10px] font-medium disabled:opacity-50 ${
-              audioState === "playing" ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#b89965] bg-white text-[#5f4318]"
-            }`}
-          >
-            {audioState === "playing" ? <Pause className="mx-auto h-4 w-4" /> : <Play className="mx-auto h-4 w-4" />}
-          </button>
+          {!audioAvailable ? (
+            <div
+              title="Audio not yet available for this verse"
+              className="flex flex-col items-center justify-center rounded-lg border border-[#d4a88a] bg-[#fdf0e8] px-1 py-2 text-[10px] text-[#7a3a20]"
+            >
+              <VolumeX className="mx-auto h-4 w-4" />
+            </div>
+          ) : (
+            <button
+              onClick={togglePlayPause}
+              className={`rounded-lg border px-1 py-2 text-[10px] font-medium ${
+                audioState === "playing" ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#b89965] bg-white text-[#5f4318]"
+              }`}
+            >
+              {audioState === "playing" ? <Pause className="mx-auto h-4 w-4" /> : <Play className="mx-auto h-4 w-4" />}
+            </button>
+          )}
           <button
             onClick={() => {
               if (!audioLoop && !autoAdvance) {
