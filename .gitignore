@@ -1,38 +1,21 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+gita-sadhana/node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# Build output
+gita-sadhana/dist/
 
-# testing
-/coverage
+# Audio assets — downloaded via `npm run data:audio`
+gita-sadhana/public/audio/
 
-# next.js
-/.next/
-/out/
+# Data pipeline cache — re-fetched via `npm run data:build`
+gita-sadhana/scripts/data/
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
+*.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
 
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store

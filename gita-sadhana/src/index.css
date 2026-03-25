@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply bg-base text-text-primary min-h-screen;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .font-devanagari {
+    font-family: 'Noto Serif Devanagari', serif;
+  }
+
+  .section-label {
+    @apply text-gold text-xs font-semibold uppercase tracking-widest;
+  }
+
+  .card {
+    @apply bg-surface rounded-2xl p-4;
+  }
+
+  .btn-primary {
+    @apply bg-gold text-base font-semibold px-6 py-3 rounded-xl active:opacity-80 transition-opacity;
+  }
+
+  .btn-ghost {
+    @apply text-text-secondary border border-elevated px-4 py-2 rounded-xl active:opacity-70 transition-opacity;
+  }
+
+  /* Hide scrollbar but keep scroll */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
