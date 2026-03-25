@@ -290,11 +290,11 @@ export default function Home() {
   const loopActive = audioLoop || autoAdvance;
 
   return (
-    <main className="min-h-screen overflow-y-auto bg-[radial-gradient(circle_at_20%_10%,_#fff7df_0%,_#f4e9cb_45%,_#e8d9b4_100%)] px-3 pt-2 pb-40 text-[#2f2415]">
+    <main className="min-h-screen overflow-y-auto bg-[radial-gradient(circle_at_20%_10%,_#fff7df_0%,_#f4e9cb_45%,_#e8d9b4_100%)] px-3 pb-40 text-[#2f2415]" style={{ paddingTop: "calc(env(safe-area-inset-top) + 20px)" }}>
       <div className="mx-auto flex w-full max-w-lg flex-col gap-2">
 
         {/* Header — single compact row */}
-        <header className="flex items-center gap-2 pt-2 px-1">
+        <header className="flex items-center gap-2 px-1">
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline gap-2">
               <h1 className="font-serif text-xl font-bold text-[#4a3615] leading-tight whitespace-nowrap">Bhagavad Gita</h1>

@@ -1,17 +1,18 @@
 {
-  "name": "Gita 108 Memorization",
+  "name": "Bhagavad Gita — Daily Practice",
   "short_name": "Gita 108",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8f4eb",
-  "theme_color": "#a3782b",
+  "orientation": "portrait",
+  "background_color": "#f4e9cb",
+  "theme_color": "#f4e9cb",
   "description": "Personal PWA discipline system to memorize 108 Bhagavad Gita shlokas in 54 days with daily closed-loop practice.",
   "icons": [
     {
       "src": "/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ]
 }

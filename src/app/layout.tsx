@@ -14,13 +14,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gita 108 Memorization PWA",
+  title: "Gita 108",
   description: "Personal discipline system for memorizing 108 key Bhagavad Gita shlokas through a guided daily loop.",
   manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Gita 108",
+    statusBarStyle: "black-translucent",
+  },
 };
 
 export const viewport = {
-  themeColor: "#a3782b",
+  themeColor: "#f4e9cb",
+  viewportFit: "cover",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -30,6 +40,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* iOS home screen icon — needs a PNG at this path for best results */}
+        <link rel="apple-touch-icon" href="/icon.svg" />
+        {/* iOS splash / status bar colour matches the app warm background */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         <VisualEditsMessenger />
