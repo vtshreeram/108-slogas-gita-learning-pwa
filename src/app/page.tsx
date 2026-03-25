@@ -251,7 +251,7 @@ export default function Home() {
         <header className="flex flex-col gap-3 pt-2">
           <div className="flex items-center justify-between px-1">
             <div>
-              <h1 className="font-serif text-2xl font-bold text-[#4a3615]">Gita</h1>
+              <h1 className="font-serif text-2xl font-bold text-[#4a3615]">Bhagavad Gita</h1>
               <p className="text-[10px] font-medium tracking-[0.2em] text-[#8a6b3d] uppercase">Daily Practice</p>
             </div>
             <div className="flex items-center gap-2">
@@ -266,17 +266,13 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="flex items-center gap-2 px-1">
-            <span className="rounded-full bg-[#8f6422]/10 border border-[#8f6422]/20 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-[#6c532d]">
-              {active.id}
-            </span>
-          </div>
+
         </header>
 
         <article className="relative flex min-h-[420px] flex-col rounded-[2rem] border border-[#cbb389] bg-gradient-to-br from-[#fffdf8] to-[#f8ead0] p-5 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className="rounded-md bg-[#eee0c3] px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-[#6c532d]">{active.id}</span>
+              <span className="rounded-md bg-[#eee0c3] px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-[#6c532d]">Chapter {active.chapter} | Shloka {active.verse}</span>
               {fullDone(activeProgress) && <span className="flex items-center gap-1 text-[10px] font-bold text-[#356d25] bg-[#e3f0db] px-2 py-0.5 rounded-md"><CheckCircle2 className="h-3 w-3" /> MASTERED</span>}
             </div>
             <p className="text-[11px] font-medium text-[#8a6b3d]">Verse {activeGlobalIndex} / {TOTAL_SHLOKAS}</p>
