@@ -125,3 +125,31 @@
 nextjs-portal {
   display: none !important;
 }
+
+/* Prevent page scroll when swiping horizontally on the card */
+.shloka-card {
+  touch-action: pan-y;
+}
+
+/* Custom scrollbar for completed list */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #d8c39e;
+  border-radius: 2px;
+}
+
+/* Smooth step button tap feedback on iOS */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text selection during swipe */
+article {
+  user-select: none;
+  -webkit-user-select: none;
+}
