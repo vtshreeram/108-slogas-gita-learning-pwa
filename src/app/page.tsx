@@ -266,23 +266,10 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
-            <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-[#9f8054]">Today:</span>
-            {todayFocus.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setState((prev) => ({ ...prev, activeIndex: SHLOKAS.findIndex((s) => s.id === item.id), expandedText: false }))}
-                className={`shrink-0 rounded-full border px-3 py-1 text-[11px] font-medium transition-all ${
-                  fullDone(state.completed[item.id])
-                    ? "border-[#73a25f] bg-[#e8f5df] text-[#2c5d1f]"
-                    : active.id === item.id
-                      ? "border-[#8f6422] bg-[#8f6422] text-white shadow-md shadow-[#8f6422]/20"
-                      : "border-[#d8c39e] bg-white text-[#654f2e]"
-                }`}
-              >
-                {item.reference}
-              </button>
-            ))}
+          <div className="flex items-center gap-2 px-1">
+            <span className="rounded-full bg-[#8f6422]/10 border border-[#8f6422]/20 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-[#6c532d]">
+              {active.id}
+            </span>
           </div>
         </header>
 
