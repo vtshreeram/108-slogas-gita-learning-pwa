@@ -1,0 +1,6 @@
+{
+	"name": "Gita 108 PWA",
+	// Smaller Node.js image — faster startup than the universal 10 GB image.
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+	"postCreateCommand": "bun install"
+}
