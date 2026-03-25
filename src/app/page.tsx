@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AlertCircle, CheckCircle2, ChevronLeft, ChevronRight, Flame, Hourglass, Pause, Play, Square, Target } from "lucide-react";
+import { AlertCircle, CheckCircle2, ChevronLeft, ChevronRight, Flame, Pause, Play, Square } from "lucide-react";
 import { DAILY_TARGET, JOURNEY_DAYS, LoopStep, SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
@@ -247,7 +247,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen overflow-y-auto bg-[radial-gradient(circle_at_20%_10%,_#fff7df_0%,_#f4e9cb_45%,_#e8d9b4_100%)] px-2 py-2 pb-36 text-[#2f2415] md:px-3 md:py-3 md:pb-3">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 md:hidden">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-3">
         <header className="flex flex-col gap-3 pt-2">
           <div className="flex items-center justify-between px-1">
             <div>
@@ -375,207 +375,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="mx-auto hidden h-screen w-full max-w-6xl flex-col gap-2 md:flex">
-        <header className="sticky top-2 z-20 rounded-2xl border border-[#cdb58b] bg-[#fff7df]/95 p-2.5 shadow-[0_8px_20px_rgba(105,74,28,0.1)] backdrop-blur-sm md:static md:bg-[#fff7df]/90 md:p-3">
-          <div className="flex items-center justify-between gap-2">
-            <h1 className="font-serif text-xl leading-tight md:text-2xl">Gita Memorization Focus Cards</h1>
-            <button onClick={() => setCompletedOpen(true)} className="rounded-md border border-[#c7ad7d] bg-white px-2 py-1 text-[11px] text-[#5d492b]">
-              Completed ({completedCount})
-            </button>
-          </div>
-          <div className="mt-1.5 grid grid-cols-2 gap-2 md:grid-cols-4">
-            <Metric icon={Target} label="Journey" value={`Day ${Math.min(Math.ceil(JOURNEY_DAYS), Math.floor(completedCount / DAILY_TARGET) + 1)}/${Math.ceil(JOURNEY_DAYS)}`} />
-            <Metric icon={CheckCircle2} label="Mastered" value={`${completedCount}/${TOTAL_SHLOKAS}`} />
-            <Metric icon={Flame} label="Streak" value={`${streak}d`} />
-            <Metric icon={Hourglass} label="Recall" value={`${recallRate}%`} />
-          </div>
-          <div className="mt-1.5 h-1.5 rounded-full bg-[#ead9b5]">
-            <div className="h-full rounded-full bg-[#8f6422]" style={{ width: `${progressPct}%` }} />
-          </div>
-        </header>
-
-        <section className="flex flex-col gap-2 rounded-xl border border-[#d4be94] bg-[#fbf3df] px-2.5 py-2 md:flex-row md:items-center md:justify-between md:py-1.5">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[11px] text-[#6a5432]">Today:</span>
-            {todayFocus.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setState((prev) => ({ ...prev, activeIndex: SHLOKAS.findIndex((s) => s.id === item.id), expandedText: false }))}
-                className={`rounded-full border px-2.5 py-1 text-[11px] ${
-                  fullDone(state.completed[item.id])
-                    ? "border-[#73a25f] bg-[#e8f5df] text-[#2c5d1f]"
-                    : active.id === item.id
-                      ? "border-[#8f6422] bg-[#8f6422] text-white"
-                      : "border-[#ccb385] bg-white text-[#654f2e]"
-                }`}
-              >
-                {item.reference}
-              </button>
-            ))}
-          </div>
-          <div className="flex flex-wrap items-center gap-1.5">
-            <select
-              value={active.chapter}
-              onChange={(e) => {
-                const ch = Number(e.target.value);
-                const idx = SHLOKAS.findIndex((s) => s.chapter === ch);
-                if (idx >= 0) setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }));
-              }}
-              className="rounded-md border border-[#ccb385] bg-white px-2 py-1.5 text-[12px] text-[#5d492b]"
-            >
-              {chapterList.map((chapter) => (
-                <option key={chapter} value={chapter}>
-                  Ch {chapter}
-                </option>
-              ))}
-            </select>
-            <input
-              value={jumpRef}
-              onChange={(e) => setJumpRef(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  const ok = jumpToReference(jumpRef);
-                  if (ok) setJumpRef("");
-                }
-              }}
-              placeholder="18.66"
-              className="w-20 rounded-md border border-[#ccb385] bg-white px-2 py-1.5 text-[12px] text-[#5d492b] placeholder:text-[#9a8663]"
-            />
-            <button
-              onClick={() => {
-                const ok = jumpToReference(jumpRef);
-                if (ok) setJumpRef("");
-              }}
-              className="rounded-md border border-[#ccb385] bg-white px-3 py-1.5 text-[12px] text-[#5d492b]"
-            >
-              Go
-            </button>
-            <span className="text-[11px] text-[#5d492b]">Mode</span>
-            <div className="flex rounded-full border border-[#c7ad7d] bg-[#f7edd4] p-0.5">
-              <button className={`rounded-full px-3 py-1.5 text-[12px] ${state.activeMode === "normal" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "normal" }))}>
-                Normal
-              </button>
-              <button className={`rounded-full px-3 py-1.5 text-[12px] ${state.activeMode === "lite" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "lite" }))}>
-                Lite
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <article className="flex flex-col rounded-[1.35rem] border border-[#b9995e] bg-gradient-to-b from-[#fffaf0] to-[#f7ebcf] p-3 shadow-[0_14px_30px_rgba(90,63,20,0.14)] md:min-h-0 md:flex-1 md:p-4">
-          <div className="flex flex-col gap-2 md:flex-row md:flex-wrap md:items-start md:justify-between md:gap-1.5">
-            <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-[#8a6b3d]">{active.id}</p>
-              <h2 className="font-serif text-lg md:text-xl">
-                Bhagavad Gita {active.reference} {fullDone(activeProgress) ? <CheckCircle2 className="mb-0.5 inline h-4 w-4 text-[#2e6b1f]" /> : null}
-              </h2>
-              <p className="text-[11px] text-[#6a5432]">Verse {activeGlobalIndex}/{TOTAL_SHLOKAS}</p>
-            </div>
-            <div className="hidden md:flex md:flex-wrap md:items-center md:gap-1.5">
-              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))} disabled={isFirst} className="rounded-md border border-[#ccb385] bg-white px-2 py-2 text-sm disabled:opacity-50 md:text-xs">
-                <ChevronLeft className="mr-0.5 inline h-3.5 w-3.5" /> Back
-              </button>
-              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))} disabled={isLast} className="rounded-md border border-[#ccb385] bg-white px-2 py-2 text-sm disabled:opacity-50 md:text-xs">
-                Next <ChevronRight className="ml-0.5 inline h-3.5 w-3.5" />
-              </button>
-              <button onClick={togglePlayPause} disabled={!audioAvailable} className="rounded-lg border border-[#b89965] bg-white px-3 py-2 text-sm disabled:opacity-50 md:text-xs">
-                {audioState === "playing" ? <Pause className="mr-1 inline h-3.5 w-3.5" /> : <Play className="mr-1 inline h-3.5 w-3.5" />}
-                {audioState === "playing" ? "Pause" : "Play"}
-              </button>
-              <button onClick={stopAudio} disabled={!audioAvailable || audioState === "idle"} className="rounded-lg border border-[#b89965] bg-white px-3 py-2 text-sm disabled:opacity-50 md:text-xs">
-                <Square className="mr-1 inline h-3.5 w-3.5" /> Stop
-              </button>
-              <button onClick={() => setConfirmLearnedOpen(true)} className="col-span-2 rounded-lg border border-[#8f6422] bg-[#8f6422] px-3 py-2 text-sm font-semibold text-white md:col-auto md:text-xs">
-                Mark Learned
-              </button>
-            </div>
-          </div>
-          <section className="mt-2 flex flex-wrap items-center justify-between gap-1.5">
-            <div className="flex flex-wrap gap-1.5">
-              {(["transliteration", "english", "sanskrit"] as const).map((mode) => (
-                <button
-                  key={mode}
-                  onClick={() => setState((prev) => ({ ...prev, contentMode: mode }))}
-                  className={`rounded-full border px-3 py-1 text-xs ${state.contentMode === mode ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
-                >
-                  {mode[0].toUpperCase() + mode.slice(1)}
-                </button>
-              ))}
-              <button onClick={() => setState((prev) => ({ ...prev, expandedText: !prev.expandedText }))} className="rounded-full border border-[#ccb385] bg-white px-3 py-1 text-xs text-[#654f2e]">
-                {state.expandedText ? "Collapse" : "Expand"}
-              </button>
-            </div>
-            {fullDone(activeProgress) ? (
-              <button onClick={undoLearnedForActive} className="rounded-lg border border-[#73a25f] bg-[#e8f5df] px-3 py-1.5 text-xs font-semibold text-[#2c5d1f]">
-                Undo Learned
-              </button>
-            ) : (
-              <span />
-            )}
-          </section>
-          <section className="mt-1.5 rounded-lg border border-[#dccca7] bg-[#fffaf0] px-2.5 py-1.5">
-            <div className="flex items-center gap-2">
-              <span className="w-10 text-[11px] text-[#6f5935]">{formatTime(audioCurrentTime)}</span>
-              <input
-                type="range"
-                min={0}
-                max={audioDuration || 0}
-                step={0.1}
-                value={Math.min(audioCurrentTime, audioDuration || 0)}
-                onChange={(e) => seekAudio(Number(e.target.value))}
-                disabled={!audioAvailable || !audioDuration}
-                className="h-1.5 w-full accent-[#8f6422] disabled:opacity-50"
-              />
-              <span className="w-10 text-right text-[11px] text-[#6f5935]">{formatTime(audioDuration)}</span>
-            </div>
-          </section>
-          {!audioAvailable ? (
-            <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#8a3f2f]">
-              <AlertCircle className="h-3.5 w-3.5" />
-              File not available: /public/audio/{active.reference}.mp3
-            </p>
-          ) : null}
-
-            <section className="mt-1.5 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:min-h-0 md:p-3">
-              {state.contentMode === "sanskrit" ? (
-                <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line text-center font-serif text-base leading-[1.35] text-[#2f2415] md:text-xl`}>
-                  {active.sanskrit.replace(/\n{2,}/g, "\n")}
-                </p>
-              ) : null}
-              {state.contentMode === "transliteration" ? (
-                <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line text-center text-xs leading-6 text-[#4e3d21] md:text-sm`}>{active.transliteration}</p>
-              ) : null}
-              {state.contentMode === "english" ? (
-                <>
-                <p className={`${state.expandedText ? "" : "line-clamp-8"} text-xs leading-6 text-[#4e3d21] md:text-sm`}>{active.english}</p>
-                <p className="mt-1 text-[11px] text-[#7a6440]">Translation: {active.translationAuthor}</p>
-              </>
-            ) : null}
-          </section>
-
-          <section className="mt-1.5 rounded-xl border border-[#d4bc8f] bg-[#fdf4de] p-2.5">
-            <div className="flex items-center justify-between">
-              <p className="text-xs uppercase tracking-[0.12em] text-[#8b7045]">Practice Loop</p>
-              <span className="hidden text-[11px] text-[#7b6642] md:inline">Listen → Repeat → Understand → Recall</span>
-            </div>
-            <div className="mt-1.5 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-1.5">
-              {LOOP_STEPS.map((step) => (
-                <button
-                  key={`${active.id}-${step}`}
-                  onClick={() => markStep(active.id, step)}
-                  className={`rounded-lg border px-2.5 py-2 text-sm capitalize md:py-1.5 md:text-sm ${
-                    activeProgress[step] ? "border-[#4f7c39] bg-[#e5f2dc] text-[#224318]" : "border-[#ccb385] bg-white text-[#5e4a2b]"
-                  }`}
-                >
-                  {step}
-                </button>
-              ))}
-            </div>
-          </section>
-        </article>
-      </div>
-
-      <section className="fixed inset-x-3 bottom-4 z-30 rounded-[2.5rem] border border-[#d5be93] bg-[#fffaf0]/95 px-5 py-4 pb-[calc(1rem+env(safe-area-inset-bottom))] shadow-[0_20px_40px_rgba(73,51,16,0.15)] backdrop-blur-xl md:hidden">
+      <section className="fixed inset-x-3 bottom-4 z-30 rounded-[2.5rem] border border-[#d5be93] bg-[#fffaf0]/95 px-5 py-4 pb-[calc(1rem+env(safe-area-inset-bottom))] shadow-[0_20px_40px_rgba(73,51,16,0.15)] backdrop-blur-xl">
         <div className="mb-3 flex items-center gap-3">
           <span className="w-8 text-[10px] font-bold text-[#8a6b3d]">{formatTime(audioCurrentTime)}</span>
           <div className="relative flex-1 flex items-center group h-4">
