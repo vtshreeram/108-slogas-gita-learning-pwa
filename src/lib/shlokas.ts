@@ -16,7 +16,7 @@ export type Shloka = {
 export const SHLOKA_SOURCE = "https://github.com/gita/gita";
 
 export const SHLOKAS: Shloka[] = [
-  {
+{
     "id": "GS-001",
     "chapter": 1,
     "verse": 1,
@@ -28,19 +28,19 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
-    "id": "GS-002",
-    "chapter": 2,
-    "verse": 2,
-    "reference": "2.2",
+{
+      "id": "GS-002",
+      "chapter": 2,
+      "verse": 2,
+      "reference": "2.2",
       "audioSrc": "/audio/2.2.mp3",
-    "sanskrit": "श्रीभगवानुवाच |\nकुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् |\nअनार्यजुष्टमस्वर्ग्यमकीर्तिकरमर्जुन ||२-२||",
-    "transliteration": "śrībhagavānuvāca .\nkutastvā kaśmalamidaṃ viṣame samupasthitam .\nanāryajuṣṭamasvargyamakīrtikaramarjuna ||2-2||",
-    "english": "2.2 The Blessed Lord said  Whence is this perilous strait come upon thee, this dejection which is unworthy of you, disgraceful, and which will close the gates of heaven upon you, O Arjuna?",
-    "translationAuthor": "Swami Sivananda",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
-  },
-  {
+      "sanskrit": "श्रीभगवानुवाच |\nकुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् |\nअनार्यजुष्टमस्वर्ग्यमकीर्तिकरमर्जुन ||२-२||",
+      "transliteration": "śrībhagavānuvāca .\nkutastvā kaśmalamidaṃ viṣame samupasthitam .\nanāryajuṣṭamasvargyamakīrtikaramarjuna ||2-2||",
+      "english": "2.2 The Blessed Lord said: Whence is this perilous strait come upon thee, this dejection which is unworthy of you, disgraceful, and which will close the gates of heaven upon you, O Arjuna?",
+      "translationAuthor": "Swami Sivananda",
+      "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    },
+{
     "id": "GS-003",
     "chapter": 2,
     "verse": 3,
@@ -52,7 +52,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-004",
     "chapter": 2,
     "verse": 4,
@@ -64,7 +64,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-005",
     "chapter": 2,
     "verse": 7,
@@ -76,7 +76,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-006",
     "chapter": 2,
     "verse": 11,
@@ -88,7 +88,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-007",
     "chapter": 2,
     "verse": 12,
@@ -100,7 +100,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-008",
     "chapter": 2,
     "verse": 13,
@@ -112,7 +112,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-009",
     "chapter": 2,
     "verse": 14,
@@ -124,7 +124,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-010",
     "chapter": 2,
     "verse": 22,
@@ -136,7 +136,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-011",
     "chapter": 2,
     "verse": 23,
@@ -148,7 +148,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-012",
     "chapter": 2,
     "verse": 27,
@@ -160,7 +160,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-013",
     "chapter": 2,
     "verse": 41,
@@ -172,7 +172,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-014",
     "chapter": 2,
     "verse": 44,
@@ -184,7 +184,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-015",
     "chapter": 2,
     "verse": 45,
@@ -196,7 +196,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-016",
     "chapter": 2,
     "verse": 46,
@@ -208,18 +208,19 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-017",
     "chapter": 2,
     "verse": 47,
     "reference": "2.47",
+      "audioSrc": "/audio/2.47.mp3",
     "sanskrit": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन |\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ||२-४७||",
     "transliteration": "karmaṇyevādhikāraste mā phaleṣu kadācana .\nmā karmaphalaheturbhūrmā te saṅgo.astvakarmaṇi ||2-47||",
     "english": "2.47 Thy right is to work only, but never with its fruits; let not the fruits of action be thy motive, nor let thy attachment be to inaction.",
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-018",
     "chapter": 2,
     "verse": 59,
@@ -231,7 +232,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-019",
     "chapter": 2,
     "verse": 62,
@@ -243,7 +244,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-020",
     "chapter": 2,
     "verse": 63,
@@ -255,7 +256,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-021",
     "chapter": 2,
     "verse": 64,
@@ -267,7 +268,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-022",
     "chapter": 2,
     "verse": 69,
@@ -279,7 +280,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-023",
     "chapter": 3,
     "verse": 9,
@@ -291,7 +292,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-024",
     "chapter": 3,
     "verse": 14,
@@ -303,7 +304,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-025",
     "chapter": 3,
     "verse": 21,
@@ -315,7 +316,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-026",
     "chapter": 3,
     "verse": 27,
@@ -327,7 +328,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-027",
     "chapter": 3,
     "verse": 37,
@@ -339,7 +340,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-028",
     "chapter": 4,
     "verse": 1,
@@ -351,7 +352,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-029",
     "chapter": 4,
     "verse": 2,
@@ -363,7 +364,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-030",
     "chapter": 4,
     "verse": 3,
@@ -375,7 +376,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-031",
     "chapter": 4,
     "verse": 6,
@@ -387,7 +388,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-032",
     "chapter": 4,
     "verse": 7,
@@ -399,7 +400,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-033",
     "chapter": 4,
     "verse": 8,
@@ -411,7 +412,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-034",
     "chapter": 4,
     "verse": 9,
@@ -423,7 +424,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-035",
     "chapter": 4,
     "verse": 11,
@@ -435,7 +436,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-036",
     "chapter": 4,
     "verse": 13,
@@ -447,7 +448,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-037",
     "chapter": 4,
     "verse": 34,
@@ -459,7 +460,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-038",
     "chapter": 5,
     "verse": 18,
@@ -471,7 +472,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-039",
     "chapter": 5,
     "verse": 22,
@@ -483,7 +484,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-040",
     "chapter": 5,
     "verse": 29,
@@ -495,7 +496,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-041",
     "chapter": 6,
     "verse": 17,
@@ -507,7 +508,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-042",
     "chapter": 6,
     "verse": 41,
@@ -519,7 +520,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-043",
     "chapter": 6,
     "verse": 47,
@@ -531,7 +532,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-044",
     "chapter": 7,
     "verse": 3,
@@ -543,7 +544,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-045",
     "chapter": 7,
     "verse": 4,
@@ -555,7 +556,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-046",
     "chapter": 7,
     "verse": 5,
@@ -567,7 +568,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-047",
     "chapter": 7,
     "verse": 7,
@@ -579,7 +580,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-048",
     "chapter": 7,
     "verse": 14,
@@ -591,7 +592,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-049",
     "chapter": 7,
     "verse": 15,
@@ -603,7 +604,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-050",
     "chapter": 7,
     "verse": 16,
@@ -615,7 +616,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-051",
     "chapter": 7,
     "verse": 19,
@@ -627,7 +628,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-052",
     "chapter": 7,
     "verse": 25,
@@ -639,7 +640,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-053",
     "chapter": 7,
     "verse": 26,
@@ -651,7 +652,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-054",
     "chapter": 7,
     "verse": 27,
@@ -663,7 +664,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-055",
     "chapter": 7,
     "verse": 28,
@@ -675,7 +676,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-056",
     "chapter": 8,
     "verse": 5,
@@ -687,7 +688,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-057",
     "chapter": 8,
     "verse": 6,
@@ -699,7 +700,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-058",
     "chapter": 8,
     "verse": 7,
@@ -711,7 +712,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-059",
     "chapter": 8,
     "verse": 14,
@@ -723,7 +724,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-060",
     "chapter": 8,
     "verse": 15,
@@ -735,7 +736,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-061",
     "chapter": 8,
     "verse": 16,
@@ -747,7 +748,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-062",
     "chapter": 8,
     "verse": 28,
@@ -759,7 +760,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-063",
     "chapter": 9,
     "verse": 1,
@@ -771,7 +772,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-064",
     "chapter": 9,
     "verse": 2,
@@ -783,7 +784,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-065",
     "chapter": 9,
     "verse": 3,
@@ -795,7 +796,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-066",
     "chapter": 9,
     "verse": 4,
@@ -807,7 +808,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-067",
     "chapter": 9,
     "verse": 11,
@@ -819,7 +820,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-068",
     "chapter": 9,
     "verse": 12,
@@ -831,7 +832,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-069",
     "chapter": 9,
     "verse": 13,
@@ -843,7 +844,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-070",
     "chapter": 9,
     "verse": 14,
@@ -855,7 +856,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-071",
     "chapter": 9,
     "verse": 22,
@@ -867,7 +868,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-072",
     "chapter": 9,
     "verse": 25,
@@ -879,7 +880,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-073",
     "chapter": 9,
     "verse": 26,
@@ -891,7 +892,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-074",
     "chapter": 9,
     "verse": 27,
@@ -903,7 +904,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-075",
     "chapter": 9,
     "verse": 29,
@@ -915,7 +916,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-076",
     "chapter": 9,
     "verse": 32,
@@ -927,7 +928,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-077",
     "chapter": 9,
     "verse": 34,
@@ -939,7 +940,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-078",
     "chapter": 10,
     "verse": 1,
@@ -951,7 +952,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-079",
     "chapter": 10,
     "verse": 8,
@@ -963,7 +964,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-080",
     "chapter": 10,
     "verse": 9,
@@ -975,7 +976,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-081",
     "chapter": 10,
     "verse": 11,
@@ -987,7 +988,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-082",
     "chapter": 10,
     "verse": 12,
@@ -999,7 +1000,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-083",
     "chapter": 10,
     "verse": 13,
@@ -1011,7 +1012,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-084",
     "chapter": 10,
     "verse": 41,
@@ -1023,7 +1024,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-085",
     "chapter": 11,
     "verse": 54,
@@ -1035,7 +1036,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-086",
     "chapter": 11,
     "verse": 55,
@@ -1047,7 +1048,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-087",
     "chapter": 12,
     "verse": 1,
@@ -1059,7 +1060,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-088",
     "chapter": 12,
     "verse": 5,
@@ -1071,7 +1072,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-089",
     "chapter": 12,
     "verse": 8,
@@ -1083,7 +1084,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-090",
     "chapter": 12,
     "verse": 9,
@@ -1095,7 +1096,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-091",
     "chapter": 14,
     "verse": 4,
@@ -1107,7 +1108,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-092",
     "chapter": 14,
     "verse": 26,
@@ -1119,7 +1120,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-093",
     "chapter": 14,
     "verse": 27,
@@ -1131,7 +1132,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-094",
     "chapter": 15,
     "verse": 5,
@@ -1143,7 +1144,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-095",
     "chapter": 15,
     "verse": 6,
@@ -1155,7 +1156,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-096",
     "chapter": 15,
     "verse": 7,
@@ -1167,18 +1168,19 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-097",
     "chapter": 15,
     "verse": 15,
     "reference": "15.15",
+      "audioSrc": "/audio/15.15.mp3",
     "sanskrit": "सर्वस्य चाहं हृदि सन्निविष्टो\nमत्तः स्मृतिर्ज्ञानमपोहनञ्च |\nवेदैश्च सर्वैरहमेव वेद्यो\nवेदान्तकृद्वेदविदेव चाहम् ||१५-१५||",
     "transliteration": "sarvasya cāhaṃ hṛdi sanniviṣṭo mattaḥ smṛtirjñānamapohanañca .\nvedaiśca sarvairahameva vedyo vedāntakṛdvedavideva cāham ||15-15||",
     "english": "15.15 And I am seated in the hearts of all; from Me are memory and knowledge, as well as their absence. I am verily That which has to be known by all the Vedas; I am indeed the author of the Vedanta and the knower of the Vedas am I.",
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-098",
     "chapter": 15,
     "verse": 19,
@@ -1190,7 +1192,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-099",
     "chapter": 18,
     "verse": 42,
@@ -1202,7 +1204,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-100",
     "chapter": 18,
     "verse": 54,
@@ -1214,7 +1216,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-101",
     "chapter": 18,
     "verse": 55,
@@ -1226,7 +1228,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-102",
     "chapter": 18,
     "verse": 58,
@@ -1238,7 +1240,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-103",
     "chapter": 18,
     "verse": 61,
@@ -1250,7 +1252,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-104",
     "chapter": 18,
     "verse": 65,
@@ -1262,7 +1264,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-105",
     "chapter": 18,
     "verse": 66,
@@ -1274,7 +1276,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-106",
     "chapter": 18,
     "verse": 68,
@@ -1286,7 +1288,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-107",
     "chapter": 18,
     "verse": 69,
@@ -1298,7 +1300,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
-  {
+{
     "id": "GS-108",
     "chapter": 18,
     "verse": 78,
@@ -1310,7 +1312,7 @@ export const SHLOKAS: Shloka[] = [
     "translationAuthor": "Swami Sivananda",
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   }
-];
+  ];
 
 export const TOTAL_SHLOKAS = SHLOKAS.length;
 export const DAILY_TARGET = 2;
