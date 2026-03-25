@@ -44,6 +44,7 @@ export default function Home() {
   const [completedOpen, setCompletedOpen] = useState(false);
   const [audioAvailable, setAudioAvailable] = useState(true);
   const [audioState, setAudioState] = useState<"idle" | "playing" | "paused" | "unavailable">("idle");
+  const [audioLoop, setAudioLoop] = useState(false);
   const [audioCurrentTime, setAudioCurrentTime] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
   const [jumpRef, setJumpRef] = useState("");
@@ -225,16 +226,184 @@ export default function Home() {
   if (!ready || !active) return <main className="min-h-screen bg-[#f2e8d0]" />;
 
   return (
-    <main className="h-screen overflow-hidden bg-[radial-gradient(circle_at_20%_10%,_#fff7df_0%,_#f4e9cb_45%,_#e8d9b4_100%)] px-2 py-2 text-[#2f2415] md:px-3 md:py-3">
-      <div className="mx-auto flex h-full w-full max-w-6xl flex-col gap-2">
-        <header className="rounded-2xl border border-[#cdb58b] bg-[#fff7df]/90 p-2.5 shadow-[0_8px_20px_rgba(105,74,28,0.1)] md:p-3">
+    <main className="min-h-screen overflow-y-auto bg-[radial-gradient(circle_at_20%_10%,_#fff7df_0%,_#f4e9cb_45%,_#e8d9b4_100%)] px-2 py-2 pb-24 text-[#2f2415] md:px-3 md:py-3 md:pb-3">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 md:hidden">
+        <header className="sticky top-2 z-20 rounded-2xl border border-[#cdb58b] bg-[#fff7df]/95 p-3 shadow-[0_10px_24px_rgba(105,74,28,0.12)] backdrop-blur-sm">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="font-serif text-xl leading-tight">Gita Mobile</h1>
+              <p className="text-[11px] text-[#6a5432]">Verse {activeGlobalIndex}/{TOTAL_SHLOKAS}</p>
+            </div>
+            <button onClick={() => setCompletedOpen(true)} className="rounded-lg border border-[#c7ad7d] bg-white px-3 py-1.5 text-xs text-[#5d492b]">
+              Completed {completedCount}
+            </button>
+          </div>
+          <div className="mt-2 grid grid-cols-4 gap-2">
+            <Metric icon={Target} label="Day" value={`${Math.min(Math.ceil(JOURNEY_DAYS), Math.floor(completedCount / DAILY_TARGET) + 1)}`} />
+            <Metric icon={CheckCircle2} label="Done" value={`${completedCount}`} />
+            <Metric icon={Flame} label="Streak" value={`${streak}d`} />
+            <Metric icon={Hourglass} label="Recall" value={`${recallRate}%`} />
+          </div>
+          <div className="mt-2 h-1.5 rounded-full bg-[#ead9b5]">
+            <div className="h-full rounded-full bg-[#8f6422]" style={{ width: `${progressPct}%` }} />
+          </div>
+        </header>
+
+          <article className="rounded-[1.25rem] border border-[#b9995e] bg-gradient-to-b from-[#fffaf0] to-[#f7ebcf] p-3">
+            <p className="text-xs uppercase tracking-[0.16em] text-[#8a6b3d]">{active.id}</p>
+            <h2 className="mt-1 font-serif text-xl leading-snug">
+              Bhagavad Gita {active.reference} {fullDone(activeProgress) ? <CheckCircle2 className="mb-0.5 inline h-4 w-4 text-[#2e6b1f]" /> : null}
+            </h2>
+
+            <div className="mt-2 grid grid-cols-4 gap-1.5">
+              {(["transliteration", "english", "sanskrit"] as const).map((mode) => (
+                <button
+                  key={mode}
+                  onClick={() => setState((prev) => ({ ...prev, contentMode: mode }))}
+                  className={`rounded-lg border px-2 py-2 text-xs ${state.contentMode === mode ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#ccb385] bg-white text-[#654f2e]"}`}
+                >
+                  {mode[0].toUpperCase() + mode.slice(1)}
+                </button>
+              ))}
+              <button onClick={() => setState((prev) => ({ ...prev, expandedText: !prev.expandedText }))} className="rounded-lg border border-[#ccb385] bg-white px-2 py-2 text-xs text-[#654f2e]">
+                {state.expandedText ? "Less" : "More"}
+              </button>
+            </div>
+
+            <section className="mt-2 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-3">
+              {state.contentMode === "sanskrit" ? (
+                <p className={`${state.expandedText ? "" : "line-clamp-7"} whitespace-pre-line font-serif text-lg leading-[1.45] text-[#2f2415]`}>{active.sanskrit.replace(/\n{2,}/g, "\n")}</p>
+              ) : null}
+              {state.contentMode === "transliteration" ? (
+                <p className={`${state.expandedText ? "" : "line-clamp-7"} whitespace-pre-line text-sm leading-6 text-[#4e3d21]`}>{active.transliteration}</p>
+              ) : null}
+              {state.contentMode === "english" ? (
+                <>
+                  <p className={`${state.expandedText ? "" : "line-clamp-7"} text-sm leading-6 text-[#4e3d21]`}>{active.english}</p>
+                  <p className="mt-1 text-[11px] text-[#7a6440]">Translation: {active.translationAuthor}</p>
+                </>
+              ) : null}
+            </section>
+
+            <section className="mt-2 rounded-lg border border-[#dccca7] bg-[#fffaf0] px-2.5 py-2">
+              <div className="flex items-center gap-2">
+                <span className="w-10 text-[11px] text-[#6f5935]">{formatTime(audioCurrentTime)}</span>
+                <input
+                  type="range"
+                  min={0}
+                  max={audioDuration || 0}
+                  step={0.1}
+                  value={Math.min(audioCurrentTime, audioDuration || 0)}
+                  onChange={(e) => seekAudio(Number(e.target.value))}
+                  disabled={!audioAvailable || !audioDuration}
+                  className="h-2 w-full accent-[#8f6422] disabled:opacity-50"
+                />
+                <span className="w-10 text-right text-[11px] text-[#6f5935]">{formatTime(audioDuration)}</span>
+              </div>
+            </section>
+
+            {!audioAvailable ? (
+              <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-[#8a3f2f]">
+                <AlertCircle className="h-3.5 w-3.5" />
+                File not available: /public/audio/{active.reference}.mp3
+              </p>
+            ) : null}
+
+            <section className="mt-2 rounded-xl border border-[#d4bc8f] bg-[#fdf4de] p-2.5">
+              <div className="grid grid-cols-2 gap-2">
+                {LOOP_STEPS.map((step) => (
+                  <button
+                    key={`${active.id}-${step}`}
+                    onClick={() => markStep(active.id, step)}
+                    className={`rounded-lg border px-2.5 py-2 text-sm capitalize ${
+                      activeProgress[step] ? "border-[#4f7c39] bg-[#e5f2dc] text-[#224318]" : "border-[#ccb385] bg-white text-[#5e4a2b]"
+                    }`}
+                  >
+                    {step}
+                  </button>
+                ))}
+              </div>
+            </section>
+          </article>
+
+          <section className="rounded-2xl border border-[#d4be94] bg-[#fbf3df] p-2.5">
+            <div className="flex gap-2">
+              <select
+                value={active.chapter}
+                onChange={(e) => {
+                  const ch = Number(e.target.value);
+                  const idx = SHLOKAS.findIndex((s) => s.chapter === ch);
+                  if (idx >= 0) setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }));
+                }}
+                className="min-w-0 flex-1 rounded-lg border border-[#ccb385] bg-white px-2 py-2 text-sm text-[#5d492b]"
+              >
+                {chapterList.map((chapter) => (
+                  <option key={chapter} value={chapter}>
+                    Chapter {chapter}
+                  </option>
+                ))}
+              </select>
+              <input
+                value={jumpRef}
+                onChange={(e) => setJumpRef(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    const ok = jumpToReference(jumpRef);
+                    if (ok) setJumpRef("");
+                  }
+                }}
+                placeholder="18.66"
+                className="w-20 rounded-lg border border-[#ccb385] bg-white px-2 py-2 text-sm text-[#5d492b]"
+              />
+              <button
+                onClick={() => {
+                  const ok = jumpToReference(jumpRef);
+                  if (ok) setJumpRef("");
+                }}
+                className="rounded-lg border border-[#ccb385] bg-white px-3 py-2 text-sm text-[#5d492b]"
+              >
+                Go
+              </button>
+            </div>
+            <div className="mt-2 flex items-center justify-between gap-2">
+              <div className="flex min-w-0 gap-1.5 overflow-x-auto pb-1">
+                {todayFocus.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => setState((prev) => ({ ...prev, activeIndex: SHLOKAS.findIndex((s) => s.id === item.id), expandedText: false }))}
+                    className={`shrink-0 rounded-full border px-2.5 py-1 text-[11px] ${
+                      fullDone(state.completed[item.id])
+                        ? "border-[#73a25f] bg-[#e8f5df] text-[#2c5d1f]"
+                        : active.id === item.id
+                          ? "border-[#8f6422] bg-[#8f6422] text-white"
+                          : "border-[#ccb385] bg-white text-[#654f2e]"
+                    }`}
+                  >
+                    {item.reference}
+                  </button>
+                ))}
+              </div>
+              <div className="flex rounded-full border border-[#c7ad7d] bg-[#f7edd4] p-0.5">
+                <button className={`rounded-full px-2.5 py-1 text-[11px] ${state.activeMode === "normal" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "normal" }))}>
+                  Normal
+                </button>
+                <button className={`rounded-full px-2.5 py-1 text-[11px] ${state.activeMode === "lite" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "lite" }))}>
+                  Lite
+                </button>
+              </div>
+            </div>
+          </section>
+      </div>
+
+      <div className="mx-auto hidden h-screen w-full max-w-6xl flex-col gap-2 md:flex">
+        <header className="sticky top-2 z-20 rounded-2xl border border-[#cdb58b] bg-[#fff7df]/95 p-2.5 shadow-[0_8px_20px_rgba(105,74,28,0.1)] backdrop-blur-sm md:static md:bg-[#fff7df]/90 md:p-3">
           <div className="flex items-center justify-between gap-2">
             <h1 className="font-serif text-xl leading-tight md:text-2xl">Gita Memorization Focus Cards</h1>
             <button onClick={() => setCompletedOpen(true)} className="rounded-md border border-[#c7ad7d] bg-white px-2 py-1 text-[11px] text-[#5d492b]">
               Completed ({completedCount})
             </button>
           </div>
-          <div className="mt-1.5 grid grid-cols-2 gap-1.5 md:grid-cols-4">
+          <div className="mt-1.5 grid grid-cols-2 gap-2 md:grid-cols-4">
             <Metric icon={Target} label="Journey" value={`Day ${Math.min(Math.ceil(JOURNEY_DAYS), Math.floor(completedCount / DAILY_TARGET) + 1)}/${Math.ceil(JOURNEY_DAYS)}`} />
             <Metric icon={CheckCircle2} label="Mastered" value={`${completedCount}/${TOTAL_SHLOKAS}`} />
             <Metric icon={Flame} label="Streak" value={`${streak}d`} />
@@ -245,7 +414,7 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="flex items-center justify-between rounded-xl border border-[#d4be94] bg-[#fbf3df] px-2.5 py-1.5">
+        <section className="flex flex-col gap-2 rounded-xl border border-[#d4be94] bg-[#fbf3df] px-2.5 py-2 md:flex-row md:items-center md:justify-between md:py-1.5">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="text-[11px] text-[#6a5432]">Today:</span>
             {todayFocus.map((item) => (
@@ -264,7 +433,7 @@ export default function Home() {
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-1.5">
             <select
               value={active.chapter}
               onChange={(e) => {
@@ -272,7 +441,7 @@ export default function Home() {
                 const idx = SHLOKAS.findIndex((s) => s.chapter === ch);
                 if (idx >= 0) setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }));
               }}
-              className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-[11px] text-[#5d492b]"
+              className="rounded-md border border-[#ccb385] bg-white px-2 py-1.5 text-[12px] text-[#5d492b]"
             >
               {chapterList.map((chapter) => (
                 <option key={chapter} value={chapter}>
@@ -290,31 +459,31 @@ export default function Home() {
                 }
               }}
               placeholder="18.66"
-              className="w-16 rounded-md border border-[#ccb385] bg-white px-2 py-1 text-[11px] text-[#5d492b] placeholder:text-[#9a8663]"
+              className="w-20 rounded-md border border-[#ccb385] bg-white px-2 py-1.5 text-[12px] text-[#5d492b] placeholder:text-[#9a8663]"
             />
             <button
               onClick={() => {
                 const ok = jumpToReference(jumpRef);
                 if (ok) setJumpRef("");
               }}
-              className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-[11px] text-[#5d492b]"
+              className="rounded-md border border-[#ccb385] bg-white px-3 py-1.5 text-[12px] text-[#5d492b]"
             >
               Go
             </button>
             <span className="text-[11px] text-[#5d492b]">Mode</span>
             <div className="flex rounded-full border border-[#c7ad7d] bg-[#f7edd4] p-0.5">
-              <button className={`rounded-full px-2.5 py-1 text-[11px] ${state.activeMode === "normal" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "normal" }))}>
+              <button className={`rounded-full px-3 py-1.5 text-[12px] ${state.activeMode === "normal" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "normal" }))}>
                 Normal
               </button>
-              <button className={`rounded-full px-2.5 py-1 text-[11px] ${state.activeMode === "lite" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "lite" }))}>
+              <button className={`rounded-full px-3 py-1.5 text-[12px] ${state.activeMode === "lite" ? "bg-[#8f6422] text-white" : "text-[#6a532f]"}`} onClick={() => setState((prev) => ({ ...prev, activeMode: "lite" }))}>
                 Lite
               </button>
             </div>
           </div>
         </section>
 
-        <article className="flex min-h-0 flex-1 flex-col rounded-[1.35rem] border border-[#b9995e] bg-gradient-to-b from-[#fffaf0] to-[#f7ebcf] p-3 shadow-[0_14px_30px_rgba(90,63,20,0.14)] md:p-4">
-          <div className="flex flex-wrap items-start justify-between gap-1.5">
+        <article className="flex flex-col rounded-[1.35rem] border border-[#b9995e] bg-gradient-to-b from-[#fffaf0] to-[#f7ebcf] p-3 shadow-[0_14px_30px_rgba(90,63,20,0.14)] md:min-h-0 md:flex-1 md:p-4">
+          <div className="flex flex-col gap-2 md:flex-row md:flex-wrap md:items-start md:justify-between md:gap-1.5">
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-[#8a6b3d]">{active.id}</p>
               <h2 className="font-serif text-lg md:text-xl">
@@ -322,21 +491,21 @@ export default function Home() {
               </h2>
               <p className="text-[11px] text-[#6a5432]">Verse {activeGlobalIndex}/{TOTAL_SHLOKAS}</p>
             </div>
-            <div className="flex flex-wrap items-center gap-1.5">
-              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))} disabled={isFirst} className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:opacity-50">
+            <div className="hidden md:flex md:flex-wrap md:items-center md:gap-1.5">
+              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))} disabled={isFirst} className="rounded-md border border-[#ccb385] bg-white px-2 py-2 text-sm disabled:opacity-50 md:text-xs">
                 <ChevronLeft className="mr-0.5 inline h-3.5 w-3.5" /> Back
               </button>
-              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))} disabled={isLast} className="rounded-md border border-[#ccb385] bg-white px-2 py-1 text-xs disabled:opacity-50">
+              <button onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))} disabled={isLast} className="rounded-md border border-[#ccb385] bg-white px-2 py-2 text-sm disabled:opacity-50 md:text-xs">
                 Next <ChevronRight className="ml-0.5 inline h-3.5 w-3.5" />
               </button>
-              <button onClick={togglePlayPause} disabled={!audioAvailable} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
+              <button onClick={togglePlayPause} disabled={!audioAvailable} className="rounded-lg border border-[#b89965] bg-white px-3 py-2 text-sm disabled:opacity-50 md:text-xs">
                 {audioState === "playing" ? <Pause className="mr-1 inline h-3.5 w-3.5" /> : <Play className="mr-1 inline h-3.5 w-3.5" />}
                 {audioState === "playing" ? "Pause" : "Play"}
               </button>
-              <button onClick={stopAudio} disabled={!audioAvailable || audioState === "idle"} className="rounded-lg border border-[#b89965] bg-white px-3 py-1.5 text-xs disabled:opacity-50">
+              <button onClick={stopAudio} disabled={!audioAvailable || audioState === "idle"} className="rounded-lg border border-[#b89965] bg-white px-3 py-2 text-sm disabled:opacity-50 md:text-xs">
                 <Square className="mr-1 inline h-3.5 w-3.5" /> Stop
               </button>
-              <button onClick={() => setConfirmLearnedOpen(true)} className="rounded-lg border border-[#8f6422] bg-[#8f6422] px-3 py-1.5 text-xs font-semibold text-white">
+              <button onClick={() => setConfirmLearnedOpen(true)} className="col-span-2 rounded-lg border border-[#8f6422] bg-[#8f6422] px-3 py-2 text-sm font-semibold text-white md:col-auto md:text-xs">
                 Mark Learned
               </button>
             </div>
@@ -387,7 +556,7 @@ export default function Home() {
             </p>
           ) : null}
 
-          <section className="mt-1.5 min-h-0 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:p-3">
+          <section className="mt-1.5 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:min-h-0 md:p-3">
             {state.contentMode === "sanskrit" ? (
               <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line font-serif text-base leading-[1.35] text-[#2f2415] md:text-xl`}>
                 {active.sanskrit.replace(/\n{2,}/g, "\n")}
@@ -407,14 +576,14 @@ export default function Home() {
           <section className="mt-1.5 rounded-xl border border-[#d4bc8f] bg-[#fdf4de] p-2.5">
             <div className="flex items-center justify-between">
               <p className="text-xs uppercase tracking-[0.12em] text-[#8b7045]">Practice Loop</p>
-              <span className="text-[11px] text-[#7b6642]">Listen → Repeat → Understand → Recall</span>
+              <span className="hidden text-[11px] text-[#7b6642] md:inline">Listen → Repeat → Understand → Recall</span>
             </div>
-            <div className="mt-1.5 grid grid-cols-2 gap-1.5 md:grid-cols-4">
+            <div className="mt-1.5 grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-1.5">
               {LOOP_STEPS.map((step) => (
                 <button
                   key={`${active.id}-${step}`}
                   onClick={() => markStep(active.id, step)}
-                  className={`rounded-lg border px-2.5 py-1.5 text-xs capitalize md:text-sm ${
+                  className={`rounded-lg border px-2.5 py-2 text-sm capitalize md:py-1.5 md:text-sm ${
                     activeProgress[step] ? "border-[#4f7c39] bg-[#e5f2dc] text-[#224318]" : "border-[#ccb385] bg-white text-[#5e4a2b]"
                   }`}
                 >
@@ -425,9 +594,62 @@ export default function Home() {
           </section>
         </article>
       </div>
+
+      <section className="fixed inset-x-2 bottom-2 z-30 rounded-2xl border border-[#c9b48d] bg-[#fff8e7]/95 p-2 shadow-[0_8px_24px_rgba(73,51,16,0.2)] backdrop-blur-sm md:hidden">
+        <div className="grid grid-cols-4 gap-1.5">
+          <button
+            onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))}
+            disabled={isFirst}
+            className="rounded-lg border border-[#ccb385] bg-white px-2 py-2 text-xs font-medium disabled:opacity-50"
+          >
+            <ChevronLeft className="mr-0.5 inline h-3.5 w-3.5" />
+            Back
+          </button>
+          <button
+            onClick={togglePlayPause}
+            disabled={!audioAvailable}
+            className="rounded-lg border border-[#b89965] bg-white px-2 py-2 text-xs font-medium disabled:opacity-50"
+          >
+            {audioState === "playing" ? <Pause className="mr-0.5 inline h-3.5 w-3.5" /> : <Play className="mr-0.5 inline h-3.5 w-3.5" />}
+            {audioState === "playing" ? "Pause" : "Play"}
+          </button>
+          <button
+            onClick={() => setAudioLoop((prev) => !prev)}
+            className={`rounded-lg border px-2 py-2 text-xs font-medium ${audioLoop ? "border-[#8f6422] bg-[#f7edd4] text-[#5f4318]" : "border-[#ccb385] bg-white text-[#6f5935]"}`}
+          >
+            Loop
+          </button>
+          <button
+            onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))}
+            disabled={isLast}
+            className="rounded-lg border border-[#ccb385] bg-white px-2 py-2 text-xs font-medium disabled:opacity-50"
+          >
+            Next
+            <ChevronRight className="ml-0.5 inline h-3.5 w-3.5" />
+          </button>
+        </div>
+        <div className="mt-1.5 grid grid-cols-2 gap-1.5 pb-[env(safe-area-inset-bottom)]">
+          <button
+            onClick={stopAudio}
+            disabled={!audioAvailable || audioState === "idle"}
+            className="rounded-lg border border-[#b89965] bg-white px-2 py-2 text-xs disabled:opacity-50"
+          >
+            <Square className="mr-0.5 inline h-3.5 w-3.5" />
+            Stop
+          </button>
+          <button
+            onClick={() => setConfirmLearnedOpen(true)}
+            className="rounded-lg border border-[#8f6422] bg-[#8f6422] px-2 py-2 text-xs font-semibold text-white"
+          >
+            Learned
+          </button>
+        </div>
+      </section>
+
       <audio
         ref={audioRef}
         src={audioSrc}
+        loop={audioLoop}
         preload="metadata"
         onLoadedMetadata={(e) => {
           setAudioAvailable(true);
