@@ -45,6 +45,8 @@ export default function Home() {
   const [audioAvailable, setAudioAvailable] = useState(true);
   const [audioState, setAudioState] = useState<"idle" | "playing" | "paused" | "unavailable">("idle");
   const [audioLoop, setAudioLoop] = useState(false);
+  const [autoAdvance, setAutoAdvance] = useState(false);
+  const [pendingAutoPlay, setPendingAutoPlay] = useState(false);
   const [audioCurrentTime, setAudioCurrentTime] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
   const [jumpRef, setJumpRef] = useState("");
@@ -218,10 +220,28 @@ export default function Home() {
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
     setAudioAvailable(true);
-    setAudioState("idle");
     setAudioCurrentTime(0);
     setAudioDuration(0);
-  }, [active.reference]);
+
+    if (pendingAutoPlay) {
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setAudioState("playing");
+          })
+          .catch(() => {
+            setAudioState("unavailable");
+            setAudioAvailable(false);
+          })
+          .finally(() => {
+            setPendingAutoPlay(false);
+          });
+      }
+    } else {
+      setAudioState("idle");
+    }
+  }, [active.reference, pendingAutoPlay]);
 
   if (!ready || !active) return <main className="min-h-screen bg-[#f2e8d0]" />;
 
@@ -270,36 +290,19 @@ export default function Home() {
               </button>
             </div>
 
-            <section className="mt-2 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-3">
-              {state.contentMode === "sanskrit" ? (
-                <p className={`${state.expandedText ? "" : "line-clamp-7"} whitespace-pre-line font-serif text-lg leading-[1.45] text-[#2f2415]`}>{active.sanskrit.replace(/\n{2,}/g, "\n")}</p>
-              ) : null}
-              {state.contentMode === "transliteration" ? (
-                <p className={`${state.expandedText ? "" : "line-clamp-7"} whitespace-pre-line text-sm leading-6 text-[#4e3d21]`}>{active.transliteration}</p>
-              ) : null}
-              {state.contentMode === "english" ? (
-                <>
+              <section className="mt-2 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-3">
+                {state.contentMode === "sanskrit" ? (
+                  <p className={`${state.expandedText ? "" : "line-clamp-7"} whitespace-pre-line text-center font-serif text-2xl leading-relaxed text-[#2f2415]`}>{active.sanskrit.replace(/\n{2,}/g, "\n")}</p>
+                ) : null}
+                {state.contentMode === "transliteration" ? (
+                  <p className={`${state.expandedText ? "" : "line-clamp-7"} whitespace-pre-line text-center text-sm leading-6 text-[#4e3d21]`}>{active.transliteration}</p>
+                ) : null}
+                {state.contentMode === "english" ? (
+                  <>
                   <p className={`${state.expandedText ? "" : "line-clamp-7"} text-sm leading-6 text-[#4e3d21]`}>{active.english}</p>
                   <p className="mt-1 text-[11px] text-[#7a6440]">Translation: {active.translationAuthor}</p>
                 </>
               ) : null}
-            </section>
-
-            <section className="mt-2 rounded-lg border border-[#dccca7] bg-[#fffaf0] px-2.5 py-2">
-              <div className="flex items-center gap-2">
-                <span className="w-10 text-[11px] text-[#6f5935]">{formatTime(audioCurrentTime)}</span>
-                <input
-                  type="range"
-                  min={0}
-                  max={audioDuration || 0}
-                  step={0.1}
-                  value={Math.min(audioCurrentTime, audioDuration || 0)}
-                  onChange={(e) => seekAudio(Number(e.target.value))}
-                  disabled={!audioAvailable || !audioDuration}
-                  className="h-2 w-full accent-[#8f6422] disabled:opacity-50"
-                />
-                <span className="w-10 text-right text-[11px] text-[#6f5935]">{formatTime(audioDuration)}</span>
-              </div>
             </section>
 
             {!audioAvailable ? (
@@ -556,17 +559,17 @@ export default function Home() {
             </p>
           ) : null}
 
-          <section className="mt-1.5 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:min-h-0 md:p-3">
-            {state.contentMode === "sanskrit" ? (
-              <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line font-serif text-base leading-[1.35] text-[#2f2415] md:text-xl`}>
-                {active.sanskrit.replace(/\n{2,}/g, "\n")}
-              </p>
-            ) : null}
-            {state.contentMode === "transliteration" ? (
-              <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line text-xs leading-6 text-[#4e3d21] md:text-sm`}>{active.transliteration}</p>
-            ) : null}
-            {state.contentMode === "english" ? (
-              <>
+            <section className="mt-1.5 rounded-xl border border-[#d7c296] bg-[#fffdf8] p-2.5 md:min-h-0 md:p-3">
+              {state.contentMode === "sanskrit" ? (
+                <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line text-center font-serif text-base leading-[1.35] text-[#2f2415] md:text-xl`}>
+                  {active.sanskrit.replace(/\n{2,}/g, "\n")}
+                </p>
+              ) : null}
+              {state.contentMode === "transliteration" ? (
+                <p className={`${state.expandedText ? "" : "line-clamp-8"} whitespace-pre-line text-center text-xs leading-6 text-[#4e3d21] md:text-sm`}>{active.transliteration}</p>
+              ) : null}
+              {state.contentMode === "english" ? (
+                <>
                 <p className={`${state.expandedText ? "" : "line-clamp-8"} text-xs leading-6 text-[#4e3d21] md:text-sm`}>{active.english}</p>
                 <p className="mt-1 text-[11px] text-[#7a6440]">Translation: {active.translationAuthor}</p>
               </>
@@ -595,53 +598,79 @@ export default function Home() {
         </article>
       </div>
 
-      <section className="fixed inset-x-2 bottom-2 z-30 rounded-2xl border border-[#c9b48d] bg-[#fff8e7]/95 p-2 shadow-[0_8px_24px_rgba(73,51,16,0.2)] backdrop-blur-sm md:hidden">
-        <div className="grid grid-cols-4 gap-1.5">
+      <section className="fixed inset-x-2 bottom-2 z-30 rounded-2xl border border-[#c9b48d] bg-[#fff8e7]/95 px-3 py-3 shadow-[0_8px_24px_rgba(73,51,16,0.2)] backdrop-blur-sm md:hidden">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="w-8 text-[10px] font-medium text-[#8f6422]">{formatTime(audioCurrentTime)}</span>
+          <input
+            type="range"
+            min={0}
+            max={audioDuration || 0}
+            step={0.1}
+            value={Math.min(audioCurrentTime, audioDuration || 0)}
+            onChange={(e) => seekAudio(Number(e.target.value))}
+            disabled={!audioAvailable || !audioDuration}
+            className="h-1.5 flex-1 cursor-pointer accent-[#8f6422] disabled:opacity-50"
+          />
+          <span className="w-8 text-right text-[10px] font-medium text-[#8f6422]">{formatTime(audioDuration)}</span>
+        </div>
+
+        <div className="grid grid-cols-4 gap-2">
           <button
             onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))}
             disabled={isFirst}
-            className="rounded-lg border border-[#ccb385] bg-white px-2 py-2 text-xs font-medium disabled:opacity-50"
+            className="rounded-lg border border-[#ccb385] bg-white px-1 py-2 text-[10px] font-medium disabled:opacity-50"
           >
-            <ChevronLeft className="mr-0.5 inline h-3.5 w-3.5" />
-            Back
+            <ChevronLeft className="mx-auto h-4 w-4" />
           </button>
           <button
             onClick={togglePlayPause}
             disabled={!audioAvailable}
-            className="rounded-lg border border-[#b89965] bg-white px-2 py-2 text-xs font-medium disabled:opacity-50"
+            className={`rounded-lg border px-1 py-2 text-[10px] font-medium disabled:opacity-50 ${
+              audioState === "playing" ? "border-[#8f6422] bg-[#8f6422] text-white" : "border-[#b89965] bg-white text-[#5f4318]"
+            }`}
           >
-            {audioState === "playing" ? <Pause className="mr-0.5 inline h-3.5 w-3.5" /> : <Play className="mr-0.5 inline h-3.5 w-3.5" />}
-            {audioState === "playing" ? "Pause" : "Play"}
+            {audioState === "playing" ? <Pause className="mx-auto h-4 w-4" /> : <Play className="mx-auto h-4 w-4" />}
           </button>
           <button
-            onClick={() => setAudioLoop((prev) => !prev)}
-            className={`rounded-lg border px-2 py-2 text-xs font-medium ${audioLoop ? "border-[#8f6422] bg-[#f7edd4] text-[#5f4318]" : "border-[#ccb385] bg-white text-[#6f5935]"}`}
+            onClick={() => {
+              if (!audioLoop && !autoAdvance) {
+                setAudioLoop(true); // Loop 1
+              } else if (audioLoop) {
+                setAudioLoop(false);
+                setAutoAdvance(true); // Auto Next
+              } else {
+                setAutoAdvance(false); // Off
+              }
+            }}
+            className={`rounded-lg border px-1 py-2 text-[10px] font-medium ${
+              audioLoop || autoAdvance ? "border-[#8f6422] bg-[#f7edd4] text-[#5f4318]" : "border-[#ccb385] bg-white text-[#6f5935]"
+            }`}
           >
-            Loop
+            {audioLoop ? "1" : autoAdvance ? "∞" : "Loop"}
+            <span className="block text-[9px] leading-none mt-0.5">{audioLoop ? "Loop" : autoAdvance ? "Auto" : "Off"}</span>
           </button>
           <button
             onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))}
             disabled={isLast}
-            className="rounded-lg border border-[#ccb385] bg-white px-2 py-2 text-xs font-medium disabled:opacity-50"
+            className="rounded-lg border border-[#ccb385] bg-white px-1 py-2 text-[10px] font-medium disabled:opacity-50"
           >
-            Next
-            <ChevronRight className="ml-0.5 inline h-3.5 w-3.5" />
+            <ChevronRight className="mx-auto h-4 w-4" />
           </button>
         </div>
-        <div className="mt-1.5 grid grid-cols-2 gap-1.5 pb-[env(safe-area-inset-bottom)]">
+
+        <div className="mt-2 grid grid-cols-2 gap-2 pb-[env(safe-area-inset-bottom)]">
           <button
             onClick={stopAudio}
             disabled={!audioAvailable || audioState === "idle"}
-            className="rounded-lg border border-[#b89965] bg-white px-2 py-2 text-xs disabled:opacity-50"
+            className="flex items-center justify-center gap-1.5 rounded-lg border border-[#b89965] bg-white px-2 py-2 text-xs font-medium disabled:opacity-50"
           >
-            <Square className="mr-0.5 inline h-3.5 w-3.5" />
-            Stop
+            <Square className="h-3.5 w-3.5" /> Stop
           </button>
           <button
             onClick={() => setConfirmLearnedOpen(true)}
             className="rounded-lg border border-[#8f6422] bg-[#8f6422] px-2 py-2 text-xs font-semibold text-white"
           >
-            Learned
+            Mark Learned
           </button>
         </div>
       </section>
@@ -658,11 +687,18 @@ export default function Home() {
         onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
         onPlay={() => setAudioState("playing")}
         onPause={() => setAudioState((prev) => (prev === "unavailable" ? prev : "paused"))}
-        onEnded={() => {
-          setAudioState("idle");
-          setAudioCurrentTime(0);
-        }}
-        onError={() => {
+          onEnded={() => {
+            if (audioLoop) {
+              // loop handled natively
+            } else if (autoAdvance && !isLast) {
+              setPendingAutoPlay(true);
+              setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }));
+            } else {
+              setAudioState("idle");
+              setAudioCurrentTime(0);
+            }
+          }}
+          onError={() => {
           setAudioAvailable(false);
           setAudioState("unavailable");
           setAudioCurrentTime(0);
