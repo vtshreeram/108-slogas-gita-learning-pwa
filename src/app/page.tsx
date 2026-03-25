@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AlertCircle, CheckCircle2, ChevronLeft, ChevronRight, Flame, Pause, Play, Square } from "lucide-react";
+import { AlertCircle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Flame, Pause, Play, Square } from "lucide-react";
 import { DAILY_TARGET, JOURNEY_DAYS, LoopStep, SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
@@ -272,7 +272,7 @@ export default function Home() {
         <article className="relative flex min-h-[420px] flex-col rounded-[2rem] border border-[#cbb389] bg-gradient-to-br from-[#fffdf8] to-[#f8ead0] p-5 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className="rounded-md bg-[#eee0c3] px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-[#6c532d]">Chapter {active.chapter} | Shloka {active.verse}</span>
+              <span className="rounded-md bg-[#eee0c3] px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-[#6c532d]">C:{active.chapter} S:{active.verse}</span>
               {fullDone(activeProgress) && <span className="flex items-center gap-1 text-[10px] font-bold text-[#356d25] bg-[#e3f0db] px-2 py-0.5 rounded-md"><CheckCircle2 className="h-3 w-3" /> MASTERED</span>}
             </div>
             <p className="text-[11px] font-medium text-[#8a6b3d]">Verse {activeGlobalIndex} / {TOTAL_SHLOKAS}</p>
@@ -294,27 +294,23 @@ export default function Home() {
 
           <div className="flex-1 flex flex-col justify-center items-center py-2 px-1 relative">
             {state.contentMode === "sanskrit" && (
-              <p className={`${state.expandedText ? "" : "line-clamp-[10]"} whitespace-pre-line text-center font-serif text-[1.4rem] leading-[1.6] text-[#332514]`}>
+              <p className="whitespace-pre-line text-center font-serif text-[1.4rem] leading-[1.6] text-[#332514]">
                 {active.sanskrit.replace(/\n{2,}/g, "\n")}
               </p>
             )}
             {state.contentMode === "transliteration" && (
-              <p className={`${state.expandedText ? "" : "line-clamp-[10]"} whitespace-pre-line text-center text-[1rem] leading-[1.8] font-medium text-[#46351d]`}>
+              <p className="whitespace-pre-line text-center text-[1rem] leading-[1.8] font-medium text-[#46351d]">
                 {active.transliteration}
               </p>
             )}
             {state.contentMode === "english" && (
               <div className="text-center">
-                <p className={`${state.expandedText ? "" : "line-clamp-[10]"} text-[0.95rem] leading-[1.7] text-[#46351d]`}>
+                <p className="text-[0.95rem] leading-[1.7] text-[#46351d]">
                   {active.english}
                 </p>
                 <p className="mt-4 text-[10px] uppercase tracking-wider font-semibold text-[#a38a60]">— {active.translationAuthor} —</p>
               </div>
             )}
-            
-            <button onClick={() => setState((prev) => ({ ...prev, expandedText: !prev.expandedText }))} className="mt-6 text-[10px] font-bold uppercase tracking-widest text-[#8f6422] hover:text-[#6a4918]">
-              {state.expandedText ? "Show Less" : "Read More"}
-            </button>
           </div>
 
           {!audioAvailable ? (
@@ -355,19 +351,22 @@ export default function Home() {
             <CheckCircle2 className="h-4 w-4" /> Mark as Learned
           </button>
           
-          <select
-            value={active.chapter}
-            onChange={(e) => {
-              const ch = Number(e.target.value);
-              const idx = SHLOKAS.findIndex((s) => s.chapter === ch);
-              if (idx >= 0) setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }));
-            }}
-            className="w-20 rounded-[1.25rem] border border-[#d8c39e] bg-[#fbf5e8] px-2 text-center text-xs font-bold text-[#654f2e] appearance-none"
-          >
-            {chapterList.map((chapter) => (
-              <option key={chapter} value={chapter}>Ch {chapter}</option>
-            ))}
-          </select>
+          <div className="relative w-20">
+            <select
+              value={active.chapter}
+              onChange={(e) => {
+                const ch = Number(e.target.value);
+                const idx = SHLOKAS.findIndex((s) => s.chapter === ch);
+                if (idx >= 0) setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }));
+              }}
+              className="h-full w-full appearance-none rounded-[1.25rem] border border-[#d8c39e] bg-[#fbf5e8] pl-2 pr-6 text-center text-xs font-bold text-[#654f2e]"
+            >
+              {chapterList.map((chapter) => (
+                <option key={chapter} value={chapter}>Ch {chapter}</option>
+              ))}
+            </select>
+            <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#654f2e]" />
+          </div>
         </div>
       </div>
 
