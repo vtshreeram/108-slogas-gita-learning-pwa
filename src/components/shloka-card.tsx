@@ -50,21 +50,21 @@ export function ShlokaCard({
 
   return (
     <article
-      className="flex flex-col rounded-3xl bg-white shadow-[0_4px_16px_rgba(143,100,34,0.1)] border border-[#f0d498] p-4 sm:p-6 min-h-[400px]"
+      className="flex flex-col rounded-3xl bg-white dark:bg-[#1e1710] shadow-[0_4px_16px_rgba(143,100,34,0.1)] border border-[#f0d498] dark:border-[#423321] p-4 sm:p-6 min-h-[400px]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold uppercase tracking-wider text-[#a88d63]">Ch {active.chapter} • Shloka {active.verse}</span>
-        <span className="text-xs font-medium text-[#c0a986]">#{activeGlobalIndex}</span>
+        <span className="text-xs font-semibold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e]">Ch {active.chapter} • Shloka {active.verse}</span>
+        <span className="text-xs font-medium text-[#c0a986] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
       </div>
 
-      <div className="flex bg-[#f9f1e1] rounded-full p-1 mb-4 border border-[#ebd6ab]">
+      <div className="flex bg-[#f9f1e1] dark:bg-[#2d2218] rounded-full p-1 mb-4 border border-[#ebd6ab] dark:border-[#423321]">
         {CONTENT_TABS.map((tab) => (
           <button
             key={tab.mode}
             onClick={() => setContentMode(tab.mode)}
-            className={`flex-1 rounded-full py-1.5 text-xs font-semibold transition-colors ${contentMode === tab.mode ? "bg-white text-[#5c431b] shadow-sm border border-[#e2cca4]" : "text-[#b0976e]"}`}
+            className={`flex-1 rounded-full py-1.5 text-xs font-semibold transition-colors ${contentMode === tab.mode ? "bg-white dark:bg-[#1e1710] text-[#5c431b] dark:text-[#f0e3ce] shadow-sm border border-[#e2cca4] dark:border-[#423321]" : "text-[#b0976e] dark:text-[#bda27e]"}`}
           >{tab.label}</button>
         ))}
       </div>
@@ -73,10 +73,10 @@ export function ShlokaCard({
         <div className="text-center w-full">
           {isHidden && contentMode !== "english" ? (
             <div className="flex flex-col items-center justify-center gap-4 py-8">
-              <p className="text-[#8a6b3d] text-sm font-medium">Try to recall the shloka from memory</p>
+              <p className="text-[#8a6b3d] dark:text-[#bda27e] text-sm font-medium">Try to recall the shloka from memory</p>
               <button
                 onClick={() => setIsRevealed(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-[#f4e9cb] rounded-full text-[#5c431b] font-semibold text-sm border border-[#ebd6ab] shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-[#f4e9cb] dark:bg-[#2d2218] rounded-full text-[#5c431b] dark:text-[#f0e3ce] font-semibold text-sm border border-[#ebd6ab] dark:border-[#423321] shadow-sm"
               >
                 <Eye className="w-4 h-4" />
                 Reveal text
@@ -85,18 +85,18 @@ export function ShlokaCard({
           ) : (
             <>
               {contentMode === "transliteration" && (
-                <p className="text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] break-words hyphens-auto">{active.transliteration}</p>
+                <p className="text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">{active.transliteration}</p>
               )}
               {contentMode === "english" && (
                 <div className="space-y-4">
-                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#fcf5e3] border border-[#f0d498] text-[#8f6422] mb-1">
+                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#fcf5e3] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] text-[#8f6422] dark:text-[#d4aa61] mb-1">
                     <Lightbulb className="w-4 h-4" />
                   </div>
-                  <p className="text-lg sm:text-xl leading-relaxed text-[#5c431b] font-medium">{active.english}</p>
+                  <p className="text-lg sm:text-xl leading-relaxed text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
                 </div>
               )}
               {contentMode === "sanskrit" && (
-                <p className="text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-devanagari)] font-bold text-[#3d2c10] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
+                <p className="text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-devanagari)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
               )}
             </>
           )}
@@ -104,7 +104,7 @@ export function ShlokaCard({
       </div>
 
       {!audioAvailable && (
-        <div className="mb-4 flex items-center gap-2 rounded-xl bg-[#fffcf5] border border-[#f0d498] p-3 text-sm text-[#8f6422]">
+        <div className="mb-4 flex items-center gap-2 rounded-xl bg-[#fffcf5] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 text-sm text-[#8f6422] dark:text-[#d4aa61]">
           <AlertCircle className="h-4 w-4 shrink-0" />
           <p>Audio currently unavailable</p>
         </div>
@@ -129,7 +129,7 @@ export function ShlokaCard({
                 }
               }}
               disabled={!isUnlocked}
-              className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] border-[#c1e0b0] text-[#2c5d1f]" : isUnlocked ? "bg-white border-[#e2cca4] text-[#8a6b3d] hover:bg-[#fcf5e3]" : "bg-[#f4e9cb]/50 border-transparent text-[#c0a986] opacity-50 cursor-not-allowed"}`}
+              className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] dark:bg-[#142610] border-[#c1e0b0] dark:border-[#284f1d] text-[#2c5d1f] dark:text-[#88c775]" : isUnlocked ? "bg-white dark:bg-[#1e1710] border-[#e2cca4] dark:border-[#423321] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]" : "bg-[#f4e9cb] dark:bg-[#2d2218]/50 border-transparent text-[#c0a986] dark:text-[#bda27e] opacity-50 cursor-not-allowed"}`}
             >
               <Icon className="mb-1 h-5 w-5" />
               <span className="text-[10px] font-semibold">{label}</span>

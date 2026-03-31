@@ -69,22 +69,22 @@ export default function Home() {
         <header className="flex items-center gap-2 px-1">
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline gap-2">
-              <h1 className="font-serif text-xl font-bold text-[#4a3615] leading-tight whitespace-nowrap">Bhagavad Gita</h1>
+              <h1 className="font-serif text-xl font-bold text-[#4a3615] dark:text-[#f0e3ce] leading-tight whitespace-nowrap">Bhagavad Gita</h1>
             </div>
-            <p className="text-xs text-[#a88d63] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
+            <p className="text-xs text-[#a88d63] dark:text-[#bda27e] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
-              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#4a3615] border border-[#f0d498] dark:border-[#5c431b] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#ebd6ab]"
+              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#d4aa61]"
             >
               {theme === "dark" ? <Moon className="h-3 w-3" /> : <Sun className="h-3 w-3" />}
             </button>
             <button
               onClick={() => setState(p => ({ ...p, activeMode: p.activeMode === "normal" ? "lite" : "normal" }))}
               aria-label={`Toggle mode (current: ${state.activeMode})`}
-              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#4a3615] border border-[#f0d498] dark:border-[#5c431b] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#ebd6ab] capitalize"
+              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#d4aa61] capitalize"
             >
               <Settings className="h-3 w-3" aria-hidden="true" />
               <span>{state.activeMode}</span>
@@ -92,7 +92,7 @@ export default function Home() {
             <button
               onClick={() => setStatsOpen(true)}
               aria-label="View Stats"
-              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#4a3615] border border-[#f0d498] dark:border-[#5c431b] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#ebd6ab]"
+              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#d4aa61]"
             >
               <Flame className="h-3 w-3" aria-hidden="true" />
               <span>{streak}d</span>
@@ -100,26 +100,26 @@ export default function Home() {
             <button
               onClick={() => setCompletedOpen(true)}
               aria-label={`View ${completedCount} completed shlokas`}
-              className="flex items-center gap-1 rounded-full bg-[#e8f5df] border border-[#c1e0b0] px-2 py-1 text-[11px] font-semibold text-[#2c5d1f]"
+              className="flex items-center gap-1 rounded-full bg-[#e8f5df] dark:bg-[#142610] border border-[#c1e0b0] dark:border-[#284f1d] px-2 py-1 text-[11px] font-semibold text-[#2c5d1f] dark:text-[#88c775]"
             >
               <CheckCircle2 className="h-3 w-3" aria-hidden="true" />
               <span>{completedCount}</span>
             </button>
-            <span className="text-[10px] font-semibold tabular-nums text-[#a88d63]">{progressPct}%</span>
+            <span className="text-[10px] font-semibold tabular-nums text-[#a88d63] dark:text-[#bda27e]">{progressPct}%</span>
           </div>
         </header>
 
-        <div className="flex items-center justify-between rounded-2xl bg-[#fffaf0] border border-[#f0d498] p-3 sm:p-4 shadow-[0_2px_8px_rgba(143,100,34,0.06)] relative overflow-hidden group">
+        <div className="flex items-center justify-between rounded-2xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 sm:p-4 shadow-[0_2px_8px_rgba(143,100,34,0.06)] relative overflow-hidden group">
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#fffaf0] via-[#fffaf0] to-transparent z-10 sm:hidden pointer-events-none" />
           <div className="flex items-center gap-3 relative z-20">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] shadow-inner border border-[#c4a062]">
-              <span className="font-serif text-lg font-bold text-[#4a3615]">ॐ</span>
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] shadow-inner border border-[#c4a062] dark:border-[#423321]">
+              <span className="font-serif text-lg font-bold text-[#4a3615] dark:text-[#f0e3ce]">ॐ</span>
             </div>
             <div>
-              <p className="text-[10px] font-bold tracking-widest text-[#a88d63] uppercase mb-0.5">Session Progress</p>
+              <p className="text-[10px] font-bold tracking-widest text-[#a88d63] dark:text-[#bda27e] uppercase mb-0.5">Session Progress</p>
               <div className="flex items-baseline gap-1.5">
-                <span className="text-sm font-semibold text-[#4a3615] tabular-nums">{completedCount} / {TOTAL_SHLOKAS}</span>
-                <span className="text-[10px] font-medium text-[#c0a986]">verses learned</span>
+                <span className="text-sm font-semibold text-[#4a3615] dark:text-[#f0e3ce] tabular-nums">{completedCount} / {TOTAL_SHLOKAS}</span>
+                <span className="text-[10px] font-medium text-[#c0a986] dark:text-[#bda27e]">verses learned</span>
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@ export default function Home() {
             onClick={() => !isFirst && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex - 1 }))}
             disabled={isFirst}
             aria-label="Previous shloka"
-            className="flex items-center gap-1 rounded-full bg-white border border-[#ebd6ab] px-3 py-1.5 text-xs font-semibold text-[#8a6b3d] shadow-sm disabled:opacity-40 disabled:bg-transparent"
+            className="flex items-center gap-1 rounded-full bg-white dark:bg-[#1e1710] border border-[#ebd6ab] dark:border-[#423321] px-3 py-1.5 text-xs font-semibold text-[#8a6b3d] dark:text-[#bda27e] shadow-sm disabled:opacity-40 disabled:bg-transparent"
           >
             <ChevronLeft className="h-4 w-4" />
             <span className="hidden sm:inline">Previous</span>
@@ -142,7 +142,7 @@ export default function Home() {
                 if (isMastered) undoLearnedForActive(active.id);
                 else setConfirmLearnedOpen(true);
               }}
-              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors ${isMastered ? "border-[#c1e0b0] bg-[#e8f5df] text-[#2c5d1f]" : "border-[#ebd6ab] bg-white text-[#8a6b3d] hover:bg-[#fcf5e3]"}`}
+              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors ${isMastered ? "border-[#c1e0b0] dark:border-[#284f1d] bg-[#e8f5df] dark:bg-[#142610] text-[#2c5d1f] dark:text-[#88c775]" : "border-[#ebd6ab] dark:border-[#423321] bg-white dark:bg-[#1e1710] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]"}`}
             >
               {isMastered ? <Undo2 className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
               <span className="hidden sm:inline">{isMastered ? "Undo Learned" : "Mark as Learned"}</span>
@@ -153,7 +153,7 @@ export default function Home() {
             onClick={() => !isLast && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex + 1 }))}
             disabled={isLast}
             aria-label="Next shloka"
-            className="flex items-center gap-1 rounded-full bg-white border border-[#ebd6ab] px-3 py-1.5 text-xs font-semibold text-[#8a6b3d] shadow-sm disabled:opacity-40 disabled:bg-transparent"
+            className="flex items-center gap-1 rounded-full bg-white dark:bg-[#1e1710] border border-[#ebd6ab] dark:border-[#423321] px-3 py-1.5 text-xs font-semibold text-[#8a6b3d] dark:text-[#bda27e] shadow-sm disabled:opacity-40 disabled:bg-transparent"
           >
             <span className="hidden sm:inline">Next</span>
             <ChevronRight className="h-4 w-4" />
@@ -186,7 +186,7 @@ export default function Home() {
 
       {/* Confirm learned dialog */}
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
-        <DialogContent className="max-w-sm border-[#ccb385] !bg-white p-5 shadow-2xl rounded-3xl">
+        <DialogContent className="max-w-sm border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
           <DialogHeader>
             <DialogTitle className="text-base font-semibold">Mark as Learned?</DialogTitle>
             <DialogDescription className="text-xs text-[#5f4a2b] leading-relaxed">
@@ -196,7 +196,7 @@ export default function Home() {
           <DialogFooter className="mt-3 gap-2">
             <button
               onClick={() => setConfirmLearnedOpen(false)}
-              className="rounded-xl border border-[#ccb385] bg-white px-4 py-2 text-xs font-semibold text-[#5c482a]"
+              className="rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
             >
               Cancel
             </button>
@@ -212,7 +212,7 @@ export default function Home() {
 
       {/* Completed shlokas dialog */}
       <Dialog open={completedOpen} onOpenChange={setCompletedOpen}>
-        <DialogContent className="max-w-lg border-[#ccb385] !bg-white p-5 shadow-2xl rounded-3xl">
+        <DialogContent className="max-w-lg border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
           <DialogHeader>
             <DialogTitle className="text-base font-semibold">Completed Shlokas</DialogTitle>
             <DialogDescription className="text-xs text-[#5f4a2b]">
@@ -220,7 +220,7 @@ export default function Home() {
             </DialogDescription>
           </DialogHeader>
           {completedShlokas.length === 0 ? (
-            <p className="text-xs text-[#6b5532] py-2">No completed shlokas yet. Keep practicing!</p>
+            <p className="text-xs text-[#6b5532] dark:text-[#bda27e] py-2">No completed shlokas yet. Keep practicing!</p>
           ) : (
             <div className="max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
               <div className="space-y-4">
@@ -229,15 +229,15 @@ export default function Home() {
                   if (chCompleted.length === 0) return null;
                   return (
                     <div key={ch}>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#a88d63] mb-2 border-b border-[#f0d498] pb-1">Chapter {ch}</h4>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] mb-2 border-b border-[#f0d498] dark:border-[#423321] pb-1">Chapter {ch}</h4>
                       <div className="grid grid-cols-5 sm:grid-cols-6 gap-2">
                         {chCompleted.map((s) => (
                           <button
                             key={s.id}
                             onClick={() => { setCompletedOpen(false); setState(prev => ({ ...prev, activeIndex: SHLOKAS.findIndex(x => x.id === s.id) })); }}
-                            className="flex flex-col items-center justify-center rounded-lg bg-[#fcebc4] border border-[#f0d498] py-2 transition-colors hover:bg-[#ebd6ab]"
+                            className="flex flex-col items-center justify-center rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] py-2 transition-colors hover:bg-[#ebd6ab]"
                           >
-                            <span className="text-[10px] font-semibold text-[#8f6422]">{s.chapter}.{s.verse}</span>
+                            <span className="text-[10px] font-semibold text-[#8f6422] dark:text-[#d4aa61]">{s.chapter}.{s.verse}</span>
                           </button>
                         ))}
                       </div>
@@ -250,34 +250,34 @@ export default function Home() {
         </DialogContent>
       </Dialog>
       <Dialog open={statsOpen} onOpenChange={setStatsOpen}>
-        <DialogContent className="max-w-sm border-[#ccb385] !bg-white dark:!bg-[#2f2415] p-5 shadow-2xl rounded-3xl">
+        <DialogContent className="max-w-sm border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
           <DialogHeader>
-            <DialogTitle className="text-base font-semibold text-[#4a3615] dark:text-[#ebd6ab]">Your Stats</DialogTitle>
+            <DialogTitle className="text-base font-semibold text-[#4a3615] dark:text-[#f0e3ce]">Your Stats</DialogTitle>
           </DialogHeader>
           <div className="grid grid-cols-2 gap-4 my-4">
-            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#3d2c10] border border-[#f0d498] dark:border-[#5c431b]">
-              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#ebd6ab]">{streak}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#c0a986]">Day Streak</span>
+            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{streak}</span>
+              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Day Streak</span>
             </div>
-            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#3d2c10] border border-[#f0d498] dark:border-[#5c431b]">
-              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#ebd6ab]">{completedCount}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#c0a986]">Mastered</span>
+            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{completedCount}</span>
+              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Mastered</span>
             </div>
-            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#3d2c10] border border-[#f0d498] dark:border-[#5c431b]">
-              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#ebd6ab]">{state.history ? Object.keys(state.history).length : 0}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#c0a986]">Total Attempts</span>
+            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{state.history ? Object.keys(state.history).length : 0}</span>
+              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Total Attempts</span>
             </div>
-            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#3d2c10] border border-[#f0d498] dark:border-[#5c431b]">
-              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#ebd6ab]">
+            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">
                 {state.history ? Math.round((completedCount / Math.max(1, Object.keys(state.history).length)) * 100) : 0}%
               </span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#c0a986]">Win Rate</span>
+              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Win Rate</span>
             </div>
           </div>
           <DialogFooter>
             <button
               onClick={handleExportBackup}
-              className="w-full flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#5c431b] bg-white dark:bg-[#3d2c10] px-4 py-2 text-xs font-semibold text-[#5c482a] dark:text-[#ebd6ab]"
+              className="w-full flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
             >
               <Download className="h-4 w-4" /> Export Backup
             </button>
