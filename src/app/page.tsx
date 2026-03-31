@@ -70,7 +70,6 @@ export default function Home() {
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline gap-2">
               <h1 className="font-serif text-xl font-bold text-[#4a3615] leading-tight whitespace-nowrap">Bhagavad Gita</h1>
-              <span className="text-[10px] font-medium tracking-[0.18em] text-[#8a6b3d] uppercase hidden sm:block">Daily Practice</span>
             </div>
             <p className="text-xs text-[#a88d63] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
           </div>
