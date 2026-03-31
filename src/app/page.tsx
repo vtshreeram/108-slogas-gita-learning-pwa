@@ -27,18 +27,21 @@ type StepProgress = Record<LoopStep, boolean>;
 type ItemProgress = Record<string, StepProgress>;
 
 type AppState = {
+  schemaVersion: number;
   startedAt: string;
   lastActiveDate: string;
+  lastPracticeDate: string;
+  streakCount: number;
   activeMode: "normal" | "lite";
   completed: ItemProgress;
   recallWins: number;
   recallAttempts: number;
   activeIndex: number;
   contentMode: "transliteration" | "english" | "sanskrit";
-  expandedText: boolean;
 };
 
-const STORAGE_KEY = "gita-learning-state-v3";
+const STORAGE_KEY = "gita-learning-state-v4";
+const SCHEMA_VERSION = 4;
 const LOOP_STEPS: LoopStep[] = ["listen", "repeat", "understand", "recall"];
 
 const STEP_CONFIG: Record<LoopStep, { Icon: React.ComponentType<{ className?: string }>; label: string }> = {
@@ -85,15 +88,17 @@ export default function Home() {
   const touchStartY = useRef<number | null>(null);
 
   const [state, setState] = useState<AppState>({
+    schemaVersion: SCHEMA_VERSION,
     startedAt: todayIso(),
     lastActiveDate: todayIso(),
+    lastPracticeDate: "",
+    streakCount: 0,
     activeMode: "normal",
     completed: {},
     recallWins: 0,
     recallAttempts: 0,
     activeIndex: 0,
     contentMode: "transliteration",
-    expandedText: false,
   });
 
   useEffect(() => {
@@ -101,21 +106,25 @@ export default function Home() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw) as AppState;
+        // Reject stale schema versions — start fresh
+        if (Number(parsed.schemaVersion) !== SCHEMA_VERSION) throw new Error("schema mismatch");
         const safeIndex = Math.max(0, Math.min(SHLOKAS.length - 1, Number(parsed.activeIndex ?? 0) || 0));
         setState({
+          schemaVersion: SCHEMA_VERSION,
           startedAt: parsed.startedAt ?? todayIso(),
           lastActiveDate: todayIso(),
+          lastPracticeDate: parsed.lastPracticeDate ?? "",
+          streakCount: Number(parsed.streakCount ?? 0) || 0,
           activeMode: parsed.activeMode === "lite" ? "lite" : "normal",
           completed: parsed.completed ?? {},
           recallWins: Number(parsed.recallWins ?? 0) || 0,
           recallAttempts: Number(parsed.recallAttempts ?? 0) || 0,
           activeIndex: safeIndex,
           contentMode: parsed.contentMode ?? "transliteration",
-          expandedText: Boolean(parsed.expandedText),
         });
       }
     } catch {
-      // defaults
+      // defaults — covers parse errors and schema mismatches
     } finally {
       setReady(true);
     }
@@ -133,8 +142,8 @@ export default function Home() {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }));
-      if (event.key === "ArrowLeft") setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }));
+      if (event.key === "ArrowRight") setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) }));
+      if (event.key === "ArrowLeft") setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) }));
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -142,7 +151,7 @@ export default function Home() {
 
   const completedCount = useMemo(() => SHLOKAS.filter((item) => fullDone(state.completed[item.id])).length, [state.completed]);
   const completedShlokas = useMemo(() => SHLOKAS.filter((item) => fullDone(state.completed[item.id])), [state.completed]);
-  const streak = Math.max(1, daysBetween(state.startedAt, todayIso()) + 1);
+  const streak = state.streakCount;
   const progressPct = Math.round((completedCount / TOTAL_SHLOKAS) * 100);
 
   const safeActiveIndex = Math.max(0, Math.min(SHLOKAS.length - 1, state.activeIndex));
@@ -171,9 +180,9 @@ export default function Home() {
     // Only horizontal swipes (not scrolling)
     if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
       if (deltaX < 0 && !isLast) {
-        setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }));
+        setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) }));
       } else if (deltaX > 0 && !isFirst) {
-        setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }));
+        setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) }));
       }
     }
     touchStartX.current = null;
@@ -183,12 +192,30 @@ export default function Home() {
   const markStep = (id: string, step: LoopStep) => {
     setState((prev) => {
       const current = prev.completed[id] ?? defaultStepProgress();
-      const updated = { ...current, [step]: !current[step] };
+      const isMarkingTrue = !current[step];
+      const updated = { ...current, [step]: isMarkingTrue };
+      // Streak: only update when marking recall true
+      let { lastPracticeDate, streakCount } = prev;
+      if (step === "recall" && isMarkingTrue) {
+        const today = todayIso();
+        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+        if (lastPracticeDate === today) {
+          // already practiced today, no change
+        } else if (lastPracticeDate === yesterday) {
+          streakCount += 1;
+        } else {
+          streakCount = 1;
+        }
+        lastPracticeDate = today;
+      }
       return {
         ...prev,
         completed: { ...prev.completed, [id]: updated },
-        recallAttempts: step === "recall" ? prev.recallAttempts + 1 : prev.recallAttempts,
-        recallWins: step === "recall" && !current.recall ? prev.recallWins + 1 : prev.recallWins,
+        // Only count attempts/wins on false→true transition
+        recallAttempts: step === "recall" && isMarkingTrue ? prev.recallAttempts + 1 : prev.recallAttempts,
+        recallWins: step === "recall" && isMarkingTrue ? prev.recallWins + 1 : prev.recallWins,
+        lastPracticeDate,
+        streakCount,
       };
     });
   };
@@ -202,6 +229,7 @@ export default function Home() {
       },
       activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1),
     }));
+
   };
 
   const undoLearnedForActive = () => {
@@ -298,12 +326,12 @@ export default function Home() {
           <div className="flex-1 min-w-0">
             <div className="flex items-baseline gap-2">
               <h1 className="font-serif text-xl font-bold text-[#4a3615] leading-tight whitespace-nowrap">Bhagavad Gita</h1>
-              <span className="text-[9px] font-medium tracking-[0.18em] text-[#8a6b3d] uppercase hidden xs:block">Daily Practice</span>
+              <span className="text-[10px] font-medium tracking-[0.18em] text-[#8a6b3d] uppercase hidden sm:block">Daily Practice</span>
             </div>
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
             <div className="flex items-center gap-1 rounded-full bg-[#fcebc4] border border-[#f0d498] px-2 py-1 text-[11px] font-semibold text-[#8f6422]">
-              <Flame className="h-3 w-3" />
+              <Flame className="h-3 w-3" aria-hidden="true" />
               <span>{streak}d</span>
             </div>
             <button
@@ -311,15 +339,22 @@ export default function Home() {
               aria-label={`View ${completedCount} completed shlokas`}
               className="flex items-center gap-1 rounded-full bg-[#e8f5df] border border-[#c1e0b0] px-2 py-1 text-[11px] font-semibold text-[#2c5d1f]"
             >
-              <CheckCircle2 className="h-3 w-3" />
+              <CheckCircle2 className="h-3 w-3" aria-hidden="true" />
               <span>{completedCount}</span>
             </button>
             <span className="text-[10px] font-semibold tabular-nums text-[#a88d63]">{progressPct}%</span>
           </div>
         </header>
 
-        {/* Journey progress bar — no label row */}
-        <div className="h-1 w-full rounded-full bg-[#e5d4b5] overflow-hidden">
+        {/* Journey progress bar */}
+        <div 
+          className="h-1 w-full rounded-full bg-[#e5d4b5] overflow-hidden"
+          role="progressbar"
+          aria-valuenow={progressPct}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label="Overall progress"
+        >
           <div
             className="h-full rounded-full bg-gradient-to-r from-[#8f6422] to-[#c49a3c] transition-all duration-700 ease-out"
             style={{ width: `${progressPct}%` }}
@@ -328,7 +363,7 @@ export default function Home() {
 
         {/* Main shloka card */}
         <article
-          className="relative flex flex-col rounded-[2rem] border border-[#cbb389] bg-gradient-to-br from-[#fffdf8] via-[#fdf8ee] to-[#f8ead0] p-4 shadow-md"
+          className="relative flex flex-col rounded-[2rem] border border-[#cbb389] bg-gradient-to-br from-[#fffdf8] via-[#fdf8ee] to-[#f8ead0] p-4 shadow-md shloka-swipe-area"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -348,10 +383,12 @@ export default function Home() {
           </div>
 
           {/* Content mode tabs */}
-          <div className="flex rounded-xl bg-[#e5d4b5]/50 p-1 mb-3">
+          <div className="flex rounded-xl bg-[#e5d4b5]/50 p-1 mb-3" role="tablist">
             {CONTENT_TABS.map(({ mode, label }) => (
               <button
                 key={mode}
+                role="tab"
+                aria-selected={state.contentMode === mode}
                 onClick={() => setState((prev) => ({ ...prev, contentMode: mode }))}
                 className={`flex-1 rounded-lg py-1.5 text-[11px] font-bold tracking-wide transition-all duration-150 ${
                   state.contentMode === mode
@@ -367,7 +404,7 @@ export default function Home() {
           {/* Text content */}
           <div className="flex flex-col justify-center items-center py-2 px-1">
             {state.contentMode === "sanskrit" && (
-              <p className="whitespace-pre-line text-center font-serif text-[1.45rem] leading-[1.85] text-[#332514]">
+              <p lang="sa" className="whitespace-pre-line text-center font-serif text-[1.45rem] leading-[1.85] text-[#332514]">
                 {active.sanskrit.replace(/\n{2,}/g, "\n")}
               </p>
             )}
@@ -403,7 +440,7 @@ export default function Home() {
 
           {/* Practice steps */}
           <div className="mt-3 border-t border-[#dfcdab]/60 pt-3">
-            <p className="text-center text-[9px] font-bold uppercase tracking-widest text-[#a88d63] mb-3">Practice Steps</p>
+            <p className="text-center text-[10px] font-bold uppercase tracking-widest text-[#a88d63] mb-3">Practice Steps</p>
             <div className="flex justify-between px-1">
               {LOOP_STEPS.map((step) => {
                 const isDone = activeProgress[step];
@@ -413,6 +450,7 @@ export default function Home() {
                     key={`${active.id}-${step}`}
                     onClick={() => markStep(active.id, step)}
                     aria-label={`${isDone ? "Unmark" : "Mark"} ${label}`}
+                    aria-pressed={isDone}
                     className="flex flex-col items-center gap-1.5 group"
                   >
                     <div className={`flex h-11 w-11 items-center justify-center rounded-2xl border-2 transition-all duration-200 ${
@@ -425,7 +463,7 @@ export default function Home() {
                         : <Icon className="h-[18px] w-[18px]" />
                       }
                     </div>
-                    <span className={`text-[9px] font-bold uppercase tracking-wider ${isDone ? "text-[#426b2d]" : "text-[#a88d63]"}`}>
+                    <span className={`text-[10px] font-bold uppercase tracking-wider ${isDone ? "text-[#426b2d]" : "text-[#a88d63]"}`}>
                       {label}
                     </span>
                   </button>
@@ -436,9 +474,9 @@ export default function Home() {
 
           {/* Swipe hint */}
           <div className="flex items-center justify-center gap-1.5 mt-2 select-none">
-            <ChevronLeft className={`h-3 w-3 transition-opacity ${isFirst ? "opacity-0" : "opacity-25 text-[#8a6b3d]"}`} />
-            <span className="text-[8px] font-medium tracking-[0.15em] uppercase text-[#8a6b3d] opacity-30">swipe to navigate</span>
-            <ChevronRight className={`h-3 w-3 transition-opacity ${isLast ? "opacity-0" : "opacity-25 text-[#8a6b3d]"}`} />
+            <ChevronLeft aria-hidden="true" className={`h-3 w-3 transition-opacity ${isFirst ? "opacity-0" : "opacity-25 text-[#8a6b3d]"}`} />
+            <span className="text-xs font-medium tracking-[0.15em] uppercase text-[#8a6b3d] opacity-60">swipe to navigate</span>
+            <ChevronRight aria-hidden="true" className={`h-3 w-3 transition-opacity ${isLast ? "opacity-0" : "opacity-25 text-[#8a6b3d]"}`} />
           </div>
         </article>
 
@@ -466,7 +504,7 @@ export default function Home() {
               onChange={(e) => {
                 const ch = Number(e.target.value);
                 const idx = SHLOKAS.findIndex((s) => s.chapter === ch);
-                if (idx >= 0) setState((prev) => ({ ...prev, activeIndex: idx, expandedText: false }));
+                if (idx >= 0) setState((prev) => ({ ...prev, activeIndex: idx }));
               }}
               aria-label="Jump to chapter"
               className="h-full w-full appearance-none rounded-[1.25rem] border border-[#d8c39e] bg-[#fbf5e8] pl-3 pr-7 text-center text-xs font-bold text-[#654f2e] cursor-pointer"
@@ -532,17 +570,17 @@ export default function Home() {
             {audioLoop ? (
               <>
                 <Repeat1 className="h-[18px] w-[18px]" />
-                <span className="text-[7px] font-bold tracking-widest">LOOP</span>
+                <span className="text-[10px] font-bold tracking-widest">LOOP</span>
               </>
             ) : autoAdvance ? (
               <>
                 <Repeat className="h-[18px] w-[18px]" />
-                <span className="text-[7px] font-bold tracking-widest">AUTO</span>
+                <span className="text-[10px] font-bold tracking-widest">AUTO</span>
               </>
             ) : (
               <>
                 <Repeat className="h-[18px] w-[18px] opacity-35" />
-                <span className="text-[7px] font-bold tracking-widest opacity-35">OFF</span>
+                <span className="text-[10px] font-bold tracking-widest opacity-35">OFF</span>
               </>
             )}
           </button>
@@ -550,7 +588,7 @@ export default function Home() {
           {/* Nav + Play */}
           <div className="flex items-center gap-4">
             <button
-              onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1), expandedText: false }))}
+              onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) }))}
               disabled={isFirst}
               aria-label="Previous verse"
               className="flex h-12 w-12 items-center justify-center rounded-full text-[#6a4f27] disabled:opacity-25 active:bg-[#f3e6cd] transition-colors"
@@ -571,7 +609,7 @@ export default function Home() {
             </button>
 
             <button
-              onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }))}
+              onClick={() => setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) }))}
               disabled={isLast}
               aria-label="Next verse"
               className="flex h-12 w-12 items-center justify-center rounded-full text-[#6a4f27] disabled:opacity-25 active:bg-[#f3e6cd] transition-colors"
@@ -609,7 +647,7 @@ export default function Home() {
             // loop handled natively
           } else if (autoAdvance && !isLast) {
             setPendingAutoPlay(true);
-            setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1), expandedText: false }));
+            setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) }));
           } else {
             setAudioState("idle");
             setAudioCurrentTime(0);
@@ -670,7 +708,7 @@ export default function Home() {
                       key={item.id}
                       onClick={() => {
                         setCompletedOpen(false);
-                        setState((prev) => ({ ...prev, activeIndex: Math.max(0, idx), expandedText: false }));
+                        setState((prev) => ({ ...prev, activeIndex: Math.max(0, idx) }));
                       }}
                       className="rounded-full border border-[#9fc48f] bg-[#edf8e7] px-2.5 py-1 text-[11px] font-medium text-[#315126] hover:bg-[#daf0d3] transition-colors"
                     >

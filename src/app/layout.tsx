@@ -29,8 +29,7 @@ export const viewport = {
   viewportFit: "cover",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -49,7 +48,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <VisualEditsMessenger />
+        {process.env.NODE_ENV === "development" && <VisualEditsMessenger />}
       </body>
     </html>
   );
