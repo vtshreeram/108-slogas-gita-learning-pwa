@@ -1,7 +1,8 @@
 import { z } from "zod";
 
 import { jsonOk } from "@/lib/server/response";
-import { parseJsonBody, withValidationError } from "@/lib/server/validation";
+import { parseJsonBody } from "@/lib/server/validation";
+import { routeHandler } from "@/lib/server/route";
 
 export const dynamic = "force-dynamic";
 
@@ -13,31 +14,23 @@ const echoBodySchema = z.object({
   message: z.string().trim().min(1).max(200),
 });
 
-export async function GET(request: Request) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const query = echoQuerySchema.parse({
-      message: searchParams.get("message"),
-    });
+export const GET = routeHandler(async (request: Request) => {
+  const { searchParams } = new URL(request.url);
+  const query = echoQuerySchema.parse({
+    message: searchParams.get("message"),
+  });
 
-    return jsonOk({
-      echo: query.message,
-      source: "query",
-    });
-  } catch (error) {
-    return withValidationError(error);
-  }
-}
+  return jsonOk({
+    echo: query.message,
+    source: "query",
+  });
+});
 
-export async function POST(request: Request) {
-  try {
-    const body = await parseJsonBody(request, echoBodySchema);
+export const POST = routeHandler(async (request: Request) => {
+  const body = await parseJsonBody(request, echoBodySchema);
 
-    return jsonOk({
-      echo: body.message,
-      source: "body",
-    });
-  } catch (error) {
-    return withValidationError(error);
-  }
-}
+  return jsonOk({
+    echo: body.message,
+    source: "body",
+  });
+});
