@@ -8,6 +8,7 @@ const notoSansDevanagari = Noto_Sans_Devanagari({
 });
 import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,8 +54,15 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansDevanagari.variable} antialiased`}>
-        {children}
-        {process.env.NODE_ENV === "development" && <VisualEditsMessenger />}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          {process.env.NODE_ENV === "development" && <VisualEditsMessenger />}
+        </ThemeProvider>
       </body>
     </html>
   );

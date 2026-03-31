@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Flame, CheckCircle2, ChevronLeft, ChevronRight, CheckCircle, Undo2, ChevronDown, Settings } from "lucide-react";
+import { Flame, CheckCircle2, ChevronLeft, ChevronRight, CheckCircle, Undo2, ChevronDown, Settings, Download, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
@@ -11,7 +12,27 @@ import { AudioPlayer } from "@/components/audio-player";
 export default function Home() {
   const [confirmLearnedOpen, setConfirmLearnedOpen] = useState(false);
   const [completedOpen, setCompletedOpen] = useState(false);
+  const [statsOpen, setStatsOpen] = useState(false);
   const [audioAvailable, setAudioAvailable] = useState(true);
+  const { theme, setTheme } = useTheme();
+
+  const handleExportBackup = () => {
+    try {
+      const data = localStorage.getItem("gita-108-state");
+      if (!data) return;
+      const blob = new Blob([data], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `gita-108-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      console.error("Backup failed", e);
+    }
+  };
 
   const {
     ready, state, setState,
@@ -43,7 +64,7 @@ export default function Home() {
   const todayLearnedStr = state.lastPracticeDate === todayIso() ? `${dailyGoal} / ${dailyGoal}` : `0 / ${dailyGoal}`;
 
   return (
-    <main className="min-h-screen overflow-y-auto bg-[radial-gradient(circle_at_20%_10%,_#fff7df_0%,_#f4e9cb_45%,_#e8d9b4_100%)] px-3 pb-40 text-[#2f2415]" style={{ paddingTop: "calc(env(safe-area-inset-top) + 20px)" }}>
+    <main className="min-h-screen overflow-y-auto bg-background text-foreground px-3 pb-40" style={{ paddingTop: "calc(env(safe-area-inset-top) + 20px)" }}>
       <div className="mx-auto flex w-full max-w-lg flex-col gap-2">
         <header className="flex items-center gap-2 px-1">
           <div className="flex-1 min-w-0">
@@ -55,17 +76,28 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
             <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              aria-label="Toggle theme"
+              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#4a3615] border border-[#f0d498] dark:border-[#5c431b] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#ebd6ab]"
+            >
+              {theme === "dark" ? <Moon className="h-3 w-3" /> : <Sun className="h-3 w-3" />}
+            </button>
+            <button
               onClick={() => setState(p => ({ ...p, activeMode: p.activeMode === "normal" ? "lite" : "normal" }))}
               aria-label={`Toggle mode (current: ${state.activeMode})`}
-              className="flex items-center gap-1 rounded-full bg-[#fcebc4] border border-[#f0d498] px-2 py-1 text-[11px] font-semibold text-[#8f6422] capitalize"
+              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#4a3615] border border-[#f0d498] dark:border-[#5c431b] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#ebd6ab] capitalize"
             >
               <Settings className="h-3 w-3" aria-hidden="true" />
               <span>{state.activeMode}</span>
             </button>
-            <div className="flex items-center gap-1 rounded-full bg-[#fcebc4] border border-[#f0d498] px-2 py-1 text-[11px] font-semibold text-[#8f6422]">
+            <button
+              onClick={() => setStatsOpen(true)}
+              aria-label="View Stats"
+              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#4a3615] border border-[#f0d498] dark:border-[#5c431b] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#ebd6ab]"
+            >
               <Flame className="h-3 w-3" aria-hidden="true" />
               <span>{streak}d</span>
-            </div>
+            </button>
             <button
               onClick={() => setCompletedOpen(true)}
               aria-label={`View ${completedCount} completed shlokas`}
@@ -216,6 +248,41 @@ export default function Home() {
               </div>
             </div>
           )}
+        </DialogContent>
+      </Dialog>
+      <Dialog open={statsOpen} onOpenChange={setStatsOpen}>
+        <DialogContent className="max-w-sm border-[#ccb385] !bg-white dark:!bg-[#2f2415] p-5 shadow-2xl rounded-3xl">
+          <DialogHeader>
+            <DialogTitle className="text-base font-semibold text-[#4a3615] dark:text-[#ebd6ab]">Your Stats</DialogTitle>
+          </DialogHeader>
+          <div className="grid grid-cols-2 gap-4 my-4">
+            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#3d2c10] border border-[#f0d498] dark:border-[#5c431b]">
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#ebd6ab]">{streak}</span>
+              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#c0a986]">Day Streak</span>
+            </div>
+            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#3d2c10] border border-[#f0d498] dark:border-[#5c431b]">
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#ebd6ab]">{completedCount}</span>
+              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#c0a986]">Mastered</span>
+            </div>
+            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#3d2c10] border border-[#f0d498] dark:border-[#5c431b]">
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#ebd6ab]">{state.history ? Object.keys(state.history).length : 0}</span>
+              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#c0a986]">Total Attempts</span>
+            </div>
+            <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#3d2c10] border border-[#f0d498] dark:border-[#5c431b]">
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#ebd6ab]">
+                {state.history ? Math.round((completedCount / Math.max(1, Object.keys(state.history).length)) * 100) : 0}%
+              </span>
+              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#c0a986]">Win Rate</span>
+            </div>
+          </div>
+          <DialogFooter>
+            <button
+              onClick={handleExportBackup}
+              className="w-full flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#5c431b] bg-white dark:bg-[#3d2c10] px-4 py-2 text-xs font-semibold text-[#5c482a] dark:text-[#ebd6ab]"
+            >
+              <Download className="h-4 w-4" /> Export Backup
+            </button>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     </main>

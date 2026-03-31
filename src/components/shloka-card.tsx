@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { AlertCircle, Lightbulb } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { AlertCircle, Lightbulb, Eye } from "lucide-react";
 import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, fullDone, StepProgress } from "@/lib/constants";
 import { Shloka } from "@/lib/shlokas";
 
@@ -23,6 +23,13 @@ export function ShlokaCard({
 }: ShlokaCardProps) {
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  useEffect(() => {
+    setIsRevealed(false);
+  }, [active.id]);
+
+  const isHidden = activeProgress.listen && activeProgress.repeat && activeProgress.understand && !activeProgress.recall && !isRevealed;
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -64,19 +71,34 @@ export function ShlokaCard({
 
       <div className="flex-1 flex flex-col justify-center items-center py-6">
         <div className="text-center w-full">
-          {contentMode === "transliteration" && (
-            <p className="text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] break-words hyphens-auto">{active.transliteration}</p>
-          )}
-          {contentMode === "english" && (
-            <div className="space-y-4">
-              <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#fcf5e3] border border-[#f0d498] text-[#8f6422] mb-1">
-                <Lightbulb className="w-4 h-4" />
-              </div>
-              <p className="text-lg sm:text-xl leading-relaxed text-[#5c431b] font-medium">{active.english}</p>
+          {isHidden && contentMode !== "english" ? (
+            <div className="flex flex-col items-center justify-center gap-4 py-8">
+              <p className="text-[#8a6b3d] text-sm font-medium">Try to recall the shloka from memory</p>
+              <button
+                onClick={() => setIsRevealed(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-[#f4e9cb] rounded-full text-[#5c431b] font-semibold text-sm border border-[#ebd6ab] shadow-sm"
+              >
+                <Eye className="w-4 h-4" />
+                Reveal text
+              </button>
             </div>
-          )}
-          {contentMode === "sanskrit" && (
-            <p className="text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-devanagari)] font-bold text-[#3d2c10] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
+          ) : (
+            <>
+              {contentMode === "transliteration" && (
+                <p className="text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] break-words hyphens-auto">{active.transliteration}</p>
+              )}
+              {contentMode === "english" && (
+                <div className="space-y-4">
+                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#fcf5e3] border border-[#f0d498] text-[#8f6422] mb-1">
+                    <Lightbulb className="w-4 h-4" />
+                  </div>
+                  <p className="text-lg sm:text-xl leading-relaxed text-[#5c431b] font-medium">{active.english}</p>
+                </div>
+              )}
+              {contentMode === "sanskrit" && (
+                <p className="text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-devanagari)] font-bold text-[#3d2c10] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -97,7 +119,15 @@ export function ShlokaCard({
           return (
             <button
               key={step}
-              onClick={() => isUnlocked && onMarkStep(active.id, step)}
+              onClick={() => {
+                if (isUnlocked) {
+                  if (step === "recall" && isHidden) {
+                    setIsRevealed(true);
+                  } else {
+                    onMarkStep(active.id, step);
+                  }
+                }
+              }}
               disabled={!isUnlocked}
               className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] border-[#c1e0b0] text-[#2c5d1f]" : isUnlocked ? "bg-white border-[#e2cca4] text-[#8a6b3d] hover:bg-[#fcf5e3]" : "bg-[#f4e9cb]/50 border-transparent text-[#c0a986] opacity-50 cursor-not-allowed"}`}
             >
