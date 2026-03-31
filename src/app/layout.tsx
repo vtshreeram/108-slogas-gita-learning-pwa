@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_Devanagari } from "next/font/google";
+
+const notoSansDevanagari = Noto_Sans_Devanagari({
+  variable: "--font-noto-sans-devanagari",
+  subsets: ["devanagari"],
+});
 import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,8 +36,7 @@ export const viewport = {
   viewportFit: "cover",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -47,9 +53,16 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
-        <VisualEditsMessenger />
+      <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansDevanagari.variable} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          {process.env.NODE_ENV === "development" && <VisualEditsMessenger />}
+        </ThemeProvider>
       </body>
     </html>
   );
