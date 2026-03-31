@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Flame, CheckCircle2, ChevronLeft, ChevronRight, CheckCircle, Undo2, ChevronDown } from "lucide-react";
+import { Flame, CheckCircle2, ChevronLeft, ChevronRight, CheckCircle, Undo2, ChevronDown, Settings } from "lucide-react";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
@@ -39,6 +39,9 @@ export default function Home() {
 
   const audioSrc = `/audio/${active.reference}.mp3`;
 
+  const todayIso = () => new Date().toISOString().slice(0, 10);
+  const todayLearnedStr = state.lastPracticeDate === todayIso() ? `${dailyGoal} / ${dailyGoal}` : `0 / ${dailyGoal}`;
+
   return (
     <main className="min-h-screen overflow-y-auto bg-[radial-gradient(circle_at_20%_10%,_#fff7df_0%,_#f4e9cb_45%,_#e8d9b4_100%)] px-3 pb-40 text-[#2f2415]" style={{ paddingTop: "calc(env(safe-area-inset-top) + 20px)" }}>
       <div className="mx-auto flex w-full max-w-lg flex-col gap-2">
@@ -48,8 +51,17 @@ export default function Home() {
               <h1 className="font-serif text-xl font-bold text-[#4a3615] leading-tight whitespace-nowrap">Bhagavad Gita</h1>
               <span className="text-[10px] font-medium tracking-[0.18em] text-[#8a6b3d] uppercase hidden sm:block">Daily Practice</span>
             </div>
+            <p className="text-xs text-[#a88d63] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
           </div>
           <div className="flex items-center gap-1.5 shrink-0">
+            <button
+              onClick={() => setState(p => ({ ...p, activeMode: p.activeMode === "normal" ? "lite" : "normal" }))}
+              aria-label={`Toggle mode (current: ${state.activeMode})`}
+              className="flex items-center gap-1 rounded-full bg-[#fcebc4] border border-[#f0d498] px-2 py-1 text-[11px] font-semibold text-[#8f6422] capitalize"
+            >
+              <Settings className="h-3 w-3" aria-hidden="true" />
+              <span>{state.activeMode}</span>
+            </button>
             <div className="flex items-center gap-1 rounded-full bg-[#fcebc4] border border-[#f0d498] px-2 py-1 text-[11px] font-semibold text-[#8f6422]">
               <Flame className="h-3 w-3" aria-hidden="true" />
               <span>{streak}d</span>
@@ -80,16 +92,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <button
-            onClick={() => setState(p => ({ ...p, activeMode: p.activeMode === "normal" ? "lite" : "normal" }))}
-            className="flex flex-col items-center gap-1 shrink-0 px-2 group-hover:bg-[#fcf5e3] rounded-lg transition-colors py-1 relative z-20"
-          >
-            <span className="text-[10px] font-medium text-[#c0a986] whitespace-nowrap hidden sm:block">Practice Mode</span>
-            <div className="flex items-center gap-1.5 bg-white border border-[#ebd6ab] rounded-full px-2 py-1 shadow-sm">
-              <span className="text-[10px] font-bold text-[#8a6b3d]">{state.activeMode === "normal" ? "Normal" : "Lite"}</span>
-              <ChevronDown className="h-3 w-3 text-[#c0a986]" />
-            </div>
-          </button>
         </div>
 
         <div className="flex items-center justify-between px-1 mb-1 mt-2">

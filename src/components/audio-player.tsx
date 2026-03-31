@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Play, Pause, Square, Repeat, Repeat1, Undo2 } from "lucide-react";
+import { Play, Pause, Square, Repeat, Repeat1, Undo2, Loader2, AlertCircle } from "lucide-react";
 
 type AudioPlayerProps = {
   audioSrc: string;
@@ -22,6 +22,7 @@ export function AudioPlayer({
   const [pendingAutoPlay, setPendingAutoPlay] = useState(false);
   const [audioCurrentTime, setAudioCurrentTime] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const playAudio = async () => {
@@ -98,6 +99,8 @@ export function AudioPlayer({
           ref={audioRef}
           src={audioSrc}
           preload="metadata"
+          onLoadStart={() => setIsLoading(true)}
+          onCanPlay={() => setIsLoading(false)}
           onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
           onDurationChange={(e) => setAudioDuration(e.currentTarget.duration)}
           onEnded={() => {
@@ -141,8 +144,8 @@ export function AudioPlayer({
             <button onClick={onPrev} disabled={isFirst} aria-label="Previous shloka" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] disabled:opacity-30">
               <Undo2 className="h-6 w-6" />
             </button>
-            <button onClick={togglePlayPause} disabled={!audioAvailable} className="flex h-16 w-16 items-center justify-center rounded-full bg-[#4a3615] text-[#fcebc4] shadow-[0_4px_12px_rgba(74,54,21,0.2)] disabled:opacity-50 transition-transform active:scale-95">
-              {audioState === "playing" ? <Pause className="h-7 w-7 fill-current" /> : <Play className="h-7 w-7 fill-current ml-1" />}
+            <button onClick={togglePlayPause} disabled={!audioAvailable || isLoading} className="flex h-16 w-16 items-center justify-center rounded-full bg-[#4a3615] text-[#fcebc4] shadow-[0_4px_12px_rgba(74,54,21,0.2)] disabled:opacity-50 transition-transform active:scale-95">
+              {!audioAvailable ? <AlertCircle className="h-7 w-7 text-red-400" /> : isLoading ? <Loader2 className="h-7 w-7 animate-spin" /> : audioState === "playing" ? <Pause className="h-7 w-7 fill-current" /> : <Play className="h-7 w-7 fill-current ml-1" />}
             </button>
             <button onClick={stopAudio} disabled={audioState === "idle" || !audioAvailable} aria-label="Stop playback" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] disabled:opacity-30">
               <Square className="h-5 w-5 fill-current" />

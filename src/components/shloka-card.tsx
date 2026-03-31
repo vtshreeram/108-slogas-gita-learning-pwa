@@ -76,7 +76,7 @@ export function ShlokaCard({
             </div>
           )}
           {contentMode === "sanskrit" && (
-            <p className="text-[26px] sm:text-[32px] leading-[1.8] font-sanskrit font-bold text-[#3d2c10] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
+            <p className="text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-devanagari)] font-bold text-[#3d2c10] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
           )}
         </div>
       </div>
