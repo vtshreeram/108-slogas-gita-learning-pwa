@@ -101,6 +101,8 @@ export function AudioPlayer({
           preload="metadata"
           onLoadStart={() => setIsLoading(true)}
           onCanPlay={() => setIsLoading(false)}
+          onWaiting={() => setIsLoading(true)}
+          onPlaying={() => setIsLoading(false)}
           onPlay={() => setAudioState("playing")}
           onPause={() => setAudioState((prev) => prev === "unavailable" ? prev : "paused")}
           onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
@@ -146,7 +148,7 @@ export function AudioPlayer({
             <button onClick={onPrev} disabled={isFirst} aria-label="Previous shloka" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
               <Undo2 className="h-6 w-6" />
             </button>
-            <button onClick={togglePlayPause} disabled={!audioAvailable || isLoading} className="flex h-16 w-16 items-center justify-center rounded-full bg-[#4a3615] dark:bg-[#d4aa61] dark:text-[#1e1710] text-[#fcebc4] shadow-[0_4px_12px_rgba(74,54,21,0.2)] disabled:opacity-50 transition-transform active:scale-95">
+            <button onClick={togglePlayPause} disabled={!audioAvailable} className="flex h-16 w-16 items-center justify-center rounded-full bg-[#4a3615] dark:bg-[#d4aa61] dark:text-[#1e1710] text-[#fcebc4] shadow-[0_4px_12px_rgba(74,54,21,0.2)] disabled:opacity-50 transition-transform active:scale-95">
               {!audioAvailable ? <AlertCircle className="h-7 w-7 text-red-400" /> : isLoading ? <Loader2 className="h-7 w-7 animate-spin" /> : audioState === "playing" ? <Pause className="h-7 w-7 fill-current" /> : <Play className="h-7 w-7 fill-current ml-1" />}
             </button>
             <button onClick={stopAudio} disabled={audioState === "idle" || !audioAvailable} aria-label="Stop playback" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
