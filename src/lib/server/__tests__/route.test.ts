@@ -14,7 +14,7 @@ vi.mock('next/server', () => {
 describe('routeHandler', () => {
   it('returns successful response', async () => {
     const handler = routeHandler(async () => {
-      return { ok: true } as any;
+      return { ok: true } as unknown as Response;
     });
     const result = await handler({} as Request, {});
     expect(result).toEqual({ ok: true });
@@ -23,7 +23,7 @@ describe('routeHandler', () => {
   it('catches and formats validation errors', async () => {
     const handler = routeHandler(async () => {
       z.string().parse(123);
-      return {} as any;
+      return {} as unknown as Response;
     });
     
     await handler({} as Request, {});
