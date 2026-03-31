@@ -99,8 +99,6 @@ export function AudioPlayer({
           ref={audioRef}
           src={audioSrc}
           preload="metadata"
-          onLoadStart={() => setIsLoading(true)}
-          onCanPlay={() => setIsLoading(false)}
           onWaiting={() => setIsLoading(true)}
           onPlaying={() => setIsLoading(false)}
           onPlay={() => setAudioState("playing")}
@@ -112,7 +110,7 @@ export function AudioPlayer({
             else if (autoAdvance && !isLast) { setPendingAutoPlay(true); onNext(); }
             else setAudioState("idle");
           }}
-          onError={() => { setAudioAvailable(false); setAudioState("unavailable"); }}
+          onError={() => { setAudioAvailable(false); setAudioState("unavailable"); setIsLoading(false); }}
         />
 
         <div className="flex items-center gap-3">
