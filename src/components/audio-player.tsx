@@ -101,6 +101,8 @@ export function AudioPlayer({
           preload="metadata"
           onLoadStart={() => setIsLoading(true)}
           onCanPlay={() => setIsLoading(false)}
+          onPlay={() => setAudioState("playing")}
+          onPause={() => setAudioState((prev) => prev === "unavailable" ? prev : "paused")}
           onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
           onDurationChange={(e) => setAudioDuration(e.currentTarget.duration)}
           onEnded={() => {
