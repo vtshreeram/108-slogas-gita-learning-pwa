@@ -85,7 +85,7 @@ export function ShlokaCard({
           ) : (
             <>
               {contentMode === "transliteration" && (
-                <p className="text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">{active.transliteration}</p>
+                <p className="whitespace-pre-wrap text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">{active.transliteration}</p>
               )}
               {contentMode === "english" && (
                 <div className="space-y-4">
@@ -96,7 +96,7 @@ export function ShlokaCard({
                 </div>
               )}
               {contentMode === "sanskrit" && (
-                <p className="text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-devanagari)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
+                <p className="whitespace-pre-wrap text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-devanagari)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
               )}
             </>
           )}
