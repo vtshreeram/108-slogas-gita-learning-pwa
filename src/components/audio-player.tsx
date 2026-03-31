@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Play, Pause, Square, Repeat, Repeat1, Undo2, Loader2, AlertCircle } from "lucide-react";
+import { Play, Pause, Square, Repeat, Repeat1, Undo2, Loader2, AlertCircle, SkipBack, SkipForward } from "lucide-react";
 
 type AudioPlayerProps = {
   audioSrc: string;
@@ -144,18 +144,18 @@ export function AudioPlayer({
 
           <div className="flex items-center gap-4">
             <button onClick={onPrev} disabled={isFirst} aria-label="Previous shloka" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
-              <Undo2 className="h-6 w-6" />
+              <SkipBack className="h-6 w-6 fill-current" />
             </button>
             <button onClick={togglePlayPause} disabled={!audioAvailable} className="flex h-16 w-16 items-center justify-center rounded-full bg-[#4a3615] dark:bg-[#d4aa61] dark:text-[#1e1710] text-[#fcebc4] shadow-[0_4px_12px_rgba(74,54,21,0.2)] disabled:opacity-50 transition-transform active:scale-95">
               {!audioAvailable ? <AlertCircle className="h-7 w-7 text-red-400" /> : isLoading ? <Loader2 className="h-7 w-7 animate-spin" /> : audioState === "playing" ? <Pause className="h-7 w-7 fill-current" /> : <Play className="h-7 w-7 fill-current ml-1" />}
             </button>
-            <button onClick={stopAudio} disabled={audioState === "idle" || !audioAvailable} aria-label="Stop playback" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
-              <Square className="h-5 w-5 fill-current" />
+            <button onClick={() => { setPendingAutoPlay(true); onNext(); }} disabled={isLast} aria-label="Next shloka" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
+              <SkipForward className="h-6 w-6 fill-current" />
             </button>
           </div>
 
-          <button onClick={() => { setPendingAutoPlay(true); onNext(); }} disabled={isLast} aria-label="Next shloka" className="flex h-10 w-10 items-center justify-center rounded-full text-[#b0976e] dark:text-[#bda27e] disabled:opacity-30">
-            <Undo2 className="h-5 w-5 rotate-180" />
+          <button onClick={stopAudio} disabled={audioState === "idle" || !audioAvailable} aria-label="Stop playback" className="flex h-10 w-10 items-center justify-center rounded-full text-[#b0976e] dark:text-[#bda27e] disabled:opacity-30">
+            <Square className="h-5 w-5 fill-current" />
           </button>
         </div>
       </div>
