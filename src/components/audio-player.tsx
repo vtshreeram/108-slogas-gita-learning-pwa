@@ -27,7 +27,30 @@ export function AudioPlayer({
 
   const playAudio = async () => {
     if (!audioRef.current || !audioAvailable) return;
-    try { await audioRef.current.play(); setAudioState("playing"); }
+    const el = audioRef.current;
+    if (el.readyState < 2) {
+      setIsLoading(true);
+      try {
+        await new Promise<void>((resolve, reject) => {
+          const timeout = setTimeout(() => { cleanup(); reject(); }, 10000);
+          const onReady = () => { cleanup(); resolve(); };
+          const onErr = () => { cleanup(); reject(); };
+          const cleanup = () => {
+            clearTimeout(timeout);
+            el.removeEventListener("canplay", onReady);
+            el.removeEventListener("error", onErr);
+          };
+          el.addEventListener("canplay", onReady, { once: true });
+          el.addEventListener("error", onErr, { once: true });
+        });
+      } catch {
+        setIsLoading(false);
+        setAudioAvailable(false);
+        setAudioState("unavailable");
+        return;
+      }
+    }
+    try { await el.play(); setAudioState("playing"); }
     catch { setAudioAvailable(false); setAudioState("unavailable"); }
   };
 
@@ -78,13 +101,7 @@ export function AudioPlayer({
     setAudioDuration(0);
 
     if (pendingAutoPlay) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => { setAudioState("playing"); })
-          .catch(() => { setAudioState("unavailable"); setAudioAvailable(false); })
-          .finally(() => { setPendingAutoPlay(false); });
-      }
+      playAudio().finally(() => setPendingAutoPlay(false));
     } else {
       setAudioState("idle");
     }
@@ -101,6 +118,7 @@ export function AudioPlayer({
           preload="metadata"
           onWaiting={() => setIsLoading(true)}
           onPlaying={() => setIsLoading(false)}
+          onCanPlay={() => setIsLoading(false)}
           onPlay={() => setAudioState("playing")}
           onPause={() => setAudioState((prev) => prev === "unavailable" ? prev : "paused")}
           onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
