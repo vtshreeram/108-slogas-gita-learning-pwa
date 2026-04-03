@@ -126,26 +126,9 @@ export function ShlokaCard({
           ) : (
             <>
               {contentMode === "transliteration" && (
-                <div className="text-left inline-block text-[18px] sm:text-[20px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">
-                  {(() => {
-                    let count = 0;
-                    return active.transliteration.split('\n').map((line, i) => {
-                      const isSpeaker = line.toLowerCase().includes("uvāca");
-                      const isEmpty = line.trim() === "";
-                      let isIndented = false;
-                      if (!isSpeaker && !isEmpty) {
-                        isIndented = count % 2 === 1;
-                        count++;
-                      }
-                      return (
-                        <div key={i} className={isIndented ? "pl-6 sm:pl-8" : ""}>
-                          {line}
-                          {isEmpty && <br />}
-                        </div>
-                      );
-                    });
-                  })()}
-                </div>
+                <p className="whitespace-pre-wrap text-center text-[18px] sm:text-[20px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">
+                  {active.transliteration}
+                </p>
               )}
               {contentMode === "english" && (
                 <p className="text-[18px] sm:text-[20px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
