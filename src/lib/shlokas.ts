@@ -226,6 +226,19 @@ export const SHLOKAS: Shloka[] = [
     "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
   },
   {
+    "id": "GS-108",
+    "chapter": 2,
+    "verse": 47,
+    "reference": "2.47",
+    "audioSrc": "/audio/2.47.mp3",
+    "sanskrit": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\n\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि।।2.47।।",
+    "tamil": "கர்மண்யேவாதிகாரஸ்தே மா பலேஷு கதாசந।\n\nமா கர்மபலஹேதுர்பூர்மா தே ஸங்கோ'ஸ்த்வகர்மணி।।2.47।।",
+    "transliteration": "karmaṇy evādhikāras te\nmā phaleṣu kadācana\nmā karma-phala-hetur bhūr\nmā te saṅgo ’stv akarmaṇi",
+    "english": "2.47 You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself to be the cause of the results of your activities, and never be attached to not doing your duty.",
+    "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+  },
+  {
     "id": "GS-017",
     "chapter": 2,
     "verse": 59,
@@ -1409,7 +1422,6 @@ export const SHLOKAS: Shloka[] = [
   }
 ];
 
-// TODO: Dataset has 107 shlokas — add the 108th verse (e.g. 13.1) to match the app name
 export const TOTAL_SHLOKAS = SHLOKAS.length;
 export const DAILY_TARGET = 2;
 export const JOURNEY_DAYS = TOTAL_SHLOKAS / DAILY_TARGET;

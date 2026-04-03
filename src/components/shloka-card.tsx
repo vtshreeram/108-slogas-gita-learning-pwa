@@ -126,13 +126,32 @@ export function ShlokaCard({
           ) : (
             <>
               {contentMode === "transliteration" && (
-                <p className="whitespace-pre-wrap text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">{active.transliteration}</p>
+                <div className="text-left inline-block text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">
+                  {(() => {
+                    let count = 0;
+                    return active.transliteration.split('\n').map((line, i) => {
+                      const isSpeaker = line.toLowerCase().includes("uvāca");
+                      const isEmpty = line.trim() === "";
+                      let isIndented = false;
+                      if (!isSpeaker && !isEmpty) {
+                        isIndented = count % 2 === 1;
+                        count++;
+                      }
+                      return (
+                        <div key={i} className={isIndented ? "pl-6 sm:pl-8" : ""}>
+                          {line}
+                          {isEmpty && <br />}
+                        </div>
+                      );
+                    });
+                  })()}
+                </div>
               )}
               {contentMode === "english" && (
-                <p className="text-lg sm:text-xl leading-relaxed text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
+                <p className="text-[22px] sm:text-[26px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
               )}
               {contentMode === "tamil" && (
-                <p className="whitespace-pre-wrap text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto" lang="ta">{active.tamil}</p>
+                <p className="whitespace-pre-wrap text-[22px] sm:text-[26px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto" lang="ta">{active.tamil}</p>
               )}
             </>
           )}

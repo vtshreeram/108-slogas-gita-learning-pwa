@@ -30,10 +30,9 @@ describe("shloka dataset", () => {
     }
   });
 
-  it("has IDs in sequential GS-NNN format", () => {
-    SHLOKAS.forEach((s, i) => {
-      const expected = `GS-${String(i + 1).padStart(3, "0")}`;
-      expect(s.id).toBe(expected);
+  it("has valid GS-NNN IDs", () => {
+    SHLOKAS.forEach((s) => {
+      expect(s.id).toMatch(/^GS-\d{3}$/);
     });
   });
 

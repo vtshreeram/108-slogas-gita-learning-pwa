@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Flame, CheckCircle2, CheckCircle, Undo2, Download, Upload, Moon, Sun } from "lucide-react";
+import { Flame, CheckCircle2, CheckCircle, Undo2, Download, Upload, Moon, Sun, LogOut } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
@@ -9,6 +9,38 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { useShlokaState } from "@/hooks/use-shloka-state";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
+import { auth, googleProvider } from "@/lib/firebase";
+import { signInWithPopup, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence, User } from "firebase/auth";
+
+function LoginScreen() {
+  const handleLogin = async () => {
+    try {
+      await setPersistence(auth, browserLocalPersistence);
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      console.error("Login failed", error);
+      alert("Login failed: " + (error as Error).message);
+    }
+  };
+
+  return (
+    <main className="min-h-screen bg-[#f2e8d0] dark:bg-[#15100a] flex items-center justify-center p-4">
+      <div className="flex flex-col items-center gap-6 max-w-sm w-full bg-[#fffaf0] dark:bg-[#1e1710] p-8 rounded-3xl border border-[#f0d498] dark:border-[#423321] shadow-2xl text-center">
+        <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-3xl text-[#4a3615]">ॐ</div>
+        <div>
+          <h1 className="font-serif text-2xl font-bold text-[#4a3615] dark:text-[#f0e3ce] leading-tight">Bhagavad Gita</h1>
+          <p className="text-sm text-[#a88d63] dark:text-[#bda27e] mt-2">Sign in to start learning</p>
+        </div>
+        <button
+          onClick={handleLogin}
+          className="w-full rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-3 text-sm font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)] transition-transform active:scale-95"
+        >
+          Sign in with Google
+        </button>
+      </div>
+    </main>
+  );
+}
 
 export default function Home() {
   const [confirmLearnedOpen, setConfirmLearnedOpen] = useState(false);
@@ -16,6 +48,9 @@ export default function Home() {
   const [statsOpen, setStatsOpen] = useState(false);
   const [audioAvailable, setAudioAvailable] = useState(true);
   const { theme, setTheme } = useTheme();
+  
+  const [user, setUser] = useState<User | null>(null);
+  const [authChecking, setAuthChecking] = useState(true);
 
   const handleExportBackup = () => {
     try {
@@ -83,7 +118,15 @@ export default function Home() {
     return () => window.removeEventListener("keydown", onKey);
   }, [setState]);
 
-  if (!ready || !active) return (
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setAuthChecking(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (authChecking || (!ready && user)) return (
     <main className="min-h-screen bg-[#f2e8d0] dark:bg-[#15100a] flex items-center justify-center">
       <div className="flex flex-col items-center gap-3">
         <div className="h-10 w-10 rounded-xl bg-[#ebd6ab] dark:bg-[#2d2218] animate-pulse" />
@@ -91,6 +134,10 @@ export default function Home() {
       </div>
     </main>
   );
+
+  if (!user) return <LoginScreen />;
+
+  if (!active) return null;
 
   const audioSrc = `/audio/${active.reference}.mp3`;
 
@@ -109,6 +156,13 @@ export default function Home() {
             <p className="text-xs text-[#a88d63] dark:text-[#bda27e] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
           </div>
           <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => signOut(auth)}
+              title="Sign Out"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] text-[#8f6422] dark:text-[#d4aa61]"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+            </button>
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
