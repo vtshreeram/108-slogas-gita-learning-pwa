@@ -12,6 +12,7 @@ export type Shloka = {
   translationAuthor: string;
   reflectionPrompt: string;
   audioSrc?: string;
+  tamilPurport?: string[];
 };
 
 export const SHLOKA_SOURCE = "https://prabhupadagita.com/2012/10/17/108-imporant-slokas-from-the-1972-bhagavad-gita-as-it-is/";
