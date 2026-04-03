@@ -151,13 +151,13 @@ export function ShlokaCard({
                 <p className="text-[18px] sm:text-[20px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
               )}
               {contentMode === "tamil" && (
-                <div className="overflow-y-auto max-h-[300px] w-full pr-2 text-left">
+                <div className="overflow-y-auto max-h-[350px] w-full pr-2 text-left custom-scrollbar">
                   <p className="whitespace-pre-wrap text-[17px] sm:text-[18px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto text-center" lang="ta">{active.tamil}</p>
                   <hr className="my-4 border-[#ebd6ab] dark:border-[#423321]" />
                   <h3 className="text-lg font-bold text-[#8a6b3d] dark:text-[#bda27e] mb-2">Purport / பொருளுரை</h3>
                   {active.tamilPurport && active.tamilPurport.length > 0 ? (
                     active.tamilPurport.map((paragraph, idx) => (
-                      <p key={idx} className="mb-3 text-[17px] sm:text-[18px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce]">
+                      <p key={idx} className="mb-3 text-[16px] sm:text-[17px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-[family-name:var(--font-noto-sans-tamil)]">
                         {paragraph}
                       </p>
                     ))
