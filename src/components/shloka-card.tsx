@@ -126,32 +126,28 @@ export function ShlokaCard({
           ) : (
             <>
               {contentMode === "transliteration" && (
-                <div className="text-left inline-block text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">
-                  {(() => {
-                    let count = 0;
-                    return active.transliteration.split('\n').map((line, i) => {
-                      const isSpeaker = line.toLowerCase().includes("uvāca");
-                      const isEmpty = line.trim() === "";
-                      let isIndented = false;
-                      if (!isSpeaker && !isEmpty) {
-                        isIndented = count % 2 === 1;
-                        count++;
-                      }
-                      return (
-                        <div key={i} className={isIndented ? "pl-6 sm:pl-8" : ""}>
-                          {line}
-                          {isEmpty && <br />}
-                        </div>
-                      );
-                    });
-                  })()}
-                </div>
+                <p className="whitespace-pre-wrap text-center text-[18px] sm:text-[20px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">
+                  {active.transliteration}
+                </p>
               )}
               {contentMode === "english" && (
-                <p className="text-[22px] sm:text-[26px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
+                <p className="text-[18px] sm:text-[20px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
               )}
               {contentMode === "tamil" && (
-                <p className="whitespace-pre-wrap text-[22px] sm:text-[26px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto" lang="ta">{active.tamil}</p>
+                <div className="overflow-y-auto max-h-[350px] w-full pr-2 text-left custom-scrollbar">
+                  <p className="whitespace-pre-wrap text-[17px] sm:text-[18px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto text-center" lang="ta">{active.tamil}</p>
+                  <hr className="my-4 border-[#ebd6ab] dark:border-[#423321]" />
+                  <h3 className="text-lg font-bold text-[#8a6b3d] dark:text-[#bda27e] mb-2">Purport / பொருளுரை</h3>
+                  {active.tamilPurport && active.tamilPurport.length > 0 ? (
+                    active.tamilPurport.map((paragraph, idx) => (
+                      <p key={idx} className="mb-3 text-[16px] sm:text-[17px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-[family-name:var(--font-noto-sans-tamil)]">
+                        {paragraph}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="italic text-[#a88d63] dark:text-[#bda27e]">No Purport found</p>
+                  )}
+                </div>
               )}
             </>
           )}
