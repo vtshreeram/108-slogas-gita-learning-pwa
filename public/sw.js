@@ -1,4 +1,4 @@
-const SHELL_CACHE = "gita-shell-v2";
+const SHELL_CACHE = "gita-shell-v3";
 const AUDIO_CACHE = "gita-audio-v1";
 const KNOWN_CACHES = [SHELL_CACHE, AUDIO_CACHE];
 const SHELL_ASSETS = ["/", "/manifest.webmanifest", "/icon.svg"];
@@ -74,10 +74,9 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
   const url = new URL(event.request.url);
 
-  if (url.pathname.startsWith("/audio/")) {
-    event.respondWith(handleAudioRequest(event.request));
-    return;
-  }
+  // Let audio requests pass through to the network directly.
+  // Safari requires Range-request support that service workers complicate.
+  if (url.pathname.startsWith("/audio/")) return;
 
   // Cache-first for shell assets
   event.respondWith(
