@@ -60,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* iOS home screen icon — needs a PNG at this path for best results */}
         <link rel="apple-touch-icon" href="/icon-192.png" />
