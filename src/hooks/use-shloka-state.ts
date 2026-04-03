@@ -36,7 +36,7 @@ export function useShlokaState() {
           recallWins: Number(parsed.recallWins ?? 0) || 0,
           recallAttempts: Number(parsed.recallAttempts ?? 0) || 0,
           activeIndex: safeIndex,
-          contentMode: parsed.contentMode ?? "transliteration",
+          contentMode: (parsed.contentMode as string) === "sanskrit" ? "tamil" : (parsed.contentMode ?? "transliteration"),
         });
       }
     } catch (e) { console.warn("Failed to load saved state:", e); } finally {

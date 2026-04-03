@@ -16,7 +16,7 @@ export type AppState = {
   recallWins: number;
   recallAttempts: number;
   activeIndex: number;
-  contentMode: "transliteration" | "english" | "sanskrit";
+  contentMode: "transliteration" | "english" | "tamil";
 };
 
 export const STORAGE_KEY = "gita-learning-state-v4";
@@ -33,7 +33,7 @@ export const STEP_CONFIG: Record<LoopStep, { Icon: ComponentType<{ className?: s
 export const CONTENT_TABS: { mode: AppState["contentMode"]; label: string }[] = [
   { mode: "transliteration", label: "Roman" },
   { mode: "english",         label: "Meaning" },
-  { mode: "sanskrit",        label: "Sanskrit" },
+  { mode: "tamil",            label: "Tamil" },
 ];
 
 export const defaultStepProgress = (): StepProgress => ({

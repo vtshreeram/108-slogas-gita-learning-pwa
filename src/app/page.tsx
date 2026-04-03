@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Flame, CheckCircle2, ChevronLeft, ChevronRight, CheckCircle, Undo2, Settings, Download, Upload, Moon, Sun } from "lucide-react";
+import { Flame, CheckCircle2, CheckCircle, Undo2, Download, Upload, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
@@ -100,77 +100,22 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-y-auto bg-background text-foreground px-3 pb-40" style={{ paddingTop: "calc(env(safe-area-inset-top) + 20px)" }}>
       <div className="mx-auto flex w-full max-w-lg flex-col gap-2">
-        <header className="flex items-center gap-2 px-1">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-baseline gap-2">
-              <h1 className="font-serif text-xl font-bold text-[#4a3615] dark:text-[#f0e3ce] leading-tight whitespace-nowrap">Bhagavad Gita</h1>
-            </div>
+        <header className="flex items-center justify-between px-1">
+          <div className="min-w-0">
+            <h1 className="font-serif text-xl font-bold text-[#4a3615] dark:text-[#f0e3ce] leading-tight whitespace-nowrap flex items-center gap-1.5">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-sm">ॐ</span>
+              Bhagavad Gita
+            </h1>
             <p className="text-xs text-[#a88d63] dark:text-[#bda27e] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
           </div>
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-1.5">
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               aria-label="Toggle theme"
-              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#d4aa61]"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] text-[#8f6422] dark:text-[#d4aa61]"
             >
-              {theme === "dark" ? <Moon className="h-3 w-3" /> : <Sun className="h-3 w-3" />}
+              {theme === "dark" ? <Moon className="h-3.5 w-3.5" /> : <Sun className="h-3.5 w-3.5" />}
             </button>
-            <button
-              onClick={() => setState(p => ({ ...p, activeMode: p.activeMode === "normal" ? "lite" : "normal" }))}
-              aria-label={`Toggle mode (current: ${state.activeMode})`}
-              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#d4aa61] capitalize"
-            >
-              <Settings className="h-3 w-3" aria-hidden="true" />
-              <span>{state.activeMode}</span>
-            </button>
-            <button
-              onClick={() => setStatsOpen(true)}
-              aria-label="View Stats"
-              className="flex items-center gap-1 rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] px-2 py-1 text-[11px] font-semibold text-[#8f6422] dark:text-[#d4aa61]"
-            >
-              <Flame className="h-3 w-3" aria-hidden="true" />
-              <span>{streak}d</span>
-            </button>
-            <button
-              onClick={() => setCompletedOpen(true)}
-              aria-label={`View ${completedCount} completed shlokas`}
-              className="flex items-center gap-1 rounded-full bg-[#e8f5df] dark:bg-[#142610] border border-[#c1e0b0] dark:border-[#284f1d] px-2 py-1 text-[11px] font-semibold text-[#2c5d1f] dark:text-[#88c775]"
-            >
-              <CheckCircle2 className="h-3 w-3" aria-hidden="true" />
-              <span>{completedCount}</span>
-            </button>
-            <span className="text-[10px] font-semibold tabular-nums text-[#a88d63] dark:text-[#bda27e]">{progressPct}%</span>
-          </div>
-        </header>
-
-        <div className="flex items-center justify-between rounded-2xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 sm:p-4 shadow-[0_2px_8px_rgba(143,100,34,0.06)] relative overflow-hidden group">
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#fffaf0] via-[#fffaf0] to-transparent z-10 sm:hidden pointer-events-none" />
-          <div className="flex items-center gap-3 relative z-20">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] shadow-inner border border-[#c4a062] dark:border-[#423321]">
-              <span className="font-serif text-lg font-bold text-[#4a3615] dark:text-[#f0e3ce]">ॐ</span>
-            </div>
-            <div>
-              <p className="text-[10px] font-bold tracking-widest text-[#a88d63] dark:text-[#bda27e] uppercase mb-0.5">Session Progress</p>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-sm font-semibold text-[#4a3615] dark:text-[#f0e3ce] tabular-nums">{completedCount} / {TOTAL_SHLOKAS}</span>
-                <span className="text-[10px] font-medium text-[#c0a986] dark:text-[#bda27e]">verses learned</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between px-1 mb-1 mt-2">
-          <button
-            onClick={() => !isFirst && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex - 1 }))}
-            disabled={isFirst}
-            aria-label="Previous shloka"
-            className="flex items-center gap-1 rounded-full bg-white dark:bg-[#1e1710] border border-[#ebd6ab] dark:border-[#423321] px-3 py-1.5 text-xs font-semibold text-[#8a6b3d] dark:text-[#bda27e] shadow-sm disabled:opacity-40 disabled:bg-transparent"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            <span className="hidden sm:inline">Previous</span>
-          </button>
-          
-          <div className="flex gap-2">
             <button
               onClick={() => {
                 if (isMastered) undoLearnedForActive(active.id);
@@ -179,20 +124,24 @@ export default function Home() {
               className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors ${isMastered ? "border-[#c1e0b0] dark:border-[#284f1d] bg-[#e8f5df] dark:bg-[#142610] text-[#2c5d1f] dark:text-[#88c775]" : "border-[#ebd6ab] dark:border-[#423321] bg-white dark:bg-[#1e1710] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]"}`}
             >
               {isMastered ? <Undo2 className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
-              <span className="hidden sm:inline">{isMastered ? "Undo Learned" : "Mark as Learned"}</span>
+              <span>{isMastered ? "Undo" : "Learned"}</span>
             </button>
           </div>
+        </header>
 
-          <button
-            onClick={() => !isLast && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex + 1 }))}
-            disabled={isLast}
-            aria-label="Next shloka"
-            className="flex items-center gap-1 rounded-full bg-white dark:bg-[#1e1710] border border-[#ebd6ab] dark:border-[#423321] px-3 py-1.5 text-xs font-semibold text-[#8a6b3d] dark:text-[#bda27e] shadow-sm disabled:opacity-40 disabled:bg-transparent"
-          >
-            <span className="hidden sm:inline">Next</span>
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
+        <button
+          onClick={() => setStatsOpen(true)}
+          className="flex items-center justify-between rounded-2xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 sm:p-4 shadow-[0_2px_8px_rgba(143,100,34,0.06)] relative overflow-hidden group w-full text-left"
+        >
+          <div className="relative z-20">
+            <p className="text-[10px] font-bold tracking-widest text-[#a88d63] dark:text-[#bda27e] uppercase mb-0.5">Session Progress</p>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-sm font-semibold text-[#4a3615] dark:text-[#f0e3ce] tabular-nums">{completedCount} / {TOTAL_SHLOKAS}</span>
+              <span className="text-[10px] font-medium text-[#c0a986] dark:text-[#bda27e]">verses learned</span>
+            </div>
+          </div>
+          <span className="text-lg font-bold tabular-nums text-[#8f6422] dark:text-[#d4aa61]">{progressPct}%</span>
+        </button>
 
         <ShlokaCard
           active={active}
@@ -205,6 +154,7 @@ export default function Home() {
           onMarkStep={markStep}
           onSwipeLeft={() => !isLast && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex + 1 }))}
           onSwipeRight={() => !isFirst && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex - 1 }))}
+          onJumpTo={(index) => setState((prev) => ({ ...prev, activeIndex: index }))}
         />
       </div>
 

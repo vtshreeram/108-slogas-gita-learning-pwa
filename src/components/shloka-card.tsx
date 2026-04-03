@@ -1,29 +1,40 @@
-import { useState, useRef, useEffect } from "react";
-import { AlertCircle, Lightbulb, Eye } from "lucide-react";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { AlertCircle, Eye, ChevronDown } from "lucide-react";
 import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, fullDone, StepProgress } from "@/lib/constants";
-import { Shloka } from "@/lib/shlokas";
+import { Shloka, SHLOKAS } from "@/lib/shlokas";
 
 type ShlokaCardProps = {
   active: Shloka;
   activeGlobalIndex: number;
   isMastered: boolean;
-  contentMode: "transliteration" | "english" | "sanskrit";
-  setContentMode: (m: "transliteration" | "english" | "sanskrit") => void;
+  contentMode: "transliteration" | "english" | "tamil";
+  setContentMode: (m: "transliteration" | "english" | "tamil") => void;
   audioAvailable: boolean;
   activeProgress: StepProgress;
   onMarkStep: (id: string, step: import("@/lib/constants").LoopStep) => void;
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
+  onJumpTo: (index: number) => void;
 };
 
 export function ShlokaCard({
   active, activeGlobalIndex, isMastered,
   contentMode, setContentMode, audioAvailable,
-  activeProgress, onMarkStep, onSwipeLeft, onSwipeRight
+  activeProgress, onMarkStep, onSwipeLeft, onSwipeRight, onJumpTo
 }: ShlokaCardProps) {
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
+
+  const chapters = useMemo(() => {
+    const map = new Map<number, { verse: number; index: number }[]>();
+    SHLOKAS.forEach((s, i) => {
+      if (!map.has(s.chapter)) map.set(s.chapter, []);
+      map.get(s.chapter)!.push({ verse: s.verse, index: i });
+    });
+    return map;
+  }, []);
 
   useEffect(() => {
     setIsRevealed(false);
@@ -54,9 +65,39 @@ export function ShlokaCard({
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e]">Ch {active.chapter} • Shloka {active.verse}</span>
+      <div className="flex items-center justify-between mb-4 relative">
+        <button
+          onClick={() => setPickerOpen(!pickerOpen)}
+          className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] hover:text-[#8f6422] dark:hover:text-[#d4aa61] transition-colors"
+        >
+          Ch {active.chapter} • Shloka {active.verse}
+          <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pickerOpen ? "rotate-180" : ""}`} />
+        </button>
         <span className="text-xs font-medium text-[#c0a986] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
+
+        {pickerOpen && (
+          <>
+            <div className="fixed inset-0 z-30" onClick={() => setPickerOpen(false)} />
+            <div className="absolute top-full left-0 mt-2 z-40 w-72 max-h-80 overflow-y-auto rounded-2xl bg-white dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] shadow-xl p-3">
+              {[...chapters.entries()].map(([ch, verses]) => (
+                <div key={ch} className="mb-3 last:mb-0">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] mb-1.5 border-b border-[#f4e9cb] dark:border-[#423321] pb-1">Chapter {ch}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {verses.map((v) => (
+                      <button
+                        key={v.index}
+                        onClick={() => { onJumpTo(v.index); setPickerOpen(false); }}
+                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors ${v.index === activeGlobalIndex - 1 ? "bg-[#8f6422] text-white dark:bg-[#d4aa61] dark:text-[#1e1710]" : "bg-[#fcebc4] dark:bg-[#2d2218] text-[#8f6422] dark:text-[#d4aa61] hover:bg-[#ebd6ab] dark:hover:bg-[#423321]"}`}
+                      >
+                        {ch}.{v.verse}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       <div className="flex bg-[#f9f1e1] dark:bg-[#2d2218] rounded-full p-1 mb-4 border border-[#ebd6ab] dark:border-[#423321]">
@@ -88,15 +129,10 @@ export function ShlokaCard({
                 <p className="whitespace-pre-wrap text-[22px] sm:text-[26px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">{active.transliteration}</p>
               )}
               {contentMode === "english" && (
-                <div className="space-y-4">
-                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#fcf5e3] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] text-[#8f6422] dark:text-[#d4aa61] mb-1">
-                    <Lightbulb className="w-4 h-4" />
-                  </div>
-                  <p className="text-lg sm:text-xl leading-relaxed text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
-                </div>
+                <p className="text-lg sm:text-xl leading-relaxed text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
               )}
-              {contentMode === "sanskrit" && (
-                <p className="whitespace-pre-wrap text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-devanagari)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto" lang="sa">{active.sanskrit}</p>
+              {contentMode === "tamil" && (
+                <p className="whitespace-pre-wrap text-[26px] sm:text-[32px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto" lang="ta">{active.tamil}</p>
               )}
             </>
           )}

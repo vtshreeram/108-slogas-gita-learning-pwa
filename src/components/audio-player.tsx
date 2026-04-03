@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-import { Play, Pause, Square, Repeat, Repeat1, Undo2, Loader2, AlertCircle, SkipBack, SkipForward } from "lucide-react";
+import { Play, Pause, Square, Repeat, Loader2, AlertCircle, SkipBack, SkipForward, Gauge } from "lucide-react";
+
+type LoopMode = "off" | "repeat" | "advance";
+const REPEAT_COUNTS = [1, 2, 3, 5, 10, Infinity] as const;
+const SPEED_OPTIONS = [0.5, 0.75, 1, 1.25, 1.5] as const;
 
 type AudioPlayerProps = {
   audioSrc: string;
@@ -17,22 +21,22 @@ export function AudioPlayer({
   onNext, onPrev
 }: AudioPlayerProps) {
   const [audioState, setAudioState] = useState<"idle" | "playing" | "paused" | "unavailable">("idle");
-  const [audioLoop, setAudioLoop] = useState(false);
-  const [autoAdvance, setAutoAdvance] = useState(false);
+  const [loopMode, setLoopMode] = useState<LoopMode>("off");
+  const [repeatCount, setRepeatCount] = useState(1);
+  const [currentRepeat, setCurrentRepeat] = useState(0);
   const [pendingAutoPlay, setPendingAutoPlay] = useState(false);
   const [audioCurrentTime, setAudioCurrentTime] = useState(0);
   const [audioDuration, setAudioDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [playbackRate, setPlaybackRate] = useState(1);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const playAudio = () => {
     if (!audioRef.current || !audioAvailable) return;
     const el = audioRef.current;
     setIsLoading(true);
-    // Call play() synchronously within the user gesture to satisfy Safari's autoplay policy
     const p = el.play();
     if (p) p.then(() => setAudioState("playing")).catch(() => {
-      // Safari may reject play() on first load — retry once after loading
       el.load();
       el.addEventListener("canplay", () => {
         el.play().then(() => setAudioState("playing")).catch(() => {
@@ -68,10 +72,23 @@ export function AudioPlayer({
     setAudioCurrentTime(nextTime);
   };
 
-  const toggleLoopMode = () => {
-    if (!audioLoop && !autoAdvance) setAudioLoop(true);
-    else if (audioLoop) { setAudioLoop(false); setAutoAdvance(true); }
-    else setAutoAdvance(false);
+  const cycleLoopMode = () => {
+    if (loopMode === "off") setLoopMode("repeat");
+    else if (loopMode === "repeat") setLoopMode("advance");
+    else setLoopMode("off");
+  };
+
+  const cycleRepeatCount = () => {
+    const idx = REPEAT_COUNTS.indexOf(repeatCount as typeof REPEAT_COUNTS[number]);
+    setRepeatCount(REPEAT_COUNTS[(idx + 1) % REPEAT_COUNTS.length]);
+    setCurrentRepeat(0);
+  };
+
+  const cycleSpeed = () => {
+    const idx = SPEED_OPTIONS.indexOf(playbackRate as typeof SPEED_OPTIONS[number]);
+    const next = SPEED_OPTIONS[(idx + 1) % SPEED_OPTIONS.length];
+    setPlaybackRate(next);
+    if (audioRef.current) audioRef.current.playbackRate = next;
   };
 
   const formatTime = (secs: number) => {
@@ -81,13 +98,16 @@ export function AudioPlayer({
     return `${m}:${String(s).padStart(2, "0")}`;
   };
 
+  // Reset on source change
   useEffect(() => {
     if (!audioRef.current) return;
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
+    audioRef.current.playbackRate = playbackRate;
     setAudioAvailable(true);
     setAudioCurrentTime(0);
     setAudioDuration(0);
+    setCurrentRepeat(0);
 
     if (pendingAutoPlay) {
       playAudio();
@@ -97,7 +117,38 @@ export function AudioPlayer({
     }
   }, [audioSrc, pendingAutoPlay, setAudioAvailable]);
 
-  const loopActive = audioLoop || autoAdvance;
+  const handleEnded = () => {
+    if (loopMode === "off") {
+      setAudioState("idle");
+      return;
+    }
+
+    const nextRepeat = currentRepeat + 1;
+
+    if (loopMode === "repeat") {
+      if (repeatCount === Infinity || nextRepeat < repeatCount) {
+        setCurrentRepeat(nextRepeat);
+        audioRef.current!.currentTime = 0;
+        playAudio();
+      } else {
+        setCurrentRepeat(0);
+        setAudioState("idle");
+      }
+    } else if (loopMode === "advance") {
+      if (repeatCount === Infinity || nextRepeat < repeatCount) {
+        setCurrentRepeat(nextRepeat);
+        audioRef.current!.currentTime = 0;
+        playAudio();
+      } else {
+        setCurrentRepeat(0);
+        if (!isLast) { setPendingAutoPlay(true); onNext(); }
+        else setAudioState("idle");
+      }
+    }
+  };
+
+  const repeatLabel = repeatCount === Infinity ? "∞" : `${repeatCount}x`;
+  const loopLabel = loopMode === "off" ? "Off" : loopMode === "repeat" ? "Loop" : "Next";
 
   return (
     <section aria-label="Audio player" className="fixed bottom-0 left-0 right-0 border-t border-[#ebd6ab] dark:border-[#423321] bg-[#fffcf5] dark:bg-[#1e1710]/95 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] backdrop-blur-md shadow-[0_-8px_24px_rgba(143,100,34,0.05)] z-40">
@@ -113,11 +164,7 @@ export function AudioPlayer({
           onPause={() => setAudioState((prev) => prev === "unavailable" ? prev : "paused")}
           onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
           onDurationChange={(e) => setAudioDuration(e.currentTarget.duration)}
-          onEnded={() => {
-            if (audioLoop) { audioRef.current!.currentTime = 0; playAudio(); }
-            else if (autoAdvance && !isLast) { setPendingAutoPlay(true); onNext(); }
-            else setAudioState("idle");
-          }}
+          onEnded={handleEnded}
           onError={() => { setAudioAvailable(false); setAudioState("unavailable"); setIsLoading(false); }}
         />
 
@@ -145,26 +192,55 @@ export function AudioPlayer({
           <span className="w-10 text-xs font-medium tabular-nums text-[#a88d63] dark:text-[#bda27e]">{formatTime(audioDuration)}</span>
         </div>
 
-        <div className="flex items-center justify-between px-2">
-          <button onClick={toggleLoopMode} aria-label={audioLoop ? "Loop current" : autoAdvance ? "Auto-advance" : "No loop"} className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors ${loopActive ? "bg-[#fcebc4] dark:bg-[#2d2218] text-[#8f6422] dark:text-[#d4aa61]" : "text-[#b0976e] dark:text-[#bda27e]"}`}>
-            {audioLoop ? <Repeat1 className="h-5 w-5" /> : autoAdvance ? <Repeat className="h-5 w-5" /> : <Repeat className="h-5 w-5 opacity-50" />}
-          </button>
+        <div className="flex items-center justify-between px-1">
+          {/* Loop mode + repeat count */}
+          <div className="flex items-center gap-1">
+            <button
+              onClick={cycleLoopMode}
+              aria-label={`Loop: ${loopLabel}`}
+              className={`flex h-9 items-center gap-1 rounded-full px-2 transition-colors text-[11px] font-semibold ${loopMode !== "off" ? "bg-[#fcebc4] dark:bg-[#2d2218] text-[#8f6422] dark:text-[#d4aa61]" : "text-[#b0976e] dark:text-[#bda27e]"}`}
+            >
+              <Repeat className="h-4 w-4" />
+              <span>{loopLabel}</span>
+            </button>
+            {loopMode !== "off" && (
+              <button
+                onClick={cycleRepeatCount}
+                aria-label={`Repeat ${repeatLabel}`}
+                className="flex h-9 items-center rounded-full bg-[#fcebc4] dark:bg-[#2d2218] px-2 text-[11px] font-bold text-[#8f6422] dark:text-[#d4aa61] tabular-nums"
+              >
+                {repeatLabel}
+              </button>
+            )}
+          </div>
 
-          <div className="flex items-center gap-4">
-            <button onClick={onPrev} disabled={isFirst} aria-label="Previous shloka" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
-              <SkipBack className="h-6 w-6 fill-current" />
+          {/* Transport controls */}
+          <div className="flex items-center gap-3">
+            <button onClick={onPrev} disabled={isFirst} aria-label="Previous shloka" className="flex h-10 w-10 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
+              <SkipBack className="h-5 w-5 fill-current" />
             </button>
-            <button onClick={togglePlayPause} disabled={!audioAvailable} className="flex h-16 w-16 items-center justify-center rounded-full bg-[#4a3615] dark:bg-[#d4aa61] dark:text-[#1e1710] text-[#fcebc4] shadow-[0_4px_12px_rgba(74,54,21,0.2)] disabled:opacity-50 transition-transform active:scale-95">
-              {!audioAvailable ? <AlertCircle className="h-7 w-7 text-red-400" /> : isLoading ? <Loader2 className="h-7 w-7 animate-spin" /> : audioState === "playing" ? <Pause className="h-7 w-7 fill-current" /> : <Play className="h-7 w-7 fill-current ml-1" />}
+            <button onClick={togglePlayPause} disabled={!audioAvailable} className="flex h-14 w-14 items-center justify-center rounded-full bg-[#4a3615] dark:bg-[#d4aa61] dark:text-[#1e1710] text-[#fcebc4] shadow-[0_4px_12px_rgba(74,54,21,0.2)] disabled:opacity-50 transition-transform active:scale-95">
+              {!audioAvailable ? <AlertCircle className="h-6 w-6 text-red-400" /> : isLoading ? <Loader2 className="h-6 w-6 animate-spin" /> : audioState === "playing" ? <Pause className="h-6 w-6 fill-current" /> : <Play className="h-6 w-6 fill-current ml-0.5" />}
             </button>
-            <button onClick={() => { setPendingAutoPlay(true); onNext(); }} disabled={isLast} aria-label="Next shloka" className="flex h-12 w-12 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
-              <SkipForward className="h-6 w-6 fill-current" />
+            <button onClick={() => { setPendingAutoPlay(true); onNext(); }} disabled={isLast} aria-label="Next shloka" className="flex h-10 w-10 items-center justify-center rounded-full text-[#5c431b] dark:text-[#f0e3ce] disabled:opacity-30">
+              <SkipForward className="h-5 w-5 fill-current" />
             </button>
           </div>
 
-          <button onClick={stopAudio} disabled={audioState === "idle" || !audioAvailable} aria-label="Stop playback" className="flex h-10 w-10 items-center justify-center rounded-full text-[#b0976e] dark:text-[#bda27e] disabled:opacity-30">
-            <Square className="h-5 w-5 fill-current" />
-          </button>
+          {/* Speed + Stop */}
+          <div className="flex items-center gap-1">
+            <button
+              onClick={cycleSpeed}
+              aria-label={`Speed ${playbackRate}x`}
+              className={`flex h-9 items-center gap-1 rounded-full px-2 transition-colors text-[11px] font-semibold ${playbackRate !== 1 ? "bg-[#fcebc4] dark:bg-[#2d2218] text-[#8f6422] dark:text-[#d4aa61]" : "text-[#b0976e] dark:text-[#bda27e]"}`}
+            >
+              <Gauge className="h-4 w-4" />
+              <span>{playbackRate}x</span>
+            </button>
+            <button onClick={stopAudio} disabled={audioState === "idle" || !audioAvailable} aria-label="Stop playback" className="flex h-9 w-9 items-center justify-center rounded-full text-[#b0976e] dark:text-[#bda27e] disabled:opacity-30">
+              <Square className="h-4 w-4 fill-current" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

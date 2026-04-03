@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Noto_Sans_Devanagari } from "next/font/google";
+import { Noto_Sans_Tamil } from "next/font/google";
 
-const notoSansDevanagari = Noto_Sans_Devanagari({
-  variable: "--font-noto-sans-devanagari",
-  subsets: ["devanagari"],
+const notoSansTamil = Noto_Sans_Tamil({
+  variable: "--font-noto-sans-tamil",
+  subsets: ["tamil"],
 });
 import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
@@ -68,7 +68,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansDevanagari.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansTamil.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

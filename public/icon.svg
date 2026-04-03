@@ -1,11 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Gita 108 icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Gita 108 — Krishna icon">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#d19a3f"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8eb"/>
+      <stop offset="100%" stop-color="#f4e9cb"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a44a"/>
       <stop offset="100%" stop-color="#8f6320"/>
     </linearGradient>
   </defs>
-  <rect width="256" height="256" rx="48" fill="#f8f1de"/>
-  <circle cx="128" cy="128" r="86" fill="none" stroke="url(#g)" stroke-width="16"/>
-  <text x="128" y="145" text-anchor="middle" font-family="Georgia, serif" font-size="64" fill="#5f4216">108</text>
+  <!-- Background -->
+  <rect width="256" height="256" rx="48" fill="url(#bg)"/>
+  <!-- Decorative circle -->
+  <circle cx="128" cy="120" r="78" fill="none" stroke="url(#gold)" stroke-width="3" opacity="0.3"/>
+  <!-- Krishna's flute (bansuri) - simplified -->
+  <g transform="translate(128,108) rotate(-30)">
+    <rect x="-40" y="-5" width="80" height="10" rx="5" fill="#8f6320"/>
+    <circle cx="-25" cy="0" r="2" fill="#f4e9cb"/>
+    <circle cx="-12" cy="0" r="2" fill="#f4e9cb"/>
+    <circle cx="1" cy="0" r="2" fill="#f4e9cb"/>
+    <circle cx="14" cy="0" r="2" fill="#f4e9cb"/>
+    <circle cx="27" cy="0" r="2" fill="#f4e9cb"/>
+  </g>
+  <!-- Peacock feather -->
+  <g transform="translate(128,78)">
+    <!-- Feather stem -->
+    <line x1="0" y1="0" x2="0" y2="-40" stroke="#2d6b30" stroke-width="2" stroke-linecap="round"/>
+    <!-- Feather eye -->
+    <ellipse cx="0" cy="-42" rx="12" ry="16" fill="#1a6b3a" opacity="0.8"/>
+    <ellipse cx="0" cy="-42" rx="8" ry="11" fill="#2196F3" opacity="0.7"/>
+    <ellipse cx="0" cy="-42" rx="4" ry="6" fill="#1a237e" opacity="0.8"/>
+    <circle cx="0" cy="-42" r="2.5" fill="#d4a44a"/>
+  </g>
+  <!-- Lotus base -->
+  <g transform="translate(128,148)">
+    <ellipse cx="-12" cy="0" rx="10" ry="5" fill="#d4a44a" opacity="0.5" transform="rotate(-20)"/>
+    <ellipse cx="12" cy="0" rx="10" ry="5" fill="#d4a44a" opacity="0.5" transform="rotate(20)"/>
+    <ellipse cx="0" cy="-2" rx="10" ry="5" fill="#d4a44a" opacity="0.6"/>
+  </g>
+  <!-- Text -->
+  <text x="128" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#5f4216">गीता</text>
+  <text x="128" y="228" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#8f6320" opacity="0.7">108</text>
 </svg>
