@@ -10,16 +10,26 @@ import { useShlokaState } from "@/hooks/use-shloka-state";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
 import { auth, googleProvider } from "@/lib/firebase";
-import { signInWithPopup, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence, User } from "firebase/auth";
+import { signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence, User } from "firebase/auth";
 
 function LoginScreen() {
+  const [signingIn, setSigningIn] = useState(false);
+
   const handleLogin = async () => {
+    setSigningIn(true);
     try {
       await setPersistence(auth, browserLocalPersistence);
       await signInWithPopup(auth, googleProvider);
-    } catch (error) {
+    } catch (error: unknown) {
+      const code = (error as { code?: string }).code;
+      // If popup was blocked or closed, fall back to redirect flow
+      if (code === "auth/popup-blocked" || code === "auth/popup-closed-by-user") {
+        signInWithRedirect(auth, googleProvider);
+        return;
+      }
       console.error("Login failed", error);
       alert("Login failed: " + (error as Error).message);
+      setSigningIn(false);
     }
   };
 
@@ -33,9 +43,10 @@ function LoginScreen() {
         </div>
         <button
           onClick={handleLogin}
-          className="w-full rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-3 text-sm font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)] transition-transform active:scale-95"
+          disabled={signingIn}
+          className="w-full rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-3 text-sm font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)] transition-transform active:scale-95 disabled:opacity-60"
         >
-          Sign in with Google
+          {signingIn ? "Signing in…" : "Sign in with Google"}
         </button>
       </div>
     </main>
@@ -119,6 +130,11 @@ export default function Home() {
   }, [setState]);
 
   useEffect(() => {
+    // Handle redirect result after Google sign-in redirect returns
+    getRedirectResult(auth).catch((error) => {
+      console.error("Redirect sign-in error:", error);
+    });
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setAuthChecking(false);
