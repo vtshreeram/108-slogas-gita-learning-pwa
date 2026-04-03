@@ -25,33 +25,22 @@ export function AudioPlayer({
   const [isLoading, setIsLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const playAudio = async () => {
+  const playAudio = () => {
     if (!audioRef.current || !audioAvailable) return;
     const el = audioRef.current;
-    if (el.readyState < 2) {
-      setIsLoading(true);
-      try {
-        await new Promise<void>((resolve, reject) => {
-          const timeout = setTimeout(() => { cleanup(); reject(); }, 10000);
-          const onReady = () => { cleanup(); resolve(); };
-          const onErr = () => { cleanup(); reject(); };
-          const cleanup = () => {
-            clearTimeout(timeout);
-            el.removeEventListener("canplay", onReady);
-            el.removeEventListener("error", onErr);
-          };
-          el.addEventListener("canplay", onReady, { once: true });
-          el.addEventListener("error", onErr, { once: true });
+    setIsLoading(true);
+    // Call play() synchronously within the user gesture to satisfy Safari's autoplay policy
+    const p = el.play();
+    if (p) p.then(() => setAudioState("playing")).catch(() => {
+      // Safari may reject play() on first load — retry once after loading
+      el.load();
+      el.addEventListener("canplay", () => {
+        el.play().then(() => setAudioState("playing")).catch(() => {
+          setAudioAvailable(false);
+          setAudioState("unavailable");
         });
-      } catch {
-        setIsLoading(false);
-        setAudioAvailable(false);
-        setAudioState("unavailable");
-        return;
-      }
-    }
-    try { await el.play(); setAudioState("playing"); }
-    catch { setAudioAvailable(false); setAudioState("unavailable"); }
+      }, { once: true });
+    });
   };
 
   const pauseAudio = () => {
@@ -67,10 +56,10 @@ export function AudioPlayer({
     setAudioState("idle");
   };
 
-  const togglePlayPause = async () => {
+  const togglePlayPause = () => {
     if (!audioRef.current || !audioAvailable) return;
     if (audioState === "playing") pauseAudio();
-    else await playAudio();
+    else playAudio();
   };
 
   const seekAudio = (nextTime: number) => {
@@ -101,7 +90,8 @@ export function AudioPlayer({
     setAudioDuration(0);
 
     if (pendingAutoPlay) {
-      playAudio().finally(() => setPendingAutoPlay(false));
+      playAudio();
+      setPendingAutoPlay(false);
     } else {
       setAudioState("idle");
     }
