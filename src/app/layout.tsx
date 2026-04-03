@@ -29,6 +29,21 @@ export const metadata: Metadata = {
     title: "Gita 108",
     statusBarStyle: "black-translucent",
   },
+  openGraph: {
+    title: "Gita 108 — Daily Practice",
+    description: "Memorize 108 key Bhagavad Gita shlokas through a structured daily loop: listen, repeat, understand, recall.",
+    type: "website",
+    siteName: "Gita 108",
+  },
+  twitter: {
+    card: "summary",
+    title: "Gita 108 — Daily Practice",
+    description: "Memorize 108 key Bhagavad Gita shlokas through a structured daily loop.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export const viewport = {
@@ -48,7 +63,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* iOS home screen icon — needs a PNG at this path for best results */}
-        <link rel="apple-touch-icon" href="/icon.svg" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
         {/* iOS splash / status bar colour matches the app warm background */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

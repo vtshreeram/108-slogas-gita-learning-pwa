@@ -1301,6 +1301,7 @@ export const SHLOKAS: Shloka[] = [
   }
 ];
 
+// TODO: Dataset has 107 shlokas — add the 108th verse (e.g. 13.1) to match the app name
 export const TOTAL_SHLOKAS = SHLOKAS.length;
 export const DAILY_TARGET = 2;
 export const JOURNEY_DAYS = TOTAL_SHLOKAS / DAILY_TARGET;

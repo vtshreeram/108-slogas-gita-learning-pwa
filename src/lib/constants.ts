@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { Headphones, RotateCcw, BookOpen, Brain } from "lucide-react";
 
 export type LoopStep = "listen" | "repeat" | "understand" | "recall";
@@ -22,7 +23,7 @@ export const STORAGE_KEY = "gita-learning-state-v4";
 export const SCHEMA_VERSION = 4;
 export const LOOP_STEPS: LoopStep[] = ["listen", "repeat", "understand", "recall"];
 
-export const STEP_CONFIG: Record<LoopStep, { Icon: any; label: string }> = {
+export const STEP_CONFIG: Record<LoopStep, { Icon: ComponentType<{ className?: string }>; label: string }> = {
   listen:     { Icon: Headphones, label: "Listen" },
   repeat:     { Icon: RotateCcw,  label: "Repeat" },
   understand: { Icon: BookOpen,   label: "Grasp"  },

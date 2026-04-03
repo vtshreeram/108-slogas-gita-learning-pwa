@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Flame, CheckCircle2, ChevronLeft, ChevronRight, CheckCircle, Undo2, ChevronDown, Settings, Download, Moon, Sun } from "lucide-react";
+import { Flame, CheckCircle2, ChevronLeft, ChevronRight, CheckCircle, Undo2, Settings, Download, Upload, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
+import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
 import { ShlokaCard } from "@/components/shloka-card";
@@ -18,7 +19,7 @@ export default function Home() {
 
   const handleExportBackup = () => {
     try {
-      const data = localStorage.getItem("gita-108-state");
+      const data = localStorage.getItem(STORAGE_KEY);
       if (!data) return;
       const blob = new Blob([data], { type: "application/json" });
       const url = URL.createObjectURL(blob);
@@ -34,6 +35,32 @@ export default function Home() {
     }
   };
 
+  const handleImportBackup = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".json";
+    input.onchange = (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result as string);
+          if (Number(parsed.schemaVersion) !== SCHEMA_VERSION) {
+            alert("Incompatible backup version.");
+            return;
+          }
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+          window.location.reload();
+        } catch {
+          alert("Invalid backup file.");
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  };
+
   const {
     ready, state, setState,
     markStep, markAsLearned, undoLearnedForActive,
@@ -44,19 +71,26 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
-    navigator.serviceWorker.register("/sw.js").catch(() => undefined);
+    navigator.serviceWorker.register("/sw.js").catch((e) => console.warn("SW registration failed:", e));
   }, []);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) }));
-      if (event.key === "ArrowLeft") setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) }));
+      if (event.key === "ArrowRight") { event.preventDefault(); setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) })); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) })); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [setState]);
 
-  if (!ready || !active) return <main className="min-h-screen bg-[#f2e8d0]" />;
+  if (!ready || !active) return (
+    <main className="min-h-screen bg-[#f2e8d0] dark:bg-[#15100a] flex items-center justify-center">
+      <div className="flex flex-col items-center gap-3">
+        <div className="h-10 w-10 rounded-xl bg-[#ebd6ab] dark:bg-[#2d2218] animate-pulse" />
+        <div className="h-3 w-32 rounded bg-[#ebd6ab] dark:bg-[#2d2218] animate-pulse" />
+      </div>
+    </main>
+  );
 
   const audioSrc = `/audio/${active.reference}.mp3`;
 
@@ -264,22 +298,28 @@ export default function Home() {
               <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Mastered</span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
-              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{state.history ? Object.keys(state.history).length : 0}</span>
+              <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{state.recallAttempts}</span>
               <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Total Attempts</span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">
-                {state.history ? Math.round((completedCount / Math.max(1, Object.keys(state.history).length)) * 100) : 0}%
+                {state.recallAttempts > 0 ? Math.round((state.recallWins / state.recallAttempts) * 100) : 0}%
               </span>
               <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Win Rate</span>
             </div>
           </div>
-          <DialogFooter>
+          <DialogFooter className="flex gap-2">
+            <button
+              onClick={handleImportBackup}
+              className="flex-1 flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
+            >
+              <Upload className="h-4 w-4" /> Import
+            </button>
             <button
               onClick={handleExportBackup}
-              className="w-full flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
+              className="flex-1 flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
             >
-              <Download className="h-4 w-4" /> Export Backup
+              <Download className="h-4 w-4" /> Export
             </button>
           </DialogFooter>
         </DialogContent>

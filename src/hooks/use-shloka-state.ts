@@ -39,7 +39,7 @@ export function useShlokaState() {
           contentMode: parsed.contentMode ?? "transliteration",
         });
       }
-    } catch {} finally {
+    } catch (e) { console.warn("Failed to load saved state:", e); } finally {
       setReady(true);
     }
   }, []);

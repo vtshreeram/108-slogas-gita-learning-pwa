@@ -11,7 +11,7 @@ type ShlokaCardProps = {
   setContentMode: (m: "transliteration" | "english" | "sanskrit") => void;
   audioAvailable: boolean;
   activeProgress: StepProgress;
-  onMarkStep: (id: string, step: any) => void;
+  onMarkStep: (id: string, step: import("@/lib/constants").LoopStep) => void;
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
 };
