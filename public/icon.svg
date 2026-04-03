@@ -2,43 +2,137 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#fff8eb"/>
-      <stop offset="100%" stop-color="#f4e9cb"/>
+      <stop offset="100%" stop-color="#f0dfb8"/>
     </linearGradient>
     <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#d4a44a"/>
       <stop offset="100%" stop-color="#8f6320"/>
     </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b9bd5"/>
+      <stop offset="100%" stop-color="#3a6fa0"/>
+    </linearGradient>
+    <linearGradient id="featherGreen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4caf50"/>
+      <stop offset="100%" stop-color="#1b5e20"/>
+    </linearGradient>
+    <linearGradient id="crown" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd54f"/>
+      <stop offset="100%" stop-color="#c8952e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" stop-color="#ffeaa7" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffeaa7" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
   <!-- Background -->
-  <rect width="256" height="256" rx="48" fill="url(#bg)"/>
-  <!-- Decorative circle -->
-  <circle cx="128" cy="120" r="78" fill="none" stroke="url(#gold)" stroke-width="3" opacity="0.3"/>
-  <!-- Krishna's flute (bansuri) - simplified -->
-  <g transform="translate(128,108) rotate(-30)">
-    <rect x="-40" y="-5" width="80" height="10" rx="5" fill="#8f6320"/>
-    <circle cx="-25" cy="0" r="2" fill="#f4e9cb"/>
-    <circle cx="-12" cy="0" r="2" fill="#f4e9cb"/>
-    <circle cx="1" cy="0" r="2" fill="#f4e9cb"/>
-    <circle cx="14" cy="0" r="2" fill="#f4e9cb"/>
-    <circle cx="27" cy="0" r="2" fill="#f4e9cb"/>
+  <rect width="256" height="256" rx="52" fill="url(#bg)"/>
+
+  <!-- Subtle golden glow behind Krishna -->
+  <circle cx="128" cy="100" r="72" fill="url(#glow)"/>
+
+  <!-- Decorative mandala ring -->
+  <circle cx="128" cy="100" r="68" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.25"/>
+  <circle cx="128" cy="100" r="74" fill="none" stroke="url(#gold)" stroke-width="0.8" opacity="0.15" stroke-dasharray="4 6"/>
+
+  <!-- Peacock feather (behind head) -->
+  <g transform="translate(148, 42)">
+    <!-- Stem -->
+    <path d="M0,30 Q2,-5 -1,-30" stroke="#2e7d32" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Outer feather shape -->
+    <ellipse cx="0" cy="-34" rx="11" ry="16" fill="#2e7d32" opacity="0.85"/>
+    <!-- Middle blue -->
+    <ellipse cx="0" cy="-34" rx="7.5" ry="11" fill="#1976d2" opacity="0.75"/>
+    <!-- Inner dark -->
+    <ellipse cx="0" cy="-34" rx="4" ry="6.5" fill="#0d47a1" opacity="0.85"/>
+    <!-- Golden eye -->
+    <ellipse cx="0" cy="-34" rx="2" ry="3" fill="#ffd54f"/>
+    <!-- Feather wisps -->
+    <path d="M-11,-34 Q-16,-28 -13,-20" stroke="#4caf50" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <path d="M11,-34 Q16,-28 13,-20" stroke="#4caf50" stroke-width="0.8" fill="none" opacity="0.5"/>
   </g>
-  <!-- Peacock feather -->
-  <g transform="translate(128,78)">
-    <!-- Feather stem -->
-    <line x1="0" y1="0" x2="0" y2="-40" stroke="#2d6b30" stroke-width="2" stroke-linecap="round"/>
-    <!-- Feather eye -->
-    <ellipse cx="0" cy="-42" rx="12" ry="16" fill="#1a6b3a" opacity="0.8"/>
-    <ellipse cx="0" cy="-42" rx="8" ry="11" fill="#2196F3" opacity="0.7"/>
-    <ellipse cx="0" cy="-42" rx="4" ry="6" fill="#1a237e" opacity="0.8"/>
-    <circle cx="0" cy="-42" r="2.5" fill="#d4a44a"/>
+
+  <!-- Krishna head -->
+  <circle cx="128" cy="72" r="22" fill="url(#skin)"/>
+
+  <!-- Crown / Mukut -->
+  <path d="M110,62 Q112,48 120,50 Q124,42 128,46 Q132,42 136,50 Q144,48 146,62 Z" fill="url(#crown)"/>
+  <!-- Crown jewel -->
+  <circle cx="128" cy="52" r="2.5" fill="#e53935" opacity="0.9"/>
+  <!-- Crown details -->
+  <circle cx="120" cy="53" r="1.2" fill="#fff8e1" opacity="0.6"/>
+  <circle cx="136" cy="53" r="1.2" fill="#fff8e1" opacity="0.6"/>
+
+  <!-- Face details -->
+  <!-- Eyes -->
+  <ellipse cx="122" cy="72" rx="3" ry="2.2" fill="#1a237e"/>
+  <ellipse cx="134" cy="72" rx="3" ry="2.2" fill="#1a237e"/>
+  <circle cx="122.5" cy="71.5" r="0.8" fill="white" opacity="0.7"/>
+  <circle cx="134.5" cy="71.5" r="0.8" fill="white" opacity="0.7"/>
+  <!-- Gentle smile -->
+  <path d="M123,80 Q128,84 133,80" stroke="#1a4472" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <!-- Tilak -->
+  <path d="M126,65 L128,61 L130,65" stroke="#fff8e1" stroke-width="1" fill="#fff8e1" opacity="0.8"/>
+  <!-- Bindi dot -->
+  <circle cx="128" cy="66.5" r="1" fill="#e53935" opacity="0.7"/>
+
+  <!-- Neck -->
+  <rect x="124" y="92" width="8" height="8" rx="2" fill="url(#skin)"/>
+
+  <!-- Body / upper garment -->
+  <path d="M108,100 Q112,94 128,96 Q144,94 148,100 L152,138 Q128,145 104,138 Z" fill="#ffd54f" opacity="0.9"/>
+  <!-- Garment fold detail -->
+  <path d="M118,105 Q128,108 138,105" stroke="#c8952e" stroke-width="0.8" fill="none" opacity="0.5"/>
+  <path d="M112,118 Q128,122 144,118" stroke="#c8952e" stroke-width="0.8" fill="none" opacity="0.4"/>
+
+  <!-- Arms -->
+  <!-- Left arm (holding flute) -->
+  <path d="M108,102 Q94,112 82,108" stroke="url(#skin)" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <!-- Right arm (holding flute) -->
+  <path d="M148,102 Q158,110 166,104" stroke="url(#skin)" stroke-width="7" fill="none" stroke-linecap="round"/>
+
+  <!-- Hands (small circles) -->
+  <circle cx="82" cy="108" r="5" fill="#4a90c4"/>
+  <circle cx="166" cy="104" r="5" fill="#4a90c4"/>
+
+  <!-- Flute (Bansuri) -->
+  <g transform="translate(124, 106) rotate(-12)">
+    <rect x="-42" y="-4" width="84" height="8" rx="4" fill="#8d5524"/>
+    <!-- Flute highlights -->
+    <rect x="-42" y="-4" width="84" height="3" rx="2" fill="#a0673c" opacity="0.6"/>
+    <!-- Finger holes -->
+    <circle cx="-24" cy="0" r="2" fill="#5d3a1a"/>
+    <circle cx="-12" cy="0" r="2" fill="#5d3a1a"/>
+    <circle cx="0" cy="0" r="2" fill="#5d3a1a"/>
+    <circle cx="12" cy="0" r="2" fill="#5d3a1a"/>
+    <circle cx="24" cy="0" r="2" fill="#5d3a1a"/>
+    <!-- Blowing end -->
+    <ellipse cx="-44" cy="0" rx="3" ry="4.5" fill="#a0673c"/>
   </g>
+
+  <!-- Music notes floating -->
+  <text x="170" y="90" font-family="Georgia, serif" font-size="14" fill="#c8952e" opacity="0.5">&#9835;</text>
+  <text x="180" y="78" font-family="Georgia, serif" font-size="10" fill="#c8952e" opacity="0.4">&#9833;</text>
+  <text x="76" y="95" font-family="Georgia, serif" font-size="12" fill="#c8952e" opacity="0.4">&#9834;</text>
+
   <!-- Lotus base -->
-  <g transform="translate(128,148)">
-    <ellipse cx="-12" cy="0" rx="10" ry="5" fill="#d4a44a" opacity="0.5" transform="rotate(-20)"/>
-    <ellipse cx="12" cy="0" rx="10" ry="5" fill="#d4a44a" opacity="0.5" transform="rotate(20)"/>
-    <ellipse cx="0" cy="-2" rx="10" ry="5" fill="#d4a44a" opacity="0.6"/>
+  <g transform="translate(128, 150)">
+    <!-- Center petal -->
+    <ellipse cx="0" cy="0" rx="10" ry="6" fill="#e8a0b4" opacity="0.7"/>
+    <!-- Left petals -->
+    <ellipse cx="-14" cy="2" rx="9" ry="5" fill="#e8a0b4" opacity="0.5" transform="rotate(-25)"/>
+    <ellipse cx="-24" cy="6" rx="7" ry="4" fill="#e8a0b4" opacity="0.35" transform="rotate(-40)"/>
+    <!-- Right petals -->
+    <ellipse cx="14" cy="2" rx="9" ry="5" fill="#e8a0b4" opacity="0.5" transform="rotate(25)"/>
+    <ellipse cx="24" cy="6" rx="7" ry="4" fill="#e8a0b4" opacity="0.35" transform="rotate(40)"/>
   </g>
-  <!-- Text -->
-  <text x="128" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#5f4216">गीता</text>
-  <text x="128" y="228" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#8f6320" opacity="0.7">108</text>
+
+  <!-- Text label -->
+  <text x="128" y="192" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="bold" fill="#5f4216" letter-spacing="1">&#x0917;&#x0940;&#x0924;&#x093E;</text>
+  <text x="128" y="222" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#8f6320" opacity="0.65" letter-spacing="3">108</text>
+
+  <!-- Subtle bottom ornament -->
+  <line x1="98" y1="234" x2="158" y2="234" stroke="#c8952e" stroke-width="0.8" opacity="0.3"/>
+  <circle cx="128" cy="234" r="2" fill="#c8952e" opacity="0.3"/>
 </svg>
