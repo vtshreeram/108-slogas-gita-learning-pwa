@@ -230,6 +230,7 @@ export default function Home() {
 
       <AudioPlayer
         audioSrc={audioSrc}
+        title={`Ch ${active.chapter} · V ${active.verse}`}
         isFirst={isFirst}
         isLast={isLast}
         audioAvailable={audioAvailable}

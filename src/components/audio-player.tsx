@@ -7,6 +7,7 @@ const SPEED_OPTIONS = [0.5, 0.75, 1, 1.25, 1.5] as const;
 
 type AudioPlayerProps = {
   audioSrc: string;
+  title: string;
   isFirst: boolean;
   isLast: boolean;
   audioAvailable: boolean;
@@ -16,7 +17,7 @@ type AudioPlayerProps = {
 };
 
 export function AudioPlayer({
-  audioSrc, isFirst, isLast,
+  audioSrc, title, isFirst, isLast,
   audioAvailable, setAudioAvailable,
   onNext, onPrev
 }: AudioPlayerProps) {
@@ -116,6 +117,25 @@ export function AudioPlayer({
       setAudioState("idle");
     }
   }, [audioSrc, pendingAutoPlay, setAudioAvailable]);
+
+  // Media Session API — lock screen artwork & controls
+  useEffect(() => {
+    if (!("mediaSession" in navigator)) return;
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: title,
+      artist: "Bhagavad Gita",
+      album: "Gita 108",
+      artwork: [
+        { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      ],
+    });
+    navigator.mediaSession.setActionHandler("play", () => playAudio());
+    navigator.mediaSession.setActionHandler("pause", () => pauseAudio());
+    navigator.mediaSession.setActionHandler("stop", () => stopAudio());
+    navigator.mediaSession.setActionHandler("previoustrack", isFirst ? null : () => onPrev());
+    navigator.mediaSession.setActionHandler("nexttrack", isLast ? null : () => { setPendingAutoPlay(true); onNext(); });
+  }, [title, isFirst, isLast]);
 
   const handleEnded = () => {
     if (loopMode === "off") {
