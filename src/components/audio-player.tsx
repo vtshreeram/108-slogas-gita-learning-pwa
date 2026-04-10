@@ -37,10 +37,20 @@ export function AudioPlayer({
     const el = audioRef.current;
     setIsLoading(true);
     const p = el.play();
-    if (p) p.then(() => setAudioState("playing")).catch(() => {
+    if (p) p.then(() => {
+      setAudioState("playing");
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.playbackState = "playing";
+      }
+    }).catch(() => {
       el.load();
       el.addEventListener("canplay", () => {
-        el.play().then(() => setAudioState("playing")).catch(() => {
+        el.play().then(() => {
+          setAudioState("playing");
+          if ("mediaSession" in navigator) {
+            navigator.mediaSession.playbackState = "playing";
+          }
+        }).catch(() => {
           setAudioAvailable(false);
           setAudioState("unavailable");
         });
@@ -52,6 +62,9 @@ export function AudioPlayer({
     if (!audioRef.current || !audioAvailable) return;
     audioRef.current.pause();
     setAudioState("paused");
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.playbackState = "paused";
+    }
   };
 
   const stopAudio = () => {
@@ -59,6 +72,9 @@ export function AudioPlayer({
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
     setAudioState("idle");
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.playbackState = "paused";
+    }
   };
 
   const togglePlayPause = () => {
@@ -116,7 +132,7 @@ export function AudioPlayer({
     } else {
       setAudioState("idle");
     }
-  }, [audioSrc, pendingAutoPlay, setAudioAvailable]);
+  }, [audioSrc, pendingAutoPlay, setAudioAvailable]); // playAudio is intentionally not in deps to avoid loops
 
   // Media Session API — lock screen artwork & controls
   useEffect(() => {
@@ -130,16 +146,37 @@ export function AudioPlayer({
         { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
       ],
     });
-    navigator.mediaSession.setActionHandler("play", () => playAudio());
-    navigator.mediaSession.setActionHandler("pause", () => pauseAudio());
-    navigator.mediaSession.setActionHandler("stop", () => stopAudio());
-    navigator.mediaSession.setActionHandler("previoustrack", isFirst ? null : () => onPrev());
-    navigator.mediaSession.setActionHandler("nexttrack", isLast ? null : () => { setPendingAutoPlay(true); onNext(); });
+
+    // Set action handlers with explicit window focus to prevent redirect to other apps
+    navigator.mediaSession.setActionHandler("play", () => {
+      window.focus();
+      playAudio();
+    });
+    navigator.mediaSession.setActionHandler("pause", () => {
+      window.focus();
+      pauseAudio();
+    });
+    navigator.mediaSession.setActionHandler("stop", () => {
+      window.focus();
+      stopAudio();
+    });
+    navigator.mediaSession.setActionHandler("previoustrack", isFirst ? null : () => {
+      window.focus();
+      onPrev();
+    });
+    navigator.mediaSession.setActionHandler("nexttrack", isLast ? null : () => {
+      window.focus();
+      setPendingAutoPlay(true);
+      onNext();
+    });
   }, [title, isFirst, isLast]);
 
   const handleEnded = () => {
     if (loopMode === "off") {
       setAudioState("idle");
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.playbackState = "paused";
+      }
       return;
     }
 
@@ -153,6 +190,9 @@ export function AudioPlayer({
       } else {
         setCurrentRepeat(0);
         setAudioState("idle");
+        if ("mediaSession" in navigator) {
+          navigator.mediaSession.playbackState = "paused";
+        }
       }
     } else if (loopMode === "advance") {
       if (repeatCount === Infinity || nextRepeat < repeatCount) {
@@ -162,7 +202,12 @@ export function AudioPlayer({
       } else {
         setCurrentRepeat(0);
         if (!isLast) { setPendingAutoPlay(true); onNext(); }
-        else setAudioState("idle");
+        else {
+          setAudioState("idle");
+          if ("mediaSession" in navigator) {
+            navigator.mediaSession.playbackState = "paused";
+          }
+        }
       }
     }
   };
@@ -180,8 +225,19 @@ export function AudioPlayer({
           onWaiting={() => setIsLoading(true)}
           onPlaying={() => setIsLoading(false)}
           onCanPlay={() => setIsLoading(false)}
-          onPlay={() => setAudioState("playing")}
-          onPause={() => setAudioState((prev) => prev === "unavailable" ? prev : "paused")}
+          onPlay={() => {
+            setAudioState("playing");
+            if ("mediaSession" in navigator) {
+              navigator.mediaSession.playbackState = "playing";
+            }
+          }}
+          onPause={() => {
+            const newState = (prev: typeof audioState) => prev === "unavailable" ? prev : "paused";
+            setAudioState(newState);
+            if ("mediaSession" in navigator) {
+              navigator.mediaSession.playbackState = "paused";
+            }
+          }}
           onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
           onDurationChange={(e) => setAudioDuration(e.currentTarget.duration)}
           onEnded={handleEnded}
