@@ -1,3 +1,14 @@
+/**
+ * AudioPlayer - Fixed bottom playback bar
+ *
+ * Color tokens (defined in globals.css):
+ * - --gita-light-* : Light backgrounds & accents
+ * - --gita-brown-* : Mid-tone browns, text colors
+ * - --gita-dark-* : Dark backgrounds for dark mode
+ * - --gita-success-* : Green colors for active/playing states
+ *
+ * Media Session API for lock screen controls
+ */
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause, Square, Repeat, Loader2, AlertCircle, SkipBack, SkipForward, Gauge } from "lucide-react";
 

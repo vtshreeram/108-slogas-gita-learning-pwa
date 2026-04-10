@@ -1,3 +1,12 @@
+/**
+ * ShlokaCard - Main content display component
+ *
+ * Color tokens (defined in globals.css):
+ * - --gita-light-* : Light backgrounds & accents (cream, off-white, sand, gold)
+ * - --gita-brown-* : Mid-tone browns, text colors, and warm accents
+ * - --gita-dark-* : Dark backgrounds for dark mode
+ * - --gita-success-* : Green colors for completed/progress states
+ */
 import { useState, useRef, useEffect, useMemo } from "react";
 import { AlertCircle, Eye, ChevronDown } from "lucide-react";
 import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, fullDone, StepProgress } from "@/lib/constants";

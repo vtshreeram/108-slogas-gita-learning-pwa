@@ -76,6 +76,50 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Gita app color tokens */
+  /* Light backgrounds & accents */
+  --gita-light-lightest: #fffaf0;
+  --gita-light-white: #fffcf5;
+  --gita-light-cream: #f9f1e1;
+  --gita-light-off-white: #f2e8d0;
+  --gita-light-pale: #fcebc4;
+  --gita-light-pale-alt: #fcf5e3;
+  --gita-light-subtle: #f4e9cb;
+  --gita-light-sand: #ebd6ab;
+  --gita-light-gold: #f0d498;
+  --gita-light-text: #f0e3ce;
+  --gita-light-border: #ccb385;
+  --gita-light-divider: #dbba84;
+
+  /* Mid-tone browns & text colors */
+  --gita-brown-dark: #8f6422;
+  --gita-brown-warm: #a88d63;
+  --gita-brown-muted: #b0976e;
+  --gita-brown-text: #8a6b3d;
+  --gita-brown-title: #4a3615;
+  --gita-brown-dark-text: #5c431b;
+  --gita-brown-subtle: #6b5532;
+  --gita-brown-medium: #6b512c;
+  --gita-brown-accent: #5f4a2b;
+  --gita-brown-rare: #3d2c10;
+  --gita-brown-darker: #5c482a;
+  --gita-brown-pale: #c4a062;
+  --gita-brown-light: #c0a986;
+  --gita-brown-lightest: #bda27e;
+  --gita-brown-gold: #d4aa61;
+
+  /* Dark backgrounds */
+  --gita-dark-darkest: #15100a;
+  --gita-dark-bg: #1e1710;
+  --gita-dark-darker: #2d2218;
+
+  /* Success/progress green */
+  --gita-success-light: #e8f5df;
+  --gita-success-border: #c1e0b0;
+  --gita-success-text: #88c775;
+  --gita-success-dark: #2c5d1f;
+  --gita-success-darker: #142610;
 }
 
 .dark {
@@ -110,6 +154,46 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Gita app color tokens (same in dark mode) */
+  --gita-light-lightest: #fffaf0;
+  --gita-light-white: #fffcf5;
+  --gita-light-cream: #f9f1e1;
+  --gita-light-off-white: #f2e8d0;
+  --gita-light-pale: #fcebc4;
+  --gita-light-pale-alt: #fcf5e3;
+  --gita-light-subtle: #f4e9cb;
+  --gita-light-sand: #ebd6ab;
+  --gita-light-gold: #f0d498;
+  --gita-light-text: #f0e3ce;
+  --gita-light-border: #ccb385;
+  --gita-light-divider: #dbba84;
+
+  --gita-brown-dark: #8f6422;
+  --gita-brown-warm: #a88d63;
+  --gita-brown-muted: #b0976e;
+  --gita-brown-text: #8a6b3d;
+  --gita-brown-title: #4a3615;
+  --gita-brown-dark-text: #5c431b;
+  --gita-brown-subtle: #6b5532;
+  --gita-brown-medium: #6b512c;
+  --gita-brown-accent: #5f4a2b;
+  --gita-brown-rare: #3d2c10;
+  --gita-brown-darker: #5c482a;
+  --gita-brown-pale: #c4a062;
+  --gita-brown-light: #c0a986;
+  --gita-brown-lightest: #bda27e;
+  --gita-brown-gold: #d4aa61;
+
+  --gita-dark-darkest: #15100a;
+  --gita-dark-bg: #1e1710;
+  --gita-dark-darker: #2d2218;
+
+  --gita-success-light: #e8f5df;
+  --gita-success-border: #c1e0b0;
+  --gita-success-text: #88c775;
+  --gita-success-dark: #2c5d1f;
+  --gita-success-darker: #142610;
 }
 
 @layer base {
@@ -119,6 +203,54 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Gita color utility classes for common color uses */
+@layer components {
+  /* Light backgrounds & accents */
+  .bg-gita-light-lightest { @apply bg-[var(--gita-light-lightest)]; }
+  .bg-gita-light-white { @apply bg-[var(--gita-light-white)]; }
+  .bg-gita-light-cream { @apply bg-[var(--gita-light-cream)]; }
+  .bg-gita-light-off-white { @apply bg-[var(--gita-light-off-white)]; }
+  .bg-gita-light-pale { @apply bg-[var(--gita-light-pale)]; }
+  .bg-gita-light-subtle { @apply bg-[var(--gita-light-subtle)]; }
+  .bg-gita-light-sand { @apply bg-[var(--gita-light-sand)]; }
+  .bg-gita-light-gold { @apply bg-[var(--gita-light-gold)]; }
+  .bg-gita-light-border { @apply bg-[var(--gita-light-border)]; }
+
+  .text-gita-light-lightest { @apply text-[var(--gita-light-lightest)]; }
+  .text-gita-light-text { @apply text-[var(--gita-light-text)]; }
+  .border-gita-light-sand { @apply border-[var(--gita-light-sand)]; }
+  .border-gita-light-gold { @apply border-[var(--gita-light-gold)]; }
+  .border-gita-light-border { @apply border-[var(--gita-light-border)]; }
+  .border-gita-light-divider { @apply border-[var(--gita-light-divider)]; }
+  .shadow-gita-light { @apply shadow-[0_4px_16px_rgba(143,100,34,0.1)]; }
+
+  /* Mid-tone browns & text colors */
+  .bg-gita-brown-dark { @apply bg-[var(--gita-brown-dark)]; }
+  .bg-gita-brown-warm { @apply bg-[var(--gita-brown-warm)]; }
+  .bg-gita-brown-text { @apply bg-[var(--gita-brown-text)]; }
+  .bg-gita-brown-subtle { @apply bg-[var(--gita-brown-subtle)]; }
+
+  .text-gita-brown-dark { @apply text-[var(--gita-brown-dark)]; }
+  .text-gita-brown-warm { @apply text-[var(--gita-brown-warm)]; }
+  .text-gita-brown-muted { @apply text-[var(--gita-brown-muted)]; }
+  .text-gita-brown-text { @apply text-[var(--gita-brown-text)]; }
+  .text-gita-brown-title { @apply text-[var(--gita-brown-title)]; }
+  .text-gita-brown-dark-text { @apply text-[var(--gita-brown-dark-text)]; }
+  .text-gita-brown-subtle { @apply text-[var(--gita-brown-subtle)]; }
+  .text-gita-brown-lightest { @apply text-[var(--gita-brown-lightest)]; }
+  .border-gita-brown-lightest { @apply border-[var(--gita-brown-lightest)]; }
+
+  /* Dark backgrounds */
+  .bg-gita-dark-bg { @apply bg-[var(--gita-dark-bg)]; }
+  .bg-gita-dark-darker { @apply bg-[var(--gita-dark-darker)]; }
+
+  /* Success/progress green */
+  .bg-gita-success-light { @apply bg-[var(--gita-success-light)]; }
+  .border-gita-success-border { @apply border-[var(--gita-success-border)]; }
+  .text-gita-success-text { @apply text-[var(--gita-success-text)]; }
+  .text-gita-success-dark { @apply text-[var(--gita-success-dark)]; }
 }
 
 /* Prevent page scroll when swiping horizontally on the card */
