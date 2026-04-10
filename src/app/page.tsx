@@ -5,12 +5,13 @@ import { CheckCircle, Undo2, Download, Upload, Moon, Sun, LogOut } from "lucide-
 import { useTheme } from "next-themes";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
 import { useBackupRestore } from "@/hooks/use-backup-restore";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
 import { LoaderQuote } from "@/components/loader-quote";
+import { DialogCard } from "@/components/dialog-card";
 import { auth, signInWithGoogle } from "@/lib/firebase";
 import { getRedirectResult, onAuthStateChanged, signOut, User } from "firebase/auth";
 
@@ -187,7 +188,7 @@ export default function Home() {
 
       {/* Confirm learned dialog */}
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
-        <DialogContent className="max-w-xs sm:max-w-sm border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-4 sm:p-6 shadow-2xl rounded-2xl sm:rounded-3xl">
+        <DialogCard maxWidth="max-w-xs sm:max-w-sm" responsiveRounded responsivePadding>
           <DialogHeader>
             <DialogTitle className="text-lg sm:text-xl font-bold text-[#4a3615] dark:text-[#f0e3ce]">Mark as Learned?</DialogTitle>
             <DialogDescription className="text-xs sm:text-sm text-[#6b5532] dark:text-[#bda27e] leading-relaxed mt-2">
@@ -208,12 +209,12 @@ export default function Home() {
               Yes, Mark Learned
             </button>
           </DialogFooter>
-        </DialogContent>
+        </DialogCard>
       </Dialog>
 
       {/* Completed shlokas dialog */}
       <Dialog open={completedOpen} onOpenChange={setCompletedOpen}>
-        <DialogContent className="max-w-lg border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
+        <DialogCard maxWidth="max-w-lg">
           <DialogHeader>
             <DialogTitle className="text-base font-semibold">Completed Shlokas</DialogTitle>
             <DialogDescription className="text-xs text-[#5f4a2b]">
@@ -248,10 +249,10 @@ export default function Home() {
               </div>
             </div>
           )}
-        </DialogContent>
+        </DialogCard>
       </Dialog>
       <Dialog open={statsOpen} onOpenChange={setStatsOpen}>
-        <DialogContent className="max-w-sm border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
+        <DialogCard maxWidth="max-w-sm">
           <DialogHeader>
             <DialogTitle className="text-base font-semibold text-[#4a3615] dark:text-[#f0e3ce]">Your Stats</DialogTitle>
           </DialogHeader>
@@ -289,7 +290,7 @@ export default function Home() {
               <Download className="h-4 w-4" /> Export
             </button>
           </DialogFooter>
-        </DialogContent>
+        </DialogCard>
       </Dialog>
     </main>
   );
