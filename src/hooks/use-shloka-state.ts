@@ -25,6 +25,15 @@ export function useShlokaState() {
         const parsed = JSON.parse(raw) as AppState;
         if (Number(parsed.schemaVersion) !== SCHEMA_VERSION) throw new Error("schema mismatch");
         const safeIndex = Math.max(0, Math.min(SHLOKAS.length - 1, Number(parsed.activeIndex ?? 0) || 0));
+
+        // Migration: "sanskrit" mode (Devanagari) was replaced with "tamil" mode (Tamil translation)
+        let migratedContentMode: "transliteration" | "english" | "tamil" = "transliteration";
+        if ((parsed.contentMode as string) === "sanskrit") {
+          migratedContentMode = "tamil";
+        } else if (parsed.contentMode === "transliteration" || parsed.contentMode === "english" || parsed.contentMode === "tamil") {
+          migratedContentMode = parsed.contentMode;
+        }
+
         setState({
           schemaVersion: SCHEMA_VERSION,
           startedAt: parsed.startedAt ?? todayIso(),
@@ -36,7 +45,7 @@ export function useShlokaState() {
           recallWins: Number(parsed.recallWins ?? 0) || 0,
           recallAttempts: Number(parsed.recallAttempts ?? 0) || 0,
           activeIndex: safeIndex,
-          contentMode: (parsed.contentMode as string) === "sanskrit" ? "tamil" : (parsed.contentMode ?? "transliteration"),
+          contentMode: migratedContentMode,
         });
       }
     } catch (e) { console.warn("Failed to load saved state:", e); } finally {

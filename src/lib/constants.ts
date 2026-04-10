@@ -16,7 +16,7 @@ export type AppState = {
   recallWins: number;
   recallAttempts: number;
   activeIndex: number;
-  contentMode: "transliteration" | "english" | "tamil";
+  contentMode: "transliteration" | "english" | "tamil"; // Content display mode (Roman/Meaning/Tamil)
 };
 
 export const STORAGE_KEY = "gita-learning-state-v4";
@@ -30,6 +30,10 @@ export const STEP_CONFIG: Record<LoopStep, { Icon: ComponentType<{ className?: s
   recall:     { Icon: Brain,      label: "Recall" },
 };
 
+// Content display modes for shlokas
+// - "transliteration": Roman transliteration of Sanskrit
+// - "english": English translation by Prabhupada
+// - "tamil": Tamil translation with purport explanation
 export const CONTENT_TABS: { mode: AppState["contentMode"]; label: string }[] = [
   { mode: "transliteration", label: "Roman" },
   { mode: "english",         label: "Meaning" },

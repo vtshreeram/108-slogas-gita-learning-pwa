@@ -101,6 +101,7 @@ export function ShlokaCard({
       </div>
 
       <div className="flex bg-[#f9f1e1] dark:bg-[#2d2218] rounded-full p-1 mb-4 border border-[#ebd6ab] dark:border-[#423321]">
+        {/* Content mode tabs: Roman transliteration, English translation, Tamil translation */}
         {CONTENT_TABS.map((tab) => (
           <button
             key={tab.mode}
