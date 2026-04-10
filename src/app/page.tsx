@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Flame, CheckCircle2, CheckCircle, Undo2, Download, Upload, Moon, Sun, LogOut } from "lucide-react";
+import { CheckCircle, Undo2, Download, Upload, Moon, Sun, LogOut } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { useShlokaState } from "@/hooks/use-shloka-state";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
+import { LoaderQuote } from "@/components/loader-quote";
 import { auth, googleProvider } from "@/lib/firebase";
 import { signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence, User } from "firebase/auth";
 
@@ -142,14 +143,7 @@ export default function Home() {
     return () => unsubscribe();
   }, []);
 
-  if (authChecking || (!ready && user)) return (
-    <main className="min-h-screen bg-[#f2e8d0] dark:bg-[#15100a] flex items-center justify-center">
-      <div className="flex flex-col items-center gap-3">
-        <div className="h-10 w-10 rounded-xl bg-[#ebd6ab] dark:bg-[#2d2218] animate-pulse" />
-        <div className="h-3 w-32 rounded bg-[#ebd6ab] dark:bg-[#2d2218] animate-pulse" />
-      </div>
-    </main>
-  );
+  if (authChecking || (!ready && user)) return <LoaderQuote />;
 
   if (!user) return <LoginScreen />;
 
