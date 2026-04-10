@@ -7,6 +7,7 @@ import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
+import { useBackupRestore } from "@/hooks/use-backup-restore";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
 import { LoaderQuote } from "@/components/loader-quote";
@@ -64,49 +65,7 @@ export default function Home() {
   const [user, setUser] = useState<User | null>(null);
   const [authChecking, setAuthChecking] = useState(true);
 
-  const handleExportBackup = () => {
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      if (!data) return;
-      const blob = new Blob([data], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `gita-108-backup-${new Date().toISOString().slice(0, 10)}.json`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } catch (e) {
-      console.error("Backup failed", e);
-    }
-  };
-
-  const handleImportBackup = () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = ".json";
-    input.onchange = (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const parsed = JSON.parse(reader.result as string);
-          if (Number(parsed.schemaVersion) !== SCHEMA_VERSION) {
-            alert("Incompatible backup version.");
-            return;
-          }
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
-          window.location.reload();
-        } catch {
-          alert("Invalid backup file.");
-        }
-      };
-      reader.readAsText(file);
-    };
-    input.click();
-  };
+  const { handleExportBackup, handleImportBackup } = useBackupRestore();
 
   const {
     ready, state, setState,
