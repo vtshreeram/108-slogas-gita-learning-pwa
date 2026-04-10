@@ -12,6 +12,7 @@ import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
 import { LoaderQuote } from "@/components/loader-quote";
 import { DialogCard } from "@/components/dialog-card";
+import { AudioErrorBoundary } from "@/components/audio-error-boundary";
 import { auth, signInWithGoogle } from "@/lib/firebase";
 import { getRedirectResult, onAuthStateChanged, signOut, User } from "firebase/auth";
 
@@ -176,16 +177,18 @@ export default function Home() {
         />
       </div>
 
-      <AudioPlayer
-        audioSrc={audioSrc}
-        title={`Ch ${active.chapter} · V ${active.verse}`}
-        isFirst={isFirst}
-        isLast={isLast}
-        audioAvailable={audioAvailable}
-        setAudioAvailable={setAudioAvailable}
-        onNext={() => setState(p => ({ ...p, activeIndex: Math.min(SHLOKAS.length - 1, p.activeIndex + 1) }))}
-        onPrev={() => setState(p => ({ ...p, activeIndex: Math.max(0, p.activeIndex - 1) }))}
-      />
+      <AudioErrorBoundary>
+        <AudioPlayer
+          audioSrc={audioSrc}
+          title={`Ch ${active.chapter} · V ${active.verse}`}
+          isFirst={isFirst}
+          isLast={isLast}
+          audioAvailable={audioAvailable}
+          setAudioAvailable={setAudioAvailable}
+          onNext={() => setState(p => ({ ...p, activeIndex: Math.min(SHLOKAS.length - 1, p.activeIndex + 1) }))}
+          onPrev={() => setState(p => ({ ...p, activeIndex: Math.max(0, p.activeIndex - 1) }))}
+        />
+      </AudioErrorBoundary>
 
       {/* Confirm learned dialog */}
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
