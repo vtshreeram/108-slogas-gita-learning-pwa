@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { SHLOKAS, TOTAL_SHLOKAS, DAILY_TARGET, LoopStep } from "@/lib/shlokas";
-import { AppState, STORAGE_KEY, SCHEMA_VERSION, defaultStepProgress, todayIso, fullDone } from "@/lib/constants";
+import { AppState, STORAGE_KEY, SCHEMA_VERSION, defaultStepProgress, todayIso, fullDone, daysBetween } from "@/lib/constants";
+import { appStateBackupSchema } from "@/lib/schemas";
 
 export function useShlokaState() {
   const [ready, setReady] = useState(false);
@@ -22,21 +23,38 @@ export function useShlokaState() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
-        const parsed = JSON.parse(raw) as AppState;
-        if (Number(parsed.schemaVersion) !== SCHEMA_VERSION) throw new Error("schema mismatch");
-        const safeIndex = Math.max(0, Math.min(SHLOKAS.length - 1, Number(parsed.activeIndex ?? 0) || 0));
+        const parsed = JSON.parse(raw);
+        const validated = appStateBackupSchema.safeParse(parsed);
+
+        if (!validated.success) {
+          console.warn("Failed to validate saved state:", validated.error);
+          setReady(true);
+          return;
+        }
+
+        const data = validated.data;
+        const safeIndex = Math.max(0, Math.min(SHLOKAS.length - 1, Number(data.activeIndex ?? 0) || 0));
+
+        // Migration: "sanskrit" mode (Devanagari) was replaced with "tamil" mode (Tamil translation)
+        let migratedContentMode: "transliteration" | "english" | "tamil" = "transliteration";
+        if ((data.contentMode as string) === "sanskrit") {
+          migratedContentMode = "tamil";
+        } else if (data.contentMode === "transliteration" || data.contentMode === "english" || data.contentMode === "tamil") {
+          migratedContentMode = data.contentMode;
+        }
+
         setState({
           schemaVersion: SCHEMA_VERSION,
-          startedAt: parsed.startedAt ?? todayIso(),
+          startedAt: data.startedAt ?? todayIso(),
           lastActiveDate: todayIso(),
-          lastPracticeDate: parsed.lastPracticeDate ?? "",
-          streakCount: Number(parsed.streakCount ?? 0) || 0,
-          activeMode: parsed.activeMode === "lite" ? "lite" : "normal",
-          completed: parsed.completed ?? {},
-          recallWins: Number(parsed.recallWins ?? 0) || 0,
-          recallAttempts: Number(parsed.recallAttempts ?? 0) || 0,
+          lastPracticeDate: data.lastPracticeDate ?? "",
+          streakCount: Number(data.streakCount ?? 0) || 0,
+          activeMode: data.activeMode === "lite" ? "lite" : "normal",
+          completed: data.completed ?? {},
+          recallWins: Number(data.recallWins ?? 0) || 0,
+          recallAttempts: Number(data.recallAttempts ?? 0) || 0,
           activeIndex: safeIndex,
-          contentMode: (parsed.contentMode as string) === "sanskrit" ? "tamil" : (parsed.contentMode ?? "transliteration"),
+          contentMode: migratedContentMode,
         });
       }
     } catch (e) { console.warn("Failed to load saved state:", e); } finally {
@@ -57,8 +75,19 @@ export function useShlokaState() {
       let { lastPracticeDate, streakCount } = prev;
       if (step === "recall" && isMarkingTrue) {
         const today = todayIso();
-        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-        if (lastPracticeDate === today) {} else if (lastPracticeDate === yesterday) { streakCount += 1; } else { streakCount = 1; }
+        if (lastPracticeDate === today) {
+          // User already practiced today, don't change streak
+        } else {
+          // Calculate days since last practice
+          const daysSinceLast = daysBetween(lastPracticeDate, today);
+          if (daysSinceLast === 1) {
+            // Practiced yesterday, continue the streak
+            streakCount = (prev.streakCount || 0) + 1;
+          } else {
+            // Skipped one or more days, start a new streak
+            streakCount = 1;
+          }
+        }
         lastPracticeDate = today;
       }
       return {

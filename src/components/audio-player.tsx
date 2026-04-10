@@ -1,3 +1,14 @@
+/**
+ * AudioPlayer - Fixed bottom playback bar
+ *
+ * Color tokens (defined in globals.css):
+ * - --gita-light-* : Light backgrounds & accents
+ * - --gita-brown-* : Mid-tone browns, text colors
+ * - --gita-dark-* : Dark backgrounds for dark mode
+ * - --gita-success-* : Green colors for active/playing states
+ *
+ * Media Session API for lock screen controls
+ */
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause, Square, Repeat, Loader2, AlertCircle, SkipBack, SkipForward, Gauge } from "lucide-react";
 
@@ -37,10 +48,20 @@ export function AudioPlayer({
     const el = audioRef.current;
     setIsLoading(true);
     const p = el.play();
-    if (p) p.then(() => setAudioState("playing")).catch(() => {
+    if (p) p.then(() => {
+      setAudioState("playing");
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.playbackState = "playing";
+      }
+    }).catch(() => {
       el.load();
       el.addEventListener("canplay", () => {
-        el.play().then(() => setAudioState("playing")).catch(() => {
+        el.play().then(() => {
+          setAudioState("playing");
+          if ("mediaSession" in navigator) {
+            navigator.mediaSession.playbackState = "playing";
+          }
+        }).catch(() => {
           setAudioAvailable(false);
           setAudioState("unavailable");
         });
@@ -52,6 +73,9 @@ export function AudioPlayer({
     if (!audioRef.current || !audioAvailable) return;
     audioRef.current.pause();
     setAudioState("paused");
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.playbackState = "paused";
+    }
   };
 
   const stopAudio = () => {
@@ -59,6 +83,9 @@ export function AudioPlayer({
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
     setAudioState("idle");
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.playbackState = "paused";
+    }
   };
 
   const togglePlayPause = () => {
@@ -116,6 +143,7 @@ export function AudioPlayer({
     } else {
       setAudioState("idle");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [audioSrc, pendingAutoPlay, setAudioAvailable]);
 
   // Media Session API — lock screen artwork & controls
@@ -130,16 +158,43 @@ export function AudioPlayer({
         { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
       ],
     });
-    navigator.mediaSession.setActionHandler("play", () => playAudio());
-    navigator.mediaSession.setActionHandler("pause", () => pauseAudio());
-    navigator.mediaSession.setActionHandler("stop", () => stopAudio());
-    navigator.mediaSession.setActionHandler("previoustrack", isFirst ? null : () => onPrev());
-    navigator.mediaSession.setActionHandler("nexttrack", isLast ? null : () => { setPendingAutoPlay(true); onNext(); });
+
+    // Set action handlers with explicit window focus to prevent redirect to other apps
+    navigator.mediaSession.setActionHandler("play", () => {
+      window.focus();
+      playAudio();
+    });
+    navigator.mediaSession.setActionHandler("pause", () => {
+      window.focus();
+      pauseAudio();
+    });
+    navigator.mediaSession.setActionHandler("stop", () => {
+      window.focus();
+      stopAudio();
+    });
+    navigator.mediaSession.setActionHandler("previoustrack", isFirst ? null : () => {
+      window.focus();
+      onPrev();
+    });
+    navigator.mediaSession.setActionHandler("nexttrack", isLast ? null : () => {
+      window.focus();
+      setPendingAutoPlay(true);
+      onNext();
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [title, isFirst, isLast]);
 
   const handleEnded = () => {
     if (loopMode === "off") {
+      // Reset audio position so user can replay from the start
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+      }
+      setAudioCurrentTime(0);
       setAudioState("idle");
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.playbackState = "paused";
+      }
       return;
     }
 
@@ -152,7 +207,15 @@ export function AudioPlayer({
         playAudio();
       } else {
         setCurrentRepeat(0);
+        // Reset audio position when repeat count reached
+        if (audioRef.current) {
+          audioRef.current.currentTime = 0;
+        }
+        setAudioCurrentTime(0);
         setAudioState("idle");
+        if ("mediaSession" in navigator) {
+          navigator.mediaSession.playbackState = "paused";
+        }
       }
     } else if (loopMode === "advance") {
       if (repeatCount === Infinity || nextRepeat < repeatCount) {
@@ -162,7 +225,17 @@ export function AudioPlayer({
       } else {
         setCurrentRepeat(0);
         if (!isLast) { setPendingAutoPlay(true); onNext(); }
-        else setAudioState("idle");
+        else {
+          // Reset audio position when done with advance repeats on last shloka
+          if (audioRef.current) {
+            audioRef.current.currentTime = 0;
+          }
+          setAudioCurrentTime(0);
+          setAudioState("idle");
+          if ("mediaSession" in navigator) {
+            navigator.mediaSession.playbackState = "paused";
+          }
+        }
       }
     }
   };
@@ -180,8 +253,19 @@ export function AudioPlayer({
           onWaiting={() => setIsLoading(true)}
           onPlaying={() => setIsLoading(false)}
           onCanPlay={() => setIsLoading(false)}
-          onPlay={() => setAudioState("playing")}
-          onPause={() => setAudioState((prev) => prev === "unavailable" ? prev : "paused")}
+          onPlay={() => {
+            setAudioState("playing");
+            if ("mediaSession" in navigator) {
+              navigator.mediaSession.playbackState = "playing";
+            }
+          }}
+          onPause={() => {
+            const newState = (prev: typeof audioState) => prev === "unavailable" ? prev : "paused";
+            setAudioState(newState);
+            if ("mediaSession" in navigator) {
+              navigator.mediaSession.playbackState = "paused";
+            }
+          }}
           onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
           onDurationChange={(e) => setAudioDuration(e.currentTarget.duration)}
           onEnded={handleEnded}

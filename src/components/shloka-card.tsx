@@ -1,6 +1,15 @@
+/**
+ * ShlokaCard - Main content display component
+ *
+ * Color tokens (defined in globals.css):
+ * - --gita-light-* : Light backgrounds & accents (cream, off-white, sand, gold)
+ * - --gita-brown-* : Mid-tone browns, text colors, and warm accents
+ * - --gita-dark-* : Dark backgrounds for dark mode
+ * - --gita-success-* : Green colors for completed/progress states
+ */
 import { useState, useRef, useEffect, useMemo } from "react";
-import { AlertCircle, Eye, ChevronDown } from "lucide-react";
-import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, fullDone, StepProgress } from "@/lib/constants";
+import { AlertCircle, Eye, ChevronDown, Star } from "lucide-react";
+import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, StepProgress } from "@/lib/constants";
 import { Shloka, SHLOKAS } from "@/lib/shlokas";
 
 type ShlokaCardProps = {
@@ -15,12 +24,15 @@ type ShlokaCardProps = {
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
   onJumpTo: (index: number) => void;
+  isFavorite: boolean;
+  onToggleFavorite: () => void;
 };
 
 export function ShlokaCard({
-  active, activeGlobalIndex, isMastered,
+  active, activeGlobalIndex,
   contentMode, setContentMode, audioAvailable,
-  activeProgress, onMarkStep, onSwipeLeft, onSwipeRight, onJumpTo
+  activeProgress, onMarkStep, onSwipeLeft, onSwipeRight, onJumpTo,
+  isFavorite, onToggleFavorite
 }: ShlokaCardProps) {
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
@@ -51,7 +63,7 @@ export function ShlokaCard({
     if (touchStartX.current === null || touchStartY.current === null) return;
     const deltaX = e.changedTouches[0].clientX - touchStartX.current;
     const deltaY = e.changedTouches[0].clientY - touchStartY.current;
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > SWIPE_THRESHOLD_PX) {
       if (deltaX < 0) onSwipeLeft();
       else if (deltaX > 0) onSwipeRight();
     }
@@ -73,7 +85,22 @@ export function ShlokaCard({
           Ch {active.chapter} • Shloka {active.verse}
           <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pickerOpen ? "rotate-180" : ""}`} />
         </button>
-        <span className="text-xs font-medium text-[#c0a986] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={onToggleFavorite}
+            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+            className="flex h-6 w-6 items-center justify-center rounded transition-colors hover:opacity-80"
+          >
+            <Star
+              className={`h-4 w-4 transition-colors ${
+                isFavorite
+                  ? "fill-[#d4aa61] text-[#d4aa61]"
+                  : "text-[#a88d63] dark:text-[#bda27e]"
+              }`}
+            />
+          </button>
+          <span className="text-xs font-medium text-[#c0a986] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
+        </div>
 
         {pickerOpen && (
           <>
@@ -101,6 +128,7 @@ export function ShlokaCard({
       </div>
 
       <div className="flex bg-[#f9f1e1] dark:bg-[#2d2218] rounded-full p-1 mb-4 border border-[#ebd6ab] dark:border-[#423321]">
+        {/* Content mode tabs: Roman transliteration, English translation, Tamil translation */}
         {CONTENT_TABS.map((tab) => (
           <button
             key={tab.mode}
@@ -180,6 +208,7 @@ export function ShlokaCard({
                 }
               }}
               disabled={!isUnlocked}
+              aria-label={`${label} step: ${isDone ? "completed" : isUnlocked ? "not completed" : "locked"}`}
               className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] dark:bg-[#142610] border-[#c1e0b0] dark:border-[#284f1d] text-[#2c5d1f] dark:text-[#88c775]" : isUnlocked ? "bg-white dark:bg-[#1e1710] border-[#e2cca4] dark:border-[#423321] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]" : "bg-[#f4e9cb] dark:bg-[#2d2218]/50 border-transparent text-[#c0a986] dark:text-[#bda27e] opacity-50 cursor-not-allowed"}`}
             >
               <Icon className="mb-1 h-5 w-5" />

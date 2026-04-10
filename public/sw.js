@@ -1,5 +1,6 @@
-const SHELL_CACHE = "gita-shell-v3";
-const AUDIO_CACHE = "gita-audio-v1";
+// Cache names with versions for invalidation on updates
+const SHELL_CACHE = "gita-shell-v4";
+const AUDIO_CACHE = "gita-audio-v2";
 const KNOWN_CACHES = [SHELL_CACHE, AUDIO_CACHE];
 const SHELL_ASSETS = ["/", "/manifest.webmanifest", "/icon.svg"];
 

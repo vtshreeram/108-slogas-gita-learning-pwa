@@ -1,16 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Flame, CheckCircle2, CheckCircle, Undo2, Download, Upload, Moon, Sun, LogOut } from "lucide-react";
+import { CheckCircle, Undo2, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
-import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
+import { useProfile } from "@/hooks/use-profile";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
-import { auth, googleProvider } from "@/lib/firebase";
-import { signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence, User } from "firebase/auth";
+import { LoaderQuote } from "@/components/loader-quote";
+import { DialogCard } from "@/components/dialog-card";
+import { AudioErrorBoundary } from "@/components/audio-error-boundary";
+import { ProfileSheet } from "@/components/profile-sheet";
+import { auth, signInWithGoogle } from "@/lib/firebase";
+import { getRedirectResult, onAuthStateChanged, User } from "firebase/auth";
 
 function LoginScreen() {
   const [signingIn, setSigningIn] = useState(false);
@@ -18,17 +22,10 @@ function LoginScreen() {
   const handleLogin = async () => {
     setSigningIn(true);
     try {
-      await setPersistence(auth, browserLocalPersistence);
-      await signInWithPopup(auth, googleProvider);
+      await signInWithGoogle();
     } catch (error: unknown) {
-      const code = (error as { code?: string }).code;
-      // If popup was blocked or closed, fall back to redirect flow
-      if (code === "auth/popup-blocked" || code === "auth/popup-closed-by-user") {
-        signInWithRedirect(auth, googleProvider);
-        return;
-      }
       console.error("Login failed", error);
-      alert("Login failed: " + (error as Error).message);
+      alert("Login failed: " + ((error as Error)?.message || "Unknown error"));
       setSigningIn(false);
     }
   };
@@ -57,62 +54,21 @@ export default function Home() {
   const [confirmLearnedOpen, setConfirmLearnedOpen] = useState(false);
   const [completedOpen, setCompletedOpen] = useState(false);
   const [statsOpen, setStatsOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [audioAvailable, setAudioAvailable] = useState(true);
   const { theme, setTheme } = useTheme();
-  
+
   const [user, setUser] = useState<User | null>(null);
   const [authChecking, setAuthChecking] = useState(true);
 
-  const handleExportBackup = () => {
-    try {
-      const data = localStorage.getItem(STORAGE_KEY);
-      if (!data) return;
-      const blob = new Blob([data], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `gita-108-backup-${new Date().toISOString().slice(0, 10)}.json`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } catch (e) {
-      console.error("Backup failed", e);
-    }
-  };
-
-  const handleImportBackup = () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = ".json";
-    input.onchange = (e) => {
-      const file = (e.target as HTMLInputElement).files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const parsed = JSON.parse(reader.result as string);
-          if (Number(parsed.schemaVersion) !== SCHEMA_VERSION) {
-            alert("Incompatible backup version.");
-            return;
-          }
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
-          window.location.reload();
-        } catch {
-          alert("Invalid backup file.");
-        }
-      };
-      reader.readAsText(file);
-    };
-    input.click();
-  };
+  const { isFavorite, toggleFavorite } = useProfile(user);
 
   const {
     ready, state, setState,
     markStep, markAsLearned, undoLearnedForActive,
     completedCount, completedShlokas, streak, progressPct,
-    active, safeActiveIndex, activeProgress, activeGlobalIndex,
-    isFirst, isLast, isMastered, dailyGoal, firstPending, chapterList
+    active, activeProgress, activeGlobalIndex,
+    isFirst, isLast, isMastered, dailyGoal, chapterList
   } = useShlokaState();
 
   useEffect(() => {
@@ -142,14 +98,7 @@ export default function Home() {
     return () => unsubscribe();
   }, []);
 
-  if (authChecking || (!ready && user)) return (
-    <main className="min-h-screen bg-[#f2e8d0] dark:bg-[#15100a] flex items-center justify-center">
-      <div className="flex flex-col items-center gap-3">
-        <div className="h-10 w-10 rounded-xl bg-[#ebd6ab] dark:bg-[#2d2218] animate-pulse" />
-        <div className="h-3 w-32 rounded bg-[#ebd6ab] dark:bg-[#2d2218] animate-pulse" />
-      </div>
-    </main>
-  );
+  if (authChecking || (!ready && user)) return <LoaderQuote />;
 
   if (!user) return <LoginScreen />;
 
@@ -173,11 +122,15 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-1.5">
             <button
-              onClick={() => signOut(auth)}
-              title="Sign Out"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] text-[#8f6422] dark:text-[#d4aa61]"
+              onClick={() => setProfileOpen(true)}
+              aria-label="Open profile"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-[#4a3615] text-xs font-bold hover:opacity-80 transition-opacity"
             >
-              <LogOut className="h-3.5 w-3.5" />
+              {user?.photoURL ? (
+                <img src={user.photoURL} alt="Profile" className="h-8 w-8 rounded-full object-cover" />
+              ) : (
+                user?.displayName?.charAt(0)?.toUpperCase() || user?.email?.charAt(0)?.toUpperCase() || "?"
+              )}
             </button>
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -201,6 +154,7 @@ export default function Home() {
 
         <button
           onClick={() => setStatsOpen(true)}
+          aria-label="View session progress and stats"
           className="flex items-center justify-between rounded-2xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 sm:p-4 shadow-[0_2px_8px_rgba(143,100,34,0.06)] relative overflow-hidden group w-full text-left"
         >
           <div className="relative z-20">
@@ -225,49 +179,53 @@ export default function Home() {
           onSwipeLeft={() => !isLast && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex + 1 }))}
           onSwipeRight={() => !isFirst && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex - 1 }))}
           onJumpTo={(index) => setState((prev) => ({ ...prev, activeIndex: index }))}
+          isFavorite={isFavorite(active.id)}
+          onToggleFavorite={() => toggleFavorite(active.id)}
         />
       </div>
 
-      <AudioPlayer
-        audioSrc={audioSrc}
-        title={`Ch ${active.chapter} · V ${active.verse}`}
-        isFirst={isFirst}
-        isLast={isLast}
-        audioAvailable={audioAvailable}
-        setAudioAvailable={setAudioAvailable}
-        onNext={() => setState(p => ({ ...p, activeIndex: Math.min(SHLOKAS.length - 1, p.activeIndex + 1) }))}
-        onPrev={() => setState(p => ({ ...p, activeIndex: Math.max(0, p.activeIndex - 1) }))}
-      />
+      <AudioErrorBoundary>
+        <AudioPlayer
+          audioSrc={audioSrc}
+          title={`Ch ${active.chapter} · V ${active.verse}`}
+          isFirst={isFirst}
+          isLast={isLast}
+          audioAvailable={audioAvailable}
+          setAudioAvailable={setAudioAvailable}
+          onNext={() => setState(p => ({ ...p, activeIndex: Math.min(SHLOKAS.length - 1, p.activeIndex + 1) }))}
+          onPrev={() => setState(p => ({ ...p, activeIndex: Math.max(0, p.activeIndex - 1) }))}
+        />
+      </AudioErrorBoundary>
 
       {/* Confirm learned dialog */}
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
-        <DialogContent className="max-w-sm border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
+        <DialogCard maxWidth="max-w-xs sm:max-w-sm" responsiveRounded responsivePadding>
           <DialogHeader>
-            <DialogTitle className="text-base font-semibold">Mark as Learned?</DialogTitle>
-            <DialogDescription className="text-xs text-[#5f4a2b] leading-relaxed">
-              This marks all 4 practice steps complete for Ch {active.chapter} · V {active.verse} and advances to the next verse.
+            <DialogTitle className="text-lg sm:text-xl font-bold text-[#4a3615] dark:text-[#f0e3ce]">Mark as Learned?</DialogTitle>
+            <DialogDescription className="text-xs sm:text-sm text-[#6b5532] dark:text-[#bda27e] leading-relaxed mt-2">
+              This marks all 4 steps complete for <span className="font-semibold">Ch {active.chapter} · V {active.verse}</span> and moves to the next verse.
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter className="mt-3 gap-2">
+          <DialogFooter className="mt-4 sm:mt-6 flex flex-col-reverse sm:flex-row gap-2">
             <button
               onClick={() => setConfirmLearnedOpen(false)}
-              className="rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
+              className="flex-1 rounded-xl border-2 border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-3 sm:py-2 text-xs sm:text-sm font-semibold text-[#6b512c] dark:text-[#d4aa61] hover:bg-[#fcebc4] dark:hover:bg-[#2d2218] transition-colors"
             >
               Cancel
             </button>
             <button
               onClick={() => { setConfirmLearnedOpen(false); markAsLearned(active.id); }}
-              className="rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-2 text-xs font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)]"
+              className="flex-1 rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-3 sm:py-2 text-xs sm:text-sm font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)] hover:shadow-[0_6px_16px_rgba(138,107,61,0.4)] transition-shadow active:scale-95"
             >
               Yes, Mark Learned
             </button>
           </DialogFooter>
-        </DialogContent>
+        </DialogCard>
       </Dialog>
 
       {/* Completed shlokas dialog */}
       <Dialog open={completedOpen} onOpenChange={setCompletedOpen}>
-        <DialogContent className="max-w-lg border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
+        <DialogCard maxWidth="max-w-lg">
           <DialogHeader>
             <DialogTitle className="text-base font-semibold">Completed Shlokas</DialogTitle>
             <DialogDescription className="text-xs text-[#5f4a2b]">
@@ -302,10 +260,10 @@ export default function Home() {
               </div>
             </div>
           )}
-        </DialogContent>
+        </DialogCard>
       </Dialog>
       <Dialog open={statsOpen} onOpenChange={setStatsOpen}>
-        <DialogContent className="max-w-sm border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
+        <DialogCard maxWidth="max-w-sm">
           <DialogHeader>
             <DialogTitle className="text-base font-semibold text-[#4a3615] dark:text-[#f0e3ce]">Your Stats</DialogTitle>
           </DialogHeader>
@@ -331,20 +289,25 @@ export default function Home() {
           </div>
           <DialogFooter className="flex gap-2">
             <button
-              onClick={handleImportBackup}
-              className="flex-1 flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
+              onClick={() => setProfileOpen(true)}
+              className="flex-1 rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-2 text-xs font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)] hover:shadow-[0_6px_16px_rgba(138,107,61,0.4)] transition-shadow active:scale-95"
             >
-              <Upload className="h-4 w-4" /> Import
-            </button>
-            <button
-              onClick={handleExportBackup}
-              className="flex-1 flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
-            >
-              <Download className="h-4 w-4" /> Export
+              View Profile
             </button>
           </DialogFooter>
-        </DialogContent>
+        </DialogCard>
       </Dialog>
+
+      {/* Profile Sheet */}
+      <ProfileSheet
+        open={profileOpen}
+        onOpenChange={setProfileOpen}
+        user={user}
+        state={state}
+        setState={setState}
+        completedCount={completedCount}
+        streak={streak}
+      />
     </main>
   );
 }
