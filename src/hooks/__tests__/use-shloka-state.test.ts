@@ -62,7 +62,7 @@ describe("useShlokaState logic", () => {
         recallWins: 0,
         recallAttempts: 0,
         activeIndex: 0,
-        contentMode: "sanskrit" as any, // old mode
+        contentMode: "sanskrit", // old mode (legacy)
       };
 
       // Simulate migration logic

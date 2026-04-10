@@ -11,8 +11,8 @@ import { useBackupRestore } from "@/hooks/use-backup-restore";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
 import { LoaderQuote } from "@/components/loader-quote";
-import { auth, googleProvider } from "@/lib/firebase";
-import { signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence, User } from "firebase/auth";
+import { auth, signInWithGoogle } from "@/lib/firebase";
+import { getRedirectResult, onAuthStateChanged, signOut, User } from "firebase/auth";
 
 function LoginScreen() {
   const [signingIn, setSigningIn] = useState(false);
@@ -20,17 +20,10 @@ function LoginScreen() {
   const handleLogin = async () => {
     setSigningIn(true);
     try {
-      await setPersistence(auth, browserLocalPersistence);
-      await signInWithPopup(auth, googleProvider);
+      await signInWithGoogle();
     } catch (error: unknown) {
-      const code = (error as { code?: string }).code;
-      // If popup was blocked or closed, fall back to redirect flow
-      if (code === "auth/popup-blocked" || code === "auth/popup-closed-by-user") {
-        signInWithRedirect(auth, googleProvider);
-        return;
-      }
       console.error("Login failed", error);
-      alert("Login failed: " + (error as Error).message);
+      alert("Login failed: " + ((error as Error)?.message || "Unknown error"));
       setSigningIn(false);
     }
   };
