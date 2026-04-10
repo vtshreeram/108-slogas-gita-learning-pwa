@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { SHLOKAS, TOTAL_SHLOKAS, DAILY_TARGET, LoopStep } from "@/lib/shlokas";
-import { AppState, STORAGE_KEY, SCHEMA_VERSION, defaultStepProgress, todayIso, fullDone } from "@/lib/constants";
+import { AppState, STORAGE_KEY, SCHEMA_VERSION, defaultStepProgress, todayIso, fullDone, daysBetween } from "@/lib/constants";
 
 export function useShlokaState() {
   const [ready, setReady] = useState(false);
@@ -66,8 +66,19 @@ export function useShlokaState() {
       let { lastPracticeDate, streakCount } = prev;
       if (step === "recall" && isMarkingTrue) {
         const today = todayIso();
-        const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-        if (lastPracticeDate === today) {} else if (lastPracticeDate === yesterday) { streakCount += 1; } else { streakCount = 1; }
+        if (lastPracticeDate === today) {
+          // User already practiced today, don't change streak
+        } else {
+          // Calculate days since last practice
+          const daysSinceLast = daysBetween(lastPracticeDate, today);
+          if (daysSinceLast === 1) {
+            // Practiced yesterday, continue the streak
+            streakCount = (prev.streakCount || 0) + 1;
+          } else {
+            // Skipped one or more days, start a new streak
+            streakCount = 1;
+          }
+        }
         lastPracticeDate = today;
       }
       return {
