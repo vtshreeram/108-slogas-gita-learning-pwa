@@ -173,6 +173,11 @@ export function AudioPlayer({
 
   const handleEnded = () => {
     if (loopMode === "off") {
+      // Reset audio position so user can replay from the start
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+      }
+      setAudioCurrentTime(0);
       setAudioState("idle");
       if ("mediaSession" in navigator) {
         navigator.mediaSession.playbackState = "paused";
@@ -189,6 +194,11 @@ export function AudioPlayer({
         playAudio();
       } else {
         setCurrentRepeat(0);
+        // Reset audio position when repeat count reached
+        if (audioRef.current) {
+          audioRef.current.currentTime = 0;
+        }
+        setAudioCurrentTime(0);
         setAudioState("idle");
         if ("mediaSession" in navigator) {
           navigator.mediaSession.playbackState = "paused";
@@ -203,6 +213,11 @@ export function AudioPlayer({
         setCurrentRepeat(0);
         if (!isLast) { setPendingAutoPlay(true); onNext(); }
         else {
+          // Reset audio position when done with advance repeats on last shloka
+          if (audioRef.current) {
+            audioRef.current.currentTime = 0;
+          }
+          setAudioCurrentTime(0);
           setAudioState("idle");
           if ("mediaSession" in navigator) {
             navigator.mediaSession.playbackState = "paused";
