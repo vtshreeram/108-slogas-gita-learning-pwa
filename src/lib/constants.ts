@@ -30,6 +30,9 @@ export const STEP_CONFIG: Record<LoopStep, { Icon: ComponentType<{ className?: s
   recall:     { Icon: Brain,      label: "Recall" },
 };
 
+// Touch gesture configuration
+export const SWIPE_THRESHOLD_PX = 50; // Minimum distance in pixels to register a swipe
+
 // Content display modes for shlokas
 // - "transliteration": Roman transliteration of Sanskrit
 // - "english": English translation by Prabhupada

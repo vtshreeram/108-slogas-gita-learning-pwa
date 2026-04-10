@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { AlertCircle, Eye, ChevronDown } from "lucide-react";
-import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, fullDone, StepProgress } from "@/lib/constants";
+import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, fullDone, StepProgress } from "@/lib/constants";
 import { Shloka, SHLOKAS } from "@/lib/shlokas";
 
 type ShlokaCardProps = {
@@ -51,7 +51,7 @@ export function ShlokaCard({
     if (touchStartX.current === null || touchStartY.current === null) return;
     const deltaX = e.changedTouches[0].clientX - touchStartX.current;
     const deltaY = e.changedTouches[0].clientY - touchStartY.current;
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > SWIPE_THRESHOLD_PX) {
       if (deltaX < 0) onSwipeLeft();
       else if (deltaX > 0) onSwipeRight();
     }
