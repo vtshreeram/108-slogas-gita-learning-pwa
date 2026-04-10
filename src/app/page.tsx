@@ -235,23 +235,23 @@ export default function Home() {
 
       {/* Confirm learned dialog */}
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
-        <DialogContent className="max-w-sm border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-5 shadow-2xl rounded-3xl">
+        <DialogContent className="max-w-xs sm:max-w-sm border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] p-4 sm:p-6 shadow-2xl rounded-2xl sm:rounded-3xl">
           <DialogHeader>
-            <DialogTitle className="text-base font-semibold">Mark as Learned?</DialogTitle>
-            <DialogDescription className="text-xs text-[#5f4a2b] leading-relaxed">
-              This marks all 4 practice steps complete for Ch {active.chapter} · V {active.verse} and advances to the next verse.
+            <DialogTitle className="text-lg sm:text-xl font-bold text-[#4a3615] dark:text-[#f0e3ce]">Mark as Learned?</DialogTitle>
+            <DialogDescription className="text-xs sm:text-sm text-[#6b5532] dark:text-[#bda27e] leading-relaxed mt-2">
+              This marks all 4 steps complete for <span className="font-semibold">Ch {active.chapter} · V {active.verse}</span> and moves to the next verse.
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter className="mt-3 gap-2">
+          <DialogFooter className="mt-4 sm:mt-6 flex flex-col-reverse sm:flex-row gap-2">
             <button
               onClick={() => setConfirmLearnedOpen(false)}
-              className="rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
+              className="flex-1 rounded-xl border-2 border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-3 sm:py-2 text-xs sm:text-sm font-semibold text-[#6b512c] dark:text-[#d4aa61] hover:bg-[#fcebc4] dark:hover:bg-[#2d2218] transition-colors"
             >
               Cancel
             </button>
             <button
               onClick={() => { setConfirmLearnedOpen(false); markAsLearned(active.id); }}
-              className="rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-2 text-xs font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)]"
+              className="flex-1 rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-3 sm:py-2 text-xs sm:text-sm font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)] hover:shadow-[0_6px_16px_rgba(138,107,61,0.4)] transition-shadow active:scale-95"
             >
               Yes, Mark Learned
             </button>
