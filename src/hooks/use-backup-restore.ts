@@ -1,4 +1,6 @@
-import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
+import { z } from "zod";
+import { STORAGE_KEY } from "@/lib/constants";
+import { appStateBackupSchema } from "@/lib/schemas";
 
 export function useBackupRestore() {
   const handleExportBackup = () => {
@@ -34,22 +36,19 @@ export function useBackupRestore() {
       reader.onload = () => {
         try {
           const parsed = JSON.parse(reader.result as string);
-          // Validate schema version
-          if (Number(parsed.schemaVersion) !== SCHEMA_VERSION) {
-            alert(`Incompatible backup version. Expected v${SCHEMA_VERSION}, got v${parsed.schemaVersion}`);
-            return;
-          }
-          // Validate required fields
-          if (!parsed.completed || typeof parsed.completed !== "object") {
-            alert("Invalid backup file: missing or invalid 'completed' field");
-            return;
-          }
-          // Write to storage and reload
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+          // Validate backup structure against Zod schema
+          const validated = appStateBackupSchema.parse(parsed);
+          // Write validated data to storage and reload
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(validated));
           window.location.reload();
         } catch (err) {
-          console.error("Backup import failed", err);
-          alert("Invalid backup file. Check console for details.");
+          if (err instanceof z.ZodError) {
+            const issues = err.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`).join("; ");
+            alert(`Invalid backup file: ${issues}`);
+          } else {
+            console.error("Backup import failed", err);
+            alert("Invalid backup file. Check console for details.");
+          }
         }
       };
       reader.readAsText(file);

@@ -38,8 +38,8 @@ describe('response utils', () => {
 
   describe('jsonOk', () => {
     it('wraps data in envelope', () => {
-      const response = jsonOk({ id: 1 }, { status: 201 });
-      
+      jsonOk({ id: 1 }, { status: 201 });
+
       expect(NextResponse.json).toHaveBeenCalledWith(
         { status: 'ok', data: { id: 1 } },
         { status: 201 }
@@ -50,8 +50,8 @@ describe('response utils', () => {
   describe('jsonError', () => {
     it('wraps error in envelope', () => {
       const error = { code: 'bad_request' as const, message: 'Invalid format' };
-      const response = jsonError(error, { status: 400 });
-      
+      jsonError(error, { status: 400 });
+
       expect(NextResponse.json).toHaveBeenCalledWith(
         { status: 'error', error },
         { status: 400 }

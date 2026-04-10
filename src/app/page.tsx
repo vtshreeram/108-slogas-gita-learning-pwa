@@ -1,20 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CheckCircle, Undo2, Download, Upload, Moon, Sun, LogOut } from "lucide-react";
+import { CheckCircle, Undo2, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
-import { STORAGE_KEY, SCHEMA_VERSION } from "@/lib/constants";
 import { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
-import { useBackupRestore } from "@/hooks/use-backup-restore";
+import { useProfile } from "@/hooks/use-profile";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
 import { LoaderQuote } from "@/components/loader-quote";
 import { DialogCard } from "@/components/dialog-card";
 import { AudioErrorBoundary } from "@/components/audio-error-boundary";
+import { ProfileSheet } from "@/components/profile-sheet";
 import { auth, signInWithGoogle } from "@/lib/firebase";
-import { getRedirectResult, onAuthStateChanged, signOut, User } from "firebase/auth";
+import { getRedirectResult, onAuthStateChanged, User } from "firebase/auth";
 
 function LoginScreen() {
   const [signingIn, setSigningIn] = useState(false);
@@ -54,20 +54,21 @@ export default function Home() {
   const [confirmLearnedOpen, setConfirmLearnedOpen] = useState(false);
   const [completedOpen, setCompletedOpen] = useState(false);
   const [statsOpen, setStatsOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [audioAvailable, setAudioAvailable] = useState(true);
   const { theme, setTheme } = useTheme();
-  
+
   const [user, setUser] = useState<User | null>(null);
   const [authChecking, setAuthChecking] = useState(true);
 
-  const { handleExportBackup, handleImportBackup } = useBackupRestore();
+  const { isFavorite, toggleFavorite } = useProfile(user);
 
   const {
     ready, state, setState,
     markStep, markAsLearned, undoLearnedForActive,
     completedCount, completedShlokas, streak, progressPct,
-    active, safeActiveIndex, activeProgress, activeGlobalIndex,
-    isFirst, isLast, isMastered, dailyGoal, firstPending, chapterList
+    active, activeProgress, activeGlobalIndex,
+    isFirst, isLast, isMastered, dailyGoal, chapterList
   } = useShlokaState();
 
   useEffect(() => {
@@ -121,11 +122,15 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-1.5">
             <button
-              onClick={() => signOut(auth)}
-              aria-label="Sign out"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] text-[#8f6422] dark:text-[#d4aa61]"
+              onClick={() => setProfileOpen(true)}
+              aria-label="Open profile"
+              className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-[#4a3615] text-xs font-bold hover:opacity-80 transition-opacity"
             >
-              <LogOut className="h-3.5 w-3.5" />
+              {user?.photoURL ? (
+                <img src={user.photoURL} alt="Profile" className="h-8 w-8 rounded-full object-cover" />
+              ) : (
+                user?.displayName?.charAt(0)?.toUpperCase() || user?.email?.charAt(0)?.toUpperCase() || "?"
+              )}
             </button>
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -174,6 +179,8 @@ export default function Home() {
           onSwipeLeft={() => !isLast && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex + 1 }))}
           onSwipeRight={() => !isFirst && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex - 1 }))}
           onJumpTo={(index) => setState((prev) => ({ ...prev, activeIndex: index }))}
+          isFavorite={isFavorite(active.id)}
+          onToggleFavorite={() => toggleFavorite(active.id)}
         />
       </div>
 
@@ -282,20 +289,25 @@ export default function Home() {
           </div>
           <DialogFooter className="flex gap-2">
             <button
-              onClick={handleImportBackup}
-              className="flex-1 flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
+              onClick={() => setProfileOpen(true)}
+              className="flex-1 rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-2 text-xs font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)] hover:shadow-[0_6px_16px_rgba(138,107,61,0.4)] transition-shadow active:scale-95"
             >
-              <Upload className="h-4 w-4" /> Import
-            </button>
-            <button
-              onClick={handleExportBackup}
-              className="flex-1 flex justify-center items-center gap-2 rounded-xl border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] px-4 py-2 text-xs font-semibold text-[#5c482a]"
-            >
-              <Download className="h-4 w-4" /> Export
+              View Profile
             </button>
           </DialogFooter>
         </DialogCard>
       </Dialog>
+
+      {/* Profile Sheet */}
+      <ProfileSheet
+        open={profileOpen}
+        onOpenChange={setProfileOpen}
+        user={user}
+        state={state}
+        setState={setState}
+        completedCount={completedCount}
+        streak={streak}
+      />
     </main>
   );
 }

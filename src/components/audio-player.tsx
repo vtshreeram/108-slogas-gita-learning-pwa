@@ -143,7 +143,8 @@ export function AudioPlayer({
     } else {
       setAudioState("idle");
     }
-  }, [audioSrc, pendingAutoPlay, setAudioAvailable]); // playAudio is intentionally not in deps to avoid loops
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [audioSrc, pendingAutoPlay, setAudioAvailable]);
 
   // Media Session API — lock screen artwork & controls
   useEffect(() => {
@@ -180,6 +181,7 @@ export function AudioPlayer({
       setPendingAutoPlay(true);
       onNext();
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [title, isFirst, isLast]);
 
   const handleEnded = () => {

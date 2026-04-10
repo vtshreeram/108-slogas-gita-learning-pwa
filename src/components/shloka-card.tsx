@@ -8,8 +8,8 @@
  * - --gita-success-* : Green colors for completed/progress states
  */
 import { useState, useRef, useEffect, useMemo } from "react";
-import { AlertCircle, Eye, ChevronDown } from "lucide-react";
-import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, fullDone, StepProgress } from "@/lib/constants";
+import { AlertCircle, Eye, ChevronDown, Star } from "lucide-react";
+import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, StepProgress } from "@/lib/constants";
 import { Shloka, SHLOKAS } from "@/lib/shlokas";
 
 type ShlokaCardProps = {
@@ -24,12 +24,15 @@ type ShlokaCardProps = {
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
   onJumpTo: (index: number) => void;
+  isFavorite: boolean;
+  onToggleFavorite: () => void;
 };
 
 export function ShlokaCard({
-  active, activeGlobalIndex, isMastered,
+  active, activeGlobalIndex,
   contentMode, setContentMode, audioAvailable,
-  activeProgress, onMarkStep, onSwipeLeft, onSwipeRight, onJumpTo
+  activeProgress, onMarkStep, onSwipeLeft, onSwipeRight, onJumpTo,
+  isFavorite, onToggleFavorite
 }: ShlokaCardProps) {
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
@@ -82,7 +85,22 @@ export function ShlokaCard({
           Ch {active.chapter} • Shloka {active.verse}
           <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pickerOpen ? "rotate-180" : ""}`} />
         </button>
-        <span className="text-xs font-medium text-[#c0a986] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={onToggleFavorite}
+            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+            className="flex h-6 w-6 items-center justify-center rounded transition-colors hover:opacity-80"
+          >
+            <Star
+              className={`h-4 w-4 transition-colors ${
+                isFavorite
+                  ? "fill-[#d4aa61] text-[#d4aa61]"
+                  : "text-[#a88d63] dark:text-[#bda27e]"
+              }`}
+            />
+          </button>
+          <span className="text-xs font-medium text-[#c0a986] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
+        </div>
 
         {pickerOpen && (
           <>
