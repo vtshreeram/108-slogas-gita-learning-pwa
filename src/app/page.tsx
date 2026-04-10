@@ -121,7 +121,7 @@ export default function Home() {
           <div className="flex items-center gap-1.5">
             <button
               onClick={() => signOut(auth)}
-              title="Sign Out"
+              aria-label="Sign out"
               className="flex h-8 w-8 items-center justify-center rounded-full bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] text-[#8f6422] dark:text-[#d4aa61]"
             >
               <LogOut className="h-3.5 w-3.5" />
@@ -148,6 +148,7 @@ export default function Home() {
 
         <button
           onClick={() => setStatsOpen(true)}
+          aria-label="View session progress and stats"
           className="flex items-center justify-between rounded-2xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 sm:p-4 shadow-[0_2px_8px_rgba(143,100,34,0.06)] relative overflow-hidden group w-full text-left"
         >
           <div className="relative z-20">

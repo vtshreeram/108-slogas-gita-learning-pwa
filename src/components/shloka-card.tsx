@@ -181,6 +181,7 @@ export function ShlokaCard({
                 }
               }}
               disabled={!isUnlocked}
+              aria-label={`${label} step: ${isDone ? "completed" : isUnlocked ? "not completed" : "locked"}`}
               className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] dark:bg-[#142610] border-[#c1e0b0] dark:border-[#284f1d] text-[#2c5d1f] dark:text-[#88c775]" : isUnlocked ? "bg-white dark:bg-[#1e1710] border-[#e2cca4] dark:border-[#423321] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]" : "bg-[#f4e9cb] dark:bg-[#2d2218]/50 border-transparent text-[#c0a986] dark:text-[#bda27e] opacity-50 cursor-not-allowed"}`}
             >
               <Icon className="mb-1 h-5 w-5" />
