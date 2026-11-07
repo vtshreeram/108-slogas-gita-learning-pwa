@@ -124,11 +124,11 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
           onTimeUpdate={(e) => setPosition(e.currentTarget.currentTime)} onDurationChange={(e) => setDuration(Number.isFinite(e.currentTarget.duration) ? e.currentTarget.duration : 0)}
           onEnded={ended} onError={() => { if (!source) return; userTransport(); setAudioAvailable(false); setPlaying(false); setLoading(false); setError("Audio unavailable. Check your connection or download this verse for offline use."); }} />
         <div className="player-main">
+          <button className="icon-button" aria-label={expanded ? "Collapse audio controls" : "Expand audio controls"} aria-expanded={expanded} aria-controls="audio-options" onClick={() => setExpanded(!expanded)}>{expanded ? <ChevronDown className="h-5 w-5" /> : <ChevronUp className="h-5 w-5" />}</button>
           <div className="min-w-0 flex-1"><p className="truncate text-sm font-semibold">{title}</p><p className="study-muted text-xs tabular-nums">{loading ? "Loading recording…" : `${formatTime(position)} / ${formatTime(duration)}`}</p></div>
           <button onClick={toggle} disabled={!source} aria-label={loading ? "Cancel loading" : playing ? "Pause audio" : audioAvailable ? "Play audio" : "Retry audio"} className="player-play">
             {!audioAvailable ? <AlertCircle className="h-5 w-5" /> : loading ? <Loader2 className="h-5 w-5 animate-spin" /> : playing ? <Pause className="h-5 w-5 fill-current" /> : <Play className="h-5 w-5 fill-current" />}
           </button>
-          <button className="icon-button" aria-label={expanded ? "Collapse audio controls" : "Expand audio controls"} aria-expanded={expanded} aria-controls="audio-options" onClick={() => setExpanded(!expanded)}>{expanded ? <ChevronDown className="h-5 w-5" /> : <ChevronUp className="h-5 w-5" />}</button>
         </div>
         {expanded && <div id="audio-options" className="player-options">
           <div className="relative flex h-11 items-center">

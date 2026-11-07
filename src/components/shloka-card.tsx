@@ -23,11 +23,11 @@ export function ShlokaCard({ verse, contentMode, setContentMode, isFavorite, onT
   const credit = tamilCredit(verse);
   return <article className="verse-reader" aria-labelledby="verse-heading">
     <div className="verse-card-heading">
-      <div className="verse-reference"><p>Chapter {verse.chapter}</p><span aria-hidden="true">·</span><h2 id="verse-heading">Shloka {verse.reference.split(".")[1]}</h2></div>
+      <div className="verse-reference"><p>Chapter {verse.chapter}</p><span aria-hidden="true">·</span><h2 id="verse-heading">Sloka {verse.reference.split(".")[1]}</h2></div>
       {verse.important && <button className="icon-button favorite-button" aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"} aria-pressed={isFavorite} onClick={onToggleFavorite}><Star className={`h-5 w-5 ${isFavorite ? "fill-current" : ""}`} aria-hidden="true" /></button>}
     </div>
     <div className="content-tabs" role="group" aria-label="Verse language">
-      {CONTENT_TABS.map((tab) => <button key={tab.mode} aria-label={tab.label} aria-pressed={contentMode === tab.mode} onClick={() => setContentMode(tab.mode)} lang={tab.mode === "tamil" ? "ta" : "en"}><span className="min-[360px]:hidden">{tab.mode === "transliteration" ? "Chant" : tab.mode === "english" ? "English" : "தமிழ்"}</span><span className="hidden min-[360px]:inline">{tab.label}</span></button>)}
+      {CONTENT_TABS.map((tab) => <button key={tab.mode} aria-label={tab.label} aria-pressed={contentMode === tab.mode} onClick={() => setContentMode(tab.mode)} lang={tab.mode === "tamil" ? "ta" : "en"}>{tab.label}</button>)}
     </div>
     <div className="verse-body" key={`${verse.id}-${contentMode}`}>
       {contentMode === "transliteration" && <p className="chant-text" lang="sa-Latn">{verse.transliteration}</p>}
@@ -37,7 +37,7 @@ export function ShlokaCard({ verse, contentMode, setContentMode, isFavorite, onT
     </div>
     <nav className="verse-navigation" aria-label="Verse navigation">
       <button className="study-button" disabled={isFirst} onClick={onPrev}><ArrowLeft className="h-4 w-4" aria-hidden="true" />Previous</button>
-      <button className="study-button" disabled={isLast} onClick={onNext}>Next verse<ArrowRight className="h-4 w-4" aria-hidden="true" /></button>
+      <button className="study-button" disabled={isLast} onClick={onNext}>Next<ArrowRight className="h-4 w-4" aria-hidden="true" /></button>
     </nav>
   </article>;
 }

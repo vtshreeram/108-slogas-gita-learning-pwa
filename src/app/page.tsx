@@ -124,6 +124,7 @@ export default function Home() {
       <header className="app-header">
         <div className="brand-link"><span className="brand-symbol" aria-hidden="true">ॐ</span><div><h1>Bhagavad Gita</h1><p className="brand-caption">Read. Reflect. Remember.</p></div></div>
         <div className="header-actions">
+          <VersePicker current={current} favorites={profile.profile.favorites} completed={state.completed} onPick={pick} />
           <button className="icon-button theme-button" aria-label="Toggle theme" onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>{resolvedTheme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}</button>
           <a href="/profile" className="icon-button profile-avatar" aria-label="Open profile"><span aria-hidden="true">{profile.displayName.charAt(0).toUpperCase()}</span></a>
         </div>
@@ -133,7 +134,6 @@ export default function Home() {
           <button aria-pressed={!readAll} onClick={leaveReading}>Learn 108</button>
           <button aria-pressed={readAll} onClick={() => { requestSeq.current++; lastRequested.current = null; setReadingVerse({ ...active, important: true }); setReadAll(true); }}>Read all</button>
         </div>
-        <VersePicker current={current} favorites={profile.profile.favorites} completed={state.completed} onPick={pick} />
       </div>
       {!readAll && <ReviewQueue hideWhenEmpty due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={jumpToLearn} />}
       {learnedToday >= dailyGoal && !keepReading && <aside className="session-complete" role="status"><p className="font-semibold">Today’s practice is complete.</p><p className="study-muted mt-1 text-sm">Rest here, or stay with the verses a little longer.</p><div className="mt-3 flex flex-wrap gap-2"><button className="study-button" onClick={() => setKeepReading(true)}>Keep reading</button><a className="study-button" href="/profile">Finish for today</a></div></aside>}

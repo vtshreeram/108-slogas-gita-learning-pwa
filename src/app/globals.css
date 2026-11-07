@@ -350,12 +350,12 @@ input, select, textarea { max-width: 100%; }
 .study-input { font-size: 1rem; }
 .study-panel { box-shadow: none; }
 .reading-page, .profile-page { min-height: 100dvh; padding-top: calc(env(safe-area-inset-top, 0px) + 1rem); }
-.reading-page { padding-bottom: calc(var(--audio-player-height, 4.25rem) + env(safe-area-inset-bottom, 0px) + 2rem); }
+.reading-page { padding-bottom: calc(var(--audio-player-height, 4.25rem) + env(safe-area-inset-bottom, 0px) + 3rem); }
 .profile-page { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 2rem); }
 .reading-shell { width: min(100% - 1.5rem, 36rem); margin-inline: auto; }
 .app-header { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: 0 .25rem .75rem; }
-.brand-link { display: inline-flex; align-items: center; gap: .5rem; min-width: 0; }
-.brand-link h1 { font-family: Georgia, serif; font-size: clamp(1.0625rem, 4.4vw, 1.375rem); font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; }
+.brand-link { display: inline-flex; align-items: center; gap: .5rem; min-width: 0; flex: 1 1 auto; }
+.brand-link h1 { font-family: Georgia, serif; font-size: clamp(1.0625rem, 4.4vw, 1.375rem); font-weight: 700; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .brand-symbol { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 2rem; height: 2rem; border: 1px solid #c8a66b; border-radius: .75rem; background: linear-gradient(145deg, #f0dfb7, #dabc82); color: #4a3615; font-size: 1.3rem; box-shadow: 0 2px 4px #7057350a; }
 .icon-button { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-width: 44px; min-height: 44px; border: 1px solid transparent; border-radius: .75rem; color: var(--study-ink); }
 .icon-button:hover { background: var(--study-accent); }
@@ -366,7 +366,7 @@ input, select, textarea { max-width: 100%; }
 .mode-switch button[aria-pressed=true] { background: var(--study-surface); border-color: var(--study-border); color: var(--study-ink); font-weight: 600; }
 .verse-reader { border: 1px solid var(--study-border); border-radius: 1.75rem; background: var(--study-surface); padding: 1rem; color: var(--study-ink); box-shadow: 0 4px 20px #70573508, 0 1px 2px #70573505; }
 .content-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .125rem; margin-top: .75rem; padding: .25rem; border: 1px solid var(--study-border); border-radius: 1.75rem; background: var(--study-accent); }
-.content-tabs button { min-height: 44px; padding: .375rem .25rem; border: 1px solid transparent; font-size: .75rem; line-height: 1.5; border-radius: 1.5rem; color: var(--study-muted); overflow-wrap: anywhere; }
+.content-tabs button { transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease; min-height: 44px; padding: .375rem .25rem; border: 1px solid transparent; font-size: .75rem; line-height: 1.5; border-radius: 1.5rem; color: var(--study-muted); overflow-wrap: anywhere; }
 .content-tabs button[aria-pressed=true] { background: var(--study-surface); border-color: var(--study-border); color: var(--study-ink); font-weight: 600; box-shadow: 0 2px 5px #7057350a; }
 .content-tabs button[lang=ta] { font-family: var(--font-noto-sans-tamil), sans-serif; }
 .verse-body { padding-block: 1.75rem; overflow-wrap: anywhere; }
@@ -428,8 +428,10 @@ a.source-credit { text-decoration: underline; text-underline-offset: 3px; }
 
 /* The compact verse card carries the original visual language without nested reading scrolls. */
 .brand-caption { margin-top: .125rem; color: var(--study-muted); font-size: .6875rem; line-height: 1.5; }
-.brand-link > div { min-width: 0; overflow-wrap: anywhere; }
-.header-actions { display: flex; align-items: center; gap: .125rem; flex-shrink: 0; }
+.brand-link > div { min-width: 0; }
+.brand-caption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 359px) { .brand-caption { display: none; } }
+.header-actions { display: flex; align-items: center; gap: .375rem; flex-shrink: 0; }
 .theme-button { color: var(--study-muted); border: 1px solid var(--study-border); border-radius: 50%; background: var(--study-accent); }
 .profile-avatar { margin-left: .25rem; border-radius: 50%; border: 1px solid #c8a66b; background: linear-gradient(145deg, #ebd6ab, #dabc82); color: #4a3615; font-size: .875rem; font-weight: 600; }
 .verse-card-heading { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
@@ -440,7 +442,6 @@ a.source-credit { text-decoration: underline; text-underline-offset: 3px; }
 .reader-toolbar .mode-switch { padding: 0; background: transparent; }
 .reader-toolbar .mode-switch button { padding-inline: .875rem; border-radius: 999px; font-size: .8125rem; }
 .reader-toolbar .mode-switch button[aria-pressed=true] { background: var(--study-accent); }
-.reader-toolbar > button, .reader-toolbar [aria-label="Find a verse"] { border-radius: 999px; background: transparent; }
 .verse-navigation .study-button { border-radius: 999px; font-size: .8125rem; }
 .verse-navigation .study-button:first-child { border-color: transparent; background: transparent; padding-left: .25rem; }
 .verse-navigation .study-button:last-child { background: var(--study-accent); }
@@ -455,3 +456,14 @@ details[open] > .practice-summary .disclosure-chevron { transform: rotate(180deg
 .profile-section + .study-panel { margin-top: .75rem; }
 .profile-page .app-header { flex-wrap: wrap; }
 @media (min-width: 640px) { .content-tabs button { font-size: .8125rem; } }
+
+/* Native select arrows sit flush against the border; draw our own with breathing room. */
+select.study-input { appearance: none; -webkit-appearance: none; padding: .5rem 2.25rem .5rem .75rem; background-repeat: no-repeat; background-position: right .875rem center; background-size: 1rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b5532' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+input.study-input { padding-inline: .75rem; }
+
+/* Switching Sloka / English / Tamil fades the new text in instead of snapping. */
+@keyframes verse-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.verse-body { animation: verse-fade-in .25s ease-out both; }
+.dark select.study-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9b391' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+/* Reserve room for the text so switching tabs doesn't make the page jump. */
+.verse-body { min-height: 14rem; }

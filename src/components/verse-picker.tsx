@@ -63,7 +63,7 @@ export function VersePicker({ current, favorites, completed, onPick }: Props) {
 
   const failed = loaded?.failed ?? [];
   return <Dialog open={open} onOpenChange={setOpen}>
-    <DialogTrigger asChild><button className="study-button min-w-11" aria-label="Find a verse"><Search className="h-4 w-4" aria-hidden="true" /><span className="hidden min-[380px]:inline">Find a verse</span></button></DialogTrigger>
+    <DialogTrigger asChild><button className="icon-button theme-button" aria-label="Find a verse"><Search className="h-4 w-4" aria-hidden="true" /></button></DialogTrigger>
     <DialogCard maxWidth="max-w-lg">
       <DialogHeader><DialogTitle>Find a verse</DialogTitle><DialogDescription>Search by reference, Sanskrit, English, or Tamil words.</DialogDescription></DialogHeader>
       <label className="text-sm font-medium" htmlFor="verse-search">Search all chapters</label>
