@@ -1,3 +1,4 @@
+import { localDateIso } from "@/lib/constants";
 import { localStorageAdapter, parseBackupText, saveState } from "@/lib/learning-progress";
 
 export function useBackupRestore() {
@@ -12,7 +13,7 @@ export function useBackupRestore() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `gita-108-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      link.download = `gita-108-backup-${localDateIso()}.json`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

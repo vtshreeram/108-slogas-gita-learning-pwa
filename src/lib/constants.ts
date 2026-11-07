@@ -50,7 +50,12 @@ export const defaultStepProgress = (): StepProgress => ({
   recall: false,
 });
 
-export const todayIso = () => new Date().toISOString().slice(0, 10);
+/** Local calendar date (YYYY-MM-DD), so streaks follow the user's own midnight, not UTC. */
+export const localDateIso = (d: Date = new Date()) => {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+};
+export const todayIso = () => localDateIso();
 export const fullDone = (step?: StepProgress) => Boolean(step?.listen && step.repeat && step.understand && step.recall);
 export const daysBetween = (a: string, b: string) => {
   const oneDay = 24 * 60 * 60 * 1000;

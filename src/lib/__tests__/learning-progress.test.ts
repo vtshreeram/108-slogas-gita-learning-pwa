@@ -146,3 +146,11 @@ describe("stats", () => {
     expect(deriveStats(initialState(TODAY)).dailyGoal).toBeGreaterThan(1);
   });
 });
+
+describe("local dates", () => {
+  it("formats the local calendar date, not UTC", async () => {
+    const { localDateIso } = await import("@/lib/constants");
+    expect(localDateIso(new Date(2026, 3, 10, 0, 30))).toBe("2026-04-10");
+    expect(localDateIso(new Date(2026, 11, 31, 23, 59))).toBe("2026-12-31");
+  });
+});
