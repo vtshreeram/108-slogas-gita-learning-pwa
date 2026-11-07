@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>பகவத் கீதை உண்மையுருவில் - பொருளடக்கம்</title>
+<style>
+  body {
+    background-color: #fbf9f4;
+    color: #1a1a1a;
+    font-family: 'Latha', 'Tamil MN', 'Noto Serif Tamil', 'Tamil Sangam MN', serif;
+    margin: 0;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .hero {
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 12px;
+    border: 1px solid #e8e4dc;
+    text-align: center;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+    margin-bottom: 40px;
+  }
+
+  .hero-tag {
+    color: #8b3a0f;
+    font-size: 1.15rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+    color: #222;
+    margin: 0 0 14px 0;
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 24px;
+  }
+
+  .badge-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .badge {
+    background: #fff8e7;
+    border: 1px solid #dfc999;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    color: #6b3500;
+  }
+
+  .download-btn {
+    display: inline-block;
+    margin-top: 25px;
+    background: #8b3a0f;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px rgba(139, 58, 15, 0.25);
+    transition: background 0.2s;
+  }
+  .download-btn:hover {
+    background: #712f0c;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+    color: #333;
+    margin: 30px 0 20px 0;
+    border-bottom: 2px solid #dfc999;
+    padding-bottom: 8px;
+  }
+
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+  }
+
+  .chapter-card {
+    background: #ffffff;
+    border: 1px solid #e8e4dc;
+    border-radius: 8px;
+    padding: 24px 26px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .chapter-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 58, 15, 0.12);
+    border-color: #8b3a0f;
+  }
+
+  .c-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .c-num {
+    font-weight: bold;
+    color: #8b3a0f;
+    font-size: 1rem;
+  }
+
+  .c-pages {
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  .c-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #222;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+  }
+
+  .c-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 15px;
+    border-top: 1px solid #f2ede4;
+    padding-top: 10px;
+  }
+
+  .read-link {
+    color: #8b3a0f;
+    font-weight: bold;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    color: #888;
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero">
+    <div class="hero-tag">ஒளி எழுத்துணரி &amp; அச்சுப் பதிப்பு</div>
+    <h1>பகவத் கீதை உண்மையுருவில்</h1>
+    <div class="hero-subtitle">ஸ்ரீல ஏ.சி. பக்திவேதாந்த சுவாமி பிரபுபாதர் அருளியது</div>
+    
+    <div class="badge-bar">
+      <div class="badge">📖 18 அத்தியாயங்கள்</div>
+      <div class="badge">🕉️ 700 ஸ்லோகங்கள்</div>
+      <div class="badge">📄 800 பக்கங்கள் முழுமையாக</div>
+      <div class="badge">✨ அச்சுத் தரம் (Latha / Tamil MN)</div>
+    </div>
+
+    <div>
+      <a class="download-btn" href="Tamil_Bhagavad_Gita.txt" download>📥 முழு உரை கோப்பை பதிவிறக்குக (TXT - 5.6 MB)</a>
+    </div>
+  </div>
+
+  <h2 class="section-heading">பொருளடக்கம் (அத்தியாயங்கள்)</h2>
+
+  <div class="chapters-grid">
+    <a class="chapter-card" href="chapters/chapter_01.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 1</span><span class="c-pages">பக்கங்கள் 3 - 39</span></div>
+        <div class="c-title">குருக்ஷேத்திரப் போர்க்களத்தில் படைகளை கவனித்தல்</div>
+      </div>
+      <div class="c-footer"><span>46 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_02.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 2</span><span class="c-pages">பக்கங்கள் 40 - 126</span></div>
+        <div class="c-title">கீதையின் உட்பொருட் சுருக்கம்</div>
+      </div>
+      <div class="c-footer"><span>72 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_03.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 3</span><span class="c-pages">பக்கங்கள் 127 - 175</span></div>
+        <div class="c-title">கர்ம யோகம்</div>
+      </div>
+      <div class="c-footer"><span>43 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_04.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 4</span><span class="c-pages">பக்கங்கள் 176 - 229</span></div>
+        <div class="c-title">உன்னத அறிவு</div>
+      </div>
+      <div class="c-footer"><span>42 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_05.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 5</span><span class="c-pages">பக்கங்கள் 230 - 262</span></div>
+        <div class="c-title">கர்ம யோகம் - கிருஷ்ண உணர்வில் செயல்</div>
+      </div>
+      <div class="c-footer"><span>29 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_06.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 6</span><span class="c-pages">பக்கங்கள் 263 - 315</span></div>
+        <div class="c-title">தியான யோகம்</div>
+      </div>
+      <div class="c-footer"><span>47 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_07.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 7</span><span class="c-pages">பக்கங்கள் 316 - 361</span></div>
+        <div class="c-title">பூரணத்தின் ஞானம்</div>
+      </div>
+      <div class="c-footer"><span>30 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_08.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 8</span><span class="c-pages">பக்கங்கள் 362 - 393</span></div>
+        <div class="c-title">பரத்தை அடைதல்</div>
+      </div>
+      <div class="c-footer"><span>28 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_09.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 9</span><span class="c-pages">பக்கங்கள் 394 - 445</span></div>
+        <div class="c-title">மிக ரகசியமான அறிவு</div>
+      </div>
+      <div class="c-footer"><span>34 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_10.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 10</span><span class="c-pages">பக்கங்கள் 446 - 493</span></div>
+        <div class="c-title">பூரணத்தின் வைபவம்</div>
+      </div>
+      <div class="c-footer"><span>42 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_11.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 11</span><span class="c-pages">பக்கங்கள் 494 - 553</span></div>
+        <div class="c-title">விஸ்வரூபம்</div>
+      </div>
+      <div class="c-footer"><span>55 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_12.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 12</span><span class="c-pages">பக்கங்கள் 554 - 577</span></div>
+        <div class="c-title">பக்தி யோகம்</div>
+      </div>
+      <div class="c-footer"><span>20 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_13.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 13</span><span class="c-pages">பக்கங்கள் 578 - 621</span></div>
+        <div class="c-title">இயற்கையும் அனுபவிப்பவனும் உணர்வும்</div>
+      </div>
+      <div class="c-footer"><span>35 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_14.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 14</span><span class="c-pages">பக்கங்கள் 622 - 649</span></div>
+        <div class="c-title">ஜட இயற்கையின் முக்குணங்கள்</div>
+      </div>
+      <div class="c-footer"><span>27 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_15.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 15</span><span class="c-pages">பக்கங்கள் 650 - 676</span></div>
+        <div class="c-title">புருஷோத்தம யோகம்</div>
+      </div>
+      <div class="c-footer"><span>20 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_16.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 16</span><span class="c-pages">பக்கங்கள் 677 - 705</span></div>
+        <div class="c-title">தெய்வீக மற்றும் அசுர இயல்புகள்</div>
+      </div>
+      <div class="c-footer"><span>24 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_17.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 17</span><span class="c-pages">பக்கங்கள் 706 - 730</span></div>
+        <div class="c-title">நம்பிக்கையின் பிரிவுகள்</div>
+      </div>
+      <div class="c-footer"><span>28 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+
+    <a class="chapter-card" href="chapters/chapter_18.html">
+      <div>
+        <div class="c-header"><span class="c-num">அத்தியாயம் 18</span><span class="c-pages">பக்கங்கள் 731 - 800</span></div>
+        <div class="c-title">முடிவு - துறவின் பக்குவம்</div>
+      </div>
+      <div class="c-footer"><span>78 ஸ்லோகங்கள்</span><span class="read-link">படிக்க →</span></div>
+    </a>
+  </div>
+
+  <footer>
+    <p>பகவத் கீதை உண்மையுருவில் (800 பக்கங்கள் முழுமையாக மாற்றப்பட்டு தொகுக்கப்பட்டது)</p>
+  </footer>
+</div>
+
+</body>
+</html>

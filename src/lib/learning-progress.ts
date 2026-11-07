@@ -15,6 +15,8 @@ import {
   todayIso,
   fullDone,
   daysBetween,
+  RecallRating,
+  localDateIso,
 } from "@/lib/constants";
 import { appStateBackupSchema } from "@/lib/schemas";
 
@@ -53,6 +55,8 @@ export const initialState = (today: string = todayIso()): AppState => ({
   streakCount: 0,
   activeMode: "normal",
   completed: {},
+  completionDates: {},
+  reviews: {},
   recallWins: 0,
   recallAttempts: 0,
   activeIndex: 0,
@@ -97,6 +101,8 @@ export function parseState(raw: unknown, today: string = todayIso()): ParseResul
       streakCount: d.streakCount,
       activeMode: d.activeMode,
       completed: d.completed,
+      completionDates: d.completionDates,
+      reviews: d.reviews,
       recallWins: d.recallWins,
       recallAttempts: d.recallAttempts,
       activeIndex: clampIndex(d.activeIndex),
@@ -179,7 +185,7 @@ export function markStep(prev: AppState, id: string, step: LoopStep, today: stri
     }
     lastPracticeDate = today;
   }
-  return {
+  const next = {
     ...prev,
     completed: { ...prev.completed, [id]: updated },
     recallAttempts: isRecall ? prev.recallAttempts + 1 : prev.recallAttempts,
@@ -187,6 +193,16 @@ export function markStep(prev: AppState, id: string, step: LoopStep, today: stri
     lastPracticeDate,
     streakCount,
   };
+  if (fullDone(updated) && !fullDone(current)) return recordCompletion(next, id, today);
+  // Unchecking a completed step also undoes today's earned completion.
+  if (!fullDone(updated) && fullDone(current)) {
+    const completionDates = { ...next.completionDates };
+    const reviews = { ...next.reviews };
+    delete completionDates[id];
+    delete reviews[id];
+    return { ...next, completionDates, reviews };
+  }
+  return next;
 }
 
 /**
@@ -197,18 +213,54 @@ export function recallMissed(prev: AppState): AppState {
   return { ...prev, recallAttempts: prev.recallAttempts + 1 };
 }
 
-export function markAsLearned(prev: AppState, id: string): AppState {
-  return {
+export function markAsLearned(prev: AppState, id: string, today: string = todayIso()): AppState {
+  const next = {
     ...prev,
     completed: { ...prev.completed, [id]: { listen: true, repeat: true, understand: true, recall: true } },
     activeIndex: clampIndex(prev.activeIndex + 1),
   };
+  return fullDone(prev.completed[id]) ? next : recordCompletion(next, id, today);
 }
 
 export function undoLearned(prev: AppState, id: string): AppState {
   const completed = { ...prev.completed };
   delete completed[id];
-  return { ...prev, completed };
+  const completionDates = { ...prev.completionDates };
+  const reviews = { ...prev.reviews };
+  delete completionDates[id];
+  delete reviews[id];
+  return { ...prev, completed, completionDates, reviews };
+}
+
+export function addDays(today: string, days: number): string {
+  const date = new Date(`${today}T12:00:00`);
+  date.setDate(date.getDate() + days);
+  return localDateIso(date);
+}
+
+function recordPractice(prev: AppState, today: string): AppState {
+  return { ...prev, lastPracticeDate: today, streakCount: prev.lastPracticeDate === today ? prev.streakCount : daysBetween(prev.lastPracticeDate, today) === 1 ? prev.streakCount + 1 : 1 };
+}
+
+function recordCompletion(prev: AppState, id: string, today: string): AppState {
+  return {
+    ...recordPractice(prev, today),
+    completionDates: { ...prev.completionDates, [id]: prev.completionDates[id] ?? today },
+    reviews: { ...prev.reviews, [id]: prev.reviews[id] ?? { dueDate: addDays(today, 1), lastReviewed: today, intervalDays: 1, lastRating: "difficult" } },
+  };
+}
+
+/** Ratings apply only to learned verses and never inflate new-verse daily totals. */
+export function rateRecall(prev: AppState, id: string, rating: RecallRating, today = todayIso()): AppState {
+  if (!fullDone(prev.completed[id])) return prev;
+  const old = prev.reviews[id];
+  const intervalDays = rating === "forgot" ? 0 : rating === "difficult" ? 1 : Math.min(365, Math.max(3, Math.round((old?.intervalDays ?? 1) * 2.5)));
+  return {
+    ...recordPractice(prev, today),
+    recallAttempts: prev.recallAttempts + 1,
+    recallWins: prev.recallWins + (rating === "forgot" ? 0 : 1),
+    reviews: { ...prev.reviews, [id]: { dueDate: addDays(today, intervalDays), lastReviewed: today, intervalDays, lastRating: rating } },
+  };
 }
 
 export const goTo = (prev: AppState, index: number): AppState => ({ ...prev, activeIndex: clampIndex(index) });
@@ -223,7 +275,7 @@ export const setActiveMode = (state: AppState, activeMode: AppState["activeMode"
 
 // ---------------------------------------------------------------- derived
 
-export function deriveStats(state: AppState) {
+export function deriveStats(state: AppState, today = todayIso()) {
   const completedShlokas = SHLOKAS.filter((s) => fullDone(state.completed[s.id]));
   const completedCount = completedShlokas.length;
   const activeIndex = clampIndex(state.activeIndex);
@@ -233,10 +285,11 @@ export function deriveStats(state: AppState) {
   return {
     completedShlokas,
     completedCount,
+    learnedToday: completedShlokas.filter((s) => state.completionDates[s.id] === today).length,
+    dueReviews: completedShlokas.filter((s) => !state.reviews[s.id] || state.reviews[s.id].dueDate <= today).sort((a, b) => (state.reviews[a.id]?.dueDate ?? "").localeCompare(state.reviews[b.id]?.dueDate ?? "")),
     progressPct: Math.round((completedCount / TOTAL_SHLOKAS) * 100),
-    // NOTE: wins always equal attempts today (no "missed recall" input exists).
     winRatePct: state.recallAttempts > 0 ? Math.round((state.recallWins / state.recallAttempts) * 100) : 0,
-    streak: state.streakCount,
+    streak: daysBetween(state.lastPracticeDate, today) > 1 ? 0 : state.streakCount,
     active,
     safeActiveIndex: activeIndex,
     activeGlobalIndex: activeIndex + 1,

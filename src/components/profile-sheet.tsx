@@ -4,7 +4,8 @@ import { useState } from "react";
 import type { User } from "firebase/auth";
 import { Download, Upload, LogOut } from "lucide-react";
 import type { AppState } from "@/lib/constants";
-import { TOTAL_SHLOKAS } from "@/lib/shlokas";
+import { DAILY_TARGET, TOTAL_SHLOKAS } from "@/lib/shlokas";
+import { fullDone } from "@/lib/constants";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { useBackupRestore } from "@/hooks/use-backup-restore";
@@ -63,7 +64,7 @@ export function ProfileSheet({
   displayName,
   setCustomName,
 }: ProfileSheetProps) {
-  const { handleExportBackup, handleImportBackup } = useBackupRestore(user?.uid ?? null);
+  const { handleExportBackup, handleImportBackup, candidate, confirmRestore, cancelRestore, message } = useBackupRestore(user?.uid ?? null);
   const [isEditingName, setIsEditingName] = useState(false);
   const [tempName, setTempName] = useState(displayName);
 
@@ -108,6 +109,7 @@ export function ProfileSheet({
                 value={tempName}
                 onChange={(e) => setTempName(e.target.value)}
                 placeholder="Enter your name"
+                aria-label="Your display name"
                 className="text-center text-[#4a3615] dark:text-[#f0e3ce] border-[#ccb385] dark:border-[#423321]"
                 autoFocus
               />
@@ -137,7 +139,7 @@ export function ProfileSheet({
               >
                 {displayName}
               </button>
-              <p className="text-xs text-[#a88d63] dark:text-[#bda27e]">{user.email}</p>
+              <p className="text-xs text-[#705735] dark:text-[#bda27e]">{user.email}</p>
             </div>
           )}
         </div>
@@ -148,33 +150,33 @@ export function ProfileSheet({
         <div className="mb-6 grid grid-cols-2 gap-3">
           <div className="flex flex-col items-center p-3 rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321]">
             <span className="text-xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{completedCount}</span>
-            <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Learned</span>
+            <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Learned</span>
           </div>
           <div className="flex flex-col items-center p-3 rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321]">
             <span className="text-xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{streak}</span>
-            <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Streak</span>
+            <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Streak</span>
           </div>
           <div className="flex flex-col items-center p-3 rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321]">
             <span className="text-xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{winRatePct}%</span>
-            <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Win Rate</span>
+            <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Win Rate</span>
           </div>
           <div className="flex flex-col items-center p-3 rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321]">
             <span className="text-xs font-bold text-[#8f6422] dark:text-[#d4aa61] text-center leading-tight">{joinedDate}</span>
-            <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e] mt-1">Joined</span>
+            <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e] mt-1">Joined</span>
           </div>
         </div>
 
         {/* Achievements */}
         {achievements.length > 0 && (
           <>
-            <p className="text-xs uppercase font-bold text-[#a88d63] dark:text-[#bda27e] mb-2 tracking-wider">Achievements</p>
-            <div className="mb-6 space-y-2 max-h-40 overflow-y-auto">
+            <p className="text-xs uppercase font-bold text-[#705735] dark:text-[#bda27e] mb-2 tracking-wider">Achievements</p>
+            <div className="mb-6 space-y-2 max-h-40 overflow-y-auto" tabIndex={0} role="region" aria-label="Achievements">
               {achievements.map((badge) => (
                 <div key={badge.label} className="flex items-center gap-3 p-2 rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321]">
                   <span className="text-lg">{badge.icon}</span>
                   <div className="min-w-0">
                     <p className="text-xs font-semibold text-[#4a3615] dark:text-[#f0e3ce]">{badge.label}</p>
-                    <p className="text-[10px] text-[#a88d63] dark:text-[#bda27e]">{badge.desc}</p>
+                    <p className="text-[10px] text-[#705735] dark:text-[#bda27e]">{badge.desc}</p>
                   </div>
                 </div>
               ))}
@@ -184,7 +186,7 @@ export function ProfileSheet({
 
         {/* Mode Toggle */}
         <div className="mb-6">
-          <p className="text-xs uppercase font-bold text-[#a88d63] dark:text-[#bda27e] mb-2 tracking-wider">Learning Mode</p>
+          <p className="text-xs uppercase font-bold text-[#705735] dark:text-[#bda27e] mb-2 tracking-wider">Learning Mode</p>
           <div className="flex gap-2">
             {["normal", "lite"].map((mode) => (
               <button
@@ -196,7 +198,7 @@ export function ProfileSheet({
                     : "border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] text-[#5c482a] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:hover:bg-[#2d2218]"
                 }`}
               >
-                {mode === "normal" ? "Normal (3/day)" : "Lite (1/day)"}
+                {mode === "normal" ? `Normal (${DAILY_TARGET}/day)` : "Lite (1/day)"}
               </button>
             ))}
           </div>
@@ -219,6 +221,14 @@ export function ProfileSheet({
             <Download className="h-4 w-4" /> Export
           </button>
         </div>
+
+        {message && <p className="mb-4 text-sm" role="status">{message}</p>}
+        {candidate && <section className="study-panel mb-6" aria-label="Backup preview">
+          <h3 className="font-semibold">Restore this backup?</h3>
+          <p className="my-2 text-sm">{Object.values(candidate.progress.completed).filter(fullDone).length} learned verses · {candidate.profile ? `${candidate.profile.favorites.length} favourites` : "Progress-only backup; your favourites will stay"}</p>
+          <p className="study-muted text-xs">Merge keeps completed steps from both copies. Replace uses the progress in the backup. A recovery copy is saved first.</p>
+          <div className="mt-3 flex flex-wrap gap-2"><button className="study-button study-primary" onClick={() => confirmRestore("merge")}>Merge backup</button><button className="study-button" onClick={() => confirmRestore("replace")}>Replace progress</button><button className="study-button" onClick={cancelRestore}>Cancel</button></div>
+        </section>}
 
         {/* Sign Out */}
         <button

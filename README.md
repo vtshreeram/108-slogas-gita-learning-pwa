@@ -20,6 +20,14 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+The default development command uses Webpack on Next.js 15 for reliable hot reloads.
+Turbopack remains available with `pnpm dev:turbo`. If an old tab reports a missing
+module factory after a server restart, reload the page to discard its previous runtime.
+
+Run one development server per checkout. Development uses `.next/`; `npm run build`
+and `npm start` use `.next-build/`, so a production build can run without overwriting
+the development server's generated files.
+
 ## PWA
 
 - Manifest: `/public/manifest.webmanifest`
@@ -28,5 +36,22 @@ Open `http://localhost:3000`.
 
 ## Notes
 
-- Shloka dataset currently uses structured placeholders for transliteration/meaning fields.
-- You can replace `src/lib/shlokas.ts` with your exact curated 108-shloka list without changing app logic.
+- The 108-verse dataset includes Sanskrit, Roman transliteration, English and edited Tamil meanings with source credits.
+- Daily completions, scheduled revision, offline audio downloads, calibrated line practice and full backups are described in [Learning tools](docs/learning-tools.md).
+- Tamil pronunciation aids and edited translations still need independent expert review; the [108-entry checklist](docs/editorial-review.md) records that work explicitly.
+
+## Checks
+
+```bash
+pnpm test
+pnpm exec tsc --noEmit
+pnpm build
+pnpm exec playwright install chromium
+pnpm start --port 3002
+# In another terminal:
+pnpm test:browser
+```
+
+The browser check uses an isolated mocked login and blocks Firestore access. Screenshots
+are saved under `test-results/`. The production build generates the release-specific
+offline worker automatically.

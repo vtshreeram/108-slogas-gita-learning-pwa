@@ -5,14 +5,16 @@ import { profileSchema } from "@/lib/schemas";
 export type ProfileData = {
   customName: string | null;
   favorites: string[];
+  lineCues: Record<string, number[]>;
 };
 
-const PROFILE_STORAGE_KEY = "gita-profile-v1";
+export const PROFILE_STORAGE_KEY = "gita-profile-v1";
 const PROFILE_CLAIM_KEY = `${PROFILE_STORAGE_KEY}-claimed-by`;
 
 const defaultProfile = (): ProfileData => ({
   customName: null,
   favorites: [],
+  lineCues: {},
 });
 
 export function useProfile(user: User | null) {
@@ -78,6 +80,11 @@ export function useProfile(user: User | null) {
   };
 
   const isFavorite = (shlokaId: string): boolean => profile.favorites.includes(shlokaId);
+  const setLineCues = (id: string, cues: number[] | null) => setProfile((prev) => {
+    const lineCues = { ...prev.lineCues };
+    if (cues) lineCues[id] = cues; else delete lineCues[id];
+    return { ...prev, lineCues };
+  });
 
   // Resolve display name: custom > Firebase displayName > Firebase email > "Learner"
   const displayName = profile.customName || user?.displayName || user?.email?.split("@")[0] || "Learner";
@@ -89,5 +96,6 @@ export function useProfile(user: User | null) {
     setCustomName,
     toggleFavorite,
     isFavorite,
+    setLineCues,
   };
 }

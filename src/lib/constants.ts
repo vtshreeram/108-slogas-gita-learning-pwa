@@ -4,6 +4,8 @@ import { Headphones, RotateCcw, BookOpen, Brain } from "lucide-react";
 export type LoopStep = "listen" | "repeat" | "understand" | "recall";
 export type StepProgress = Record<LoopStep, boolean>;
 export type ItemProgress = Record<string, StepProgress>;
+export type RecallRating = "forgot" | "difficult" | "easy";
+export type ReviewSchedule = { dueDate: string; lastReviewed: string; intervalDays: number; lastRating: RecallRating };
 
 export type AppState = {
   schemaVersion: number;
@@ -13,6 +15,8 @@ export type AppState = {
   streakCount: number;
   activeMode: "normal" | "lite";
   completed: ItemProgress;
+  completionDates: Record<string, string>;
+  reviews: Record<string, ReviewSchedule>;
   recallWins: number;
   recallAttempts: number;
   activeIndex: number;

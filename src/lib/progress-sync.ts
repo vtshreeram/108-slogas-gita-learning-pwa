@@ -38,6 +38,16 @@ export function mergeProgress(local: AppState, remote: AppState): AppState {
   // Preferences and position come from the copy with more progress (tie: local).
   const prefSide = doneCount(remote) > doneCount(local) ? remote : local;
   const recallAttempts = Math.max(local.recallAttempts, remote.recallAttempts);
+  const completionDates = { ...remote.completionDates };
+  for (const [id, date] of Object.entries(local.completionDates)) {
+    completionDates[id] = completionDates[id] && completionDates[id] < date ? completionDates[id] : date;
+  }
+  const reviews = { ...remote.reviews };
+  for (const [id, review] of Object.entries(local.reviews)) {
+    const other = reviews[id];
+    // On a same-day conflict keep the earlier review date, favouring more practice.
+    if (!other || review.lastReviewed > other.lastReviewed || (review.lastReviewed === other.lastReviewed && review.dueDate < other.dueDate)) reviews[id] = review;
+  }
   return {
     schemaVersion: local.schemaVersion,
     startedAt: local.startedAt < remote.startedAt ? local.startedAt : remote.startedAt,
@@ -46,6 +56,8 @@ export function mergeProgress(local: AppState, remote: AppState): AppState {
     streakCount,
     activeMode: prefSide.activeMode,
     completed,
+    completionDates,
+    reviews,
     recallAttempts,
     recallWins: Math.min(Math.max(local.recallWins, remote.recallWins), recallAttempts),
     activeIndex: prefSide.activeIndex,
@@ -89,6 +101,7 @@ export type ProgressSyncOptions = {
   setMeta: (meta: SyncMeta) => void;
   debounceMs?: number;
   now?: () => number;
+  onStatus?: (status: "pending" | "syncing" | "synced" | "error") => void;
 };
 
 export function createProgressSync(opts: ProgressSyncOptions) {
@@ -120,13 +133,16 @@ export function createProgressSync(opts: ProgressSyncOptions) {
   function syncNow(): Promise<void> {
     if (disposed) return Promise.resolve();
     if (inflight) { rerun = true; return inflight; }
+    opts.onStatus?.("syncing");
     inflight = (async () => {
       try {
         do {
           rerun = false;
           await once();
         } while (rerun && !disposed);
+        if (!disposed) opts.onStatus?.("synced");
       } catch (e) {
+        if (!disposed) opts.onStatus?.("error");
         console.warn("Progress sync failed; will retry:", e);
       } finally {
         inflight = null;
@@ -138,6 +154,7 @@ export function createProgressSync(opts: ProgressSyncOptions) {
   /** Call after a user edit: pushes shortly after the last change. */
   function markDirty() {
     if (disposed) return;
+    opts.onStatus?.("pending");
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => { timer = null; void syncNow(); }, debounceMs);
   }

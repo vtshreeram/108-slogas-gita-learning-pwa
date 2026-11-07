@@ -77,11 +77,14 @@ export function ShlokaCard({
       className="flex flex-col rounded-3xl bg-white dark:bg-[#1e1710] shadow-[0_4px_16px_rgba(143,100,34,0.1)] border border-[#f0d498] dark:border-[#423321] p-4 sm:p-6 min-h-[400px]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onKeyDown={(event) => { if (event.key === "Escape") setPickerOpen(false); }}
     >
       <div className="flex items-center justify-between mb-4 relative">
         <button
           onClick={() => setPickerOpen(!pickerOpen)}
-          className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] hover:text-[#8f6422] dark:hover:text-[#d4aa61] transition-colors"
+          aria-expanded={pickerOpen}
+          aria-controls="verse-picker"
+          className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-[#705735] dark:text-[#bda27e] hover:text-[#8f6422] dark:hover:text-[#d4aa61] transition-colors"
         >
           Ch {active.chapter} • Shloka {active.verse}
           <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pickerOpen ? "rotate-180" : ""}`} />
@@ -90,26 +93,26 @@ export function ShlokaCard({
           <button
             onClick={onToggleFavorite}
             aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
-            className="flex h-6 w-6 items-center justify-center rounded transition-colors hover:opacity-80"
+            className="flex h-11 w-11 items-center justify-center rounded transition-colors hover:opacity-80"
           >
             <Star
               className={`h-4 w-4 transition-colors ${
                 isFavorite
                   ? "fill-[#d4aa61] text-[#d4aa61]"
-                  : "text-[#a88d63] dark:text-[#bda27e]"
+                  : "text-[#705735] dark:text-[#bda27e]"
               }`}
             />
           </button>
-          <span className="text-xs font-medium text-[#c0a986] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
+          <span className="text-xs font-medium text-[#705735] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
         </div>
 
         {pickerOpen && (
           <>
             <div className="fixed inset-0 z-30" onClick={() => setPickerOpen(false)} />
-            <div className="absolute top-full left-0 mt-2 z-40 w-72 max-h-80 overflow-y-auto rounded-2xl bg-white dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] shadow-xl p-3">
+            <div id="verse-picker" className="absolute top-full left-0 mt-2 z-40 w-[min(18rem,calc(100vw-4rem))] max-h-80 overflow-y-auto rounded-2xl bg-white dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] shadow-xl p-3">
               {[...chapters.entries()].map(([ch, verses]) => (
                 <div key={ch} className="mb-3 last:mb-0">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] mb-1.5 border-b border-[#f4e9cb] dark:border-[#423321] pb-1">Chapter {ch}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#705735] dark:text-[#bda27e] mb-1.5 border-b border-[#f4e9cb] dark:border-[#423321] pb-1">Chapter {ch}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {verses.map((v) => (
                       <button
@@ -133,8 +136,9 @@ export function ShlokaCard({
         {CONTENT_TABS.map((tab) => (
           <button
             key={tab.mode}
+            aria-pressed={contentMode === tab.mode}
             onClick={() => setContentMode(tab.mode)}
-            className={`flex-1 rounded-full py-1.5 text-xs font-semibold transition-colors ${contentMode === tab.mode ? "bg-white dark:bg-[#1e1710] text-[#5c431b] dark:text-[#f0e3ce] shadow-sm border border-[#e2cca4] dark:border-[#423321]" : "text-[#b0976e] dark:text-[#bda27e]"}`}
+            className={`flex-1 rounded-full py-1.5 text-xs font-semibold transition-colors ${contentMode === tab.mode ? "bg-white dark:bg-[#1e1710] text-[#5c431b] dark:text-[#f0e3ce] shadow-sm border border-[#e2cca4] dark:border-[#423321]" : "text-[#705735] dark:text-[#bda27e]"}`}
           >{tab.label}</button>
         ))}
       </div>
@@ -207,7 +211,7 @@ export function ShlokaCard({
               }}
               disabled={!isUnlocked}
               aria-label={`${label} step: ${isDone ? "completed" : isUnlocked ? "not completed" : "locked"}`}
-              className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] dark:bg-[#142610] border-[#c1e0b0] dark:border-[#284f1d] text-[#2c5d1f] dark:text-[#88c775]" : isUnlocked ? "bg-white dark:bg-[#1e1710] border-[#e2cca4] dark:border-[#423321] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]" : "bg-[#f4e9cb] dark:bg-[#2d2218]/50 border-transparent text-[#c0a986] dark:text-[#bda27e] opacity-50 cursor-not-allowed"}`}
+              className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] dark:bg-[#142610] border-[#c1e0b0] dark:border-[#284f1d] text-[#2c5d1f] dark:text-[#88c775]" : isUnlocked ? "bg-white dark:bg-[#1e1710] border-[#e2cca4] dark:border-[#423321] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]" : "bg-[#f4e9cb] dark:bg-[#2d2218]/50 border-transparent text-[#705735] dark:text-[#bda27e] opacity-50 cursor-not-allowed"}`}
             >
               <Icon className="mb-1 h-5 w-5" />
               <span className="text-[10px] font-semibold">{label}</span>
@@ -219,7 +223,7 @@ export function ShlokaCard({
       {activeProgress.understand && !activeProgress.recall && !isHidden && (
         <button
           onClick={() => { onRecallMissed(); setIsRevealed(false); }}
-          className="mt-2 self-center rounded-full px-3 py-1 text-[11px] font-semibold text-[#a88d63] dark:text-[#bda27e] underline underline-offset-4 hover:text-[#8f6422] dark:hover:text-[#d4aa61]"
+          className="mt-2 self-center rounded-full px-3 py-1 text-[11px] font-semibold text-[#705735] dark:text-[#bda27e] underline underline-offset-4 hover:text-[#8f6422] dark:hover:text-[#d4aa61]"
         >
           Missed it? Try again
         </button>

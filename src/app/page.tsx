@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CheckCircle, Undo2, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { TOTAL_SHLOKAS } from "@/lib/shlokas";
@@ -14,6 +14,13 @@ import { DialogCard } from "@/components/dialog-card";
 import { AudioErrorBoundary } from "@/components/audio-error-boundary";
 import { ProfileSheet } from "@/components/profile-sheet";
 import { useSession } from "@/hooks/use-session";
+import { OfflineLibrary } from "@/components/offline-library";
+import { VerseStudy } from "@/components/verse-study";
+import { ReviewQueue } from "@/components/review-queue";
+import { LinePractice } from "@/components/line-practice";
+import { StudyTools } from "@/components/study-tools";
+import { SaveStatus } from "@/components/save-status";
+import { ChapterBrowser } from "@/components/chapter-browser";
 
 function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
   const [signingIn, setSigningIn] = useState(false);
@@ -35,7 +42,7 @@ function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-3xl text-[#4a3615]">ॐ</div>
         <div>
           <h1 className="font-serif text-2xl font-bold text-[#4a3615] dark:text-[#f0e3ce] leading-tight">Bhagavad Gita</h1>
-          <p className="text-sm text-[#a88d63] dark:text-[#bda27e] mt-2">Sign in to start learning</p>
+          <p className="text-sm text-[#705735] dark:text-[#bda27e] mt-2">Sign in to start learning</p>
         </div>
         <button
           onClick={handleLogin}
@@ -55,11 +62,13 @@ export default function Home() {
   const [statsOpen, setStatsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [audioAvailable, setAudioAvailable] = useState(true);
+  const [linePracticeActive, setLinePracticeActive] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const { theme, setTheme } = useTheme();
 
   const { user, checking: authChecking, signIn, signOut } = useSession();
 
-  const { isFavorite, toggleFavorite, displayName, setCustomName } = useProfile(user);
+  const { isFavorite, toggleFavorite, displayName, setCustomName, profile, setLineCues } = useProfile(user);
 
   const {
     ready, state,
@@ -67,16 +76,13 @@ export default function Home() {
     goTo, goToShloka, next, prev, setContentMode, setActiveMode,
     completedCount, completedShlokas, streak, progressPct, winRatePct,
     active, activeProgress, activeGlobalIndex,
-    isFirst, isLast, isMastered, dailyGoal, practicedToday, chapterList
+    isFirst, isLast, isMastered, dailyGoal, learnedToday, dueReviews, chapterList,
+    rateRecall, syncStatus, storageError, online, retrySave
   } = useShlokaState(user?.uid ?? null);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
-    navigator.serviceWorker.register("/sw.js").catch((e) => console.warn("SW registration failed:", e));
-  }, []);
-
-  useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('[role="dialog"]') || (event.target instanceof Element && event.target.closest('input,textarea,select,button,a,summary,[role="slider"],[contenteditable="true"]'))) return;
       if (event.key === "ArrowRight") { event.preventDefault(); next(); }
       if (event.key === "ArrowLeft") { event.preventDefault(); prev(); }
     };
@@ -92,7 +98,7 @@ export default function Home() {
 
   const audioSrc = `/audio/${active.reference}.mp3`;
 
-  const todayLearnedStr = practicedToday ? `${dailyGoal} / ${dailyGoal}` : `0 / ${dailyGoal}`;
+  const todayLearnedStr = `${learnedToday} / ${dailyGoal}`;
 
   return (
     <main className="min-h-screen overflow-y-auto bg-background text-foreground px-3 pb-40" style={{ paddingTop: "calc(env(safe-area-inset-top) + 20px)" }}>
@@ -103,7 +109,7 @@ export default function Home() {
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-sm">ॐ</span>
               Bhagavad Gita
             </h1>
-            <p className="text-xs text-[#a88d63] dark:text-[#bda27e] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
+            <p className="text-xs text-[#705735] dark:text-[#bda27e] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
           </div>
           <div className="flex items-center gap-1.5">
             <button
@@ -139,14 +145,13 @@ export default function Home() {
 
         <button
           onClick={() => setStatsOpen(true)}
-          aria-label="View session progress and stats"
           className="flex items-center justify-between rounded-2xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 sm:p-4 shadow-[0_2px_8px_rgba(143,100,34,0.06)] relative overflow-hidden group w-full text-left"
         >
           <div className="relative z-20">
-            <p className="text-[10px] font-bold tracking-widest text-[#a88d63] dark:text-[#bda27e] uppercase mb-0.5">Session Progress</p>
+            <p className="text-[10px] font-bold tracking-widest text-[#705735] dark:text-[#bda27e] uppercase mb-0.5">Session Progress</p>
             <div className="flex items-baseline gap-1.5">
               <span className="text-sm font-semibold text-[#4a3615] dark:text-[#f0e3ce] tabular-nums">{completedCount} / {TOTAL_SHLOKAS}</span>
-              <span className="text-[10px] font-medium text-[#c0a986] dark:text-[#bda27e]">verses learned</span>
+              <span className="text-[10px] font-medium text-[#705735] dark:text-[#bda27e]">verses learned</span>
             </div>
           </div>
           <span className="text-lg font-bold tabular-nums text-[#8f6422] dark:text-[#d4aa61]">{progressPct}%</span>
@@ -168,11 +173,21 @@ export default function Home() {
           isFavorite={isFavorite(active.id)}
           onToggleFavorite={() => toggleFavorite(active.id)}
         />
+        <StudyTools dueCount={dueReviews.length}>
+          <ReviewQueue due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={goToShloka} />
+          <LinePractice key={active.id} shloka={active} audioRef={audioRef} cues={profile.lineCues[active.id]} onSave={(cues) => setLineCues(active.id, cues)} onActiveChange={setLinePracticeActive} />
+          <VerseStudy shloka={active} />
+          <ChapterBrowser onStudy={goToShloka} />
+          <OfflineLibrary reference={active.reference} />
+        </StudyTools>
+        {(storageError || syncStatus === "error" || !online) && <SaveStatus status={syncStatus} storageError={storageError} online={online} onRetry={retrySave} />}
       </div>
 
       <AudioErrorBoundary>
         <AudioPlayer
           audioSrc={audioSrc}
+          elementRef={audioRef}
+          linePracticeActive={linePracticeActive}
           title={`Ch ${active.chapter} · V ${active.verse}`}
           isFirst={isFirst}
           isLast={isLast}
@@ -228,7 +243,7 @@ export default function Home() {
                   if (chCompleted.length === 0) return null;
                   return (
                     <div key={ch}>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] mb-2 border-b border-[#f0d498] dark:border-[#423321] pb-1">Chapter {ch}</h4>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#705735] dark:text-[#bda27e] mb-2 border-b border-[#f0d498] dark:border-[#423321] pb-1">Chapter {ch}</h4>
                       <div className="grid grid-cols-5 sm:grid-cols-6 gap-2">
                         {chCompleted.map((s) => (
                           <button
@@ -256,21 +271,21 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-4 my-4">
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{streak}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Day Streak</span>
+              <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Day Streak</span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{completedCount}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Mastered</span>
+              <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Mastered</span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{state.recallAttempts}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Total Attempts</span>
+              <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Total Attempts</span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">
                 {winRatePct}%
               </span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Win Rate</span>
+              <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Win Rate</span>
             </div>
           </div>
           <DialogFooter className="flex gap-2">

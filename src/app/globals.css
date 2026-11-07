@@ -293,3 +293,31 @@ button {
 .dark .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #423321;
 }
+
+/* Learning tools share the existing warm palette, with legible text in both themes. */
+:root {
+  --study-surface: #fffaf0;
+  --study-ink: #4a3615;
+  --study-muted: #6b5532;
+  --study-border: #ccb385;
+  --study-accent: #fcebc4;
+}
+.dark {
+  --study-surface: #1e1710;
+  --study-ink: #f0e3ce;
+  --study-muted: #c9b391;
+  --study-border: #665138;
+  --study-accent: #3b2c18;
+}
+.study-panel { border: 1px solid var(--study-border); border-radius: 1rem; padding: 1rem; background: var(--study-surface); color: var(--study-ink); }
+.study-muted { color: var(--study-muted); }
+.study-button { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px; padding: .5rem .75rem; border: 1px solid var(--study-border); border-radius: .625rem; background: var(--study-surface); color: var(--study-ink); font-size: .8rem; font-weight: 600; cursor: pointer; text-align: center; }
+.study-button:hover { background: var(--study-accent); }
+.study-button:disabled { opacity: .5; cursor: not-allowed; }
+.study-primary { background: #6b512c; color: #fffaf0; border-color: #6b512c; }
+.study-primary:hover { background: #4a3615; }
+.dark .study-primary { background: #d4aa61; color: #1e1710; border-color: #d4aa61; }
+.dark .study-primary:hover { background: #e7c483; }
+.study-input { border: 1px solid var(--study-border); background: var(--study-surface); color: var(--study-ink); border-radius: .5rem; min-height: 44px; padding: .5rem; }
+button:focus-visible, summary:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--study-ink); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }

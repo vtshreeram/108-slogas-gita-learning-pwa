@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { LoopStep } from "@/lib/shlokas";
-import { AppState, todayIso } from "@/lib/constants";
+import { AppState, RecallRating, todayIso } from "@/lib/constants";
 import * as progress from "@/lib/learning-progress";
 import { saveState, initialState, deriveStats, CHAPTER_LIST } from "@/lib/learning-progress";
 import { localKV, loadForUser, progressStoreFor, touchMeta, ProgressStore, SyncMeta } from "@/lib/progress-store";
@@ -16,6 +16,10 @@ export function useShlokaState(uid: string | null) {
   // Which uid `state` was loaded for. Saves only happen when it matches the current uid,
   // so one account's progress can never be written under another's key.
   const [loadedUid, setLoadedUid] = useState<string | null>(null);
+  const [today, setToday] = useState(todayIso);
+  const [syncStatus, setSyncStatus] = useState<"local" | "pending" | "syncing" | "synced" | "error">("local");
+  const [storageError, setStorageError] = useState(false);
+  const [online, setOnline] = useState(true);
   const stateRef = useRef(state);
   const metaRef = useRef<SyncMeta>({ updatedAt: 0, linked: false });
   const storeRef = useRef<ProgressStore | null>(null);
@@ -24,8 +28,20 @@ export function useShlokaState(uid: string | null) {
   const ready = uid !== null && loadedUid === uid;
 
   useEffect(() => {
+    const refresh = () => { setToday(todayIso()); setOnline(navigator.onLine); };
+    refresh();
+    const timer = setInterval(refresh, 30_000);
+    window.addEventListener("focus", refresh);
+    window.addEventListener("online", refresh);
+    window.addEventListener("offline", refresh);
+    return () => { clearInterval(timer); window.removeEventListener("focus", refresh); window.removeEventListener("online", refresh); window.removeEventListener("offline", refresh); };
+  }, []);
+
+  useEffect(() => {
     syncRef.current = null;
     storeRef.current = null;
+    setSyncStatus("local");
+    setStorageError(false);
     if (!uid) { setLoadedUid(null); return; }
 
     let cleanup: (() => void) | undefined;
@@ -46,6 +62,7 @@ export function useShlokaState(uid: string | null) {
           getLocal: () => ({ state: stateRef.current, meta: metaRef.current }),
           apply: (next, meta) => { stateRef.current = next; metaRef.current = meta; store.writeMeta(meta); setState(next); },
           setMeta: (meta) => { metaRef.current = meta; store.writeMeta(meta); },
+          onStatus: setSyncStatus,
         });
         syncRef.current = sync;
         const onOnline = () => { void sync.syncNow(); };
@@ -54,6 +71,7 @@ export function useShlokaState(uid: string | null) {
         cleanup = () => { window.removeEventListener("online", onOnline); sync.dispose(); };
       }
     } catch (e) {
+      setStorageError(true);
       console.warn("Failed to load saved state:", e);
     } finally {
       setLoadedUid(uid);
@@ -63,7 +81,7 @@ export function useShlokaState(uid: string | null) {
 
   useEffect(() => {
     if (!uid || loadedUid !== uid || !storeRef.current) return;
-    try { saveState(storeRef.current, state); } catch (e) { console.warn("Failed to save state:", e); }
+    try { saveState(storeRef.current, state); setStorageError(false); } catch (e) { setStorageError(true); console.warn("Failed to save state:", e); }
   }, [uid, loadedUid, state]);
 
   /**
@@ -94,11 +112,20 @@ export function useShlokaState(uid: string | null) {
   const prev = useCallback(() => update(progress.goPrev, { quiet: true }), [update]);
   const setContentMode = useCallback((m: AppState["contentMode"]) => update((s) => progress.setContentMode(s, m), { quiet: true }), [update]);
   const setActiveMode = useCallback((m: AppState["activeMode"]) => update((s) => progress.setActiveMode(s, m)), [update]);
+  const rateRecall = useCallback((id: string, rating: RecallRating) => update((s) => progress.rateRecall(s, id, rating)), [update]);
+  const retrySave = useCallback(() => {
+    try {
+      if (!storeRef.current) return;
+      saveState(storeRef.current, stateRef.current);
+      setStorageError(false);
+      void syncRef.current?.syncNow();
+    } catch { setStorageError(true); }
+  }, []);
 
-  const stats = useMemo(() => deriveStats(state), [state]);
+  const stats = useMemo(() => deriveStats(state, today), [state, today]);
 
   return {
-    ready, state,
+    ready, state, syncStatus, storageError, online, retrySave, rateRecall,
     markStep, recallMissed, markAsLearned, undoLearnedForActive,
     goTo, goToShloka, next, prev, setContentMode, setActiveMode,
     ...stats,
