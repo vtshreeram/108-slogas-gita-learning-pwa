@@ -2,7 +2,7 @@
 import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { Play, Pause, Square, Repeat, Loader2, AlertCircle, SkipBack, SkipForward, Gauge, ChevronUp, ChevronDown } from "lucide-react";
 import { LoopMode, REPEAT_COUNTS, SPEED_OPTIONS, decideOnEnded, cycleLoop, cycleOption, formatTime } from "@/lib/audio-playback";
-import { downloadedAudio } from "@/lib/offline-audio";
+import { downloadedAudio, hasDownloadedAudio } from "@/lib/offline-audio";
 import { AUDIO_TRANSPORT_EVENT } from "@/lib/line-practice";
 
 const mediaState = (state: "playing" | "paused") => { if ("mediaSession" in navigator) navigator.mediaSession.playbackState = state; };
@@ -34,10 +34,16 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
     let generation = 0;
     let resolved = false;
     setSource(undefined); setPosition(0); setDuration(0); setPlaying(false); setLoading(false); setError(""); setAudioAvailable(true); repetition.current = 0;
+    const reference = audioSrc.replace(/^\/audio\//, "").replace(/\.mp3$/, "");
     const resolve = async (onlyWhenPaused = false) => {
       const current = ++generation;
+      // "gita-downloads-changed" fires after every saved file; only read a recording when this verse's status actually flipped.
+      let saved = false;
+      try { saved = await hasDownloadedAudio(reference); } catch { /* stream when storage is blocked */ }
+      if (!alive || current !== generation) return;
+      if (resolved && saved === Boolean(objectUrl)) return;
       let nextUrl: string | null = null;
-      try { nextUrl = await downloadedAudio(audioSrc.replace(/^\/audio\//, "").replace(/\.mp3$/, "")); } catch { /* stream when storage is blocked */ }
+      if (saved) { try { nextUrl = await downloadedAudio(reference); } catch { /* stream instead */ } }
       if (!alive || current !== generation) { if (nextUrl) URL.revokeObjectURL(nextUrl); return; }
       // A download may finish while the learner starts playback; never replace its source mid-chant.
       if (onlyWhenPaused && elementRef.current && !elementRef.current.paused) { if (nextUrl) URL.revokeObjectURL(nextUrl); return; }

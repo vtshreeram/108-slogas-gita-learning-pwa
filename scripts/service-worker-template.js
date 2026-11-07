@@ -1,7 +1,10 @@
 // Keep audio downloads across app updates. Only shell caches are versioned per release.
 const SHELL_CACHE = "gita-shell-__RELEASE__";
 const AUDIO_CACHE = "gita-audio-v3";
-const CHAPTER_CACHE = "gita-chapters-v1"; // survives app updates, refreshed whenever online
+// Chapter text and purports a learner has opened. Survives app updates and is refreshed whenever online.
+// Bounded by construction: only the 18 chapter and 18 purport URLs are ever stored (query strings are dropped).
+const CHAPTER_CACHE = "gita-chapters-v1";
+const CHAPTER_TIMEOUT_MS = 4000;
 
 async function cacheShell() {
   const cache = await caches.open(SHELL_CACHE);
@@ -17,17 +20,7 @@ async function cacheShell() {
   await cache.addAll([...assets]);
 }
 
-// Best effort: a chapter download failure must never break installing the app shell.
-async function cacheChapters() {
-  try {
-    const cache = await caches.open(CHAPTER_CACHE);
-    const urls = Array.from({ length: 18 }, (_, i) => [`/api/chapters/${i + 1}`, `/api/purports/${i + 1}`]).flat();
-    const adds = Promise.all(urls.map((url) => cache.add(url).catch(() => {})));
-    await Promise.race([adds, new Promise((resolve) => setTimeout(resolve, 8000))]); // never stall installation
-  } catch { /* chapters are cached again on first use */ }
-}
-
-self.addEventListener("install", (event) => event.waitUntil(cacheShell().then(() => cacheChapters())));
+self.addEventListener("install", (event) => event.waitUntil(cacheShell()));
 self.addEventListener("message", (event) => {
   if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
@@ -40,15 +33,16 @@ self.addEventListener("activate", (event) => event.waitUntil((async () => {
 /** Safari requests byte ranges. Serve valid closed, open-ended and suffix ranges. */
 async function audioRange(response, range) {
   if (!range) return response;
-  const bytes = await response.arrayBuffer();
-  const size = bytes.byteLength;
+  // A Blob is a handle onto the cached bytes: slicing it copies nothing, unlike reading the whole file into an ArrayBuffer.
+  const blob = await response.blob();
+  const size = blob.size;
   const match = /^bytes=(\d*)-(\d*)$/.exec(range);
   const invalid = () => new Response(null, { status: 416, headers: { "Content-Range": `bytes */${size}` } });
   if (!match || (!match[1] && !match[2])) return invalid();
   const start = match[1] ? Number(match[1]) : Math.max(0, size - Number(match[2]));
   const end = match[1] ? (match[2] ? Math.min(Number(match[2]), size - 1) : size - 1) : size - 1;
   if (start >= size || start > end || size === 0) return invalid();
-  return new Response(bytes.slice(start, end + 1), { status: 206, headers: {
+  return new Response(blob.slice(start, end + 1, response.headers.get("Content-Type") || "audio/mpeg"), { status: 206, headers: {
     "Content-Type": response.headers.get("Content-Type") || "audio/mpeg",
     "Content-Length": String(end - start + 1), "Content-Range": `bytes ${start}-${end}/${size}`, "Accept-Ranges": "bytes",
   } });
@@ -63,14 +57,21 @@ async function serveAudio(request) {
 }
 
 async function chapterData(request) {
+  const url = new URL(request.url);
+  const key = new Request(url.origin + url.pathname); // one entry per chapter, whatever query string the page adds
   const cache = await caches.open(CHAPTER_CACHE);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), CHAPTER_TIMEOUT_MS); // a stalled network falls back to what is saved
   try {
-    const response = await fetch(request);
-    if (response.ok) await cache.put(request, response.clone()).catch(() => {}); // a full disk must not fail a good response
+    const response = await fetch(request, { signal: controller.signal });
+    // The timer guards only the wait for the first byte. Aborting later would cut a slow but healthy body download short.
+    clearTimeout(timeout);
+    // Only a good response is stored; an error page must never replace a saved chapter.
+    if (response.ok) await cache.put(key, response.clone()).catch(() => {}); // a full disk must not fail a good response
     return response;
   } catch {
-    return (await cache.match(request)) ?? new Response(JSON.stringify({ error: "Offline" }), { status: 504, headers: { "Content-Type": "application/json" } });
-  }
+    return (await cache.match(key)) ?? new Response(JSON.stringify({ error: "Offline" }), { status: 504, headers: { "Content-Type": "application/json" } });
+  } finally { clearTimeout(timeout); }
 }
 
 async function navigation(request) {

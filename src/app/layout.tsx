@@ -7,7 +7,7 @@ const notoSansTamil = Noto_Sans_Tamil({
   subsets: ["tamil"],
 });
 import "./globals.css";
-import { VisualEditsMessenger } from "orchids-visual-edits";
+import { DevTools } from "@/components/dev-tools";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PwaUpdates } from "@/components/pwa-updates";
 import { LearningProvider } from "@/components/learning-provider";
@@ -82,7 +82,7 @@ export default function RootLayout({
             <PwaUpdates />
             {children}
           </LearningProvider>
-          {process.env.NODE_ENV === "development" && <VisualEditsMessenger />}
+          <DevTools />
         </ThemeProvider>
       </body>
     </html>
