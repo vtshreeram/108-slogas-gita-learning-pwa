@@ -1,27 +1,31 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { CheckCircle, Undo2, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { TOTAL_SHLOKAS } from "@/lib/shlokas";
+import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
 import { useProfile } from "@/hooks/use-profile";
-import { ShlokaCard } from "@/components/shloka-card";
+import { ShlokaCard, type NavStatus } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
 import { LoaderQuote } from "@/components/loader-quote";
 import { DialogCard } from "@/components/dialog-card";
 import { AudioErrorBoundary } from "@/components/audio-error-boundary";
-import { ProfileSheet } from "@/components/profile-sheet";
 import { useSession } from "@/hooks/use-session";
-import { OfflineLibrary } from "@/components/offline-library";
-import { VerseStudy } from "@/components/verse-study";
-import { ReviewQueue } from "@/components/review-queue";
-import { LinePractice } from "@/components/line-practice";
 import { StudyTools } from "@/components/study-tools";
 import { SaveStatus } from "@/components/save-status";
-import { useAllVerses } from "@/hooks/use-all-verses";
-import type { GitaVerse } from "@/lib/gita-verses";
+import { loadChapter, type GitaVerse } from "@/lib/gita-verses";
+import { VERSE_INDEX, indexOfReference } from "@/lib/verse-index";
+
+const SHLOKA_ID_BY_REFERENCE = new Map(SHLOKAS.map((s) => [s.reference, s.id]));
+
+// Secondary tools load as their own chunks, only when opened (and are fetched at idle afterwards, so they also work offline).
+const loadStudyPanels = () => import("@/components/study-panels").then((m) => m.StudyPanels);
+const loadProfileSheet = () => import("@/components/profile-sheet").then((m) => m.ProfileSheet);
+const StudyPanels = dynamic(loadStudyPanels, { loading: () => <p role="status" className="px-2 py-3 text-xs text-[#705735] dark:text-[#bda27e]">Loading study tools…</p> });
+const ProfileSheet = dynamic(loadProfileSheet);
 
 function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
   const [signingIn, setSigningIn] = useState(false);
@@ -62,6 +66,8 @@ export default function Home() {
   const [completedOpen, setCompletedOpen] = useState(false);
   const [statsOpen, setStatsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [profileMounted, setProfileMounted] = useState(false);
+  const openProfile = useCallback(() => { setProfileMounted(true); setProfileOpen(true); }, []);
   const [browse, setBrowse] = useState<GitaVerse | null>(null);
   const [audioAvailable, setAudioAvailable] = useState(true);
   const [linePracticeActive, setLinePracticeActive] = useState(false);
@@ -75,27 +81,56 @@ export default function Home() {
   const {
     ready, state,
     markStep, recallMissed, markAsLearned, undoLearnedForActive,
-    goTo, goToShloka, next, prev, setContentMode, setActiveMode,
+    goToShloka, next, prev, setContentMode, setActiveMode,
     completedCount, completedShlokas, streak, progressPct, winRatePct,
     active, activeProgress, activeGlobalIndex,
     isFirst, isLast, isMastered, dailyGoal, learnedToday, dueReviews, chapterList,
     rateRecall, syncStatus, storageError, online, retrySave
   } = useShlokaState(user?.uid ?? null);
 
-  const { verses: allVerses } = useAllVerses(ready);
+  // The 108 are always at hand. Any other verse downloads only its own chapter, when it is opened.
+  const [navStatus, setNavStatus] = useState<NavStatus>({ state: "idle" });
+  const requestSeq = useRef(0);
+  /** Index (in all 657) of the verse most recently asked for, so rapid swipes keep moving forward from it. */
+  const lastRequested = useRef<number | null>(null);
+
+  const showBrowse = useCallback((verse: GitaVerse | null) => {
+    requestSeq.current++; // a response still in flight for an older request must not replace this
+    lastRequested.current = verse ? indexOfReference(verse.reference) : null;
+    setBrowse(verse);
+    setNavStatus({ state: "idle" });
+  }, []);
+
+  /** Open entry `index` of the 657: a verse from the 108 returns to the learning card, others load read-only. */
+  const openVerse = useCallback(async (index: number) => {
+    const entry = VERSE_INDEX[index];
+    if (!entry) return;
+    const seq = ++requestSeq.current;
+    lastRequested.current = index;
+    const learnId = entry.important ? SHLOKA_ID_BY_REFERENCE.get(entry.reference) : undefined;
+    if (learnId) { setBrowse(null); setNavStatus({ state: "idle" }); goToShloka(learnId); return; }
+    setNavStatus({ state: "loading" });
+    try {
+      const verses = await loadChapter(entry.chapter);
+      if (seq !== requestSeq.current) return; // the learner has already moved on
+      const verse = verses.find((v) => v.reference === entry.reference);
+      if (!verse) throw new Error("This verse is not available yet.");
+      setBrowse(verse); setNavStatus({ state: "idle" });
+    } catch (error) {
+      if (seq === requestSeq.current) setNavStatus({ state: "error", message: error instanceof Error ? error.message : "Could not open this verse.", retryIndex: index });
+    }
+  }, [goToShloka]);
 
   // Any jump to one of the 108 (review queue, completed list, picker) returns to the learning card.
   const activeId = active?.id;
-  useEffect(() => { setBrowse(null); }, [activeId]);
+  useEffect(() => { requestSeq.current++; lastRequested.current = null; setBrowse(null); setNavStatus({ state: "idle" }); }, [activeId]);
 
   /** Reading mode steps through all 657; learning mode keeps stepping through the 108. */
   const stepBrowse = useCallback((delta: number) => {
-    if (!browse || !allVerses) return;
-    const i = allVerses.findIndex((v) => v.id === browse.id) + delta;
-    const target = allVerses[i];
-    if (!target) return;
-    if (target.important) { setBrowse(null); goToShloka(target.id); } else setBrowse(target);
-  }, [browse, allVerses, goToShloka]);
+    const from = lastRequested.current ?? (browse ? indexOfReference(browse.reference) : -1);
+    if (from < 0) return;
+    void openVerse(from + delta);
+  }, [browse, openVerse]);
   const onNext = useCallback(() => (browse ? stepBrowse(1) : next()), [browse, stepBrowse, next]);
   const onPrev = useCallback(() => (browse ? stepBrowse(-1) : prev()), [browse, stepBrowse, prev]);
 
@@ -108,6 +143,18 @@ export default function Home() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [onNext, onPrev]);
+
+  // Once the app is idle and the service worker controls the page, fetch the secondary chunks so they are saved for offline use.
+  useEffect(() => {
+    if (!ready || !("serviceWorker" in navigator) || (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData) return;
+    let cancelled = false;
+    const warm = () => { if (!cancelled) { void loadStudyPanels(); void loadProfileSheet(); } };
+    const idle = () => { if ("requestIdleCallback" in window) window.requestIdleCallback(warm, { timeout: 5000 }); else setTimeout(warm, 3000); };
+    // Fetches only reach the cache when the worker controls the page, so wait for that (first visit: it claims the page shortly after activating).
+    const whenControlled = () => { if (navigator.serviceWorker.controller) idle(); else navigator.serviceWorker.addEventListener("controllerchange", idle, { once: true }); };
+    void navigator.serviceWorker.ready.then(() => { if (!cancelled) whenControlled(); });
+    return () => { cancelled = true; navigator.serviceWorker.removeEventListener("controllerchange", idle); };
+  }, [ready]);
 
   if (authChecking || (!ready && user)) return <LoaderQuote />;
 
@@ -132,7 +179,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-1.5">
             <button
-              onClick={() => setProfileOpen(true)}
+              onClick={openProfile}
               aria-label="Open profile"
               className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-[#4a3615] text-xs font-bold hover:opacity-80 transition-opacity"
             >
@@ -188,18 +235,16 @@ export default function Home() {
           onRecallMissed={recallMissed}
           onSwipeLeft={onNext}
           onSwipeRight={onPrev}
-          onJumpTo={goTo}
           isFavorite={isFavorite(active.id)}
           onToggleFavorite={() => toggleFavorite(active.id)}
-          allVerses={allVerses}
           browse={browse}
-          onBrowse={setBrowse}
+          onBrowse={showBrowse}
+          onOpenVerse={openVerse}
+          navStatus={navStatus}
         />
         {!browse && <StudyTools dueCount={dueReviews.length}>
-          <ReviewQueue due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={goToShloka} />
-          <LinePractice key={active.id} shloka={active} audioRef={audioRef} cues={profile.lineCues[active.id]} onSave={(cues) => setLineCues(active.id, cues)} onActiveChange={setLinePracticeActive} />
-          <VerseStudy shloka={active} />
-          <OfflineLibrary reference={active.reference} />
+          <StudyPanels active={active} due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={goToShloka} audioRef={audioRef}
+            cues={profile.lineCues[active.id]} onSaveCues={(cues) => setLineCues(active.id, cues)} onLinePracticeActive={setLinePracticeActive} />
         </StudyTools>}
         {(storageError || syncStatus === "error" || !online) && <SaveStatus status={syncStatus} storageError={storageError} online={online} onRetry={retrySave} />}
       </div>
@@ -311,7 +356,7 @@ export default function Home() {
           </div>
           <DialogFooter className="flex gap-2">
             <button
-              onClick={() => setProfileOpen(true)}
+              onClick={openProfile}
               className="flex-1 rounded-xl bg-gradient-to-r from-[#8a6b3d] to-[#6b512c] px-4 py-2 text-xs font-bold text-white shadow-[0_4px_12px_rgba(138,107,61,0.3)] hover:shadow-[0_6px_16px_rgba(138,107,61,0.4)] transition-shadow active:scale-95"
             >
               View Profile
@@ -321,20 +366,22 @@ export default function Home() {
       </Dialog>
 
       {/* Profile Sheet */}
-      <ProfileSheet
-        open={profileOpen}
-        onOpenChange={setProfileOpen}
-        user={user}
-        onSignOut={signOut}
-        startedAt={state.startedAt}
-        activeMode={state.activeMode}
-        setActiveMode={setActiveMode}
-        completedCount={completedCount}
-        streak={streak}
-        winRatePct={winRatePct}
-        displayName={displayName}
-        setCustomName={setCustomName}
-      />
+      {profileMounted && (
+        <ProfileSheet
+          open={profileOpen}
+          onOpenChange={setProfileOpen}
+          user={user}
+          onSignOut={signOut}
+          startedAt={state.startedAt}
+          activeMode={state.activeMode}
+          setActiveMode={setActiveMode}
+          completedCount={completedCount}
+          streak={streak}
+          winRatePct={winRatePct}
+          displayName={displayName}
+          setCustomName={setCustomName}
+        />
+      )}
     </main>
   );
 }

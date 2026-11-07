@@ -7,13 +7,14 @@
  * - --gita-dark-* : Dark backgrounds for dark mode
  * - --gita-success-* : Green colors for completed/progress states
  */
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AlertCircle, Eye, ChevronDown, Star } from "lucide-react";
 import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, StepProgress } from "@/lib/constants";
-import { Shloka, SHLOKAS, tamilCredit, ENGLISH_TRANSLATION_SOURCE } from "@/lib/shlokas";
+import { Shloka, tamilCredit, ENGLISH_TRANSLATION_SOURCE } from "@/lib/shlokas";
 import type { GitaVerse } from "@/lib/gita-verses";
 import { Purport } from "@/components/purport";
-import { filterVerses, parseReference } from "@/lib/verse-search";
+import { parseReference } from "@/lib/verse-search";
+import { VERSES_BY_CHAPTER, indexCovering, indexOfReference } from "@/lib/verse-index";
 
 type ShlokaCardProps = {
   active: Shloka;
@@ -27,23 +28,23 @@ type ShlokaCardProps = {
   onRecallMissed: () => void;
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
-  onJumpTo: (index: number) => void;
   isFavorite: boolean;
   onToggleFavorite: () => void;
-  /** Every verse of the Gita (null while loading). The picker lists these; the 108 are tinted. */
-  allVerses: GitaVerse[] | null;
   /** A verse outside the 108 shown read-only in place of the learning card content. */
   browse: GitaVerse | null;
   onBrowse: (verse: GitaVerse | null) => void;
+  /** Open entry `index` of the 657 (the picker and go-to box use the reference index; only that verse's chapter is fetched). */
+  onOpenVerse: (index: number) => void;
+  navStatus: NavStatus;
 };
 
-const SHLOKA_INDEX = new Map(SHLOKAS.map((s, i) => [s.id, i]));
+export type NavStatus = { state: "idle" | "loading" | "error"; message?: string; retryIndex?: number };
 
 export function ShlokaCard({
   active, activeGlobalIndex,
   contentMode, setContentMode, audioAvailable,
-  activeProgress, onMarkStep, onRecallMissed, onSwipeLeft, onSwipeRight, onJumpTo,
-  isFavorite, onToggleFavorite, allVerses, browse, onBrowse
+  activeProgress, onMarkStep, onRecallMissed, onSwipeLeft, onSwipeRight,
+  isFavorite, onToggleFavorite, browse, onBrowse, onOpenVerse, navStatus
 }: ShlokaCardProps) {
   const current: Shloka = browse ?? active;
   const [goTo, setGoTo] = useState("");
@@ -53,27 +54,14 @@ export function ShlokaCard({
   const [isRevealed, setIsRevealed] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
 
-  const chapters = useMemo(() => {
-    const source: GitaVerse[] = allVerses ?? SHLOKAS.map((v) => ({ ...v, important: true }));
-    const map = new Map<number, GitaVerse[]>();
-    for (const v of source) {
-      if (!map.has(v.chapter)) map.set(v.chapter, []);
-      map.get(v.chapter)!.push(v);
-    }
-    return map;
-  }, [allVerses]);
-
-  const pick = (v: GitaVerse) => {
-    const index = SHLOKA_INDEX.get(v.id);
-    if (v.important && index !== undefined) { onBrowse(null); onJumpTo(index); } else onBrowse(v);
-    setPickerOpen(false);
-  };
+  const pick = (index: number) => { onOpenVerse(index); setPickerOpen(false); };
 
   const submitGoTo = (event: React.FormEvent) => {
     event.preventDefault();
-    const found = allVerses && parseReference(goTo) ? filterVerses(allVerses, { text: goTo, filter: "all", chapter: null })[0] : undefined;
-    if (!found) { setGoToError(allVerses ? "Try a reference like 2.47" : "Still loading all verses…"); return; }
-    setGoToError(""); setGoTo(""); pick(found);
+    const ref = parseReference(goTo);
+    const index = ref ? indexCovering(ref.chapter, ref.verse) : -1;
+    if (index < 0) { setGoToError("Try a reference like 2.47"); return; }
+    setGoToError(""); setGoTo(""); pick(index);
   };
 
   useEffect(() => {
@@ -149,18 +137,17 @@ export function ShlokaCard({
               </form>
               <p className="mb-2 flex items-center gap-1.5 text-[10px] text-[#705735] dark:text-[#bda27e]">
                 <span className="inline-block h-3 w-3 rounded bg-[#fcebc4] ring-1 ring-[#d4aa61] dark:bg-[#3a2c14]" aria-hidden /> the 108 you learn
-                {!allVerses && <span className="ml-auto">Loading all verses…</span>}
               </p>
-              {[...chapters.entries()].map(([ch, verses]) => (
+              {[...VERSES_BY_CHAPTER.entries()].map(([ch, verses]) => (
                 <div key={ch} className="mb-3 last:mb-0">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-[#705735] dark:text-[#bda27e] mb-1.5 border-b border-[#f4e9cb] dark:border-[#423321] pb-1">Chapter {ch}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {verses.map((v) => {
-                      const isActive = browse ? browse.id === v.id : v.id === active.id;
+                      const isActive = v.reference === current.reference;
                       return (
                         <button
-                          key={v.id}
-                          onClick={() => pick(v)}
+                          key={v.reference}
+                          onClick={() => pick(indexOfReference(v.reference))}
                           aria-current={isActive ? "true" : undefined}
                           aria-label={v.important ? `${v.reference}, one of the 108` : v.reference}
                           className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors ${isActive ? "bg-[#8f6422] text-white dark:bg-[#d4aa61] dark:text-[#1e1710]" : v.important ? "bg-[#fcebc4] text-[#5c431b] ring-1 ring-[#d4aa61] dark:bg-[#3a2c14] dark:text-[#f0e3ce]" : "border border-[#ebd6ab] text-[#705735] dark:border-[#423321] dark:text-[#bda27e]"}`}
@@ -176,6 +163,12 @@ export function ShlokaCard({
           </>
         )}
       </div>
+
+      {navStatus.state !== "idle" && (
+        <p role="status" className="-mt-2 mb-3 text-center text-xs text-[#705735] dark:text-[#bda27e]">
+          {navStatus.state === "loading" ? "Loading verse…" : <>{navStatus.message}{navStatus.retryIndex !== undefined && <> <button className="underline underline-offset-4" onClick={() => onOpenVerse(navStatus.retryIndex!)}>Try again</button></>}</>}
+        </p>
+      )}
 
       <div className="flex bg-[#f9f1e1] dark:bg-[#2d2218] rounded-full p-1 mb-4 border border-[#ebd6ab] dark:border-[#423321]">
         {/* Content mode tabs: Roman transliteration, English translation, Tamil translation */}
@@ -215,7 +208,7 @@ export function ShlokaCard({
                   <a href={`${ENGLISH_TRANSLATION_SOURCE}${current.chapter}/${current.reference.split(".")[1]}/`} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-xs text-[#8a6b3d] dark:text-[#bda27e] underline underline-offset-4">
                     {current.translationAuthor} · Source
                   </a>
-                  <Purport chapter={current.chapter} reference={current.reference} language="en" />
+                  <Purport key={current.reference} chapter={current.chapter} reference={current.reference} language="en" />
                 </div>
               )}
               {contentMode === "tamil" && (
@@ -230,7 +223,7 @@ export function ShlokaCard({
                       : <p lang="ta" className={cls}>{credit.label}</p>;
                   })()}
                 </div>
-                <Purport chapter={current.chapter} reference={current.reference} language="ta" />
+                <Purport key={current.reference} chapter={current.chapter} reference={current.reference} language="ta" />
                 </>
               )}
             </>

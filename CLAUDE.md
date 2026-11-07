@@ -41,6 +41,9 @@ Single-page app. Composes `ShlokaCard` (content display with swipe navigation an
 ### Data Layer (`src/lib/shlokas.ts`)
 108 shloka objects with: id (GS-001..GS-108), chapter/verse reference, Sanskrit (Devanagari), transliteration, English translation, audio path, and reflection prompt. Audio files live in `public/audio/` as `<chapter>.<verse>.mp3`.
 
+### Lazy data loading
+The picker, go-to box, previous/next and the purport button read `src/data/verse-index.json` (via `src/lib/verse-index.ts`): a 7 KB reference-only index of all 657 verses with purport availability. Regenerate it with `node scripts/build-verse-index.mjs` after editing `src/data/`; a unit test fails when it is stale. Chapter text and purports download only when a verse/purport is opened, through `createChapterLoader` in `src/lib/gita-verses.ts` (de-duplicated, 3 at a time, failures retry). The service worker precaches only the app shell; chapters and purports a learner has opened are saved in `gita-chapters-v1` and work offline. Study tools and the profile sheet are separate chunks loaded on first open and prefetched at idle once the worker controls the page (so they are also cached offline).
+
 ### API Routes
 Minimal demo endpoints at `/api/echo` and `/api/status`. Server helpers in `src/lib/server/` provide `routeHandler()` wrapper, JSON envelope helpers (`jsonOk`/`jsonError`), and Zod validation utilities. Tests cover these server utilities.
 

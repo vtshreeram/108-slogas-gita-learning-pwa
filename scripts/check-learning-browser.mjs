@@ -29,11 +29,57 @@ await context.addInitScript(async ({uid, apiKey, token}) => {
   tx.objectStore('firebaseLocalStorage').put({ fbase_key:`firebase:authUser:${apiKey}:[DEFAULT]`, value:{uid,email:'learner@example.test',emailVerified:true,displayName:'Test Learner',isAnonymous:false,providerData:[],stsTokenManager:{refreshToken:'test',accessToken:token,expirationTime:Date.now()+86400000},createdAt:String(Date.now()),lastLoginAt:String(Date.now()),apiKey,appName:'[DEFAULT]'} });
   await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=reject}); db.close();
 }, {uid,apiKey,token});
+const apiCalls = [], pageCalls = []; // apiCalls includes the service worker's own fetches; pageCalls is what the page asked for
+context.on('request', r => { if (!/\/api\/(chapters|purports)\//.test(r.url())) return; apiCalls.push(new URL(r.url()).pathname); if (!r.serviceWorker()) pageCalls.push(new URL(r.url()).pathname); });
 const page = await context.newPage(); page.setDefaultTimeout(15000); if(process.env.GITA_DEBUG_AUTH) { page.on('console',m=>console.log('Browser:',m.type(),m.text())); page.on('requestfailed',r=>console.log('Request failed:',r.url(),r.failure()?.errorText)); } const errors=[];page.on('pageerror',e=>errors.push(e.message));
 try {
 await page.goto(base); await page.reload(); await page.getByText('Daily Goal:',{exact:false}).waitFor({timeout:30000});
 console.log('Logged into isolated test session');
 const assert = (value, message) => { if (!value) throw new Error(message); };
+
+// Lazy data: nothing is downloaded until a verse, chapter or purport is actually opened.
+await page.waitForTimeout(3000); // let the service worker install and the app go idle
+assert(apiCalls.length === 0, `Opening the learning screen (and installing the worker) requested ${apiCalls.join(', ')}`);
+const picker = page.locator('button[aria-controls="verse-picker"]');
+const openPicker = async () => { await picker.click(); await page.locator('#verse-picker').waitFor(); };
+await openPicker();
+assert(await page.locator('#verse-picker button[aria-label]').count() === 657, 'The picker lists all 657 verses without downloading chapters');
+assert(apiCalls.length === 0, 'Opening the verse picker must not download chapters');
+await page.locator('#verse-picker').getByRole('button', { name: '1.2', exact: true }).click();
+await page.getByText('Read only').waitFor();
+assert(pageCalls.join() === '/api/chapters/1', `Opening 1.2 should fetch only chapter 1, got ${pageCalls}`);
+await page.locator('body').click({ position: { x: 5, y: 5 } });
+for (let i = 0; i < 3; i++) await page.keyboard.press('ArrowRight');   // rapid swipes: each step continues from the last requested verse
+await page.waitForFunction(() => /Shloka 5\b/.test(document.querySelector('button[aria-controls="verse-picker"]').textContent));
+assert(pageCalls.length === 1, 'Stepping within a loaded chapter must not refetch it');
+await openPicker(); await page.locator('#verse-goto').fill('3.1'); await page.keyboard.press('Enter');
+await page.waitForFunction(() => /Ch 3\b/.test(document.querySelector('button[aria-controls="verse-picker"]').textContent));
+assert(pageCalls.join() === '/api/chapters/1,/api/chapters/3', `Jumping to 3.1 should fetch only chapter 3, got ${pageCalls}`);
+// Purports download only when opened, and English/Tamil share one request for the chapter.
+await page.getByRole('button', { name: 'English meaning' }).click();
+assert(!pageCalls.some((c) => c.includes('purports')), 'A collapsed purport must not be fetched');
+await page.getByRole('button', { name: /Read Purport/i }).click();
+await page.getByText('Purport by A.C. Bhaktivedanta').waitFor();
+assert(pageCalls.filter((c) => c === '/api/purports/3').length === 1, `Opening the purport fetches its chapter once, got ${pageCalls}`);
+await page.getByRole('button', { name: 'தமிழ் பொருள்' }).click();
+await page.getByRole('button', { name: /Read பொருளுரை/ }).click();
+await page.getByText('பகவத் கீதை உண்மையுருவில் — தமிழ் பதிப்பு © BBT').waitFor();
+assert(pageCalls.filter((c) => c === '/api/purports/3').length === 1, 'Tamil reuses the English purport request');
+// Offline: an unvisited chapter explains itself and recovers when the network returns; a visited one still opens.
+await context.setOffline(true);
+await openPicker(); await page.locator('#verse-goto').fill('5.1'); await page.keyboard.press('Enter');
+await page.getByText(/offline and this chapter has not been downloaded/i).waitFor();
+await context.setOffline(false);
+await page.getByRole('button', { name: 'Try again' }).click();
+await page.waitForFunction(() => /Ch 5\b/.test(document.querySelector('button[aria-controls="verse-picker"]').textContent));
+await context.setOffline(true); await page.reload(); await page.getByText('Daily Goal:', { exact: false }).waitFor();
+// Secondary tools are separate chunks; they must already be saved, so they open with no network.
+await page.getByText('Study tools').click(); await page.getByText('Review today').waitFor();
+await page.getByRole('button', { name: 'Open profile' }).click(); await page.getByRole('dialog').waitFor(); await page.keyboard.press('Escape');
+await openPicker(); await page.locator('#verse-goto').fill('3.2'); await page.keyboard.press('Enter');
+await page.waitForFunction(() => /Ch 3\b/.test(document.querySelector('button[aria-controls="verse-picker"]').textContent));
+await context.setOffline(false); await page.reload(); await page.getByText('Daily Goal:', { exact: false }).waitFor();
+console.log('Chapters and purports load on demand, deduplicate, recover from offline, and a visited chapter works offline');
 await page.getByRole('button',{name:'Learned',exact:true}).click();
 await page.getByRole('button',{name:'Yes, Mark Learned'}).click();
 await page.getByText('Daily Goal: 1 / 2 completed',{exact:true}).waitFor();

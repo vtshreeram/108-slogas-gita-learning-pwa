@@ -4,13 +4,13 @@ import { describe, expect, it, vi } from "vitest";
 
 function worker() {
   const handlers = new Map<string, (event: unknown) => void>();
-  const cache = { match: vi.fn(), put: vi.fn(), addAll: vi.fn() };
+  const cache = { match: vi.fn(), put: vi.fn(), addAll: vi.fn(), add: vi.fn() };
   const caches = { open: vi.fn(async () => cache), keys: vi.fn(async () => ["other-app", "gita-shell-v5", "gita-shell-__RELEASE__", "gita-audio-v3"]), delete: vi.fn() };
   const self = { addEventListener: (type: string, fn: (event: unknown) => void) => handlers.set(type, fn), skipWaiting: vi.fn(), clients: { claim: vi.fn() }, location: { origin: "https://gita.test" } };
   const fetch = vi.fn();
-  const context = { self, caches, fetch, Response, Request, URL, AbortController, setTimeout, clearTimeout };
+  const context = { self, caches, fetch, Response, Request, URL, AbortController, Blob, setTimeout, clearTimeout };
   const source = readFileSync("scripts/service-worker-template.js", "utf8");
-  const api = runInNewContext(source + "\n({ audioRange, serveAudio, navigation, staticAsset, cacheShell });", context);
+  const api = runInNewContext(source + "\n({ audioRange, serveAudio, navigation, staticAsset, cacheShell, chapterData });", context);
   return { api, self, handlers, caches, cache, fetch };
 }
 
@@ -60,5 +60,68 @@ describe("offline audio and app updates", () => {
     fetch.mockResolvedValue(new Response('<script src="/_next/static/app.js"></script><link href="/_next/static/style.css"><link href="/_next/static/font.woff2">'));
     await api.cacheShell();
     expect(cache.addAll.mock.calls[0][0]).toEqual(expect.arrayContaining(["/_next/static/app.js", "/_next/static/style.css", "/_next/static/font.woff2"]));
+  });
+  it("installs only the app shell: no chapter or purport is fetched during install", async () => {
+    const { handlers, fetch, cache } = worker();
+    fetch.mockImplementation(async (input: Request | string) => new Response(String(typeof input === "string" ? input : input.url).includes("/_next/static/") ? "" : '<script src="/_next/static/app.js"></script>'));
+    let work: Promise<void> | undefined;
+    handlers.get("install")!({ waitUntil: (p: Promise<void>) => { work = p; } }); await work;
+    const requested = [...fetch.mock.calls.map((c) => String(c[0]?.url ?? c[0])), ...cache.addAll.mock.calls.flatMap((c) => c[0] as string[]), ...cache.add.mock.calls.map((c) => String(c[0]))];
+    expect(requested.filter((u) => /\/api\//.test(u))).toEqual([]);
+    expect(cache.add).not.toHaveBeenCalled();
+  });
+  it("keeps the shell small: only a handful of precache entries", async () => {
+    const { api, fetch, cache } = worker();
+    fetch.mockResolvedValue(new Response('<script src="/_next/static/a.js"></script>'));
+    await api.cacheShell();
+    expect(cache.addAll.mock.calls[0][0].length).toBeLessThan(20);
+  });
+  it("saves a chapter on first use, and serves it offline under a single key", async () => {
+    const { api, fetch, cache } = worker();
+    fetch.mockResolvedValueOnce(new Response("[1]", { status: 200 }));
+    await api.chapterData(new Request("https://gita.test/api/chapters/2?cache-bust=123"));
+    expect(cache.put.mock.calls[0][0].url).toBe("https://gita.test/api/chapters/2");
+    fetch.mockRejectedValueOnce(new Error("Offline")); cache.match.mockResolvedValueOnce(new Response("[1]"));
+    expect(await (await api.chapterData(new Request("https://gita.test/api/chapters/2?other=1"))).text()).toBe("[1]");
+    expect(cache.match.mock.calls.at(-1)![0].url).toBe("https://gita.test/api/chapters/2");
+  });
+  it("never saves an error response, and reports an unsaved chapter as offline", async () => {
+    const { api, fetch, cache } = worker();
+    fetch.mockResolvedValueOnce(new Response("oops", { status: 500 }));
+    expect((await api.chapterData(new Request("https://gita.test/api/purports/3"))).status).toBe(500);
+    expect(cache.put).not.toHaveBeenCalled();
+    fetch.mockRejectedValueOnce(new Error("Offline")); cache.match.mockResolvedValueOnce(undefined);
+    expect((await api.chapterData(new Request("https://gita.test/api/purports/3"))).status).toBe(504);
+  });
+  it("gives up on a stalled network after the timeout and uses the saved copy", async () => {
+    vi.useFakeTimers();
+    try {
+      const { api, fetch, cache } = worker();
+      fetch.mockImplementation((_: unknown, init?: { signal?: AbortSignal }) => new Promise((_resolve, reject) => init?.signal?.addEventListener("abort", () => reject(new Error("aborted")))));
+      cache.match.mockResolvedValue(new Response("[saved]"));
+      const pending = api.chapterData(new Request("https://gita.test/api/chapters/4"));
+      await vi.advanceTimersByTimeAsync(4100);
+      expect(await (await pending).text()).toBe("[saved]");
+    } finally { vi.useRealTimers(); }
+  });
+  it("answers a range from a large download without copying the whole file", async () => {
+    const big = new Uint8Array(3_000_000).fill(7);
+    const r = await worker().api.audioRange(new Response(big, { headers: { "Content-Type": "audio/mpeg" } }), "bytes=2999990-");
+    expect(r.status).toBe(206); expect(r.headers.get("Content-Length")).toBe("10"); expect(r.headers.get("Content-Range")).toBe("bytes 2999990-2999999/3000000");
+    expect((await r.arrayBuffer()).byteLength).toBe(10);
+  });
+  it("does not cut off a slow body download once the response has started", async () => {
+    vi.useFakeTimers();
+    try {
+      const { api, fetch, cache } = worker();
+      let signal: AbortSignal | undefined;
+      fetch.mockImplementation(async (_: unknown, init?: { signal?: AbortSignal }) => { signal = init?.signal; return new Response("[slow but whole]"); });
+      cache.put.mockImplementation(() => new Promise((resolve) => setTimeout(resolve, 6000))); // saving reads the whole body, like a slow connection
+      const pending = api.chapterData(new Request("https://gita.test/api/purports/2"));
+      await vi.advanceTimersByTimeAsync(6100);
+      const response = await pending;
+      expect(signal?.aborted).toBe(false);
+      expect(await response.text()).toBe("[slow but whole]");
+    } finally { vi.useRealTimers(); }
   });
 });
