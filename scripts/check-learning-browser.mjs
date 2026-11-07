@@ -44,6 +44,7 @@ await page.reload(); await page.getByText('Daily Goal: 2 / 2 completed',{exact:t
 console.log('Daily count advances one verse at a time and survives reload');
 await page.evaluate(async () => { await navigator.serviceWorker.ready; });
 await page.waitForFunction(() => !!navigator.serviceWorker.controller);
+await page.locator('summary').filter({hasText:'Study tools'}).click();
 await page.getByRole('button',{name:'Download 2.11',exact:true}).click();
 await page.getByText('1 new verse(s) saved for offline playback.',{exact:true}).waitFor();
 console.log('Downloaded the active verse');
@@ -75,7 +76,7 @@ await seek.focus(); await page.keyboard.press('ArrowRight');
 assert(await page.getByText(/Ch 2.*Shloka 11/i).count()>0,'Seek key navigated to another verse');
 // Seed an overdue date to exercise revision UI with real saved progress.
 await page.evaluate(uid => {const key=`gita-learning-state-v4:${uid}`; const s=JSON.parse(localStorage.getItem(key));s.reviews['GS-001'].dueDate='2000-01-01';localStorage.setItem(key,JSON.stringify(s));},uid);
-await page.reload(); await page.getByRole('button',{name:'Start review',exact:true}).click();
+await page.reload(); await page.locator('summary').filter({hasText:'Study tools'}).click(); await page.getByRole('button',{name:'Start review',exact:true}).click();
 await page.getByRole('button',{name:'Reveal verse',exact:true}).click();
 await page.getByRole('button',{name:'Forgot',exact:false}).click();
 await page.getByRole('button',{name:'Reveal verse',exact:true}).click();

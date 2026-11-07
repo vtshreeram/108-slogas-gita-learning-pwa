@@ -20,7 +20,7 @@ export function loadChapter(chapter: number): Promise<GitaVerse[]> {
     pending = fetch(`/api/chapters/${chapter}`).then(async (response) => {
       if (!response.ok) {
         if (response.status === 503) throw new Error("This chapter is not available yet. You can keep practising the selected 108 verses.");
-        throw new Error("Could not load this chapter. Please check your connection and try again.");
+        throw new Error(response.status === 504 ? "You are offline and this chapter has not been downloaded yet. Connect once to use it offline." : "Could not load this chapter. Please check your connection and try again.");
       }
       return response.json() as Promise<GitaVerse[]>;
     });
@@ -36,4 +36,27 @@ export async function loadAllChapters(): Promise<{ verses: GitaVerse[]; failed: 
   const failed = GITA_CHAPTERS.filter((_, i) => results[i].status === "rejected");
   const verses = results.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
   return { verses, failed };
+}
+
+export type Purport = {
+  /** English purport paragraphs (Prabhupada). */
+  en?: string[];
+  /** Tamil purport paragraphs. `verified` = human-proofread; `corrected` = machine-corrected OCR; neither = raw OCR. */
+  ta?: { text: string; verified: boolean; corrected?: boolean }[];
+};
+
+const purportCache = new Map<number, Promise<Record<string, Purport>>>();
+
+/** Purports for one chapter, keyed by verse reference. Missing verses simply have no entry. */
+export function loadPurports(chapter: number): Promise<Record<string, Purport>> {
+  let pending = purportCache.get(chapter);
+  if (!pending) {
+    pending = fetch(`/api/purports/${chapter}`).then((r) => {
+      if (!r.ok) throw new Error("Could not load purports");
+      return r.json() as Promise<Record<string, Purport>>;
+    });
+    pending.catch(() => purportCache.delete(chapter));
+    purportCache.set(chapter, pending);
+  }
+  return pending;
 }

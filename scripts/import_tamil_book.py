@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BOOK = ROOT / "docs" / "Tamil_Bhagavad_Gita" / "chapters"
 GITA = ROOT / "src" / "data" / "gita"
 SHLOKAS_TS = ROOT / "src" / "lib" / "shlokas.ts"
+BHARATI = ROOT / "scripts" / "data" / "tamil-bharati.json"  # original Bharati text, never overwritten
 EXTRACT = ROOT / "scripts" / "data" / "tamil-book.json"
 REPORT = ROOT / "docs" / "tamil-book-import-report.md"
 
@@ -150,6 +151,18 @@ def translations_for(chapter, refs, blocks):
 DISPLACED_VERIFIED = {
     "1.6", "1.27", "2.65", "11.9", "11.17", "11.24", "11.25", "11.30", "16.13-15", "17.8", "18.41",
 }
+# Verses whose book text was read against the English and found wrong (shifted onto the
+# neighbouring verse, truncated, or containing OCR garbage inside the sentence). They keep Bharati.
+REJECTED = {
+    "2.6": "OCR garbage inside the closing clause",
+    "2.49": "truncated and garbled ending",
+    "3.30": "OCR garbage inside the sentence",
+    "3.38": "stray Tamil digits inside the sentence",
+    "11.6": "opening of the translation missing",
+    "11.29": "text is 11.28's translation",
+    "11.32": "text is 11.31's translation",
+    "18.32": "text is 18.31's translation",
+}
 MARKER = re.compile(r"\|\|\s*(\d+)\s*[-.]\s*(\d+)")
 
 
@@ -168,6 +181,8 @@ def quality(text, old):
         why.append("junk symbols")
     if BROKEN.search(text):
         why.append("broken Tamil spacing")
+    if re.search(r"[\u0BE6-\u0BEF]|[\u0BBE-\u0BCD]{2}", text):
+        why.append("Tamil digits or invalid vowel-sign sequence")
     if text.count("!") > 1 + len(text) // 140:
         why.append("'!' used as punctuation")
     letters = sum(1 for c in text if "஀" <= c <= "௿")
@@ -193,6 +208,7 @@ def salvage(text):
 
 def tidy(text):
     """Conservative OCR punctuation fixes only (no word substitutions)."""
+    text = text.replace("\u0BC2\u0BC1", "\u0BC1")  # "ூு" is not valid Tamil; OCR doubled the vowel sign
     text = re.sub(r"\s+([,.;:?!])", r"\1", text)
     text = re.sub(r"!(?=\s+[஀-௿])", ",", text) if text.count("!") > 1 else text
     return text
@@ -201,6 +217,7 @@ def tidy(text):
 def main():
     apply = "--apply" in sys.argv
     result, report, totals = {}, [], dict(ok=0, flagged=0, missing=0)
+    bharati = json.loads(BHARATI.read_text())
     for chapter in range(1, 19):
         entries = json.loads((GITA / f"chapter-{chapter}.json").read_text())
         refs = [e["reference"] for e in entries]
@@ -212,7 +229,8 @@ def main():
         for n in notes:
             report.append(f"- Chapter {chapter}: {n}")
         for e in entries:
-            ref, old = e["reference"], e.get("tamil", "")
+            ref = e["reference"]
+            old = bharati[ref]  # fallback and length-ratio baseline, independent of previous runs
             text = tidy(salvage(found[ref])) if ref in found else ""
             if not text:
                 totals["missing"] += 1
@@ -221,6 +239,8 @@ def main():
             why = quality(text, old)
             if ref in found and salvage(found[ref]) != found[ref] and belongs_to_previous(found[ref], ref):
                 why.append("book text belongs to the previous verse")
+            if ref in REJECTED:
+                why.append(f"rejected after manual check: {REJECTED[ref]}")
             if ref in displaced and ref not in DISPLACED_VERIFIED:
                 why.append("unverified displaced translation box")
             if why:

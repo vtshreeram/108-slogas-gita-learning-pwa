@@ -1,0 +1,766 @@
+{
+ "13.1-2": {
+  "en": [
+   "Arjuna was inquisitive about prakṛti or nature, puruṣa, the enjoyer, kṣetra, the field, kṣetrajña, its knower, and of knowledge and the object of knowledge. When he inquired about all these, Kṛṣṇa said that this body is called the field and that one who knows this body is called the knower of the field. This body is the field of activity for the conditioned soul. The conditioned soul is entrapped in material existence, and he attempts to lord over material nature. And so, according to his capacity to dominate material nature, he gets a field of activity. That field of activity is the body. And what is the body? The body is made of senses. The conditioned soul wants to enjoy sense gratification, and, according to his capacity to enjoy sense gratification, he is offered a body, or field of activity. Therefore the body is called kṣetra, or the field of activity for the conditioned soul. Now, the person who does not identify himself with the body is called kṣetrajña, the knower of the field. It is not very difficult to understand the difference between the field and its knower, the body and the knower of the body. Any person can consider that from childhood to old age he undergoes so many changes of body and yet is still one person, remaining. Thus there is a difference between the knower of the field of activities and the actual field of activities. A living conditioned soul can thus understand that he is different from the body. It is described in the beginning-dehe 'smin-that the living entity is within the body and that the body is changing from childhood to boyhood and from boyhood to youth and from youth to old age, and the person who owns the body knows that the body is changing. The owner is distinctly kṣetrajña. Sometimes we understand that I am happy, I am mad, I am a woman, I am a dog, I am a cat: these are the knowers. The knower is different from the field. Although we use many articles---our clothes, etc.---we know that we are different from the things used. Similarly, we also understand by a little contemplation that we are different from the body.",
+   "In the first six chapters of Bhagavad-gītā, the knower of the body, the living entity, and the position by which he can understand the Supreme Lord are described. In the middle six chapters of the Gītā, the Supreme Personality of Godhead and the relationship between the individual soul and the Supersoul in regard to devotional service are described. The superior position of the Supreme Personality of Godhead and the subordinate position of the individual soul are definitely defined in these chapters. The living entities are subordinate under all circumstances, but in their forgetfulness they are suffering. When enlightened by pious activities, they approach the Supreme Lord in different capacities-as the distressed, those in want of money, the inquisitive, and those in search of knowledge. That is also described. Now, starting with the Thirteenth Chapter, how the living entity comes into contact with material nature, how he is delivered by the Supreme Lord through the different methods of fruitive activities, cultivation of knowledge, and the discharge of devotional service are explained. Although the living entity is completely different from the material body, he somehow becomes related. This also is explained."
+  ],
+  "ta": [
+   {
+    "text": "ப்ரக்ருதி (இயற்கை), புருஷ (அனுபவிப்பவன்), க்ஷேத்ர (களம்), க்ஷேத்ரக்ஞ (களத்தை அறிபவன்), ஞானம் (அறிவு), ஞேயம் (அறியப்படும் பொருள்) ஆகியவற்றைப் பற்றி அறிவதில் அர்ஜுனன் ஆவலாக இருந்தான். இவற்றைப் பற்றி எல்லாம் அவன் வினவியபோது உடலே களம் என்று அழைக்கப்படுவதாகவும் உடலை அறிபவன் களத்தை அறிபவன் என்று அழைக்கப்படுவதாகவும் கிருஷ்ணர் கட்டுண்ட ஆத்மாவின செயல்களுக்கு களமாக விளங்குவது உடலே. ஜட வாழ்வினுள் பிணைக்கப்பட்டுள்ள ஆத்மா ஜட இயற்கையின் மீது ஆதிக்கம் செலுத்த முயல்கின்றான். எனவே, ஜட இயற்கையை ஆட்சி செய்வதற்கு உண்டான தனது தகுதிக்கு ஏற்றாற்போல் அவன் செயலின் களத்தினைப் பெறுகின்றான். அத்தகு செயலின் களமே உடல் எனப்படும். இனி உடல் என்றால் என்ன? உடல் என்பது புலன்களினால் ஆனது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "புலனின்பத்தை அனுபவிக்க விரும்பும் கட்டுண்ட ஆத்மாவிற்கு, அத்தகு புலனுகர்ச்சிக்கான அவனது தகுதியின் அடிப்படையில், செயலின் களமான ஓர் உடல் வழங்கப்படுகின்றது. எனவே, உடலானது க்ஷேத்ர, கட்டுண்ட ஆத்மாவின் செயல்களுக்கான களம் என்று அழைக்கப்படுகின்றது. அடுத்ததாக, களத்தை அறிபவன் க்ஷேத்ரக்ஞ எனப்படுகிறான். அவன் தன்னை உடலாக அடையாளம் கொள்ளக் கூடாது. களத்திற்கும் களத்தை அறிபவனுக்கும், அதாவது உடலுக்கும் உடலை அறிபவனுக்கும் இடையிலான வேறுபாட்டைப் புரிந்து கொள்வது மிகக் கடினமல்ல. குழந்தைப் பருவத்திலிருந்து முதுமை வரை தனது உடல் பற்பல மாற்றங்களை அடைகின்றது என்றபோதிலும், தான் மாறாமல் இருப்பதை யார் வேண்டுமானாலும் சிந்தித்துப் பார்க்கலாம். எனவே, செயலின் களத்தை அறிபவனுக்கும் அந்த செயல்கள் நடைபெறும் களத்திற்கும் இடையே வேறுபாடு உண்டு.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இவ்வாறாக கட்டுண்ட நிலையில் வாழும் ஆத்மா, தான் உடலிலிருந்து வேறுபட்டவன் என்பதைப் புரிந்து கொள்ளலாம். இஃது ஆரம்பத்திலேயே விவரிக்கப்பட்டது. தேஹினோ (அஸ்மின்), அதாவது உயிர்வாழி உடலுக்குள் உள்ளான் என்றும் உடலானது குழந்தைப் பருவத்திலிருந்து பால்யத்திற்கும் பால்யத்திலிருந்து இளமைக்கும், இளமையிலிருந்து முதுமைக்கும் மாறிக்கொண்டே இருக்கின்றது என்றும் உடலின் உரிமையாளன் அத்தகு உடல் மாற்றத்தினை அறிகின்றான் என்றும் முன்னரே விவரிக்கப்பட்டது. உடலின் உரிமையாளனே க்ஷேத்ரக்ஞ என்பது தெளிவு. சில சமயங்களில், நான் மகிழ்ச்சியுடன் உள்ளேன், நான் மனிதன், நான் நாய், நான் மனை என்று நாம் நினைக்கின்றோம். இவையனைத்தும் அறிபவனின் உடலைப் பற்றிய அடையாளங்கள். ஆனால் அறிபவனோ உடலிலிருந்து வேறுபட்டவன்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆடைகளைப் போன்று பற்பல பொருள்களை நாம் உபயோகித்தாலும், உபயோகிக்கப்படும் பொருள்களிலிருந்து நாம் வேறுபட்டவர்கள் என்பதை நாம் அறிவோம். அதுபோலவே, சற்றுச் சிந்தித்துப் பார்த்தால், நாம் உடலிலிருந்து வேறுபட்டவர்கள் என்பதையும் புரிந்து கொள்ளலாம். நானோ, நீயோ உடலையுடைய யாராக இருந்தாலும் அவன் க்ஷேத்ரக்ஞ என்று அழைக்கப்படுகின்றான். உடலானது க்ஷேத்ர, செயல்களின் களம் என்று அழைக்கப்படுகின்றது. பகவத் கீதையின் முதல் ஆறு அத்தியாயங்களில் உடலை அறிபவனைப் (உயிர்வாழியைப்) பற்றியும் எந்த நிலையினால் அவன் முழுமுதற் கடவுளைப் புரிந்து கொள்ள முடியும் என்பதைப் பற்றியும் விவரிக்கப்பட்டது. கீதையின் நடுவிலுள்ள ஆறு அத்தியாயங்களில் பரம பகவானைப் பற்றியும், தனிப்பட்ட ஆத்மாவிற்கும் பரமாத்மாவிற்கும் இடையிலுள்ள பக்தித் தொண்டின் அடிப்படையிலான உறவைப் பற்றியும் விவரிக்கப்பட்டது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "பரம புருஷ பகவானின் உன்னதமான நிலையும், அவருக்குக் கீழ்ப்பட்டு இருப்பது என்னும் தனிப்பட்ட ஆத்மாவின் நிலையும், அந்த அத்தியாயங்களில் தெளிவாக விளக்கப்பட்டன. உயிர்வாழிகள் எல்லா நிலையிலும் கீழ்ப்பட்டவர்களே, ஆனால் தங்களது மறதியினால் அவர்கள் துன்புறுகின்றனர். புண்ணியச் செயல்களினால் தெளிவு பெறும்போது, அவர்கள் பல்வேறு நிலைகளில் துன்புற்றவர்களாக, செல்வத்தை நாடுபவர்களாக, கேள்வியடையவர்களாக, ஞானத்தைத் தேடுபவர்களாக முழுமுதற் கடவுளை அணுகுகின்றனர். இதுவும் விவரிக்கப்பட்டது. இனி பதின்மூன்றாம் அத்தியாயத்துடன் ஆரம்பித்து உயிர்வாழி எவ்வாறு ஜட இயற்கையின் தொடர்பில் வருகின்றான் என்றும் பலன்நோக்குச் செயல்கள், ஞானத்தை விருத்தி செய்தல், பக்தித் தொண்டாற்றுதல் என பல்வேறு வழிமுறைகளின் மூலம் அவன் எவ்வாறு",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "முழுமுதற் கடவுளினால் விடுவிக்கப்படுகின்றான் என்றும் விளக்கப்படுகின்றன. உயிர்வாழி ஜட உடலிலிருந்து முற்றிலும் வேறுபட்டவன் என்றபோதிலும், அவன் எவ்வாறோ தொடர்பு கொண்டு விடுகின்றான். இதுவும் விளக்கப்பட்டுள்ளது.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.3": {
+  "en": [
+   "While discussing the subject of this body and the owner of the body, the soul and the Supersoul, we shall find three different topics of study: the Lord, the living entity, and matter. In every field of activities, in every body, there are two souls: the individual soul and the Supersoul. Because the Supersoul is the plenary expansion of the Supreme Personality of Godhead, Kṛṣṇa, Kṛṣṇa says, \"I am also the knower, but I am not the individual owner of the body. I am the superknower. I am present in every body as the Paramātmā, or Supersoul.\"",
+   "One who studies the subject matter of the field of activity and the knower of the field very minutely, in terms of this Bhagavad-gītā, can attain to knowledge.",
+   "The Lord says: \"I am the knower of the field of activities in every individual body.\" The individual may be the knower of his own body, but he is not in knowledge of other bodies. The Supreme Personality of Godhead, who is present as the Supersoul in all bodies, knows everything about all bodies. He knows all the different bodies of all the various species of life. A citizen may know everything about his patch of land, but the king knows not only his palace but all the properties possessed by the individual citizens. Similarly, one may be the proprietor of the body individually, but the Supreme Lord is the proprietor of all bodies. The king is the original proprietor of the kingdom, and the citizen is the secondary proprietor. Similarly, the Supreme Lord is the supreme proprietor of all bodies.",
+   "The body consists of the senses. The Supreme Lord is Hṛṣīkeśa, which means controller of the senses. He is the original controller of the senses, just as the king is the original controller of all the activities of the state, and the citizens are secondary controllers. The Lord also says: \"I am also the knower.\" This means that He is the superknower; the individual soul knows only his particular body. In the Vedic literature, it is stated as follows:",
+   "kṣetrāṇi hi śarīrāṇi bījaṁ cāpi śubhāśubhe tāni vetti sa yogātmā tataḥ kṣetrajña ucyate.",
+   "This body is called the kṣetra, and within it dwells the owner of the body and the Supreme Lord who knows both the body and the owner of the body. Therefore He is called the knower of all fields. The distinction between the field of activities, the owner of activities and the supreme owner of activities is described as follows. Perfect knowledge of the constitution of the body, the constitution of the individual soul, and the constitution of the Supersoul is known in terms of Vedic literature as jñānam. That is the opinion of Kṛṣṇa. To understand both the soul and the Supersoul as one yet distinct is knowledge. One who does not understand the field of activity and the knower of activity is not in perfect knowledge. One has to understand the position of prakṛti, nature, and puruṣa, the enjoyer of the nature, and īśvara, the knower who dominates or controls nature and the individual soul. One should not confuse the three in their different capacities. One should not confuse the painter, the painting and the easel. This material world, which is the field of activities, is nature, and the enjoyer of nature is the living entity, and above them both is the supreme controller, the Personality of Godhead. It is stated in the Vedic language: \"bhoktā bhogyaṁ preritāraṁ ca matvā sarvaṁ proktaṁ tri-vidhaṁ brahmam etat.\" There are three Brahman conceptions: prakṛti is Brahman as the field of activities, and the jīva (individual soul) is also Brahman and is trying to control material nature, and the controller of both of them is also Brahman, but He is the factual controller.",
+   "In this chapter it will be also explained that out of the two knowers, one is fallible and the other is infallible. One is superior and the other is subordinate. One who understands the two knowers of the field to be one and the same contradicts the Supreme Personality of Godhead who states here very clearly that \"I am also the knower of the field of activity.\" One who misunderstands a rope to be a serpent is not in knowledge. There are different kinds of bodies, and there are different owners of the bodies. Because each individual soul has his individual capacity of lording it over material nature, there are different bodies. But the Supreme also is present in them as the controller. The word ca is significant, for it indicates the total number of bodies. That is the opinion of Śrīla Baladeva Vidyābhūṣaṇa: Kṛṣṇa is the Supersoul present in each and every body apart from the individual soul. And Kṛṣṇa explicitly says here that the Supersoul is the controller of both the field of activities and the finite enjoyer."
+  ],
+  "ta": [
+   {
+    "text": "உடல், உடலை அறிபவன், ஆத்மா, பரமாத்மா ஆகியவற்றை நாம் விவாதிக்கும்போது, பகவான், ஜீவாத்மா, ஜடம் என்று மூன்று வேறுபட்ட தலைப்புகளை நாம் கற்க வேண்டும் என்பதைக் காண முடியும். செயலின் களம் ஒவ்வொன்றிலும், அதாவது ஒவ்வொரு உடலிலும் இரண்டு ஆத்மாக்கள் உள்ளனர்: ஜீவாத்மா, பரமாத்மா. பரம புருஷ பகவானான கிருஷ்ணரின் சுய விரிவாக்கமே பரமாத்மா என்பதால், நானும் அறிபவனாக உள்ளேன், ஆனால் நான் மட்டுமே அறிபவன் அல்ல. நான் அறிபவர்களில் உயர்ந்தவன். ஒவ்வொருவரது உடலிலும் பரமாத்மாவாக வசிக்கின்றேன் என்று கிருஷ்ணர் கூறுகிறார். எவனொருவன் பகவத் கீதையை அடிப்படையாக வைத்து செயலின் களத்தைப் பற்றியும் அக்களத்தை அறிபவனைப் பற்றியும் நுண்ணியமாக அறிந்து கொள்கின்றானோ, அவன் ஞானத்தை அடைய முடியும். தனிப்பட்ட உடல் (களம்) ஒவ்வொன்றிலும் நான் அறிபவனாக உள்ளேன் என்று",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "பகவான் கூறுகின்றார். ஜீவாத்மா தனது சொந்த உடலைப் பற்றி அறிந்திருக்கலாம். ஆனால் மற்ற உடல்களைப் பற்றிய அறிவு அவனிடம் இல்லை. பரமாத்மாவாக எல்லோரது உடல்களிலும் வீற்றிருக்கும் பரம புருஷ பகவான், எல்லா உடல்களைப் பற்றிய அனைத்தையும் அறிபவர். பலதரப்பட்ட வாழ்வினங்களின் பல்வேறு உடல்கள் அனைத்தையும் அவர் அறிவார். குடிமகன் தன்னுடைய சிறு நிலத்தைப் பற்றிய அனைத்தையும் அறிந்திருக்கலாம், ஆனால் மன்னனோ தனது மாளிகையை மட்டுமின்றி தனிப்பட்ட ஒவ்வொரு குடிமகனுக்கும் சொந்தமான அனைத்து சொத்துக்களையும் அறிந்துள்ளான். அதுபோலவே, ஒருவன் தனிப்பட்ட உடலின் உரிமையாளனாக இருக்கலாம், ஆனால் பகவானோ எல்லா உடல்களுக்கும் உரிமையாளர். மன்னனே நாட்டின் உண்மையான உரிமையாளன், குடிமகனோ இரண்டாம் நிலை உரிமையாளன்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அதுபோல, முழுமுதற் கடவுளே எல்லா உடல்களின் பரம உரிமையாளர். உடல் புலன்களினால் ஆனது. முழுமுதற் கடவுள் ஹ்ருஷீகேசர், புலன்களைக் கட்டுப்படுத்துபவர் என்று அறியப்படுகின்றார். மன்னனே நாட்டின் நடவடிக்கைகளை உண்மையில் கட்டுப்படுத்துகின்றான். குடிமக்கள் இரண்டாம் நிலையில் மட்டுமே கட்டுப்படுத்துகின்றனர். அதுபோல, புலன்களை உண்மையாக கட்டுப்படுத்துபவர் முழுமுதற் கடவுளே. நானும் அறிபவனாக உள்ளேன் என்று பகவான் கூறுகின்றார். அறிபவர்களில் அவரே உயர்ந்தவர் என்பதே இதன் பொருள். ஜீவாத்மா தனது குறிப்பிட்ட உடலை மட்டுமே அறிகின்றான். வேத இலக்கியத்தில் பின்வருமாறு கூறப்பட்டுள்ளது: க்ஷேத்ரா ஷரீராணி சாபி தாநி வேத்தி ச யோகாத்மா உச்யதே. இந்த உடல் க்ஷேத்ர என்று அழைக்கப்படுகின்றது. உடலின் உரிமையாளனும் முழுமுதற் கடவுளும் இந்த உடலுக்குள் வசிக்கின்றனர்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "முழுமுதற் கடவுள் உடலையும் அந்த உடலின் உரிமையாளனையும் அறிவார். எனவே எல்லா களங்களையும் அறிபவர் என்று அவர் அழைக்கப்படுகிறார். செயல்களின் களம், செயல்களை அறியும் நபர், செயல்களை அறியும் உன்னத நபர் ஆகியவற்றிற்கு இடையிலான வேறுபாடு பின்வருமாறு விவரிக்கப்படுகின்றது. உடலின் உண்மையான நிலை, ஜீவாத்மாவின் உண்மையான நிலை, பரமாத்மாவின் உண்மையான நிலை ஆகியவற்றைப் பற்றிய பக்குவமான அறிவு வேத இலக்கியத்தில் ஞானம் என்று அறியப்படுகின்றது. இதுவே கிருஷ்ணருடைய அபிப்பிராயம். ஆத்மாவும் பரமாத்மாவும் ஒரே சமயத்தில் சமமாகவும் வேறுபட்டும் உள்ளனர் என்பதைப் புரிந்து கொள்வதே ஞானம். எவனொருவன் செயல்களின் களத்தையும் செயலை அறிபவனையும் புரிந்து கொள்ளவில்லையோ, அவன் பக்குவ ஞானத்தில் இல்லை. முயற்கை) ப்ர இயற்கையை அனுபவிப்பவன்) ஈஸ்வர இயற்கையினையும் ஜீவாத்மாவினையும் கட்டுப்படுத்தி ஆட்சி செய்பவர் ஆகியவற்றின் நிலைகளைப் புரிந்து கொள்ள வேண்டும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "வெவ்வேறு திறன்களுடைய இம்மூன்றையும் குழப்பிக் கொள்ளக்கூடாது. ஓணியன் ஓணியம் ஓணியப் பலகை ஆகியவற்றைக் குழப்பிக் கொள்ளக் கூடாது. இயற்கை என்பது செயல்களின் களமான இந்த ஜட உலகமாகும். ஜீவாத்மா என்பது அந்த இயற்கையை அனுபவிப்பவனைக் குறிக்கும். மேலும், இவர்கள் இருவரையும் கட்டுப்படுத்தும் உன்னத அதிகாரி (முழுமுதற் கடவுள்) எனப்படுகிறார். வேத மொழியில் (ஸ்வேதாஸ்வதர உபநிஷத்) போக்தா போக்யம் ப்ரேரிதாரம் ஸர்வம் ப்ரோக்தம் த்ரி-விதம் ப்ரஹ்மம் ஏதத் என்று கூறப்பட்டுள்ளது. பிரம்மன் என்பதைப் பற்றி மூன்று கருத்துக்கள் உள்ளன: செயல்களின் களமாக விளங்கும் ப்ரக்ருதி (இயற்கை) பிரம்மன் எனப்படுகிறது. அந்த ஜட இயற்கையைக் கட்டுப்படுத்த முயற்சி செய்யும் ஜீவாத்மாவும் பிரம்மன் எனப்படுகிறான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அது மட்டுமின்றி, இந்த இரண்டினையும் கட்டுப்படுத்தும் உன்னத நபரும் பிரம்மன் எனப்படுகிறார். உண்மையில் அவர் மட்டுமே கட்டுப்படுத்துபவர். இரண்டு வகையான அறிபவர்களில் ஒருவர் தவறுகளுக்கு அப்பாற்பட்டவர் என்றும் தவறிழைக்கக் கூடியவர் என்றும் இந்த அத்தியாயத்தில் விளக்கப்படும். ஒருவர் எஜமானர், மற்றவனோ அவருக்குக் கீழ்ப்பட்டவன். களத்தை அறியும் இந்த இரு நபர்களையும் சமமாகவும் ஒன்றாகவும் கருதுபவன், ‘செயல்களின் களத்தை அறிபவனாக நானும் இருக்கின்றேன்’ என்று இங்கே மிகத் தெளிவாகக் கூறுகின்ற பரம புருஷ பகவானுடன் முரண்படுகின்றான். கயிற்றினை பாம்பு என்று தவறாகப் புரிந்து கொள்பவன் ஞானமுடையவன் அல்ல. வெவ்வேறு விதமான உடல்கள் உள்ளன, மேலும் அந்த உடல்களின் உரிமையாளர்களும் வேறுபட்டவர்கள்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஜட இயற்கையின் மீது ஆதிக்கம் செலுத்தும் திறன் ஒவ்வொரு ஜீவாத்மாவிற்கும் வேறுபட்டு இருப்பதால், வெவ்வேறான உடல்கள் உள்ளன. ஆனால் அங்கே அத்தகு உடல்களைக் கட்டுப்படுத்துபவராக பரமனும் வீற்றுள்ளார். உடல்களின் மொத்த எண்ணிக்கையைக் குறிக்கும் ச என்னும் சொல் மிகவும் முக்கியமானது. இதுவே பலதேவ வித்யாபூஷணரின் கருத்தாகும். ஒவ்வொரு உடலிலும் ஜீவாத்மாவின் அருகில் பரமாத்மாவாக இருப்பவர் கிருஷ்ணரே. மேலும், செயல்களின் களம், வரம்பிற்குட்பட்ட அனுபவிப்பாளன் ஆகிய இரண்டையும் கட்டுப்படுத்துபவர் பரமாத்மாவே என்பதை அறிவதே உண்மையான ஞானம் என்று கிருஷ்ணர் இங்கே மிகத் தெளிவாகக் கூறுகின்றார்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.4": {
+  "en": [
+   "The Lord is describing the field of activities and the knower of the field of activities in their constitutional positions. One has to know how this body is constituted, the materials of which this body is made, under whose control this body is working, how the changes are taking place, wherefrom the changes are coming, what the causes are, what the reasons are, what the ultimate goal of the individual is, and what the actual form of the individual soul is. One should also know the distinction between the individual living soul and the Supersoul, the different influences, their potentials, etc. One just has to understand this Bhagavad-gītā directly from the description given by the Supreme Personality of Godhead, and all this will be clarified. But one should be careful not to consider the Supreme Personality of Godhead in every body and individual soul to be the jīva. This is something like equalizing the potent and the impotent."
+  ],
+  "ta": [
+   {
+    "text": "செயல்களின் களத்தையும், செயல்களின் களத்தை அறிபவனையும் அவர்களது உண்மையான நிலையின் அடிப்படையில் இறைவன் இங்கு விவரிக்கின்றார். எவ்வாறு உருவாக்கப்பட்டது, எந்த பொருளால் உண்டாக்கப்பட்டது, யாருடைய கட்டுப்பாட்டின் கீழ் செயல்படுகின்றது, உடலில் மாற்றங்கள் நிகழ்வது எங்ஙனம், அம்மாற்றங்கள் எங்கிருந்து வருகின்றன, அதற்கான காரணங்கள் யாவை, ஜீவாத்மாவின் இறுதி இலக்கு என்ன, ஜீவாத்மாவின் உண்மையான நிலை என்ன, ஆகியவற்றை ஒருவன் அறிய வேண்டும். மேலும், தனிப்பட்ட ஜீவாத்மாவிற்கும் பரமாத்மாவிற்கும் இடையிலான வேறுபாடு, அவர்களது வெவ்வேறு செல்வாக்குகள், சக்திகள் இதுபோன்று பலவற்றையும் அவன் அறிந்து கொள்ள வேண்டும். பகவானால் கொடுக்கப்பட்டுள்ள விளக்கத்தின் அடிப்படையில் ஒருவன் நேரடியாக இந்த பகவத் கீதையைப் புரிந்து கொள்ள வேண்டும், அப்போது அனைத்தும் அவனுக்கு விளக்கப்படும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இருப்பினும், எல்லோருடைய உடலிலும் வீற்றிருக்கும் பரம புருஷ பகவானை தனிப்பட்ட ஜீவாத்மாவுடன் சமமாகக் கூடாது என்பதில் கவனமாக இருக்க வேண்டும். அது சக்தியுடைய நபரையும் சக்தியற்ற நபரையும் சமப்படுத்துவதைப் போன்றது.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.5": {
+  "en": [
+   "The Supreme Personality of Godhead, Kṛṣṇa, is the highest authority in explaining this knowledge. Still, as a matter of course, learned scholars and standard authorities always give evidence from previous authorities. Kṛṣṇa is explaining this most controversial point regarding the duality and non-duality of the soul and the Supersoul by referring to Scriptures, the Vedānta, which are accepted as authority. First, He says, this is according to different sages. As far as the sages are concerned, besides Himself, Vyāsadeva, the author of the Vedānta-sūtra, is a great sage, and in the Vedānta-sūtra duality is perfectly explained. And Vyāsadeva's father, Parāśara, was also a great sage, and he writes in his books of religiosity: \"aham tvaṁ ca athānye...\" \"We---you, I and various other living entities---are all transcendental, although in material bodies. Now we are fallen into the ways of the three modes of material nature according to our different karma. As such, some are on higher levels, and some are in the lower nature. The higher and lower natures exist due to ignorance and are being manifested in an infinite number of living entities. But the Supersoul, which is infallible, is uncontaminated by the three qualities of nature and is transcendental.\" Similarly, in the original Vedas, a distinction between the soul, the Supersoul and the body is made, especially in the Kaṭha Upaniṣad.",
+   "There is a manifestation of the Supreme Lord's energy known as annamaya by which one depends simply upon food for existence. This is a materialistic realization of the Supreme. Then there is prāṇamaya; this means that after realizing the Supreme Absolute Truth in foodstuff, one can realize the Absolute Truth in the living symptoms, or life forms. In jñānamaya the living symptom develops to the point of thinking, feeling, and willing. Then there is Brahman realization and the realization called vijñānamaya by which the living entity's mind and life symptoms are distinguished from the living entity himself. The next and supreme stage is ānandamaya, realization of the all-blissful nature. Thus there are five stages of Brahman realization, which is called brahma puccham. Out of these the first three---annamaya, prāṇamaya, and jñānamaya-involve the fields of activities of the living entities. Transcendental to all these fields of activities is the Supreme Lord, who is called ānandamaya. In the Vedānta-sūtra also the Supreme is called ānandamayo 'bhyāsāt. The Supreme Personality of Godhead is by nature full of joy, and to enjoy His transcendental bliss, He expands into vijñānamaya, prāṇamaya, jñānamaya, and annamaya. In this field of activities the living entity is considered to be the enjoyer, and different from him is the ānandamaya. That means that if the living entity decides to enjoy, in dovetailing himself with the ānandamaya, then he becomes perfect. This is the real picture of the Supreme Lord, as supreme knower of the field, the living entity, as subordinate knower, and the nature of the field of activities."
+  ],
+  "ta": [
+   {
+    "text": "இந்த ஞானத்தை விளக்குவதில் மிகவுயர்ந்த அதிகாரி பரம புருஷ பகவானான கிருஷ்ணரே. இருப்பினும், கற்றறிந்த பண்டிதர்களும் தரமான அதிகாரிகளும் முந்தைய அதிகாரிகளிடமிருந்து எப்போதும் பிரமாணம் வழங்குவது வழக்கம். மிகுந்த சர்ச்சைக்கு இடமளிக்கக்கூடிய ஆத்மாவிற்கும் பரமாத்மாவிற்கும் இடையிலான ஒற்றுமை வேற்றுமையைப் பற்றிய கருத்தினை, பிரமாணமாக ஏற்றுக் கொள்ளப்படுகின்ற சாஸ்திரமான வேதாந்தத்தினை மேற்கோள்காட்டி கிருஷ்ணர் விளக்குகின்றார். முதலில், இக்கருத்து பற்பல ரிஷிகளை அடிப்படையாகக் கொண்டது என்று கூறுகிறார். ரிஷிகளைப் பொறுத்தவரை (அவரே ஒரு என்றபோதிலும்) வேதாந்த சூத்திரத்தின் ஆசிரியரான வியாசதேவர் மகரிஷிகளில் ஒருவர். வேதாந்த சூத்திரத்தில் இருமைத் தன்மை தெளிவாக விளக்கப்பட்டுள்ளது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "மேலும் மற்றொரு மகாமுனிவரான வியாசரின் தந்தை பராசரர் தனது அறநூல்களில் எழுதுகின்றார்: அஹம் த்வம் ததான்யே... நான், நீ, மற்றும் எல்லா உயிரினங்கள் உட்பட நாம் அனைவரும் ஜட உடலில் இருந்தாலும் திவ்யமானவர்கள். நாம் தற்போது நமது பல்வேறு கர்மத்தின் அடிப்படையில் ஜட இயற்கையின் முக்குணங்களுக்குள் விழுந்துள்ளோம். அதன்படி, சிலர் உயர்ந்த நிலையிலும் சிலர் தாழ்ந்த இயற்கையிலும் உள்ளனர். அறியாமையினால் காணப்படும் இயற்கையின் உயர்வு தாழ்வுகள் எண்ணற்ற உயிர்வாழிகளில் தோற்றுவிக்கப்படுகின்றன. ஆனால், தவறுகளுக்கு அப்பாற்பட்ட பரமாத்மாவோ இயற்கையின் முக்குணங்களால் களங்கமடையாமல் திவ்யமான நிலையில் உள்ளார். மேலும் மூலவேதங்களில் குறிப்பாக உபநிஷத்தில், ஆத்மா, பரமாத்மா, உடல் ஆகியவற்றிற்கு இடையிலான வேறுபாடு குறிப்பிடப்பட்டுள்ளது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "பல்வேறு முனிவர்கள் இக்கருத்தினை விளக்கியுள்ளபோதிலும் பராசரர் அவர்களில் முக்கியமானவராகக் கருதப்படுகிறார். சந்தோபி: என்னும் சொல் பல்வேறு வேத இலக்கியங்களைக் குறிக்கும். உதாரணமாக, யஜுர் வேதத்தின் பிரிவான தைத்திரீய உபநிஷத்தில் இயற்கை, ஜீவாத்மா, பரம புருஷ பகவான் ஆகியவை விளக்கப்பட்டுள்ளன. முன்னரே குறிப்பிட்டது போல, க்ஷேத்ர என்பது செயல்களின் களத்தைக் குறிக்கும், மேலும் தனிப்பட்ட உயிர்வாழி, பரம உயிர்வாழி என க்ஷேத்ரக்ஞரில் இரு வகையினர் உண்டு. ப்ரஹ்ம புச்சம் ப்ரதிஷ்டா என்று தைத்திரீய உபநிஷத்தில் கூறப்பட்டுள்ளது. முழுமுதற் கடவுளின் சக்தி அன்ன-மய (உணவைச் சார்ந்து வாழுதல்) எனும் ரூபத்தில் தோன்றுகின்றது. இது பரமனை பௌதிகமாக உணர்வதாகும். பரம உண்மையினை உணவின் மூலமாக உணர்ந்த பின்னர் ப்ராண-மய எனும் நிலையில் ஒருவன் உயிரின் அறிகுறிகளில் (உயிரினங்களில்) பரம உண்மையினை உணர்கிறான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஞான-மய எனப்படும் அடுத்த நிலையில் உயிரின் அறிகுறிகளைத் தாண்டி, எண்ணுதல், உணர்தல், விரும்புதல் என்பனவற்றின் மூலம் உணர்கின்றான். அதன்பின் விக்ஞான-மய எனப்படும் பிரம்மனை உணரும் நிலையில் உயிர்வாழியின் மனமும் அறிகுறிகளும் உயிர்வாழியிலிருந்து பிரித்து அறியப்படுகின்றன. அடுத்து, ஆனந்த-மய எனப்படும் உன்னத நிலையில் பரம ஆனந்தமயமான தன்மை உணரப்படுகின்றது. இவ்வாறு பிரம்மனை உணர்வதில் ஐந்து நிலைகள் உள்ளன. அவை ப்ரஹ்ம-புச்சம் என்று அழைக்கப்படுகின்றன. இவற்றில் முதல் மூன்று நிலைகளான அன்ன-மய, ப்ராண-மய, ஞான-மய ஆகியவை உயிர்வாழிகளின் செயல்களின் களங்களைப் பற்றியவை. செயல்களின் இத்தகு எல்லா களங்களுக்கும் அப்பாற்பட்டவர் முழுமுதற் கடவுள், அவர் ஆனந்த-மய என்று அழைக்கப்படுகிறார். ஆனந்த-மயோ (அப்யாஸாத்), அதாவது பரம புருஷ பகவான் ஆனந்தமயமான தன்மையை உடையவர் என்று வேதாந்த சூத்திரம் பரமனை விவரிக்கின்றது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "தன்னுடைய தெய்விக ஆனந்தத்தை அனுபவிக்க, அவர், விக்ஞான-மய, ப்ராண-மய, ஞான-மய, அன்ன-மய என்று தன்னை விரித்துக் கொள்கின்றார். செயல்களின் களத்தில் உயிர்வாழி அனுபவிப்பவனாகக் கருதப்படுகின்றான், ஆனந்த-மய அவனிடமிருந்து வேறுபட்டவர். அதாவது, உயிர்வாழி தன்னை ஆனந்த-மயத்துடன் இணைப்பதில் இன்பம் காண முடிவு செய்யும்பொழுது, அவன் பக்குவம் அடைகின்றான் என்பது பொருள். இதுவே, களத்தை அறியும் உன்னத நபர் (முழுமுதற் கடவுள்), அவருக்குக் கீழ்ப்பட்ட அறிஞன் (ஜீவாத்மா), செயற்களத்தின் இயற்கை ஆகியவற்றைப் பற்றிய உண்மையான காட்சியாகும். வேதாந்த சூத்திரம் எனப்படும் பிரம்ம சூத்திரத்தில், இத்தகு உண்மையினை ஒருவன் கண்டறிய வேண்டும். காரணம் மற்றும் விளைவுகளின் அடிப்படையில் பிரம்ம சூத்திரத்தின் பதங்கள் மிகவும் அருமையாக வடிவமைக்கப்பட்டுள்ளன என்று இங்கு குறிப்பிடப்பட்டுள்ளது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அத்தகு சூத்திரங்களில் சில, ந வியத் அஸ்ருதே: நாத்மா ஸ்ருதே: பராத் து தச்-ச்ருதே: முதல் சூத்திரம் செயல்களின் களத்தையும் இரண்டாவது சூத்திரம் ஜீவாத்மாவையும் மூன்றாவது சூத்திரம் அனைத்து தோற்றங்களிலும் உன்னதமாக விளங்கும் முழுமுதற் கடவுளையும் குறிக்கின்றன.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.6-7": {
+  "en": [
+   "From all the authoritative statements of the great sages, the Vedic hymns and the aphorisms of the Vedānta-sūtra, the components of this world are earth, water, fire, air and ether. These are the five great elements (mahābhūta). Then there are false ego, intelligence and the unmanifested stage of the three modes of nature. Then there are five senses for acquiring knowledge: the eyes, ears, nose, tongue and touch. Then five working senses: voice, legs, hands, the anus and the genitals. Then, above the senses, there is the mind, which is within and which can be called the sense within. Therefore, including the mind, there are eleven senses altogether. Then there are the five objects of the senses: smell, taste, warmth, touch and sound. Now the aggregate of these twenty-four elements is called the field of activity. If one makes an analytical study of these twenty-four subjects, then he can very well understand the field of activity. Then there is desire, hatred, pleasure and pain, which are interactions, representations of the five great elements in the gross body. The living symptoms, represented by consciousness and conviction, are the manifestation of the subtle body---mind, ego and intelligence. These subtle elements are included within the field of activities.",
+   "The five great elements are a gross representation of the subtle false ego. They are a representation in the material conception. Consciousness is represented by intelligence, of which the unmanifested stage is the three modes of material nature. The unmanifested three modes of material nature is called pradhāna.",
+   "One who desires to know the twenty-four elements in detail along with their interactions should study the philosophy in more detail. In Bhagavad-gītā, a summary only is given.",
+   "The body is the representation of all these factors, and there are changes of the body, which are six in number: the body is born, it grows, it stays, it produces by-products, then begins to decay, and at the last stage it vanishes. Therefore the field is a nonpermanent material thing. However, the kṣetrajña, the knower of the field, its proprietor, is different."
+  ],
+  "ta": [
+   {
+    "text": "மகாமுனிவர்களின் அதிகாரப்பூர்வமான கருத்துகள், வேத மந்திரங்கள் மற்றும் வேதாந்த சூத்திரத்தின் பதங்களிலிருந்து இவ்வுலகின் பாகங்களைப் பற்றி பின்வருமாறு புரிந்து கொள்ள முடியும். நிலம், நீர், நெருப்பு, காற்று, ஆகாயம் ஆகிய ஐந்தும், பஞ்சபூதம் எனப்படுகின்றன. அதன் பின் அஹங்காரம், புத்தி, இயற்கையின் மூன்று குணங்களின் தோற்றமற்ற நிலை ஆகியவை உள்ளன. இவற்றைத் தொடர்ந்து கண்கள், காதுகள், மூக்கு, நாக்கு, தோல் என ஞானத்தைப் பெறுவதற்கு ஐந்து புலன்கள் உள்ளன. பின்னர், குரல், கால்கள், கைகள், ஆசனவாய், பாலுறுப்பு என கர்மத்தை செய்வதற்கு ஐந்து புலன்கள் உள்ளன. புலன்களுக்கு அப்பால் மனம் உள்ளது. உள்ளிருக்கக் கூடிய அந்த மனம், உள்ளிருக்கும் புலன் என்று அழைக்கப்படுகின்றது. எனவே, மனம் உட்பட, மொத்தம் பதினொன்று",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "புலன்கள் உள்ளன. பின்னர் வாசனை, சுவை, உருவம், தொடு உணர்வு, ஒலி என ஐந்து புலன் பொருள்கள் உள்ளன. இந்த இருபத்து நான்கு மூலங்களும் செயல்களின் களம் என்று அழைக்கப்படுகின்றன. இந்த இருபத்து நான்கு விஷயங்களைப் பற்றி ஒருவன் ஆராய்ந்து கற்றால், செயலின் களத்தைப் பற்றி அவனால் மிகவும் நன்றாகப் புரிந்து கொள்ள முடியும். பிறகு, விருப்பு, வெறுப்பு, இன்பம், துன்பம் போன்ற மாறுபாடுகள் உள்ளன. இவை ஸ்தூல உடலில் இயற்கையும் அனுபவிப்பவனும் பஞ்ச பூதங்களின் பிரதிநிதிகளாக உள்ளன. உணர்வின் மூலமாகவும் திடமான நம்பிக்கையின் மூலமாகவும் உணரப்படும் உயிரின் அறிகுறிகள் சூக்ஷ்ம உடலின் (மனம், புத்தி, அஹங்காரத்தின்) தோற்றமாகும். செயல்களின் களம் இந்த சூக்ஷ்ம மூலப் பொருள்களையும் உள்ளடக்கியதாகும். அஹங்காரத்தினை ஸ்தூலமான நிலையில் வெளிக்காட்டுவதே பஞ்ச பூதங்கள், அந்த அஹங்காரமானது",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அதன் ஆரம்ப நிலையான தாமஸ-புத்தியின் (தமோ குண புத்தியின் அல்லது பௌதிக கருத்தின்) தோற்றமாகும். மேலும், தாமஸ- ப்த்ஜுபானது ஜட இயற்கையின் முக்குணங்களின் தோன்றாத நிலையின் தோற்றமாகும். ஜட இயற்கை குணங்களின் அத்தகு தோன்றாத நிலை ப்ரதான இருபத்து நான்கு மூலப் பொருள்களை அவற்றின் மாறுபாடுகளுடன் நிறைவாக அறிய விரும்புபவர் தத்துவங்களை மிகவும் விரிவாக கற்க வேண்டும். பகவத் கீதையில் இவை சுருக்கமாகவே கொடுக்கப்பட்டுள்ளன. இவ்வெல்லா கூற்றுகளின் பிரதிநிதியான உடலில் ஆறு விதமான மாற்றங்கள் உண்டு: பிறக்கின்றது, வளர்கின்றது, சில காலம் இருக்கின்றது, உப பொருள்களை உற்பத்திச் செய்கின்றது, அழியத் தொடங்குகின்றது, இறுதி நிலையில் மறைகின்றது. எனவே, களம் என்பது நிலையற்ற ஜடப் பொருளே. இருப்பினும், களத்தை அறிபவனான அதன் உரிமையாளன் (க்ஷேத்ரக்ஞ) களத்திலிருந்து வேறுபட்டவன்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.8-12": {
+  "en": [
+   "This process of knowledge is sometimes misunderstood by less intelligent men as being the interaction of the field of activity. But actually this is the real process of knowledge. If one accepts this process, then the possibility of approaching the Absolute Truth exists. This is not the interaction of the tenfold elements, as described before, This is actually the means to get out of it. Of all the descriptions of the process of knowledge, the most important point is described in the first line of the tenth verse: The process of knowledge terminates in unalloyed devotional service to the Lord. So, if one does not approach, or is not able to approach, the transcendental service of the Lord, then the other nineteen items are of no particular value. But, if one takes to devotional service in full Kṛṣṇa consciousness, the other nineteen items automatically develop within him. The principle of accepting a spiritual master, as mentioned in the seventh verse, is essential. Even for one who takes to devotional service, it is most important. Transcendental life begins when one accepts a bona fide spiritual master. The Supreme Personality of Godhead, Śrī Kṛṣṇa, clearly states here that this process of knowledge is the actual path. Anything speculated beyond this is nonsense.",
+   "As for the knowledge outlined here, the items may be analyzed as follows: Humility means that one should not be anxious to have the satisfaction of being honored by others. The material conception of life makes us very eager to receive honor from others, but from the point of view of a man in perfect knowledge---who knows that he is not this body---anything, honor or dishonor, pertaining to this body is useless. One should not be hankering after this material deception. People are very anxious to be famous for their religion, and consequently sometimes it is found that without understanding the principles of religion, one enters into some group, which is not actually following religious principles, and then wants to advertise himself as a religious mentor. As for actual advancement in spiritual science, one should have a test to see how far he is progressing. He can judge by these items.",
+   "Nonviolence is generally taken to mean not killing or destroying the body, but actually nonviolence means not to put others into distress. People in general are trapped by ignorance in the material concept of life, and they perpetually suffer material pains. So, unless one elevates people to spiritual knowledge, one is practicing violence. One should try his best to distribute real knowledge to the people, so that they may become enlightened and leave this material entanglement. That is nonviolence.",
+   "Tolerance means that one should be practiced to bear insult and dishonor from others. If one is engaged in the advancement of spiritual knowledge, there will be so many insults and much dishonor from others. This is expected because material nature is so constituted. Even a boy like Prahlāda, who, only five years old, was engaged in the cultivation of spiritual knowledge, was endangered when his father became antagonistic to his devotion. The father tried to kill him in so many ways, but Prahlada tolerated him. So, for making advancement in spiritual knowledge, there may be many impediments, but we should be tolerant and continue our progress with determination.",
+   "Simplicity means that without diplomacy one should be so straightforward that he can disclose the real truth even to an enemy. As for acceptance of the spiritual master, that is essential, because without the instruction of a bona fide spiritual master, one cannot progress in the spiritual science. One should approach the spiritual master with all humility and offer him all services so that he will be pleased to bestow his blessings upon the disciple. Because a bona fide spiritual master is a representative of Kṛṣṇa, if he bestows any blessings upon his disciple, that will make the disciple immediately advanced without the disciple's following the regulated principles. Or, the regulated principles will be easier for one who has served the spiritual master without reservation.",
+   "Cleanliness is essential for making advancement in spiritual life. There are two kinds of cleanliness: external and internal. External cleanliness means taking a bath, but for internal cleanliness, one has to think of Kṛṣṇa always and chant Hare Kṛṣṇa, Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa, Hare Hare/Hare Rāma. Hare Rāma, Rāma Rāma Hare Hare. This process cleans the accumulated dust of past karma from the mind.",
+   "Steadiness means that one should be very determined to make progress in spiritual life. Without such determination, one cannot make tangible progress. And self-control means that one should not accept anything which is detrimental to the path of spiritual progress. One should become accustomed to this and reject anything which is against the path of spiritual progress. This is real renunciation. The senses are so strong that they are always anxious to have sense gratification. One should not cater to these demands, which are not necessary. The senses should only be gratified to keep the body fit so that one can discharge his duty in advancing in spiritual life. The most important and uncontrollable sense is the tongue. If one can control the tongue, then there is every possibility of controlling the other senses. The function of the tongue is to taste and to vibrate. Therefore, by systematic regulation, the tongue should always be engaged in tasting the remnants of foodstuffs offered to Kṛṣṇa and chanting Hare Kṛṣṇa. As far as the eyes are concerned, they should not be allowed to see anything but the beautiful form of Kṛṣṇa. That will control the eyes. Similarly, the ears should be engaged in hearing about Kṛṣṇa and the nose in smelling the flowers offered to Kṛṣṇa. This is the process of devotional service, and it is understood here that Bhagavad-gītā is simply expounding the science of devotional service. Devotional service is the main and sole objective. Unintelligent commentators on the Gītā try to divert the mind of the reader to other subjects, but there is no other subject in Bhagavad-gītā but devotional service.",
+   "False ego means accepting this body as oneself. When one understands that he is not his body and is spirit soul, that is real ego. Ego is there. False ego is condemned, but not real ego. In the Vedic literature, it is said: ahaṁ brahmāsmi. I am Brahman, I am spirit. This \"I am,\" the sense of self, also exists in the liberated stage of self-realization. This sense of \"I am\" is ego, but when the sense of \"I am\" is applied to this false body, it is false ego. When the sense of self is applied to reality, that is real ego. There are some philosophers who say we should give up our ego, but we cannot give up our ego because ego means identity. We ought, of course, to give up the false identification with the body.",
+   "One should try to understand the distress of accepting birth, death, old age and disease. There are descriptions in various Vedic literatures of birth. In the Śrīmad-Bhāgavatam the world of the unborn, the child's stay in the womb of the mother, its suffering, etc., are all very graphically described. It should be thoroughly understood that birth is distressful. Because we forget how much distress we have suffered within the womb of the mother, we do not make any solution to the repetition of birth and death. Similarly at the time of death, there are all kinds of sufferings, and they are also mentioned in the authoritative scriptures. These should be discussed. And as far as disease and old age are concerned, everyone gets practical experience. No one wants to be diseased, and no one wants to become old, but there is no avoiding these. Unless we have a pessimistic view of this material life, considering the distresses of birth, death, old age and disease, there is no impetus for our making advancement in spiritual life.",
+   "As for detachment from children, wife and home, it is not meant that one should have no feeling for these. They are natural objects of affection, but when they are not favorable to spiritual progress, then one should not be attached to them. The best process for making the home pleasant is Kṛṣṇa consciousness. If one is in full Kṛṣṇa consciousness, he can make his home very happy because this process of Kṛṣṇa consciousness is very easy. One need only chant Hare Kṛṣṇa, Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa, Hare Hare/Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare, accept the remnants of foodstuffs offered to Kṛṣṇa, have some discussion on books like Bhagavad-gītā and Śrīmad-Bhāgavatam, and engage oneself in Deity worship. These four will make one happy. One should train the members of his family in this way. The family members can sit down morning and evening and chant together Hare Kṛṣṇa, Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa, Hare Hare/Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare. If one can mold his family life in this way to develop Kṛṣṇa consciousness, following these four principles, then there is no need to change from family life to renounced life. But if it is not congenial, not favorable for spiritual advancement, then family life should be abandoned. One must sacrifice everything to realize or serve Kṛṣṇa, just as Arjuna did. Arjuna did not want to kill his family members, but when he understood that these family members were impediments to his Kṛṣṇa realization, he accepted the instruction of Kṛṣṇa and fought and killed them. In all cases, one should be detached from the happiness and distress of family life because in this world one can never be fully happy or fully miserable. Happiness and distress are concommitant factors of material life. One should learn to tolerate, as advised in Bhagavad-gītā. One can never restrict the coming and going of happiness and distress, so one should be detached from the materialistic way of life and be automatically equiposed in both cases. Generally, when we get something desirable, we are very happy, and when we get something undesirable, we are distressed. But if we are actually in the spiritual position, these things will not agitate us. To reach that stage, we have to practice unbreakable devotional service; devotional service to Kṛṣṇa without deviation means engaging oneself in the nine processes of devotional service, chanting, hearing, worshiping, offering respect, etc., as described in the last verse of the Ninth Chapter. That process should be followed. Naturally, when one is adapted to the spiritual way of life, he will not want to mix with materialistic men. That would go against his grain. One may test himself by seeing how far he is inclined to live in a solitary place without unwanted association.",
+   "Naturally a devotee has no taste for unnecessary sporting or cinema-going or enjoying some social function, because he understands that these are simply a waste of time. There are many research scholars and philosophers who study sex life or some other subject, but according to Bhagavad-gītā, such research work and philosophical speculation have no value. That is more or less nonsensical. According to Bhagavad-gītā, one should make research by philosophical discretion into the nature of the soul. One should make research to understand with what the self is concerned. That is recommended here.",
+   "As far as self-realization is concerned, it is clearly stated here that bhakti-yoga is especially practical. As soon as there is a question of devotion, one must consider the relationship between the Supersoul and the individual soul. The individual soul and the Supersoul cannot be one, at least not in the bhakti conception, the devotional conception of life. This service of the individual soul to the Supreme Soul is eternal, nityam, as is clearly stated. So bhakti or devotional service is eternal. One should be established in that philosophical conviction, otherwise it is only a waste of time, ignorance.",
+   "In the Śrīmad-Bhāgavatam, this is explained; vadanti tat tattva-vidas tattvaṁ yaj jñānam advayam. \"Those who are actually knowers of the Absolute Truth know that the Self is realized in three different phases as Brahman, Paramātmā and Bhagavān.\" (Bhāg. 1.2.11) Bhagavān is the last word in the realization of the Absolute Truth; therefore one should reach up to that platform of understanding the Supreme Personality of Godhead and thus engage in the devotional service of the Lord. That is perfection of knowledge.",
+   "Beginning from practicing humility up to the point of realization of the Supreme Truth, the Absolute Personality of Godhead, this process is just like a staircase beginning from the ground floor up to the top floor. Now on this staircase there are so many people who have reached the first floor, the second or third floor, etc., but unless one reaches the top floor, which is the understanding of Kṛṣṇa, he is at a lower stage of knowledge. If anyone wants to compete with God and at the same time make advancement in spiritual knowledge, he will be frustrated. It is clearly stated that without humility understanding is harmful. To think oneself God is most puffed up. Although the living entity is always being kicked by the stringent laws of material nature, still he thinks, \"I am God\" because of ignorance. One should be humble and know that he is subordinate to the Supreme Lord. Due to rebellion against the Supreme Lord, one becomes subordinate to material nature. One must know and be convinced of this truth."
+  ],
+  "ta": [
+   {
+    "text": "இங்கு விளக்கப்பட்டுள்ள ஞான முறையினை செயல் களத்தின் மூலக்கூறுகளுக்கு இடையிலான விளைவு என்று சிறுமதி படைத்த நபர்கள் சில சமயங்களில் தவறாகப் புரிந்து கொள்கின்றனர். ஆனால் உண்மையில் இதுவே ஞானத்திற்கான சரியான வழிமுறையாகும். இவ்வழிமுறையை ஏற்றுக் கொண்டால் மட்டுமே பரம உண்மையை அணுகுவதற்கான வாய்ப்பு உண்டு. மேலே குறிப்பிட்டபடி இவ்வழிமுறை இருபத்து நான்கு மூலக்கூறுகளுக்கு இடையிலான விளைவு அல்ல. உண்மையில் அந்த மூலக்கூறுகளின் பந்தத்திலிருந்து விடுபடுவதற்கு இதுவே வழியாகும். இவ்வுடல், இருபத்து நான்கு மூலக்கூறுகளால் உண்டாக்கப்பட்ட கூண்டு போன்றது. இத்தகு உடலினால் கட்டுண்ட ஆத்மா பிணைக்கப்பட்டுள்ளது. இங்கு விவரிக்கப்பட்டுள்ள ஞான வழிமுறை அதிலிருந்து விடுபடுவதற்கு உண்டானதாகும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஞான வழிமுறையாக இங்கு விளக்கப்பட்டவை அனைத்திலும் மிக முக்கியமான கருத்து பதினொன்றாம் பதத்தின் முதல் வரியில் விளக்கப்பட்டுள்ளது. மயி சானன்ய-யோகேன பக்திர் அவ்யபிசாரிணீ. ஞானத்தின் வழிமுறை பகவானிடம் கலப்பற்ற பக்தித் தொண்டு செய்வதில் முற்றுப் பெறுகின்றது. எனவே பகவானுடைய தெய்வீகத் தொண்டை அடையாவிடில் அல்லது அடைய முடியாவிடில், இதர பத்தொன்பது விஷயங்களுக்கு எவ்வித மதிப்பும் இல்லை. ஆனால் பூரண கிருஷ்ண ஒருவன் பக்தித் தொண்டை ஏற்றால், இதர பத்தொன்பது விஷயங்களும் தாமாகவே அவனுக்குள் வளர்ச்சிபெறும். யஸ்யாஸ்தி பக்திர் பகவத்யகிஞ்சனா ஸர்வைர் குணைஸ் தத்ர ஸமாஸதே ஸுரா: என்று ஸ்ரீமத் பாகவதத்தில் பக்தித் தொண்டின் தளத்தை அடைந்தவனிடம் ஞானத்திற்கான அனைத்து நற்குணங்களும் வளரும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "எட்டாவது பதத்தில் குறிப்பிட்டுள்ள ஆன்மிக குருவை ஏற்றல் என்னும் கொள்கை அத்தியாவசியமானதாகும். பக்தித் தொண்டை ஏற்றுக் கொள்பவனுக்கும் அது மிகவும் முக்கியமானது. அங்கீகாரம் பெற்ற ஆன்மீக குருவை ஏற்கும்போது ஒருவனது தெய்வீக வாழ்வு தொடங்குகின்றது. பரம புருஷ பகவானான ஸ்ரீ கிருஷ்ணர் ஞானத்தின் இத்தகு வழிமுறையே உண்மையான பாதை என்று தெளிவாகக் கூறுகின்றார். இதற்கு அப்பாற்பட்டு எதைக் கற்பனை செய்தாலும் அஃது அபத்தமானதாகும். இங்கே விளக்கப்பட்ட ஞானத்தின் விஷயங்கள் ஒவ்வொன்றும் பின்வருமாறு ஆய்ந்து அறியப்பட வேண்டும். அடக்கம் என்றால், பிறரால் மதிக்கப்படுவதில் திருப்தியடைய ஒருவன் ஆவலாக இருக்கக் கூடாது என்று பொருள். பௌதிகமான வாழ்க்கை, பிறரிடமிருந்து மரியாதையைப் பெற நம்மைத் தூண்டுகின்றது, ஆனால் தான் இந்த உடலல்ல என்பதை பக்குவ ஞானத்தில் இருக்கும் மனிதனின் கண்ணோட்டத்தில், மரியாதையும் சரி, அவமரியாதையும் சரி, இவ்வுடலைச் சார்ந்த அனைத்தும் உபயோகமற்றவை.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "வஞ்சகமான இந்த ஜட பின் ஒருவன் ஆவலாக பறக்கக் கூடாது. மக்கள் தங்களது மதத்தின் அடிப்படையில் புகழ் பெற வேண்டும் என்பதில் மிகவும் ஆவலாக உள்ளனர். இதன் விளைவாக, சில சமயங்களில், மத நெறிகளைப் பற்றி புரிந்து கொள்ளாமல் மத நெறிகளை உண்மையில் பின்பற்றாத ஏதேனும் ஒரு கூட்டத்துடன் ஒருவன் இணைவதையும் அதன் பின்னர் தன்னை மத ஆலோசகனாக விளம்பரம் செய்து கொள்ள விரும்புவதையும் நாம் காண்கிறோம். ஆன்மிக விஞ்ஞானத்தின் உண்மையான மேம்பாட்டைப் பொறுத்தவரை தான் எவ்வளவு முன்னேறியுள்ளோம் என்பதைக் காண ஒருவன் தன்னை சோதனை செய்து பார்க்க வேண்டும். இங்கு கொடுக்கப்பட்டுள்ள விஷயங்களை வைத்து அவன் தீர்மானிக்கலாம். அகிம்சை என்பது உடலைக் கொல்லாமலிருப்பது அல்லது அழிக்காமலிருப்பது என்ற பொருளில் பொதுவாக உபயோகிக்கப்படுகின்றது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆனால் உண்மையில், அகிம்சை என்றால், பிறரை துன்பத்திற்கு உள்ளாக்காமல் இருப்பது என்று பொருள். பொதுவாக, பௌதிகமயமான வாழ்வு என்னும் அறியாமையினால், மக்கள் பிணைக்கப்பட்டுள்ளனர். இதனால் அவர்கள் இடையறாது ஜடத் துன்பங்களை அனுபவிக்கின்றனர். எனவே, ஆன்மீக ஞானத்தின் தளத்திற்கு ஒருவன் மக்களை உயர்த்தாவிடில் அவன் ஹிம்சையையே பயிற்சி செய்கிறான். மக்களிடம் உண்மையான ஞானத்தை விநியோகிப்பதற்கு ஒருவன் தன்னால் முயன்ற அளவு முயற்சி செய்ய வேண்டும். அதன் மூலம் மக்கள் தெளிவு பெற்று இந்த ஜட உலக பந்தத்திலிருந்து விடுதலை பெற முடியும். இதுவே அகிம்சை எனப்படும். பொறுமை என்றால், மற்றவர்களிடமிருந்து அவமரியாதையையும் நிந்தனையையும் தாங்கிக் கொள்ள பயிற்சி பெற்றவனாக இருக்க வேண்டும் என்று பொருள்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆன்மீக ஞானத்தின் முன்னேற்றத்தில் ஒருவன் ஈடுபட்டிருந்தால், பிறரிடமிருந்து பற்பல நிந்தனைகளையும் அவமதிப்பையும் பெற வேண்டியிருக்கும். ஜட இயற்கையின் அமைப்பு இவ்வாறு இருப்பதால், இஃது எதிர்பார்க்கக்கூடியதே. ஆன்மீக ஞானத்தை வளர்ப்பதில் ஈடுபட்டிருந்த ஐந்து வயதுச் சிறுவனான பிரகலாதன் அவனது தந்தை அவனது பக்திக்கு விரோதியான போது பெரும் ஆபத்திற்கு உள்ளாக்கப்பட்டான். பற்பல வழிகளில் அவனைக் கொலை செய்ய அவனது தந்தை முயற்சி செய்தும் பிரகலாதன் அவரைப் பொறுத்துக் கொண்டான். ஏனெனில் ஆன்மிக ஞானத்தில் முன்னேற்றமடைவதில் பற்பல தடங்கல் இருக்கலாம், ஆனால் நாம் பொறுமையுடன் இருந்து நமது முன்னேற்றத்தை உறுதியுடன் தொடர வேண்டும். எளிமை என்றால் கபடத்தனம் இன்றி தனது எதிரிக்குக்கூட உண்மையை",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "வெளிப்படுத்தும் அளவிற்கு நேர்மையானவனாக இருக்க வேண்டும் என்று பொருள். ஆன்மிக குருவை ஏற்பதைப் பொறுத்தவரையில், அது மிகவும் அத்தியாவசியமானதாகும்: ஏனெனில் அங்கீகரிக்கப்பட்ட ஆன்மீக குருவின் உபதேசங்களின்றி ஆன்மிக விஞ்ஞானத்தில் முன்னேற்றம் காண முடியாது. ஒருவன் பூரண அடக்கத்துடன் ஆன்மிக குருவை அணுகி அவருக்கு எல்லாவிதமான சேவைகளையும் அர்ப்பணிக்க வேண்டும், அதன் மூலம் அவர் திருப்தியடைந்து தனது ஆசிகளை சீடனுக்கு வழங்கும்படி நடந்து கொள்ள வேண்டும். அங்கீகரிக்கப்பட்ட ஆன்மீக குரு கிருஷ்ணருடைய பிரதிநிதி என்பதால், அவர் தனது சீடனுக்கு ஏதேனும் ஆசிகளை வழங்கினால், அஃது அந்த சீடனை உடனடியாக முன்னேற்றமடையச் செய்யும், அவன் ஒழுக்க நெறிகளைக் கடைப்பிடிக்காவிட்டாலும்கூட. வேறு விதமாகக் கூறினால், எதிர்பார்ப்புகள் ஏதுமின்றி ஆன்மீக குருவிற்கு சேவை செய்பவனால் ஒழுக்க நெறிகளை சுலபமாகப் பின்பற்ற முடியும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "தூய்மையுடன் இருத்தல் ஆன்மீக வாழ்வில் முன்னேறுவதற்கு மிகவும் அவசியமாகும். தூய்மையில் இரு வகையுண்டு: புறத் தூய்மை, அகத் தூய்மை. தூய்மை என்பது நீராடுவதைக் குறிக்கும், ஆனால் அகத் தூய்மைக்கு எப்போதும் கிருஷ்ணரையே நினைக்க வேண்டும். ஹரே கிருஷ்ண ஹரே கிருஷ்ண கிருஷ்ண கிருஷ்ண ஹரே ஹரே, ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே என்று உச்சரிக்க வேண்டும். இதுவரை சேர்த்து வைத்துள்ள கர்ம வினை என்னும் அழுக்கினை இந்த வழிமுறை மனதிலிருந்து தூய்மை செய்கின்றது. தளராமை என்றால் ஆன்மீக வாழ்வில் முன்னேற்றமடைவதில் மிகவும் உறுதியுள்ளவனாக இருக்க வேண்டும் என்று பொருள். இத்தகு மனவுறுதி இல்லாவிடில் போதிய முன்னேற்றமடைய முடியாது. சுயக் கட்டுப்பாடு என்றால் ஆன்மீக முன்னேற்றப் பாதைக்கு எதிரான எதையும் ஏற்கக் கூடாது",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "என்று பொருள். இதை ஒருவன் பழக்கப்படுத்திக் கொண்டு ஆன்மிக முன்னேற்றப் பாதைக்கு எதிரான அனைத்தையும் புறக்கணிக்க வேண்டும். இதுவே உண்மையான துறவு. புலன்கள் மிகவும் வலிமையானவை, அவை எப்போதும் புலனின்பத்தைப் பெறுவதில் ஆர்வமாக உள்ளன. தேவையற்ற அத்தகு கோரிக்கைகளுக்கு உணவளிக்கக் கூடாது. உடலைத் தகுதியுடையதாக வைத்துக் கொள்ளும் அளவிற்கு மட்டுமே புலன்கள் திருப்திப்படுத்தப்பட வேண்டும். உடல் தகுதியுடன் இருந்தால் ஆன்மீக வாழ்க்கையின் முன்னேற்றத்திற்கான கடமைகளை சரிவர நிறைவேற்ற முடியும். மிக முக்கியமானதும் கட்டுப்படுத்த முடியாததுமான புலன் நாக்கு. ஒருவனால் நாக்கைக் கட்டுப்படுத்த முடிந்தால், பிறகு இதர புலன்களைக் கட்டுப்படுத்துவதற்கான சாத்தியம் உள்ளது. சுவைப்பதும் உச்சரிப்பதும் நாக்கின் செயல்கள்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "எனவே, நாக்கினை முறையாக ஒழுங்குபடுத்தி கிருஷ்ணருக்குப் படைக்கப்பட்ட பிரசாதத்தினை சுவைப்பதிலும், ஹரே கிருஷ்ண மந்திரத்தை உச்சரிப்பதிலும் அதனை ஈடுபடுத்த வேண்டும். கண்களைப் பொறுத்தவரையில் கிருஷ்ணருடைய அழகிய ரூபத்தைத் தவிர வேறு எதையும் காண்பதற்கு அவற்றை அனுமதிக்கக் கூடாது. இது கண்களைக் கட்டுப்படுத்தும். அதுபோலவே, காதுகளை கிருஷ்ணரைப் பற்றிக் கேட்பதிலும் மூக்கினை கிருஷ்ணருக்கு அர்ப்பணிக்கப்பட்ட மலர்களை நுகர்வதிலும் ஈடுபடுத்த வேண்டும். இதுவே பக்தித் தொண்டின் வழிமுறையாகும். மேலும், பகவத் கீதையானது பக்தித் தொண்டின் விஞ்ஞானத்தினை மட்டுமே விளக்குகின்றது என்பதை இங்கிருந்து கொள்ளலாம். பகவத் கீதையின் முக்கியமான குறிக்கோள் ஒரே குறிக்கோள் பக்தித் தொண்டே. பகவத் கீதையின் அறிவற்ற கருத்துரையாளர்கள் வாசகரின் மனதை மற்ற விஷயங்களை நோக்கி திசைத் திருப்ப முயற்சி செய்கின்றனர்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆனால் பகவத் கீதையில் பக்தித் தொண்டைத் தவிர வேறு எந்த விஷயமும் கிடையாது. பொய் அஹங்காரம் என்பது தன்னை இந்த உடலாக ஏற்றுக் கொள்வதைக் குறிக்கும். நான் இந்த உடலல்ல, ஆன்மீக ஆத்மா என்பதைப் புரிந்து கொள்ளும்போது ஒருவன் உண்மையான அஹங்காரத்தின் நிலைக்கு வருகின்றான். அஹங்காரம் எப்போதும் உள்ளது. பொய் அஹங்காரம் மட்டுமே கண்டனம் செய்யப்படுகின்றது, உண்மை அஹங்காரம் அல்ல. வேத இலக்கியத்தில் ப்ருஹத் ஆரண்யக உபநிஷத் அஹம் ப்ரஹ்மாஸ்மி நான் பிரம்மன், நான் ஆன்மீகமயமானவன் என்று கூறப்பட்டுள்ளது. தன்னைப் பற்றிய நான் என்னும் இத்தகு தன்னுணர்வு முக்தி பெற்ற நிலையிலும் கூட உள்ளது. நான் என்பதைப் பற்றிய உணர்வு அஹங்காரம் எனப்படும், ஆனால் நான் என்ற அந்த உணர்வினை பொய்யான உடலின் மீது செலுத்தும்போது",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அஹங்காரம், பொய் அஹங்காரமாக மாறுகின்றது. உணர்வினை உண்மையான விஷயத்தில் செலுத்தும்போது, அஃது உண்மை அஹங்காரம் ஆகின்றது. நம்முடைய அடையாளத்தினை (அஹங்காரத்தினை) நாம் விட்டுவிட வேண்டும் என்று சில தத்துவ ஞானிகள் கூறுகின்றனர், ஆனால் அத்தகு அடையாளத்தினை கைவிடுதல் சாத்தியமல்ல. அதே சமயத்தில் உடலுடனான பொய்யான அடையாளத்தினை விட்டுவிட வேண்டும் என்பதை நாங்களும் வலியுறுத்துகிறோம். பிறப்பு, இறப்பு, முதுமை, நோய் ஆகியவற்றின் துன்பத்தைப் புரிந்து கொள்ள வேண்டும். பிறப்பைப் பற்றிய விளக்கங்கள் பல்வேறு வேத இலக்கியங்களில் உள்ளன. ஸ்ரீமத் பாகவதத்தில் பிறக்காதவரின் உலகம், தாயின் கருப்பையில் இருக்கும் குழந்தையின் வாழ்க்கை, அதன் துன்பங்கள் போன்றவை மிக அற்புதமாக விவரிக்கப்பட்டுள்ளன. பிறப்பு துன்பமயமானது என்பதை மிகத் தெளிவாகப் புரிந்து",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "கொள்ள வேண்டும். தாயின் கருவினுள் இருந்தபோது நாம் எவ்வளவு துன்பத்தை அனுபவித்தோம் என்பதை மறப்பதன் காரணத்தினால்தான் பிறப்பு இறப்பின் சுழற்சியிலிருந்து மீள்வதற்கான வழியை நாம் தேடாமல் உள்ளோம். அதுபோல, இறப்பின் சமயத்திலும் பல்வேறு விதமான துன்பங்கள் உள்ளன. இவையும் சாஸ்திரங்களில் குறிப்பிடப்பட்டுள்ளன. இவ்விஷயங்கள் விவாதிக்கப்பட வேண்டியவை. முதுமை, நோய் ஆகியவற்றைப் பொறுத்தவரையில், ஒவ்வொருவருக்கும் அவற்றில் சொந்த அனுபவம் உண்டு. நோயை யாரும் விரும்புவதில்லை, முதுமையையும் யாரும் விரும்புவதில்லை, ஆனால் இவற்றை தவிர்ப்பது சாத்தியமல்ல. பிறப்பு, இறப்பு, முதுமை, நோய் ஆகியவற்றின் துன்பங்களைக் கருத்தில் கொண்டு ஜட வாழ்வின் மீது வெறுப்புக் கண்ணோட்டம் உடையவர்களாக நாம் மாறாத வரை ஆன்மீக வாழ்வில் முன்னேற்றமடைவதற்கான ஊக்கம் நமக்குக் கிடைக்காது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "குழந்தைகள், மனை, வீடு ஆகியவற்றை துறப்பது என்பதைப் பொறுத்தவரை, அவற்றின் மீது பாசம் வைக்கக் கூடாது என்று பொருளல்ல. அவை இயற்கையாகவே பற்றுதலைக் கொடுக்கும் விஷயங்கள். ஆனால் அவை ஆன்மீக முன்னேற்றத்திற்குச் சாதகமாக இல்லாவிடில் ஒருவன் அவற்றின் மீது பற்றுதல் கொண்டிருக்கக் கூடாது. இல்லத்தை இனிமையாக வைத்திருக்க மிகச் சிறந்த வழி கிருஷ்ண உணர்வே. இந்த கிருஷ்ண உணர்வு முறை மிகவும் எளிமையானது என்பதால் ஒருவன் பூரண கிருஷ்ண உணர்வில் இருந்தால் அவன் தனது இல்லத்தை இன்பமயமானதாக மாற்றலாம். அவன் செய்ய வேண்டியவை யாதெனில், ஹரே கிருஷ்ண ஹரே கிருஷ்ண கிருஷ்ண கிருஷ்ண ஹரே ஹரே, ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே என்று உச்சரிக்க வேண்டும், கிருஷ்ணருக்குப் படைக்கப்பட்ட உணவினை பிரசாதமாக ஏற்க வேண்டும், பகவத் கீதை, பாகவதம் போன்ற புத்தகங்களை விவாதிக்க வேண்டும், மற்றும் விக்ரஹ",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "வழிபாட்டில் ஈடுபட வேண்டும். இந்நான்கு விஷயங்களும் அவனை மகிழ்விக்கும். இவ்வழியில் தனது குடும்ப அங்கத்தினர்களுக்கு ஒருவன் பயிற்சியளிக்க வேண்டும். காலையிலும் மாலையிலும் குடும்பத்தினர் அனைவரும் ஒன்றாக அமர்ந்து ஹரே கிருஷ்ண ஹரே கிருஷ்ண கிருஷ்ண கிருஷ்ண ஹரே ஹரே, ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே என்று ஜபம் செய்யலாம். நான்கு கொள்கைகளைப் பின்பற்றி கிருஷ்ண உணர்வினை இவ்வழியில் வளர்த்துக் கொள்ளும்படி, ஒருவன் தனது குடும்ப வாழ்வினை வடிவமைக்க முடிந்தால் அவன் குடும்ப வாழ்விலிருந்து வாழ்விற்கு மாற்றம் பெற அவசியமில்லை. ஆனால் குடும்ப வாழ்வானது ஆன்மீக முன்னேற்றத்திற்கு உகந்ததாக இல்லாமல் சாதகமற்றதாக இருந்தால் அது நிராகரிக்கப்பட வேண்டும். அர்ஜுனனைப் போல கிருஷ்ணரை உணர்வதற்காகவும் அவருக்குத் தொண்டு செய்வதற்காகவும் அனைத்தையும் தியாகம் செய்ய வேண்டும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அர்ஜுனன் தனது குடும்பத்தினர்களைக் கொல்ல விரும்பவில்லை, ஆனால் தனது கிருஷ்ண உணர்விற்கு அவர்கள் தடங்கலாக உள்ளனர் என்பதைக் கண்ட அவன் கிருஷ்ணரின் உபதேசத்தை ஏற்று, போர்புரிந்து அவர்களைக் கொன்றான். எப்படியாயினும், குடும்ப வாழ்வின் இன்ப துன்பங்களை ஒருவன் துறந்தேயாக வேண்டும்: ஏனெனில் முழுமையான இன்பத்துடன் இருப்பதோ முழுமையான துன்பத்துடன் இருப்பதோ, இவ்வுலகில் ஒருபோதும் சாத்தியமல்ல. வாழ்வில் இன்பமும் துன்பமும் எப்போதும் தொடர்ந்து வரக்கூடியவை. பகவத் கீதையில் அறிவுறுத்தப்பட்டுள்ளபடி, அவற்றைப் பொறுத்துக் கொள்ள கற்க வேண்டும். வந்து போகக்கூடியதான இன்பத்தையும் துன்பத்தையும் என்றுமே தடுக்க முடியாது. எனவே, பௌதிக மயமான வாழ்விலிருந்து ஒருவன் விலகியிருக்க வேண்டும், அதன் மூலம் இன்ப துன்பங்களில் சமநிலையடைந்தவனாக ஆக முடியும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "பொதுவாக, நமக்கு விருப்பமானவற்றை அடையும் பொழுது நாம் மிகவும் மகிழ்கின்றோம், நமக்கு விருப்பமற்ற எதையேனும் அடைந்து விட்டால் துன்பப்படுகின்றோம். ஆனால் நாம் உண்மையிலேயே ஆன்மிக நிலையில் இருந்தால், இந்த விஷயங்கள் நம்மை பாதிக்காது. அத்தகு நிலையை அடைய சிதையாத பக்தித் தொண்டை நாம் பயிற்சி செய்ய வேண்டும். முறையான பாதையிலிருந்து பிறழாமல் கிருஷ்ணருக்கு பக்தித் தொண்டு செய்வது என்றால், ஒன்பதாம் அத்தியாயத்தின் இறுதிப் பதத்தில் விளக்கப்பட்டபடி, பக்தித் தொண்டின் ஒன்பது வழிமுறைகளான, கீர்த்தனம், ஸ்மரணம், அர்ச்சனம், வந்தனம் போன்றவற்றில் ஒருவன் தன்னை ஈடுபடுத்திக் கொள்ள வேண்டும். இந்த வழிமுறையே பின்பற்றப்பட வேண்டும். ஆன்மிகமயமான வாழ்வை ஒருவன் ஏற்றுக் கொள்ளும்போது இயற்கையாகவே அவன் பௌதிகவாதிகளுடன் சேர விரும்ப மாட்டான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அத்தகு உறவு அவனது சுபாவத்திற்கு எதிரானதாக அமையும். தேவையற்ற உறவுகள் இன்றி தனியிடத்தில் வாழ்வதில் தன்னிடம் எவ்வளவு விருப்பம் உள்ளது என்பதைக் காண்பதன் மூலம் ஒருவன் தன்னைப் பரிசோதித்துக் கொள்ளலாம். அவசியமற்ற விளையாட்டுகள், திரைப்படத்திற்குச் செல்லுதல் அல்லது ஏதேனும் சமூக விழாக்களில் கலந்து கொண்டு அனுபவித்தல் போன்றவற்றில் பக்தனுக்கு இயற்கையிலேயே சுவையேதும் இல்லை: ஏனெனில் அவையெல்லாம் வெறும் கால விரயமே என்பதை அவன் புரிந்து கொண்டுள்ளான். அடுத்ததாக, பல்வேறு ஆராய்ச்சியாளர்களும் தத்துவவாதிகளும், காம வாழ்வைப் பற்றியோ இதர விஷயங்களைப் பற்றியோ ஆராய்ச்சி செய்கின்றனர். ஆனால் பகவத் கீதையின்படி அத்தகு ஆராய்ச்சிகளுக்கும் தத்துவ கற்பனைகளுக்கும் எவ்வித மதிப்பும் இல்லை.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஏறக்குறைய அவை அபத்தமானவை. பகவத் கீதையின்படி தத்துவ ஆய்வுகளின் மூலம் ஆத்மாவின் இயற்கையைப் பற்றி ஒருவன் ஆராய்ச்சி செய்ய வேண்டும். அவன் தன்னைப் புரிந்து கொள்வதற்கான ஆராய்ச்சிகளை மேற்கொள்ள வேண்டும். அதுவே இங்கு சிபாரிசு செய்யப்பட்டுள்ளது. அடைவதைப் பொறுத்தவரையில், பக்தி யோகமே நடைமுறைக்கு ஒத்துவரக் கூடியது என்று இங்கு தெளிவாகக் கூறப்பட்டுள்ளது. பக்தி என்ற கேள்வி எழுந்த உடனேயே பரமாத்மாவிற்கும் தனிப்பட்ட ஜீவாத்மாவிற்கும் இடையிலான உறவைக் கருத்தில் கொள்ளுதல் அவசியம். குறைந்தபட்சம், பக்தியின் கண்ணோட்டத்தில் தனிப்பட்ட ஜீவாத்மாவையும் பரமாத்மாவையும் ஒன்றாகக் கருத முடியாது. இங்கே தெளிவாக குறிப்பிடப்பட்டுள்ளபடி பரமாத்மாவிற்கு ஜீவாத்மா செய்யும் தொண்டு நித்தியமானதாகும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "எனவே, பக்தித் தொண்டு நித்தியமானதாகும். இத்தகு தத்துவத்தின் மீதான திட நம்பிக்கையில் ஒருவன் நிலை பெற்றிருக்க வேண்டும். ஸ்ரீமத் பாகவதத்தில் இது விளக்கப்பட்டுள்ளது. வதந்தி தத் தத்த்வ-விதஸ் தத்த்வம் ஞானம் அத்வயம். பரம சத்தியத்தை உண்மையாக உணர்ந்தவர்கள் பிரம்மன், பரமாத்மா, பகவான் ஆகிய மூன்று நிலைகளில் தன்னுணர்வு அடையப்படுகின்றது என்று அறிகின்றனர். பூரண உண்மையை உணர்வதில் பகவான் என்பதே இறுதிச் சொல். எனவே, முழுமுதற் கடவுளைப் புரிந்து கொள்ளும் தளத்திற்கு உயர்வு பெற்று அவரது பக்தித் தொண்டில் ஒருவன் ஈடுபட வேண்டும். இதுவே ஞானத்தின் பக்குவ நிலையாகும். அடக்கத்தைப் பயிற்சி செய்தல் என்ற நிலையில் தொடங்கி புருஷோத்தமரான முழுமுதற் கடவுளை பரம உண்மையாக உணர்ந்து அறியும் நிலை வரை செல்லக்கூடிய இந்த வழிமுறை ஒரு கட்டிடத்தின் கீழ்த்தளத்திலிருந்து அதன் உச்சிக்குச் செல்லும் மாடிப்படியைப் போன்றது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இந்த படிக்கட்டின் மூலம், முதல்தளம், இரண்டாம் தளம் அல்லது மூன்றாவது தளத்தை பலர் அடைந்துள்ளனர், ஆனால் கிருஷ்ணரைப் புரிந்து கொள்ளுதல் என்னும் உச்சத் தளத்தை அடையாத வரை அவன் ஞானத்தின் கீழ்நிலையிலேயே இருக்கின்றான். யாரேனும் இறைவனுடன் போட்டியிட்டுக் கொண்டு அதே சமயத்தில் ஆன்மீக ஞானத்தில் முன்னேற்றமடையவும் விரும்பினால் அவன் விரக்தியடைவான். பணிவு என்பது இல்லாவிடில், புரிந்து கொள்ளுதல் என்பது சாத்தியமல்ல என்று இங்கு தெளிவாகக் கூறப்பட்டுள்ளது. தன்னையே கடவுளாக நினைத்தல், கர்வத்தின் மிகவுயர்ந்த நிலையாகும். ஜட இயற்கையின் கடுமையான சட்டங்களினால் ஜீவாத்மா எப்போதும் உதைபடுகிறான். இருப்பினும், அறியாமையின் காரணத்தினால் நானே கடவுள் என்று அவன் நினைக்கின்றான். ஞானத்தின் தொடக்கம் அமானித்வ பணிவுடன் இருத்தல்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இருந்து தான் முழுமுதற் கடவுளுக்குக் கீழ்ப்பட்டவன் என்பதை ஒருவன் அறிந்து கொள்ள வேண்டும். முழுமுதற் கடவுளுக்கு எதிராக, பணிவின்றி இருந்த காரணத்தால் அவன் ஜட இயற்கைக்குக் கீழ்ப்பட வேண்டியுள்ளது. இந்த உண்மையை அறிந்து இதில் பூரண நம்பிக்கை உள்ளவனாக ஒருவன் இருக்க வேண்டும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.13": {
+  "en": [
+   "The Lord has explained the field of activities and the knower of the field. He has also explained the process of knowing the knower of the field of activities. Now He is explaining the knowable, both the soul and the Supersoul respectively. By knowledge of the knower, both the soul and the Supersoul, one can relish the nectar of life. As explained in the Second Chapter, the living entity is eternal. This is also confirmed here. There is no specific date at which the jīva was born. Nor can anyone trace out the history of jīvātmā's manifestation from the Supreme Lord. Therefore it is beginningless. The Vedic literature confirms this: na jāyate mṛjayate vā vipaścit. The knower of the body is never born and never dies, and he is full of knowledge. The Supreme Lord is also stated in the Vedic literature as pradhāna-kṣetrajña-patir guṇeśaḥ. The Supreme Lord as the Supersoul is the chief knower of the body, and He is the master of the three modes of material nature. In the smṛti it is said: dāsa-bhūto harer eva nānyasvaiva kadācana. The living entities are eternally in the service of the Supreme Lord. This is also confirmed by Lord Caitanya in His teaching; therefore the description of Brahman mentioned in this verse is in relation to the individual soul, and when the word Brahman is applied to the living entity, it is to be understood that he is vijñānaṁ brahma as opposed to ananta-brahma. Ananta-brahma is the Supreme Brahman Personality of Godhead."
+  ],
+  "ta": [
+   {
+    "text": "செயல்களின் களத்தையும் களத்தை அறிபவனையும் இறைவன் விளக்கிவிட்டார். மேலும் களத்தை அறிபவனை அறிந்து கொள்வதற்கான வழிமுறையையும் அவர் விளக்கிவிட்டார். தற்போது, அவர் ஞானத்தினால் அறியப்பட வேண்டியவற்றை, ஒன்றன் பின் ஒன்றாக (முதலில் ஆத்மா, பின்னர் பரமாத்மா) என விளக்குகின்றார். ஆத்மா, பரமாத்மாவைப் பற்றிய அறிவினால், ஒருவன் வாழ்வின் அமிர்தத்தைச் சுவைக்க முடியும். இரண்டாம் அத்தியாயத்தில் விளக்கப்பட்டபடி, உயிர்வாழி நித்தியமானவன். இஃது இங்கும் உறுதி செய்யப்பட்டுள்ளது. ஜீவாத்மாவிற்கு பிறந்த நாள் என்று எந்தவொரு குறிப்பிட்ட தினமும் கிடையாது. பரம புருஷரிடமிருந்து வெளிப்பட்ட ஜீவாத்மாவின் சரித்திரத்தை யாராலும் கண்டறிய முடியாது. எனவே, அஃது ஆரம்பம் இல்லாதது எனப்படும். வேத இலக்கியம் இதனை உறுதி செய்கின்றது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ந ஜாயதே ம்ரியதே வா விபஶ்சித் (கட உபநிஷத்) உடலை அறிபவன் என்றும் பிறப்பதில்லை, என்றும் இறப்பதில்லை, அவன் பூரண அறிவுடையவன். முழுமுதற் கடவுள் பரமாத்மாவாக உள்ளார் என்பது வேத இலக்கியத்திலும் கூறப்பட்டுள்ளது: ப்ரதான-க்ஷேத்ரக்ஞ-பதிர் குணேஶ: உடலை அறிபவரில் முதன்மையானவராகவும் முக்குணங்களின் எஜமானராகவும் விளங்குபவர் முழுமுதற் கடவுளே. கூறப்பட்டுள்ளது தாஸ-பூதோ ஹரேர் ஏவ நான்யஸ்யைவ கதாசன. ஜீவாத்மாக்கள் பரம புருஷருடைய சேவையில் நித்தியமாக ஈடுபட்டுள்ளனர். இது பகவான் சைதன்யரின் போதனைகளிலும் உறுதி செய்யப்பட்டுள்ளது. எனவே, பிரம்மனைப் பற்றி இப்பதத்தில் கொடுக்கப்பட்டுள்ள விவரங்கள் ஜீவாத்மாவைப் பற்றியதாகும். பிரம்மன் என்னும் சொல் உயிர்வாழியைப் பற்றிக் குறிப்பிடப்படும் பொழுது, அது விக்ஞான-ப்ரஹ்ம என்றும், ஆனந்த-ப்ரஹ்ம அல்ல என்றும் புரிந்து",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "கொள்ளப்பட வேண்டும். ஆனந்த-ப்ரஹ்ம என்பது பரபிரம்மனாக முழுமுதற் கடவுளைக் குறிக்கும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.14": {
+  "en": [
+   "As the sun exists diffusing its unlimited rays, so does the Supersoul, or Supreme Personality of Godhead. He exists in His all-pervading form, and in Him exist all the individual living entities, beginning from the first great teacher, Brahmā, down to the small ants. There are unlimited heads, legs, hands and eyes, and unlimited living entities. All are existing in and on the Supersoul. Therefore the Supersoul is all-pervading. The individual soul, however, cannot say that he has his hands, legs and eyes everywhere. That is not possible. If he thinks that although under ignorance he is not conscious that his hands and legs are diffused all over, but when he attains to proper knowledge he will come to that stage, his thinking is contradictory. This means that the individual soul, having become conditioned by material nature, is not supreme. The Supreme is different from the individual soul. The Supreme Lord can extend His hand without limit; the individual soul cannot. In Bhagavad-gītā the Lord says that if anyone offers Him a flower, or a fruit, or a little water, He accepts. If the Lord is a far distance away, how can He accept things? This is the omnipotence of the Lord: even though He is situated in His own abode, far, far away from earth, He can extend His hand to accept what anyone offers. That is His potency. In the Brahmā-saṁhitā it is stated, goloka eva nivasati: although He is always engaged in pastimes in His transcendental planet, He is all-pervading. The individual soul cannot claim that he is all-pervading. Therefore this verse describes the Supreme Soul, the Personality of Godhead, not the individual soul."
+  ],
+  "ta": [
+   {
+    "text": "சூரியன் தனது கதிர்களை எங்கும் பரப்பிய வண்ணம் இருப்பதைப் போல, புருஷோத்தமரான முழுமுதற் கடவுளாம் பரமாத்மாவும் உள்ளார். எங்கும் வியாபித்திருக்கும் உருவில் அவர் இருக்கின்றார், மேலும் எல்லா தனிப்பட்ட உயிர்வாழிகளும் அவரில் இருக்கின்றனர். மாபெரும் ஆதி குருவான பிரம்மாவிலிருந்து தொடங்கி மிகச்சிறிய எறும்பு வரை அனைவரும் அவரில் உள்ளனர். தலைகள், கால்கள், கரங்கள், கண்கள் மற்றும் எண்ணற்ற உயிர்வாழிகளும் இருக்கின்றனர். இவையெல்லாம் பரமாத்மாவின் மீதும் பரமாத்மாவிலும் உள்ளன. எனவே, பரமாத்மா எங்கும் நிறைந்தவர். தனிப்பட்ட ஆத்மாவினால், தனது கரங்கள் கால்கள் மற்றும் கண்கள் எங்குமிருப்பதாகக் கூற முடியாது. அது சாத்தியமல்ல. அறியாமையின் காரணத்தினால் தனது கரங்களும் கால்களும் எல்லா இடங்களிலும் பரவியிருப்பதை தான் உணராமல் இருக்கின்றேன் என்றும், தக்க ஞானத்தை அடையும்பொழுது அந்த நிலைக்கு வந்துவிடலாம் என்றும் ஜீவாத்மா இயற்கையின் கட்டுப்பாட்டிற்குள் வந்த ஜீவாத்மா பரமனாக இருக்க முடியாது என்பதே இதன் பொருள்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "பரமன் தனிப்பட்ட ஜீவாத்மாவிலிருந்து வேறுபட்டவர். தனது கரத்தை எல்லையின்றி நீட்டிக்க அந்த பரமனால் முடியும், ஜீவாத்மாவினால் அஃது இயலாது. தமக்கு மலரோ பழமோ சிறிது நீரோ யாரேனும் சமர்ப்பித்தால் அதை தாம் ஏற்றுக் கொள்வதாக பகவத் கீதையில் பகவான் கூறுகின்றார். பகவான் மிகவும் தூரத்தில் இருந்தால், எவ்வாறு அவரால் பொருள்களை ஏற்க முடியும்? இதுவே பகவானுடைய சர்வ வல்லமை: பூமியிலிருந்து மிகமிகத் தொலைவிலுள்ள தனது சொந்த லோகத்தில் அவர் வீற்றிருந்தாலும் யாரேனும் எதையாவது அர்ப்பணித்தால் அதை ஏற்பதற்கு தனது கரத்தை அவரால் நீட்டிக்க இயலும். இதுவே அவரது சக்தி. பிரம்ம சம்ஹிதையில் கோலோக ஏவ நிவஸத்யகிலாத்ம-பூத: அவர் தனது தெய்வ உலகில் எப்போதும் லீலைகளில் ஈடுபட்டிருந்தாலும் எங்கும் பரவியுள்ளார் என்று",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "கூறப்பட்டுள்ளது. ஜீவாத்மாவினால் தான் எங்கும் பரவியிருப்பதாக கூறிக் கொள்ள முடியாது. எனவே, இப்பதம் முழுமுதற் கடவுளான பரமாத்மாவையே விவரிக்கின்றது, ஜீவாத்மாவை அல்ல.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.15": {
+  "en": [
+   "The Supreme Lord, although the source of all the senses of the living entities, doesn't have material senses like they have. Actually, the individual souls have spiritual senses, but in condemned life they are covered with the material elements and therefore the sense activities are exhibited through matter. The Supreme Lord's senses are not so covered. His senses are transcendental and are therefore called nirguṇa. Guṇa means the material modes, but His senses are without material covering. It should be understood that His senses are not exactly like ours. Although He is the source of all our sensual activities, He has His transcendental senses which are uncontaminated. This is very nicely explained in the Śvetāśvatara Upaniṣad in the verse: sarvataḥ pāṇi-pādam. The Supreme Personality of Godhead has no hands which are materially contaminated, but He has His hands and accepts whatever sacrifice is offered to Him. That is the distinction between the conditioned soul and the Supersoul. He has no material eyes, but He has eyes-otherwise how could He see? He sees everything, past, present and future. He lives within the heart of the living being, and He knows what we have done in the past, what we are doing now, and what is awaiting us in the future. This is also confirmed in Bhagavad-gītā: He knows everything, but no one knows Him. It is said that the Supreme Lord has no legs like us, but He can travel throughout space because He has spiritual legs. In other words, the Lord is not impersonal; He has His eyes, legs, hands and everything else, and because we are part and parcel of the Supreme Lord we also have these things. But His hands, legs, eyes and senses are not contaminated by material nature.",
+   "Bhagavad-gītā also confirms that when the Lord appears He appears as He is by His internal potency. He is not contaminated by the material energy because He is the Lord of material energy. In the Vedic literature we find that His whole embodiment is spiritual. He has His eternal form called sac-cid-ānanda-vigraha. He is full of all opulence. He is the proprietor of all wealth and the owner of all energy. He is the most intelligent and is full of knowledge. These are some of the symptoms of the Supreme Personality of Godhead. He is maintainer of all living entities and the witness of all activities. As far as we can understand from Vedic literature, the Supreme Lord is always transcendental. Although we do not see His head, face, hands, or legs, He has them, and when we are elevated to the transcendental situation then we can see the Lord's form. Due to materially contaminated senses, we cannot see His form. Therefore the impersonalists who are still materially affected cannot understand the Personality of Godhead."
+  ],
+  "ta": [
+   {
+    "text": "உயிர்வாழிகளின் எல்லா புலன்களுக்கும் பகவானே மூலம், இருப்பினும், இருப்பதைப் போன்ற ஜடப் புலன்கள் அவரிடம் இல்லை. உண்மையில் தனிப்பட்ட ஆத்மாக்களும் ஆன்மீகப் புலன்களை உடையவர்களே, ஆனால் அப்புலன்கள் கட்டுண்ட வாழ்வின் காரணத்தினால் பௌதிக மூலக்கூறுகளால் மூடப்பட்டு அவற்றின் செயல்கள் யாவும் ஜடத்தின் மூலமாக நிறைவேற்றப்படுகின்றன. பகவானின் புலன்கள் இது போன்று மூடப்படுபவை அல்ல. அவரது புலன்கள் தெய்வீகமானவை. எனவே, நிர்குண என்று அழைக்கப்படுகிறார். குண என்பது ஜட இயற்கையின் குணங்களைக் குறிக்கும், ஆனால் அவரது புலன்கள் திரைக்கு அப்பாற்பட்டவை. அவை நமது புலன்களைப் போன்றவை அல்ல என்பது புரிந்து கொள்ளப்பட வேண்டும். புலன் சார்ந்த நமது இயக்கங்களுக்கு அவரே மூலம் என்றபோதிலும், அவரது தெய்வப் புலன்கள் களங்கமற்றவையாக உள்ளன.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இது ஸ்வேதாஸ்வதர உபநிஷத்தின் அபாணி-பாதோ ஜவனோ க்ருஹீதா என்னும் பதத்தில் மிக அருமையாக விளக்கப்பட்டுள்ளது. பரம புருஷ பகவானிடம் களங்கமான பௌதிக கரங்கள் கிடையாது, ஆனால் யாகத்தில் அர்ப்பணிக்கப்படும் எதையும் ஏற்றுக் கொள்ளத்தக்க கைகளை அவர் கொண்டுள்ளார். இதுவே கட்டுண்ட ஆத்மாவிற்கும் பரமாத்மாவிற்கும் உள்ள வேறுபாடு. அவரிடம் ஜடக் கண்கள் இல்லை, ஆனால் கண்கள் உண்டு, இல்லாவிடில் அவரால் எப்படி பார்க்க முடியும்? கடந்த காலம், நிகழ்காலம், எதிர்காலம் என எல்லாவற்றையும் அவர் காண்கின்றார். எல்லா உயிர்வாழிகளின் இதயத்திலும் அவர் வாழ்கின்றார். நாம் கடந்தகாலத்தில் செய்தவை யாவை, தற்போது செய்பவை யாவை, வருங்காலத்தில் நமக்காக காத்திருப்பவை யாவை என்று எல்லாவற்றையும் அவர் அறிகின்றார்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இதுவும் பகவத் கீதையில் உறுதி செய்யப்பட்டுள்ளது: எல்லாவற்றையும் அவர் அறிகின்றார் ஆனால் யாரும் அவரை அறிவதில்லை. பகவானுக்கு நம்மைப் போன்ற கால்கள் இல்லை, ஆனாலும் அவர் விண்வெளி முழுதும் பயணம் செய்ய முடியும்: ஏனெனில், ஆன்மீகக் கால்கள் உள்ளன என்று கூறப்பட்டுள்ளது. வேறு விதமாகக் கூறினால் இறைவன் அருவமானவர் அல்ல; அவருக்கு கண்கள், கால்கள், கைகள் என எல்லாம் உண்டு, மேலும் அந்த பரம புருஷரின் அம்சங்களே நாம் என்பதால், நமக்கும் இவையெல்லாம் உண்டு. ஆனால் அவரது கரங்கள், கால்கள், கண்கள் மற்றும் புலன்கள் ஜட இயற்கையினால் களங்கமுற்றவை அல்ல. பகவான் தோன்றும்போது தமது சுய உருவில் தமது அந்தரங்க சக்தியின் மூலம் தோன்றுகின்றார் என்பதை பகவத் கீதையும் உறுதி செய்கின்றது. ஜட சக்தியின் இறைவன் அவரே என்பதால் சக்தியினால் அவர் களங்கமுறுவதில்லை.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அவரது பூரணத் தோற்றமும் ஆன்மீகமயமானது என்பதை நாம் வேத இலக்கியத்தில் காண்கின்றோம். ஸச்-சித்-ஆனந்த-விக்ரஹ என்று அழைக்கப்படும் நித்திய உருவத்தை உடையவர் அவர். எல்லா ஐஸ்வர்யங்களும் நிரம்பியவர். எல்லா செல்வங்களின் உரிமையாளரும் எல்லா சக்திகளின் எஜமானரும் அவரே. புத்தியில் தலைசிறந்தவரும் பூரண ஞானமுடையவரும் அவரே. இவை புருஷோத்தமரான முழுமுதற் கடவுளின் சில அறிகுறிகள். அவரே எல்லா உயிர்வாழிகளையும் பராமரிப்பவர், எல்லாச் செயல்களுக்கும் சாட்சியாக விளங்குபவர். வேத இலக்கியத்திலிருந்து நாம் புரிந்து கொண்டுள்ளபடி, முழுமுதற் கடவுள் எப்போதும் தெய்வீகமானவர். அவரது தலை, முகம், கரங்கள் அல்லது கால்களை நம்மால் காண முடியாவிட்டாலும் அவருக்கு இவை உண்டு. மேலும், தெய்வ நிலைக்கு உயர்வு பெறும்போது நம்மால் பகவானுடைய உருவத்தைக் காண இயலும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஜடத்தினால் களங்கமுற்றுள்ள புலன்களைக் கொண்டு நம்மால் அவரது உருவத்தைக் காண முடியாது. எனவே, ஜடத்தினால் இன்னும் பாதிக்கப்பட்டுள்ளவர்களான அருவவாதிகளால் புருஷோத்தமரான முழுமுதற் கடவுளைப் புரிந்து கொள்ள முடியாது.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.17": {
+  "en": [
+   "The Lord is situated in everyone's heart as the Supersoul. Does that mean that He has become divided? No. Actually, He is one. The example is given of the sun: the sun, at the meridian, is situated in his place. But if one goes for five thousand miles in all directions and asks, \"Where is the sun?\" everyone will say that it is shining on his head. In the Vedic literature this example is given to show that although He is undivided, He is situated as if divided. Also it is said in Vedic literature that one Viṣṇu is present everywhere by His omnipotence, just as the sun appears in many places to many persons. And the Supreme Lord, although the maintainer of every living entity, devours everything at the time of annihilation. This was confirmed in the Eleventh Chapter when the Lord said that He has come to devour all the warriors assembled at Kurukṣetra. He also mentions that in the form of time He devours also. He is the annihilator, the killer of all. When there is creation, He develops all from their original state, and at the time of annihilation He devours them. The Vedic hymns confirm the fact that He is the origin of all living entities and the rest of al1. After creation, everything rests in His omnipotence, and after annihilation, everything again returns to rest in Him. These are the confirmations of Vedic hymns. Yato vā imāni bhūtāni jāyante yena jātāni jīvanti yat prayanty abhisaṁviśanti tad brahma tad vijijñāsasva. (Taittirīya Upaniṣad, 3.1)"
+  ],
+  "ta": [
+   {
+    "text": "இறைவன் ஒவ்வொருவரது இதயத்திலும் பரமாத்மாவாக வீற்றுள்ளார். இதனால் அவர் பிரிக்கப்பட்டு விட்டார் என்று அர்த்தமா? இல்லை. உண்மையில், அவர் ஒருவரே. சூரியனின் உதாரணம் கொடுக்கப்படுகின்றது: மதிய நேர சூரியன் தனது இடத்தில் வீற்றுள்ளது. ஆனால் ஐயாயிரம் மைல்களுக்கு எல்லா திசைகளிலும் சென்று, “சூரியன் எங்கே?” என்று யாரைக் கேட்டாலும், அது தனது உச்சந்தலையில் பிரகாசிப்பதாக கூறுவர். பரமாத்மா பிரிக்கப்படாதவர் என்றபோதிலும் பிரிக்கப்பட்டவரைப் போன்று தோன்றுகிறார் என்பதைக் காட்டுவதற்காக வேத இலக்கியத்தில் இந்த உதாரணம் கொடுக்கப்படுகிறது. சூரியன் பல்வேறு இடங்களில் பற்பல நபர்களுக்குத் தோற்றமளிப்பதைப் போல, தமது சர்வ வல்லமையினால் ஒரே விஷ்ணு எல்லா இடங்களிலும் காணப்படுகின்றார் என்றும் வேத இலக்கியத்தில் கூறப்பட்டுள்ளது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "மேலும், பரம புருஷர் எல்லா உயிர்களையும் காப்பவர் என்ற போதிலும், பிரளயத்தின்போது எல்லாவற்றையும் அவரே விழுங்குகின்றார் (அழிக்கின்றார்). “குருக்ஷேத்திரத்தில் கூடியுள்ள அனைத்து போர் வீரர்களையும் விழுங்குவதற்காக நான் வந்துள்ளேன்” என்று பதினொன்றாம் அத்தியாயத்தில் பகவான் கூறியபோது, இஃது உறுதி செய்யப்பட்டது. மேலும் அவர்களை காலத்தின் உருவில் விழுங்குவதாக அவர் குறிப்பிட்டார். அவரே அழிப்பவர், எல்லாரையும் கொல்பவர். படைப்பின்போது அவர் அனைவரையும் தங்களது உண்மை நிலையிலிருந்து விருத்தி செய்கின்றார். பின்னர் பிரளயத்தின்போது அவரே அவர்களை விழுங்குகின்றார். எல்லா உயிர்வாழிகளின் மூலமும், அவர்களது தங்குமிடமும் அவரே என்னும் உண்மையினை வேத பதங்கள் உறுதி செய்கின்றன. படைப்பிற்குப் பின் அவரது",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "சர்வ வல்லமையில் அனைத்தும் தங்குகின்றன. பிரளயத்திற்குப் பின்னர் ஒவ்வொன்றும் அவரில் ஓய்வெடுக்கத் திரும்புகின்றன. இக்கருத்துக்கள் வேத மந்திரங்களால் உறுதி செய்யப்பட்டவை. யதோ வா இமானி பூதானி ஜாயந்தே யேன ஜாதானி ஜீவந்தி யத் ப்ரயந்த் ஸம்-விஷந்தி தத் ப்ரஹ்ம தத் விஜிஜ்ஞாஸஸ்வ (தைத்திரீய உபநிஷத்)",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.18": {
+  "en": [
+   "The Supersoul, the Supreme Personality of Godhead, is the source of light in all luminous objects like the sun, moon, stars, etc. In the Vedic literature we find that in the spiritual kingdom there is no need of sun or moon because the effulgence of the Supreme Lord is there. In the material world that brahmajyoti the Lord's spiritual effulgence, is covered by the mahat-tattva, the material elements; therefore in this material world we require the assistance of sun, moon, electricity, etc., for light. But in the spiritual world there is no need of such things. It is clearly stated in the Vedic literature that because of His luminous effulgence, everything is illuminated. It is clear, therefore, that His situation is not in the material world. He is situated in the spiritual world which is far, far away in the spiritual sky. That is also confirmed in the Vedic literature. Āditya-varṇam tamasaḥ parastāt. He is just like the sun, eternally luminous, but He is far, far beyond the darkness of this material world. His knowledge is transcendental. The Vedic literature confirms that Brahman is concentrated transcendental knowledge. To one who is anxious to be transferred to that spiritual world, knowledge is given by the Supreme Lord who is situated in everyone's heart.",
+   "One Vedic mantra says: taṁ ha devam ātma-buddhi-prakāśaṁ mumukṣur vai śaraṇam aham prapadye. One must surrender unto the Supreme Personality of Godhead if he at all wants liberation. As far as the goal of ultimate knowledge is concerned, it is also confirmed in Vedic literature: tam eva viditvātimṛtyum eti. \"Only by knowing You can one surpass the boundary of birth and death.\" He is situated in everyone's heart as the supreme controller. The Supreme has legs and hands distributed everywhere, and this cannot be said of the individual soul. Therefore that there are two knowers of the field of activity, the individual soul and the Supersoul, must be admitted. One's hands and legs are distributed locally, but Kṛṣṇa's hands and legs are distributed everywhere. This is confirmed in the Śvetāśvatara Upaniṣad: sarvasya prabhum īśānaṁ sarvasya śaraṇaṁ bṛhat. That Supreme Personality of Godhead, Supersoul, is the prabhu or master of all living entities; therefore He is the ultimate center of all living entities. So there is no denying the fact that the Supreme Supersoul and the individual soul are always different."
+  ],
+  "ta": [
+   {
+    "text": "தரியன சநதிரன் மற்றும் நட்சத்திரங்களைப் போன்ற! பிரகாசிக்கும் பொருள்கள் எல்லாவற்றிலும் ஒளியின் முலமாக இருப்பது பரம புருஷ பகவானான பரமாத்மாவே பரம பருஹரிடமிருந்து வரும் தேஜஸின் காரணத்தினால், ஆன்மீக உலகில் தரியனுக்கோ சநதிரறனுக்கோ அவசிய மில்லை என்பதை நாம் வேத இலக்கியத்தில் காண்கிறோம். இந்த ஜடவலகில் பகவானுடைய தெய்வீக ஒளிபான அந்த பிரம்மஜோதி மஹத்-தத்த எனப்படும் பெளதிக முலக்கறுகளால் முடப்பட்டுள்ளது: எனலே! இந்த ஜடவலகில் ஒளியைப் பெற தரியன சந்திரன் மின்சாரம் போன்றவற்றின் நமக்குத் தேவைப்படுகிறது. ஆனால் ஆன்மீக உலகில் இவற்றிற்கு அவசியமில்லை. அரைது பிரகாசிக்கும் ஜோதிபினால் அனைத்தும் பிரகாசப்படுத்தப்படுகின்றன என்று வேத இலக்கியத்தில் தெளிவாகக் கூறப்பட்டள்ளது. எனலே!/ அவரது நிலை இநத ஜடவுலகைச் சார்ந்தது அல்ல என்பது தெளிவு.",
+    "verified": false
+   },
+   {
+    "text": "அவர் ஆன்மீக வெளியில், மிகமிகத் தொலைவிலுள்ள ஆன்மிக உலகில் உள்ளார். இதுவும் வேத இலககியததில் உறுதி செய்யபபட்டுள்ளது. ஆதி த்ய-வர்ணம் தமஸ: பரஸ்தாத் வதர உபநிஷத் அவர் தரியனைப் போன்றவர் நித்தியமாக பிரகாசிப்பவர் ஆனால் இந்த ஜட வலகின இருட்டிற்கு மிகமிக அப்பாற்பட்டு விளங்குகிறார். அவரத ஞானம் திவ்யமானது: பிரம்மன் திவ்ய ஞானத்தின் களஞ்சியம் என்பதை வேத இலக்கியம் உறுதி செய்கின்றது. அந்த ஆன்மீக உலகிற்கு மாற்றம் பெற ஆவலுடன் இருப்பவனுக்கு, ஒவ்வொருவரத! இதயத்திலும் வற்றுள்ள பரமாத்மாவின் மூலம் ஞானம் வழங்கப்படுகின்றது. தம் ஹ தேவம் ஆத்ம-புத்தி- பரகாஷ முமுகூர் வை வராம் அம் ப்ரபத்யே என்று ஒரு வேத மந்திரம் (வேதா வதர உபறிறத் கூறுகின்றது. ஒருவனுக்கு முக்தியடைவதில் விருப்பம் இருந்தால் அவன் முழுமுதற் கடவுளிடம் சரணடைய வேண்டும்.",
+    "verified": false
+   },
+   {
+    "text": "ஞானத்தின் இறுதி இலட்சியத்தைப் பொறுத்தவறையில் அதுவும் வேத இலககியததில உறுதி செய்யபபட்டுள்ளத! தம் ஏவ விதித்வாதி மிருத்யும் ஏதி. “அவரை அறிவதால் மட்டுமே பிறப்பு இறப்பின் எல்லைகளைக் கடக்க முடியம்” (ஷஹெவலேதா2 வதர உபநிஷத் ஒவ்வொருவருடைய இதயத்திலும் பரம ஆளுநராக அவர் ஹற்றுள்ளார். அவரது கால்களும் கைகளும் எங்கும் பரந்துள்ளன இவை ஜீவாத்மாணிற்கு பொருந்தாத தன்மைகள். எனவே ஜீவாத்மா பரமாத்மா என்று களத்தை அறிவோர் இருவர் உள்ளனர் என்பது ஏற்றுக்கொள்ளப்பட வேண்டும். சாதாரண மனிதனது கைகளும் கால்களும் ஓரிடத்தில் மட்டுமே உள்ளன. ஆனால் கிருஸ்ணருடைய கைகளும் கால்களும் எங்கும் பரந்துள்ளன. இது (வலேதா வதர உறுதி செய்யபபட்டுள்ளது: ஸர்வஸ்ய பாபம் ஈஷானம் ஸர்வஸ்ய ஹரன் ப்ருஹத். அந்த பற பகவானான பறமாத்மாலே எல்லா உ௱ிர்வாழிகளின் பிர (எஜமானர்) எனவே!",
+    "verified": false
+   },
+   {
+    "text": "எல்லா உயிர்வாழிகளுக்கும் இறுதியான புகலிடம் அவரே. பரமாத்மாவும் ஜீவாத்மாவும் எப்போதும் வேறுபட்டவர்கள் என்ற உண்மையை இதனால் யாராலும் மறுக்க முடியாது!",
+    "verified": false
+   }
+  ]
+ },
+ "13.19": {
+  "en": [
+   "The Lord has described in summary the body, knowledge and the knowable. This knowledge is of three things: the knower, the knowable and the process of knowing. Combined, these are called vijñānam, or the science of knowledge. Perfect knowledge can be understood by the unalloyed devotees of the Lord directly. Others are unable to understand. The monists say that at the ultimate stage these three items become one, but the devotees do not accept this. Knowledge and development of knowledge mean understanding oneself in Kṛṣṇa consciousness. We are being led by material consciousness, but as soon as we transfer all consciousness to Kṛṣṇa's activities and realize that Kṛṣṇa is everything, then we attain real knowledge. In other words, knowledge is nothing but the preliminary stage of understanding devotional service perfectly."
+  ],
+  "ta": [
+   {
+    "text": "உடல், அறிவு, அறியப்படும் பொருள் ஆகியவற்றைப் பற்றி பகவான் சுருக்கமாக விளக்கினார். இந்த அறிவு மூன்று விஷயங்களைப் பற்றியது: அறிபவன், அறியப்படக் கூடியது, அறிவதற்கான வழிமுறை. இம்மூன்றும் இணைந்து, விஞ்ஞான ஞானத்தைப் பெறுவதற்கான அறிவியல் என்று அழைக்கப்படுகின்றது. பகவானின் களங்கமற்ற பக்தர்களால் பக்குவமான ஞானத்தினை நேரடியாகப் புரிந்து கொள்ள முடியும். மற்றவர்களால் புரிந்து கொள்ள முடியாது. இறுதி நிலையில் இம்மூன்றும் ஒன்றாகிவிடுகின்றன என்று ஒருமைவாதிகள் கூறுகின்றனர். ஆனால் பக்தர்கள் இதனை ஏற்பதில்லை. ஞானம், ஞானத்தை வளர்ப்பது என்றால் ஒருவன் தன்னை கிருஷ்ண உணர்வில் புரிந்து கொள்வது என்று பொருள். நாம் ஜட உணர்வினால் வழிநடத்தப்படுகின்றோம், ஆனால் நமது உணர்வுகள் அனைத்தையும் கிருஷ்ணரது செயல்களுக்கு மாற்றி கிருஷ்ணரே எல்லாம் என்பதை உணர்ந்த பின்னர் நாம் உண்மையான ஞானத்தை அடைகின்றோம்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "வேறு விதமாகக் கூறினால் ஞானம் என்பது பக்தித் தொண்டைப் பக்குவமாகப் புரிந்து கொள்வதன் ஆரம்ப நிலையேயன்றி வேறு ஒன்றுமல்ல. பதினைந்தாம் அத்தியாயத்தில் இது மிகவும் தெளிவாக விளக்கப்படும். தற்போது சுருக்கமாகப் பார்த்தால் மஹா-பூதானி என்று தொடங்கி சேதனா த்ருதி: என்று முடியும் ஆறாவது மற்றும் ஏழாவது பதங்கள் பௌதிக மூலக்கூறுகளையும் வாழ்வின் அறிகுறிகளின் சில தோற்றத்தைப் பற்றியும் ஆராய்ந்தன என்று நாம் புரிந்து கொள்ளலாம். இவை இணைந்து உடலை, அல்லது செயல்களின் களத்தை உருவாக்குகின்றன. பதங்கள் முதல் வரை, அமானித்வம் முதல் தத்த்வ-ஞானார்த்த-தர்ஷனம் வரை களத்தை அறியும் இரண்டு வித நபர்களான ஆத்மா, பரமாத்மாவினை புரிந்து கொள்வதற்கான ஞானத்தின் வழிமுறை விவரிக்கப்பட்டது. பின்னர் பதங்கள் முதல் வரை அனாதி மத்-பரம் என்பது முதல் ஸர்வஸ்ய விஹிதம் வரை, ஆத்மாவையும் பரமாத்மாவையும் (முழுமுதற்கடவுளை)",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "விளக்குகின்றன. இவ்வாறாக, மூன்று விஷயங்கள் இதுவரை விளக்கப்பட்டுள்ளன: செயல்களின் களம் (உடல்), புரிந்து கொள்வதற்கான வழிமுறை, மற்றும் ஆத்மாவும் பரமாத்மாவும். களங்கமற்ற பக்தர்கள் மட்டுமே இந்த மூன்று விஷயங்களைத் தெளிவாகப் புரிந்து கொள்ள முடியும் என்று இங்கு குறிப்பாக விளக்கப்பட்டுள்ளது. எனவே, பகவத் கீதை தனது முழுமையான பலனை பக்தர்களுக்கு கொடுக்கும்; அவர்களால் மட்டுமே உன்னத இலக்கான முழுமுதற் கடவுள் கிருஷ்ணரின் இயற்கையை அடைய முடியும். வேறு விதமாகக் கூறினால் பக்தர்கள் மட்டுமே பகவத் கீதையை புரிந்து கொண்டு விரும்பும் பலனை அடைய முடியும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.20": {
+  "en": [
+   "By this knowledge, the body, the field of activities and the knowers of the body (both the individual soul and the Supersoul) can be known. The body is the field of activity and is composed of material nature. It is the individual soul which is embodied. Enjoying the activities of the body is the puruṣa, or the living entity. He is one knower, and the other is the Supersoul. Of course, it is to be understood that both the Supersoul and the individual entity are different manifestations of the Supreme Personality of Godhead. The living entity is in the category of His energy, and the Supersoul is in the category of His personal expansion.",
+   "Both material nature and the living entity are eternal. That is to say that they existed before the creation. The material manifestation is from the energy of the Supreme Lord and so also are the living entities, but they are of the superior energy. Both of them existed before this cosmos was manifested. Material nature was absorbed in the Supreme Personality of Godhead, Mahā-Visṇu, and when it was required, it was manifested by the agency of mahat-tattva. Similarly, the living entities are also in Him, and because they are conditioned, they are adverse to serving the Supreme Lord. Thus they are not allowed to enter into the spiritual sky. After the winding up of material nature, these living entities are again given a chance to act in the material world and prepare themselves to enter into the spiritual world. That is the mystery of this material creation. Actually the living entity is originally the spiritual part and parcel of the Supreme Lord, but due to his rebellious nature, he is conditioned within material nature. It really does not matter how these living entities or superior entities of the Supreme Lord have come in contact with material nature. The Supreme Personality of Godhead knows, however, how and why this actually took place. In the scriptures the Lord says that those attracted by this material nature are undergoing a hard struggle for existence. But we should know it with certainty from the descriptions of these few verses that all the transformations and influences of material nature by the three modes are also productions of material nature. All transformations and variety in respect to living entities are due to the body. As far as spirit is concerned, living entities are all the same."
+  ],
+  "ta": [
+   {
+    "text": "இந்த அத்தியாயத்தில் கொடுக்கப்பட்டுள்ள அறிவைக் கொண்டு உடல் (செயல்களின் களம்) மற்றும் உடலை அறிபவர்களைப் பற்றி (ஜீவாத்மா, பரமாத்மாவைப் பற்றி) அறிய முடியும். செயல்களின் களமாகிய உடல் ஜட இயற்கையினால் ஆனது. உடலைப் பெற்று, அந்த உடலின் செயல்களை அனுபவித்துக் கொண்டுள்ள தணியபட்ட ஆத்மா புருஷ அல்லது ஜீவாத்மா எனப்படுகிறான். அறிபவர்களில் அவன் ஒருவன். மற்றொருவர் பரமாத்மா. ஜீவாத்மாவும் பரமாத்மாவும் பரம புருஷ பகவானின் வெவ்வேறு தோற்றங்கள் என்பதை புரிந்து கொள்ள வேண்டும். ஜீவாத்மா என்பது அவரது சக்தி எனும் பிரிவிலும் பரமாத்மா அவரது சுய விரிவு எனும் பிரிவிலும் உள்ளனர். இயற்கை, ஜீவாத்மா ஆகிய இரண்டுமே நித்தியமானவை. அதாவது அவை படைப்பிற்கு முன்னும் இருந்தன. ஜடத் தோற்றமானது பகவானுடைய சக்தியிலிருந்து உண்டானதாகும், உயிர்வாழிகளும் அப்படிப்பட்டவர்களே.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இருப்பினும், உயிர்வாழிகள் உயர்ந்த சக்தியைச் சேர்ந்தவர்கள். உயிர்வாழிகள், ஜட இயற்கை என இரண்டுமே இந்தப் பிரபஞ்சம் தோன்றுவதற்கு முன்பே இருந்தவை. இயற்கையானது பரம புருஷ பகவானான மஹா விஷ்ணுவில் லயித்திருந்து, தேவைப்படும் போது மஹத் தத்துவத்தின் உதவியுடன் தோற்றுவிக்கப்படுகிறது. அதுபோல, உயிர்வாழிகளும் அவரில் இருந்தவர்களே. அவர்கள் கட்டுண்டிருப்பதால் பரம புருஷருக்குத் தொண்டாற்ற விரும்புவதில்லை. இதனால், அவர்கள் ஆன்மீக உலகத்திற்குள் நுழைய அனுமதிக்கப்படுவதில்லை. இருப்பினும், ஜட இயற்கை படைக்கப்படும் போது, அந்த உயிர்வாழிகள் இந்த ஜடவுலகில் செயல்பட்டு ஆன்மீக உலகினுள் நுழைவதற்குத் தங்களைத் தயார் செய்துகொள்ள ஒரு வாய்ப்பு வழங்கப்படுகிறது. இதுவே இந்த ஜடப் படைப்பின் இரகசியம்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "உண்மையில் உயிர்வாழி பரம புருஷரின் ஆன்மீக அம்சமாகும், ஆனால் அவருக்கு எதிரான தன்மையின் காரணத்தினால் அவன் ஜட இயற்கையில் கட்டுண்டு இருக்கின்றான். உயர்ந்த வாழிகளான உயிர்வாழிகள் எவ்வாறு இந்த ஜட இயற்கையின் தொடர்பினுள் வந்தனர் என்பது அவ்வளவு முக்கியமல்ல. இருந்தாலும் அஃது எவ்வாறு, ஏன் நடைபெற்றது என்பதை பரம பகவான் அறிவார். இந்த ஜட இயற்கையால் வாழ்க்கைப் போராட்டத்தில் துன்புறுத்தப்படுகின்றனர் என்று சாஸ்திரங்களில் பகவான் கூறுகிறார். ஆனால் இங்குள்ள சில பதங்களின் மூலம் நாம் நிச்சயமாகத் தெரிந்துகொள்ள வேண்டியது என்னவெனில், முக்குணங்களினால் ஏற்படும் ஜட இயற்கையின் தாக்கமும் எல்லா மாற்றங்களும் ஜட இயற்கையின் படைப்புகளே. சம்பந்தப்பட்ட எல்லா மாற்றங்களும் வேறுபாடுகளும் உடலை அடிப்படையாகக் கொண்டவை.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆத்மா என்பதன் அடிப்படையில், எல்லா உயிர்வாழிகளும் சமமானவரே.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.21": {
+  "en": [
+   "The different manifestations of body and senses among the living entities are due to material nature. There are 8,400,000 different species of life, and these varieties are the creation of the material nature. They arise from the different sensual pleasures of the living entity, who thus desires to live in this body or that. When he is put into different bodies, he enjoys different kinds of happiness and distress. His material happiness and distress are due to his body, and not to himself as he is. In his original state there is no doubt of enjoyment; therefore that is his real state. Because of the desire to lord it over material nature, he is in the material world. In the spiritual world there is no such thing. The spiritual world is pure, but in the material world everyone is struggling hard to acquire victims who present different pleasures to the body. It might be more clear to state that this body is the effect of the senses. The senses are instruments for gratifying desire. Now, the sum total-body and instrument senses-are offered by material nature, and, as will be clear in the next verse, the living entity is blessed or damned with circumstances according to his past desire and activity. According to one's desires and activities, material nature places one in various residential quarters. The being himself is the cause of his attaining such residential quarters and his attendant enjoyment or suffering. Once placed in some particular kind of body, he comes under the control of nature because the body, being matter, acts according to the laws of nature. At that time, the living entity has no power to change that law. Suppose an entity is put into the body of a dog. As soon as he is put into the body of a dog, he must act like a dog. He cannot act otherwise. And if the living entity is put into the body of a hog, then he is forced to eat stool and act like a hog. Similarly, if the living entity is put into the body of a demigod, he must act according to his body. This is the law of nature. But in all circumstances, the Supersoul is with the individual soul. That is explained in the Vedas as follows: dvā suparṇā sayujā sakhāyā. The Supreme Lord is so kind upon the living entity that He always accompanies the individual soul and in all circumstances is present as the Supersoul or Paramātmā."
+  ],
+  "ta": [
+   {
+    "text": "உயிர்வாழிகளின் மத்தியில் உடல் மற்றும் புலன்களின் பல்வேறு தோற்றங்களுக்கு ஜட இயற்கையே காரணம். வகையான வேறுபட்ட உயிரினங்கள் உள்ளன. இந்த வேறுபாடுகள் இயற்கையின் படைப்பாகும். குறிப்பிட்ட ஓர் உடலிலோ அல்லது மற்றதிலோ வாழ விரும்பும் உயிர்வாழிகளின் பல்வேறு புலனின்பங்களுக்கு ஏற்ப இவ்வுடல்கள் எழுகின்றன. அவன் பல்வேறு உடல்களில் வைக்கப்படும் பொழுது பலதரப்பட்ட இன்ப துன்பங்களை அனுபவிக்கின்றான். அவனது ஜட இன்பங்களும் துன்பங்களும் உடலுக்கு ஏற்படுபவை, அவனுக்கு ஏற்படுபவையல்ல. அவனது ஸ்வரூப நிலையில் ஆனந்தத்திற்குப் பஞ்சமேயில்லை; எனவே அதுவே அவனது உண்மையான நிலை. இயற்கையின் மீது ஆதிக்கம் செலுத்துவதற்கான அவனது இச்சையினால், அவன் இந்த ஜடவுலகில் இருக்கின்றான். ஆன்மீக உலகில் அத்தகு விஷயம் எதுவும் கிடையாது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆன்மீக உலகம் தூய்மையானது; ஆனால் ஜடவுலகில் பல்வேறு விதமான இன்பங்களை உடலுக்குச் சேர்ப்பதற்காக ஒவ்வொருவரும் பெரும் பாடுபட்டுக் கொண்டுள்ளனர். உடலானது புலன்களின் விளைவே என்று கூறுவது மிகவும் தெளிவுபடுத்தக்கூடியதாக அமையும். புலன்களானவை விருப்பத்தைப் பூர்த்தி செய்து கொள்வதற்கான கருவிகளே. உடலையும் கருவிகளான புலன்களையும் மொத்தமாகப் பார்த்தால் அவை ஜட இயற்கையினால் வழங்கப்படுபவை. மேலும், அடுத்த பதத்தில் தெளிவுபடுத்தப்படுவதுபோல, உயிர்வாழி தனது முந்தைய விருப்பம் மற்றும் செயல்களுக்கு ஏற்ப ஆசீர்வதிக்கப்பட்ட அல்லது சபிக்கப்பட்ட சூழ்நிலைகளைப் பெறுகின்றான். ஒருவனது விருப்பங்களுக்கும் செயல்களுக்கும் ஏற்ப ஜட இயற்கை அவனை வேறுபட்ட இடங்களில் தங்க வைக்கின்றது. அத்தகு தங்குமிடங்களுக்கும் அதன் அடிப்படையிலான இன்ப துன்பங்களுக்கும் உயிர்வாழியே காரணமாவான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஒரு குறிப்பிட்ட உடலில் வைக்கப்பட்டவுடன் அவன் இயற்கையின் கட்டுப்பாட்டிற்குள் வருகின்றான். ஏனெனில், உடலானது பொருள் என்பதால் அது ஜட இயற்கையின் விதிகளுக்கு ஏற்ப செயல்பட்டாக வேண்டும். அந்த விதிகளை மாற்றுவதற்கு உயிர்வாழியிடம் சக்தி இல்லை. உதாரணமாக, ஓர் ஆத்மா நாயின் உடலில் வைக்கப்படுகின்றான் என்று வைத்துக் கொள்வோம். அவன் நாயின் உடலில் வைக்கப்பட்ட உடனேயே நாயைப் போன்று செயல்பட வேண்டும். அவனால் வேறுவிதமாகச் செயல்பட முடியாது. மேலும், உயிர்வாழி ஒரு பன்றியின் உடலில் வைக்கப்பட்டால் அவன் மலத்தைத் தின்று வாழ்வதற்கும் பன்றியைப் போன்று செயல்படுவதற்கும் வற்புறுத்தப்படுகின்றான். அதுபோல, அந்த உயிர்வாழி ஒரு தேவரின் உடலில் வைக்கப்பட்டால் அவ்வுடலுக்கு ஏற்பவே அவன் செயல்பட்டாக வேண்டும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இதுவே இயற்கையின் சட்டம். ஆனால் எல்லாச் சூழ்நிலைகளிலும் ஜீவாத்மாவுடன் பரமாத்மாவும் இருக்கின்றார். இது வேதங்களில் (முண்டக உபநிஷத்) பின்வருமாறு விளக்கப்பட்டுள்ளது. த்வா ஸுபர்ணா ஸயுஜா ஸகாயா. பரம புருஷர் உயிர்வாழியின் மீது மிகவும் கருணையுடையவராக இருப்பதால் பரமாத்மாவின் உருவில் அவர் எப்போதும், எல்லாச் சூழ்நிலைகளிலும் ஜீவாத்மாவுடன் இருக்கின்றார்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.22": {
+  "en": [
+   "This verse is very important for an understanding of how the living entities transmigrate from one body to another. It is explained in the Second Chapter that the living entity is transmigrating from one body to another just as one changes dress. This change of dress is due to his attachment to material existence. As long as he is captivated by this false manifestation, he has to continue transmigrating from one body to another. Due to his desire to lord it over material nature, he is put into such undesirable circumstances. Under the influence of material desire, the entity is born sometimes as a demigod, sometimes as a man, sometimes as a beast, as a bird, as a worm, as an aquatic, as a saintly man, as a bug. This is going on. And in all cases the living entity thinks himself to be the master of his circumstances, yet he is under the influence of material nature.",
+   "How he is put into such different bodies is explained here. It is due to association with the different modes of nature. One has to rise, therefore, above the three material modes and become situated in the transcendental position. That is called Kṛṣṇa consciousness. Unless one is situated in Kṛṣṇa consciousness, his material consciousness will oblige him to transfer from one body to another because he has material desires since time immemorial. But he has to change that conception. That change can be effected only by hearing from authoritative sources. The best example is here: Arjuna is hearing the science of God from Kṛṣṇa. The living entity, if he submits to this hearing process, will lose his long-cherished desire to dominate material nature, and gradually and proportionately, as he reduces his long desire to dominate, he comes to enjoy spiritual happiness. In a Vedic mantra it is said that as he becomes learned in association with the Supreme Personality of Godhead, he proportionately relishes his eternal blissful life."
+  ],
+  "ta": [
+   {
+    "text": "உயிர்வாழிகள் எவ்வாறு ஓர் உடலிலிருந்து மற்றொரு உடலிற்கு மாற்றமடைகின்றனர் என்பதைப் பற்றி அறிந்து கொள்வதில் இந்தப் பதம் மிகவும் முக்கியமானதாகும். இரண்டாம் அத்தியாயத்தில் ஆடையை ஒருவன் மாற்றிக் கொள்வதுபோல, உயிர்வாழி ஓர் உடலிலிருந்து மற்றொரு உடலிற்கு மாற்றமடைகின்றான் என்று விளக்கப்பட்டது. ஜட வாழ்வின் மீதான அவனது பற்றுதலே இந்த உடை மாற்றத்திற்குக் காரணம். இந்த பொய்யான தோற்றத்தினால் அவன் கவரப்பட்டுள்ளவரை ஓர் உடலிலிருந்து மற்றொரு உடலிற்கு மாறுவதை அவன் தொடரத்தான் வேண்டும். ஜட இயற்கையின் மீது ஆதிக்கம் செலுத்துவதற்கான அவனது விருப்பத்தினால் அவன் இத்தகு விரும்பத்தகாத சூழ்நிலைகளில் வைக்கப்படுகின்றான். பௌதிக ஆசைகளின் காரணத்தினால் ஆத்மா சில சமயம் தேவனாக, சில சமயம் மனிதனாக, சில சமயம் மிருகமாக, சில சமயம் பறவையாக, சில சமயம் புழுவாக, சில சமயம் நீர்வாழியாக, சில சமயம் புனிதமான மனிதனாக, சில சமயம் பூச்சியாகவும் பிறக்கின்றான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இது தொடர்ந்து கொண்டே இருக்கின்றது. இவ்வெல்லா நிலைகளிலும் உயிர்வாழி தன்னையே தனது சூழ்நிலைகளின் தலைவனாக எனக் கொள்கின்றான். இருப்பினும் அவன் இயற்கையின் ஆதிக்கத்திற்குக் கீழ்ப்பட்டவனே. அவன் எவ்வாறு பல்வேறு உடல்களில் வைக்கப்படுகின்றான் என்பது இங்கே விளக்கப்பட்டுள்ளது. பல்வேறு இயற்கை குணங்களின் தொடர்பே இதற்குக் காரணம். எனவே ஒருவன் ஜட இயற்கையின் முக்குணங்களிலிருந்து விடுதலை பெற்று, தெய்வீக நிலையில் நிலைபெற வேண்டும். இதுவே கிருஷ்ண உணர்வு எனப்படும். ஒருவன் கிருஷ்ண உணர்வில் நிலைபெறாதவரை ஓர் உடலிலிருந்து மற்றொரு உடலிற்கு மாறும்படி அவனது ஜட உணர்வு அவனை பலவந்தப்படுத்தும்; ஏனெனில் நினைவிற்கு எட்டாத காலம் முதல் அவனிடம் ஆசைகள் உள்ளன. ஆனால் அத்தகு விருப்பங்களை அவன் மாற்றிக் கொள்ளுதல் அவசியம்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அதிகாரபூர்வமான மூலத்திடமிருந்து கேட்பதன் மூலம் மட்டுமே அந்த மாற்றம் சாத்தியமாகும். அர்ஜுனன் இங்கே மிகச் சிறந்த உதாரணமாக விளங்குகின்றான்; கேட்டல் என்னும் இந்த வழிமுறையிடம் உயிர்வாழி தன்னை ஒப்படைத்தால் ஜட இயற்கையின் மீது ஆதிக்கம் செலுத்துவதற்கான தனது நீண்ட கால விருப்பத்தினை அவன் இழக்க முடியும். ஆதிக்கம் செலுத்துவதற்கான தனது நீண்ட கால விருப்பத்தினைக் குறைப்பதற்குத் தகுந்தாற் போல், அவன் படிப்படியாக ஆன்மீக ஆனந்தத்தையும் அனுபவிக்கத் தொடங்குவான். பரம புருஷ பகவானின் தொடர்பில் அறிவைப் பெறும்போது, அதற்குத் தகுந்தாற்போல ஒருவன் நித்தியமான ஆனந்தமாக வாழ்வை அனுபவிக்கின்றான் என்று ஒரு வேத மந்திரத்தில்",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.23": {
+  "en": [
+   "It is stated here that the Supersoul, who is always with the individual soul, is the representation of the Supreme Lord. He is not an ordinary living entity. Because the monist philosophers take the knower of the body to be one, they think that there is no difference between the Supersoul and the individual soul. To clarify this, the Lord says that He is the representation of Paramātmā in every body. He is different from the individual soul; He is paraḥ, transcendental. The individual soul enjoys the activities of a particular field, but the Supersoul is present not as finite enjoyer nor as one taking part in bodily activities, but as the witness, overseer, permitter and supreme enjoyer. His name is Paramātmā, not ātmā, and He is transcendental. It is distinctly clear that the ātmā and Paramātmā are different. The Supersoul, the Paramātmā, has legs and hands everywhere, but the individual soul does not. And because He is the Supreme Lord, He is present within to sanction the individual soul's desiring material enjoyment. Without the sanction of the Supreme Soul, the individual soul cannot do anything. The individual is bhakta or the sustained, and He is bhukta or the maintainer. There are innumerable living entities, and He is staying in them as a friend.",
+   "The fact is that individual living entities are eternally part and parcel of the Supreme Lord, and both of them are very intimately related as friends. But the living entity has the tendency to reject the sanction of the Supreme Lord and act independently in an attempt to dominate the supreme nature, and because he has this tendency, he is called the marginal energy of the Supreme Lord. The living entity can be situated either in the material energy or the spiritual energy. As long as he is conditioned by the material energy, the Supreme Lord, as his friend, the Supersoul, stays with him just to get him to return to the spiritual energy. The Lord is always eager to take him back to the spiritual energy, but due to his minute independence, the individual entity is continually rejecting the association of spiritual light. This misuse of independence is the cause of his material strife in the conditioned nature. The Lord, therefore, is always giving instruction from within and from without. From without He gives instructions as stated in Bhagavad-gītā, and from within He tries to convince him that his activities in the material field are not conducive to real happiness. \"Just give it up and turn your faith toward Me. Then you will be happy,\" He says. Thus the intelligent person who places his faith in the Paramātmā or the Supreme Personality of Godhead begins to advance toward a blissful eternal life of knowledge"
+  ],
+  "ta": [
+   {
+    "text": "எப்போதும் வீற்றிருக்கும் பரமாத்மா பரம புருஷரின் பிரதிநிதி என்று இங்கே குறிப்பிடப்பட்டுள்ளது. அவர் சாதாரண உயிர்வாழி அல்ல. ஒருமைத் தத்துவவாதிகள் உடலை அறிபவன் ஒருவனே என்று கருதுவதால், பரமாத்மாவிற்கும் ஜீவாத்மாவிற்கும் வேறுபாடு இல்லை என்று நினைக்கின்றனர். இதனைத் தெளிவுபடுத்தும்படி ஒவ்வோர் உடலிலும் பரமாத்மாவின் உருவில் பிரதிநிதியாக உற்றிருப்பது தாமே என்று இறைவன் கூறுகின்றார். அவர் ஜீவாத்மாவிலிருந்து வேறுபட்டவர், பர தெய்வகமானவர் என்று அறியப்படுகின்றார். ஜீவாத்மா ஒரு குறிப்பிட்ட களத்தின் செயல்களை அனுபவிக்கின்றான். ஆனால் பரமாத்மா எல்லைக்கு உட்பட்ட அனுபவிப்பாளராகவோ உடலின் செயல்களில் பங்கு கொள்பவராகவோ உற்றிருப்பதில்லை. மாறாக, அவர் சாட்சியாகவும் மேற்பார்வை செய்பவராகவும் அனுமதிப்பவராகவும் பரம அனுபவிப்பாளராகவும் உற்றுள்ளார்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அவர் பெயர் பரமாத்மா, ஆத்மா அல்ல, மேலும் அவர் தெய்வகமானவர். ஆத்மாவும் பரமாத்மாவும் வெவ்வேறு நபர்கள் என்பது முற்றிலும் தெளிவானதாகும். பரமாத்மாவின் கரங்களும் கால்களும் எங்கும் பரவியுள்ளன, ஆனால் ஜீவாத்மா அப்படிப்பட்டவன் அல்ல. மேலும், பரமாத்மாவே முழுமுதற் கடவுள் என்பதால், ஜட இன்பத்தை விரும்பும் ஜீவாத்மாவின் ஆசைகளை அனுமதிப்பதற்காக உள்ளேயே உற்றுள்ளார். பரமாத்மாவின் அனுமதியின்றி ஜீவாத்மாவினால் எதுவும் செய்ய முடியாது. ஜீவாத்மா புக்த, காக்கப்படுபவன் என்றும், பகவான் போக்தா, காப்பவர் என்றும் அறியப்படுகின்றனர். எண்ணிலடங்காத உயிர்வாழிகள் உள்ளனர், அவர் ஒரு நண்பனைப் போன்று அவர்களில் வசிக்கின்றார். ஏனெனில் ஒவ்வொரு தனிப்பட்ட உயிர்வாழியும் பரம புருஷரின் நித்தியமான அம்சம், அவர்கள் இருவரும் மிகவும் நெருங்கிய நண்பர்களும்கூட.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆனால் பகவானுடைய ஆணையை மறுப்பதற்கும் இயற்கையை ஆதிக்கம் செலுத்தும் முயற்சியுடன் சுதந்திரமாகச் செயல்படுவதற்குமான இயல்பு உயிர்வாழியிடம் உள்ளது. அத்தகு இயல்பு அவனிடம் இருப்பதால், அவன் பரம புருஷரின் நடுத்தர சக்தி என்று அழைக்கப்படுகின்றான். உயிர்வாழி ஜட சக்தியிலும் இடம்பெற முடியும், ஆன்மீக சக்தியிலும் இடம்பெற முடியும். ஜட சக்தியினால் அவன் கட்டுப்படுத்தப்பட்டிருக்கும் வரை அவனுடைய நண்பனாக பரமாத்மாவின் வடிவில் முழுமுதற் கடவுள் அவனுடன் வசிக்கின்றார். அவனை மீண்டும் ஆன்மீக சக்தியிடம் கொண்டு செல்வதே அவரது குறிக்கோள். ஆன்மீக சக்தியிடம் அவனை மீண்டும் அழைத்துச் செல்வதில் இறைவன் எப்போதும் விருப்பத்துடன் உள்ளார், ஆனால் தன்னிடமுள்ள சிறு சுதந்திரத்தின் காரணத்தினால் ஆன்மீக ஒளியின் உறவை தனிப்பட்ட உயிர்வாழி தொடர்ந்து",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "புறக்கணித்து வருகின்றான். சுதந்திரத்தின் இந்தத் தவறான உபயோகமே இவ்வுலகில் அவனது துன்பத்திற்குக் காரணமாகும். எனவே இறைவன் உள்ளும் புறமும் இருந்து அவனுக்கு எப்போதும் அறிவுரை கொடுக்கின்றார். பகவத் கீதையில் அறிவுரைகள் அவரால் புறத்திலிருந்து கொடுக்கப்படுபவை. ஜடத் தளத்தில் செய்யப்படும் செயல்கள் உண்மையான இன்பத்திற்கு உதவிகரமாக அமையாது என்பதை அவனுக்கு உணர்த்த அவர் உள்ளிருந்தபடியும் முயற்சி செய்கின்றார். “அவற்றைத் துறந்து உனது நம்பிக்கையை என்னிடம் திருப்புவாயாக, நீ மகிழ்ச்சியுடன் இருப்பாய்,” என்று அவர் கூறுகின்றார். இவ்வாறு பரமாத்மா அல்லது பரம புருஷ பகவானின் மீது தனது நம்பிக்கையை வைக்கும் புத்திசாலி மனிதன், அறிவு நிரம்பிய நித்திய வாழ்வின் ஆனந்தத்தினை நோக்கி முன்னேறத் தொடங்குகின்றான்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.24": {
+  "en": [
+   "Clear understanding of material nature, the Supersoul, the individual soul and their interrelation makes one eligible to become liberated and turn to the spiritual atmosphere without being forced to return to this material nature. This is the result of knowledge. The purpose of knowledge is to understand distinctly that the living entity has by chance fallen into this material existence. By his personal endeavor in association with authorities, saintly persons and a spiritual master, he has to understand his position and then revert to spiritual consciousness or Kṛṣṇa consciousness by understanding Bhagavad-gītā as it is explained by the Personality of Godhead. Then it is certain that he will never come again into this material existence; he will be transferred into the spiritual world for a blissful eternal life of knowledge."
+  ],
+  "ta": [
+   {
+    "text": "இயற்கை, பரமாத்மா, ஜீவாத்மா மற்றும் இவர்களுக்கு இடையிலான தொடர்பு ஆகியவற்றைப் பற்றி ஒருவன் தெளிவாகப் புரிந்து கொண்டால், முக்தியடைவதற்குத் தகுதி பெற்று, அவன் ஆன்மீகச் சூழ்நிலைக்குத் திரும்புகின்றான். இந்த இயற்கைக்குத் திரும்பி வரும்படி அவன் பலவந்தப்படுத்தப்படுவது இல்லை. இதுவே ஞானத்தின் பலன். சந்தர்ப்பவசத்தினால் ஜீவாத்மா இந்த ஜட வாழ்வில் விழுந்துள்ளான் என்பதை புரிந்து கொள்வதே ஞானத்தின் நோக்கம். அதிகாரிகள், சாதுக்கள் மற்றும் ஆன்மீக குருவின் சங்கத்துடன் கூடிய தனது சுய முயற்சியினால் ஒருவன் தனது நிலையைப் புரிந்து கொண்டு, முழுமுதற் கடவுளால் விளக்கப்பட்டபடி பகவத் கீதையை அதன் உண்மையுருவில் புரிந்து கொண்டு, ஆன்மீக உணர்வான கிருஷ்ண உணர்விற்குத் திரும்ப வேண்டும். அதன் பின்னர் அவன் மீண்டும் இந்த நிலைக்கு ஒரு போதும் திரும்பி வர மாட்டான். அறிவுடன் கூடிய ஆனந்தமயமான நித்திய வாழ்விற்காக அவன் ஆன்மீக உலகிற்கு மாற்றப்படுவான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "க் கவ அகக்",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.25": {
+  "en": [
+   "The Lord informs Arjuna that the conditioned soul can be divided into two classes as far as man's search for self-realization is concerned. Those who are atheists, agnostics and skeptics are beyond the sense of spiritual understanding. But there are others who are faithful in their understanding of spiritual life, and they are called workers who have renounced fruitive results. Those who always try to establish the doctrine of monism are also counted among the atheists and agnostics. In other words, only the devotees of the Supreme Personality of Godhead are really capable of spiritual understanding because they understand that beyond this material nature there is the spiritual world and the Supreme Personality of Godhead who is expanded as the Paramātmā, the Supersoul in everyone, the all-pervading Godhead. Of course there are those who try to understand the Supreme Absolute Truth by cultivation of knowledge, and they can be counted in the second class. The atheistic philosophers analyze this material world into twenty-four elements, and they place the individual soul as the twenty-fifth item. When they are able to understand the nature of the individual soul to be transcendental to the material elements, they are able to understand also that above the individual soul there is the Supreme Personality of Godhead. He is the twenty-sixth element. Thus gradually they also come to the standard of devotional service in Kṛṣṇa consciousness. Those who work without fruitive results are also perfect in their attitude. They are given a chance to advance to the platform of devotional service in Kṛṣṇa consciousness. Here it is stated that there are some people who are pure in consciousness and who try to find out the Supersoul by meditation, and when they discover the Supersoul within themselves, they become transcendentally situated. Similarly, there are others who also try to understand the Supreme Soul by cultivation of knowledge, and there are others who cultivate the haṭha-yoga system and who try to satisfy the Supreme Personality of Godhead by childish activities."
+  ],
+  "ta": [
+   {
+    "text": "ஆன்ம உணர்வில் மனிதன் கொள்ளும் ஆர்வத்தின் அடிப்படையில், கட்டுண்ட ஆத்மாக்களை இரு வகையாகப் பிரிக்கலாம் என்று அர்ஜுனனிடம் இறைவன் தெரிவிக்கின்றார். நாத்திகர்கள், கடவுளைப் பற்றி எதையும் அறிவது அசாத்தியம் என்னும் கருத்துடையவர், தொன்றுதொட்டுள்ள கொள்கைகளில் சந்தேகமுடையோர் ஆகியோர் ஆன்மீக அறிவில் வெகுதொலைவில் உள்ளனர். ஆனால் இதர பிரிவைச் சார்ந்தவர்கள் ஆன்மீக வாழ்வைப் புரிந்துகொள்வதில் நம்பிக்கையுடன் உள்ளனர். அவர்கள் ஆழ் உணர்வுடைய பக்தர்கள், தத்துவவாதிகள், பலன்களைத் துறந்த செயலாளிகள் என்று அழைக்கப்படுகின்றனர். ஒருமைக் கொள்கையினை நிலைநிறுத்த எப்போதும் முயற்சி செய்யும் நபர்கள், நாத்திகர்கள் மற்றும் கடவுளை அறிவது அசாத்தியம் என்று நினைப்பவர்களுடன் சேர்க்கப்பட வேண்டியவர்கள்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "வேறு விதமாகக் கூறினால் பரம புருஷ பகவானின் பக்தர்கள் மட்டுமே ஆன்மீக அறிவுக்குத் தகுதியுடையவர்கள், ஏனெனில், இந்த ஜட இயற்கைக்கு அப்பால் ஆன்மீக உலகமும் பரம புருஷ பகவானும் உள்ளனர் என்பதையும் அந்த பரம புருஷ பகவானே எங்கும் பரவியிருக்கும் இறைவனாகவும் எல்லாரிலும் உற்றிருக்கும் பரமாத்மாவாகவும் விரிந்துள்ளார் என்பதையும் அவர்கள் புரிந்து கொண்டுள்ளனர். அதே சமயத்தில் பரம பூண உண்மையினை ஞானத்தை விருத்தி செய்வதன் மூலம் புரிந்து கொள்ள முயற்சி செய்யும் நபர்களையும் நம்பிக்கையுடையவர்களின் பிரிவில் இணைத்துக் கொள்ளலாம். அத்தகு ஸாங்கிய தத்துவவாதிகள் இந்த ஜட உலகத்தினை இருபத்துநான்கு மூலக்கூறுகளாக ஆராய்கின்றனர். மேலும் ஜீவாத்மாவினை இருபத்தைந்தாவது விஷயமாக வைக்கின்றனர். பௌதிக மூலக்கூறுகளுக்கு அப்பாற்பட்ட தனிப்பட்ட ஆத்மாவின் இயற்கையை அவர்களால் புரிந்துகொள்ள இயலும்போது, தனிப்பட்ட ஆத்மாவிற்கு அப்பால் பரம புருஷ பகவான் இருக்கின்றார் என்பதையும் அவர்களால் புரிந்துகொள்ள இயலும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அவர் இருபத்தாறாவது விஷயம். இவ்வாறு படிப்படியாக அவர்களும் கிருஷ்ண பக்தித் தொண்டின் தரத்தினை வந்தடைகின்றனர். பலன்களை எதிர்பார்க்காமல் செயல்படுபவர்களும் தனது மனப்பான்மையில் பக்குவமானவர்கள். கிருஷ்ண உணர்வில் பக்தித் தொண்டின் தளத்திற்கு முன்னேற்றம் அடைவதற்கு அவர்களுக்கும் வாய்ப்பு வழங்கப்படுகின்றது. பரமாத்மாவினை தியானத்தின் மூலம் கண்டறிய முயலும் தூய உணர்வுடைய சில மக்கள் தமக்குள் பரமாத்மாவைக் கண்டவுடன் திவ்யமான தளத்தில் நிலைபெறுகின்றனர் என்று இங்கே கூறப்பட்டுள்ளது. அதுபோலவே, ஞானத்தை விருத்தி செய்ததன் மூலம் சிலர் பரமாத்மாவை புரிந்து கொள்ள முயல்கின்றனர். வேறு சிலர் ஹட யோக பயிற்சியின் மூலம் பரம புருஷ பகவானை குழந்தைத்தனமான செயல்களினால் திருப்தி செய்ய முயல்கின்றனர்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.26": {
+  "en": [
+   "This verse is particularly applicable to modern society because in modern society there is practically no education in spiritual matters. Some of the people may appear to be atheistic or agnostic or philosophical, but actually there is no knowledge of philosophy. As for the common man, if he is a good soul, then there is a chance for advancement by hearing. This hearing process is very important. Lord Caitanya, who preached Kṛṣṇa consciousness in the modern world, gave great stress to hearing because if the common man simply hears from authoritative sources, he can progress, especially, according to Lord Caitanya, if he hears the transcendental vibration Hare Kṛṣṇa, Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa, Hare Hare/Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare. It is stated, therefore, that all men should take advantage of hearing from realized souls and gradually become able to understand everything. The worship of the Supreme Lord will then undoubtedly take place. Lord Caitanya has said that in this age no one needs to change his position, but one should give up the endeavor to understand the Absolute Truth by speculative reasoning. One should learn to become the servant of those who are in knowledge of the Supreme Lord. If one is fortunate enough to take shelter of a pure devotee, hear from him about self-realization and follow in his footsteps, he will be gradually elevated to the position of a pure devotee. In this verse particularly the process of hearing is strongly recommended, and this is very appropriate. Although the common man is often not as capable as so-called philosophers, faithful hearing from an authoritative person will help one transcend this material existence and go back to Godhead, back to home."
+  ],
+  "ta": [
+   {
+    "text": "இப்பதம் குறிப்பாக நவீன சமுதாயத்திற்கு மிகவும் ஏற்றதாகும்; ஏனெனில், நவீன சமுதாயத்தில் ஆன்மீக விஷயங்களைப் பற்றிய கல்வி எங்குமில்லை. மக்களில் சிலர் நாத்திகர்களாக, இறைவனைப் பற்றி அறிவது அசாத்தியம் என்று கூறுபவர்களாக அல்லது தத்துவவாதிகளாக இருக்கலாம், ஆனால் உண்மையில் தத்துவத்தைப் பற்றிய எந்த அறிவும் அவர்களிடம் இல்லை. சாதாரண மனிதனைப் பொறுத்தவரையில் அவன் நல்ல ஆத்மாவாக இருந்தால், கேட்டல் என்னும் வழிமுறையின் மூலம் முன்னேற்றமடைவதற்கான வாய்ப்பு அவனுக்கு உள்ளது. கேட்டல் முறை மிகவும் முக்கியமானதாகும். நவீன உலகில் கிருஷ்ண உணர்வைப் பிரச்சாரம் செய்த பகவான் சைதன்யர் கேட்பதற்கு மிகவும் முக்கியத்துவம் கொடுத்தார், ஏனெனில் அதிகாரம் பொருந்திய நபர்களிடமிருந்து கேட்பதாலேயே சாதாரண மனிதன் முன்னேற்றமடைந்துவிட முடியும்; அதிலும் குறிப்பாக பகவான் சைதன்யர் உபதேசித்தபடி ஹரே கிருஷ்ண ஹரே கிருஷ்ண கிருஷ்ண கிருஷ்ண ஹரே ஹரே ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே என்னும் தெய்வீக சப்தத்தைக் கேட்க வேண்டும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "எனவே தன்னுணர்ந்த ஆத்மாக்களிடமிருந்து கேட்டறிவதற்கான நல்வாய்ப்பை எல்லா மனிதர்களும் பயன்படுத்திக் கொண்டு படிப்படியாக அனைத்தையும் புரிந்து கொள்ள வேண்டும். அதன்பின் பகவானது வழிபாடு சந்தேகமின்றி நடைபெறும். தனது நிலையை மாற்றிக் கொள்ள வேண்டிய அவசியம் இந்த யுகத்தில் எவருக்கும் இல்லை என்றும் ஆனால் மூல உண்மையினை கற்பனை ஆய்வுகளின் மூலம் புரிந்து கொள்வதற்கான முயற்சியினை விட்டொழிக்க வேண்டும் என்றும் பகவான் சைதன்யர் கூறியுள்ளார். முழுமுதற் கடவுளைப் பற்றிய ஞானம் எவரிடம் உள்ளதோ அவரது தொண்டனாக ஆவதற்கு ஒருவன் கற்றுக்கொள்ள வேண்டும். தூய பக்தரிடம் அடைக்கலம் கொண்டு, தன்னுணர்வைப் பற்றி அவரிடமிருந்து கேட்டு அவரது அடிச்சுவடுகளைப் பின்பற்றும் அளவிற்கு ஒருவன் அதிர்ஷ்டசாலியாக இருந்தால் அவன் படிப்படியாக தூய பக்தனின் தளத்திற்கு உயர்த்தப்படுவான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இப்பதத்தில் கேட்டல் என்னும் வழிமுறை பலமாகப் பரிந்துரைக்கப்பட்டுள்ளது. இது மிகவும் பொருந்தக்கூடியதாகும். ஒரு சாதாரண மனிதன் பெரும்பாலும் (பெயரளவில்) தத்துவவாதிகளைப் போன்று திறமையுடையவனாக இல்லாமல் இருந்தாலும், அங்கீகரிக்கப்பட்ட நபரிடமிருந்து நம்பிக்கையுடன் கேட்டல் அவனுக்கு உதவியாக அமையும். அதன் மூலம் அவன் பிறப்பு இறப்பு வாழ்வினைத் தாண்டி முழுமுதற் கடவுளின் திருநாட்டிற்குத் திரும்பிச் செல்ல முடியும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.27": {
+  "en": [
+   "Both material nature and the living entity, which were existing before the creation of the cosmos, are explained in this verse. Whatever is created is but a combination of the living entity and material nature. There are many manifestations like trees, mountains and hills, which are not moving, and there are many existences which are moving, and all of them are but combinations of material nature and superior nature, the living entity. Without the touch of the superior nature, the living entity, nothing can grow. Therefore the relationship between matter and nature is eternally going on, and this combination is effected by the Supreme Lord; therefore He is the controller of both the superior and inferior natures. The material nature is created by Him, and the superior nature is placed in this material nature, and thus all these activities and manifestations take place."
+  ],
+  "ta": [
+   {
+    "text": "இப்பதத்தில் ஜட இயற்கையும் உயிர்வாழியும் விளக்கப்பட்டுள்ளன. இவை இரண்டுமே பிரபஞ்சம் படைக்கப்படுவதற்கு முன்பிலிருந்தே இருக்கின்றன. என்னவெல்லாம் படைக்கப்படுகின்றனவோ அவையெல்லாம் உயிர்வாழியும் ஜட இயற்கையும் கலந்த கலவையேயாகும். மரங்கள், மலைகள், குன்றுகள் என பல்வேறு அசையாத தோற்றங்கள் உள்ளன, அசையும் தோற்றங்களும் பல உள்ளன. ஆனால் அவையனைத்தும் உயர்ந்த இயற்கையான உயிர்வாழியும் ஜட இயற்கையும் கலந்த கலவையேயாகும். உயர் இயற்கையான உயிர்வாழியின் தொடர்பின்றி எதுவும் வளர இயலாது. ஜடத்திற்கும் உயர்ந்த இயற்கைக்கும் இடையிலான உறவு நித்தியமாகத் தொடர்கின்றது. இத்தொடர்பு முழுமுதற் கடவுளினால் நிறைவேற்றப்படுகிறது; எனவே உயர்ந்த இயற்கை, தாழ்ந்த இயற்கை ஆகிய இரண்டையும் கட்டுப்படுத்துபவர் அவரே. ஜட இயற்கை அவரால் சிருஷ்டி செய்யப்படுகின்றது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இத்தகு ஜட இயற்கையில் உயர்ந்த இயற்கை வைக்கப்படுகின்றது. இவ்வாறாக இவ்வெல்லா செயல்களும் தோற்றங்களும் உண்டாகின்றன. வடட னவ ய",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.28": {
+  "en": [
+   "Anyone who can see three things-the body, the proprietor of the body, or individual soul, and the friend of the individual soul, combined together by good association-is actually in knowledge. Those who are not associated with the soul's friend are ignorant; they simply see the body, and when the body is destroyed they think that everything is finished, but actually it is not so. After the destruction of the body, both the soul and the Supersoul exist, and they go on eternally in many various moving and unmoving forms. The Sanskrit word parameśvaram is sometimes translated as the individual soul because the soul is the master of the body, and after the destruction of the body he transfers to another form. In that way he is master. But there are others who interpret this parameśvaram to be the Supersoul. In either case, both the Supersoul and the individual soul continue. They are not destroyed. One who can see in this way can actually see what is happening."
+  ],
+  "ta": [
+   {
+    "text": "நல்ல சங்கத்தின் மூலம் உடல், உடலின் உரிமையாளனான ஜீவாத்மா, ஜீவாத்மாவின் நண்பன் ஆகிய மூன்றினையும் முறையாகக் காணக்கூடியவன், உண்மையான ஞானத்தில் உள்ளான். ஆன்மீக விஷயங்களை உண்மையாக அறிந்தவரின் சங்கத்தை ஒருவன் அடையாவிடில் அவனால் இந்த மூன்று விஷயங்களைக் காண முடியாது. அத்தகு சங்கம் இல்லாதவர்கள் அறியாமையில் உள்ளனர், அவர்கள் வெறுமனே உடலைக் காண்கின்றனர், உடல் அழிந்தவுடன் எல்லாம் முடிந்து விட்டது என்று எண்ணுகின்றனர். ஆனால் உண்மை அதுவல்ல. உடலின் அழிவிற்குப் பிறகு, ஆத்மாவும் பரமாத்மாவும் பல்வேறு அசைகின்ற மற்றும் அசைவற்ற உருவங்களில் நித்தியமாகத் தொடர்கின்றனர். பரமேஷ்வர என்னும் சமஸ்கிருதச் சொல், சில சமயங்களில் “ஜீவாத்மா” என்று மொழிபெயர்க்கப்படுகின்றது. ஏனெனில் இந்த உடலின் எஜமானன் ஜீவாத்மாவே.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "மேலும் உடல் அழிந்த பிறகு அவன் மற்றொரு உருவத்திற்கு மாறுகின்றான். இவ்வாறு அவனே எஜமானன். ஆனால் பரமேஷ்வர என்பது பரமாத்மாவைக் குறிக்கும் என்று மற்றவர்கள் விளக்குகின்றனர். எவ்வாறு இருப்பினும், ஆத்மா, பரமாத்மா ஆகிய இருவருமே தொடர்கின்றனர். அவர்கள் அழிக்கப்படுவதில்லை. இவ்விதமாகக் காணக்கூடியவன் என்ன நடக்கின்றது என்பதை உண்மையில் காண முடியும். த க",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.29": {
+  "en": [
+   "The living entity, by accepting his material existence as just so much suffering, can become situated in his spiritual existence. If one understands that the Supreme is situated in His Paramātmā manifestation everywhere, that is, if one can see the presence of the Supreme Personality of Godhead in every living thing, he does not degrade himself, and he therefore gradually advances in the spiritual world. The mind is generally addicted to self-centered processes; but when the mind turns to the Supersoul, one becomes advanced in spiritual understanding."
+  ],
+  "ta": [
+   {
+    "text": "பௌதிக வாழ்வை ஏற்றுள்ள உயிர்வாழி தனது ஆன்மீக வாழ்விலிருந்து மாறுபட்ட சூழ்நிலையில் நிலைபெற்றுள்ளான். ஆனால் கடவுள் தனது பரமாத்மா தோற்றத்தின் மூலம் எங்கும் உற்றிருப்பதை ஒருவன் புரிந்து கொண்டால், அதாவது பரம புருஷ பகவானின் இருப்பை ஒவ்வொரு ஜீவனிலும் ஒருவனால் காண முடிந்தால், இழிவான மனப்பான்மையின் மூலம் அவன் தன்னை இழிவடையச் செய்வது இல்லை. எனவே படிப்படியாக ஆன்மீக உலகிற்கு அவன் முன்னேற்றமடைகின்றான். பொதுவாக, மனம் பலன்களைத் திருப்தி செய்யும் முறைகளில் மயங்கியுள்ளது; ஆனால் அதே மனம் பரமாத்மாவை நோக்கித் திரும்பும்போது, ஆன்மீகத்தைப் புரிந்து கொள்வதில் ஒருவன் முன்னேற்றமடைகின்றான்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.30": {
+  "en": [
+   "This body is made by material nature under the direction of the Supersoul, and whatever activities are going on in respect to one's body are not his doing. Whatever one is supposed to do, either for happiness or for distress, one is forced to do because of the bodily constitution. The self, however, is outside all these bodily activities. This body is given according to one's past desires. To fulfill desires, one is given the body, with which he acts accordingly. Practically speaking, the body is a machine, designed by the Supreme Lord, to fulfill desires. Because of desires, one is put into difficult circumstances to suffer or to enjoy. This transcendental vision of the living entity, when developed, makes one separate from bodily activities. One who has such a vision is an actual seer."
+  ],
+  "ta": [
+   {
+    "text": "உடல் பரமாத்மாவின் மேற்பார்வையின் கீழ் ஜட இயற்கையினால் தயாரிக்கப்பட்டுள்ளது. மேலும், உடல் சம்பந்தமாக நடைபெறும் செயல்களில் எதுவும் அவனால் செய்யப்படுபவை அல்ல. இன்பத்திற்காகவோ, துன்பத்திற்காகவோ என்னவெல்லாம் செய்ய வேண்டுமோ, அவற்றைச் செய்யும்படி உடலின் சுபாவம் ஒருவனை வற்புறுத்துகின்றது. இருப்பினும், ஆத்மாவானது உடலின் இத்தகு செயல்கள் எல்லாவற்றிற்கும் அப்பாற்பட்டதாகும். ஒருவனின் முந்தைய விருப்பங்களுக்கு ஏற்ப தற்போதைய உடல் வழங்கப்பட்டுள்ளது. இச்சைகளைப் பூர்த்தி செய்வதற்காகவே ஒருவனுக்கு உடல் கொடுக்கப்படுகின்றது, அவனும் அதற்கேற்ப செயல்படுகின்றான். அவனது ஆசைகளைப் பூர்த்தி செய்வதற்காக, பரம புருஷரால் வடிவமைக்கப்பட்ட இயந்திரமே இந்த உடல் என்று கூறலாம். ஆசைகளின் காரணத்தினால், ஒருவன் துன்புறுவதற்கான சூழ்நிலைகளிலோ இன்புறுவதற்கான சூழ்நிலைகளிலோ வைக்கப்படுகின்றான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "உயிர்வாழியைப் பற்றிய இந்த தெய்வப் பார்வை வளர்ச்சி பெறும்போது, அஃது ஒருவனை உடலின் செயல்களிலிருந்து பிரித்துவிடுகிறது. இத்தகு பார்வையுடையவன் உண்மையில் காண்பவனாகின்றான்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.31": {
+  "en": [
+   "When one can see that the various bodies of living entities arise due to the different desires of the individual soul and do not actually belong to the soul itself, one actually sees. In the material conception of life, we find someone a demigod, someone a human being, a dog, a cat, etc. This is material vision, not actual vision. This material differentiation is due to a material conception of life. After the destruction of the material body, this spirit soul is one. The spirit soul, due to contact with material nature, gets different types of bodies. When one can see this, he attains spiritual vision; thus being freed from differentiations like man, animal, big, low, etc., one becomes beautified in his consciousness and able to develop Kṛṣṇa consciousness in his spiritual identity. How he then sees things will be explained in the next verse."
+  ],
+  "ta": [
+   {
+    "text": "தனது பல்வேறு இச்சைகளின் காரணத்தினால் ஜீவாத்மா பற்பல உடல்களை ஏற்கின்றான் என்றும் உண்மையில் அவை ஆத்மாவிற்கு சொந்தமானவை அல்ல என்றும் எப்போது ஒருவன் காண்கின்றானோ, அப்போதே அவன் உண்மையில் காண்கின்றான். கருத்துடன் நாம் வாழ்க்கை வாழும்போது, சிலரை தேவராக, சிலரை மனிதனாக, நாயாக, பூனையாகக் காண்கின்றோம். இது பௌதிகப் பார்வை, உண்மையான பார்வையல்ல. இந்த ஜட வேறுபாடுகள் வாழ்வைப் பற்றிய கருத்துக்களினால் எழுபவை. ஜடவுடல் அழிந்த பின்னர் ஆத்மா ஒன்றே. ஆன்மீக ஆத்மா ஜட இயற்கையின் தொடர்பினால் பல்வேறு விதமான உடல்களை அடைகின்றது. இதை ஒருவன் காண இயலும்போது அவன் ஆன்மீக கண்ணோட்டத்தை அடைகின்றான். இவ்வாறாக, மனிதன், மிருகம், பெரியவன், சிறியவன் போன்ற வேறுபாடுகளிலிருந்து விடுபட்டு தனது உணர்வினைத் தூய்மைப்படுத்தி தனது ஆன்மீக அடையாளத்தினை கிருஷ்ண உணர்வில் அபிவிருத்தி செய்ய முடியும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அதன் பின்னர் ஒருவன் எவ்வாறு விஷயங்களைக் காண்பான் என்பது அடுத்த பதத்தில் விளக்கப்படும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.32": {
+  "en": [
+   "A living entity appears to be born because of the birth of the material body, but actually the living entity is eternal; he is not born, and in spite of his being situated in a material body, he is transcendental and eternal. Thus he cannot be destroyed. By nature he is full of bliss. He does not engage himself in any material activities; therefore the activities performed due to his contact with material bodies do not entangle him."
+  ]
+ },
+ "13.33": {
+  "en": [
+   "The air enters into water, mud, stool and whatever else is there; still it does not mix with anything. Similarly, the living entity, even though situated in varieties of bodies, is aloof from them due to his subtle nature. Therefore it is impossible to see with the material eyes how the living entity is in contact with this body and how he is out of it after the destruction of the body. No one in science can ascertain this."
+  ],
+  "ta": [
+   {
+    "text": "நீர், மண், மலம் மற்றும் என்னவெல்லாம் இருக்கின்றதோ எல்லாவற்றிலும் காற்று புகுகின்றது; இருப்பினும் அஃது எதனுடனும் கலப்பதில்லை. அதுபோலவே உயிர்வாழி பல்வேறு விதமான உடல்களில் அமைந்திருந்தாலும் தனது நுண்ணிய தன்மையினால் அவற்றிலிருந்து தனித்து விளங்குகின்றான். எனவே ஆத்மா இவ்வுடலின் தொடர்பில் இருப்பது எவ்வாறு என்பதையும் உடல் அழிந்த பின்னர் அவன் எவ்வாறு வெளியில் உள்ளான் என்பதையும் ஜடக் கண்களால் காண்பது சாத்தியமல்ல. ஜட விஞ்ஞானத்தில் இதை ஆய்ந்தறிய யாராலும் முடியாது.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.34": {
+  "en": [
+   "There are various theories regarding consciousness. Here in Bhagavad-gītā the example of the sun and the sunshine is given. As the sun is situated in one place, but is illuminating the whole universe, so a small particle of spirit soul, although situated in the heart of this body, is illuminating the whole body by consciousness. Thus consciousness is the proof of the presence of the soul, as sunshine or light is the proof of the presence of the sun.",
+   "When the soul is present in the body, there is consciousness all over the body, and as soon as the soul has passed from the body, there is no more consciousness. This can be easily understood by any intelligent man. Therefore consciousness is not a production of the combinations of matter. It is the symptom of the living entity. The consciousness of the living entity, although qualitatively one with the supreme consciousness, is not supreme because the consciousness of one particular body does not share that of another body. But the Supersoul, which is situated in all bodies as the friend of the individual soul, is conscious of all bodies. That is the difference between supreme consciousness and individual consciousness."
+  ],
+  "ta": [
+   {
+    "text": "உணர்வைப் பற்றி பல்வேறு கொள்கைகள் இருக்கின்றன. இங்கே பகவத் கீதையில் சூரியனும் கதிர்களும் உதாரணமாகக் கொடுக்கப்பட்டுள்ளன. ஓரிடத்தில் அமைந்துள்ள சூரியன் அகிலம் முழுவதையும் பிரகாசப்படுத்துவதைப் போல, சிறு துகளாகிய ஆன்மீக ஆத்மா உடலின் இதயத்தில் அமைந்திருந்தாலும் உணர்வின் மூலம் உடல் முழுதையும் பிரகாசப்படுத்துகின்றது. எனவே சூரியக்கதிர் அல்லது வெளிச்சமானது சூரியன் இருப்பதற்கு சாட்சியாக விளங்குவதைப் போல உணர்வானது ஆத்மா இருப்பதற்கு சாட்சியாக விளங்குகின்றது. உடலில் ஆத்மா இருக்கும்பொழுது உணர்வானது உடல் முழுவதும் காணப்படுகின்றது. ஆத்மா உடலிலிருந்து நீங்கியவுடனேயே உணர்வு எதுவும் இருப்பதில்லை. அறிவுள்ள எந்த மனிதனாலும் இதனை எளிமையாகப் புரிந்து கொள்ள முடியும். எனவே உணர்வு என்பது ஜடப் பொருள்களின் கலவையினால் உற்பத்தி செய்யப்படுவது அல்ல.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அஃது ஆத்மாவின் அறிகுறியாகும். ஆத்மாவின் உணர்வும் பரம தன்மையில் ஒன்றாக இருப்பினும், ஆத்மாவின் உணர்வு பரமானது அல்ல. ஏனெனில், ஒரு குறிப்பிட்ட உடலின் உணர்வும் மற்றொரு உடலின் உணர்வும் ஒன்றாக இருப்பதில்லை. ஆனால் ஜீவாத்மாவின் நண்பனாக எல்லா உடல்களிலும் உற்றிருக்கும் பரமாத்மாவோ எல்லா உடல்களையும் உணர்கின்றார். இதுவே தனிப்பட்ட உணர்விற்கும் பரம உணர்விற்கும் இடையிலான வேறுபாடாகும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.16": {
+  "en": [
+   "In Vedic literature we understand that Nārāyaṇa, the Supreme Person, is residing both outside and inside of every living entity. He is present both in the spiritual and material world. Although He is far, far away, still He is near to us. These are the statements of Vedic literature. Āsīno dūraṁ vrajati śayāno yāti sarvataḥ. And, because He is always engaged in transcendental bliss, we cannot understand how He is enjoying His full opulence. We cannot see or understand with these material senses. Therefore in the Vedic language it is said that to understand Him our material mind and senses cannot act. But one who has purified his mind and senses by practicing Kṛṣṇa consciousness in devotional service can see Him constantly. It is confirmed in Brahmā-saṁhitā that the devotee who has developed love for the Supreme God can see Him always, without cessation. And it is confirmed in Bhagavad-gītā (Bg. 11.54) that He can be seen and understood only by devotional service. Bhaktyā tvananyayā śakyaḥ."
+  ],
+  "ta": [
+   {
+    "text": "ஒவ்வொரு உயிர்வாழியின் உள்ளும் புறமும் பரம புருஷரான நாராயணர் வசிப்பதாக வேத இலக்கியத்திலிருந்து நாம் புரிந்து கொள்கிறோம். ஆன்மீக உலகங்கள், ஜட உலகங்கள் என இரண்டிலும் அவர் உள்ளார். அவர் வெகு தொலைவில் இருந்தாலும், நமக்கு அருகிலும் இருக்கின்றார். இவை வேத இலக்கியத்தின் கூற்றுக்கள். ஆஸீனோ தூரம் வ்ரஜதி ஷயானோ யாதி ஸர்வத: மேலும் அவர் எப்போதும் தெய்வீக ஆனந்தத்தில் ஆழ்ந்திருப்பதால் எவ்வாறு அவர் தமது முழு வைபவங்களை அனுபவிக்கின்றார் என்பதை நம்மால் புரிந்து கொள்ள இயலாது. இந்த ஜடப் புலன்களைக் கொண்டு அவரைக் காணவோ புரிந்து கொள்ளவோ நம்மால் முடியாது. எனவே நமது பௌதிக மனமோ புலன்களோ அவரைப் புரிந்துகொள்வதில் உதவாது என்று வேத மொழியில் ஆனால் எவனொருவன் தனது மனதையும் புலன்களையும் பக்தித் தொண்டின் மூலம் கிருஷ்ண உணர்வைப் பயிற்சி செய்து",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "தூய்மைப் படுத்திவிடுவானோ அவனால் அவரை இடைவிடாமல் காண முடியும். இறைவனிடம் பிரேமையை விருத்தி செய்து கொண்ட பக்தன் அவரை இடையறாது காண இயலும் என்பது பிரம்ம சம்ஹிதையிலும் உறுதி செய்யப்பட்டுள்ளது. பக்தித் தொண்டினால் மட்டுமே அவரைக் காணவும் புரிந்து கொள்ளவும் முடியும் என்பது பகவத் கீதையிலும் உறுதி செய்யப்பட்டுள்ளது. பக்த்யா தவனனயயா ஹக்ய: க் கவ அகக்",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "13.35": {
+  "en": [
+   "The purport of this Thirteenth Chapter is that one should know the distinction between the body, the owner of the body, and the Supersoul. A faithful person should at first have some good association to hear of God and thus gradually become enlightened. If one accepts a spiritual master, he can learn to distinguish between matter and spirit, and that becomes the steppingstone for further spiritual realization. A spiritual master teaches his students to get free from the material concept of life by various instructions. For instance, in Bhagavad-gītā we find Kṛṣṇa instructing Arjuna to free him from materialistic considerations.",
+   "One can understand that this body is matter; it can be analyzed with its twenty-four elements. That is the gross manifestation. And the subtle manifestation is the mind and psychological effects. And the symptoms of life are the interaction of these features. But over and above this, there is the soul, and there is also the Supersoul. The soul and the Supersoul are two. This material world is working by the conjunction of the soul and the twenty-four material elements. One who can see the constitution of the whole material manifestation as this combination of the soul and material elements and also can see the situation of the Supreme Soul becomes eligible for transfer to the spiritual world. These things are meant for contemplation and for realization, and one should have a complete understanding of this chapter with the help of the spiritual master.",
+   "Thus end the Bhaktivedanta Purports to the Thirteenth Chapter of the Śrīmad-Bhagavad-gītā in the matter of Nature, the Enjoyer, and Consciousness."
+  ],
+  "ta": [
+   {
+    "text": "இந்த பதிமூன்றாம் அத்தியாயத்தின் விளக்கம் யாதெனில் உடல், உடலின் உரிமையாளன், பரமாத்மா ஆகியவற்றிற்கு இடையிலான வேறுபாட்டை ஒருவன் புரிந்துகொள்ள வேண்டும் என்பதே. முக்திக்கான வழிமுறை, பதங்கள் எட்டிலிருந்து பன்னிரண்டு வரை எவ்வாறு விளக்கப்பட்டுள்ளதோ அதன்படி அங்கீகரிக்கப்பட வேண்டும். பின்னர் அவன் உன்னத இலக்கை நோக்கிச் செல்ல முடியும். நம்பிக்கையுள்ள மனிதன் முதலில் கடவுளைப் பற்றிக் கேட்பதற்கான ஒரு நல்ல சங்கத்தினைப் பெற்று, அதன் மூலம் படிப்படியாகத் தெளிவு பெற வேண்டும். அவன் ஆன்மீக குருவை ஏற்றுக் கொண்டால் ஜடத்திற்கும் ஆன்மாவிற்கும் இடையிலான வேறுபாட்டை அறிய அவன் கற்றுக்கொள்ள முடியும். அதுவே மேற்கொண்டு ஆன்மீக உணர்வைப் பெறுவதற்கு மைல்கல்லாக அமைகின்றது. பல்வேறு அறிவுரைகளின் மூலம் ஆன்மீக குரு தனது சீடர்களுக்கு வாழ்வின் ஜடக் கண்ணோட்டத்திலிருந்து விடுபடக் கற்றுக் கொடுக்கின்றார்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "உதாரணமாக, பௌதிகக் கருத்துக்களிலிருந்து அர்ஜுனனை விடுவிப்பதற்காக பகவத் கீதையில் கிருஷ்ணர் உபதேசிப்பதை நாம் காண்கின்றோம். இந்த உடல் பொருள் என்பதை ஒருவனால் புரிந்து கொள்ள முடியும்; உடலினை இருபத்துநான்கு மூலக்கூறுகளாக பிரித்தறிய முடியும். இது ஸ்தூல தோற்றமாகும். மனமும் மனதளவிலான விளைவுகளும் ஸூட்சும தோற்றமாகும். மேலும் இவற்றிற்கு இடையிலான விளைவுகளே வாழ்வின் அறிகுறிகளாக அமைகின்றன. ஆனால் இதற்கு அப்பாற்பட்ட நிலையில் ஆத்மா உள்ளான். பரமாத்மாவும் உள்ளார். இந்த ஜட உலகமானது ஆத்மாவும் இருபத்து நான்கு மூலப்பொருள்களும் சேர்ந்த கலவையினால் இயங்குகின்றது. ஆத்மாவும் பௌதிக மூலக்கூறுகளும் இணைந்த கலவையே இந்த முழு ஜடத் தோற்றம் என்பதையும் பரமாத்மாவின் நிலையையும் யாரால் காண முடிகின்றதோ, அவன் ஆன்மீக உலகிற்கு மாற்றம் பெற தகுதியுடையவன் ஆகின்றான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இந்த விஷயங்கள் ஆழ்ந்து சிந்திப்பதற்கும் உணர்ந்து அறிவதற்குமானவை. ஆன்மீக குருவின் மூலம் இந்த அத்தியாயத்தினை முழுமையாகப் புரிந்து கொள்வது அவசியம். ஸ்ரீமத் பகவத் கீதையின் இயற்கையும் அனுபவிப்பவன் மற்றும் உணர்வு என்னும் பதிமூன்றாம் அத்தியாயத்திற்கான பக்திவேதாந்த பொருளுரைகள் இத்துடன் நிறைவடைகின்றன. ண் மவ டி",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ }
+}

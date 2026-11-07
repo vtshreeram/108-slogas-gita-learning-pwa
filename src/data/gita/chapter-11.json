@@ -71,11 +71,11 @@
   "reference": "11.6",
   "sanskrit": "पश्यादित्यान्वसून्‍रुद्रानश्विनौ मरुतस्तथा ।\nबहून्यदृष्टपूर्वाणि पश्याश्चर्याणि भारत ॥ ६ ॥",
   "transliteration": "paśyādityān vasūn rudrān\naśvinau marutas tathā\nbahūny adṛṣṭa-pūrvāṇi\npaśyāścaryāṇi bhārata",
-  "tamil": "அஸ்வினி குமாரர்கள் மற்றும் இதர தேவர்கள் அனைவரையும் இங்கே பார். இதற்கு முன்பு யாரும் கண்டிராத, கேட்டிராத பல ஆச்சரியமான விஷயங்களையும் பார்.",
+  "tamil": "ஆதித்யர்களைப் பார்; வசுக்களைப் பார்; அசுவினி தேவரைப் பார். மருத்துக்களைப் பார்; பாரதா! இதற்குமுன் கண்டிராத பல ஆச்சரியங்களைப் பார்.",
   "english": "O best of the Bhāratas, see here the different manifestations of Ādityas, Vasus, Rudras, Aśvinī-kumāras and all the other demigods. Behold the many wonderful things which no one has ever seen or heard of before.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "important": false,
-  "tamilSource": "book"
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-11.7",
@@ -344,11 +344,11 @@
   "reference": "11.29",
   "sanskrit": "यथा प्रदीप्‍तं ज्‍वलनं पतङ्गा\nविशन्ति नाशाय समृद्धवेगा: ।\nतथैव नाशाय विशन्ति लोका-\nस्तवापि वक्‍त्राणि समृद्धवेगा: ॥ २९ ॥",
   "transliteration": "yathā pradīptaṁ jvalanaṁ pataṅgā\nviśanti nāśāya samṛddha-vegāḥ\ntathaiva nāśāya viśanti lokās\ntavāpi vaktrāṇi samṛddha-vegāḥ",
-  "tamil": "நதிகளின் பல்வேறு அலைகள் கடலை நோக்கிச் செல்வது போல, இந்த மாவிர்கள் அனைவரும் எரிகின்ற உமது வாயினுள் நுழைகின்றனர்.",
+  "tamil": "விளக்குப் பூச்சிகள் மிகவும் விரவுடனெய்தி எரிகின்ற விளக்கில் வீழ்ந்து நாசமுறுதல் போல, உலகங்கள் மிகவும் விரைவுடன் நின் வாய்களில் வந்து விழுந்து நாசமடைகின்றன.",
   "english": "I see all people rushing full speed into Your mouths, as moths dash to destruction in a blazing fire.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "important": false,
-  "tamilSource": "book"
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-11.30",
@@ -383,11 +383,11 @@
   "reference": "11.32",
   "sanskrit": "श्रीभगवानुवाच\nकालोऽस्मि लोकक्षयकृत्प्रवृद्धो\nलोकान्समाहर्तुमिह प्रवृत्त: ।\n‍ऋतेऽपि त्वां न भविष्यन्ति सर्वे\nयेऽवस्थिता: प्रत्यनीकेषु योधा: ॥ ३२ ॥",
   "transliteration": "śrī-bhagavān uvāca\nkālo ’smi loka-kṣaya-kṛt pravṛddho\nlokān samāhartum iha pravṛttaḥ\nṛte ’pi tvāṁ na bhaviṣyanti sarve\nye ’vasthitāḥ praty-anīkeṣu yodhāḥ",
-  "tamil": "தேவர்களின் இறைவனே, உக்கிரமான ரூபமே. தாங்கள் யார் என்பதை தயவு செய்து எனக்குக் கூறும். உமக்கு எனது வணக்கங்கள்: என்னிடம் கருணை காட்டும். தாங்களே ஆதி புருஷர். உங்களது நோக்கம் என்ன என்பதை அறியாததால். அதைத் தெரிந்துகொள்ள நான் விரும்புகிறேன்.",
+  "tamil": "உலகத்தை அழிக்கத் தலைப்பட்ட காலமே நான் மனிதர்களை இங்குக் கொல்லத் தொடங்கியுள்ளேன். இங்கிருதிறத்துப் படைகளிலே நிற்கும் போராட்கள் அனைவரினும் உன்னைத் தவிர வேறு யாரும் மிஞ்ச மாட்டார்கள்.",
   "english": "The Supreme Personality of Godhead said: Time I am, the great destroyer of the worlds, and I have come here to destroy all people. With the exception of you [the Pāṇḍavas], all the soldiers here on both sides will be slain.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "important": false,
-  "tamilSource": "book"
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-11.33",
@@ -591,7 +591,7 @@
   "reference": "11.49",
   "sanskrit": "मा ते व्यथा मा च विमूढभावो\nदृष्ट्वा रूपं घोरमीदृङ्‍ममेदम् ।\nव्यपेतभी: प्रीतमना: पुनस्त्वं\nतदेव मे रूपमिदं प्रपश्य ॥ ४९ ॥",
   "transliteration": "mā te vyathā mā ca vimūḍha-bhāvo\ndṛṣṭvā rūpaṁ ghoram īdṛṅ mamedam\nvyapeta-bhīḥ prīta-manāḥ punas tvaṁ\ntad eva me rūpam idaṁ prapaśya",
-  "tamil": "எனது இந்த கோரமான உருவத்தைக் கண்டு நீ மிகவும் பாதிக்கப்பட்டு குழம்பியுள்ளாய். இனி இது முடிவு பெறட்டும். என் பக்தனே, எல்லாக் குழப்பங்களிலிருந்தும் விடூுபடுவாயாக. அமைதியான மனதுடன் நீ விரும்பும் உருவத்தை தற்போது நீ காணலாம்.",
+  "tamil": "எனது இந்த கோரமான உருவத்தைக் கண்டு நீ மிகவும் பாதிக்கப்பட்டு குழம்பியுள்ளாய். இனி இது முடிவு பெறட்டும். என் பக்தனே, எல்லாக் குழப்பங்களிலிருந்தும் விடுபடுவாயாக. அமைதியான மனதுடன் நீ விரும்பும் உருவத்தை தற்போது நீ காணலாம்.",
   "english": "You have been perturbed and bewildered by seeing this horrible feature of Mine. Now let it be finished. My devotee, be free again from all disturbances. With a peaceful mind you can now see the form you desire.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "important": false,

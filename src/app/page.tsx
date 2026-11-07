@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { CheckCircle, Undo2, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { TOTAL_SHLOKAS } from "@/lib/shlokas";
@@ -20,7 +20,8 @@ import { ReviewQueue } from "@/components/review-queue";
 import { LinePractice } from "@/components/line-practice";
 import { StudyTools } from "@/components/study-tools";
 import { SaveStatus } from "@/components/save-status";
-import { AllVerses } from "@/components/all-verses";
+import { useAllVerses } from "@/hooks/use-all-verses";
+import type { GitaVerse } from "@/lib/gita-verses";
 
 function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
   const [signingIn, setSigningIn] = useState(false);
@@ -61,7 +62,7 @@ export default function Home() {
   const [completedOpen, setCompletedOpen] = useState(false);
   const [statsOpen, setStatsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [view, setView] = useState<"learn" | "all">("learn");
+  const [browse, setBrowse] = useState<GitaVerse | null>(null);
   const [audioAvailable, setAudioAvailable] = useState(true);
   const [linePracticeActive, setLinePracticeActive] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -81,15 +82,32 @@ export default function Home() {
     rateRecall, syncStatus, storageError, online, retrySave
   } = useShlokaState(user?.uid ?? null);
 
+  const { verses: allVerses } = useAllVerses(ready);
+
+  // Any jump to one of the 108 (review queue, completed list, picker) returns to the learning card.
+  const activeId = active?.id;
+  useEffect(() => { setBrowse(null); }, [activeId]);
+
+  /** Reading mode steps through all 657; learning mode keeps stepping through the 108. */
+  const stepBrowse = useCallback((delta: number) => {
+    if (!browse || !allVerses) return;
+    const i = allVerses.findIndex((v) => v.id === browse.id) + delta;
+    const target = allVerses[i];
+    if (!target) return;
+    if (target.important) { setBrowse(null); goToShloka(target.id); } else setBrowse(target);
+  }, [browse, allVerses, goToShloka]);
+  const onNext = useCallback(() => (browse ? stepBrowse(1) : next()), [browse, stepBrowse, next]);
+  const onPrev = useCallback(() => (browse ? stepBrowse(-1) : prev()), [browse, stepBrowse, prev]);
+
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (view !== "learn" || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('[role="dialog"]') || (event.target instanceof Element && event.target.closest('input,textarea,select,button,a,summary,[role="slider"],[contenteditable="true"]'))) return;
-      if (event.key === "ArrowRight") { event.preventDefault(); next(); }
-      if (event.key === "ArrowLeft") { event.preventDefault(); prev(); }
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('[role="dialog"]') || (event.target instanceof Element && event.target.closest('input,textarea,select,button,a,summary,[role="slider"],[contenteditable="true"]'))) return;
+      if (event.key === "ArrowRight") { event.preventDefault(); onNext(); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); onPrev(); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [next, prev, view]);
+  }, [onNext, onPrev]);
 
   if (authChecking || (!ready && user)) return <LoaderQuote />;
 
@@ -131,7 +149,7 @@ export default function Home() {
             >
               {theme === "dark" ? <Moon className="h-3.5 w-3.5" /> : <Sun className="h-3.5 w-3.5" />}
             </button>
-            {view === "learn" && <button
+            {!browse && <button
               onClick={() => {
                 if (isMastered) undoLearnedForActive(active.id);
                 else setConfirmLearnedOpen(true);
@@ -158,16 +176,6 @@ export default function Home() {
           <span className="text-lg font-bold tabular-nums text-[#8f6422] dark:text-[#d4aa61]">{progressPct}%</span>
         </button>
 
-        <div className="grid grid-cols-2 gap-1 rounded-xl bg-[#fcebc4] p-1 dark:bg-[#2d2218]" role="group" aria-label="View">
-          {([["learn", "Learn 108"], ["all", "All verses"]] as const).map(([id, label]) => (
-            <button key={id} aria-pressed={view === id} onClick={() => { setView(id); window.scrollTo({ top: 0 }); }}
-              className={`min-h-9 rounded-lg px-3 text-xs font-bold transition-colors ${view === id ? "bg-white text-[#8f6422] shadow-sm dark:bg-[#1e1710] dark:text-[#d4aa61]" : "text-[#705735] dark:text-[#bda27e]"}`}>{label}</button>
-          ))}
-        </div>
-        {view === "all" ? (
-          <AllVerses onStudy={(id) => { goToShloka(id); setView("learn"); window.scrollTo({ top: 0 }); }} />
-        ) : (
-          <>
         <ShlokaCard
           active={active}
           activeGlobalIndex={activeGlobalIndex}
@@ -178,24 +186,25 @@ export default function Home() {
           activeProgress={activeProgress}
           onMarkStep={markStep}
           onRecallMissed={recallMissed}
-          onSwipeLeft={next}
-          onSwipeRight={prev}
+          onSwipeLeft={onNext}
+          onSwipeRight={onPrev}
           onJumpTo={goTo}
           isFavorite={isFavorite(active.id)}
           onToggleFavorite={() => toggleFavorite(active.id)}
+          allVerses={allVerses}
+          browse={browse}
+          onBrowse={setBrowse}
         />
-        <StudyTools dueCount={dueReviews.length}>
+        {!browse && <StudyTools dueCount={dueReviews.length}>
           <ReviewQueue due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={goToShloka} />
           <LinePractice key={active.id} shloka={active} audioRef={audioRef} cues={profile.lineCues[active.id]} onSave={(cues) => setLineCues(active.id, cues)} onActiveChange={setLinePracticeActive} />
           <VerseStudy shloka={active} />
           <OfflineLibrary reference={active.reference} />
-        </StudyTools>
-          </>
-        )}
+        </StudyTools>}
         {(storageError || syncStatus === "error" || !online) && <SaveStatus status={syncStatus} storageError={storageError} online={online} onRetry={retrySave} />}
       </div>
 
-      {view === "learn" && <AudioErrorBoundary>
+      {!browse && <AudioErrorBoundary>
         <AudioPlayer
           audioSrc={audioSrc}
           elementRef={audioRef}

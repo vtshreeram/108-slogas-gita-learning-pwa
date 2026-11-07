@@ -8,6 +8,12 @@ The existing A.C. Bhaktivedanta Swami Prabhupada translation is retained. This c
 
 Reference edition: [Bhagavad-gītā As It Is, VedaBase](https://vedabase.io/en/library/bg/). The app links to each verse. The original selection source remains in `SHLOKA_SOURCE`.
 
+## English purports
+
+Prabhupada's purports come from the ISKCON Press books archive ([iskconpress/books](https://github.com/iskconpress/books), the `bg` folder), fetched as a single shallow clone with `python3 scripts/import_english_purports.py <clone>`: no per-verse crawling. Each verse is matched to its file by chapter and verse, and accepted only if the file's Sanskrit (identical across editions) matches the app's. 627 of 657 verses have a purport; 30 have none in the book. Three groups the archive keeps together (17.8-10, 18.13-14, 18.36-37) show the shared purport on each verse. See [purport-import-report.md](purport-import-report.md).
+
+The archive follows the original 1972 edition, while some English translations in the app use the Vedabase wording, so a purport may occasionally quote slightly different words than the translation above it. The purports are copyrighted BBT text (the archive carries no licence): keep this use personal unless you hold the rights. Tamil purports are only present where proofread (currently 1.1).
+
 ## Tamil (current): the Tamil book
 
 Tamil meanings now come from the Tamil edition of *Bhagavad-gītā As It Is* in `docs/Tamil_Bhagavad_Gita/` (800 scanned pages, OCR'd), via `python3 scripts/import_tamil_book.py [--apply]`. Only the verse translation (மொழிபெயர்ப்பு) is imported; the book's purports are not. The book is a copyrighted BBT work: keep this use personal unless you hold the rights.

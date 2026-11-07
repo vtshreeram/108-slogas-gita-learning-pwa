@@ -1,0 +1,560 @@
+{
+ "5.1": {
+  "en": [
+   "In this Fifth Chapter of the Bhagavad-gītā, the Lord says that work in devotional service is better than dry mental speculation. Devotional service is easier than the latter because, being transcendental in nature, it frees one from reaction. In the Second Chapter, preliminary knowledge of the soul and its entanglement in the material body were explained. How to get out of this material encagement by buddhi-yoga, or devotional service, was also explained therein. In the Third Chapter, it was explained that a person who is situated on the platform of knowledge no longer has any duties to perform. And, in the Fourth Chapter, the Lord told Arjuna that all kinds of sacrificial work culminate in knowledge. However, at the end of the Fourth Chapter, the Lord advised Arjuna to wake up and fight, being situated in perfect knowledge. Therefore, by simultaneously stressing the importance of both work in devotion and inaction in knowledge, Kṛṣṇa has perplexed Arjuna and confused his determination. Arjuna understands that renunciation in knowledge involves cessation of all kinds of work performed as sense activities. But if one performs work in devotional service, then how is work stopped? In other words, he thinks that sannyāsam, or renunciation in knowledge, should be altogether free from all kinds of activity because work and renunciation appear to him to be incompatible. He appears not to have understood that work in full knowledge is nonreactive and is therefore the same as inaction. He inquires, therefore, whether he should cease work altogether, or work with full knowledge."
+  ],
+  "ta": [
+   {
+    "text": "பகவத் கீதையின் இந்த ஐந்தாம் அத்தியாயத்தில் வறட்டு மனக் கற்பனையைவிட பக்தித் தொண்டில் செயலாற்றுவதே சிறந்தது என்கிறார் பகவான். வறட்டு மனக் கற்பனையைவிட பக்தித் தொண்டு எளிதானது. ஏனெனில் இயற்கையிலேயே திவ்யமான இஃது ஒருவனை விளைவுகளிலிருந்து விடுவிக்கின்றது. இரண்டாம் அத்தியாயத்தில் ஆத்மாவைப் பற்றிய ஆரம்ப அறிவும் ஜட உடலில் அதன் பிணைப்பும் விளக்கப்பட்டது. புத்தி யோகம் எனப்படும் பக்தித் தொண்டின் மூலம், இந்த பௌதிக பந்தத்திலிருந்து வெளியேறுவது எப்படி என்பதும் அங்கே விளக்கப்பட்டது. மூன்றாம் அத்தியாயத்தில் ஞானத்தின் தளத்தில் நிலை பெற்றவனுக்கு செய்ய வேண்டிய கடமைகள் ஏதுமில்லை என்று விளக்கப்பட்டது. நான்காம் அத்தியாயத்தில் எல்லாவிதமான யாகச் செயல்களும் ஞானத்தில் முற்றுப் பெறுவதாக அர்ஜுனனிடம் பகவான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இருப்பினும், நான்காம் அத்தியாயத்தின் இறுதியில் பக்குவமான ஞானத்தில் நிலைபெற்று, எழுந்து போரிடுவாயாக என்று அர்ஜுனனை அறிவுறுத்தினார் பகவான். இவ்வாறாக பக்தியுடன் செயலாற்றுவதையும் ஞானத்தில் செயலின்மையையும் ஒரே நேரத்தில் வலியுறுத்திய கிருஷ்ணர், அர்ஜுனனைக் குழப்பி அவனது உறுதியைக் குலைத்துவிட்டார். புலன்களால் செய்யப்படும் அனைத்து செயல்களையும் முற்றிலுமாக நிறுத்திவிடுவதே ஞானத்தின் என்று அர்ஜுனன் எண்ணிக் கொண்டிருந்தான். ஆனால் பக்தித் தொண்டில் செயலாற்றினால், செயல் நிறுத்தப்படுவது எங்ஙனம்? வேறுவிதமாகக் கூறினால், அர்ஜுனனைப் பொறுத்தவரையில் செயலும் துறவும் ஒன்றுக்கொன்று ஒத்துப் போகாதவையாகத் தோன்றுவதால் சந்நியாசம் (ஞானத்துடனான துறவு) என்றால் எல்லாவிதமான செயல்களிலிருந்தும் முழுமையாக விடுபட்டிருப்பது என்று",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "எண்ணுகிறான். முழு ஞானத்துடன் செயல்படுதல் விளைவுகளுக்கு அப்பாற்பட்டது என்பதால் அது செயலின்மைக்கு ஒப்பானது என்பதை அர்ஜுனன் அறியவில்லை போலத் தோன்றுகின்றது. எனவே செயலை முற்றிலும் துறந்துவிடுவதா அல்லது முழு அறிவுடன் செயல்படுவதா என்று வினவுகிறான் அர்ஜுனன்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.2": {
+  "en": [
+   "Fruitive activities (seeking sense gratification) are cause for material bondage. As long as one is engaged in activities aimed at improving the standard of bodily comfort, one is sure to transmigrate to different types of bodies, thereby continuing material bondage perpetually. Śrīmad-Bhāgavatam confirms this as follows:",
+   "nūnaṁ pramattaḥ kurute vikarma yad indriya-prītaya āpṛṇoti na sādhu manye yata ātmano 'yam asann api kleśada āsa dehaḥ parābhavas tāvad abodha-jāto yāvanna jijñāsata ātma-tattvam yāvat kriyās tāvad idaṁ mano vai karmātmakaṁ yena śarīra-bandhaḥ evaṁ manaḥ karma-vaśaṁ prayuṅkte avidyayātmany upadhīyamāne prītir na yāvan mayi vāsudeve na mucyate deha-yogena tāvat",
+   "\"People are mad after sense gratification, and they do not know that this present body, which is full of miseries, is a result of one's fruitive activities in the past. Although this body is temporary, it is always giving one trouble in many ways. Therefore, to act for sense gratification is not good. One is considered to be a failure in life as long as he makes no inquiry about the nature of work for fruitive results, for as long as one is engrossed in the consciousness of sense gratification, one has to transmigrate from one body to another. Although the mind may be engrossed in fruitive activities and influenced by ignorance, one must develop a love for devotional service to Vāsudeva. Only then can one have the opportunity to get out of the bondage of material existence.\" (Bhāg. 5.5.4-6)",
+   "Therefore, jñāna (or knowledge that one is not this material body but spirit soul) is not sufficient for liberation. One has to act in the status of spirit soul, otherwise there is no escape from material bondage. Action in Kṛṣṇa consciousness is not, however, action on the fruitive platform. Activities performed in full knowledge strengthen one's advancement in real knowledge. Without Kṛṣṇa consciousness, mere renunciation of fruitive activities does not actually purify the heart of a conditioned soul. As long as the heart is not purified, one has to work on the fruitive platform. But action in Kṛṣṇa consciousness automatically helps one escape the result of fruitive action so that one need not descend to the material platform. Therefore, action in Kṛṣṇa consciousness is always superior to renunciation, which always entails a risk of falling. Renunciation without Kṛṣṇa consciousness is incomplete, as is confirmed by Śrīla Rūpa Gosvāmī in his Bhakti-rasāmṛta-sindhu.",
+   "prāpañcikatayā buddhyā hari-sambandhi-vastunaḥ mumukṣubhiḥ parityāgo vairāgyaṁ phalgu kathyate.",
+   "\"Renunciation by persons eager to achieve liberation of things which are related to the Supreme Personality of Godhead, though they are material, is called incomplete renunciation.\" Renunciation is compete when it is in the knowledge that everything in existence belongs to the Lord and that no one should claim proprietorship over anything. One should understand that, factually, nothing belongs to anyone. Then where is the question of renunciation? One who knows that everything is Kṛṣṇa's property is always situated in renunciation. Since everything belongs to Kṛṣṇa, everything should be employed in the service of Kṛṣṇa. This perfect form of action in Kṛṣṇa consciousness is far better than any amount of artificial renunciation by a sannyāsī of the Māyāvādī school."
+  ],
+  "ta": [
+   {
+    "text": "(பலனுகர்ச்சியைத் தேடும்) பலன்நோக்குச் செயல்களே பெளதிக பந்தத்திற்கு காரணமாகும். உடல் செளகரியத்தின் தரத்தை அதிகரிக்கும் நோக்கத்துடன் செய்யப்படக்கூடிய செயல்களில் ஒருவன ஈடுபட்டிருக்கும் வரை அவன பல்வேறு! வகையான உடல்களை மாற்றுவதும் அதனால் பெளதிக பந்தத்தை நீட்டித்துக் கொள்வதும் உறுதியாகும். பாகவதம் இதனை பின்வருமாறு! உறுதிப்படுத்துகிறது' நூனம் பரமத்த குருதே விகர்ம பத் இந்தரிய-ப்ரிதய ஆப்ருணோதி ந ஸாது மன்யே யத ஆத்மனோ (அரம் அஸனன அபி கலேஹ்-த ஆஸ தேஹ: பராபவஸ் தாவத் அயோத-ஜாதோ பாவன் ன ஜிகஞாஸத ஆத்ம-தத்த்வம் பாவத் கரியாஸ் தாவத் இதம் மனோ வை கங்றாத்மகம் ஏன ஹரிர-பந்த. ஏனம் மன: கர்வ-வஷ் பரபஙக்தே அணித்பயாத்மன் யபத்ியமானே ந யாவன் வாஸுதேவே! ந முச்யதே தேஹ-யோகேன தாவத் மக்கள் புலனுகர்ச்சியில் பித்தயமிடித்து அலைகின்றனர்.",
+    "verified": false
+   },
+   {
+    "text": "கடந்த காலத்தில் செய்த ப்லன்நோக்குச் செயல்களின் விளைவே! முழுக்க முழுக்க துன்பத்துடன் கூடிய தற்போதைய உடல் என்பதை அவர்கள் அறியவில்லை. இவ்வுடல் தற்காலிகமானது என்றாலும் பல்வேறு விதங்களில் இஃது எப்போதும் தொல்லை கொடுத்துக் கொண்டுள்ளது. எனவே! புலனுகர்ச்சிக்காகச் செயலாற்றுவது நல்லதல்ல. ஒருவன் தனது உணமை நிலையினைப் பற்றி வினவாதவறை அவனது வாழ்க்கை தோல்ணியள்ளதாகக் கருதப்படுகிறது. அவன் அந்த உணமை நிலையினை அறிந்து கொள்ளாதவரை பலன்நோக்குச் செயல்களை (பலனுகர்ச்சிக்காக) செய்தாக வேண்டும். மேலும் புலனுகர்ச்சி என்னும் உளரல் ஒருவன் மாழ்கியள்ளவரை அவன் தனது உடல்களை மாற்றிக் கொண்டுதான் இருக்க வேண்டும். மனமானது பலன்நோக்குச் செயல்களில் மூற்கிபிருநதாலும் சரி. அறியாமையினால் பாதிக்கப்பட்டிருந்தாலும் சரி வாஸுதேலரின் பக்தித் தொண்டின் மீதான அன்பை வளர்த்தல் அவசியம்.",
+    "verified": false
+   },
+   {
+    "text": "அவ்வாறு செய்தால் மட்டுமே பெளதிக வாழ்க்கை என்னும் பினைப்பிலிருநது வெளியேற வாய்ப கிட்டும். எனவே முக்தியடைவதற்கு ஞானம் (தான இந்த ஜட லலை, ஆன்மீக ஆத்மா என்ற அறிவ மட்டும் போதுமானதலை. ஆன்மீக ஆத்மா என்ற நிலையில செயலாற்ற வேண்டும். இல்லையேல், பெளதிக பிணைப்பிலிருந்து தப்பிக்க முடியாது. கிருஸ்ண உளர்ில் செய்யப்படும் செயல்கள் பலனை நோக்கிச் செய்யப்படுபவை யல்ல. முழு ஞானத்துடன் செய்யப்படும் அச்செயல்கள் உண்மை ஞானத்தின் முன்னேற்றப் பாதையை! பலப்படுத்துகின்றன. ஆனால் கிருஷ்ண ஈடுபடாமல் வெறுமனே ப்லன்நோக்குச் செயல்களைத் தறக்கக் கூடிய கட்டுண்ட ஆத்மாவின் இதயம் உண்மையில் தாய்மையடையாது. அவ்வாறு! இதயம் தூயமையடையாத காரணத்தால் அவன் மீண்டும் பலன்றோக்குத் தளத்தில் செயல்பட வேண்டி வரும்.",
+    "verified": false
+   },
+   {
+    "text": "மறபறம் கிருஷ்ண உளரல் செய்யப்படும் செயல்கள் பலன நோக்குச் செயல்களின் விளைவுகளிலிருந்து ஒருவனை தானாக விடுபடச் செய்வதால், அவன் பெளதிகத் தளத்திற்கு இறங்கி வர வேண்டிய அவசியமில்லை. எனவே! கிருஷ்ண செயல்படுவது எக்கணமும் ச்சியடையலாம் என்ற அபாயத்துடன கூடிய துறவைக் காட்டிலும் எப்போதும் மேலானதேயாகும். கோஸ்வாமி தனது பக்தி ரஸாம்ருத சிந்துவில் உறுதி செய்துள்ளபடி, கிருஷ்ண உணர்வற்ற துறவு மணமானதல்ை: பராபஞ்சிகதயா புத்த்பா ஹரி-ஸபம்பந்தி வஸ்துன: பரித்பாகோ வைராக்யம் பல்கு கத்யதே முக்தியடைய விரும்பும் நபர்கள் பரம புருஷ பகவாஜுடன் தொடர்புடைய பொருள்களை பெளதிகமானவையாக எனா துறக்கின்றனர். எனவே! அவர்களது! தறல முழுமையானதல்ல என்ற! இருக்கக்கூடிய அனைத்தும் இறைவனுக்குச் சொந்தமானது என்பதால், யாரும் எதன்மீதும் உரிமை கொண்டாடக் என்னும் ஞானத்துடன் கடிய தற] முழுமையானதாகும்.",
+    "verified": false
+   },
+   {
+    "text": "உண்மையில் யாருக்கும் எதுவும் சொந்தமில்லை என்பதை ஒருவன் வேண்டும். அவ்வாறு உணர்ந்த பின்னர் துற என்ற கேள்விக்கு எங்கு இடம்? அனைத்தும் கிருஷ்ணருடைய சொத்து என்பதை அறிபவன் எப்போதுமே துறவில் நிலை பெற்றுள்ளான். அணைத்தும் கிருஸ்ணருக்குச் சொந்தமானது என்பதால், அனைத்தையும் அவரத தொண்டில் ஈடுபடுத்த வேண்டும். கிருஷ்ண உணர்வில் செய்யப்படும் இத்தகு பக்குவமான செயல் மாயாவாத பள்ளியைச் சார்ந்த சந்றிபாசியின் எத்தகைய செயற்கையான தறவையும் விட, பனமடஙகுச் சிறநததாகும். அண டி",
+    "verified": false
+   }
+  ]
+ },
+ "5.7": {
+  "en": [
+   "One who is on the path of liberation by Kṛṣṇa consciousness is very dear to every living being, and every living being is dear to him. This is due to his Kṛṣṇa consciousness. Such a person cannot think of any living being as separate from Kṛṣṇa, just as the leaves and branches of a tree are not separate from the tree. He knows very well that by pouring water on the root of the tree, the water will be distributed to all the leaves and branches, or by supplying food to the stomach, the energy is automatically distributed throughout the body. Because one who works in Kṛṣṇa consciousness is servant to all, he is very dear to everyone. And, because everyone is satisfied by his work, he is pure in consciousness. Because he is pure in consciousness, his mind is completely controlled. And, because his mind is controlled, his senses are also controlled. Because his mind is always fixed on Kṛṣṇa, there is no chance of his being deviated from Kṛṣṇa. Nor is there a chance that he will engage his senses in matters other than the service of the Lord. He does not like to hear anything except topics relating to Kṛṣṇa; he does not like to eat anything which is not offered to Kṛṣṇa; and he does not wish to go anywhere if Kṛṣṇa is not involved. Therefore, his senses are controlled. A man of controlled senses cannot be offensive to anyone. One may ask, \"Why then was Arjuna offensive (in battle) to others? Wasn't he in Kṛṣṇa consciousness?\" Arjuna was only superficially offensive because (as has already been explained in the Second Chapter) all the assembled persons on the battlefield would continue to live individually, as the soul cannot be slain. So, spiritually, no one was killed on the Battlefield of Kurukṣetra. Only their dresses were changed by the order of Kṛṣṇa, who was personally present. Therefore Arjuna, while fighting on the Battlefield of Kurukṣetra, was not really fighting at all; he was simply carrying out the orders of Kṛṣṇa in full Kṛṣṇa consciousness. Such a person is never entangled in the reactions of work."
+  ],
+  "ta": [
+   {
+    "text": "பாதையிலிருக்கும் கிருஷ்ண அனைத்து உயிர்வாழிகளுக்கும் மிகவும் பிரியமானவன். மேலும், அனைத்து உயிர்களும் அவனுக்கு பிரியமானவை. இஃது அவனது கிருஷ்ண உணர்வினாலேயே சாத்தியமாகிறது. ஒரு மரத்தின் இலைகளையும் கிளைகளையும் அதிலிருந்து தனியாகப் பிரித்துப் பார்க்க இயலாததைப் போல் கிருஷ்ண உணர்வினால் எந்த உயிரையும் கிருஷ்ணரிடமிருந்து தனியாகப் பிரித்துப் பார்க்க முடியாது. மரத்தின் வேருக்கு நீருற்றினால் அஃது எல்லா இலைகளுக்கும் கிளைகளுக்கும் விநியோகிக்கப்படும் என்றும் வயிற்றிற்கு வழங்குவதால் சக்தியானது தானாகவே உடல் முழுவதும் விநியோகிக்கப்படும் என்றும் அவன் நன்றாக அறிவான். அனைவருக்கும் சேவகனாக விளங்குவதால் கிருஷ்ண உணர்வாளன் அனைவருக்கும் பிரியமானவன். மேலும் அனைவரும் அவனது செயலால் திருப்தியடைவதால் அவனது உணர்வு தூய்மையாக உள்ளது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அவனது உணர்வு தூய்மையாக இருப்பதால் அவனது மனம் முழுமையாகக் கட்டுப்படுத்தப்பட்டுள்ளது. மேலும் அவனது மனம் கட்டுப்படுத்தப்பட்டுள்ளதால், அவனது புலன்களும் கட்டுப்படுத்தப்பட்டுள்ளன. அவனது மனம் எப்போதும் கிருஷ்ணரின் மீது நிலைத்திருப்பதால் கிருஷ்ணரிடமிருந்து அவன் விலகுவதற்கு வாய்ப்பே இல்லை. மேலும், இறைத் தொண்டைத் தவிர பிற விஷயங்களில் அவன் தனது புலன்களை ஈடுபடுத்துவான் என்பதற்கும் வாய்ப்பில்லை. கிருஷ்ணருடன் சம்பந்தப்பட்ட விஷயங்களைத் தவிர பிற விஷயங்களை அவன் கேட்க விரும்புவதில்லை. கிருஷ்ணருக்கு அர்ப்பணிக்கப்படாத எதையும் அவன் உண்ண விரும்புவதில்லை. மேலும் கிருஷ்ணருடன் சம்பந்தப்படாத எந்த இடத்திற்கும் அவன் போக ஆசைப்படுவதில்லை. எனவே அவனது புலன்கள் கட்டுப்படுத்தப்பட்டுள்ளன.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "புலன்களைக் கட்டுப்படுத்தியவன் யாருக்கும் தீங்கிழைக்க முடியாது. அப்படியெனில் அர்ஜுனன் (போரில்) மற்றவர்களுக்கு தீங்கிழைக்கவில்லையா? அப்போது அவன் கிருஷ்ண உணர்வில் இருக்கவில்லையா? என்று ஒருவர் கேட்கலாம். மேலோட்டமாக மட்டுமே அர்ஜுனன் தீங்கிழைத்தான். ஏனெனில் (ஏற்கெனவே இரண்டாம் அத்தியாயத்தில் விளக்கப்பட்டபடி) ஆத்மாவை கொல்ல முடியாது என்பதால், போர்க்களத்தில் குழுமியிருந்த அனைவரும் தங்களது தனித்தன்மையுடன் தொடர்ந்து வாழப் போகிறார்கள். எனவே ஆத்ம ரீதியில் குருக்ஷேத்திரப் போர்க்களத்தில் எவரும் கொல்லப்படவில்லை. அங்கே பிரத்தியேகமாக வீற்றிருந்த கிருஷ்ணரின் ஆணைப்படி அவர்களது ஆடைகள் மட்டுமே மாற்றப்பட்டன. எனவே குருக்ஷேத்திரப் போர்க்களத்தில் அர்ஜுனன் போரிட்டபோது உண்மையில் அவன் போர் புரியவில்லை.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அவன் பூரண கிருஷ்ண உணர்வுடன் கிருஷ்ணரது கட்டளைகளை நிறைவேற்றிக் கொண்டிருந்தான். அத்தகு மனிதன் தனது கர்ம விளைவுகளால் ஒருபோதும் பந்தப்படுவதில்லை.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.8-9": {
+  "en": [
+   "A person in Kṛṣṇa consciousness is pure in his existence, and consequently he has nothing to do with any work which depends upon five immediate and remote causes: the doer, the work, the situation, the endeavor and fortune. This is because he is engaged in the loving transcendental service of Kṛṣṇa. Although he appears to be acting with his body and senses, he is always conscious of his actual position, which is spiritual engagement. In material consciousness, the senses are engaged in sense gratification, but in Kṛṣṇa consciousness the senses are engaged in the satisfaction of Kṛṣṇa's senses. Therefore, the Kṛṣṇa conscious person is always free, even though he appears to be engaged in things of the senses. Activities such as seeing, hearing, speaking, evacuating, etc., are actions of the senses meant for work. A Kṛṣṇa consciousness person is never affected by the actions of the senses. He cannot perform any act except in the service of the Lord because he knows that he is the eternal servitor of the Lord."
+  ],
+  "ta": [
+   {
+    "text": "செய்யப்படும் செயல்கள் அனைத்தும் செய்பவன், செயல், சூழ்நிலை, முயற்சி, அதிர்ஷ்டம் என்னும் ஐந்து உடனடி மற்றும் மறைமுக காரணங்களை அடிப்படையாகக் கொண்டவை. தனது நிலையில் தூய்மையாக இருக்கும் கிருஷ்ண உணர்வாளனுக்கு எந்தச் செயலுடனும் எவ்வித தொடர்பும் இல்லை. ஏனெனில், அவன் கிருஷ்ணரது திவ்யமான அன்புத் தொண்டில் ஈடுபட்டுள்ளான். அவன் தனது உடலாலும் புலன்களாலும் செயல்படுவது போலத் தோன்றினாலும், ஆன்மீகத்தில் ஈடுபடுவதே தனது உண்மையான நிலை என்பதை அவன் எப்போதும் நினைவில் வைத்துள்ளான். ஒருவன் ஜட உணர்வில் இருக்கும்போது புலன்கள் புலனுகர்ச்சியில் ஈடுபடுத்தப்படுகின்றன. கிருஷ்ண உணர்விலோ அவை கிருஷ்ணரின் புலன்களைத் திருப்திப்படுத்துவதில் ஈடுபடுத்தப்படுகின்றன. எனவே கிருஷ்ண உணர்வில் புலன்களில் ஈடுபட்டிருப்பது போலத் தோன்றினாலும், அவன் எப்போதும் சுதந்திரமானவனே.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "பார்த்தல், கேட்டல் போன்றவை ஞான இந்திரியங்களின் செயல்களாகும். நகர்தல், பேசுதல், கழித்தல் போன்றவை கர்ம இந்திரியங்களின் செயல்களாகும். புலன்களின் செயல்களால் கிருஷ்ண உணர்வாளன் ஒரு போதும் பாதிக்கப் படுவதில்லை. தன்னை கடவுளின் நிரந்தரத் தொண்டனாக அவன் அறிந்துள்ளதால் இறைவனின் தொண்டினைத் தவிர வேறு எதையும் அவனால் செய்ய முடியாது.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.10": {
+  "en": [
+   "Here brahmaṇi means in Kṛṣṇa consciousness. The material world is a sum total manifestation of the three modes of material nature, technically called the pradhāna. The Vedic hymns, sarvam etad brahma, tasmād etad brahma nāma-rūpam annaṁ ca jāyate, and, in the Bhagavad-gītā, mama yonir mahad brahma, indicate that everything in the material world is the manifestation of Brahman; and, although the effects are differently manifested, they are nondifferent from the cause. In the Īśopaniṣad it is said that everything is related to the Supreme Brahman or Kṛṣṇa, and thus everything belongs to Him only. One who knows perfectly well that everything belongs to Kṛṣṇa, that He is the proprietor of everything and that, therefore, everything is engaged in the service of the Lord, naturally has nothing to do with the results of his activities, whether virtuous or sinful. Even one's material body, being a gift of the Lord for carrying out a particular type of action, can be engaged in Kṛṣṇa consciousness. It is beyond contamination by sinful reactions, exactly as the lotus leaf, though remaining in the water, is not wet. The Lord also says in the Gītā: mayi sarvāṇi karmāṇi sannyasya: \"Resign all works unto Me [Kṛṣṇa].\" The conclusion is that a person without Kṛṣṇa consciousness acts according to the concept of the material body and senses, but a person in Kṛṣṇa consciousness acts according to the knowledge that the body is the property of Kṛṣṇa and should therefore be engaged in the service of Kṛṣṇa."
+  ],
+  "ta": [
+   {
+    "text": "இங்கே என்றால் கிருஷ்ண உணர்வில் என்று பொருள். முக்குணங்களின் மொத்தக் கலவை ப்ரதான என்று அழைக்கப்படுகிறது. அதன் வெளிப்பாடே இந்த ஜட உலகம். ஸர்வம் ஹ்யேதத் ப்ரஹ்ம (மாண்டூக்ய உபநிஷத்) தஸ்மாத் ஏதத் ப்ரஹ்ம நாம ரூபம் அன்னம் ஜாயதே (முண்டக உபநிஷத்) எனும் வேத வாக்கியங்களும், மம யோனிர் மஹத் எனும் பகவத் கீதையின் வாக்கியமும் இவ்வுலகில் இருப்பவை அனைத்தும் பிரம்மனின் தோற்றங்களே என்று குறிப்பிடுகின்றன. மேலும், விளைவுகள் வெவ்வேறு விதத்தில் தோன்றியுள்ள போதிலும், அவை காரணத்திலிருந்து வேறுபடாதவை. அனைத்தும் பரபிரம்மனான கிருஷ்ணருடன் தொடர்புடையதே என்றும், அதனால் அனைத்தும் அவருக்கு மட்டுமே சொந்தமானவை என்றும் ஈஷோபநிஷத்தில் கூறப்பட்டுள்ளது. எல்லாம் கிருஷ்ணருக்குச் சொந்தமானவை என்றும், அவரே எல்லாவற்றிற்கும் உரிமையாளர் என்றும், அதன் காரணத்தால் அனைத்தும் அவருடைய தொண்டில் ஈடுபடுத்தப்பட்டுள்ளது என்றும், எவனொருவன் பக்குவமாக அறிகின்றானோ அவன் இயற்கையாகவே",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "தனது செயல்களின் (புண்ணியமானாலும் சரி பாவமானாலும் சரி) விளைவுகளில் பாதிக்கப்படாதவன் ஆகின்றான். ஒரு குறிப்பிட்ட வகையான செயலைச் செய்வதற்காக இறைவனால் அளிக்கப்பட்ட பரிசான இந்த ஜு. வலையம் நாம் கிருஷ்ண உணர்வில் ஈடுபடுத்த முடியும். நீரிலேயே இருந்தாலும் தாமரை இலை நனையாமல் இருப்பதைப் போல, கிருஷ்ண ஈடுபடுத்தப்படும் உடலும் பாவ விளைவுகளின் களங்கத்திற்கு அப்பாற்பட்டதாகும். பகவானும் கீதையில் கூறுகிறார். மயி ஸர்வாணி கர்மாணி ஸன்ன்யஸ்ய-- எல்லாச் செயல்களை என்னிடம் (கிருஷ்ணரிடம்) ஒப்படை. எனவே, முடிவு என்னவெனில், கிருஷ்ண உணர்வற்றவன் ஜட உடல் மற்றும் புலன்களின் அடிப்படையில் செயலாற்றுகிறான். ஆனால் கிருஷ்ண உணர்வாளனோ, உடல் கிருஷ்ணருடைய சொத்து என்பதால் இது கிருஷ்ணருடைய சேவையில் ஈடுபடுத்தப்பட வேண்டும் என்ற ஞானத்துடன் செயல்படுகிறான்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.11": {
+  "en": [
+   "By acting in Kṛṣṇa consciousness for the satisfaction of the senses of Kṛṣṇa, any action, whether of the body, mind, intelligence or even of the senses, is purified of material contamination. There are no material reactions resulting from the activities of a Kṛṣṇa conscious person. Therefore, purified activities, which are generally called sadācāra, can be easily performed by acting in Kṛṣṇa consciousness. Śrī Rūpa Gosvāmī in his Bhakti-rasāmṛta-sindhu describes this as follows:",
+   "īhā yasya harer dāsye karmaṇā manasā girā nikhilāsv apy avasthāsu jīvanmuktaḥ sa ucyate",
+   "A person acting in Kṛṣṇa consciousness (or, in other words, in the service of Kṛṣṇa) with his body, mind, intelligence and words is a liberated person even within the material world, although he may be engaged in many so-called material activities. He has no false ego, nor does he believe that he is this material body, nor that he possesses the body. He knows that he is not this body and that this body does not belong to him. He himself belongs to Kṛṣṇa, and the body too belongs to Kṛṣṇa. When he applies everything produced of the body, mind, intelligence, words, life, wealth, etc.-whatever he may have within his possession-to Kṛṣṇa's service, he is at once dovetailed with Kṛṣṇa. He is one with Kṛṣṇa and is devoid of the false ego that leads one to believe that he is the body, etc. This is the perfect stage of Kṛṣṇa consciousness."
+  ],
+  "ta": [
+   {
+    "text": "ஒருவன் கிருஷ்ணரது புலன்களைத் திருப்தி செய்வதற்காக கிருஷ்ண உணர்வில் செயலாற்றும் போது உடல், மனம், அறிவு அல்லது புலன்களால் கூட செய்யப்படும் அனைத்து செயல்களும் ஜடக் களங்கங்களிலிருந்து தூய்மையடைகின்றன. கிருஷ்ண பக்தனது செயல்களிலிருந்து எவ்வித ஜட விளைவுகளும் ஏற்படுவதில்லை. எனவே ஸத் ஆசார எனப்படும் தூய்மைப் படுத்தப்பட்ட செயல்கள் கிருஷ்ண உணர்வில் செயல்படுவதால் எளிதாக நிறைவேற்றப்படுகின்றன. பக்தி ரஸாம்ருத சிந்து எனும் தனது நூலில் ரூப கோஸ்வாமி பின்வருமாறு கூறுகிறார். ஹா யஸ்ய ஹரேர் கர்மணா மனஸா கிரா நிகிலாஸ்வ பயவஸ்தாஸு ஜீவன்-முக்த: ஸ உச்யதே 'தனது உடல், மனம், அறிவு மற்றும் சொற்களின் மூலம் கிருஷ்ண உணர்வில் (கிருஷ்ணரின் தொண்டில்) ஈடுபட்டுள்ளவன் பெபரளனிலான பௌதிகச் செயல்களைச் செய்யும் போதிலும், ஜீவன் முக்த (பௌதிக உலகிலும் முக்தி பெற்ற நிலையில் வாழ்பவன்) என்று அழைக்கப்படுகிறான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "தன்னை இந்த பௌதிக உடல் என்றோ உடல் தனக்குச் சொந்தமானது என்றோ அவன் நம்புவதில்லை என்பதால் அவனிடம் அஹங்காரம் இல்லை. தான் இந்த உடலல்ல என்றும் இவ்வுடல் தனக்குச் சொந்தமானதல்ல என்றும் அவன் அறிவான். அவன் கிருஷ்ணருக்குச் சொந்தமானவன். அவனது உடலும் கிருஷ்ணருக்குச் சொந்தமானதே. உடல், மனம், புத்தி, வார்த்தைகள், வாழ்க்கை, செல்வம் என தன்னிடம் உள்ள அனைத்தையும் கிருஷ்ணரின் இணைந்தவனாகிறான். தான் இந்த உடலே என்பனவற்றை நம்பச் செய்யும் அஹங்காரத்திலிருந்து விடுபட்டுள்ள அவன் கிருஷ்ணருடன் ஒன்றியுள்ளான். இதுவே கிருஷ்ண பக்குவநிலையாகும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.12": {
+  "en": [
+   "The difference between a person in Kṛṣṇa consciousness and a person in bodily consciousness is that the former is attached to Kṛṣṇa, whereas the latter is attached to the results of his activities. The person who is attached to Kṛṣṇa and works for Him only is certainly a liberated person, and he is not anxious for fruitive rewards. In the Bhāgavatam, the cause of anxiety over the result of an activity is explained as being due to one's functioning in the conception of duality, that is, without knowledge of the Absolute Truth. Kṛṣṇa is the Supreme Absolute Truth, the Personality of Godhead. In Kṛṣṇa consciousness, there is no duality. All that exists is a product of Kṛṣṇa's energy, and Kṛṣṇa is all good. Therefore, activities in Kṛṣṇa consciousness are on the absolute plane; they are transcendental and have no material effect. One is, therefore, filled with peace in Kṛṣṇa consciousness. One who is, however, entangled in profit calculation for sense gratification cannot have that peace. This is the secret of Kṛṣṇa consciousness-realization that there is no existence besides Kṛṣṇa is the platform of peace and fearlessness."
+  ],
+  "ta": [
+   {
+    "text": "கிருஷ்ண இருப்பவனுக்கு உடல் உணர்வில் இருப்பவனுக்கும் உள்ள வேறுபாடு என்னவெனில் கிருஷ்ண உணர்வாளன் கிருஷ்ணரிடமும், உடல் உணர்வாளன் தனது செயல்களின் பலன்களிலும் பற்றுதல் கொண்டிருப்பதே. கிருஷ்ணரிடம் பற்றுதல் கொண்டு அவருக்காக செயல்களின் நிச்சயமாக முக்தி அடைந்தவனாவான். அவன் தனது செயல்களின் பலனில் எவ்வித ஏக்கமும் கொள்வதில்லை. இருமையின் உணர்வில் செயல்படுவதே, அதாவது பூரண சத்தியத்தின் ஞானமின்றி செயல்படுவதே, செயலின் பலன்களின் மீதான ஏக்கத்திற்கு காரணம் என்று பாகவதத்தில் விளக்கப்பட்டுள்ளது. புருஷோத்தமரான கிருஷ்ணரே பரம பூரண உண்மை. கிருஷ்ண உணர்வில் இருமை கிடையாது. இருப்பவை எல்லாமே கிருஷ்ண சக்தியின் படைப்பே. கிருஷ்ணர் நன்மையின் உருவம். எனவே கிருஷ்ண உணர்வின் செயல்கள் பூரண தளத்தில் செய்யப்படுபவை.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "திவ்யமான அச்செயல்களுக்கு பௌதிக விளைவுகள் கிடையாது. இதனால் ஒருவன் கிருஷ்ண உணர்வால் அமைதி நிறைந்தவனாக உள்ளான். ஆனால் புலனுகர்ச்சிக்கான இலாபக் கணக்கில் மூழ்கியவன் அந்த அமைதியினைப் பெற முடியாது. கிருஷ்ணருக்குப் புறம்பே எதுவுமில்லை என்பதே அமைதி மற்றும் அச்சமின்மையின் தளம். இதனை உணர்வதே கிருஷ்ண இரக்சிபமாகுமி.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.13": {
+  "en": [
+   "The embodied soul lives in the city of nine gates. The activities of the body, or the figurative city of body, are conducted automatically by the particular modes of nature. The soul, although subjecting himself to the conditions of the body, can be beyond those conditions, if he so desires. Owing only to forgetfulness of his superior nature, he identifies with the material body, and therefore suffers. By Kṛṣṇa consciousness, he can revive his real position and thus come out of his embodiment. Therefore, when one takes to Kṛṣṇa consciousness, one at once becomes completely aloof from bodily activities. In such a controlled life, in which his deliberations are changed, he lives happily within the city of nine gates. The nine gates are described as follows:",
+   "nava-dvāre pure dehī haṁso lelāyate bahiḥ vaśī sarvasya lokasya sthāvarasya carasya ca.",
+   "\"The Supreme Personality of Godhead, who is living within the body of a living entity, is the controller of all living entities all over the universe. The body consists of nine gates: two eyes, two nostrils, two ears, one mouth, the anus and the genital. The living entity in his conditioned stage identifies himself with the body, but when he identifies himself with the Lord within himself, he becomes just as free as the Lord, even while in the body.\" (Śvet. 3.18)",
+   "Therefore, a Kṛṣṇa conscious person is free from both the outer and inner activities of the material body."
+  ],
+  "ta": [
+   {
+    "text": "உடலை அடைந்த ஆத்மா ஒன்பது கதவுகளைக் கொண்ட நகரில் வசிக்கின்றான். உடலின் (உடல் என்னும் நகரத்தின்) செயல்கள் அதன் குறிப்பிட்ட இயற்கை குணங்களால் தாமாகவே நடத்தப்படுகின்றன. ஆத்மா உடலின் நிபந்தனைகளுக்கு உட்பட்டுள்ளபோதிலும் அவன் விரும்பினால், அந்த நியதிகளுக்கு அப்பாற்பட்டு விளங்க முடியும். தனது உயர் இயற்கையை மறந்திருப்பதால் மட்டுமே, அவன் தன்னை பௌதிக உடலாக எண்ணி துன்பங்களுக்கு ஆளாகின்றான். கிருஷ்ண உணர்வின் மூலம் அவன் தனது உண்மை நிலையை பதயபித்து உடல் என்னும் சிறையிலிருந்து வெளி இயலும். எனவே கிருஷ்ண உணர்வை ஏற்றுக் கொண்டவுடன் உடல் சார்ந்த செயல்களிலிருந்து ஒருவன் முழுமையாக விடுபடுகின்றான். அவனுடைய எண்ணங்கள் மாற்றப்பட்டு கட்டுப்பாடுகளுடன் கூடிய வாழ்வில் ஒன்பது வாயில்கள் கொண்ட நகரில் இன்பமாக வாழ்கிறான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஒன்பது வாயில்கள் பின்வருமாறு விளக்கப்படுகின்றன. நவ-த்வாரே புரே தேஹி ஹமிளேபா லேலாயதே பஹு: வி ஸர்வஸ்ய லோகஸ்ய ஸ்தாவரஸ்ய சரஸ்ய ச 'உயிர்வாழியின் உடலில் வாழும் பரம பகவான் பிரபஞ்சம் எங்கிலும் உள்ள உயிர்வாழிகளைக் கட்டுப்படுத்துபவர். உடல் ஒன்பது வாயில்களை (இரு கண்கள், இரு காதுகள், இரு நாசித் துவாரங்கள், ஒரு வாய், மலவாய், பாலுறுப்பு ஆகியவற்றை) உடையது. கட்டுண்ட நிலையில் உள்ள உயிர்வாழி தன்னை உடலுடன் அடையாளம் காண்கிறான். ஆனால் அவன் தனக்குள்ளிருக்கும் இறைவனுடன் தன்னை அடையாளம் காணும்போது உடலினுள் உள்ளபோதிலும் இறைவனைப் போல சுதந்திரமானவன் ஆகின்றான். ஸ்வேதாஸ்வதர உபநிஷத். எனவே கிருஷ்ண உணர்வாளன் ஜட உடலின் அகச் செயல்கள், புறச் செயல்கள் இரண்டிலிருந்தும் விடுதலை பெற்றவனாவான்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.14": {
+  "en": [
+   "The living entity, as will be explained in the Seventh Chapter, is one in nature with the Supreme Lord, distinguished from matter, which is another nature-called inferior-of the Lord. Somehow, the superior nature, the living entity, has been in contact with material nature since time immemorial. The temporary body or material dwelling place which he obtains is the cause of varieties of activities and their resultant reactions. Living in such a conditional atmosphere, one suffers the results of the activities of the body by identifying himself (in ignorance) with the body. It is ignorance acquired from time immemorial that is the cause of bodily suffering and distress. As soon as the living entity becomes aloof from the activities of the body, he becomes free from the reactions as well. As long as he is in the city of body, he appears to be the master of it, but actually he is neither its proprietor nor controller of its actions and reactions. He is simply in the midst of the material ocean, struggling for existence. The waves of the ocean are tossing him, and he has no control over them. His best solution is to get out of the water by transcendental Kṛṣṇa consciousness. That alone will save him from all turmoil."
+  ],
+  "ta": [
+   {
+    "text": "முழுமுதற் கடவுளின் சக்தியில் (இயற்கையில்) ஒன்றான உயிர்வாழி அவரது கீழ்நிலை இயற்கையான ஜடத்திலிருந்து வேறு பட்டவன் என்பது பின்வரும் ஏழாம் அத்தியாயத்தில் விளக்கப்படும். உயர் இயற்கையான ஆத்மா நினைவிற்கெட்டா காலத்திலிருந்து எப்படியோ ஜட இயற்கையின் தொடர்பில் உள்ளது. பலதரப்பட்ட செயல்களுக்கும் அவற்றின் எதிர் விளைவுகளுக்கும், உயிர்வாழியின் தற்காலிக சரீரமே (ஜடத்தின் தளமே) காரணம். இத்தகு கட்டுண்ட சூழ்நிலையில் வாழ்பவன் (அறியாமையினால்) தன்னை உடலெனக் கருதி தனது உடலால் செய்யும் செயல்களின் விளைவுகளால் துன்பப்படுகிறான். நினைவுக் கெட்டாத காலத்திலிருந்து சேர்த்து வைத்துள்ள அறியாமையே உடல் சார்ந்த சுக துக்கங்களுக்குக் காரணம். உயிர்வாழி உடலின் செயல்களிலிருந்து விடுபட்ட உடனே விளைவுகளிலிருந்தும் விடுபடுகிறான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "உடல் என்னும் நகரத்தில் வசிக்கும்வரை அவன் அதன் நாயகனாகத் தோன்றுகிறான். ஆனால் உண்மையில் அவன் உடலின் உரிமையாளனும் அல்ல, அதன் செயல்களையும் விளைவுகளையும் கட்டுப்படுத்துபவனும் அல்ல. அவன் பௌதிக கடலின் நடுவே வாழ்க்கையெனும் போராட்டத்தில் தத்தளித்துக் கொண்டிருப்பவன். தன்னை அலைக்கழிக்கக்கூடிய கடலின் அலைகளை அவனால் கட்டுப்படுத்த முடியவில்லை. நீரிலிருந்து கரையேறுவதற்கு திவ்யமான கிருஷ்ண உணர்வே சிறந்த தீர்வாகும். இது மட்டுமே அவனை எல்லா சிக்கல்களிலிருந்தும் காக்கும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.15": {
+  "en": [
+   "The Sanskrit word vibhuḥ means the Supreme Lord who is full of unlimited knowledge, riches, strength, fame, beauty and renunciation. He is always satisfied in Himself, undisturbed by sinful or pious activities. He does not create a particular situation for any living entity, but the living entity, bewildered by ignorance, desires to be put into certain conditions of life, and thereby his chain of action and reaction begins. A living entity is, by superior nature, full of knowledge. Nevertheless, he is prone to be influenced by ignorance due to his limited power. The Lord is omnipotent, but the living entity is not. The Lord is vibhu, or omniscient, but the living entity is aṇu, or atomic. Because he is a living soul, he has the capacity to desire by his free will. Such desire is fulfilled only by the omnipotent Lord. And so, when the living entity is bewildered in his desires, the Lord allows him to fulfill those desires, but the Lord is never responsible for the actions and reactions of the particular situation which may be desired. Being in a bewildered condition, therefore, the embodied soul identifies himself with the circumstantial material body and becomes subjected to the temporary misery and happiness of life. The Lord is the constant companion of the living entity as Paramātmā, or the Supersoul, and therefore He can understand the desires of the individual soul, as one can smell the flavor of a flower by being near it. Desire is a subtle form of conditioning of the living entity. The Lord fulfills his desire as he deserves: Man proposes and God disposes. The individual is not, therefore, omnipotent in fulfilling his desires. The Lord, however, can fulfill all desires, and the Lord, being neutral to everyone, does not interfere with the desires of the minute independant living entities. However, when one desires Kṛṣṇa, the Lord takes special care and encourages one to desire in such a way that one can attain to Him and be eternally happy. The Vedic hymn therefore declares:",
+   "eṣa u hy eva sādhu karma kārayati taṁ yamebhyo lokebhya unninīṣate eṣa u evāsādhu karma kārayati yamadho ninīṣate. ajño jantur anīso 'yam ātmanaḥ sukha-duḥkhayoḥ īśvara-prerito gacchet svargaṁ vāśvabhram eva ca.",
+   "\"The Lord engages the living entity in pious activities so he may be elevated. The Lord engages him in impious activities so he may go to hell. The living entity is completely dependant in his distress and happiness. By the will of the Supreme he can go to heaven or hell, as a cloud is driven by the air.\"",
+   "Therefore the embodied soul, by his immemorial desire to avoid Kṛṣṇa consciousness, causes his own bewilderment. Consequently, although he is constitutionally eternal, blissful and cognizant, due to the littleness of his existence he forgets his constitutional position of service to the Lord and is thus entrapped by nescience. And, under the spell of ignorance, the living entity claims that the Lord is responsible for his conditional existence. The Vedānta-sūtras also confirm this:",
+   "vaiṣamya-nairghṛṇye na sāpekṣatvāt tathā hi darśayati.",
+   "\"The Lord neither hates nor likes anyone, though He appears to.\""
+  ],
+  "ta": [
+   {
+    "text": "எனும் சமஸ்கிருத வார்த்தைக்கு, அளவற்ற ஞானம், செல்வம், வலிமை புகழ், அறகு, தற ஆகியவை நிரம்பிய பரம புருஷர் என்று பொருள். அவர் பாவ ப்ண்சரிபஙகளால் பாதிக்கப்படாமல் தன்னில் திருப்தியுடையவராக விளங்குகிறார். எந்தவொரு ஆத்மாவின் அறிபாமையால் மயஙகிய ஆத்மா வாழ்வின் குறிப்பிட்ட தழ்றிலையில் வைக்கப்பட விரும்புகிறான் இவ்வாறாக அவனுடைய செயல்களும் விளைவதைளும் சங்கிலித் தொடரைப் போலத் தொடங்குகின்றன. உ௰ர் இயற்கையான ஆத்மா ஞானம் நிறைந்தவனாவான். இருப்பினும், அவனது சக்தி ஓர் எல்லைக்கு உட்பட்டதால் அவன் அறியாமையால் பாதிக்கப்படக் கூடியவன். பகவான் சர்வசக்தி உடையவர் ஆனால் ஆத்மா அப்படிப்பட்ட வனல்ல. கடவுள் ஸி (அளவற்ற ஞானம் உடையவர். ஆனால் ஆதமாலவலோ அஹுலைய் போன்றவன். ஆத்மாலிடம் உயர் சக்தி இருப்பதால் தனது சுய விருப்பப்படி ஆசைப்படுவதற்கான தகுதி அவனிடம் உள்ளது.",
+    "verified": false
+   },
+   {
+    "text": "அநத ஆசை சர்வசக்தியுடைய பகவானால் மட்டுமே நிறைவேற்றப்படும். எனவே! உயிர்வாழி தனது! விருப்பஙகளால் மயக்கப்பட்டிருக்கும் போத! அவணிருப்பஙகளை நிறைவேற்றிக கொள்ள இறைவன அனுமதிக்கிறார். ஆனால், ஆத்மாவின் விருப்பத்தால் உண்டான ஒரு தழ்நிலையின் செயல்களுக்கும் விளைவுகளுக்கும் கடவுள் என்றும் பொறுப்பாளியல்ல. மயஙகிய நிலையில உடலில் வசிக்கும் ஆத்மா, தன்னை பெளதிக உடலுடன் அடையாளம் காண்பதால், வாழ்வின் நிலையற்ற இன்ப துன்பங்களுக்கு உட்படுகிறான். மலரின் அருகில் இருப்பதால் அதன் நறுமனாத்தை நகர இயல்வது போல பரமாத்மாவாக எப்போதுமே ஆத்மாவடன் இருக்கும் இறைவனால், தணிபபட்ட ஆத்மாவின் விருப்பஙகளை அறிய முடியும். ஆசையே ஆத்மாவை செய்யும் தட்சும ரூபம். ஆத்மாவின் தகுதிக்கேற்ப கடவுள் அவனது ஆசைகளை நிறைவேற்றுகிறார்.",
+    "verified": false
+   },
+   {
+    "text": "மணிதன் விரும்புகிறான இறைவன் நடத்துகிறார். தனது ஆசைகளை நிறைவேறிறும் சர் சக்தி தணிபபட்ட ஆத்மாலிடம் இல்லை. ஆனால் கடவுளால் எல்லா ஆசைகளையும் நிறைவேற்ற இயலும். அனைவருக்கும் சமமாக விளஙகும் கடவுள் சிறிதள] சுதந்திரத்தையடைய ஆத்மாவின் ஆசைகளில் தலைமிடுவதில்லை. இருப்பினும் யாரேனும் கிருஷ்ணரை விரும்பினால், அவனின் மீது தனிக்கவனம் செலுத்தக்கூடிய பகவான், அவன் தன்ணை வந்தடைவற்கும், நித்துயப ஆனறதத்துடன் வாழ்வதற்கு ஆசைப்படுவதற்கும் உற்சாகப் படுத்துகிறார். எனலே! வேத வாக்கியம் உறுதி செய்கிறது: யேவ ஸாது கர்ம காரயதி யம் ஏப் யோ லோகேப் ய உன்ணிநீமைதே. ஏஷ ஏலா ஸாது கர்ம காறயதி யம் அதோ நிநீஷைதே 'உரிர்வாழிகள் ஏற்றம் பெறுவதற்காக கடவுள் அவர்களை புணரி காரியங்களில் ஈடுபடுத்துகிறார்.",
+    "verified": false
+   },
+   {
+    "text": "நாகத்திற்குச் செல்வதற்காக அவர்களை கடவுள் பாவ காரியங்களில் ஈடுபடுத்துகிறார். (கெளஷிதகீ உபநிஒழத் அக்ஞோ அன்ீஷோ (அறம் ஆத்மன: எஸுக-து:கயோ: 7வறை-ப்ரேரிதோ கச்சேத் ஸ்லர்கம் என ஆத்மா தனது சுக துக்கத்திறகு இறைவனை முழுமையாகச் சார்நதுள்ளான. மேகம் காற்றினால் விரட்டப்படுவதைப் போல இறைவனின் இச்சையால் இவன் ஸ்வர்கத்திற்கோ நரகத்திற்கோ போகலாம்' ஏனலே! உடல் பெற்ற ஆத்மா தனது நினைவிற்கெட்டாத காலத்தில் கிருஸ்ண தணிர்ப்பதற்கு எழுநத ஆசையினால், தனது சொந்த மயக்கத்திற்கு காரணமாகிறான். விளைவ நித்தியமான ஆனந்த அறிவஷடன் விளங்க வேண்டி அவன. இறைவனுக்குத் தொண்டாற்றல் என்னும் தனது ஸ்வழுபத்தை அற்பத்தனத்தால் மறந்து மாயையினால் சிறைப்படுத்தப்பட்டுள்ளான். மேலும், அறியாமையின் ஆதிக்கத்தால் தனது கட்டுண்ட நிலைக்கு இறைவனே காரணாம் என்றப் நினைக்கினறான.",
+    "verified": false
+   },
+   {
+    "text": "வேதாந்த தத்திரமும் இதை உறுதி செய்கின்றது. வைஷம்ய நைர்க ருண்யே ந ஸாபேகூழத்வாத் ததா ஹி தர்ஷ யதி இறைவன் விருப்பு வெறுப்புடன் இருப்பதாகத் தோன்றினாலும், அவர் யாரையும் வெறுய்பதும் இல்லை விரும்புவதும் இல்லை.",
+    "verified": false
+   }
+  ]
+ },
+ "5.16": {
+  "en": [
+   "Those who have forgotten Kṛṣṇa must certainly be bewildered, but those who are in Kṛṣṇa consciousness are not bewildered at all. It is stated in the Bhagavad-gītā, \"sarvaṁ jñāna-plavena,\" \"jñānāgniḥ sarva-karmāṇi\" and \"na hi jñānena sadṛśam.\" Knowledge is always highly esteemed. And what is that knowledge? Perfect knowledge is achieved when one surrenders unto Kṛṣṇa, as is said in the Seventh Chapter, 19th verse: bahūnāṁ janmanām ante jñānavān māṁ prapadyate. After passing through many, many births, when one perfect in knowledge surrenders unto Kṛṣṇa, or when one attains Kṛṣṇa consciousness, then everything is revealed to him, as the sun reveals everything in the daytime. The living entity is bewildered in so many ways. For instance, when he thinks himself God, unceremoniously, he actually falls into the last snare of nescience. If a living entity is God, then how can he become bewildered by nescience? Does God become bewildered by nescience? If so, then nescience, or Satan, is greater than God. Real knowledge can be obtained from a person who is in perfect Kṛṣṇa consciousness. Therefore, one has to seek out such a bona fide spiritual master and, under him, learn what Kṛṣṇa consciousness is. The spiritual master can drive away all nescience, as the sun drives away darkness. Even though a person may be in full knowledge that he is not this body but is transcendental to the body, he still may not be able to discriminate between the soul and the Supersoul. However, he can know everything well if he cares to take shelter of the perfect, bona fide Kṛṣṇa conscious spiritual master. One can know God and one's relationship with God only when one actually meets a representative of God. A representative of God never claims that he is God, although he is paid all the respect ordinarily paid to God because he has knowledge of God. One has to learn the distinction between God and the living entity. Lord Śrī Kṛṣṇa therefore stated in the Second Chapter (2.12) that every living being is individual and that the Lord also is individual. They were all individuals in the past, they are individuals at present, and they will continue to be individuals in the future, even after liberation. At night we see everything as one in the darkness, but in day when the sun is up, we see everything in its real identity. Identity with individuality in spiritual life is real knowledge."
+  ],
+  "ta": [
+   {
+    "text": "கிருஷ்ணரை மறந்தவர்கள் குழப்பத்தில் இருப்பது நிச்சயம், ஆனால் கிருஷ்ண உணர்வில் உள்ளவர்கள் குழம்புவதே இல்லை. ஸர்வம் க்ஞான- பலலேன க்ஞானாகணி எபர்வ கர்மாளனி என்றும் நஹி ஞானேன ஸத்ருஷம் என்றும் பகவத் கீதையில் ஞானத்திற்கு எப்போதும் உயர் மதிப்பு அளிக்கப்படுகிறது. அந்த ஞானம் என்பது என்ன? ஏழாம் அத்தியாயம் வது பதத்தில் கிருஷ்ணரிடம் சரணடையும் போதே பக்குவ ஞானம் அடையப்படுகின்றது. பஹூனாம் ஜன்மனாம் அந்தே ஞானவான் மாம் ப்ரபத்யதே. பற்பல பிறவிகளைக் கடந்தபின் ஞானத்தில் பக்குவமடைந்தவன் கிருஷ்ணரிடம் சரணடையும் போது, அதாவது கிருஷ்ண உணர்வினை அடையும் போது, பகலில் சூரியனால் எல்லாம் வெளிப்படுத்தப்படுவதுபோல, அனைத்தும் அவனுக்கு வெளிப்படுத்தப் படுகின்றது. உயிர்வாழி பலவிதங்களில் மயக்கப்பட்டுள்ளான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "உதாரணமாக, சற்றும் அறிவின்றி அவன் தன்னையே கடவுளாக எண்ணும் போது உண்மையில் அறியாமையின் இறுதி வலையில் வீழ்கிறான். ஆத்மாவே கடவுள் எனில் அவன் எவ்வாறு மாயையின் இயக்கத்திற்கு உட்படுவான்? கடவுள் மாயையில் மயங்குவாரா? அப்படியெனில் மாயை கடவுளைவிட வலிமை வாய்ந்ததாகிவிடும். பக்குவமான கிருஷ்ண உணர்வில் நிலைபெற்றுள்ள நபரிடமிருந்து மட்டுமே உண்மை ஞானத்தை அடைய முடியும். அத்தகு அங்கீகரிக்கப்பட்ட ஆன்மிக குருவைத் தேடி, அவரின் கீழ் கிருஷ்ண உணர்வினைப் பயில வேண்டும். சூரியன் இருளை விரட்டுவதைப் போல, கிருஷ்ண மாயையை விரட்டி விடும். தான் இந்த உடலல்ல, உடலுக்கு அப்பாற்பட்ட திவ்யமான ஆத்மா என்னும் முழு ஞானத்தில் ஒருவன் இருந்தாலும் ஆத்மாவையும் பரமாத்மாவையும் பகுத்தறிவது அவனுக்கு சாத்தியமில்லாத செயலாக இருக்கலாம்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இருப்பினும், அவன் கிருஷ்ண உணர்விலுள்ள அங்கீகரிக்கப்பட்ட பக்குவமான குருவிடம் தஞ்சமடைந்து விட்டால் அனைத்தையும் நன்றாக அறியமுடியும். கடவுளையும் கடவுளுடனான தனது உறவையும் கடவுளுடைய பிரதிநிதியைச் சந்தித்தால் தான் அறிய இயலும். அவரிடம் கடவுளைப் பற்றிய ஞானம் இருப்பதால், கடவுளுக்கு சாதாரணமாகச் செய்யப்படும் எல்லா மரியாதையும் அவருக்குச் செலுத்தப்படும் போதிலும், கடவுளின் பிரதிநிதியான அவர் தன்னை ஒருபோதும் கடவுள் என்றும் கூறிக் கொள்ளமாட்டார். கடவுளுக்கும் ஆத்மாவுக்கும் உள்ள வேறுபாட்டை அத்தியாயத்தில் ஒவ்வொரு ஆத்மாவும் தனித்தன்மை உடையவன் என்றும் தானும் தனித்தன்மை உடையவன் என்றும் கூறினார். அவர்கள் இறந்த காலத்திலும் தனி நபர்கள், நிகழ்காலத்திலும் தனி நபர்கள், எதிர்காலத்திலும், முக்திக்குப் பிறகும் தனிநபர்களே.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இரவில் நாம் எல்லாவற்றையும் ஒன்றாகக் காண்கிறோம். ஆனால் பகலில் சூரியன் வானில் உள்ளபோது ஒவ்வொன்றின் உண்மை நிலையும் புலப்படுகிறது. தனித்தன்மையுடன் கூடிய ஆன்மீக வாழ்வை உணர்வதே உண்மை ஞானமாகும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.17": {
+  "en": [
+   "The Supreme Transcendental Truth is Lord Kṛṣṇa. The whole Bhagavad-gītā centers around the declaration of Kṛṣṇa as the Supreme Personality of Godhead. That is the version of all Vedic literature. Paratattva means the Supreme Reality, who is understood by the knowers of the Supreme as Brahman, Paramātmā and Bhagavān. Bhagavān, or the Supreme Personality of Godhead, is the last word in the Absolute. There is nothing more than that.TheLord says, mattaḥ parataraṁ nānyat kiñcit asti dhanañjaya. Impersonal Brahman is also supported by Kṛṣṇa: brahmaṇo pratiṣṭhāham. Therefore in all ways Kṛṣṇa is the Supreme Reality. One whose mind, intelligence, faith and refuge are always in Kṛṣṇa, or, in other words, one who is fully in Kṛṣṇa consciousness, is undoubtedly washed clean of all misgivings and is in perfect knowledge in everything concerning transcendence. A Kṛṣṇa conscious person can thoroughly understand that there is duality (simultaneous identity and individuality) in Kṛṣṇa, and, equipped with such transcendental knowledge, one can make steady progress on the path of liberation."
+  ],
+  "ta": [
+   {
+    "text": "திவ்யமான பரதத்துவம் பகவான் கிருஷ்ணரே. மொத்த பகவத் கீதையும் கிருஷ்ணரே பரம பகவான் என்னும் அறிவிப்பை மையமாகக் கொண்டதாகும். எல்லா வேத இலக்கியங்களின் விளக்கமும் இதுவே. பரத்தை அறிந்தவர்களால், பரம உண்மையான பர-தத்துவம் என்பது பிரம்மன், பரமாத்மா, பகவான் என்று பரமனை அறிபவர்களால் புரிந்து கொள்ளப்படுகிறது. பூரணத்தின் இறுதிச் சொல், பகவான் எனப்படும் புருஷோத்தமராகிய முழுமுதற் கடவுளே. அவரை மிஞ்சியவர் யாருமில்லை. பகவானே மத்த: பரதரம் நான்யத் கிஞ்சித் அஸ்தி அருவ பிரம்மனைத் தாங்குவதும் கிருஷ்ணரே ப்ரஹ்மணோ ஹம். எனவே எல்லா வழிகளிலும் கிருஷ்ணரே பரதத்துவம். எவனொருவனது மனம், புத்தி, நம்பிக்கை, புகலிடம் ஆகியவை எப்போதும் கிருஷ்ணரிடம் உள்ளதோ, வேறு விதமாகக் கூறினால், எவனொருவன் கிருஷ்ண உணர்வில் முழுமையாக உள்ளானோ அவன் சந்தேகமின்றி எல்லாவித களங்கங்களும் நீக்கப்பட்டு பரதத்துவத்தைப் பற்றிய அனைத்திலும் பூரண ஞானத்துடன் உள்ளான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "கிருஷ்ணரிடம் இருமை (ஒரே சமயத்தில் அடையாளமும் தனித்தன்மையும்) உள்ளது என்பதை முழுமையாகப் புரிந்து கொண்டுள்ள கிருஷ்ண பக்தன் அத்தகைய திவ்யமான ஞானத்தினால் சக்தியளிக்கப்பட்டு விடுதலைப் பாதையில் தளர்வின்றி முன்னேற முடியும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.18": {
+  "en": [
+   "A Kṛṣṇa conscious person does not make any distinction between species or castes. The brāhmaṇa and the outcaste may be different from the social point of view, or a dog, a cow, or an elephant may be different from the point of view of species, but these differences of body are meaningless from the viewpoint of a learned transcendentalist. This is due to their relationship to the Supreme, for the Supreme Lord, by His plenary portion as Paramātmā, is present in everyone's heart. Such an understanding of the Supreme is real knowledge. As far as the bodies are concerned in different castes or different species of life, the Lord is equally kind to everyone because He treats every living being as a friend yet maintains Himself as Paramātmā regardless of the circumstances of the living entities. The Lord as Paramātmā is present both in the outcaste and in the brāhmaṇa, although the body of a brāhmaṇa and that of an outcaste are not the same. The bodies are material productions of different modes of material nature, but the soul and the Supersoul within the body are of the same spiritual quality. The similarity in the quality of the soul and the Supersoul, however, does not make them equal in quantity, for the individual soul is present only in that particular body, whereas the Paramātmā is present in each and every body. A Kṛṣṇa conscious person has full knowledge of this, and therefore he is truly learned and has equal vision. The similar characteristics of the soul and Supersoul are that they are both conscious, eternal and blissful. But the difference is that the individual soul is conscious within the limited jurisdiction of the body, whereas the Supersoul is conscious of all bodies. The Supersoul is present in all bodies without distinction."
+  ],
+  "ta": [
+   {
+    "text": "உயிரின் வேறுபாடுகளையும், ஜாதி வேறுபாடுகளையும் கிருஷ்ண பக்தன் காண்பதில்லை. சமூக ரீதியில் பிராமணனும் கீழ் ஜாதியினனும் வேறுபட்டவை. உயிரின ரீதியில் நாய், பசு, யானை ஆகியவை வேறுபட்டவை. ஆனால் உடலின் இது போன்ற வேற்றுமைகள் கற்றறிந்த ஆன்மீகவாதியின் கண்ணோட்டத்தில் அர்த்தமற்றவை. ஆன்மிக வாதிகளின் அத்தகு பார்வை பரமனுடன் அவர்களுக்கு உள்ள உறவினால் சாத்தியமாகின்றது. ஏனெனில், பரம புருஷர் தனது விரிவங்கமான பரமாத்மாவின் உருவில் அனைவரின் இதயத்திலும் வீற்றுள்ளார். பரமனைப் பற்றிய இந்த ஞானமே உண்மையான ஞானமாகும். பல்வேறு இனங்களைச் சார்ந்த அல்லது ஜாதிகளைச் சார்ந்த உடல்களைப் பொறுத்தவரை, கடவுள் எல்லாரிடமும் சமமான அன்புடையவராக இருக்கிறார். ஏனெனில் அவர் எல்லா ஜீவன்களையும் தனது நண்பனாக நடத்துகிறார்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இருப்பினும், ஜீவனின் எல்லா சூழ்நிலைகளிலும் அவர் பரமாத்மாவாகவே உள்ளார். பிராமணனின் உடலும் கீழ் ஜாதியினனின் உடலும் ஒன்றல்ல என்ற போதிலும், கடவுள் பிராமணனின் உடலிலும் கீழ் ஜாதியினனின் உடலிலும் பரமாத்மாவாக வீற்றுள்ளார். ஜட இயற்கையின் பல்வேறு குணங்களின் பலதரப்பட்ட பௌதிகப் படைப்புகளே உடல்கள். ஆனால் உடலினுள் உள்ள ஆத்மாவும் பரமாத்மாவும் ஒரே ஆன்மிக குணத்தை உடையவர்கள். குணத்தில் ஆத்மாவுக்கும் பரமாத்மாவுக்கும் உள்ள ஒற்றுமை அளவில் அவர்களை சமமாக்குவதில்லை. ஏனெனில், தனிப்பட்ட ஆத்மா ஒரு குறிப்பிட்ட உடலில் மட்டுமே உள்ளான். பரமாத்மாவோ அனைத்து உடலிலும் வீற்றுள்ளார். கிருஷ்ண பக்தன் இதனை முழுமையாக அறிந்துள்ளான். எனவே அவனே உண்மையான சமநோக்கு உடையவனும் ஆவான். பரமாத்மா ஆத்மா இருவருமே உணர்வுடையவர்கள், நித்தியமானவர்கள், ஆனந்தமயமானவர்கள்- இதுவே",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இவர்களிடையே உள்ள ஒற்றுமை. ஆனால் வேறுபாடு என்னவெனில் தனிப்பட்ட ஆத்மா தனது உடலை மட்டுமே பரமாத்மாவோ எல்லா உடல்களை வேற்றுமை பார்க்காமல் பரமாத்மா எல்லா உடல்களிலும் வீற்றுள்ளார்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.19": {
+  "en": [
+   "Equanimity of mind, as mentioned above, is the sign of self-realization. Those who have actually attained to such a stage should be considered to have conquered material conditions, specifically birth and death. As long as one identifies with this body, he is considered a conditioned soul, but as soon as he is elevated to the stage of equanimity through realization of self, he is liberated from conditional life. In other words, he is no longer subject to take birth in the material world but can enter into the spiritual sky after his death. The Lord is flawless because He is without attraction or hatred. Similarly, when a living entity is without attraction or hatred, he also becomes flawless and eligible to enter into the spiritual sky. Such persons are to be considered already liberated, and their symptoms are described below."
+  ],
+  "ta": [
+   {
+    "text": "மேலே கூறப்பட்டது போன்று, மனதில் சம நிலையுடன் இருப்பது தன்னுணர்வின் அறிகுறியாகும். அத்தகு நிலையை உண்மையில் அடைந்தவர்கள், ஜட நியதிகளைக் கடந்தவர்களாக (குறிப்பாக பிறப்பு இறப்பைக் கடந்தவர்களாக) கருதப்பட வேண்டும். ஒருவன் தன்னை உடலுடன் அடையாளம் காணும்வரை அவன் கட்டுண்ட ஆத்மாவாக கருதப்படுகிறான். ஆனால் தன்னுணர்வின் மூலம், சமத்துவ தளத்திற்கு உயர்த்தப்பட்டவன், அவன் வாழ்விலிருந்து முக்தியடைகிறான். வேறு விதமாகக் கூறினால், இப்பௌதிக உலகில் மீண்டும் பிறக்க வேண்டிய தேவை அவனுக்கு இல்லை, ஆனால் தனது மரணத்திற்குப் பின் ஆன்மீக வானில் அவன் நுழைய முடியும். விருப்பு வெறுப்பற்றவரான கடவுளுக்கு தோஷம் கிடையாது. அதுபோலவே விருப்பு வெறுப்புகளிலிருந்து விடுபடும்போது உயிர்வாழியும் தோஷமற்றவனாகி",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆன்மீக வானில் நுழைய தகுதி வாய்ந்தவனாகிறான். இத்தகையோர் ஏற்கனவே முக்தியடைந்தவர்களாகக் கருதப்பட வேண்டும். இவர்களது அறிகுறிகள் கீழே விளக்கப்படுகின்றன. க சப ண",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.20": {
+  "en": [
+   "The symptoms of the self-realized person are given herein. The first symptom is that he is not illusioned by the false identification of the body with his true self. He knows perfectly well that he is not this body, but is the fragmental port~on of the Supreme Personality of Godhead. He is therefore not joyful in achieving something, nor does he lament in losing anything which is related to his body. This steadiness of mind is called sthira-buddhi, or self-intelligence. He is therefore never bewildered by mistaking the gross body for the soul, nor does he accept the body as permanent and disregard the existence of the soul. This knowledge elevates him to the station of knowing the complete science of the Absolute Truth, namely Brahman, Paramātmā and Bhagavān. He thus knows his constitutional position perfectly well, without falsely trying to become one with the Supreme in all respects. This is called Brahman realization, or self-realization. Such steady consciousness is called Kṛṣṇa consciousness."
+  ],
+  "ta": [
+   {
+    "text": "தன்னை உணர்ந்த நபரின் அறிகுறிகள் இங்கு கொடுக்கப் பட்டுள்ளன. முதல் அறிகுறி என்னவெனில் உடலே நான் என்னும் தவறான அடையாளத்தில் அவன் மயங்குவதில்லை. தான் இவ்வுடலல்ல என்றும் பரம புருஷ பகவானின் நுண் பகுதி என்றும் அவன் மிகவும் பக்குவமாக அறிந்துள்ளான். எனவே அவன் தன் உயிருடன் தொடர்புடைய ஏதாவதொன்றை அடையும்போது மகிழ்வதோ, சிலவற்றை இழக்கும் போது வருந்துவதோ இல்லை. மனதின் இத்தகு உறுதியான நிலை, ஸ்திர புத்தி அல்லது நிலைத்த அறிவு என்று அழைக்கப்படுகிறது. எனவே அவன் ஸ்தூல உடலே ஆத்மா என்று தவறாக எண்ணி மயங்குவதும் இல்லை. ஜட உடலே நிரந்தரம் என்று எண்ணி ஆத்மாவின் இருப்பை மறப்பதும் இல்லை. இந்த ஞானத்தின் மூலமாக, பரம உண்மையின் பூரண விஞ்ஞானத்தை அறியும் தளத்திற்கு (அதாவது, பிரம்மன், பரமாத்மா மற்றும் பகவானை அறியும் தளத்திற்கு) அவன் உயர்த்தப்படுகிறான்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "பரமனுடன் எல்லா விதத்திலும் சமமாகிவிடலாம் எனும் தவறான முயற்சியில் ஈடுபடாத அவன், தனது ஸ்வரூப நிலையை பரிபக்குவமாக அறிந்துள்ளான். இதுவே பிரம்மனை உணர்தல் அல்லது தன்னை உணர்தல் எனப்படும். இத்தகு நிலையான உணர்வே கிருஷ்ண எனப்படுகிறது.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.22": {
+  "en": [
+   "Material sense pleasures are due to the contact of the material senses, which are all temporary because the body itself is temporary. A liberated soul is not interested in anything which is temporary. Knowing well the joys of transcendental pleasures, how can a liberated soul agree to enjoy false pleasure? In the Padma Purāṇa it is said:",
+   "ramante yogino 'nante satyānanda-cid-ātmani iti rāma-padenāsau paraṁ brahmābhidhīyate",
+   "\"The mystics derive unlimited transcendental pleasures from the Absolute Truth, and therefore the Supreme Absolute Truth, the Personality of Godhead, is also known as Rāma.\"",
+   "In the Śrīmad-Bhāgavatam also it is said:",
+   "nāyaṁ deho deha-bhājāṁ nṛ-loke kaṣṭān kāmān arhate viḍ-bhajāṁ ye tapo divyaṁ putrakā yena sattvaṁ śuddhyed yasmād brahma-saukhyaṁ tv anantam.",
+   "\"My dear sons, there is no reason to labor very hard for sense pleasure while in this human form of life; such pleasures are available to the stool-eaters [hogs]. Rather, you should undergo penances in this life by which your existence will be purified, and, as a result, you will be able to enjoy unlimited transcendental bliss.\" (Bhāg. 5.5.1)",
+   "Therefore, those who are true yogīs or learned transcendentalists are not attracted by sense pleasures, which are the causes of continuous material existence. The more one is addicted to material pleasures, the more he is entrapped by material miseries."
+  ],
+  "ta": [
+   {
+    "text": "பௌதிக புலன்களின் தொடர்பால் உண்டாகும் பௌதிக புலனின்பங்கள், தற்காலிகமானதாகும். ஏனெனில் உடலே தற்காலிகமானதுதானே. முக்தி பெற்ற ஆத்மா நிலையற்ற எதிலும் ஆர்வம் கொள்வதில்லை. திவ்யமான ஆனந்தத்தின் மகிழ்ச்சியினை நன்றாக அறிந்துள்ள முக்தி பெற்ற ஆத்மா பொய்யான இன்பத்தைத் துய்ப்பதற்கு எவ்வாறு சம்மதிக்க முடியும்? பத்ம புராணத்தில் பின்வருமாறு கூறப்படுகிறது: யோகினோ (அ)னந்தே ஸத்யானந்தே சித்-ஆத்மனி இதி ராம-பதேனாஸௌ பரம் ப்ரஹ்மாபிதீயதே 'யோகிகள் பூரண உண்மையிலிருந்து அளவற்ற இன்பத்தை அடைகின்றனர். எனவே பரம பூரண உண்மையான முழுமுதற் கடவுள் ராம என்றும் அறியப்படுகின்றார். ஸ்ரீமத் பாகவதத்திலும் பின்வருமாறு கூறப்படுகின்றது: நாயம் தேஹோ தேஹ-பாஜாம் ந்ரு-லோகே கஷ்டான் காமான் அர்ஹதே விட்-பஜாம் யே தபோ திவ்யம் புத்ரகா யேன ஸத்த்வம் யஸ்மாத் ப்ரஹ்ம-ஸௌக்யம் த்வனந்தம் 'எனதன்பு மகன்களே, புலனின்பத்திற்காக கடினமாக உழைக்க வேண்டிய அவசியம் இம்மனிதப் பிறவியில் இல்லை.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "மலத்தை உண்ணும் பன்றிக்கு இவ்வின்பம் கிடைக்கத்தானே செய்கின்றது. மாறாக, இவ்வாழ்வில் நீங்கள் தவங்களைப் புரிந்து உங்களது நிலையைத் தூய்மைப்படுத்த வேண்டும். அதன் பலனாக அளவற்ற திவ்யமான ஆனந்தத்தை உங்களால் அனுபவிக்க முடியும். உண்மையான யோகிகளும் கற்றறிந்த ஆன்மிகிகளும் பௌதிக வாழ்வின் சுழற்சிக்குக் காரணமாக விளங்கும் புலனின்பங்களால் கவரப்படுவதில்லை. ஒருவன் எந்த அளவிற்கு ஜட இன்பங்களில் மயங்குகின்றானோ, அந்த அளவிற்கு அவன் ஜடத் துன்பங்களால் சூழப்படுவான். க கவ்",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.23": {
+  "en": [
+   "lf one wants to make steady progress on the path of self-realization, he must try to control the forces of the material senses. There are the forces of talk, forces of anger, forces of mind, forces of the stomach, forces of the genitals, and forces of the tongue. One who is able to control the forces of all these different senses, and the mind, is called gosvāmī, or svāmī. Such gosvāmīs live strictly controlled lives, and forego altogether the forces of the senses. Material desires, when unsatiated, generate anger, and thus the mind, eyes and chest become agitated. Therefore, one must practice to control them before one gives up this material body. One who can do this is understood to be self-realized and is thus happy in the state of self-realization. It is the duty of the transcendentalist to try strenuously to control desire and anger."
+  ],
+  "ta": [
+   {
+    "text": "தன்னுணர்வுப் பாதையில் நிலையான முன்னேற்றம் பெற விரும்பினால், பௌதிகப் புலன்களின் உந்துதல்களைக் கட்டுப்படுத்த அவசியம் முயற்சி செய்ய வேண்டும். பேச்சின் உந்துதல், கோபத்தின் உந்துதல், மனதின் உந்துதல், வயிற்றின் உந்துதல், பாலுறுப்பின் உந்துதல், நாக்கின் உந்துதல் என பல்வேறு உந்துதல்கள் உள்ளன. இந்த பல்வேறு புலன்கள் மற்றும் மனதின் உந்துதல்களைக் கட்டுப்படுத்துபவன் கோஸ்வாமி அல்லது ஸ்வாமி என்று அழைக்கப்படுகிறான். இத்தகு கோஸ்வாமிகள் புலன்களின் உந்துதல்களிலிருந்து முற்றிலும் விடுபட்டு இரண கட்டுப்பாட்டுடன் கூடிய வாழ்க்கை வாழ்கின்றனர். திருப்தியுறாத பௌதிக ஆசைகள் கோபத்தை உண்டாக்குகின்றன. அதனால், மனம், கண்கள், மார்பு ஆகியவை கிளர்ச்சியடைகின்றன. எனவே இவ்வுடலை விடும் முன்பே",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "இந்த உந்துதல்களை அடக்குவதற்குப் பயிற்சி செய்ய வேண்டும். இதைச் செய்யக்கூடியவன் தன்னை உணர்ந்தவனாக அறியப்படுகிறான். அவன் தன்னுணர்வின் தளத்தில் மகிழ்ச்சியாக உள்ளான். ஆசையையும் கோபத்தையும் அடக்க பெருமுயற்சி செய்ய வேண்டியது ஓர் ஆன்மீகவாதியின் கடமையாகும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.24": {
+  "en": [
+   "Unless one is able to relish happiness from within, how can one retire from the external engagements meant for deriving superficial happiness? A liberated person enjoys happiness by factual experience. He can, therefore, sit silently at any place and enjoy the activities of life from within. Such a liberated person no longer desires external material happiness. This state is called brahma-bhūta, attaining which one is assured of going back to Godhead, back to home."
+  ],
+  "ta": [
+   {
+    "text": "தனக்குள் இன்பத்தைக் காணவில்லையெனில் மேலோட்டமான இன்பத்தைத் தரும் வெளிப்புறச் செயல்களிலிருந்து எவ்வாறு ஓய்வு பெற முடியும்? முக்தி பெற்றவன் உண்மையான அனுபவத்தினால் மகிழ்ச்சியை சுகிக்கிறான். எனவே அவனால் எங்கு வேண்டுமானாலும் தனியாக அமைதியாக அமர்ந்து வாழ்வின் செயல்களை தனக்குள் அனுபவிக்க முடியும். அத்தகு முக்தி பெற்றவனுக்கு வெளிப்புறத்திலுள்ள பௌதிக சுகத்தில் இனிமேல் ஆசையில்லை. இந்நிலையே ப்ரஹ்ம-பூத என்று அழைக்கப்படுகிறது. இந்நிலையை அடைந்தவன் முழுமுதற் கடவுளிடம் திரும்பிச் செல்வது நிச்சயம்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.26": {
+  "en": [
+   "Of the saintly persons who are constantly engaged in striving toward salvation, one who is in Kṛṣṇa consciousness is the best of all. The Bhāgavatam confirms this fact as follows:",
+   "yat-pāda-paṅkaja-palāśa-vilāsa-bhaktyā karmāśayaṁ grathitam udgrathayanti santaḥ tadvan na rikta-matayo yatayo 'pi ruddha- srotogaṇās tam araṇaṁ bhaja vāsudevam.",
+   "\"Just try to worship, in devotional service, Vāsudeva, the Supreme Personality of Godhead. Even great sages are not able to control the forces of the senses as effectively as those who are engaged in transcendental bliss by serving the lotus feet of the Lord, uprooting the deep grown desire for fruitive activities.\" (Bhāg. 4.22.39)",
+   "In the conditioned soul the desire to enjoy the fruitive results of work is so deep-rooted that it is very difficult even for the great sages to control such desires, despite great endeavors. A devotee of the Lord, constantly engaged in devotional service in Kṛṣṇa consciousness, perfect in self-realization, very quickly attains liberation in the Supreme. Owing to his complete knowledge in self-realization, he always remains in trance. To cite an analagous example of this:",
+   "darśana-dhyāna-saṁsparśair matsya-kūrma-vihaṅgamāḥ svānya patyāni puṣṇanti tathāham api padmaja.",
+   "\"By vision, by meditation and by touch only do the fish, the tortoise and the birds maintain their offspring. Similarly do I also, O Padmaja!\"",
+   "The fish brings up its offspring simply by looking at them. The tortoise brings up its offspring simply by meditation. The eggs of the tortoise are laid on land, and the tortoise meditates on the eggs while in the water. Similarly, a devotee in Kṛṣṇa consciousness, although far away from the Lord's abode, can elevate himself to that abode simply by thinking of Him constantly---by engagement in Kṛṣṇa consciousness. He does not feel the pangs of material miseries; this state of life is called brahma-nirvāṇa, or the absence of material miseries due to being constantly immersed in the Supreme."
+  ],
+  "ta": [
+   {
+    "text": "முக்தியை அடைவதற்காகத் தொடர்ந்து பாடுபடும் சாதுக்களில் கிருஷ்ண பக்தனே மிகச் சிறந்தவனாவான். இவ்வுண்மையினை பாகவதம் (7.22.39) பின்வருமாறு உறுதி செய்கின்றது. பாத-பங்கஜ-பலாவ-விலாஸ-பக்த்யா காதிதம் உத்கரதபந்தி எபந்த. தத்வன் ந ரிக்தவமதயோ யதயோ (அறமிருத்த ஸ்ரோகோ-கணாஸ் தம் அரணம் பஜ பக்தி தொண்டின் மூலம் பரம புருஷ பகவானான வாஸுதேவரை வழிபட முயற்சி செய். பலன்நோக்குச் செயல்களுக்கான ஆழமான ஆசைகளை வேரறுத்து இறைவனின் பாத கமலங்களுக்கு சேவை செய்து திவ்யமான ஆனந்தத்தில் ஆழ்ந்திருக்கும் பக்தர்கள் தங்களது புலன்களின் உந்துதல்களை திறம்பட கட்டுப்படுத்துகின்றனர். ஆனால் மிகச்சிறந்த சாதுக்களாலும் அதுபோன்று கட்டுப்படுத்துவது சாத்தியமல்ல. செயலின் பலனை அனுபவிப்பதற்கான ஆசைகளைக் கட்டுப்படுத்த, மிகச்சிறந்த சாதுக்களும் பெருமுயற்சி செய்கின்றனர்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆனால் அவர்களுக்கும் கடினமாகத் திகழுமளவிற்கு, இவ்விருப்பங்கள் கட்டுண்ட ஆத்மாவினுள் மிகவும் ஆழமாக வேரூன்றியுள்ளன. கிருஷ்ண உணர்வின் மூலம் இடையறாது பக்தித் தொண்டில் ஈடுபட்டு தன்னுணர்வில் பக்குவமடைந்துள்ள கிருஷ்ண பக்தன் வெகு விரைவில் பரத்தில் முக்தியடைகிறான். தன்னுணர்வின் முழு ஞானத்தையடைந்த அவன், எப்போதுமே ஸமாதி நிலையிலிருக்கிறான். ஓர் உதாரணம் தர்ஸன-த்யான-ஸம்ஸ்பர்ஶைர் மத்ஸ்ய-கூர்ம-விஹங்கமா: ஸ்வான்-யபத்யானி புஷ்ணந்தி ததாஹம் அபி பத்ம-ஜ மீன் பார்வையாலும், ஆமை தியானத்தாலும், பறவைகள் தொடுவதாலும் தங்களது குழந்தைகளை வளர்க்கின்றன. பத்மஜனே அதுபோன்றே நானும் செய்கிறேன். மீன் தனது குஞ்சுகளைப் பார்வையாலேயே வளர்க்கின்றது. ஆமை அதன் குட்டிகளை தியானத்தினால் வளர்க்கின்றது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆமையின் முட்டைகள் கரையில் இருக்க, நீரினுள் இருக்கும் ஆமை அம்முட்டைகளின்மீது தியானம் செய்கின்றது. அதுபோலவே கிருஷ்ண உணர்விலுள்ள பக்தன் இறைவனின் இடத்தை வெகு தொலைவில் இருந்தாலும், கிருஷ்ண உணர்வில் ஈடுபடுவதன் மூலம் அவரை இடையறாத எஸ தன்னை அவனிடத்திற்கு உயர்த்திக் கொள்ள முடியும். அவன் துன்பங்களின் வலியினை உணர்வதில்லை. இந்நிலை ப்ரஹ்ம நிர்வாணம் (பரத்தில் இடையறாது லயித்திருப்பதால் ஜடத் துயரங்கள் மறைந்துள்ள நிலை) எனப்படுகிறது. க சப ண",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.27-28": {
+  "en": [
+   "Being engaged in Kṛṣṇa consciousness, one can immediately understand one's spiritual identity, and then one can understand the Supreme Lord by means of devotional service. When he is well situated in devotional service, one comes to the transcendental position, qualified to feel the presence of the Lord in the sphere of one's activity. This particular position is called liberation in the Supreme.",
+   "After explaining the above principles of liberation in the Supreme, the Lord gives instruction to Arjuna as to how one can come to that position by the practice of mysticism or yoga, known as aṣṭāṅga-yoga, which is divisible into an eightfold procedure called yama, niyama, āsana, prāṇāyāma, pratyāhāra, dhāraṇā, dhyāna, and samādhi. In the Sixth Chapter the subject of yoga is explicitly detailed, and at the end of the Fifth it is only preliminarily explained. One has to drive out the sense objects such as sound, touch, form, taste and smell by the pratyāhāra (breathing) process in yoga, and then keep the vision of the eyes between the two eyebrows and concentrate on the tip of the nose with half closed lids. There is no benefit in closing the eyes altogether, because then there is every chance of falling asleep. Nor is there benefit in opening the eyes completely, because then there is the hazard of being attracted by sense objects. The breathing movement is restrained within the nostrils by neutralizing the up- and down-moving air within the body. By practice of such yoga one is able to gain control over the senses, refrain from outward sense objects, and thus prepare oneself for liberation in the Supreme.",
+   "This yoga process helps one become free from all kinds of fear and anger and thus feel the presence of the Supersoul in the transcendental situation. In other words, Kṛṣṇa consciousness is the easiest process of executing yoga principles. This will be thoroughly explained in the next chapter. A Kṛṣṇa conscious person, however, being always engaged in devotional service, does not risk losing his senses to some other engagement. This is a better way of controlling the senses than by the aṣṭāṅga-yoga."
+  ],
+  "ta": [
+   {
+    "text": "கிருஷ்ண உணர்வில் ஈடுபடுபவன் உடனடியாகத் தனது ஆன்மீக நிலையைப் புரிந்துகொள்ள முடியும். பின்னர் பக்தித் தொண்டின் மூலம் அவன் முழு முதற் கடவுளையும் அறிய முடியும். பக்தித் தொண்டில் நன்றாக நிலைபெற்றவன், திவ்யமான நிலையை அடைந்து தனது செயல்களில் மத்தியில் பகவானின் இருப்பை உணரும் தகுதியைப் பெறுகிறான். இந்நிலையே பரத்தில் முக்தியடைதல் எனப்படுகின்றது. பரத்தில் முக்தியடைவதற்கான வழிமுறைகளை விவரித்தபிறகு, யம, நியம, ஆஸன, பிராணாயாம, ப்ரத்யாஹார, தாரண, த்யான, ஸமாதி எனும் எட்டு நிலைகளைக் கொண்ட அஷ்டாங்க யோகம் என்னும் யோகப் பயிற்சியின் மூலம் எவ்வாறு அந்நிலையை அடைய முடியும் என்பதை அர்ஜுனனுக்கு விளக்குகிறார் பகவான். ஆறாம் அத்தியாயத்தில் தெள்ளத் தெளிவாக விவரிக்கப்படக்கூடிய இந்த யோக வழிமுறை இந்த ஐந்தாம் அத்தியாயத்தின் இறுதியில் சுருக்கமாக விளக்கப்பட்டுள்ளது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "கேட்டல், தொடுதல், பார்த்தல், சுவைத்தல், முகர்தல் எனும் பலன் விஷயங்களை யோகப் பயிற்சியின் ப்ரத்யாஹார எனும் முறையின் மூலம் வெளியே நிறுத்தி, பார்வையை புருவ மத்தியில் வைத்து, கண்களை பாதி மூடிய நிலையில், மூக்கின் நுனியில் கவனத்தை நிறுத்த வேண்டும். முழுவதுமாகக் கண்களை மூடுவதில் எந்த இலாபமும் இல்லை. ஏனெனில், உறங்கிட நல்ல வாய்ப்பு உண்டு. முழுவதும் கண்களைத் திறந்து கொண்டிருப்பதும் பலனற்றது; ஏனெனில் புலனின்பப் பொருள்களால் கவரப்படுவதற்கான அபாயம் உள்ளது. உடலினுள் மேலும் கீழும் இயங்கும் காற்றை சமப்படுத்துவதால், சுவாசமானது நாசிக்குள் கட்டுப்படுத்தப்படுகிறது. இத்தகு யோகத்தைப் பயிலுவதால், புலன் கட்டுப்பாட்டை அடைந்து வெளியிலுள்ள புலனின்பப் பொருள்களைத் துறந்து, பரத்தில் முக்தியடைவதற்குத் தன்னை தயார்படுத்திக் கொள்ள முடியும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "எல்லாவித பயம் மற்றும் கோபத்திலிருந்தும் விடுபட்டு திவ்யமான தளத்தில் பரமாத்மாவின் இருப்பை உணர்வதற்கு இந்த யோக முறை உதவுகின்றது. வேறுவிதமாகக் கூறினால், யோகத்தின் கொள்கைகளை நிறைவேற்றுவதற்கு கிருஷ்ண உணர்வே மிக எளிமையான வழி. இஃது அடுத்த அத்தியாயத்தில் தெளிவாக விளக்கப்படும். சதா சர்வ காலமும் பக்தித் தொண்டில் ஈடுபட்டிருப்பதால் இதர ஈடுபாடுகளில் தனது புலன்களை இழக்கும் ஆபத்து கிருஷ்ண உணர்வில் உள்ளவனுக்கு இல்லை. அஷ்டாங்க யோகத்தைவிட புலன்களை அடக்குவதற்கு இதுவே சிறந்த வழியாகும்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.29": {
+  "en": [
+   "The conditioned souls within the clutches of illusory energy are all anxious to attain peace in the material world. But they do not know the formula for peace, which is explained in this part of the Bhagavad-gītā. The greatest peace formula is simply this: Lord Kṛṣṇa is the beneficiary in all human activities. Men should offer everything to the transcendental service of the Lord because He is the proprietor of all planets and the demigods thereon. No one is greater than He. He is greater than the greatest of the demigods, Lord Śiva and Lord Brahmā. In the Vedas the Supreme Lord is described as tam īśvarāṇāṁ paramaṁ maheśvaram. Under the spell of illusion, living entities are trying to be lords of all they survey, but actually they are dominated by the material energy of the Lord. The Lord is the master of material nature, and the conditioned souls are under the stringent rules of material nature. Unless one understands these bare facts, it is not possible to achieve peace in the world either individually or collectively. This is the sense of Kssna consciousness: Lord Kṛṣṇa is the supreme predominator, and all living entities, including the great demigods, are His subordinates. One can attain perfect peace only in complete Kṛṣṇa consciousness.",
+   "This Fifth Chapter is a practical explanation of Kṛṣṇa consciousness, generally known as karma-yoga. The question of mental speculation as to how karma-yoga can give liberation is answered herewith. To work in Kṛṣṇa consciousness is to work with the complete knowledge of the Lord as the predominator. Such work is not different from transcendental knowledge. Direct Kṛṣṇa consciousness is bhakti-yoga, and jñāna-yoga is a path leading to bhakti-yoga. Kṛṣṇa consciousness means to work in full knowledge of one's relationship with the Supreme Absolute, and the perfection of this consciousness is full knowledge of Kṛṣṇa, or the Supreme Personality of Godhead. A pure soul is the eternal servant of God as His fragmental part and parcel. He comes into contact with māyā (illusion) due to the desire to lord it over māyā, and that is the cause of his many sufferings. As long as he is in contact with matter, he has to execute work in terms of material necessities. Kṛṣṇa consciousness, however, brings one into spiritual life even while one is within the jurisdiction of matter, for it is an arousing of spiritual existence by practice in the material world. The more one is advanced, the more he is freed from the clutches of matter. The Lord is not partial toward anyone. Everything depends on one's practical performance of duties in an effort to control the senses and conquer the influence of desire and anger. And, attaining Kṛṣṇa consciousness by controlling the above-mentioned passions, one remains factually in the transcendental stage, or brahman-nirvāṇa. The eightfold yoga mysticism is automatically practiced in Kṛṣṇa consciousness because the ultimate purpose is served. There is gradual process of elevation in the practice of yama, niyama, āsana, pratyāhāra, dhyāna, dhāraṇā, prāṇāyāma, and samādhi. But these only preface perfection by devotional service, which alone can award peace to the human being. It is the highest perfection of life.",
+   "Thus end the Bhaktivedanta Purports to the Fifth Chapter of the Śrīmad-Bhagavad-gītā in the matter of Karma-yoga, or Action in Kṛṣṇa Consciousness."
+  ],
+  "ta": [
+   {
+    "text": "மாயச் சக்துபின் மிடியில் சிக்கியுள்ள அனைத்து கட்டுண்ட ஆத்மாக்களின், பெளதிக உலகில் அமைதியைத் தேடுகின்றனர். ஆனால் பகவத் கீதையின் இப்பிரிவில் கூறப்பட்டிருக்கும், அமைதிக்கான வழி என்ன என்பது அவர்களுக்குத் தெரியவில்லை. அமைதிக்கான மிகச்சிறந்த வழி இதுலே! மனிதனின் எல்லா செயல்களையும் அலுபண்ிபபவர் பகவான் கிருஸ்ணரே அவரே எல்லா லோகங்களுக்கும், தேவர்களுக்கும் உரிமையாளர் எனபதால் மனிதர்கள் அவைது! திவ்ப சேவைக்கான அணைத்தையும் அர்ப்பணிக்க வேண்டும். அவரைவிட உயர்ந்தவர் எவருமில்லை. தேவர்களில் தலைசிறந்தவர்களான சிவபெருமானையும் பிரம்மதேவரையும்விட, அவரே சிறந்தவர். வேதங்களில் லேெதாஷ வதர 2உபறிஒத் முழு முதற் கடவுள்தம் வராணாம் பரமம் வரம் என்று வா்ணரிக்கப்படுகிறார். மாயையின் மயக்கத்தால் காஹும் எல்லாலறிறிற்கும் தானே எஜமானன் என்று ஜீவன்கள் எண்ரினாலும், உண்மையில் அவர்கள் இறைவனின் ஜட சக்தியால் ஆளப்படுகின்றனர்.",
+    "verified": false
+   },
+   {
+    "text": "பகவானே இயற்கையின் எஜமானர் கட்டுண்ட ஆத்மாக்களோ ஜட இயற்கையின் கடுமையான சட ங்களுக்கு உ/ வர்கள். இந்த அபட்டமான உளணராதவறை தணிப்பட்ட முறையிலோ பலயேர் ஒன்று கடியோ இவ்வுலகில் அமைதியைக் காண்பது சாத்தியமில்லை. இதுவே! கிருஷ்ண உணர்வில் அறியப்படுவதாகும். பகவான் கிருஷ்ணரே பரம அதிகாரி மாபெரும் தேவர்கள் எல்லா ஜீவன்களும் அவரது சேவைர்களே பூரண கிருஸ்ண உணர்வில் மட்டுமே பக்குவமான அமைதியை அடைய இயலும். கர்ம யோகம் என்ற பெயரால் பொதுவாக அறியப்படும் இந்த ஐந்தாம் அத்தியாயம் கிருஷ்ண உளர்வின் பயிற்சி விறைமாகும். கர்மயோகம் எவ்வாறு! முக்தியளிக்க முடியும் என்ற கற்பனைக் கேள்விக்கு இஙகு பதில் கூறப்பட்டுள்ளது. கிருஷ்ண உளர்ணில் செயலாற்றுவது என்றால் பகவான் கிருஸ்ணரே உயர்நதஆளுாநர் என்ற முழு ஞானத்துடன் செயலாற்றுவதாகும்.",
+    "verified": false
+   },
+   {
+    "text": "இத்தகைய செயல் திவலை ஞானத்திலிருந்து வேறுயட்டதலை. நேரடியான கிருஸ்ண பக்தியோகம் எனப்படும். ஞரன யோகம் என்பது பக்தி யோகத்திற்கு இட்டுச் செல்லும் பாதையாகும். பரம உண்மையுடனான ஒருவனது! உறவைப் பற்றிய முழு ஞானத்துடன் செயல்படுவதே கிருஷ்ண உணர்வாகும். மேலும் புருஹோத்தமரான முழு முதற் கடவுள் கிருஷ்ணரைப் பற்றிய முழு ஞானமே அந்த உளணர்ணின் பக்குவ நிலையாகும். கடவுளின் மிகச்சிறிய அம்சமான ஆத்மா அவரது நித்தியத் தொண்டனாவான. ஆத்மா மாயையை ஆட்சி செய்ய விரும்பும்போத! அதனுடன் அவன் தொடர்பு கொள்கிறான். இதுவே! அவனது! பல்வறு துயரங்களுக்குக் காரணாம். அவன் ஜடத்துடன் தொடர்ப] கொள்டுள்ளவரை அதன் தேவைகளுக்காகச் செயலாற்றதல் அவசியம். இருப்பினும், ஜடத்தின் எல்லைக்குள் இருக்கும்போதிலும், கிருஷனன ஒருவனை ஆன்மீக வாழ்ணிற்குக் கொண்டு வருகிறது.",
+    "verified": false
+   },
+   {
+    "text": "ஏனெனில் ஜட வலகில் பயிற்சி செய்யப்படும் போதிலும் ஆன்மீக வாழ்வினை இஃது எழுச்சி பெறச் செய்கின்றது. ஒருவன் அளவிற்கு இதில் முன்னேறியுள்ளானோ, அந்த அளவிற்கு அவன் ஜடத்தின் மிணைப்பிலிருநது விடுபட்டுள்ளான். கடவுள் பாரிடமும் பாரபட்சம் பார்ப்பதில்லை. கிறா உள௱ர்ணில் அவன் செய்ப கடமைகளைப் பொறத்ததே அவனது பலன்கள் அக்கடமைகள் புலன்களை அடக்குவதற்கும் கோபம் ஆசை ஆகியவறறின் தாக்குதலை வெலி்வதற்கும் உதண்பாக அமைகின்றன. மேற்கூறிய எழுச்சிகளை அடக்கி கிருஷ்ண உணர்வில் நிலையாக நிறபவன் உண்மையில் பரஹ்ம-நிர்வாளன எனும் திவ்யமான நிலையில் உள்ளான். கிருஷ்ண உணர்வை பயிற்சி செய்யும் போத! தானாகவே! அண்டாஙக யோக முறையும் பயிற்சி செய்யப்படுகிறது. ஏனெனில், யோக முறையின் இறுதி நோக்கம் பக்தியினால் எளிமையாக அடையப்படுகினறது!",
+    "verified": false
+   },
+   {
+    "text": "அஷ்டாங்க யோக முறையில் உம நியம ஆஸன பராணாயாம, பரத்யாஹார தாரண த்யான ஸமாதி என்னும் படிப்படியான வழியில் முன்னேற்றம் அடையபபடுகிறது. ஆனால் பக்தித் தொண்டின் பக்குவத்துடன் ஒப்பிடும்போது! இவை ஒரு முன்றனுரையைய் போன்றவை. பக்தித் தொண்டு மட்டுமே மனிதனுக்கு அமைதியை நல்கும். பக்தியே வாழ்வின் மிக உன்னதமான பக்குவறிலையாகுமி. ஸ்ரீமத் பகவத் கீதையின் கர்ம யோகம்- கிருஷ்ண உணர்வில் செயல் என்னும் ஐந்தாம் அத்தியாயத்திற்கான பக்திலேதாந்த பொருளாரைகள் இத்துடன் நிறைவடைகின்றது!",
+    "verified": false
+   }
+  ]
+ },
+ "5.3": {
+  "en": [
+   "One who is fully in Kṛṣṇa consciousness is always a renouncer because he feels neither hatred nor desire for the results of his actions. Such a renouncer, dedicated to the transcendental loving service of the Lord, is fully qualified in knowledge because he knows his constitutional position in his relationship with Kṛṣṇa. He knows fully well that Kṛṣṇa is the whole and that he is part and parcel of Kṛṣṇa. Such knowledge is perfect because it is qualitatively and quantitatively correct. The concept of oneness with Kṛṣṇa is incorrect because the part cannot be equal to the whole. Knowledge that one is one in quality yet different in quantity is correct transcendental knowledge leading one to become full in himself, having nothing to aspire to nor lament over. There is no duality in his mind because whatever he does, he does for Kṛṣṇa. Being thus freed from the platform of dualities, he is liberated-even in this material world."
+  ],
+  "ta": [
+   {
+    "text": "கிருஷ்ண உணர்வில் முழுமையாக உள்ளவன் எப்போதும் ஸந்நியாசியாவான். ஏனெனில், தன் செயல்களின் விளைவுகளின்மீது அவனுக்கு விருப்பமும் இல்லை, வெறுப்பும் இல்லை. இறைவனின் திவ்யமான அன்புத் தொண்டிற்குத் தன்னை அர்ப்பணித்துவிட்ட இத்தகு துறவி கிருஷ்ணருடனான தனது உறவில் தன்னுடைய ஸ்வரூப நிலையை அறிந்துள்ள காரணத்தால் அவனே ஞானத்தில் முழுமை பெற்றவனாவான். கிருஷ்ணரே முழுமை என்பதையும் தான் அவரது மிகச்சிறிய பகுதி என்பதையும் அவன் நன்கறிவான். இத்தகு ஞானம் குணத்திலும் அளவிலும் சரியாக இருப்பதால் அது பக்குவமானதாகும். கிருஷ்ணரையும் ஆத்மாவையும் சமமாகக் கருதும் கருத்து தவறானதாகும். ஏனெனில், பகுதி என்றுமே முழுமைக்குச் சமமாகிவிட முடியாது. ஒருவன் குணத்தில் ஒன்றுபட்டுள்ளபோதிலும் அளவில் வேறுபடுகிறான் என்னும் ஞானம், தன்னில் இரண நிலையை அடைய (ஏக்கமும் ஏமாற்றமும் அற்ற பூண நிலையை அடைய) வழிகாட்டக்கூடிய திவ்யமான ஞானமாகும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "அவனது மனதில் இருமைக்கு இடமேயில்லை. ஏனெனில் அவன் எதைச் செய்தாலும் அதை கிருஷ்ணருக்காகவே செய்கிறான். இவ்வாறு இருமைகளின் தளத்திலிருந்து விடுபட்டுள்ள அவன், இந்த உலகில் உள்ளபோதிலும் முக்தியடைந்த ஆத்மாவாவான்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.4": {
+  "en": [
+   "The aim of the analytical study of the material world is to find the soul of existence. The soul of the material world is Viṣṇu, or the Supersoul. Devotional service to the Lord entails service to the Supersoul. One process is to find the root of the tree, and next to water the root. The real student of sāṅkhya philosophy finds the root of the material world, Viṣṇu, and then, in perfect knowledge, engages himself in the service of the Lord. Therefore, in essence, there is no difference between the two because the aim of both is Viṣṇu. Those who do not know the ultimate end say that the purposes of sāṅkhya and karma-yoga are not the same, but one who is learned knows the unifying aim in these different processes."
+  ],
+  "ta": [
+   {
+    "text": "படைப்பின் ஆத்மாவைக் கண்டறிவதே ஸாங்கிய யோகத்தின் (ஜட உலகினைப் பற்றிய ஆய்வறிவின்) நோக்கமாகும். விஷ்ணு அல்லது பரமாத்மாவே ஜட உலகின் ஆத்மாவாவார். பகவானுக்குச் செய்யப்படும் பக்தித் தொண்டு பரமாத்மாவிற்கான தொண்டையும் உள்ளடக்கியதாகும். ஒரு வழிமுறை மரத்தின் வேரைக் கண்டுபிடிப்பதாகும். மற்றதோ அதற்கு நீராற்றுவதாகும். ஸாங்கிய தத்துவத்தின் உண்மையான மாணவன் ஜட உலகின் வேரான விஷ்ணுவைக் கண்டுபிடித்து அதன்பின் பக்குவமான ஞானத்துடன் தன்னை அவரது தொண்டில் ஈடுபடுத்துகிறான். எனவே, சுருக்கமாகச் சொன்னால், இரண்டு முறைகளுக்கும் வேறுபாடு இல்லை. ஏனெனில், இரண்டுமே விஷ்ணுவை இலக்காகக் கொண்டவை. இறுதி இலக்கை அறியாதவரே ஸாங்கிய யோகமும் கர்ம யோகமும் ஒன்றல்ல என்று கூறுவர். ஆனால் அறிவுடையோர் இந்த வெவ்வேறு வழிமுறைகளின் ஒரே நோக்கத்தை அறிவர்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.5": {
+  "en": [
+   "The real purpose of philosophical research is to find the ultimate goal of life. Since the ultimate goal of life is self-realization, there is no difference between the conclusions reached by the two processes. By sāṅkhya philosophical research one comes to the conclusion that a living entity is not a part and parcel of the material world, but of the supreme spirit whole. Consequently, the spirit soul has nothing to do with the material world; his actions must be in some relation with the Supreme. When he acts in Kṛṣṇa consciousness, he is actually in his constitutional position. In the first process of sāṅkhya, one has to become detached from matter, and in the devotional yoga process one has to attach himself to the work of Kṛṣṇa. Factually, both processes are the same, although superficially one process appears to involve detachment and the other process appears to involve attachment. However, detachment from matter and attachment to Kṛṣṇa are one and the same. One who can see this sees things as they are."
+  ],
+  "ta": [
+   {
+    "text": "தத்துவ ஆராய்ச்சியின் உண்மை நோக்கம் வாழ்வின் இறுதி இலக்கை வாழ்வினஇறுதி இலக்கு தன்னுணர்வே என்பதால், இவ்விரண்டு வழிகளால் அடையப்படும் முடிவுகளுக்கிடையில் வேறுபாடு இல்லை. ஸாங்கிய தத்துவ ஆய்வினால் ஆத்மா இந்த ஜட உலகின் அம்சம் அல்ல, மாறாக பரம ஆன்மிகப் பூரணத்தின் அம்சம் என்ற முடிவிற்கு ஒருவன் வருகிறான். எனவே, ஆன்மீக ஆத்மா ஜட உலகில் ஆற்ற வேண்டிய செயல் ஏதுமில்லை. அவனது செயல்கள் பரமனுடன் ஏதேனும் வகையில் தொடர்புடையதாக இருக்க வேண்டும். எப்போது அவன் கிருஷ்ண உணர்வில் செயல்படுகின்றானோ, அப்போது அவன் தனது உண்மையான ஸ்வரூப நிலையில் அமைந்துள்ளான். ஸாங்கிய யோகமெனும் முதல் பயிற்சியில் அவன் ஜடத்தின் மீதுள்ள பற்றுக்களை விட்டொழிக்க வேண்டும். பக்தி யோக முறையிலோ அவன் கிருஷ்ண பக்திச் செயல்களில் பற்றுதல் கொள்ள வேண்டும்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "மேலோட்டமாகப் பார்த்தால், ஒரு வழிமுறை துறவையும் மற்றொரு வழிமுறை பற்றுதலையும் உட்படுத்துவதாகத் தோன்றினாலும் உண்மையில் இரு வழிகளும் ஒன்றே. ஜடத்தின் மீதான துறவும் கிருஷ்ணரின் மீதான உறவும் ஒன்றே. இதைக் காணக்கூடியவன் பொருள்களை உள்ளது உள்ளபடி காண்கிறான்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.6": {
+  "en": [
+   "There are two classes of sannyāsīs, or persons in the renounced order of life. The Māyāvādī sannyāsīs are engaged in the study of sāṅkhya philosophy, whereas the Vaisnava sannyāsīs are engaged in the study of Bhāgavatam philosophy, which affords the proper commentary on the Vedānta-sūtras. The Māyāvādī sannyāsīs also study the Vedānta-sūtras, but use their own commentary, called Śārīraka-bhāṣya, written by Śaṅkarācārya. The students of the Bhāgavata school are engaged in devotional service of the Lord, according to pāñcarātrikī regulations, and therefore the Vaiṣṇava sannyāsīs have multiple engagements in the transcendental service of the Lord. The Vaiṣṇava sannyāsīs have nothing to do with material activities, and yet they perform various activities in their devotional service to the Lord. But the Māyāvādī sannyāsīs, engaged in the studies of sāṅkhya and Vedānta and speculation, cannot relish transcendental service of the Lord. Because their studies become very tedious, they sometimes become tired of Brahman speculation, and thus they take shelter of the Bhāgavatam without proper understanding. Consequently their study of the Śrīmad-Bhāgavatam becomes troublesome. Dry speculations and impersonal interpretations by artificial means are all useless for the Māyāvādī sannyāsīs. The Vaiṣṇava sannyāsīs, who are engaged in devotional service, are happy in the discharge of their transcendental duties, and they have the guarantee of ultimate entrance into the kingdom of God. The Māyāvādī sannyāsīs sometimes fall down from the path of self-realization and again enter into material activities of a philanthropic and altruistic nature, which are nothing but material engagements. Therefore, the conclusion is that those who are engaged in Kṛṣṇa consciousness are better situated than the sannyāsīs engaged in simple Brahman speculation, although they too come to Kṛṣṇa consciousness, after many births."
+  ],
+  "ta": [
+   {
+    "text": "இருவகையான சந்நியாசிகள் துறவு வாழ்வில் ஈடுபட்டுள்ளனர். மாயாவாத சந்நியாசிகள் ஸாங்கிய தத்துவத்தைப் படிப்பதிலும், வைஷ்ணவ சந்நியாசிகள் வேதாந்த தத்துவத்திற்கு முறையான விளக்கம் கொடுக்கக்கூடிய பாகவத தத்துவத்தைப் படிப்பதிலும் ஈடுபட்டுள்ளனர். மாயாவாத சந்நியாசிகளும் வேதாந்த தத்துவத்தைப் படிக்கின்றனர். ஆனால் அவர்கள் சங்கராசாரியரால் எழுதப்பட்ட ஷா வய எனப்படும் உரையைப் படிக்கின்றனர். பாகவத பள்ளியின் மாணவர்கள் பஞ்சராத்ர நெறிகளின்படி இறைவனின் பக்தித் தொண்டில் ஈடுபடுவதால் வைஷ்ணவ சந்நியாசிகளுக்கு பகவானின் திவ்யமான தொண்டில் பலதரப்பட்ட ஈடுபாடுகள் உள்ளன. வைஷ்ணவ சந்நியாசிகளைப் பொறுத்த வரையில் அவர்களுக்கும் பௌதிகச் செயல்களுக்கும் எந்தத் இல்லை என்றபோதிலும் அவர்கள் இறைவனின் பக்தித் தொண்டில் பற்பல செயல்களைச் செய்கின்றனர்.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆனால் ஸாங்கிய வேதாந்த கல்ஸியிலும், மனக் கற்பனையிலும் ஈடுபடும் மாயாவாத சந்நியாசிகளால் இறைவனின் திவ்யமான தொண்டினைச் சுவைக்க முடியாது. அவர்களின் ஆய்வுகள் மிகவும் கடினமானதால், சில நேரங்களில் அவர்கள் பிரம்மனைப் பற்றிய கற்பனைகளில் களைப்புற்று முறையான அறிவின்றி பாகவதத்திடம் தஞ்சமடைகின்றனர். விளைவு, இவர்களது பாகவத கல்வி தொல்லை அளிப்பதாகிவிடுகிறது. மாயாவாத சந்நியாசிகளின் செயற்கையான வறட்டு கற்பனைகளும் அருவவாத விளக்கங்களும் சற்றும் பயனற்றவையாகி விடுகின்றன. பக்தித் தொண்டில் ஈடுபட்டுள்ள வைஷ்ணவ சந்நியாசிகளோ தங்களது திவ்யமான கடமைகளை ஆற்றுவதில் ஆனந்தத்துடன் உள்ளனர். மேலும் இறுதியில் இறைவனின் திருநாட்டை அடைவதற்கான உத்தரவாதமும் அவர்களிடம் உள்ளது. மாயாவாத சந்நியாசிகள் சில சமயங்களில் தன்னுணர்வுப் பாதையிலிருந்து வழுவியடைந்து",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "மக்கள் தொண்டு, சமூக சேவை போன்ற பௌதிகச் செயல்களில் மீண்டும் நுழைகின்றனர். அச்செயல்கள் பௌதிக ஈடுபாடுகளே. எனவே, எது பிரம்மன், எது பிரம்மனல்ல என்பதைப் பற்றிய வறட்டு கற்பனைகளில் ஈடுபட்டிருக்கும் சந்நியாசிகள் பற்பல பிறவிகளுக்குப் பின் கிருஷ்ண பக்திக்கு வரலாம் என்றபோதிலும் அவர்களைக் காட்டிலும் கிருஷ்ண பக்தரின் செயல்களில்",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.21": {
+  "en": [
+   "Śrī Yāmunācārya, a great devotee in Kṛṣṇa consciousness, said:",
+   "yadāvadhi mama cetaḥ kṛṣṇa-padāravinde nava-nava-rasa-dhāmanudyata rantum āsīt tadāvadhi bata nārī-saṅgame smaryamāne bhavati mukha-vikāraḥ suṣṭu niṣṭhīvanaṁ ca",
+   "\"Since I have been engaged in the transcendental loving service of Kṛṣṇa, realizing ever-new pleasure in Him, whenever I think of sex pleasure, I spit at the thought, and my lips curl with distaste.\" A person in brahma-yoga, or Kṛṣṇa consciousness, is so absorbed in the loving service of the Lord that he loses his taste for material sense pleasure altogether. The highest pleasure in terms of matter is sex pleasure. The whole world is moving under its spell, and a materialist cannot work at all without this motivation. But a person engaged in Kṛṣṇa consciousness can work with greater vigor without sex pleasure, which he avoids. That is the test in spiritual realization. Spiritual realization and sex pleasure go ill together. A Kṛṣṇa conscious person is not attracted to any kind of sense pleasure due to his being a liberated soul."
+  ],
+  "ta": [
+   {
+    "text": "(மிகச்சிறந்த கிருஷ்ண பக்தரான யமுனாச்சாரியார் கூறுகிறார்: அவதி மம க்ருவள-பாதாரணிந்தே நவ-றநவ-ரஸ தாமன்-யுத்யதம் நந்தும் ஆஸீத் தத் அவதி பத நாரீ-ஸங்கமே ஸ்மர்பமானே பவதி முக-விகார நிஸ்டீவனம் ந கிருஷ்ணரின் திவ்யமான அன்புத் தொண்டில் ஈடுபட்ட பிறகு, அவரில் புதுப்புது ரஸங்களை உணரும் நான் காம சுகத்தைப் பற்றி எண்ணும் போதெல்லாம் அந்நினைவின் மீது காறி உமிழ்கிறேன். மேலும் என் உதடுகள் வெறுப்பினால் நெளிகின்றன.' பிரம்ம யோகத்தில் (கிருஷ்ண உணர்வில்) இருப்பவன் ஜடப் புலனின்பத்திற்கான சுவையை முற்றிலும் இழக்கும் அளவிற்கு இறைவனின் அன்புத் தொண்டில் மூழ்கியுள்ளான். ஜடத்தைப் பொறுத்தவரையில் காம சுகமே மிகவுயர்ந்த சுகமாகும். முழு உலகமும் இந்த மயக்கத்தில்தான் சுழன்று கொண்டுள்ளது. இந்த நோக்கம் இல்லையேல் லௌகீக மனிதனால் செயல்பட முடியாது.",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "ஆனால் காம சுகத்தைத் தவிர்க்கும் கிருஷ்ண பக்தன் அஃது இல்லாமலே முழுத் திறனுடன் செயலாற்ற முடியும். இதுவே ஆன்மீக உணர்விற்கான சோதனையாகும். ஆன்மீகமும் காம சுகமும் வெவ்வேறு துருவங்கள். முக்தியடைந்த ஆத்மாவாக இருப்பதால், கிருஷ்ண பக்தன் எவ்வித புலனின்பத்தாலும் கவரப்படுவதில்லை.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ },
+ "5.25": {
+  "en": [
+   "Only a person who is fully in Kṛṣṇa consciousness can be said to be engaged in welfare work for all living entities. When a person is actually in the knowledge that Kṛṣṇa is the fountainhead of everything, then when he acts in that spirit he acts for everyone. The sufferings of humanity are due to forgetfulness of Kṛṣṇa as the supreme enjoyer, the supreme proprietor, and the supreme friend. Therefore, to act to revive this consciousness within the entire human society is the highest welfare work. One cannot be engaged in first-class welfare work without being liberated in the Supreme. A Kṛṣṇa conscious person has no doubt about the supremacy of Kṛṣṇa. He has no doubt because he is completely freed from all sins. This is the state of divine love.",
+   "A person engaged only in ministering to the physical welfare of human society cannot factually help anyone. Temporary relief of the external body and the mind is not satisfactory. The real cause of one's difficulties in the hard struggle for life may be found in one's forgetfulness of his relationship with the Supreme Lord. When a man is fully conscious of his relationship with Kṛṣṇa, he is actually a liberated soul, although he may be in the material tabernacle."
+  ],
+  "ta": [
+   {
+    "text": "கிருஷ்ண உணர்வில் முழுமையாக ஈடுபட்டுள்ளவனை மட்டுமே, உலகிலுள்ள எல்லா உயிர்வாழிகளுக்கும் நன்மை செய்பவன் என்று கூற முடியும். எல்லாவற்றின் மூலம் கிருஷ்ணரே எனும் ஞானத்தை எப்போது ஒருவன் உண்மையாக அடைகின்றானோ அப்போது அத்தகு செயல்படும்போது அவன் அனைவருக்காகவும் செயலாற்றுகிறான். கிருஷ்ணரே பரம அனுபவிப்பாளர், பரம உரிமையாளர், பரம நண்பர் என்பதை மறந்துள்ளதே மனித குலத்தின் துன்பங்களுக்குக் காரணம். எனவே, மனித குலத்தினிடையே இவ்வுணர்வை பதிப்பிப்பதற்காகச் செய்யப்படும் செயலே மிகவுயர்ந்த சமூக சேவையாகும். பரத்தில் முக்தி அடைந்தவனாக இல்லாத நிலையில் ஒருவனால் இத்தகு முதல்தர சமூக நலத் தொண்டில் ஈடுபட முடியாது. கிருஷ்ண பக்தனுக்கு அவரது ஒப்புயர்வற்ற நிலையில் எவ்வித சந்தேகமும் இல்லை. எல்லா பாவங்களிலிருந்தும் விடுபட்டிருப்பதால் அவனிடம் எந்த சந்தேகமும் கிடையாது. இதுவே",
+    "verified": false,
+    "corrected": true
+   },
+   {
+    "text": "தெய்விக அன்பின் நிலையாகும். மனித சமுதாயத்திற்கு உடல் சம்பந்தமான தொண்டுகளை மட்டும் செய்வதில் ஈடுபட்டுள்ளவன் உண்மையில் எவருக்குமே உதவி செய்ய முடியாது. வெளிப்புற உடலுக்கும் மனதிற்கும் தரப்படும் தற்காலிக நிம்மதி திருப்திகரமானதல்ல. முழுமுதற் கடவுளுடனான உறவை மறந்திருப்பதே, வாழ்க்கைப் போராட்டத்தின் துன்பங்களுக்கான மூல காரணம் என்பதை அறிய வேண்டும். கிருஷ்ணருடனான தனது உறவை முழுமையாக உணர்ந்தவன், ஜட உலகில் வசிக்கும்போதிலும் முக்தி பெற்ற ஆத்மாவாவான்.",
+    "verified": false,
+    "corrected": true
+   }
+  ]
+ }
+}

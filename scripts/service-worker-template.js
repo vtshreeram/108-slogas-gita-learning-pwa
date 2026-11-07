@@ -16,8 +16,12 @@ async function cacheShell() {
 
 // Best effort: a chapter download failure must never break installing the app shell.
 async function cacheChapters() {
-  const cache = await caches.open(CHAPTER_CACHE);
-  await Promise.all(Array.from({ length: 18 }, (_, i) => cache.add(`/api/chapters/${i + 1}`).catch(() => {})));
+  try {
+    const cache = await caches.open(CHAPTER_CACHE);
+    const urls = Array.from({ length: 18 }, (_, i) => [`/api/chapters/${i + 1}`, `/api/purports/${i + 1}`]).flat();
+    const adds = Promise.all(urls.map((url) => cache.add(url).catch(() => {})));
+    await Promise.race([adds, new Promise((resolve) => setTimeout(resolve, 8000))]); // never stall installation
+  } catch { /* chapters are cached again on first use */ }
 }
 
 self.addEventListener("install", (event) => event.waitUntil(cacheShell().then(() => cacheChapters())));
@@ -59,10 +63,10 @@ async function chapterData(request) {
   const cache = await caches.open(CHAPTER_CACHE);
   try {
     const response = await fetch(request);
-    if (response.ok) await cache.put(request, response.clone());
+    if (response.ok) await cache.put(request, response.clone()).catch(() => {}); // a full disk must not fail a good response
     return response;
   } catch {
-    return (await cache.match(request)) ?? new Response(JSON.stringify({ error: "Offline" }), { status: 503, headers: { "Content-Type": "application/json" } });
+    return (await cache.match(request)) ?? new Response(JSON.stringify({ error: "Offline" }), { status: 504, headers: { "Content-Type": "application/json" } });
   }
 }
 
@@ -94,7 +98,7 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== "GET" || url.origin !== self.location.origin) return;
-  if (/^\/api\/chapters\/\d+$/.test(url.pathname)) { event.respondWith(chapterData(request)); return; }
+  if (/^\/api\/(?:chapters|purports)\/\d+$/.test(url.pathname)) { event.respondWith(chapterData(request)); return; }
   if (url.pathname.startsWith("/api/")) return;
   if (url.pathname.startsWith("/audio/")) { event.respondWith(serveAudio(request)); return; }
   if (request.mode === "navigate") { event.respondWith(navigation(request)); return; }

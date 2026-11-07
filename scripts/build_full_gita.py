@@ -125,7 +125,7 @@ def cmd_build():
         # Tamil comes from the OCR'd book (scripts/import_tamil_book.py); Bharati stays for verses
         # whose book text failed the quality gate. Re-run that importer after rebuilding.
         book = json.loads(TAMIL_BOOK.read_text()).get(ref) if TAMIL_BOOK.exists() else None
-        if book:
+        if book and book["text"]:
             entry["tamil"] = book["text"]
             entry["tamilSource"] = "book" if book["status"] == "ok" else "bharati"
         chapters.setdefault(chapter, []).append(entry)
