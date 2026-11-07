@@ -6,10 +6,11 @@
   "reference": "9.1",
   "sanskrit": "श्रीभगवानुवाच\nइदं तु ते गुह्यतमं प्रवक्ष्याम्यनसूयवे ।\nज्ञानं विज्ञानसहितं यज्ज्ञात्वा मोक्ष्यसेऽश‍ुभात् ॥ १ ॥",
   "transliteration": "śrī-bhagavān uvāca\nidaṁ tu te guhya-tamaṁ\npravakṣyāmy anasūyave\njñānaṁ vijñāna-sahitaṁ\nyaj jñātvā mokṣyase ’śubhāt",
-  "tamil": "அசூயை யற்றவனாகிய உனக்கு இந்த அதி ரகசியமான ஞானத்தை விஞ்ஞானத்துடன் சொல்லுகிறேன். இதையறிவதால் தீமையிலிருந்து விடுபடுவாய்.",
+  "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: எனதன்பு அர்ஜுனா. நீ என்றுமே என்னிடம் பொறாமை கொள்ளாதவன் என்பதால், எதனை அறிவதால் ஜடவுலகின் துன்பங்களிலிருந்து விடுதலை அடைவாயோ, அந்த மிக இரகசியமான ஞானத்கையும் விஞ்ஞானத்தையும் உனக்கு நான் அளிக்கிறேன்.",
   "english": "The Supreme Personality of Godhead said: My dear Arjuna, because you are never envious of Me, I shall impart to you this most confidential knowledge and realization, knowing which you shall be relieved of the miseries of material existence.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-063",
@@ -18,12 +19,13 @@
   "reference": "9.2",
   "audioSrc": "/audio/9.2.mp3",
   "sanskrit": "राजविद्या राजगुह्यं पवित्रमिदमुत्तमम्।\n\nप्रत्यक्षावगमं धर्म्यं सुसुखं कर्तुमव्ययम्।।9.2।।",
-  "tamil": "ராஜவித்தை, ராஜரகசியம், தூய்மை தருவதில் மிக மாண்புடையது, கண்ணெதிரே காண்டற்குரியது. அறத்துக் கிசைந்தது, செய்தற்கு மிக எளிது, அழிவற்றது.",
+  "tamil": "இந்த அறிவு. கல்வியின் அரசனும், எல்லா இரகசியங்களிலும் மிக இரகசியமானதும், மிகத் தூய்மையானதுமாகும். தன்னுணர்வின் அனுபவத்தை நேரடியாக அளிப்பதால் இதுவே தர்மத்தின் பக்குவ நிலையாகும். இஃது அழிவற்றதும், பேரின்பத்துடன் செயலாற்றப்படுவதும் ஆகும்.",
   "transliteration": "rāja-vidyā rāja-guhyaṁ\npavitram idam uttamam\npratyakṣāvagamaṁ dharmyaṁ\nsu-sukhaṁ kartum avyayam",
   "english": "This knowledge is the king of education, the most secret of all secrets. It is the purest knowledge, and because it gives direct perception of the self by realization, it is the perfection of religion. It is everlasting, and it is joyfully performed.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.3",
@@ -32,10 +34,11 @@
   "reference": "9.3",
   "sanskrit": "अश्रद्दधाना: पुरुषा धर्मस्यास्य परन्तप ।\nअप्राप्य मां निवर्तन्ते मृत्युसंसारवर्त्मनि ॥ ३ ॥",
   "transliteration": "aśraddadhānāḥ puruṣā\ndharmasyāsya paran-tapa\naprāpya māṁ nivartante\nmṛtyu-saṁsāra-vartmani",
-  "tamil": "பகையைச் சுடுவோய், இல்லறத்தில் நம்பிக்கையற்ற மனிதர் என்னை எய்தாமல் மீண்டும் நரக சம்சாரப் பாதைகளில் மீளுகின்றனர்.",
+  "tamil": "எதிரிகளை வெல்வோனே, இந்த பக்தித் தொண்டில் நம்பிக்கையற்றவர்கள் என்னை அடைய முடியாது. எனவே, அவர்கள் இந்த பெளதிக உலகின் பிறப்பு இறப்பு பாகைக்கே திரும்பி வருகின்றனர்.",
   "english": "Those who are not faithful in this devotional service cannot attain Me, O conqueror of enemies. Therefore they return to the path of birth and death in this material world.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-064",
@@ -44,12 +47,13 @@
   "reference": "9.4",
   "audioSrc": "/audio/9.4.mp3",
   "sanskrit": "मया ततमिदं सर्वं जगदव्यक्तमूर्तिना।\n\nमत्स्थानि सर्वभूतानि न चाहं तेष्ववस्थितः।।9.4।।",
-  "tamil": "அவ்யக்த வடிவாய் நான் இவ்வுலக முழுமையும் சூழ்ந்திருக்கிறேன். என்னிடத்தே பூதங்களெல்லாம் நிலைபெற்றன. அவற்றுட்பட்டதன்று என் நிலை.",
+  "tamil": "நான் எனது தோன்றாத உருவின் மூலம் இந்த அகிலம் முழுவதும் பரவியுள்ளேன். எல்லா ஜீவன்களும் என்னில் இருக்கின்றன்; ஆனால் அவர்களில் நான் இல்லை.",
   "transliteration": "mayā tatam idaṁ sarvaṁ\njagad avyakta-mūrtinā\nmat-sthāni sarva-bhūtāni\nna cāhaṁ teṣv avasthitaḥ",
   "english": "By Me, in My unmanifested form, this entire universe is pervaded. All beings are in Me, but I am not in them.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.5",
@@ -58,10 +62,11 @@
   "reference": "9.5",
   "sanskrit": "न च मत्स्थानि भूतानि पश्य मे योगमैश्वरम् ।\nभूतभृन्न च भूतस्थो ममात्मा भूतभावन: ॥ ५ ॥",
   "transliteration": "na ca mat-sthāni bhūtāni\npaśya me yogam aiśvaram\nbhūta-bhṛn na ca bhūta-stho\nmamātmā bhūta-bhāvanaḥ",
-  "tamil": "(மற்றொரு வகையால் நோக்குமிடத்தே) பூதங்கள் என்னுள் நிற்பனவுமல்ல, என் ஈசுவர யோகத்தின் பெருமையை இங்கு பார், பூதங்களைத் தரிக்கிறேன், அவற்றுட்-பட்டேனல்லேன். என் ஆத்மாவில் பூத சிந்தனை இயல்கிறது.",
+  "tamil": "இருப்பினும், படைக்கப்பட்டவை எல்லாம் என்னில் நிலை பெற்றிருக்கவில்லை. எனது யோகத்தின் ஐஸ்வர்யத்தைப் பார்! நானே எல்லா உயிரினங்களையும் காப்பவன் என்றபோதிலும், எங்கும் நிறைந்துள்ளவன் என்றபோதிலும். நான் இந்த பிரபஞ்சத் தோற்றத்தின் ஒரு பகுதி அல்ல, ஏனெனில் நானே படைப்பின் மூல காரணம்.",
   "english": "And yet everything that is created does not rest in Me. Behold My mystic opulence! Although I am the maintainer of all living entities and although I am everywhere, I am not a part of this cosmic manifestation, for My Self is the very source of creation.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.6",
@@ -70,10 +75,11 @@
   "reference": "9.6",
   "sanskrit": "यथाकाशस्थितो नित्यं वायु: सर्वत्रगो महान् ।\nतथा सर्वाणि भूतानि मत्स्थानीत्युपधारय ॥ ६ ॥",
   "transliteration": "yathākāśa-sthito nityaṁ\nvāyuḥ sarvatra-go mahān\ntathā sarvāṇi bhūtāni\nmat-sthānīty upadhāraya",
-  "tamil": "எங்கும் இயல்வானும் பெரியானுமாகிய காற்று, எப்படி எப்போதும் வானில் நிலைபெற்றிருக்கிறானோ, அப்படியே பொருள்களெல்லாம் என்னுள் நிலைபெற்றனவென்று தெரிந்து கொள்.",
+  "tamil": "எங்கும் வீசிக் கொண்டுள்ள பலத்த காற்று, எவ்வாறு எப்போதும் ஆகாயத்தினுள் உள்ளதோ. அதுபோலவே படைக்கப்பட்டவை அனைத்தும் என்னில் அமைந்துள்ளதை அறிவாயாக.",
   "english": "Understand that as the mighty wind, blowing everywhere, rests always in the sky, all created beings rest in Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.7",
@@ -82,10 +88,11 @@
   "reference": "9.7",
   "sanskrit": "सर्वभूतानि कौन्तेय प्रकृतिं यान्ति मामिकाम् ।\nकल्पक्षये पुनस्तानि कल्पादौ विसृजाम्यहम् ॥ ७ ॥",
   "transliteration": "sarva-bhūtāni kaunteya\nprakṛtiṁ yānti māmikām\nkalpa-kṣaye punas tāni\nkalpādau visṛjāmy aham",
-  "tamil": "குந்தி மகனே, கற்ப நாசத்தால் எல்லா உயிர்களும் என் இயல்பை எய்துகின்றன. மறுபடி கற்பத் தொடக்கத்தில் நான் அவற்றைப் படைக்கிறேன்.",
+  "tamil": "குந்தியின் மகனே, கல்பத்தின் முடிவில் ஜடத் தோற்றம் முழுவமும் எனது இயற்கையின் நுழைகின்றன. அடுத்த கல்பத்தின் ஆரம்பத்தில் எனது சக்தியின் மூலம் நானே அவற்றை மீண்டும் படைக்கின்றேன்.",
   "english": "O son of Kuntī, at the end of the millennium all material manifestations enter into My nature, and at the beginning of another millennium, by My potency, I create them again.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.8",
@@ -94,10 +101,11 @@
   "reference": "9.8",
   "sanskrit": "प्रकृतिं स्वामवष्टभ्य विसृजामि पुन: पुन: ।\nभूतग्राममिमं कृत्स्नमवशं प्रकृतेर्वशात् ॥ ८ ॥",
   "transliteration": "prakṛtiṁ svām avaṣṭabhya\nvisṛjāmi punaḥ punaḥ\nbhūta-grāmam imaṁ kṛtsnam\navaśaṁ prakṛter vaśāt",
-  "tamil": "என் சக்தியில் உறுதிகொண்டு மீட்டு மீட்டும் பூதத் தொகுதி முழுதையும் என் வசமின்றி, சக்தி, அதாவது இயற்கையின் வசத்தால் நான் படைக்கிறேன்.",
+  "tamil": "பிரபஞ்ச தோற்றம் முழுவதும் எனக்குக் கீழ்ப்பட்டது. எனது விருப்பப்படி அது மீண்டும் மீண்டும் தானாகப் படைக்கப்பட்டு, இறுதியில் எனது விருப்பப்படி அழிக்கப்படுகின்றது.",
   "english": "The whole cosmic order is under Me. Under My will it is automatically manifested again and again, and under My will it is annihilated at the end.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.9",
@@ -106,10 +114,11 @@
   "reference": "9.9",
   "sanskrit": "न च मां तानि कर्माणि निबध्‍नन्ति धनञ्जय ।\nउदासीनवदासीनमसक्तं तेषु कर्मसु ॥ ९ ॥",
   "transliteration": "na ca māṁ tāni karmāṇi\nnibadhnanti dhanañ-jaya\nudāsīna-vad āsīnam\nasaktaṁ teṣu karmasu",
-  "tamil": "தனஞ்சயா! என்னை அத்தொழில்கள் தளையுறுத்தா, அவ்வினைகளிடையே நான் மேற்பட்டவன்போல் அமர்ந்திருக்கிறேன்.",
+  "tamil": "தனஞ்ஜயனே., இச்செயல்கள் எதுவும் என்னை பந்தப்படுத்த முடியாது. நடுநிலையில் அமைந்துள்ள நான், இந்த பெளதிகச் செயல்களிலிருந்து எப்போதும் விலகியே உள்ளேன்.",
   "english": "O Dhanañjaya, all this work cannot bind Me. I am ever detached from all these material activities, seated as though neutral.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-065",
@@ -118,12 +127,13 @@
   "reference": "9.10",
   "audioSrc": "/audio/9.10.mp3",
   "sanskrit": "मयाऽध्यक्षेण प्रकृतिः सूयते सचराचरम्।\n\nहेतुनाऽनेन कौन्तेय जगद्विपरिवर्तते।।9.10।।",
-  "tamil": "என் மேற்பார்வையில் இயற்கை அசையும் உயிர்களையும் அசையாதவற்றையும் தோற்றுவிக்கிறது. குந்தியின் மகனே! இதனாலேயே உலகம் மீண்டும் மீண்டும் தோன்றி மறைகிறது.",
+  "tamil": "குந்தியின் மகனே. எனது சக்திகளில் ஒன்றான இந்த ஜட இயற்கை, எனது மேற்பார்வையில் செயல்பட்டு, அசைகின்ற மற்றும் அசையாதவற்றை எல்லாம் உண்டாக்குகின்றது. அதன் ஆணைப்படி, இந்தத் தோற்றம் மீண்டும் மீண்டும் படைக்கப்பட்டு அழிக்கப்படுகின்றது.",
   "transliteration": "mayādhyakṣeṇa prakṛtiḥ\nsūyate sa-carācaram\nhetunānena kaunteya\njagad viparivartate",
   "english": "This material nature is working under My direction, O son of Kuntī, and it is producing all moving and unmoving beings. By its rule this manifestation is created and annihilated again and again.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-066",
@@ -132,12 +142,13 @@
   "reference": "9.11",
   "audioSrc": "/audio/9.11.mp3",
   "sanskrit": "अवजानन्ति मां मूढा मानुषीं तनुमाश्रितम्।\n\nपरं भावमजानन्तो मम भूतमहेश्वरम्।।9.11।।",
-  "tamil": "மனித சரீரந் தரித்த என்னை மூடர் புறக்கணிக்கிறார்கள். உயிர்களுக்கெல்லாம் உயர் தலைவன் நான் என்ற என் பரம நிலையை அவர்கள் அறிகிலர்.",
+  "tamil": "மனித உருவில் நான் தோன்றும்போது முட்டாள்கள் என்னை ஏளனம் செய்கின்றனர். எனது பரம இயற்கையை, அதாவது, இருப்பவை அனைத்திற்கும் நானே உன்னத உரிமையாளன் என்பதை அவர்கள் அறியார்கள்.",
   "transliteration": "avajānanti māṁ mūḍhā\nmānuṣīṁ tanum āśritam\nparaṁ bhāvam ajānanto\nmama bhūta-maheśvaram",
   "english": "Fools deride Me when I descend in the human form. They do not know My transcendental nature and My supreme dominion over all that be.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-067",
@@ -146,12 +157,13 @@
   "reference": "9.12",
   "audioSrc": "/audio/9.12.mp3",
   "sanskrit": "मोघाशा मोघकर्माणो मोघज्ञाना विचेतसः।\n\nराक्षसीमासुरीं चैव प्रकृतिं मोहिनीं श्रिताः।।9.12।।",
-  "tamil": "வீணாசையுடையோர், வீண் செயலாளர், வீணறிவாளர், மதியற்றோர், மயக்கத்துக்கு இடமான ராக்ஷத ஆசுர மோகினி சக்திகளைச் சார்ந்து நிற்கின்றனர். (ராக்ஷத, ஆசுர, மோகினி சக்திகளாவன -- அவா, குரூரம், மயக்கம் என்ற சித்த இயல்புகள்)",
+  "tamil": "இவ்வாறு குழம்பியவர்கள், ராட்சசத்தனமாக கருத்துக்களாலும் நாத்திகக் கருத்துக்களாலும் கவரப்படுகின்றனர். அத்தகு மயங்கிய நிலையில். அவர்களது முக்திக்கான ஆவல்கள். பலன் நோக்குச் செயல்கள், அறிவுப் பயிற்சிகள் ஆகிய அனைத்தும் கோல்வியடைகின்றன.",
   "transliteration": "moghāśā mogha-karmāṇo\nmogha-jñānā vicetasaḥ\nrākṣasīm āsurīṁ caiva\nprakṛtiṁ mohinīṁ śritāḥ",
   "english": "Those who are thus bewildered are attracted by demonic and atheistic views. In that deluded condition, their hopes for liberation, their fruitive activities, and their culture of knowledge are all defeated.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-068",
@@ -160,12 +172,13 @@
   "reference": "9.13",
   "audioSrc": "/audio/9.13.mp3",
   "sanskrit": "महात्मानस्तु मां पार्थ दैवीं प्रकृतिमाश्रिताः।\n\nभजन्त्यनन्यमनसो ज्ञात्वा भूतादिमव्ययम्।।9.13।।",
-  "tamil": "பார்த்தா! மகாத்மாக்கள் தெய்வீக இயல்பைச் சார்ந்து, உயிர்களின் ஆதியும் அழிவற்றவனுமாகிய என்னை அறிந்து, வேறு மனமின்றி வழிபடுகின்றனர்.",
+  "tamil": "பிருதாவின் மகனே, குழப்பமடையாத மகாத்மாக்களோ தெய்வீக இயற்கையின் பாதுகாப்பில் உள்ளனர். அவர்கள். பரம புருஷ பகவானான என்னை. ஆதிபுருஷனாகவும் அழிவற்றவனாகவும் அறிந்து, எனது பக்தித் தொண்டில் பூரணமாக ஈடுபட்டுள்ளனர்.",
   "transliteration": "mahātmānas tu māṁ pārtha\ndaivīṁ prakṛtim āśritāḥ\nbhajanty ananya-manaso\njñātvā bhūtādim avyayam",
   "english": "O son of Pṛthā, those who are not deluded, the great souls, are under the protection of the divine nature. They are fully engaged in devotional service because they know Me as the Supreme Personality of Godhead, original and inexhaustible.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-069",
@@ -174,12 +187,13 @@
   "reference": "9.14",
   "audioSrc": "/audio/9.14.mp3",
   "sanskrit": "सततं कीर्तयन्तो मां यतन्तश्च दृढव्रताः।\n\nनमस्यन्तश्च मां भक्त्या नित्ययुक्ता उपासते।।9.14।।",
-  "tamil": "திட விரதத்துடன் முயற்சி புரிவோராய், எப்போதும் என்னைப் புகழ்வோராய், என்னைப் பக்தியால் வணங்குவோராய் நித்திய யோகிகள் உபாசிக்கிறார்கள்.",
+  "tamil": "எப்போதும் எனது புகழை கீர்த்தனம் செய்து கொண்டு, திடமான உறுதியுடன் முயன்று கொண்டு, எனக்கு வந்தனை செய்தபடி. இந்த மகாத்மாக்கள் பக்தியுடன் நித்தியமாக என்னை வழிபடுகின்றனர்.",
   "transliteration": "satataṁ kīrtayanto māṁ\nyatantaś ca dṛḍha-vratāḥ\nnamasyantaś ca māṁ bhaktyā\nnitya-yuktā upāsate",
   "english": "Always chanting My glories, endeavoring with great determination, bowing down before Me, these great souls perpetually worship Me with devotion.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.15",
@@ -188,10 +202,11 @@
   "reference": "9.15",
   "sanskrit": "ज्ञानयज्ञेन चाप्यन्ये यजन्तो मामुपासते ।\nएकत्वेन पृथक्त्वेन बहुधा विश्वतोमुखम् ॥ १५ ॥",
   "transliteration": "jñāna-yajñena cāpy anye\nyajanto mām upāsate\nekatvena pṛthaktvena\nbahudhā viśvato-mukham",
-  "tamil": "வேறு சிலர் ஞான வேள்வியால் வேட்போராய் என்னை ஒருமையாகவும் பன்மையாகவும் பலவாறாக எல்லாவிடத்தும் வழிபடுகிறார்கள்.",
+  "tamil": "ஞான யாகத்தல் ஈடுபட்டிருக்கும் பிறர். பரம புருஷரை, தன்னிகரற்றவராகவும், பலரில் வேறுபட்டவராகவும். விஸ்வ ரூபத்திலும் வழிபடுகின்றனர்.",
   "english": "Others, who engage in sacrifice by the cultivation of knowledge, worship the Supreme Lord as the one without a second, as diverse in many, and in the universal form.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.16",
@@ -200,10 +215,11 @@
   "reference": "9.16",
   "sanskrit": "अहं क्रतुरहं यज्ञ: स्वधाहमहमौषधम् ।\nमन्‍त्रोऽहमहमेवाज्यमहमग्न‍िरहं हुतम् ॥ १६ ॥",
   "transliteration": "ahaṁ kratur ahaṁ yajñaḥ\nsvadhāham aham auṣadham\nmantro ’ham aham evājyam\naham agnir ahaṁ hutam",
-  "tamil": "நான் ஓமம்; நான் யாகம்; நான் 'ஸ்வதா' என்ற வாழ்த்துரை; நான் மருந்து; மந்திரம்; நான் நெய், நான் தீ; நான் ஆவி.",
+  "tamil": "ஆனால், சடங்கும் நானே, யாகமும். நானே. முன்னோருக்குப் படைக்கப்படும் பொருளும் நானே, நோய் தீர்க்கும் மூலிகையும் நானே, தெய்வீகமான மந்திரமும் நானே. நானே நெய், நானே அக்னி, நானே படைக்கப்படும் பொருள்.",
   "english": "But it is I who am the ritual, I the sacrifice, the offering to the ancestors, the healing herb, the transcendental chant. I am the butter and the fire and the offering.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.17",
@@ -212,10 +228,11 @@
   "reference": "9.17",
   "sanskrit": "पिताहमस्य जगतो माता धाता पितामह: ।\nवेद्यं पवित्रम् ॐकार ऋक् साम यजुरेव च ॥ १७ ॥",
   "transliteration": "pitāham asya jagato\nmātā dhātā pitāmahaḥ\nvedyaṁ pavitram oṁ-kāra\nṛk sāma yajur eva ca",
-  "tamil": "இந்த உலகத்தின் அப்பன் நான்; இதன் அம்மா நான்; இதைத் தரிப்போன் நான்; இதன் பாட்டன் நான்; இதன் அறியப்படு பொருள் நான்; தூய்மை செய்வது நான்; ஓங்காரம் நான்; நான் ரிக்; நான் ஸாமம்; நான் யஜுர்.",
+  "tamil": "இந்த அகிலத்தின் தந்தையும் தாயும் காப்பவனும் பாட்டனாரும் நானே. அறியப்பட வேண்டிய பொருளும், தூய்மைப்படுத்தும் பொருளும், 'ஓம்' என்னும் மந்திரமும் நானே. ரிக். ஸாம, யஜுர் வேதங்களும் நானே.",
   "english": "I am the father of this universe, the mother, the support and the grandsire. I am the object of knowledge, the purifier and the syllable oṁ. I am also the Ṛg, the Sāma and the Yajur Vedas.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.18",
@@ -224,10 +241,11 @@
   "reference": "9.18",
   "sanskrit": "गतिर्भर्ता प्रभु: साक्षी निवास: शरणं सुहृत् ।\nप्रभव: प्रलय: स्थानं निधानं बीजमव्ययम् ॥ १८ ॥",
   "transliteration": "gatir bhartā prabhuḥ sākṣī\nnivāsaḥ śaraṇaṁ suhṛt\nprabhavaḥ pralayaḥ sthānaṁ\nnidhānaṁ bījam avyayam",
-  "tamil": "இவ்வுலகத்தின் புகழ், இதனிறைவன், இதன் கரி, இதனுறையுள், இதன் சரண், இதன் தோழன், இதன் தொடக்கம், இதன் அழிவு, இதன் இடம், இதன் நிலை, இதன் அழியாத விதை.",
+  "tamil": "நானே இலக்கு, காப்பவன், தலைவன், சாட்சி, வசிப்பிடம். அடைக்கலம், மற்றும் மிக நெருங்கிய நண்பன். நானே படைப்பு. அழிவு, எல்லாவற்றின் ஆதாரம். தங்குமிடம், மற்றும் நித்தியமான விதையும் ஆவேன்.",
   "english": "I am the goal, the sustainer, the master, the witness, the abode, the refuge and the most dear friend. I am the creation and the annihilation, the basis of everything, the resting place and the eternal seed.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.19",
@@ -236,10 +254,11 @@
   "reference": "9.19",
   "sanskrit": "तपाम्यहमहं वर्षं निगृह्णाम्युत्सृजामि च ।\nअमृतं चैव मृत्युश्च सदसच्च‍ाहमर्जुन ॥ १९ ॥",
   "transliteration": "tapāmy aham ahaṁ varṣaṁ\nnigṛhṇāmy utsṛjāmi ca\namṛtaṁ caiva mṛtyuś ca\nsad asac cāham arjuna",
-  "tamil": "நான் வெப்பம் தருகிறேன்; மழையை நான் கட்டிவிடுகிறேன். நான் அதனைப் பெய்விக்கிறேன். நானே அமிர்தம்; நானே மரணம். அர்ஜுனா! உள்ளதும் யான்; இல்லதும் யான்.",
+  "tamil": "அர்ஜுனா, நானே வெப்பத்தைக் கொடுப்பவன். மழையைத் தடுப்பவனும் கொடுப்பவனும் நானே. நித்தியமும் நானே, மரண உருவமும் நானே. ஜடம், சேதனம் இரண்டும் என்னில் உள்ளன.",
   "english": "O Arjuna, I give heat, and I withhold and send forth the rain. I am immortality, and I am also death personified. Both spirit and matter are in Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.20",
@@ -248,10 +267,11 @@
   "reference": "9.20",
   "sanskrit": "त्रैविद्या मां सोमपा: पूतपापा\nयज्ञैरिष्ट्वा स्वर्गतिं प्रार्थयन्ते ।\nते पुण्यमासाद्य सुरेन्द्रलोक-\nमश्न‍‍न्ति दिव्यान्दिवि देवभोगान् ॥ २० ॥",
   "transliteration": "trai-vidyā māṁ soma-pāḥ pūta-pāpā\nyajñair iṣṭvā svar-gatiṁ prārthayante\nte puṇyam āsādya surendra-lokam\naśnanti divyān divi deva-bhogān",
-  "tamil": "சோமமுண்டார், பாவமகன்றார், மூன்று வேதமறிந்தார், என்னை வேள்விகளால் வேண்டி வானுலகு தர வேண்டுகின்றனர். அவர்கள் புண்ணிய ஸ்தானமாகிய தேவேந்திர லோகத்தை யெய்தி வானுலகில் திவ்யமான தேவ போகங்களைத் துய்க்கிறார்கள்.",
+  "tamil": "ஸ்வர்க லோகத்தை அடைவதற்காக, வேதங்களைப் பயின்று ஸோம ரஸத்தை அருந்துபவர்கள். என்னை மறைமுகமாக வழிபடுகின்றனர். இதன் மூலமாக அவர்கள் பாவ விளைவுகளிலிருந்து தூய்மையடைந்து, புண்ணியமான இந்திர லோகத்தில் பிறவியெடுத்து, அங்கே தேவ சுகங்களை அனுபவிக்கின்றனர்.",
   "english": "Those who study the Vedas and drink the soma juice, seeking the heavenly planets, worship Me indirectly. Purified of sinful reactions, they take birth on the pious, heavenly planet of Indra, where they enjoy godly delights.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.21",
@@ -260,10 +280,11 @@
   "reference": "9.21",
   "sanskrit": "ते तं भुक्त्वा स्वर्गलोकं विशालं\nक्षीणे पुण्ये मर्त्यलोकं विशन्ति ।\nएवं त्रयीधर्ममनुप्रपन्ना\nगतागतं कामकामा लभन्ते ॥ २१ ॥",
   "transliteration": "te taṁ bhuktvā svarga-lokaṁ viśālaṁ\nkṣīṇe puṇye martya-lokaṁ viśanti\nevaṁ trayī-dharmam anuprapannā\ngatāgataṁ kāma-kāmā labhante",
-  "tamil": "விரிவாகிய வானுலகிலே இன்புற்றுப் புண்ணியந் தீர்ந்தவுடன் மறுபடி அழிவுடைய மனித உலகத்துக்குத் திரும்புகிறார்கள். இப்படி மூன்று வேத முறைகளைத் தொழுவார் விருப்பங்களில் வீழ்ந்து உழல்வார்.",
+  "tamil": "ஸ்வர்க லோகத்தில் அத்தகு பரந்த சுகத்தை அனுபவித்துவிட்டு, தங்களது புண்ணியங்களின் பலன்களை தீர்ந்தவுடன், அவர்கள் மீண்டும் இந்த மரண உலகில் வீழ்கின்றனர். இவ்வாறாக, புலனின்பத்திற்காக வேத தர்மத்தைக் கடைப்பிடிப்பவர்கள், பிறப்பு இறப்பினையே அடைகின்றர்.",
   "english": "When they have thus enjoyed vast heavenly sense pleasure and the results of their pious activities are exhausted, they return to this mortal planet again. Thus those who seek sense enjoyment by adhering to the principles of the three Vedas achieve only repeated birth and death.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-070",
@@ -272,12 +293,13 @@
   "reference": "9.22",
   "audioSrc": "/audio/9.22.mp3",
   "sanskrit": "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते।\n\nतेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम्।।9.22।।",
-  "tamil": "வேறு நினைப்பின்றி என்னைத் தியானித்து வழிபடும், எப்போதும் என்னுடன் இணைந்திருப்போருக்குத் தேவையானதை அளித்து, அவர்களிடம் உள்ளதைக் காப்பாற்றுகிறேன்.",
+  "tamil": "ஆனால் எனது திவ்ய ரூபத்தின் மீது தியானம் செய்துகொண்டு, களங்கமற்ற (அனன்ய) பக்தியுடன் என்னை நித்தியமாக வழிபடுபவர்களுக்கோ, அவர்களுக்கு வேண்டியவற்றைக் கொடுத்தும், அவர்களிடம் இருப்பவற்றை காத்தும் நான் பாலிக்கின்றேன்.",
   "transliteration": "ananyāś cintayanto māṁ\nye janāḥ paryupāsate\nteṣāṁ nityābhiyuktānāṁ\nyoga-kṣemaṁ vahāmy aham",
   "english": "But those who worship Me with devotion, meditating on My transcendental form—to them I carry what they lack and preserve what they have.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.23",
@@ -286,10 +308,11 @@
   "reference": "9.23",
   "sanskrit": "येऽप्यन्यदेवताभक्ता यजन्ते श्रद्धयान्विता: ।\nतेऽपि मामेव कौन्तेय यजन्त्यविधिपूर्वकम् ॥ २३ ॥",
   "transliteration": "ye ’py anya-devatā-bhaktā\nyajante śraddhayānvitāḥ\nte ’pi mām eva kaunteya\nyajanty avidhi-pūrvakam",
-  "tamil": "அன்னிய தேவதைகளை நம்பிக்கையுடன் தொழும் அன்பரும், குந்தியின் மகனே! விதி வழுவி என்னையே தொழுகின்றனர்.",
+  "tamil": "மற்ற தேவர்களை நம்பிக்கையோடு வணங்கும் பக்தர்கள். உண்மையில் என்னை மட்டுமே வழிபடுகின்றனர். குந்தியின் மகனே, ஆனால் அத்தகு வழிபாடு தவறான வழியில் செய்யப்படுவதாகும்.",
   "english": "Those who are devotees of other gods and who worship them with faith actually worship only Me, O son of Kuntī, but they do so in a wrong way.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.24",
@@ -298,10 +321,11 @@
   "reference": "9.24",
   "sanskrit": "अहं हि सर्वयज्ञानां भोक्ता च प्रभुरेव च ।\nन तु मामभिजानन्ति तत्त्वेनातश्‍च्‍यवन्ति ते ॥ २४ ॥",
   "transliteration": "ahaṁ hi sarva-yajñānāṁ\nbhoktā ca prabhur eva ca\nna tu mām abhijānanti\ntattvenātaś cyavanti te",
-  "tamil": "நானே வேள்விகளில் எல்லாம் உணவு உண்பவன். நானே தலைவன்; என்னை மனிதர் உல்ளபடி அறியார்; ஆதலால் நழுவி வீழ்வார்.",
+  "tamil": "எல்லா யாகங்களின் தலைவனும் அனுபவிப்பாளனும் நானே. எனவே, எனது உண்மையான தெய்வீக இயற்கையை அங்கீகரிக்காதவர்கள் வீழ்ச்சியடைகிறார்கள்.",
   "english": "I am the only enjoyer and master of all sacrifices. Therefore, those who do not recognize My true transcendental nature fall down.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-071",
@@ -310,12 +334,13 @@
   "reference": "9.25",
   "audioSrc": "/audio/9.25.mp3",
   "sanskrit": "यान्ति देवव्रता देवान् पितृ़न्यान्ति पितृव्रताः।\n\nभूतानि यान्ति भूतेज्या यान्ति मद्याजिनोऽपि माम्।।9.25।।",
-  "tamil": "தேவ விரதிகள் தேவரை எய்துவார்; பிதிர்க்களை நோற்பார் பிதிர்க்களை யடைவார்; பூதங்களைத் தொழுவார் பூதங்களை யடைவார்; என்னை வேட்போர் என்னை எய்துவார்.",
+  "tamil": "தேவர்களை வழிபடுபவர்கள் தேவர்களிடையே பிறப்பவர்: முன்னோர்களை வழிபடுபவர்கள் முன்னோர்களிடம் செல்வர்: பூதங்களை வழிபடுபவர்கள் பூதங்களிடையே பிறப்பர்; மேலும். என்னை வழிபடுபவர்கள் என்னுடனே வாழ்வர்.",
   "transliteration": "yānti deva-vratā devān\npitṝn yānti pitṛ-vratāḥ\nbhūtāni yānti bhūtejyā\nyānti mad-yājino ’pi mām",
   "english": "Those who worship the demigods will take birth among the demigods; those who worship ghosts and spirits will take birth among such beings; those who worship ancestors go to the ancestors; and those who worship Me will live with Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-072",
@@ -324,12 +349,13 @@
   "reference": "9.26",
   "audioSrc": "/audio/9.26.mp3",
   "sanskrit": "पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति।\n\nतदहं भक्त्युपहृतमश्नामि प्रयतात्मनः।।9.26।।",
-  "tamil": "இலையேனும், பூவேனும், கனியேனும், நீரேனும் அன்புடனே எனக்கு அளிப்பவன் ஆயின், முயற்சியுடைய அன்னவன் அன்புடன் அளித்ததை உண்பேன் யான்.",
+  "tamil": "அன்புடனும் பக்தியுடனும் ஒருவன் எனக்கு ஓர் இலையோ, ஒரு பூவோ, ஒரு பழமோ. நீரோ அளித்தால் அதனை நான் ஏற்கின்றேன்.",
   "transliteration": "patraṁ puṣpaṁ phalaṁ toyaṁ\nyo me bhaktyā prayacchati\ntad ahaṁ bhakty-upahṛtam\naśnāmi prayatātmanaḥ",
   "english": "If one offers Me with love and devotion a leaf, a flower, fruit or water, I will accept it.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-073",
@@ -338,12 +364,13 @@
   "reference": "9.27",
   "audioSrc": "/audio/9.27.mp3",
   "sanskrit": "यत्करोषि यदश्नासि यज्जुहोषि ददासि यत्।\n\nयत्तपस्यसि कौन्तेय तत्कुरुष्व मदर्पणम्।।9.27।।",
-  "tamil": "நீ எதைச் செய்தாலும், எதை உண்டாலும், எதை வேள்வியில் அளித்தாலும், எதைக் கொடுத்தாலும், எந்தத் தவத்தைச் செய்தாலும், குந்தியின் மகனே! அதை எனக்கு அர்ப்பணமாகச் செய்.",
+  "tamil": "குந்தியின் மகனே. எதையெல்லாம் நீ செய்கின்றாயோ, எதையெல்லாம் நீ உண்கின்றாயோ, எதையெல்லாம் நீ படைக்கின்றாயோ, எதையெல்லாம் நீ கொடுக்கின்றாயோ, எந்த தவங்களையெல்லாம் நீ செய்கின்றாயோ. அதனை எனக்கு அர்ப்பணமாக செய்வாயாக.",
   "transliteration": "yat karoṣi yad aśnāsi\nyaj juhoṣi dadāsi yat\nyat tapasyasi kaunteya\ntat kuruṣva mad-arpaṇam",
   "english": "O son of Kuntī, all that you do, all that you eat, all that you offer and give away, as well as all austerities that you may perform, should be done as an offering unto Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.28",
@@ -352,10 +379,11 @@
   "reference": "9.28",
   "sanskrit": "श‍ुभाश‍ुभफलैरेवं मोक्ष्यसे कर्मबन्धनै: ।\nसन्न्यासयोगयुक्तात्मा विमुक्तो मामुपैष्यसि ॥ २८ ॥",
   "transliteration": "śubhāśubha-phalair evaṁ\nmokṣyase karma-bandhanaiḥ\nsannyāsa-yoga-yuktātmā\nvimukto mām upaiṣyasi",
-  "tamil": "இங்ஙனம் மங்களம் அமங்களமாகிய பயன்களைத் தருவனவாகிய கர்மத் தளைகளினின்றும் விடுபடுவாய். துறவெனும் யோகத்திசைந்து விடுதலை பெறுவாய், என்னையும் பெறுவாய்.",
+  "tamil": "இவ்விதமாக. நீ கர்ம பந்தங்களிலிருந்தும். அதன் நல்ல தீய விளைவுகளிலிருந்தும் விடுபடுவாய். சந்நியாசத்தின் இந்த கொள்கையின் மூலம் உனது மனதை என்னில் பதியச் செய்வதால், நீ முக்தி பெற்று என்னிடமே வருவாய்.",
   "english": "In this way you will be freed from bondage to work and its auspicious and inauspicious results. With your mind fixed on Me in this principle of renunciation, you will be liberated and come to Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-074",
@@ -364,12 +392,13 @@
   "reference": "9.29",
   "audioSrc": "/audio/9.29.mp3",
   "sanskrit": "समोऽहं सर्वभूतेषु न मे द्वेष्योऽस्ति न प्रियः।\n\nये भजन्ति तु मां भक्त्या मयि ते तेषु चाप्यहम्।।9.29।।",
-  "tamil": "நான் எல்லா உயிர்களிடத்தும் சமமானவன். எனக்குப் பகைவனுமில்லை, நண்பனுமில்லை, ஆனால், என்னை அன்புடன் தொழுவோர் -- அன்னவர் என்னகத் தமர்ந்தார்; அவரகத்து நான் உளேன்.",
+  "tamil": "நான் யாரிடமும் பொறாமை கொள்வதோ. பாரபட்சம் காட்டுவதோ இல்லை. நான் அனைவருக்கும் சமமானவன். ஆயினும் பக்தியுடன் எனக்கு அன்புத் தொண்டு புரிபவன் யாராயினும். அவன் எனது நண்பன். அவன் என்னில் இருக்கிறான். நானும் அவனுக்கு நண்பனாகிறேன்.",
   "transliteration": "samo ’haṁ sarva-bhūteṣu\nna me dveṣyo ’sti na priyaḥ\nye bhajanti tu māṁ bhaktyā\nmayi te teṣu cāpy aham",
   "english": "I envy no one, nor am I partial to anyone. I am equal to all. But whoever renders service unto Me in devotion is a friend, is in Me, and I am also a friend to him.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-075",
@@ -378,12 +407,13 @@
   "reference": "9.30",
   "audioSrc": "/audio/9.30.mp3",
   "sanskrit": "अपि चेत्सुदुराचारो भजते मामनन्यभाक्।\n\nसाधुरेव स मन्तव्यः सम्यग्व्यवसितो हि सः।।9.30।।",
-  "tamil": "மிகவும் தீய நடத்தையுடையவனாயினும், வேறு நினைப்பின்றி என்னை வழிபடுபவனை நல்லவனாகவே கருத வேண்டும்; ஏனெனில் அவன் சரியான உறுதி கொண்டிருக்கிறான்.",
+  "tamil": "ஒருவன் மிகவும் மோசமான செயலைச் செய்தாலும், அவன் பக்தித் தொண்டில் பிறழாது ஈடுபட்டிருந்தால், அவனை சாதுவாகவே கருத வேண்டும்; ஏனெனில், அவன் தனது தீர்மானத்தில் திடமாக உள்ளான்.",
   "transliteration": "api cet su-durācāro\nbhajate mām ananya-bhāk\nsādhur eva sa mantavyaḥ\nsamyag vyavasito hi saḥ",
   "english": "Even if one commits the most abominable actions, if he is engaged in devotional service, he is to be considered saintly because he is properly situated.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.31",
@@ -392,10 +422,11 @@
   "reference": "9.31",
   "sanskrit": "क्षिप्रं भवति धर्मात्मा शश्वच्छान्तिं निगच्छति ।\nकौन्तेय प्रतिजानीहि न मे भक्त: प्रणश्यति ॥ ३१ ॥",
   "transliteration": "kṣipraṁ bhavati dharmātmā\nśaśvac-chāntiṁ nigacchati\nkaunteya pratijānīhi\nna me bhaktaḥ praṇaśyati",
-  "tamil": "அன்னவன் விரைவிலே அறவானாவான், நித்திய சாந்தியு மெய்துவான், குந்தி மகனே; குறிக்கொள்! என தன்பன் சாகமாட்டான்.",
+  "tamil": "அவன் வெகு விரைவில் தர்மாத்மாவாகி, நித்தியமான அமைதியை அடைகின்றான். குந்தியின் மகனே, எனது பக்தன் என்றும் அழிவதில்லை என்பதை தைரியமாக அறிவிப்பாயாக.",
   "english": "He quickly becomes righteous and attains lasting peace. O son of Kuntī, declare it boldly that My devotee never perishes.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-076",
@@ -404,12 +435,13 @@
   "reference": "9.32",
   "audioSrc": "/audio/9.32.mp3",
   "sanskrit": "मां हि पार्थ व्यपाश्रित्य येऽपि स्युः पापयोनयः।\n\nस्त्रियो वैश्यास्तथा शूद्रास्तेऽपि यान्ति परां गतिम्।।9.32।।",
-  "tamil": "பாவிகளென்னைப் பணிவாராயினும் மாதரேனும், வைசியரேனும் சூத்திரரும் பரகதி பெறுவார்.",
+  "tamil": "பிருதாவின் மகனே. பெண்கள், வைசியர்கள், சூத்திரர்கள் என கீழ் குலத்தைச் சார்ந்தவர்கள் யாராக இருந்தாலும், என்னிடம் சரணடைபவர்கள் பரமகதியை அடைய முடியும்.",
   "transliteration": "māṁ hi pārtha vyapāśritya\nye ’pi syuḥ pāpa-yonayaḥ\nstriyo vaiśyās tathā śūdrās\nte ’pi yānti parāṁ gatim",
   "english": "O son of Pṛthā, those who take shelter in Me, though they be of lower birth—women, vaiśyas [merchants], as well as śūdras [workers]—can approach the supreme destination.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-9.33",
@@ -418,10 +450,11 @@
   "reference": "9.33",
   "sanskrit": "किं पुनर्ब्राह्मणा: पुण्या भक्ता राजर्षयस्तथा ।\nअनित्यमसुखं लोकमिमं प्राप्य भजस्व माम् ॥ ३३ ॥",
   "transliteration": "kiṁ punar brāhmaṇāḥ puṇyā\nbhaktā rājarṣayas tathā\nanityam asukhaṁ lokam\nimaṁ prāpya bhajasva mām",
-  "tamil": "அப்படி யிருக்கத் தூய்மையார்ந்த அந்தணரும் ராஜரிஷிகளும் எனக் கன்பராயின், என்னே! ஆதலால்; நிலையற்றதும் இன்ப மற்றதுமாகிய இவ்வுலகப் பிறவி யெய்திய நீ என்னை வழிபடக் கடவாய்.",
+  "tamil": "இவ்வாறிருக்க. புண்ணியமான பிராமணர்கள், பக்தர்கள். மற்றும் புனிதமான அரசர்களைப் பற்றிச் சொல்வதற்கு என்ன உள்ளது? எனவே, துன்பம் வாய்ந்த இந்த தற்காலிக உலகை அடைந்த நீ, எனது அன்புத் தொண்டில் ஈடுபடுவாயாக.",
   "english": "How much more this is so of the righteous brāhmaṇas, the devotees and the saintly kings. Therefore, having come to this temporary, miserable world, engage in loving service unto Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-077",
@@ -430,11 +463,12 @@
   "reference": "9.34",
   "audioSrc": "/audio/9.34.mp3",
   "sanskrit": "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु।\n\nमामेवैष्यसि युक्त्वैवमात्मानं मत्परायणः।।9.34।।",
-  "tamil": "மனத்தை எனக்காக்கிவிடு; பக்தியை எனக்காக்கு, என்னைத் தொழு. என்னைப் பரமாகக் கொள். இங்ஙனமியற்றும் தற்கலப்பு யோகத்தால் என்னையே எய்துவாய்.",
+  "tamil": "உனது மனதை எப்பொழுதும் என்னைப் பற்றிச் சிந்திப்பதில் ஈடுபடுத்தி, எனது பக்தனாகி, எனக்கு வந்தனை செய்து, என்னை வழிபடுவாயாக இவ்வாறாக என்னில் முழுமையாக லயித்து, நிச்சயமாக நீ என்னிடமே வருவாய்.",
   "transliteration": "man-manā bhava mad-bhakto\nmad-yājī māṁ namaskuru\nmām evaiṣyasi yuktvaivam\nātmānaṁ mat-parāyaṇaḥ",
   "english": "Engage your mind always in thinking of Me, offer obeisances and worship Me. Being completely absorbed in Me, surely you will come to Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  }
 ]

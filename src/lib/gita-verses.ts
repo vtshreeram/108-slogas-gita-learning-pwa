@@ -29,3 +29,11 @@ export function loadChapter(chapter: number): Promise<GitaVerse[]> {
   }
   return pending;
 }
+
+/** Load every chapter (in parallel) for cross-chapter search. Chapters that fail are reported, not fatal. */
+export async function loadAllChapters(): Promise<{ verses: GitaVerse[]; failed: number[] }> {
+  const results = await Promise.allSettled(GITA_CHAPTERS.map((c) => loadChapter(c)));
+  const failed = GITA_CHAPTERS.filter((_, i) => results[i].status === "rejected");
+  const verses = results.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
+  return { verses, failed };
+}

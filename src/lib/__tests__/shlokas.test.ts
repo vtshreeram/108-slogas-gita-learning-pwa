@@ -1,5 +1,7 @@
 import { describe, it, expect } from "vitest";
-import { SHLOKAS, TOTAL_SHLOKAS, DAILY_TARGET } from "../shlokas";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { SHLOKAS, TOTAL_SHLOKAS, DAILY_TARGET, tamilCredit, TAMIL_TRANSLATION_AUTHOR } from "../shlokas";
 
 describe("shloka dataset", () => {
   it("has the expected number of entries", () => {
@@ -69,20 +71,19 @@ describe("shloka dataset", () => {
     }
   });
 
-  it("includes both verses of Arjuna's declaration in 10.12–13", () => {
-    const tamil = SHLOKAS.find((s) => s.reference === "10.12-13")!.tamil;
-    expect(tamil).toContain("பரப்பிரம்மம்");
-    expect(tamil).toContain("நாரத");
-    expect(tamil).toContain("வியாச");
-    expect(tamil.split("\n")).toHaveLength(2);
+  it("takes Tamil from the book unless it is flagged, and records the source per verse", () => {
+    const report = JSON.parse(readFileSync(join(process.cwd(), "scripts/data/tamil-book.json"), "utf8"));
+    for (const s of SHLOKAS) {
+      const r = report[s.reference];
+      expect(s.tamilSource, s.reference).toBe(r.status === "ok" ? "book" : "bharati");
+      expect(s.tamil, s.reference).toBe(r.text);
+      if (s.tamilSource === "book") expect(s.tamil, s.reference).not.toMatch(/[A-Za-z0-9|]/);
+    }
   });
 
-  it("corrects source errors that reverse or omit the Tamil teaching", () => {
-    const tamil = (reference: string) => SHLOKAS.find((s) => s.reference === reference)!.tamil;
-    expect(tamil("4.34")).toContain("கேள்வி");
-    expect(tamil("7.25")).toContain("யோகமாயையால் மறைக்கப்பட்டிருப்பதால்");
-    expect(tamil("15.15")).toContain("வேதங்களாலும்");
-    expect(tamil("18.65")).toContain("என்னை வழிபடு; என்னை வணங்கு");
-    expect(tamil("18.68")).toContain("எடுத்துரைப்பவன்");
+  it("credits each verse's Tamil to the right source", () => {
+    expect(tamilCredit({ tamilSource: "book" }).href).toBeUndefined();
+    expect(tamilCredit({ tamilSource: "bharati" }).href).toContain("projectmadurai");
+    expect(tamilCredit({}).label).toBe(TAMIL_TRANSLATION_AUTHOR);
   });
 });

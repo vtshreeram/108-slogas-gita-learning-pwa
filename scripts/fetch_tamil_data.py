@@ -86,7 +86,11 @@ def parse_verses(source):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path)
+    parser.add_argument("--force-bharati", action="store_true", help="overwrite Tamil in shlokas.ts with Bharati's text")
     args = parser.parse_args()
+    if not args.force_bharati:
+        raise SystemExit("Tamil now comes from the Tamil book: use scripts/import_tamil_book.py. "
+                         "Pass --force-bharati only to deliberately revert the 108 to Bharati's text.")
     source = args.source.read_text(encoding="utf-8") if args.source else urlopen(SOURCE, timeout=30).read().decode("utf-8")
     verses = parse_verses(source)
     path = ROOT / "src/lib/shlokas.ts"

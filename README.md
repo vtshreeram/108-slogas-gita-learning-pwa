@@ -36,7 +36,7 @@ the development server's generated files.
 
 ## Notes
 
-- The 108-verse dataset includes Sanskrit, Roman transliteration, English and edited Tamil meanings with source credits.
+- The 108-verse dataset includes Sanskrit, Roman transliteration, English and Tamil meanings (from the Tamil edition of Bhagavad-gītā As It Is, with edited Bharati fallbacks) with source credits. An "All verses" view browses and searches all 657 entries, with the 108 tinted.
 - Daily completions, scheduled revision, offline audio downloads, calibrated line practice and full backups are described in [Learning tools](docs/learning-tools.md).
 - Tamil pronunciation aids and edited translations still need independent expert review; the [108-entry checklist](docs/editorial-review.md) records that work explicitly.
 

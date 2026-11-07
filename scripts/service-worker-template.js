@@ -1,6 +1,7 @@
 // Keep audio downloads across app updates. Only shell caches are versioned per release.
 const SHELL_CACHE = "gita-shell-__RELEASE__";
 const AUDIO_CACHE = "gita-audio-v3";
+const CHAPTER_CACHE = "gita-chapters-v1"; // survives app updates, refreshed whenever online
 
 async function cacheShell() {
   const cache = await caches.open(SHELL_CACHE);
@@ -13,7 +14,13 @@ async function cacheShell() {
   await cache.addAll([...assets]);
 }
 
-self.addEventListener("install", (event) => event.waitUntil(cacheShell()));
+// Best effort: a chapter download failure must never break installing the app shell.
+async function cacheChapters() {
+  const cache = await caches.open(CHAPTER_CACHE);
+  await Promise.all(Array.from({ length: 18 }, (_, i) => cache.add(`/api/chapters/${i + 1}`).catch(() => {})));
+}
+
+self.addEventListener("install", (event) => event.waitUntil(cacheShell().then(() => cacheChapters())));
 self.addEventListener("message", (event) => {
   if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
@@ -48,6 +55,17 @@ async function serveAudio(request) {
   return audioRange(full, request.headers.get("Range"));
 }
 
+async function chapterData(request) {
+  const cache = await caches.open(CHAPTER_CACHE);
+  try {
+    const response = await fetch(request);
+    if (response.ok) await cache.put(request, response.clone());
+    return response;
+  } catch {
+    return (await cache.match(request)) ?? new Response(JSON.stringify({ error: "Offline" }), { status: 503, headers: { "Content-Type": "application/json" } });
+  }
+}
+
 async function navigation(request) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
@@ -75,7 +93,9 @@ async function staticAsset(request) {
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
-  if (request.method !== "GET" || url.origin !== self.location.origin || url.pathname.startsWith("/api/")) return;
+  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+  if (/^\/api\/chapters\/\d+$/.test(url.pathname)) { event.respondWith(chapterData(request)); return; }
+  if (url.pathname.startsWith("/api/")) return;
   if (url.pathname.startsWith("/audio/")) { event.respondWith(serveAudio(request)); return; }
   if (request.mode === "navigate") { event.respondWith(navigation(request)); return; }
   if (url.pathname.startsWith("/_next/static/") || /\.(?:png|svg|ico|webmanifest)$/.test(url.pathname)) event.respondWith(staticAsset(request));

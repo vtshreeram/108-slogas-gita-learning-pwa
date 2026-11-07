@@ -6,10 +6,11 @@
   "reference": "10.1",
   "sanskrit": "श्रीभगवानुवाच\nभूय एव महाबाहो श‍ृणु मे परमं वच: ।\nयत्तेऽहं प्रीयमाणाय वक्ष्यामि हितकाम्यया ॥ १ ॥",
   "transliteration": "śrī-bhagavān uvāca\nbhūya eva mahā-bāho\nśṛṇu me paramaṁ vacaḥ\nyat te ’haṁ prīyamāṇāya\nvakṣyāmi hita-kāmyayā",
-  "tamil": "பெருந்தோளுடையாய்! பின்னுமோர் முறை நான் சொல்லப்புகும் மிகவுயர் சொல்லினைக் கேளாய்; நீ எனக்கு உகந்தவன்; ஆதலால் நினது நலம் வேண்டி இங்கதனை விளம்புவேன் நினக்கே.",
+  "tamil": "புருஷோத்தமாரான முழுமுதற் கடவுள் கூறினார்: பலம் பொருந்திய புயஙகளையுடைய அர்ஜுனா. நீ எனக்கு பிரியமான நண்பன் என்பதால், இதுவரை நான் விளக்கியதகைக் காட்டிலும் சிறந்த ஞானத்தை தற்போது உன்னுடைய நலனிற்காக உரைக்கப் போகிறேன். இதனை மீண்டும் கேட்பாயாக.",
   "english": "The Supreme Personality of Godhead said: Listen again, O mighty-armed Arjuna. Because you are My dear friend, for your benefit I shall speak to you further, giving knowledge that is better than what I have already explained.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.2",
@@ -18,10 +19,11 @@
   "reference": "10.2",
   "sanskrit": "न मे विदु: सुरगणा: प्रभवं न महर्षय: ।\nअहमादिर्हि देवानां महर्षीणां च सर्वश: ॥ २ ॥",
   "transliteration": "na me viduḥ sura-gaṇāḥ\nprabhavaṁ na maharṣayaḥ\naham ādir hi devānāṁ\nmaharṣīṇāṁ ca sarvaśaḥ",
-  "tamil": "வானவர் கணங்கள் என் மகிமையை உணரார்; பெருந்தகை முனிவரு முணரார்; யாங்கணும், வானோர்கட்கும் மகரிஷிகட்கும் ஆதி நானே.",
+  "tamil": "தேவர்களோ மகா ரிவிகளோ கூட என்னுடைய வைபவங்களை அறிவதில்லை. ஏனெனில், எல்லா விதங்களிலும் தேவர்களுக்கும் ரிஷிகளுக்கும் நானே ஆதியாவேன்.",
   "english": "Neither the hosts of demigods nor the great sages know My origin or opulences, for, in every respect, I am the source of the demigods and sages.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.3",
@@ -30,10 +32,11 @@
   "reference": "10.3",
   "sanskrit": "यो मामजमनादिं च वेत्ति लोकमहेश्वरम् ।\nअसम्मूढ: स मर्त्येषु सर्वपापै: प्रमुच्यते ॥ ३ ॥",
   "transliteration": "yo mām ajam anādiṁ ca\nvetti loka-maheśvaram\nasammūḍhaḥ sa martyeṣu\nsarva-pāpaiḥ pramucyate",
-  "tamil": "பிறப்பதில்லான்; தொடங்குதலிலாதான், உலகின் பெருமுதலான என்றனை யுணர்வோன். மானிடருக்குள்ளே மயக்கந் தீர்ந்தான், பாவமனைத்தினும் விடுதலைப் பட்டான்.",
+  "tamil": "எவனொருவன். என்னைப் பிறப்பற்றவனாகவும். ஆரம்பம் அற்றவனாகவும், எல்லா உலகங்களின் இறைவனாகவும் அறிகின்றானோ., மனிதர்களிடையே குழப்பமற்றவனாக அவன் மட்டுமே, எல்லா பாவங்களிலிருந்தும் விடுதலை பெறுகிறான்.",
   "english": "He who knows Me as the unborn, as the beginningless, as the Supreme Lord of all the worlds – he only, undeluded among men, is freed from all sins.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.4-5",
@@ -42,10 +45,11 @@
   "reference": "10.4-5",
   "sanskrit": "बुद्धिर्ज्ञानमसम्मोह: क्षमा सत्यं दम: शम: ।\nसुखं दु:खं भवोऽभावो भयं चाभयमेव च ॥ ४ ॥\nअहिंसा समता तुष्टिस्तपो दानं यशोऽयश: ।\nभवन्ति भावा भूतानां मत्त एव पृथग्विधा: ॥ ५ ॥",
   "transliteration": "buddhir jñānam asammohaḥ\nkṣamā satyaṁ damaḥ śamaḥ\nsukhaṁ duḥkhaṁ bhavo ’bhāvo\nbhayaṁ cābhayam eva caahiṁsā samatā tuṣṭis\ntapo dānaṁ yaśo ’yaśaḥ\nbhavanti bhāvā bhūtānāṁ\nmatta eva pṛthag-vidhāḥ",
-  "tamil": "மதியும், ஞானமும், மயக்கமின்மையும், பொறுத்தலும், துன்பமும், உண்மையும், இன்மையும், அச்சமும், அஞ்சாமையும்,\nதுன்புறுத்தாமையும், நடுமையும், மகிழ்ச்சியும், ஈகையும், தவமும், இகழும், புகழும், இங்ஙனம் பலபடுமியல்புகளெல்லாம் என்னிடம் பெறுவன உயிர்கள்.",
+  "tamil": "புத்தி. ஞானம். ஐயம், மயக்கத்திலிருந்து விடுதலை. மன்னித்தல். வாய்மை, புலனடக்கம், மன அடக்கம், சுகம், துக்கம். பிறப்பு, இறப்பு, அச்சம், அச்சமின்மை, அகிம்சை, சமத்துவம். திருப்தி, தவம். தானம், புகழ் மற்றும் இகழ்ச்சி- என உயிர்வாழிகளிடம் காணப்படும் பல்வேறு குணங்கள் அனைத்தும் என்னால் படைக்கப்பட்டவையே.",
   "english": "Intelligence, knowledge, freedom from doubt and delusion, forgiveness, truthfulness, control of the senses, control of the mind, happiness and distress, birth, death, fear, fearlessness, nonviolence, equanimity, satisfaction, austerity, charity, fame and infamy – all these various qualities of living beings are created by Me alone.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.6",
@@ -54,10 +58,11 @@
   "reference": "10.6",
   "sanskrit": "महर्षय: सप्‍त पूर्वे चत्वारो मनवस्तथा ।\nमद्भ‍ावा मानसा जाता येषां लोक इमा: प्रजा: ॥ ६ ॥",
   "transliteration": "maharṣayaḥ sapta pūrve\ncatvāro manavas tathā\nmad-bhāvā mānasā jātā\nyeṣāṁ loka imāḥ prajāḥ",
-  "tamil": "முன்னை மகரிஷிகள் எழுவரும் நான்கு மனுக்களும் மனத்தால் என்னியல்பு எய்தினர். அவர்களுடைய மரபினரே இம் மக்களெல்லாரும்.",
+  "tamil": "ஏழு மகா ரிஷிகளும். அவர்களுக்கு முந்தைய நான்கு ரிஷிகளும், (மனித சமுதாயத்தைத் தோற்றுவித்தவர்களான) மனுக்களும், என்னிடமிருந்து எனது மனதால் பிறந்தவர்களே, பல்வேறு லோகங்களில் வாழும் எல்லா உயிரினங்களும் அவர்களிடமிருந்து தோன்றியவையே.",
   "english": "The seven great sages and before them the four other great sages and the Manus [progenitors of mankind] come from Me, born from My mind, and all the living beings populating the various planets descend from them.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.7",
@@ -66,10 +71,11 @@
   "reference": "10.7",
   "sanskrit": "एतां विभूतिं योगं च मम यो वेत्ति तत्त्वत: ।\nसोऽविकल्पेन योगेन युज्यते नात्र संशय: ॥ ७ ॥",
   "transliteration": "etāṁ vibhūtiṁ yogaṁ ca\nmama yo vetti tattvataḥ\nso ’vikalpena yogena\nyujyate nātra saṁśayaḥ",
-  "tamil": "இத்தகைத்தாகும் எனது பெருமையும் யோகந்தனையும் உள்ளவாறுணர்வோன் அசைவிலா யோகத்தமர்வான்; இதிலோர் ஐயமில்லை.",
+  "tamil": "எனது இத்தகு வைபவத்தையும் யோக சக்தியையும் எவன் உண்மையாக அறிகின்றானோ. அவன் களங்கமற்ற பக்தித் தொண்டில் ஈடுபடுகின்றான்; இதில் சந்தேகம் இல்லை.",
   "english": "One who is factually convinced of this opulence and mystic power of Mine engages in unalloyed devotional service; of this there is no doubt.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-078",
@@ -78,12 +84,13 @@
   "reference": "10.8",
   "audioSrc": "/audio/10.8.mp3",
   "sanskrit": "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते।\n\nइति मत्वा भजन्ते मां बुधा भावसमन्विताः।।10.8।।",
-  "tamil": "நான் அனைத்திற்கும் தொடக்கம். என்னிடமிருந்தே எல்லாம் இயலும். இங்ஙன முணர்ந்த புலவர் என்னை அன்புடன் தொழுவார்.",
+  "tamil": "ஓட, ஆன்மீக உலகங்கள் அனைத்திற்கும் மூலம் நானே. எல்லாம் என்னிடமிருந்தே தோன்றுகின்றன. இதனை நன்றாக அறிந்த அறிஞர்கள், எனது பக்தித் தொண்டில் ஈடுபட்டு, இதயப்பூர்வமாக என்னை வழிபடுகின்றனர்.",
   "transliteration": "ahaṁ sarvasya prabhavo\nmattaḥ sarvaṁ pravartate\niti matvā bhajante māṁ\nbudhā bhāva-samanvitāḥ",
   "english": "I am the source of all spiritual and material worlds. Everything emanates from Me. The wise who know this perfectly engage in My devotional service and worship Me with all their hearts.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-079",
@@ -97,7 +104,8 @@
   "english": "The thoughts of My pure devotees dwell in Me, their lives are surrendered to Me, and they derive great satisfaction and bliss enlightening one another and conversing about Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "bharati"
  },
  {
   "id": "GS-080",
@@ -106,12 +114,13 @@
   "reference": "10.10",
   "audioSrc": "/audio/10.10.mp3",
   "sanskrit": "तेषां सततयुक्तानां भजतां प्रीतिपूर्वकम्।\n\nददामि बुद्धियोगं तं येन मामुपयान्ति ते।।10.10।।",
-  "tamil": "எப்போதும் யோகத் திருப்பாராகில் அன்புடன் என்னை வழிபடும் அன்னோர்க்கு யான் புத்தியோகம் அளிப்பேன். இதனால் என்னையவர் எய்துவார்.",
+  "tamil": "எனக்கு அன்புடன் தொண்டு செய்வதில் இடையறாது ஈடுபட்டுள்ளவர்களுக்கு. என்னிடம் வந்தடைவதற்குத் தேவையான அறிவை நானே வழங்குகிறேன்.",
   "transliteration": "teṣāṁ satata-yuktānāṁ\nbhajatāṁ prīti-pūrvakam\ndadāmi buddhi-yogaṁ taṁ\nyena mām upayānti te",
   "english": "To those who are constantly devoted and worship Me with love, I give the understanding by which they can come to Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-081",
@@ -120,12 +129,13 @@
   "reference": "10.11",
   "audioSrc": "/audio/10.11.mp3",
   "sanskrit": "तेषामेवानुकम्पार्थमहमज्ञानजं तमः।\n\nनाशयाम्यात्मभावस्थो ज्ञानदीपेन भास्वता।।10.11।।",
-  "tamil": "அன்னவர்க்கிரங்கி யான் அன்னவர் ஆத்ம இயல்புயானாகி ஒளியுடை ஞானவிளக்கால் அவரிடை அஞ்ஞானத்தால் தோன்றுமிருளைத் தொலைப்பேன்.",
+  "tamil": "அவர்களிடம் விஷேச கருணையைக் காட்டுவதற்காக. அவர்களது இதயத்தினுள் வசிக்கும் நான். அறியாமையினால் பிறந்த இருளை ஞானமெனும் சுடர்விடும் தீபத்தினால் அழிக்கின்றேன்.",
   "transliteration": "teṣām evānukampārtham\naham ajñāna-jaṁ tamaḥ\nnāśayāmy ātma-bhāva-stho\njñāna-dīpena bhāsvatā",
   "english": "Out of compassion for them, I, dwelling in their hearts, destroy with the shining lamp of knowledge the darkness born of ignorance.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-082",
@@ -134,12 +144,13 @@
   "reference": "10.12-13",
   "audioSrc": "/audio/10.12.mp3",
   "sanskrit": "अर्जुन उवाच\n\nपरं ब्रह्म परं धाम पवित्रं परमं भवान्।\n\nपुरुषं शाश्वतं दिव्यमादिदेवमजं विभुम्।।10.12।।\n\nआहुस्त्वामृषयः सर्वे देवर्षिर्नारदस्तथा।\n\nअसितो देवलो व्यासः स्वयं चैव ब्रवीषि मे।।10.13।।",
-  "tamil": "அர்ஜுனன் சொன்னான்: நீயே பரப்பிரம்மம், நீயே பரவீடு, தூய்மையனைத்தினும் சிறப்புடைய தூய்மை நீ. நித்திய புருஷன், தெய்வீகமானவன், ஆதிதேவன், பிறப்பிலான், எங்கும் நிறைந்தவன் என்று நின்னை\nமுனிவரெல்லாரும் மொழிகிறார்; தேவரிஷி நாரதருமங்ஙனமே நவில்கிறார். அசிதரும் தேவலரும் வியாசரும் அங்ஙனமே செப்புகிறார். இங்கு நீ நேரே எனக்கு அதை உரைக்கின்றாய்.",
+  "tamil": "அர்ஜுனன் கூறினான்: நீரே பரபிரம்மன். உன்னத இருப்பிடம். மிகவும் தூய்மையானவர். பரம சத்தியம், நீரே நித்தியமானவர். திவ்யமானவர், ஆதி தேவர், பிறப்பற்றவர். மிகப் பெரியவர். உம்மைப் பற்றிய இந்த உண்மையினை, நாரதர். அஸிதர், தேவலர். வியாசர் போன்ற மிகச்சிறந்த ரிஷிகளும் உறுதி செய்துள்ளனர், இப்பொழுது நீரே இதனை எனக்கு அறிவித்துள்ளீர்.",
   "transliteration": "arjuna uvāca\nparaṁ brahma paraṁ dhāma\npavitraṁ paramaṁ bhavān\npuruṣaṁ śāśvataṁ divyam\nādi-devam ajaṁ vibhum\n\nāhus tvām ṛṣayaḥ sarve\ndevarṣir nāradas tathā\nasito devalo vyāsaḥ\nsvayaṁ caiva bravīṣi me",
   "english": "Arjuna said: You are the Supreme Personality of Godhead, the ultimate abode, the purest, the Absolute Truth. You are the eternal, transcendental, original person, the unborn, the greatest. All the great sages such as Narada, Asita, Devala and Vyasa confirm this truth about You, and now You Yourself are declaring it to me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.14",
@@ -148,10 +159,11 @@
   "reference": "10.14",
   "sanskrit": "सर्वमेतदृतं मन्ये यन्मां वदसि केशव ।\nन हि ते भगवन्व्यक्तिं विदुर्देवा न दानवा: ॥ १४ ॥",
   "transliteration": "sarvam etad ṛtaṁ manye\nyan māṁ vadasi keśava\nna hi te bhagavan vyaktiṁ\nvidur devā na dānavāḥ",
-  "tamil": "கேசவா! நினது *கிளவி யனைத்தையும் மெய்யெனக் கொண்டேன். பகவனே! விண்ணவரும் அசுரரு நின் விளக்கத்தை யறிவாரோ? (*கிளவி = சொல்)",
+  "tamil": "கிருஷ்ணா. தாங்கள் எனக்குக் கூறியவற்றை எல்லாம் உண்மை என நான் முழுமையாக ஏற்கின்றேன். பகவானே, தேவர்களோ, அசுரர்களோ., உமது வியக்தித்துவத்தை அறிய முடியாது.",
   "english": "O Kṛṣṇa, I totally accept as truth all that You have told me. Neither the demigods nor the demons, O Lord, can understand Your personality.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.15",
@@ -160,10 +172,11 @@
   "reference": "10.15",
   "sanskrit": "स्वयमेवात्मनात्मानं वेत्थ त्वं पुरुषोत्तम ।\nभूतभावन भूतेश देवदेव जगत्पते ॥ १५ ॥",
   "transliteration": "svayam evātmanātmānaṁ\nvettha tvaṁ puruṣottama\nbhūta-bhāvana bhūteśa\ndeva-deva jagat-pate",
-  "tamil": "புருஷோத்தமா, உன்னை நீயே அறிவாய் பூதங்களானாய்! பூதத் தலைவனே தேவ தேவ! வையத் திறைவா!",
+  "tamil": "உத்தம புருஷரே, அனைத்திற்கும் மூலமே, அனைவருக்கும் இறைவனே. தேவர்களின் தேவரே, அகிலத்தின் இறைவனே. உண்மையில். உமது சுய அந்தரங்க சக்தியின் மூலம் நீரே உம்மை அறிவிர்.",
   "english": "Indeed, You alone know Yourself by Your own internal potency, O Supreme Person, origin of all, Lord of all beings, God of gods, Lord of the universe!",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.16",
@@ -172,10 +185,11 @@
   "reference": "10.16",
   "sanskrit": "वक्तुमर्हस्यशेषेण दिव्या ह्यात्मविभूतय: ।\nयाभिर्विभूतिभिर्लोकानिमांस्त्वं व्याप्य तिष्ठसि ॥ १६ ॥",
   "transliteration": "vaktum arhasy aśeṣeṇa\ndivyā hy ātma-vibhūtayaḥ\nyābhir vibhūtibhir lokān\nimāṁs tvaṁ vyāpya tiṣṭhasi",
-  "tamil": "எந்த மகிமைகளால் நீ இவ்வுலகங்களைச் சூழ்ந்து நிற்கிறாயோ, அந்த நின் மகிமைகள் தேவத்தன்மையுடையன. அவற்றை எனக்கு மிச்சமின்றி உணர்த்த வேண்டுகிறேன்.",
+  "tamil": "எந்த வைபவங்களால் இந்த உலகம் முழுவதும் தாங்கள் வியாபித்து இருக்கின்றிர்களோ, தங்களுடைய அந்த திவ்யமான வைபவங்களை தயவு செய்து எனக்கு விவரமாகக் கூறுங்கள்.",
   "english": "Please tell me in detail of Your divine opulences by which You pervade all these worlds.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.17",
@@ -184,10 +198,11 @@
   "reference": "10.17",
   "sanskrit": "कथं विद्यामहं योगिंस्त्वां सदा परिचिन्तयन् ।\nकेषु केषु च भावेषु चिन्त्योऽसि भगवन्मया ॥ १७ ॥",
   "transliteration": "kathaṁ vidyām ahaṁ yogiṁs\ntvāṁ sadā paricintayan\nkeṣu keṣu ca bhāveṣu\ncintyo ’si bhagavan mayā",
-  "tamil": "யோகி! எப்போதும் உன்னையே சிந்தித்து நின்னை யுணருமாறெங்ஙனே? பகவனே! எவ்வெப் படிகளில் நின்னை யான் கருதல் வேண்டும்?",
+  "tamil": "உன்னத யோகியாகிய கிருஷ்ணரே, நான் உம்மை இடையறாது நினைப்பதும் அறிவதும் எங்ஙனம்? பகவானே, வேறு எந்த எந்த உருவங்களில் உம்மை நினைவு கொள்ள முடியும்?",
   "english": "O Kṛṣṇa, O supreme mystic, how shall I constantly think of You, and how shall I know You? In what various forms are You to be remembered, O Supreme Personality of Godhead?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.18",
@@ -196,10 +211,11 @@
   "reference": "10.18",
   "sanskrit": "विस्तरेणात्मनो योगं विभूतिं च जनार्दन ।\nभूय: कथय तृप्‍तिर्हि श‍ृण्वतो नास्ति मेऽमृतम् ॥ १८ ॥",
   "transliteration": "vistareṇātmano yogaṁ\nvibhūtiṁ ca janārdana\nbhūyaḥ kathaya tṛptir hi\nśṛṇvato nāsti me ’mṛtam",
-  "tamil": "ஜனார்த்தனா! நின் யோகத்தையும், பெருமையையும் விரித்து மற்றொரு முறை சொல்க. அமிர்தம் போன்ற நின் சொற்கள் எனக்குத் தெவிட்டவில்லை. ஸ்ரீ பகவான் சொல்லுகிறான்:",
+  "tamil": "ஜனார்தனா உமது வைபவங்களின் யோக சக்தியைப் பற்றி தயவு செய்து விவரமாகக் கூறவும். உம்மைப் பற்றிக் கேட்பதில் நான் ஒருபோதும் நிறைவடைவதில்லை. ஏனெனில், உம்மைப் பற்றி அதிகமாகக் கேட்கும் போது, உமது வார்த்தைகளின் அமிர்தத்தை நான் அதிகமாக சுவைக்க விரும்புகிறேன்.",
   "english": "O Janārdana, again please describe in detail the mystic power of Your opulences. I am never satiated in hearing about You, for the more I hear the more I want to taste the nectar of Your words.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.19",
@@ -208,10 +224,11 @@
   "reference": "10.19",
   "sanskrit": "श्रीभगवानुवाच\nहन्त ते कथयिष्यामि दिव्या ह्यात्मविभूतय: ।\nप्राधान्यत: कुरुश्रेष्ठ नास्त्यन्तो विस्तरस्य मे ॥ १९ ॥",
   "transliteration": "śrī-bhagavān uvāca\nhanta te kathayiṣyāmi\ndivyā hy ātma-vibhūtayaḥ\nprādhānyataḥ kuru-śreṣṭha\nnāsty anto vistarasya me",
-  "tamil": "அச்ச! என் ஆத்மப் பெருமைகள் தேவத்தன்மை உடையனவே, அவற்றுள் பிரதானமானவற்றை நினக்குச் சொல்லுகிறேன். எனது விஸ்தாரத்துக்கு முடிவில்லை.",
+  "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: அப்படியே ஆகட்டும். நான் எனது தெய்வீகமான தோற்றங்களைப் பற்றி உனக்குக் கூறுகின்றேன். ஆனால் நான் முக்கியமானவற்றை மட்டுமே கூறப் போகின்றேன். ஏனெனில், அர்ஜுனா, எனது வைபவங்களோ எல்லையற்றவை.",
   "english": "The Supreme Personality of Godhead said: Yes, I will tell you of My splendorous manifestations, but only of those which are prominent, O Arjuna, for My opulence is limitless.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.20",
@@ -220,10 +237,11 @@
   "reference": "10.20",
   "sanskrit": "अहमात्मा गुडाकेश सर्वभूताशयस्थित: ।\nअहमादिश्च मध्यं च भूतानामन्त एव च ॥ २० ॥",
   "transliteration": "aham ātmā guḍākeśa\nsarva-bhūtāśaya-sthitaḥ\naham ādiś ca madhyaṁ ca\nbhūtānām anta eva ca",
-  "tamil": "அர்ஜுனா! உயிர்களனைத்தின் உள்ளே நிற்கும் ஆத்மா நான். அவ்வுயிர்களின் ஆதி நான், இடையும் அவற்றின் இறுதியும் நானே.",
+  "tamil": "அர்ஜுனா. எல்லா உயிர்களின் இதயங்களிலும் விற்றிருக்கும் பரமாத்மா நானே. எல்லா உயிர்களின் ஆரம்பமும் நடுவும் இறுதியும் நானே.",
   "english": "I am the Supersoul, O Arjuna, seated in the hearts of all living entities. I am the beginning, the middle and the end of all beings.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.21",
@@ -232,10 +250,11 @@
   "reference": "10.21",
   "sanskrit": "आदित्यानामहं विष्णुर्ज्योतिषां रविरंश‍ुमान् ।\nमरीचिर्मरुतामस्मि नक्षत्राणामहं शशी ॥ २१ ॥",
   "transliteration": "ādityānām ahaṁ viṣṇur\njyotiṣāṁ ravir aṁśumān\nmarīcir marutām asmi\nnakṣatrāṇām ahaṁ śaśī",
-  "tamil": "ஆதித்யர்களில் நான் விஷ்ணு; ஒளிகளில் நான் கதிர் சான்ற ஞாயிறு; காற்றுகளில் மரீசி; நக்ஷத்திரங்களில் சந்திரன்.",
+  "tamil": "ஆதித்யர்களில் நான் விஷ்ணு: ஜோதிகளில் பிரகாசிக்கும் சூரியன்: மருந்துகளில் நான் மரீசி: நட்சத்திரங்களில் நான் நிலவு.",
   "english": "Of the Ādityas I am Viṣṇu, of lights I am the radiant sun, of the Maruts I am Marīci, and among the stars I am the moon.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.22",
@@ -244,10 +263,11 @@
   "reference": "10.22",
   "sanskrit": "वेदानां सामवेदोऽस्मि देवानामस्मि वासव: ।\nइन्द्रियाणां मनश्चास्मि भूतानामस्मि चेतना ॥ २२ ॥",
   "transliteration": "vedānāṁ sāma-vedo ’smi\ndevānām asmi vāsavaḥ\nindriyāṇāṁ manaś cāsmi\nbhūtānām asmi cetanā",
-  "tamil": "வேதங்களில் யான் சாமவேதம்; தேவரில் இந்திரன்; புலன்களில் மனம் யான்; உயிர்களிடத்தே உணர்வு நான்.",
+  "tamil": "வேதங்களில் நான் ஸாம வேதம்; தேவர்களில் நான் ஸ்வர்க மன்னனான இந்திரன்; புலன்களில் நான் மனம் உயிர்வாழிகளில் நான் உயிர் சக்தி (உணர்வு).",
   "english": "Of the Vedas I am the Sāma Veda; of the demigods I am Indra, the king of heaven; of the senses I am the mind; and in living beings I am the living force [consciousness].",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.23",
@@ -256,10 +276,11 @@
   "reference": "10.23",
   "sanskrit": "रुद्राणां शङ्करश्चास्मि वित्तेशो यक्षरक्षसाम् ।\nवसूनां पावकश्चास्मि मेरु: शिखरिणामहम् ॥ २३ ॥",
   "transliteration": "rudrāṇāṁ śaṅkaraś cāsmi\nvitteśo yakṣa-rakṣasām\nvasūnāṁ pāvakaś cāsmi\nmeruḥ śikhariṇām aham",
-  "tamil": "ருத்திரர்களில் நான் சங்கரன்; இயக்கர் அரக்கருள் யான் குபேரன்; வசுக்களில் நான் தீ; மலைகளில் மேரு.",
+  "tamil": "எல்லா ருத்ரர்களிலும் நான் சிவபெருமான்: யக்ஷ, ராக்ஷ்சர் களில் நான் செல்வத்தின் இறைவன் (குபேரன்); வசுக்களில் நான் நெருப்பு(அக்னி); மலைகளில் நான் மேரு.",
   "english": "Of all the Rudras I am Lord Śiva, of the Yakṣas and Rākṣasas I am the Lord of wealth [Kuvera], of the Vasus I am fire [Agni], and of mountains I am Meru.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.24",
@@ -268,10 +289,11 @@
   "reference": "10.24",
   "sanskrit": "पुरोधसां च मुख्यं मां विद्धि पार्थ बृहस्पतिम् ।\nसेनानीनामहं स्कन्द: सरसामस्मि सागर: ॥ २४ ॥",
   "transliteration": "purodhasāṁ ca mukhyaṁ māṁ\nviddhi pārtha bṛhaspatim\nsenānīnām ahaṁ skandaḥ\nsarasām asmi sāgaraḥ",
-  "tamil": "பார்த்தா! புரோகிதர்களில் தலைவனாகிய பிருகஸ்பதி நான் என்றுணர். படைத் தலைவரில் நான் கந்தன். நீர் நிலைகளில் நான் கடல்.",
+  "tamil": "அர்ஜுனா. புரோகிதர்களில் தலைவரான பிருஹஸ்பதியாக என்னை அறிந்துகொள், சேனாதிபதிகளில் நான் கார்த்திகேயன்: நீர்த் கேக்கங்களில் நான் சமுத்திரம்.",
   "english": "Of priests, O Arjuna, know Me to be the chief, Bṛhaspati. Of generals I am Kārttikeya, and of bodies of water I am the ocean.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.25",
@@ -280,10 +302,11 @@
   "reference": "10.25",
   "sanskrit": "महर्षीणां भृगुरहं गिरामस्म्येकमक्षरम् ।\nयज्ञानां जपयज्ञोऽस्मि स्थावराणां हिमालय: ॥ २५ ॥",
   "transliteration": "maharṣīṇāṁ bhṛgur ahaṁ\ngirām asmy ekam akṣaram\nyajñānāṁ japa-yajño ’smi\nsthāvarāṇāṁ himālayaḥ",
-  "tamil": "மகரிஷிகளில் நான் பிருகு; வாக்குகளில் நான் \"ஓம்\" என்ற ஓரெழுத்து. யக்ஞங்களில் நான் ஜபயக்ஜம்; ஸ்தாவரங்களில் நான் இமாலயம்.",
+  "tamil": "மகா ரிஷிகளில் நான் பிருகு: சப்தங்களில் நான் திவ்யமான ஒம்காரம்: யாகங்களில் நான் திருநாம ஜபம்: அசையாதன வற்றில் நான் இமயமலை.",
   "english": "Of the great sages I am Bhṛgu; of vibrations I am the transcendental oṁ. Of sacrifices I am the chanting of the holy names [japa], and of immovable things I am the Himālayas.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.26",
@@ -292,10 +315,11 @@
   "reference": "10.26",
   "sanskrit": "अश्वत्थ: सर्ववृक्षाणां देवर्षीणां च नारद: ।\nगन्धर्वाणां चित्ररथ: सिद्धानां कपिलो मुनि: ॥ २६ ॥",
   "transliteration": "aśvatthaḥ sarva-vṛkṣāṇāṁ\ndevarṣīṇāṁ ca nāradaḥ\ngandharvāṇāṁ citrarathaḥ\nsiddhānāṁ kapilo muniḥ",
-  "tamil": "மரங்களனைத்திலும் நான் அரசமரம்; தேவரிஷிகளில் நான் நாரதன்; கந்தர்வருள்ளே நான் சித்தரகுப்தன்; சித்தர்களில் கபிலமுனி.",
+  "tamil": "எல்லா மரங்களில் நான் ஆலமரம்: தேவ ரிஷிகளில் நான் நாரதன்: கந்தர்வர்களில் நான் சித்ரரதன்; சித்தர்களில் நான் கபில முனி.",
   "english": "Of all trees I am the banyan tree, and of the sages among the demigods I am Nārada. Of the Gandharvas I am Citraratha, and among perfected beings I am the sage Kapila.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.27",
@@ -304,10 +328,11 @@
   "reference": "10.27",
   "sanskrit": "उच्‍चैःश्रवसमश्वानां विद्धि माममृतोद्भ‍वम् ।\nऐरावतं गजेन्द्राणां नराणां च नराधिपम् ॥ २७ ॥",
   "transliteration": "uccaiḥśravasam aśvānāṁ\nviddhi mām amṛtodbhavam\nairāvataṁ gajendrāṇāṁ\nnarāṇāṁ ca narādhipam",
-  "tamil": "குதிரைகளினிடையே நான் அமிர்தத்தில் பிறந்த உச்சை சிரவமென்றுணர். யானைகளில் என்னை ஐராவதமென்றும், மனிதரில் அரசனென்றும் அறி.",
+  "tamil": "குதிரைகளுூள். அமிர்தத்திற்காகக் கடலை கடைந்தபோது தோன்றிய உச்சைஷ்ரவா என்று என்னை அறிவாயாக. பட்டத்து யானைகளில் நான் ஐராவதம்: மனிதர்களில் நான் மன்னன்.",
   "english": "Of horses know Me to be Uccaiḥśravā, produced during the churning of the ocean for nectar. Of lordly elephants I am Airāvata, and among men I am the monarch.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.28",
@@ -316,10 +341,11 @@
   "reference": "10.28",
   "sanskrit": "आयुधानामहं वज्रं धेनूनामस्मि कामधुक् ।\nप्रजनश्चास्मि कन्दर्प: सर्पाणामस्मि वासुकि: ॥ २८ ॥",
   "transliteration": "āyudhānām ahaṁ vajraṁ\ndhenūnām asmi kāma-dhuk\nprajanaś cāsmi kandarpaḥ\nsarpāṇām asmi vāsukiḥ",
-  "tamil": "ஆயுதங்களில் நான் வஜ்ரம்; பசுக்களில் நான் காமதேனு; பிறப்பிப்போரில் நான் மன்மதன்; பாம்புகளில் வாசுகி.",
+  "tamil": "ஆயுதங்களில் நான் வஜ்ராயுதம்; பசுக்களில் நான் சுரபி: இனவிருத்தியாளர்களில் நான் காமதேவனான மன்மதன்; சர்ப்பங்களில்யாம்புகளில்) நான் வாளுகி.",
   "english": "Of weapons I am the thunderbolt; among cows I am the surabhi. Of causes for procreation I am Kandarpa, the god of love, and of serpents I am Vāsuki.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.29",
@@ -328,10 +354,11 @@
   "reference": "10.29",
   "sanskrit": "अनन्तश्चास्मि नागानां वरुणो यादसामहम् ।\nपितॄणामर्यमा चास्मि यम: संयमतामहम् ॥ २९ ॥",
   "transliteration": "anantaś cāsmi nāgānāṁ\nvaruṇo yādasām aham\npitṝṇām aryamā cāsmi\nyamaḥ saṁyamatām aham",
-  "tamil": "நாகர்களினிடை நான் அநந்தன்; நீர் வாழ்வோரில் வருணன்; பிதிர்க்களில் நான் அரியமான்; தம்மைக் கட்டினவர்களில் நான் யமன்.",
+  "tamil": "நாகங்களில் யல தலையுடைய பாம்புகளில்) நான் அனந்தன்: நீர்வாழினங்களில் நான் வருண தேவன்: முன்னோர்களில் நான் அர்யமா; நீதிபதிகளில் நான் மரணத்தின் அதிபதியான எமன்.",
   "english": "Of the many-hooded Nāgas I am Ananta, and among the aquatics I am the demigod Varuṇa. Of departed ancestors I am Aryamā, and among the dispensers of law I am Yama, the lord of death.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.30",
@@ -340,10 +367,11 @@
   "reference": "10.30",
   "sanskrit": "प्रह्लादश्चास्मि दैत्यानां काल: कलयतामहम् ।\nमृगाणां च मृगेन्द्रोऽहं वैनतेयश्च पक्षिणाम् ॥ ३० ॥",
   "transliteration": "prahlādaś cāsmi daityānāṁ\nkālaḥ kalayatām aham\nmṛgāṇāṁ ca mṛgendro ’haṁ\nvainateyaś ca pakṣiṇām",
-  "tamil": "அசுரரில் பிரகலாதன் யான்; இயங்குவனவற்றில் காலம் யான்; விலங்குகளில் சிங்கம்; பறவைகளில் கருடன்.",
+  "tamil": "தைத்ய அசுரர்களில், பக்தியில் சிறந்த பிரகலாதன் நான்: அடக்கி ஆள்பவற்றில் நான் காலம்; மிருகங்களில் நான் சிங்கம்; பறவைகளில் நான் கருடன்.",
   "english": "Among the Daitya demons I am the devoted Prahlāda, among subduers I am time, among beasts I am the lion, and among birds I am Garuḍa.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.31",
@@ -352,10 +380,11 @@
   "reference": "10.31",
   "sanskrit": "पवन: पवतामस्मि राम: शस्त्रभृतामहम् ।\nझषाणां मकरश्चास्मि स्रोतसामस्मि जाह्नवी ॥ ३१ ॥",
   "transliteration": "pavanaḥ pavatām asmi\nrāmaḥ śastra-bhṛtām aham\njhaṣāṇāṁ makaraś cāsmi\nsrotasām asmi jāhnavī",
-  "tamil": "தூய்மை செய்வனவற்றுள்ளே காற்று நான்; படை தரித்தோரில் நான் ராமன்; மீன்களில் நான் சுறா; ஆறுகளில் கங்கை.",
+  "tamil": "தூய்மைப்படுத்துபவற்றில் நான் வாயு: ஆயுதம் தரித்தவர்களில் நான் இராமன்: மீன்களில் நான் மகர மீன்; பாயும் நதிகளில் நான் கங்கை.",
   "english": "Of purifiers I am the wind, of the wielders of weapons I am Rāma, of fishes I am the shark, and of flowing rivers I am the Ganges.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.32",
@@ -364,10 +393,11 @@
   "reference": "10.32",
   "sanskrit": "सर्गाणामादिरन्तश्च मध्यं चैवाहमर्जुन ।\nअध्यात्मविद्या विद्यानां वाद: प्रवदतामहम् ॥ ३२ ॥",
   "transliteration": "sargāṇām ādir antaś ca\nmadhyaṁ caivāham arjuna\nadhyātma-vidyā vidyānāṁ\nvādaḥ pravadatām aham",
-  "tamil": "படைப்புக்களின் ஆதியும் அந்தமும் நான், அர்ஜுனா! வித்தைகளில் நான் அத்யாத்ம வித்தை; பேசுவோரிடையே நான் பேச்சு.",
+  "tamil": "எல்லாப் படைப்புகளின் ஆதியும். அந்தமும். நடுவும் நானே. அர்ஜுனா, அறிவில் நான் ஆத்மாவைப் பற்றிய அறிவு; விவாதிப்போரில் நான் முடிவான உண்மை.",
   "english": "Of all creations I am the beginning and the end and also the middle, O Arjuna. Of all sciences I am the spiritual science of the self, and among logicians I am the conclusive truth.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.33",
@@ -379,7 +409,8 @@
   "tamil": "எழுத்துக்களில் நான் 'அகரம்'; புணர்ப்புக்களில் இரட்டைப் புணர்ப்பு; நான் அழிவற்ற காலம்; எப்பாரிசத்தும் சுமப்போன் யானே.",
   "english": "Of letters I am the letter A, and among compound words I am the dual compound. I am also inexhaustible time, and of creators I am Brahmā.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-10.34",
@@ -388,10 +419,11 @@
   "reference": "10.34",
   "sanskrit": "मृत्यु: सर्वहरश्चाहमुद्भ‍वश्च भविष्यताम् ।\nकीर्ति: श्रीर्वाक्‍च नारीणां स्मृतिर्मेधा धृति: क्षमा ॥ ३४ ॥",
   "transliteration": "mṛtyuḥ sarva-haraś cāham\nudbhavaś ca bhaviṣyatām\nkīrtiḥ śrīr vāk ca nārīṇāṁ\nsmṛtir medhā dhṛtiḥ kṣamā",
-  "tamil": "எல்லாவற்றையும் அழிக்கும் மரணம் நான். எதிர்காலப் பொருள்களின் பிறப்பு நான். பெண்களிடத்து நான் கீர்த்தி, வாக்கு, நினைவு, மேதை, ஸ்திதி, பொறை.",
+  "tamil": "நானே எல்லாவற்றையும் அழிக்கும் மரணம் உருவாகுபவை அனைத்திற்கும் உற்பத்தியாளனும் நானே. பெண்களின் புகழ், அதிர்ஷ்டம். அழகிய பேச்சு. ஞாபக சக்தி, அறிவு, உறுதி மற்றும் பொறுமையும் நானே.",
   "english": "I am all-devouring death, and I am the generating principle of all that is yet to be. Among women I am fame, fortune, fine speech, memory, intelligence, steadfastness and patience.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.35",
@@ -400,10 +432,11 @@
   "reference": "10.35",
   "sanskrit": "बृहत्साम तथा साम्न‍ां गायत्री छन्दसामहम् ।\nमासानां मार्गशीर्षोऽहमृतूनां कुसुमाकर: ॥ ३५ ॥",
   "transliteration": "bṛhat-sāma tathā sāmnāṁ\ngāyatrī chandasām aham\nmāsānāṁ mārga-śīrṣo ’ham\nṛtūnāṁ kusumākaraḥ",
-  "tamil": "அங்ஙனமே, சாமங்களில் நான் \"பிருகத்சாமம்\" என்ற பெரிய சாமம்; சந்தஸ்களில் நான் காயத்ரி; மாதங்களில் நான் மார்கழி; பருவங்களில் மலர்சான்ற இளவேனில்.",
+  "tamil": "ஸாம வேத மந்திரங்களில் நான் ப்ருஹத் ஸாமம்; கவிதைகளில் நான் காயத்ரி; மாதங்களில் நான் மார்கஷீர்ஷ(ரவம்பர்-டிசம்பர்); பருவங்களில் நான் மலர்கள் நிறைந்த வசந்த காலம்.",
   "english": "Of the hymns in the Sāma Veda I am the Bṛhat-sāma, and of poetry I am the Gāyatrī. Of months I am Mārgaśīrṣa [November-December], and of seasons I am flower-bearing spring.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.36",
@@ -412,10 +445,11 @@
   "reference": "10.36",
   "sanskrit": "द्यूतं छलयतामस्मि तेजस्तेजस्विनामहम् ।\nजयोऽस्मि व्यवसायोऽस्मि सत्त्वं सत्त्ववतामहम् ॥ ३६ ॥",
   "transliteration": "dyūtaṁ chalayatām asmi\ntejas tejasvinām aham\njayo ’smi vyavasāyo ’smi\nsattvaṁ sattvavatām aham",
-  "tamil": "வஞ்சகரின் சூது நான்; ஒளியுடையோரின் ஒளி நான். நான் வெற்றி, நான் நிச்சயம்; உண்மையுடையோரின் உண்மை நான்.",
+  "tamil": "மொற்றுபவற்றில் நான் தூது; ஒளிர் பவற்றில் நான் தேஜஸ். நானே வெற்றி, நானே தீரச்செயல், நானே பலவான்களின் பலம்.",
   "english": "I am also the gambling of cheats, and of the splendid I am the splendor. I am victory, I am adventure, and I am the strength of the strong.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.37",
@@ -424,10 +458,11 @@
   "reference": "10.37",
   "sanskrit": "वृष्णीनां वासुदेवोऽस्मि पाण्डवानां धनञ्जय: ।\nमुनीनामप्यहं व्यास: कवीनामुशना कवि: ॥ ३७ ॥",
   "transliteration": "vṛṣṇīnāṁ vāsudevo ’smi\npāṇḍavānāṁ dhanañ-jayaḥ\nmunīnām apy ahaṁ vyāsaḥ\nkavīnām uśanā kaviḥ",
-  "tamil": "விருஷ்ணி குலத்தாரில் நான் வாசுதேவன்; பாண்டவர்களில் தனஞ்ஜயன்; முனிகளில் வியாசன்; கவிகளில் சுக்கிரகவி.",
+  "tamil": "விருஷ்ணி குலத்தவர்களில் நான் வாசுதேவன்; பாண்டவர்களில் நான் அர்ஜுனன்: முனிவர்களில் நான் வியாசர்; பெரும் சிந்தனையாளர்களில் நான் உஷனா.",
   "english": "Of the descendants of Vṛṣṇi I am Vāsudeva, and of the Pāṇḍavas I am Arjuna. Of the sages I am Vyāsa, and among great thinkers I am Uśanā.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.38",
@@ -436,10 +471,11 @@
   "reference": "10.38",
   "sanskrit": "दण्डो दमयतामस्मि नीतिरस्मि जिगीषताम् ।\nमौनं चैवास्मि गुह्यानां ज्ञानं ज्ञानवतामहम् ॥ ३८ ॥",
   "transliteration": "daṇḍo damayatām asmi\nnītir asmi jigīṣatām\nmaunaṁ caivāsmi guhyānāṁ\njñānaṁ jñānavatām aham",
-  "tamil": "ஆள்வோரிடத்தே கோல் நான்; வெற்றியை விரும்புவோரிடத்தே நீதி நான். ரகசியங்களில் நான் மெளனம்! ஞானமுடையோரிடத்தே நான் ஞானம்.",
+  "tamil": "அடக்கியாளும் முறைகளில் நான் தண்டனை. வெற்றியை நாடுபவர்களில் நான் நீதி இரகசியங்களில் நான் மெளனம் ஞானிகளில் நான் ஞானம்.",
   "english": "Among all means of suppressing lawlessness I am punishment, and of those who seek victory I am morality. Of secret things I am silence, and of the wise I am the wisdom.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.39",
@@ -448,10 +484,11 @@
   "reference": "10.39",
   "sanskrit": "यच्च‍ापि सर्वभूतानां बीजं तदहमर्जुन ।\nन तदस्ति विना यत्स्यान्मया भूतं चराचरम् ॥ ३९ ॥",
   "transliteration": "yac cāpi sarva-bhūtānāṁ\nbījaṁ tad aham arjuna\nna tad asti vinā yat syān\nmayā bhūtaṁ carācaram",
-  "tamil": "எல்லா உயிர்களிலும் விதை எதுவோ அது நான். அர்ஜுனா! சராசரங்களில் என்னையின்றியுள்ள பூதமொன்றில்லை.",
+  "tamil": "மேலும், அர்ஜுனா, இருக்கும் எல்லா உயிர்வாழிகளையும் உற்பத்தி செய்யும் விதை நானே, அசைபவை மற்றும் அசையாதவற்றில் நான் இன்றி இருக்கக்கூடியது ஒன்றும் இல்லை.",
   "english": "Furthermore, O Arjuna, I am the generating seed of all existences. There is no being – moving or nonmoving – that can exist without Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.40",
@@ -460,10 +497,11 @@
   "reference": "10.40",
   "sanskrit": "नान्तोऽस्ति मम दिव्यानां विभूतीनां परन्तप ।\nएष तूद्देशत: प्रोक्तो विभूतेर्विस्तरो मया ॥ ४० ॥",
   "transliteration": "nānto ’sti mama divyānāṁ\nvibhūtīnāṁ paran-tapa\neṣa tūddeśataḥ prokto\nvibhūter vistaro mayā",
-  "tamil": "பார்த்தா! என் திவ்ய மகிமைகளுக்கு முடிவில்லை. விஸ்தாரமான என் மகிமைகளில் கொஞ்சம் மாத்திரமே உனக்குரைத்தேன்.",
+  "tamil": "எதிரிகளை வெல்வோனே. என்னுடைய தெய்வீகத் தோற்றங்களுக்கு எல்லையே இல்லை. நான் உன்னிடம் கூறியவை அனைத்தும் எனது விரிவான வைபவங்களின் ஓர் உதாரணமே.",
   "english": "O mighty conqueror of enemies, there is no end to My divine manifestations. What I have spoken to you is but a mere indication of My infinite opulences.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-083",
@@ -472,12 +510,13 @@
   "reference": "10.41",
   "audioSrc": "/audio/10.41.mp3",
   "sanskrit": "यद्यद्विभूतिमत्सत्त्वं श्रीमदूर्जितमेव वा।\n\nतत्तदेवावगच्छ त्वं मम तेजोंऽशसंभवम्।।10.41।।",
-  "tamil": "பெருமையும் அழகும் வலிமையும் கொண்ட எதுவாயினும் அது என் ஒளியின் ஓர் அம்சத்திலிருந்து தோன்றியது என்று அறிந்துகொள்.",
+  "tamil": "அழகான, புகழத்தக்க வைபவங்கள் அனைத்தும், என்னுடைய தேஜஸின் சிறு பொறியிலிருந்து தோன்றுபவையே என்பதை அறிவாயாக.",
   "transliteration": "yad yad vibhūtimat sattvaṁ\nśrīmad ūrjitam eva vā\ntat tad evāvagaccha tvaṁ\nmama tejo-’ṁśa-sambhavam",
   "english": "Know that all beautiful, glorious, and mighty creations spring from but a spark of My splendor.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-10.42",
@@ -486,9 +525,10 @@
   "reference": "10.42",
   "sanskrit": "अथवा बहुनैतेन किं ज्ञातेन तवार्जुन ।\nविष्टभ्याहमिदं कृत्स्नमेकांशेन स्थितो जगत् ॥ ४२ ॥",
   "transliteration": "atha vā bahunaitena\nkiṁ jñātena tavārjuna\nviṣṭabhyāham idaṁ kṛtsnam\nekāṁśena sthito jagat",
-  "tamil": "அன்றி, இதைப் பலவாறாகத் தெரிவதில் உனக்குப் பயன் யாது? எனது கலையொன்றால் இவ்வையகத்தை நிலை நிறுத்தியுள்ளேன்.",
+  "tamil": "ஆனால், இதனை விவரமாக அறிவதன் தேவை என்ன அர்ஜுனா? என்னுடைய சிறு அம்சத்தின் மூலமாக. நான் இந்த பிரபஞ்சம் முழுவதிலும் புகுந்து அதனைத் தாங்குகின்றேன்.",
   "english": "But what need is there, Arjuna, for all this detailed knowledge? With a single fragment of Myself I pervade and support this entire universe.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  }
 ]

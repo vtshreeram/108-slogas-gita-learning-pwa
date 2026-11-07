@@ -6,10 +6,11 @@
   "reference": "17.1",
   "sanskrit": "अर्जुन उवाच\nये शास्त्रविधिमुत्सृज्य यजन्ते श्रद्धयान्विता: ।\nतेषां निष्ठा तु का कृष्ण सत्त्वमाहो रजस्तम: ॥ १ ॥",
   "transliteration": "arjuna uvāca\nye śāstra-vidhim utsṛjya\nyajante śraddhayānvitāḥ\nteṣāṁ niṣṭhā tu kā kṛṣṇa\nsattvam āho rajas tamaḥ",
-  "tamil": "கண்ணா! சாஸ்திர விதியை மீறி, ஆனாலும் நம்பிக்கையுடன், வேள்வி செய்வோருக்கு என்ன நிலை கிடைக்கிறது? ஒளி நிலையா? கிளர்ச்சி நிலையா? அல்லது இருள் நிலையா? (சத்துவமா, ரஜசா, தமசா?)",
+  "tamil": "அர்ஜுனன் வினவினான்: கிருஷ்ணரே, சாஸ்திரங்களின் விதிகளைப் பின்பற்றாமல், தங்களது கற்பனைக்கேற்ப வழிபடுபவர்களின் நிலை என்ன? அவர்கள் இருப்பது ஸத்வ குணத்திலா, ரஜோ குணத்திலா, தமோ குணத்திலா?",
   "english": "Arjuna inquired: O Kṛṣṇa, what is the situation of those who do not follow the principles of scripture but worship according to their own imagination? Are they in goodness, in passion or in ignorance?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.2",
@@ -18,10 +19,11 @@
   "reference": "17.2",
   "sanskrit": "श्रीभगवानुवाच\nत्रिविधा भवति श्रद्धा देहिनां सा स्वभावजा ।\nसात्त्विकी राजसी चैव तामसी चेति तां श‍ृणु ॥ २ ॥",
   "transliteration": "śrī-bhagavān uvāca\ntri-vidhā bhavati śraddhā\ndehināṁ sā svabhāva-jā\nsāttvikī rājasī caiva\ntāmasī ceti tāṁ śṛṇu",
-  "tamil": "ஜீவர்களிடம் இயற்கையால் நம்பிக்கை மூன்று வகையாகத் தோன்றுகிறது. சாத்வீகம், ராஜசம், தாமசம் என; அதைக் கேள்.",
+  "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: உடல் பெற்ற ஆத்மாவின் சுபாவத்திற்கு ஏற்ப அவனது நம்பிக்கை, ஸத்வ குணம், ரஜோ குணம், தமோ குணம் என்று மூன்று வகையாகப் பிரிக்கப்படலாம். இனி இவற்றைப் பற்றிக் கேட்பாயாக.",
   "english": "The Supreme Personality of Godhead said: According to the modes of nature acquired by the embodied soul, one’s faith can be of three kinds – in goodness, in passion or in ignorance. Now hear about this.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.3",
@@ -30,10 +32,11 @@
   "reference": "17.3",
   "sanskrit": "सत्त्वानुरूपा सर्वस्य श्रद्धा भवति भारत ।\nश्रद्धामयोऽयं पुरुषो यो यच्छ्रद्ध: स एव स: ॥ ३ ॥",
   "transliteration": "sattvānurūpā sarvasya\nśraddhā bhavati bhārata\nśraddhā-mayo ’yaṁ puruṣo\nyo yac-chraddhaḥ sa eva saḥ",
-  "tamil": "பாரத! யாவருக்கும் தத்தம் உள்ளியல்புக்கு ஒத்தபடியாகவே நம்பிக்கை அமைகிறது. மனிதன் *சிரத்தை மயமானவன். எவன் எந்தப் பொருளில் நம்பிக்கையுடையவனோ, அந்தப் பொருளே தான் ஆகிறான். (*நம்பிக்கை)",
+  "tamil": "பரதனின் மைந்தனே. பல்வேறு இயற்கை குணங்களுக்குக் கீழான இருப்பிற்கு ஏற்ப ஒருவன் குறிப்பிட்ட நம்பிக்கையை விருத்தி செய்கிறான். ஊயிர்வாழி அவனுடைய குணங்களுக்கு ஏற்பவே ஒரு குறிப்பிட்ட நம்பிக்கையை உடையவனாகக் கூறப்படுகிறான்.",
   "english": "O son of Bharata, according to one’s existence under the various modes of nature, one evolves a particular kind of faith. The living being is said to be of a particular faith according to the modes he has acquired.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.4",
@@ -42,10 +45,11 @@
   "reference": "17.4",
   "sanskrit": "यजन्ते सात्त्विका देवान्यक्षरक्षांसि राजसा: ।\nप्रेतान्भूतगणांश्चान्ये यजन्ते तामसा जना: ॥ ४ ॥",
   "transliteration": "yajante sāttvikā devān\nyakṣa-rakṣāṁsi rājasāḥ\npretān bhūta-gaṇāṁś cānye\nyajante tāmasā janāḥ",
-  "tamil": "ஒளியியல்புடையோர் வானவர்க்கு வேள்வி செய்கின்றனர். ரஜோ குணமுடையோர், யக்ஷர்களுக்கும், ராக்ஷதருக்கும் வேள்வி செய்கிறார்கள். மற்றத் தமோ குணமுடையோர் பிரேத பூத கணங்களுக்கு வேள்வி செய்கிறார்கள்.",
+  "tamil": "ஸத்வ குணத்தில் இருக்கும் மனிதர்கள் தேவர்களை வழிபடுகின்றனர்: ரஜோ குணத்தில் இருப்பவர்கள் அசுரர்களை வழிபடுகின்றனர்: தமோ குணத்தில் இருப்பவர்களோ பேய்களையும் பூத கணங்களையும் வழிபடுகின்றனர்.",
   "english": "Men in the mode of goodness worship the demigods; those in the mode of passion worship the demons; and those in the mode of ignorance worship ghosts and spirits.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.5-6",
@@ -54,10 +58,11 @@
   "reference": "17.5-6",
   "sanskrit": "अशास्त्रविहितं घोरं तप्यन्ते ये तपो जना: ।\nदम्भाहङ्कारसंयुक्ता: कामरागबलान्विता: ॥ ५ ॥\nकर्षयन्त: शरीरस्थं भूतग्राममचेतस: ।\nमां चैवान्त: शरीरस्थं तान्विद्ध्यासुरनिश्चयान् ॥ ६ ॥",
   "transliteration": "aśāstra-vihitaṁ ghoraṁ\ntapyante ye tapo janāḥ\ndambhāhaṅkāra-saṁyuktāḥ\nkāma-rāga-balānvitāḥkarṣayantaḥ śarīra-sthaṁ\nbhūta-grāmam acetasaḥ\nmāṁ caivāntaḥ śarīra-sthaṁ\ntān viddhy āsura-niścayān",
-  "tamil": "(சிலர்) சாஸ்திர நியமத்தை மீறி, டம்பமும் அகங்காரமு முடையோராய், விருப்பத்திலும், விழைவிலும் சார்புற்றவர்களாய் கோரமான தவஞ் செய்கிறார்கள்.\nஇங்ஙனம் அறிவு கெட்டோராய்த் தம் உடம்பிலுள்ள பூதத் தொகுதிகளையும் அகத்திலுள்ள என்னையும் வருத்துகிறார்கள். இவர்கள் அசுர நிச்சய முடையோரென்றுணர்.",
+  "tamil": "காமம் மற்றும் பற்றுதலின் பலவந்தத்தால் சாஸ்திரங்களில் பரிந்துரைக்கப்படாத கடுமையான தவங்களை தற்பெருமையுடனும் அஹ்ங்காரத்துடனும் செய்பவர்கள், உடலின் ஜட மூலக்கூறுகளைத் துன்புறுத்துவது மட்டுமின்றி உள்ளே உறைந்துள்ள பரமாத்மாவையும் துன்புறுத்துகின்றனர். அத்தகு முட்டாள்கள் அசுரர்களாக அறியப்படுகின்றனர்.",
   "english": "Those who undergo severe austerities and penances not recommended in the scriptures, performing them out of pride and egoism, who are impelled by lust and attachment, who are foolish and who torture the material elements of the body as well as the Supersoul dwelling within, are to be known as demons.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.7",
@@ -66,10 +71,11 @@
   "reference": "17.7",
   "sanskrit": "आहारस्त्वपि सर्वस्य त्रिविधो भवति प्रिय: ।\nयज्ञस्तपस्तथा दानं तेषां भेदमिमं श‍ृणु ॥ ७ ॥",
   "transliteration": "āhāras tv api sarvasya\ntri-vidho bhavati priyaḥ\nyajñas tapas tathā dānaṁ\nteṣāṁ bhedam imaṁ śṛṇu",
-  "tamil": "ஒவ்வொருவருக்கும் பிரியமான உணவும் மூன்றுவகைப் படுகிறது. வேள்வியும், தவமும், தானமும், அங்ஙனமே மும்மூன்று வகைப்படுகின்றன. அவற்றின் வேற்றுமையைக் கேள்.",
+  "tamil": "ஒவ்வொருவர் விரும்பும் உணவிலும்கூட ஜட இயற்கையின் முக்குணங்களுக்கு ஏற்ப மூன்று வகை உண்டு. இது யாகங்கள். தவங்கள், மற்றும் தானத்திற்கும் பொருந்தும். அவற்றிற்கு இடையிலான வேறுபாடுகளை தற்போது கேள்.",
   "english": "Even the food each person prefers is of three kinds, according to the three modes of material nature. The same is true of sacrifices, austerities and charity. Now hear of the distinctions between them.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.8",
@@ -78,10 +84,11 @@
   "reference": "17.8",
   "sanskrit": "आयु:सत्त्वबलारोग्यसुखप्रीतिविवर्धना: ।\nरस्या: स्‍निग्धा: स्थिरा हृद्या आहारा: सात्त्विकप्रिया: ॥ ८ ॥",
   "transliteration": "āyuḥ-sattva-balārogya-\nsukha-prīti-vivardhanāḥ\nrasyāḥ snigdhāḥ sthirā hṛdyā\nāhārāḥ sāttvika-priyāḥ",
-  "tamil": "உயிர், சக்தி, பலம், நோயின்மை, இன்பம், பிரீதி இவற்றை மிகுதிப் படுத்துவன, சுவையுடையன, குழம்பாயின, உறுதியுடையன, உளமுகந்தன -- இவ்வுணவு சத்துவ குணமுடையோருக்குப் பிரியமானவை.",
+  "tamil": "ஆயுளை நீடித்து. வாழ்வைத் தூய்மைபடுத்தி, பலம், ஆரோக்கியம், சுகம், மற்றும் திருப்தியைக் கொடுக்கும் உணவுகள். ஸத்வ குணத்தில் இருப்போருக்குப் பிரியமானவை. இத்தகு உணவுகள் ரசமுள்ளவையாக, கொழுப்பு சத்தும் ஊட்டச் சத்தும் மிக்கவையாக, இதயத்திற்கு இதமளிப்பவையாக உள்ளன.",
   "english": "Foods dear to those in the mode of goodness increase the duration of life, purify one’s existence and give strength, health, happiness and satisfaction. Such foods are juicy, fatty, wholesome, and pleasing to the heart.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.9",
@@ -93,7 +100,8 @@
   "tamil": "கசப்பும், புளிப்பும், உப்பும், உறைப்பும் மிகுந்தன, அதிகச் சூடு கொண்டன, உலர்ந்தன, எரிச்சலுடையன -- இவ்வுணவுகளை ரஜோ குணமுடையோர் விரும்புவர். இவை துன்பத்தையும் துயரையும் நோயையும் விளைப்பன.",
   "english": "Foods that are too bitter, too sour, salty, hot, pungent, dry and burning are dear to those in the mode of passion. Such foods cause distress, misery and disease.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-17.10",
@@ -102,10 +110,11 @@
   "reference": "17.10",
   "sanskrit": "यातयामं गतरसं पूति पर्युषितं च यत् ।\nउच्छिष्टमपि चामेध्यं भोजनं तामसप्रियम् ॥ १० ॥",
   "transliteration": "yāta-yāmaṁ gata-rasaṁ\npūti paryuṣitaṁ ca yat\nucchiṣṭam api cāmedhyaṁ\nbhojanaṁ tāmasa-priyam",
-  "tamil": "பழையது, சுவையற்றது, அருகியது, கெட்டுப் போனது, எச்சில், அசுத்தம் -- இத்தகைய உணவு தமோ குணமுடையோருக்குப் பிரியமானது.",
+  "tamil": "உண்பதற்கு மூன்று மணி நேரத்திற்கு முன்பே சமைக்கப்பட்ட, சுவையற்ற. பழைய, ஊசிப்போன, எச்சில்பட்ட, தீண்டத்தகாத பொருள்களைக் கொண்ட உணவுகள் தமோ குணத்தில் உள்ள மக்களால் விரும்பப்படுகின்றன.",
   "english": "Food prepared more than three hours before being eaten, food that is tasteless, decomposed and putrid, and food consisting of remnants and untouchable things is dear to those in the mode of darkness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.11",
@@ -114,10 +123,11 @@
   "reference": "17.11",
   "sanskrit": "अफलाकाङ्‌‍क्षिभिर्यज्ञो विधिदिष्टो य इज्यते ।\nयष्टव्यमेवेति मन: समाधाय स सात्त्विक: ॥ ११ ॥",
   "transliteration": "aphalākāṅkṣibhir yajño\nvidhi-diṣṭo ya ijyate\nyaṣṭavyam eveti manaḥ\nsamādhāya sa sāttvikaḥ",
-  "tamil": "பயனை விரும்பாதவர்களாய், வேள்வி புரிதல் கடமையென்று மனந்தேறி, விதிகள் சொல்லியபடி இயற்றுவாரின் வேள்வி சத்துவ குணமுடைத்து.",
+  "tamil": "சாஸ்திர விதிகளின்படி கடமையை நிறைவேற்றுவதற்காக. பலனை எதிர்பார்க்காத நபர்களால் செய்யப்படும் யாகம், ஸத்வ குணத்தைச் சார்ந்ததாகும்.",
   "english": "Of sacrifices, the sacrifice performed according to the directions of scripture, as a matter of duty, by those who desire no reward, is of the nature of goodness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.12",
@@ -126,10 +136,11 @@
   "reference": "17.12",
   "sanskrit": "अभिसन्धाय तु फलं दम्भार्थमपि चैव यत् ।\nइज्यते भरतश्रेष्ठ तं यज्ञं विद्धि राजसम् ॥ १२ ॥",
   "transliteration": "abhisandhāya tu phalaṁ\ndambhārtham api caiva yat\nijyate bharata-śreṣṭha\ntaṁ yajñaṁ viddhi rājasam",
-  "tamil": "பயனைக் குறித்தெனினும், ஆடம்பரத்துக் கெனினும் செய்யப்படும் வேள்வி ராஜசமென்றுணர், பாரதரிற் சிறந்தாய்!",
+  "tamil": "ஆனால் ஏதேனும் பெளதிக நன்மையை அடைவதற்காக அல்லது தற்பெருமைக்காகச் செய்யப்படும் யாகம், பாரதர்களின் தலைவனே, ரஜோ குணத்தைச் சார்ந்தது என்பதை அறிவாயாக.",
   "english": "But the sacrifice performed for some material benefit, or for the sake of pride, O chief of the Bhāratas, you should know to be in the mode of passion.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.13",
@@ -138,10 +149,11 @@
   "reference": "17.13",
   "sanskrit": "विधिहीनमसृष्टान्नं मन्‍त्रहीनमदक्षिणम् ।\nश्रद्धाविरहितं यज्ञं तामसं परिचक्षते ॥ १३ ॥",
   "transliteration": "vidhi-hīnam asṛṣṭānnaṁ\nmantra-hīnam adakṣiṇam\nśraddhā-virahitaṁ yajñaṁ\ntāmasaṁ paricakṣate",
-  "tamil": "விதி தவறியது, பிறர்க்குணவு தராதது, மந்திரமற்றது, தக்ஷிணையற்றது, நம்பிக்கையின்றிச் செய்யப்படுவது -- இத்தகைய வேள்வியைத் தாமசமென்பர்.",
+  "tamil": "சாஸ்திர விதிகளை மதிக்காமல், பிரசாத விநியோகம் இன்றி, வேத மந்திரங்களின் உச்சாடனம் இன்றி. புரோகிதர்களுக்கான தட்சணை இன்றி. நம்பிக்கையும் இன்றி செய்யப்படும் யாகம். தமோ குணத்தைச் சார்ந்ததாகக் கருதப்படுகிறது.",
   "english": "Any sacrifice performed without regard for the directions of scripture, without distribution of prasādam [spiritual food], without chanting of Vedic hymns and remunerations to the priests, and without faith is considered to be in the mode of ignorance.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.14",
@@ -150,10 +162,11 @@
   "reference": "17.14",
   "sanskrit": "देवद्विजगुरुप्राज्ञपूजनं शौचमार्जवम् ।\nब्रह्मचर्यमहिंसा च शारीरं तप उच्यते ॥ १४ ॥",
   "transliteration": "deva-dvija-guru-prājña-\npūjanaṁ śaucam ārjavam\nbrahmacaryam ahiṁsā ca\nśārīraṁ tapa ucyate",
-  "tamil": "தேவர், அந்தணர், குருக்கள், அறிஞர் இவர்களுக்குப் பூஜை செய்தல், தூய்மை, நேர்மை, பிரம்மசரியம், கொல்லாமை -- இவை உடம்பைப் பற்றிய தவமெனப்படும்.",
+  "tamil": "முழுமுதற் கடவுள், பிராமணர்கள், ஆன்மீக குரு, பெரியோர்களான தாய் தந்தையர் ஆகியோரை வழிபடுதல், மற்றும் தூய்மை, எளிமை, பிரம்மசர்யம், அகிம்சை முதலியவை உடலின் தவங்களாகும்.",
   "english": "Austerity of the body consists in worship of the Supreme Lord, the brāhmaṇas, the spiritual master, and superiors like the father and mother, and in cleanliness, simplicity, celibacy and nonviolence.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.15",
@@ -162,10 +175,11 @@
   "reference": "17.15",
   "sanskrit": "अनुद्वेगकरं वाक्यं सत्यं प्रियहितं च यत् ।\nस्वाध्यायाभ्यसनं चैव वाङ्‍मयं तप उच्यते ॥ १५ ॥",
   "transliteration": "anudvega-karaṁ vākyaṁ\nsatyaṁ priya-hitaṁ ca yat\nsvādhyāyābhyasanaṁ caiva\nvāṅ-mayaṁ tapa ucyate",
-  "tamil": "சினத்தை விளைக்காததும், உண்மையுடையதும், இனியதும், நலங்கருதியதுமாகிய சொல்லல், கல்விப் பயிற்சி இவை வாக்குத் தவமெனப்படும்.",
+  "tamil": "உண்மையானதும் இனிமையானதும் நன்மையளிப்பதுமான பேச்சு, பிறரது மனதை துன்புறுத்தாத பேச்சு, வேத இலக்கியங்களை முறையாக உச்சரித்தல் ஆகியவை வாக்கின் தவங்களாகும்.",
   "english": "Austerity of speech consists in speaking words that are truthful, pleasing, beneficial, and not agitating to others, and also in regularly reciting Vedic literature.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.16",
@@ -174,10 +188,11 @@
   "reference": "17.16",
   "sanskrit": "मन:प्रसाद: सौम्यत्वं मौनमात्मविनिग्रह: ।\nभावसंश‍ुद्धिरित्येतत्तपो मानसमुच्यते ॥ १६ ॥",
   "transliteration": "manaḥ-prasādaḥ saumyatvaṁ\nmaunam ātma-vinigrahaḥ\nbhāva-saṁśuddhir ity etat\ntapo mānasam ucyate",
-  "tamil": "மன அமைதி, மகிழ்ச்சி, மெளனம், தன்னைக் கட்டுதல், எண்ணத் தூய்மை -- இவை மனத் தவமெனப்படும்.",
+  "tamil": "திருப்தி. எளிமை, மெளனம், சுயக் கட்டுப்பாடு, தனது இருப்பின் தூய்மை ஆகியவை மனதின் தவங்களாகும்.",
   "english": "And satisfaction, simplicity, gravity, self-control and purification of one’s existence are the austerities of the mind.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.17",
@@ -189,7 +204,8 @@
   "tamil": "பயனை விரும்பாத யோகிகளால் மேற்கூறிய மூன்று வகைகளிலும் உயர்ந்த நம்பிக்கையுடன் செய்யப்படும் தவம் சாத்விக மெனப்படும்.",
   "english": "This threefold austerity, performed with transcendental faith by men not expecting material benefits but engaged only for the sake of the Supreme, is called austerity in goodness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-17.18",
@@ -198,10 +214,11 @@
   "reference": "17.18",
   "sanskrit": "सत्कारमानपूजार्थं तपो दम्भेन चैव यत् ।\nक्रियते तदिह प्रोक्तं राजसं चलमध्रुवम् ॥ १८ ॥",
   "transliteration": "satkāra-māna-pūjārthaṁ\ntapo dambhena caiva yat\nkriyate tad iha proktaṁ\nrājasaṁ calam adhruvam",
-  "tamil": "மதிப்பையும், பெருமையையும், பூஜையையும் நாடிச் செய்வதும், ஆடம்பரத்துக்காகச் செய்வதுமாகிய தவம் ரஜோ வெனப்படும்; அஃது நிலையற்றது; உறுதியற்றது.",
+  "tamil": "மானம், மரியாதை. மற்றும் வழிபாட்டைப் பெறுவதற்காக, தற்பெருமையுடன் செய்யப்படும் தவங்கள் ரஜோ குணத்தில் இருப்பவையாகக் கூறப்படுகின்றன. இவை சஞ்சலமானதும் தற்காலிகமானதும் ஆகும்.",
   "english": "Penance performed out of pride and for the sake of gaining respect, honor and worship is said to be in the mode of passion. It is neither stable nor permanent.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.19",
@@ -210,10 +227,11 @@
   "reference": "17.19",
   "sanskrit": "मूढग्राहेणात्मनो यत्पीडया क्रियते तप: ।\nपरस्योत्सादनार्थं वा तत्तामसमुदाहृतम् ॥ १९ ॥",
   "transliteration": "mūḍha-grāheṇātmano yat\npīḍayā kriyate tapaḥ\nparasyotsādanārthaṁ vā\ntat tāmasam udāhṛtam",
-  "tamil": "மூடக் கொள்கையுடன் தன்னைத்தான் துன்பப்படுத்திக் கொண்டு செய்வதும், பிறரைக் கெடுக்குமாறு செய்வதுமாகிய தவம் தாமச மெனப்படும்.",
+  "tamil": "பிறரை அழிப்பதற்காகவோ துன்புறுத்துவதற்காகவோ, அல்லது தன்னையே வருத்திக் கொண்டு முட்டாள்தனமாக முறையில் செய்யப்படும் தவங்கள், தமோ குணத்தில் இருப்பவையாகக் கருதப்படுகின்றன.",
   "english": "Penance performed out of foolishness, with self-torture or to destroy or injure others, is said to be in the mode of ignorance.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.20",
@@ -222,10 +240,11 @@
   "reference": "17.20",
   "sanskrit": "दातव्यमिति यद्दानं दीयतेऽनुपकारिणे ।\nदेशे काले च पात्रे च तद्दानं सात्त्विकं स्मृतम् ॥ २० ॥",
   "transliteration": "dātavyam iti yad dānaṁ\ndīyate ’nupakāriṇe\ndeśe kāle ca pātre ca\ntad dānaṁ sāttvikaṁ smṛtam",
-  "tamil": "கொடுத்தல் கடமையென்று கருதிக் கைம்மாறு வேண்டாமல், தகுந்த இடத்தையும் காலத்தையும் பாத்திரத்தையும் நோக்கிச் செய்யப்படும் தானத்தையே சாத்விக மென்பர்.",
+  "tamil": "பலனை எதிர்பார்க்காமல். கடமையை நிறைவேற்றுவதற்காக. தகுந்த நபருக்கு. முறையான இடத்தில், முறையான காலத்தில் கொடுக்கப்படும் தானம். ஸத்வ குணத்தில் இருப்பதாகக் கருதப்படுகின்றது.",
   "english": "Charity given out of duty, without expectation of return, at the proper time and place, and to a worthy person is considered to be in the mode of goodness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.21",
@@ -234,10 +253,11 @@
   "reference": "17.21",
   "sanskrit": "यत्तु प्रत्युपकारार्थं फलमुद्दिश्य वा पुन: ।\nदीयते च परिक्ल‍ि‍ष्टं तद्दानं राजसं स्मृतम् ॥ २१ ॥",
   "transliteration": "yat tu pratyupakārārthaṁ\nphalam uddiśya vā punaḥ\ndīyate ca parikliṣṭaṁ\ntad dānaṁ rājasaṁ smṛtam",
-  "tamil": "கைம்மாறு வேண்டியும், பயனைக் கருதியும், கிலேசத்துடன் கொடுக்கப்படும் தானத்தை ராஜச மென்பர்.",
+  "tamil": "பிரதி உபகாரத்தை எதிர்பார்த்து, ஏதேனும் பலனை விரும்பி, அல்லது விருப்பமின்றி கொடுக்கப்படும் தானம், ரஜோ குணத்தில் இருப்பதாகக் கூறப்படுகின்றது.",
   "english": "But charity performed with the expectation of some return, or with a desire for fruitive results, or in a grudging mood is said to be charity in the mode of passion.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.22",
@@ -246,10 +266,11 @@
   "reference": "17.22",
   "sanskrit": "अदेशकाले यद्दानमपात्रेभ्यश्च दीयते ।\nअसत्कृतमवज्ञातं तत्तामसमुदाहृतम् ॥ २२ ॥",
   "transliteration": "adeśa-kāle yad dānam\napātrebhyaś ca dīyate\nasat-kṛtam avajñātaṁ\ntat tāmasam udāhṛtam",
-  "tamil": "தகாத இடத்தில், தகாத காலத்தில், தகாதார்க்குச் செய்யப்படுவதும், மதிப்பின்றி இகழ்ச்சியுடன் செய்யப்படுவதுமாகிய தானம் தாமச மெனப்படும்.",
+  "tamil": "தூய்மையற்ற இடத்தில், முறையற்ற காலத்தில், தகுதியற்ற நபர்களுக்கு, அல்லது தக்க கவனமும் மரியாதையும் இன்றி வழங்கப்படும் தானம், தமோ குணத்தைதச் சேர்ந்ததாக கூறப்படுகின்றது.",
   "english": "And charity performed at an impure place, at an improper time, to unworthy persons, or without proper attention and respect is said to be in the mode of ignorance.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.23",
@@ -258,10 +279,11 @@
   "reference": "17.23",
   "sanskrit": "ॐ तत्सदिति निर्देशो ब्रह्मणस्त्रिविध: स्मृत: ।\nब्राह्मणास्तेन वेदाश्च यज्ञाश्च विहिता: पुरा ॥ २३ ॥",
   "transliteration": "oṁ tat sad iti nirdeśo\nbrahmaṇas tri-vidhaḥ smṛtaḥ\nbrāhmaṇās tena vedāś ca\nyajñāś ca vihitāḥ purā",
-  "tamil": "'ஓம் தத் ஸத்' என்ற மும்மைப் பெயர் பிரம்மத்தைக் குறிப்பதென்பர். அதனால், முன்பு பிரமாணங்களும், வேதங்களும், வேள்விகளும் வகுக்கப்பட்டன.",
+  "tamil": "படைப்பின் ஆரம்பித்திலிருந்தே, ஓம் தத் ஸத் என்னும் மூன்று சொற்கள் பரம பூரண உண்மையைக் குறிப்பிடுவதற்காக உபயோகப்படுத்தப்பட்டு வருகின்றன. இந்த மூன்று குறியீட்டுச் சொற்களும். வேத மந்திரங்களை உச்சரிக்கும்போதும் யாகங்களின்போதும் பரமனின் திருப்திக்காக பிராமணர்களால் உச்சரிக்கப்பட்டன.",
   "english": "From the beginning of creation, the three words oṁ tat sat were used to indicate the Supreme Absolute Truth. These three symbolic representations were used by brāhmaṇas while chanting the hymns of the Vedas and during sacrifices for the satisfaction of the Supreme.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.24",
@@ -270,10 +292,11 @@
   "reference": "17.24",
   "sanskrit": "तस्माद् ॐ इत्युदाहृत्य यज्ञदानतप:क्रिया: ।\nप्रवर्तन्ते विधानोक्ता: सततं ब्रह्मवादिनाम् ॥ २४ ॥",
   "transliteration": "tasmād oṁ ity udāhṛtya\nyajña-dāna-tapaḥ-kriyāḥ\npravartante vidhānoktāḥ\nsatataṁ brahma-vādinām",
-  "tamil": "ஆதலால், பிரம்மவாதிகள் விதிப்படி புரியும் வேள்வி, தவம், தானம் என்ற கிரியைகள் எப்போதும் 'ஓம்' என்று தொடங்கி செய்யப்படுகின்றன.",
+  "tamil": "எனவே. பரமனை அடைவதற்காக, சாஸ்திர விதிகளின்படி, யாகம், தானம். தவம் ஆகியவற்றை மேற்கொள்ளும் ஆன்மீகவாதிகள், அவற்றை ஓம் என்பதுடன் தொடங்குகின்றனர்.",
   "english": "Therefore, transcendentalists undertaking performances of sacrifice, charity and penance in accordance with scriptural regulations begin always with oṁ, to attain the Supreme.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.25",
@@ -282,10 +305,11 @@
   "reference": "17.25",
   "sanskrit": "तदित्यनभिसन्धाय फलं यज्ञतप:क्रिया: ।\nदानक्रियाश्च विविधा: क्रियन्ते मोक्षकाङ्‌‍क्षिभि: ॥ २५ ॥",
   "transliteration": "tad ity anabhisandhāya\nphalaṁ yajña-tapaḥ-kriyāḥ\ndāna-kriyāś ca vividhāḥ\nkriyante mokṣa-kāṅkṣibhiḥ",
-  "tamil": "'தத்' என்ற சொல்லை உச்சரித்துப் பயனைக் கருதாமல், பல வகைப்பட்ட வேள்வியும் தவமும் தானமுமாகிய கிரியைகள் மோக்ஷத்தை விரும்புவோரால் செய்யப்படுகின்றன.",
+  "tamil": "பலனை எதிர்பார்க்காமல். பல்வேறு வகையான யாகம். தவம் மற்றும் தானத்தினை தத் என்னும் சப்தத்துடன் மேற்கொள்ள வேண்டும். அத்தகு உன்னத செயல்களின் நோக்கம் பெளதிக பந்தத்திலிருந்து விடுபடுவதாகும்.",
   "english": "Without desiring fruitive results, one should perform various kinds of sacrifice, penance and charity with the word tat. The purpose of such transcendental activities is to get free from material entanglement.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.26-27",
@@ -294,10 +318,11 @@
   "reference": "17.26-27",
   "sanskrit": "सद्भ‍ावे साधुभावे च सदित्येतत्प्रयुज्यते ।\nप्रशस्ते कर्मणि तथा सच्छब्द: पार्थ युज्यते ॥ २६ ॥\nयज्ञे तपसि दाने च स्थिति: सदिति चोच्यते ।\nकर्म चैव तदर्थीयं सदित्येवाभिधीयते ॥ २७ ॥",
   "transliteration": "sad-bhāve sādhu-bhāve ca\nsad ity etat prayujyate\npraśaste karmaṇi tathā\nsac-chabdaḥ pārtha yujyateyajñe tapasi dāne ca\nsthitiḥ sad iti cocyate\nkarma caiva tad-arthīyaṁ\nsad ity evābhidhīyate",
-  "tamil": "'ஸத்' என்ற சொல் உண்மையென்ற பொருளிலும், நன்மையென்ற பொருளிலும் வழங்கப்படுகிறது. பார்த்தா! புகழ்வதற்குரிய செய்கையைக் குறிப்பதற்கும் 'ஸத்' என்ற சொல் வழங்குகிறது.\nவேள்வி, தவம், தானம் இவற்றில் உறுதி நிலையும் 'ஸத்' எனப்படுகிறது. பிரம்மத்தின் பொருட்டாக செய்யும் கர்மமும் 'ஸத்' என்றே சொல்லப்படும்.",
+  "tamil": "பக்திமயமான யாகத்தின் நோக்கம். பூரண உண்மையே. இது எத் என்னும் சொல்லினால் குறிப்பிடப்படுகின்றது. பிருதாவின் மைந்தனே, அத்தகு யாகத்தை செய்பவரும் ஸத் எனப்படுகிறார். மேலும், பரம புருஷரைத் திருப்திப்படுத்ததுவதற்காகச் செய்யப்படும் யாகம். தவம், மற்றம் தானத்தின் செயல்களும் ஸத் என்று அழைக்கப்படுகின்றன.",
   "english": "The Absolute Truth is the objective of devotional sacrifice, and it is indicated by the word sat. The performer of such sacrifice is also called sat, as are all works of sacrifice, penance and charity which, true to the absolute nature, are performed to please the Supreme Person, O son of Pṛthā.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-17.28",
@@ -306,9 +331,10 @@
   "reference": "17.28",
   "sanskrit": "अश्रद्धया हुतं दत्तं तपस्तप्‍तं कृतं च यत् ।\nअसदित्युच्यते पार्थ न च तत्प्रेत्य नो इह ॥ २८ ॥",
   "transliteration": "aśraddhayā hutaṁ dattaṁ\ntapas taptaṁ kṛtaṁ ca yat\nasad ity ucyate pārtha\nna ca tat pretya no iha",
-  "tamil": "அசிரத்தையுடன் செய்யும் வேள்வியும், தானமும், தவமும், கர்மமும் 'அஸத்' எனப்படும். பார்த்தா! அவை மறுமையிலும் பயன்படா; இம்மையிலும் பயன்படா.",
+  "tamil": "பிருதாவின் மைந்தனே. பரமனின் மீது நம்பிக்கையின்றி செய்யப்படும் யாகங்களும் தவங்களும் தானங்களும் நிலையற்றவை. அஸத் என்று அழைக்கப்படும் இவை இப்பிறவியில் மட்டுமின்றி அடுத்த பிறவியிலும் பயனற்றறவை.",
   "english": "Anything done as sacrifice, charity or penance without faith in the Supreme, O son of Pṛthā, is impermanent. It is called asat and is useless both in this life and the next.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  }
 ]

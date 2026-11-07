@@ -6,10 +6,11 @@
   "reference": "3.1",
   "sanskrit": "अर्जुन उवाच\nज्यायसी चेत्कर्मणस्ते मता बुद्धिर्जनार्दन ।\nतत्किं कर्मणि घोरे मां नियोजयसि केशव ॥ १ ॥",
   "transliteration": "arjuna uvāca\njyāyasī cet karmaṇas te\nmatā buddhir janārdana\ntat kiṁ karmaṇi ghore māṁ\nniyojayasi keśava",
-  "tamil": "ஜநார்த்தன! செய்கையைக் காட்டிலும் புத்தியே சிறந்ததென்பது நின் கொள்கையாயின் இந்தக் கொடிய செய்கையில் என்னைப் புகுத்துவதென்னே, கேசவா?",
+  "tamil": "அர்ஜுனன் கூறினான்: ஜனார்தனனே. கேசவனே. பலன் நோக்குச் செயல்களைவிட புத்தி சிறந்தது என்றால், கோரமான இப்போரில் தாங்கள் என்னை பலவந்தமாக ஈடுபடுத்துவது ஏன்?",
   "english": "Arjuna said: O Janārdana, O Keśava, why do You want to engage me in this ghastly warfare, if You think that intelligence is better than fruitive work?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.2",
@@ -18,10 +19,11 @@
   "reference": "3.2",
   "sanskrit": "व्यामिश्रेणेव वाक्येन बुद्धिं मोहयसीव मे ।\nतदेकं वद निश्चित्य येन श्रेयोऽहमाप्‍नुयाम् ॥ २ ॥",
   "transliteration": "vyāmiśreṇeva vākyena\nbuddhiṁ mohayasīva me\ntad ekaṁ vada niścitya\nyena śreyo ’ham āpnuyām",
-  "tamil": "குழப்பமான பேச்சினால் என் புத்தியை மயங்கச் செய்கிறாய். ஆதலால் எது எனக்கு நன்மை தருமென்பதை உறுதிப்படுத்தி ஒரே வார்த்தையாகச் சொல்.",
+  "tamil": "இரண்டு வழிகளை ஒன்று போலக் கூறும் உமது அறிவுரையால், எனது புத்தி பேதலிக்கின்றது. எனவே, எனக்கு மிகவும் நன்மையானது எது என்பதை முடிவாகக் கூறுவிராக.",
   "english": "My intelligence is bewildered by Your equivocal instructions. Therefore, please tell me decisively which will be most beneficial for me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.3",
@@ -30,10 +32,11 @@
   "reference": "3.3",
   "sanskrit": "श्रीभगवानुवाच\nलोकेऽस्मिन्द्विविधा निष्ठा पुरा प्रोक्ता मयानघ ।\nज्ञानयोगेन सांख्यानां कर्मयोगेन योगिनाम् ॥ ३ ॥",
   "transliteration": "śrī-bhagavān uvāca\nloke ’smin dvi-vidhā niṣṭhā\npurā proktā mayānagha\njñāna-yogena sāṅkhyānāṁ\nkarma-yogena yoginām",
-  "tamil": "பாபமொன்றுமில்லாத அர்ஜுனா, இவ்வுலகத்தில் இரண்டுவித நிஷ்டை முன்னர் என்னால் கூறப்பட்டது, ஸாங்கியர்களின் ஞானயோகத்தால் எய்துவது, யோகிகளின் கர்ம யோகத்தால் எய்துவது என.",
+  "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: பாவங்களற்ற அர்ஜுனா. இருவகையான மனிதர்கள் தன்னுணர்விற்காக முயற்சி செய்வதாக நான் முன்பே விளக்கினேன். சிலர் ஸாங்கிய தத்துவ சிந்தனைகளாலும். பிறர் பக்தித் தொண்டினாலும், தன்னுணர்வினை அடைய முயற்சி செய்கின்றனர்.",
   "english": "The Supreme Personality of Godhead said: O sinless Arjuna, I have already explained that there are two classes of men who try to realize the self. Some are inclined to understand it by empirical, philosophical speculation, and others by devotional service.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.4",
@@ -42,10 +45,11 @@
   "reference": "3.4",
   "sanskrit": "न कर्मणामनारम्भान्नैष्कर्म्य पुरुषोऽश्न‍ुते ।\nन च सन्न्यसनादेव सिद्धिं समधिगच्छति ॥ ४ ॥",
   "transliteration": "na karmaṇām anārambhān\nnaiṣkarmyaṁ puruṣo ’śnute\nna ca sannyasanād eva\nsiddhiṁ samadhigacchati",
-  "tamil": "தொழில்களைத் தொடாமலேயிருப்பதனால் மனிதன் செயலற்ற நிலை அடைவதில்லை. துறவினாலேயே மனிதன் ஈடேற்றம் பெற்றுவிட மாட்டான்.",
+  "tamil": "செயல்களிலிருந்து விலகிக் கொள்வதால் விளைவுகளிலிருந்து ஒருவன் விடுதலை பெற முடியாது. துறவால் மட்டும் பக்குவமடைதல் என்பதும் இயலாததாகும்.",
   "english": "Not by merely abstaining from work can one achieve freedom from reaction, nor by renunciation alone can one attain perfection.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.5",
@@ -54,10 +58,11 @@
   "reference": "3.5",
   "sanskrit": "न हि कश्चित्क्षणमपि जातु तिष्ठत्यकर्मकृत् ।\nकार्यते ह्यवशः कर्म सर्वः प्रकृतिजैर्गुणैः ॥ ५ ॥",
   "transliteration": "na hi kaścit kṣaṇam api\njātu tiṣṭhaty akarma-kṛt\nkāryate hy avaśaḥ karma\nsarvaḥ prakṛti-jair guṇaiḥ",
-  "tamil": "எவனும் ஒரு கணப்பொழுதேனும் செய்கையின்றிருப்பதில்லை. இயற்கையில் விளையும் குணங்களே எல்லா உயிர்களையும் அவசரமாகத் தொழில் புரிவிக்கின்றன.",
+  "tamil": "பெளதிக இயற்கையிடமிருந்து பெறப்பட்ட குணங்களுக்குத் தகுந்தாற் போல. ஒவ்வொருவரும் சுதந்திரம் ஏதுமின்றி செயல்படுவதற்கு வற்புறுத்தப்படுகின்றனர். எனவே, ஒரு கணம் கூட செயல்கள் எகையும் செய்யாமல் இருப்பது எவருக்கும் சாத்தியமல்ல.",
   "english": "Everyone is forced to act helplessly according to the qualities he has acquired from the modes of material nature; therefore no one can refrain from doing something, not even for a moment.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.6",
@@ -66,10 +71,11 @@
   "reference": "3.6",
   "sanskrit": "कर्मेन्द्रियाणि संयम्य य आस्ते मनसा स्मरन् ।\nइन्द्रियार्थान्विमूढात्मा मिथ्याचारः स उच्यते ॥ ६ ॥",
   "transliteration": "karmendriyāṇi saṁyamya\nya āste manasā smaran\nindriyārthān vimūḍhātmā\nmithyācāraḥ sa ucyate",
-  "tamil": "கர்மேந்திரியங்களை அடக்கிக்கொண்டு, ஆனால் இந்திரிய விஷயங்களை மனத்தால் ஸ்மரித்துக் கொண்டிருப்போனாகிய மூடாத்மா பொய்யொழுக்கமுடையவனென்று சொல்லப்படுகிறான்.",
+  "tamil": "புலன்களின் செயல்களைக் கட்டுப்படுத்தி, அதே சமயம் புலனின்பப் பொருள்களில் மனதை அலைபாய விடுபவன், தன்னையே முட்டாளாக்கிக் கொள்கிறான். அவன் போலி மனிதன் என்று அழைக்கப்படுகின்றான்.",
   "english": "One who restrains the senses of action but whose mind dwells on sense objects certainly deludes himself and is called a pretender.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.7",
@@ -78,10 +84,11 @@
   "reference": "3.7",
   "sanskrit": "यस्त्विन्द्रियाणि मनसा नियम्यारभतेऽर्जुन ।\nकर्मेन्द्रियैः कर्मयोगमसक्तः स विशिष्यते ॥ ७ ॥",
   "transliteration": "yas tv indriyāṇi manasā\nniyamyārabhate ’rjuna\nkarmendriyaiḥ karma-yogam\nasaktaḥ sa viśiṣyate",
-  "tamil": "அர்ஜுனா! எவன் இந்திரியங்களை மனத்தால் கட்டுப்படுத்திக் கொண்டு, கர்மேந்திரியங்களால் கர்ம யோகம் பண்ணுகிறானோ, அவன் சிறந்தவன்.",
+  "tamil": "அதே சமயத்தில், செயலாற்றும் புலன்களை மனதால் கட்டுபடுத்தி, பற்றின்றி கர்ம யோகத்தில் (கிருஷ்ண உணர்வில்) செயல்படும் நேர்மையான மனிதன், மிக உயர்ந்தவனாவான்.",
   "english": "On the other hand, if a sincere person tries to control the active senses by the mind and begins karma-yoga [in Kṛṣṇa consciousness] without attachment, he is by far superior.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.8",
@@ -90,10 +97,11 @@
   "reference": "3.8",
   "sanskrit": "नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः ।\nशरीरयात्रापि च ते न प्रसिद्ध्येदकर्मणः ॥ ८ ॥",
   "transliteration": "niyataṁ kuru karma tvaṁ\nkarma jyāyo hy akarmaṇaḥ\nśarīra-yātrāpi ca te\nna prasidhyed akarmaṇaḥ",
-  "tamil": "விதிக்கப்பட்ட தொழிலை நீ செய். தொழில் தொழிலின்மையைக் காட்டிலும் சிறந்ததன்றோ? தொழிலின்றி இருப்பதால் உடம்பைக் கொண்டு செலுத்துதல்கூட உனக்கில்லாமல் போய்விடும்.",
+  "tamil": "உனக்கு விதிக்கப்பட்ட கடமைகளைச் செய்வாயாக. செயலாற்றாமல் இருப்பதை விட இது சிறந்ததாகும். செயலின்றி இருப்பவனால் தனது உடலை கூடப் பாதுகாக்க முடியாது.",
   "english": "Perform your prescribed duty, for doing so is better than not working. One cannot even maintain one’s physical body without work.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-022",
@@ -102,12 +110,13 @@
   "reference": "3.9",
   "audioSrc": "/audio/3.9.mp3",
   "sanskrit": "यज्ञार्थात्कर्मणोऽन्यत्र लोकोऽयं कर्मबन्धनः।\n\nतदर्थं कर्म कौन्तेय मुक्तसंगः समाचर।।3.9।।",
-  "tamil": "வேள்வியின் பொருட்டென்று செய்யப்படுவது தவிர மற்றைத் தொழில் மனிதருக்குத் தளையாகிறது. ஆதலால், குந்தி மகனே, பற்றை களைந்து தொழில் செய்து கொண்டிரு.",
+  "tamil": "விஷ்ணுவிற்கு அர்ப்பணிக்கப்படும் செயல்கள் நிறைவேற்றப்படலாம். மற்ற செயல்கள் இந்த பெளதிக உலகத்தோடு பந்தப்படுத்துபவை. எனவே, குந்தியின் மகனே, உனக்கு விதிக்கப்பட்ட கடமைகளை அவரது திருப்திக்காகச் செய். இவ்விதமாக நீ எப்போதும் பந்தத்திலிருந்து விடுபட்டு வாழ்வாய்.",
   "transliteration": "yajñārthāt karmaṇo ’nyatra\nloko ’yaṁ karma-bandhanaḥ\ntad-arthaṁ karma kaunteya\nmukta-saṅgaḥ samācara",
   "english": "Work done as a sacrifice for Viṣṇu has to be performed, otherwise work binds one to this material world. Therefore, O son of Kuntī, perform your prescribed duties for His satisfaction, and in that way you will always remain unattached and free from bondage.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.10",
@@ -119,7 +128,8 @@
   "tamil": "முன்பு பிரம்மதேவன் வேள்வியுடனே உயிர்க்குலத்தை ஒருமிக்கப் படைத்துச் சொல்லினான்: \"இதனால் பல்குவீர்கள், நீங்கள் விரும்பும் விருப்பங்களையெல்லாம் உங்களுக்கிது கறந்து தரும்.",
   "english": "In the beginning of creation, the Lord of all creatures sent forth generations of men and demigods, along with sacrifices for Viṣṇu, and blessed them by saying, “Be thou happy by this yajña [sacrifice] because its performance will bestow upon you everything desirable for living happily and achieving liberation.”",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-3.11",
@@ -128,10 +138,11 @@
   "reference": "3.11",
   "sanskrit": "देवान्भावयतातेन ते देवा भावयन्तु वः ।\nपरस्परं भावयन्तः श्रेयः परमवाप्स्यथ ॥ ११ ॥",
   "transliteration": "devān bhāvayatānena\nte devā bhāvayantu vaḥ\nparasparaṁ bhāvayantaḥ\nśreyaḥ param avāpsyatha",
-  "tamil": "இதனால் தேவர்களைக் கருதக் கடவீர்; அந்த தேவர் உங்களைக் கருதக் கடவர்; (இங்ஙனம்) பரஸ்பரமான பாவனை செய்வதனால் உயர்ந்த நலத்தை எய்துவீர்கள்.",
+  "tamil": "யாகங்களால் மகிழ்ச்சியடையும் தேவர்கள் உங்களையும் மகிழ்விப்பர். மனிதர்களுக்கும் தேவர்களுக்கும் இடையேயான இத்தகு ஒத்துழைப்பினால், அனைவரும் உயர்ந்த நலமுடம் வாழலாம்.",
   "english": "The demigods, being pleased by sacrifices, will also please you, and thus, by cooperation between men and demigods, prosperity will reign for all.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.12",
@@ -140,10 +151,11 @@
   "reference": "3.12",
   "sanskrit": "इष्टान्भोगान्हि वो देवा दास्यन्ते यज्ञभाविताः ।\nतैर्दत्तानप्रदायैभ्यो यो भुङ्क्ते स्तेन एव सः ॥ १२ ॥",
   "transliteration": "iṣṭān bhogān hi vo devā\ndāsyante yajña-bhāvitāḥ\ntair dattān apradāyaibhyo\nyo bhuṅkte stena eva saḥ",
-  "tamil": "வேள்வியில் பாவனை செய்யப்பட்ட தேவர் உங்களுக்கு விரும்பிய போகங்களையெல்லாம் தருவர். அவர்களுக்குக் கைம்மாறு செலுத்தாமல் அவர்கள் கொடுப்பதை உண்போன் கள்வனேயாவான்.",
+  "tamil": "பல்வேறு வாழ்க்கைத் தேவைகளின் அதிகாரியான தேவர்கள், யாகங்களால் திருப்தியடைந்து உங்களுக்கு வேண்டியவற்றையெல்லாம் அளிக்கின்றனர். இத்தகு அன்பளிப்புகளை பதிலுக்கு அவர்களுக்கு படைக்காமல் அனுபவிப்பவன் நிச்சயமாக திருடனேயாவான்.",
   "english": "In charge of the various necessities of life, the demigods, being satisfied by the performance of yajña [sacrifice], will supply all necessities to you. But he who enjoys such gifts without offering them to the demigods in return is certainly a thief.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.13",
@@ -152,10 +164,11 @@
   "reference": "3.13",
   "sanskrit": "यज्ञशिष्टाशिनः सन्तो मुच्यन्ते सर्वकिल्बिषै ।\nभुञ्जते ते त्वघं पापा ये पचन्त्यात्मकारणात् ॥ १३ ॥",
   "transliteration": "yajña-śiṣṭāśinaḥ santo\nmucyante sarva-kilbiṣaiḥ\nbhuñjate te tv aghaṁ pāpā\nye pacanty ātma-kāraṇāt",
-  "tamil": "வேள்வியின் மிச்சத்தை யுண்ணும் நல்லோர் எல்லாப் பாபங்களினின்றும் விடுபடுகிறார்கள். தம்பொருட்டென்று மாத்திரமே உணவு சமைக்கும் பாவிகள் பாவத்தை உண்ணுகிறார்கள்.",
+  "tamil": "யாகத்தில் அர்ப்பணிக்கப்பட்ட உணவை உண்பதால், பகவானின் பக்தர்கள் எல்லாவிதமான பாவங்களிலிருந்தும் விடுபடுகிறார்கள். தங்களது சுய புலனின்பத்திற்காக உணவு தயாரிப்பவர்கள் பாவத்தை உண்கிறார்கள்.",
   "english": "The devotees of the Lord are released from all kinds of sins because they eat food which is offered first for sacrifice. Others, who prepare food for personal sense enjoyment, verily eat only sin.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-023",
@@ -164,12 +177,13 @@
   "reference": "3.14",
   "audioSrc": "/audio/3.14.mp3",
   "sanskrit": "अन्नाद्भवन्ति भूतानि पर्जन्यादन्नसम्भवः।\n\nयज्ञाद्भवति पर्जन्यो यज्ञः कर्मसमुद्भवः।।3.14।।",
-  "tamil": "அன்னத்தால் உயிர்கள் சமைகின்றன. மழையால் உணவு தோன்றுகிறது. மழை வேள்வியால் ஆகிறது. வேள்வி செய்கையினின்று பிறப்பது.",
+  "tamil": "மழையால் தோற்றுவிக்கப்படும் தானியங்களால் எல்லா ஜீவன்களின் உடல்களும் வாழ்கின்றன. யாகத்தால் மழையும், விதிக்கப்பட்ட கடமைகளால் யாகமும் உண்டாக்கப் படுகின்றன.",
   "transliteration": "annād bhavanti bhūtāni\nparjanyād anna-sambhavaḥ\nyajñād bhavati parjanyo\nyajñaḥ karma-samudbhavaḥ",
   "english": "All living bodies subsist on food grains, which are produced from rain. Rains are produced by performance of yajña [sacrifice], and yajña is born of prescribed duties.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.15",
@@ -178,10 +192,11 @@
   "reference": "3.15",
   "sanskrit": "कर्म ब्रह्मोद्भ‍वं विद्धि ब्रह्माक्षरसमुद्भ‍वम् ।\nतस्मात्सर्वगतं ब्रह्म नित्यं यज्ञे प्रतिष्ठितम् ॥ १५ ॥",
   "transliteration": "karma brahmodbhavaṁ viddhi\nbrahmākṣara-samudbhavam\ntasmāt sarva-gataṁ brahma\nnityaṁ yajñe pratiṣṭhitam",
-  "tamil": "செய்கை பிரம்மத்தினின்றும் பிறப்பதென்றுணர். பிரம்மம் அமிர்தத்தில் தோன்றுகிறது. ஆதலால் எங்கும் நிறைந்த பிரம்மம் எப்போதும் வேள்வியில் நிலைபெற்றது.",
+  "tamil": "விதிக்கப்பட்ட கடமைகள் வேதங்களை அடிப்படையாகக் கொண்டவை. வேதங்கள் நேரடியாக முழுமுதற் கடவுளிடமிருந்து தோன்றியவை. எனவே, எங்கும் பரவியுள்ள முழுமுதற் கடவுள், எல்லா யாகங்களிலும் நித்தியமாக விற்றுள்ளார்.",
   "english": "Regulated activities are prescribed in the Vedas, and the Vedas are directly manifested from the Supreme Personality of Godhead. Consequently the all-pervading Transcendence is eternally situated in acts of sacrifice.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.16",
@@ -190,10 +205,11 @@
   "reference": "3.16",
   "sanskrit": "एवं प्रवर्तितं चक्रं नानुवर्तयतीह यः ।\nअघायुरिन्द्रियारामो मोघं पार्थ स जीवति ॥ १६ ॥",
   "transliteration": "evaṁ pravartitaṁ cakraṁ\nnānuvartayatīha yaḥ\naghāyur indriyārāmo\nmoghaṁ pārtha sa jīvati",
-  "tamil": "இங்ஙனம் சுழலும் வட்டத்தை இவ்வுலகில் பின்பற்றி ஒழுகாதோன் பாப வாழ்க்கையுடையான், புலன்களிலே களித்தான்; பார்த்தா, அவன் வாழ்க்கை விழலேயாம்.",
+  "tamil": "எனதன்பு அர்ஜுனா, வேதங்களில் விதிக்கப்பட்டுள்ள இத்தகைய யாக சக்கரத்தை இம்மனித வாழ்வில் கடைப் பிடிக்காதவன், முற்றிலும் பாவகரமான வாழ்க்கை வாழ்கிறான். புலன்களின் திருப்திக்காக மட்டும் வாழ்பவனின் வாழ்வு பலனற்றதாகும்.",
   "english": "My dear Arjuna, one who does not follow in human life the cycle of sacrifice thus established by the Vedas certainly leads a life full of sin. Living only for the satisfaction of the senses, such a person lives in vain.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.17",
@@ -202,10 +218,11 @@
   "reference": "3.17",
   "sanskrit": "यस्त्वात्मरतिरेव स्यादात्मतृप्त‍श्च मानवः ।\nआत्मन्येव च सन्तुष्टस्तस्य कार्यं न विद्यते ॥ १७ ॥",
   "transliteration": "yas tv ātma-ratir eva syād\nātma-tṛptaś ca mānavaḥ\nātmany eva ca santuṣṭas\ntasya kāryaṁ na vidyate",
-  "tamil": "தன்னிலே தான் இன்புறுவான், தன்னிலே தான் திருப்தியடைவான், தன்னிலே தான் மகிழ்ந்திருப்பான், அவனுக்குத் தொழிலில்லை.",
+  "tamil": "ஆனால், மனிதப் பிறவியை தன்னுணர்விற்காக உபயோகித்து, தன்னில் மகிழ்ந்து தன்னிலே திருப்தி கொண்டு, தன்னில் பூரணமாக இருப்பவனுக்குக் கடமைகள் ஏதுமில்லை.",
   "english": "But for one who takes pleasure in the Self, whose human life is one of self-realization, and who is satisfied in the Self only, fully satiated – for him there is no duty.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.18",
@@ -214,10 +231,11 @@
   "reference": "3.18",
   "sanskrit": "नैव तस्य कृतेनार्थो नाकृतेनेह कश्चन ।\nन चास्य सर्वभूतेषु कश्चिदर्थव्यपाश्रयः ॥ १८ ॥",
   "transliteration": "naiva tasya kṛtenārtho\nnākṛteneha kaścana\nna cāsya sarva-bhūteṣu\nkaścid artha-vyapāśrayaḥ",
-  "tamil": "அவனுக்குச் செய்கையில் யாதொரு பயனுமில்லை; செயலின்றி இருப்பதிலும் அவனுக்குப் பயனில்லை; எவ்விதப் பயனையுங் கருதி அவன் எந்த உயிரையுஞ் சார்ந்து நிற்பதில்லை.",
+  "tamil": "தன்னை உணர்ந்தவனுக்கு. விதிக்கப்பட்ட கடமைகளைச் செய்வதால் அடைய வேண்டிய நோக்கம் ஏதுமில்லை. இத்தகைய கடமைகளைச் செய்யாதிருக்கும் அவசியமும் இல்லை. மற்ற ஜீவன்களை எதற்கும் நம்பியிருக்க வேண்டியதும் இல்லை.",
   "english": "A self-realized man has no purpose to fulfill in the discharge of his prescribed duties, nor has he any reason not to perform such work. Nor has he any need to depend on any other living being.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.19",
@@ -226,10 +244,11 @@
   "reference": "3.19",
   "sanskrit": "तस्मादसक्तः सततं कार्यं कर्म समाचर ।\nअसक्तो ह्याचरन्कर्म परमाप्‍नोति पूरूषः ॥ १९ ॥",
   "transliteration": "tasmād asaktaḥ satataṁ\nkāryaṁ karma samācara\nasakto hy ācaran karma\nparam āpnoti pūruṣaḥ",
-  "tamil": "ஆதலால் எப்போதும் பற்று நீங்கிச் செய்யத்தக்க தொழிலைச் செய்து கொண்டிரு. பற்றில்லாமல் தொழில் செய்து கொண்டிருக்கும் மனிதன் பரம்பொருளை எய்துகிறான்.",
+  "tamil": "எனவே, செயலின் பலன்களில் பற்றுதல் கொள்ளாமல், கடமைக்காகச் செயல்படுவாயாக. பற்றின்றிச் செயலாற்றுவதால் ஒருவன் பரத்தை அடைகிறான்.",
   "english": "Therefore, without being attached to the fruits of activities, one should act as a matter of duty, for by working without attachment one attains the Supreme.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.20",
@@ -238,10 +257,11 @@
   "reference": "3.20",
   "sanskrit": "कर्मणैव हि संसिद्धिमास्थिता जनकादयः ।\nलोकसङ्ग्रहमेवापि सम्पश्यन्कर्तुमर्हसि ॥ २० ॥",
   "transliteration": "karmaṇaiva hi saṁsiddhim\nāsthitā janakādayaḥ\nloka-saṅgraham evāpi\nsampaśyan kartum arhasi",
-  "tamil": "ஜனகன் முதலியோர் செய்கையாலேயே சித்தி பெற்றார்கள். உலக நன்மையைக் கருதியும் நீ தொழில் புரிதல் தகும்.",
+  "tamil": "ஜனகரைப் போன்ற மன்னர்களும் நியமிக்கப்பட்ட கடமைகளைச் செய்ததன் மூலமாகவே பக்குவமடைந்தனர். எனவே, பொது மக்களுக்கு அறிவூட்டூவதற்காகவாவது நீ உன்னுடையகடமையைச் செய்தாக வேண்டும்.",
   "english": "Kings such as Janaka attained perfection solely by performance of prescribed duties. Therefore, just for the sake of educating the people in general, you should perform your work.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-024",
@@ -250,12 +270,13 @@
   "reference": "3.21",
   "audioSrc": "/audio/3.21.mp3",
   "sanskrit": "यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः।\n\nस यत्प्रमाणं कुरुते लोकस्तदनुवर्तते।।3.21।।",
-  "tamil": "எதனையெதனை உயர்ந்தோன் செய்கிறானோ, அதையே மற்ற மனிதர் பின்பற்றுகிறார்கள். அவன் எதைப் பிரமாணமாக்குகிறானோ, அதையே உலகத்தார் தொடருகிறார்கள்.",
+  "tamil": "பெரிய மனிதன் எத்தகைய செயல்களைச் செய்கின்றானோ, அதையே பொதுமக்களும் பின்பற்றுகின்றனர். தன் செயல்களால் எந்தத் தரத்தை அவன் உவமை அமைத்துக் காட்டுகின்றானோ அதையே உலகம் முழுவதும் பின்பற்றுகின்றது.",
   "transliteration": "yad yad ācarati śreṣṭhas\ntat tad evetaro janaḥ\nsa yat pramāṇaṁ kurute\nlokas tad anuvartate",
   "english": "Whatever action is performed by a great man, common men follow in his footsteps. And whatever standards he sets by exemplary acts, all the world pursues.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.22",
@@ -264,10 +285,11 @@
   "reference": "3.22",
   "sanskrit": "न मे पार्थास्ति कर्तव्यं त्रिषु लोकेषु किञ्चन ।\nनानवाप्त‍मवाप्त‍व्यं वर्त एव च कर्मणि ॥ २२ ॥",
   "transliteration": "na me pārthāsti kartavyaṁ\ntriṣu lokeṣu kiñcana\nnānavāptam avāptavyaṁ\nvarta eva ca karmaṇi",
-  "tamil": "பார்த்தா! மூன்றுலகத்திலும் எனக்கு யாதொரு கடமையுமில்லை. நான் பெற்றிராத பேறுமில்லை. எனினும் நான் தொழிலிலேதான் இயங்குகிறேன்.",
+  "tamil": "பிருதாவின் மகனே. மூவுலகங்களிலும் நான் செய்ய வேண்டிய கடமை ஏதுமில்லை. எனக்குத் தேவையோ, நான் அடைய வேண்டியதோ ஏதுமில்லை. இருந்தும் நான் விதிக்கப்பட்ட கடமைகளில் ஈடுபட்டுள்ளேன்.",
   "english": "O son of Pṛthā, there is no work prescribed for Me within all the three planetary systems. Nor am I in want of anything, nor have I a need to obtain anything – and yet I am engaged in prescribed duties.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.23",
@@ -276,10 +298,11 @@
   "reference": "3.23",
   "sanskrit": "यदि ह्यहं न वर्तेयं जातु कर्मण्यतन्द्रितः ।\nमम वर्त्मानुवर्तन्ते मनुष्याः पार्थ सर्वशः ॥ २३ ॥",
   "transliteration": "yadi hy ahaṁ na varteyaṁ\njātu karmaṇy atandritaḥ\nmama vartmānuvartante\nmanuṣyāḥ pārtha sarvaśaḥ",
-  "tamil": "நான் சோம்பரில்லாமல் எப்போதும் தொழில் செய்து கொண்டிராவிடின், பார்த்தா, எல்லாப் பக்கங்களிலும் மனிதர் என் வழியையே பின்பற்றுவார்கள்.",
+  "tamil": "ஏனெனில். விதிக்கப்பட்ட கடமைகளை கவனத்துடன் செயலாற்ற நான் எப்பொழுதாவது தவறினால். மனிதரெல்லாம் நிச்சயமாக என் பாதையையே பின்பற்றுவர்.",
   "english": "For if I ever failed to engage in carefully performing prescribed duties, O Pārtha, certainly all men would follow My path.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.24",
@@ -288,10 +311,11 @@
   "reference": "3.24",
   "sanskrit": "उत्सीदेयुरिमे लोका न कुर्यां कर्म चेदहम् ।\nसङ्करस्य च कर्ता स्यामुपहन्यामिमाः प्रजाः ॥ २४ ॥",
   "transliteration": "utsīdeyur ime lokā\nna kuryāṁ karma ced aham\nsaṅkarasya ca kartā syām\nupahanyām imāḥ prajāḥ",
-  "tamil": "நான் தொழில் செய்யாவிட்டால், இந்த ஜனங்களெல்லோரும் அழிந்து போவார்கள்; குழப்பத்தை நான் ஆக்கியோன் ஆவேன்; இந்த மக்களையெல்லாங் கொல்வோனாவேன்.",
+  "tamil": "நான் விதிக்கப்பட்ட கடமைகளைச் செய்யாவிடில். இந்த உலககளெல்லாம் சீரழிந்துவிடும். தேவையற்ற ஜனங்கள் தோன்றுவதற்கு காரணமாகிவிடுவேன். அதன் மூலம் எல்லா உயிர்வாழிகளின் அமைதியையும் அழித்தவனாகி விடுவேன்.",
   "english": "If I did not perform prescribed duties, all these worlds would be put to ruination. I would be the cause of creating unwanted population, and I would thereby destroy the peace of all living beings.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.25",
@@ -300,10 +324,11 @@
   "reference": "3.25",
   "sanskrit": "सक्ताः कर्मण्यविद्वांसो यथा कुर्वन्ति भारत ।\nकुर्याद्विद्वांस्तथासक्तश्चिकीर्षुर्लोकसङ्‍‍ग्रहम् ॥ २५ ॥",
   "transliteration": "saktāḥ karmaṇy avidvāṁso\nyathā kurvanti bhārata\nkuryād vidvāṁs tathāsaktaś\ncikīrṣur loka-saṅgraham",
-  "tamil": "பாரதா! அறிவில்லாதார் செய்கையில் பற்றுடையோராய் எப்படித் தொழில் செய்கிறார்களோ அப்படியே அறிவுடையோன் பற்றை நீக்கி உலக நன்மையை நாடித் தொழில் செய்ய வேண்டும்.",
+  "tamil": "பலனில் பற்றுதல் கொண்டுள்ள அறிவற்றவன் தனது கடமையைச் செய்வதைப் போலவே, அறிஞரும் கடமையைச் செயலாற்றலாம்: ஆனால் பற்றுதல் ஏதுமின்றி, பொதுமக்களை சரியான பாகையில் வழிநடத்துவதற்காகவே அது செய்யப்படுகிறது.",
   "english": "As the ignorant perform their duties with attachment to results, the learned may similarly act, but without attachment, for the sake of leading people on the right path.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.26",
@@ -312,10 +337,11 @@
   "reference": "3.26",
   "sanskrit": "न बुद्धिभेदं जनयेदज्ञानां कर्मसङ्गिनाम् ।\nजोषयेत्सर्वकर्माणि विद्वान्युक्तः समाचरन् ॥ २६ ॥",
   "transliteration": "na buddhi-bhedaṁ janayed\najñānāṁ karma-saṅginām\njoṣayet sarva-karmāṇi\nvidvān yuktaḥ samācaran",
-  "tamil": "அறிவுடையோன் தொழிலில் பற்றுதல் கொண்ட அஞ்ஞானிகளுக்கு புத்தி பேதம் விளைவிக்கக் கூடாது. அவன் யோகத்தில் நின்று தொழில் செய்து எல்லாத் தொழில்களையும் கவர்ச்சியுடையனவாக்க வேண்டும்.",
+  "tamil": "விதிக்கப்பட்ட கடமைகளில் பலன்களில் பற்றுக் கொண்டுள்ள அறிவற்றவர்களின் மனதை, அறிஞர்கள் குழப்பக் கூடாது: செயலிலிருந்து விலகுவதற்கு ஊக்குவிக்கக் கூடாது. மாறாக, பக்தி உணர்வுடன் செயல்படுவதன் மூலம், எல்லாவித செயல்களிலும் (கிருஷ்ண உணர்வின் படிப்படியான முன்னேற்றத்திற்காக) அவர்களை ஈடுபடுத்த வேண்டும்.",
   "english": "So as not to disrupt the minds of ignorant men attached to the fruitive results of prescribed duties, a learned person should not induce them to stop work. Rather, by working in the spirit of devotion, he should engage them in all sorts of activities [for the gradual development of Kṛṣṇa consciousness].",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-025",
@@ -324,12 +350,13 @@
   "reference": "3.27",
   "audioSrc": "/audio/3.27.mp3",
   "sanskrit": "प्रकृतेः क्रियमाणानि गुणैः कर्माणि सर्वशः।\n\nअहङ्कारविमूढात्मा कर्ताऽहमिति मन्यते।।3.27।।",
-  "tamil": "எங்கும் தொழில்கள் இயற்கையின் குணங்களால் செய்யப்படுகின்றன. அகங்காரத்தால் மயங்கியவன், \"நான் செய்கிறேன்\" என்று நினைக்கிறான்.",
+  "tamil": "அஹங்காரத்தினால் பாதிக்கப்பட்டு மயங்கிய ஆத்மா, பெளதிக இயற்கையின் முக்குணங்களால் நடைபெறும் செயல்களுக்குத் தன்னையே கர்த்தா என்று எண்ணிக் கொள்கிறான்.",
   "transliteration": "prakṛteḥ kriyamāṇāni\nguṇaiḥ karmāṇi sarvaśaḥ\nahaṅkāra-vimūḍhātmā\nkartāham iti manyate",
   "english": "The bewildered spirit soul, under the influence of the three modes of material nature, thinks himself to be the doer of activities, which are in actuality carried out by nature.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.28",
@@ -338,10 +365,11 @@
   "reference": "3.28",
   "sanskrit": "तत्त्ववित्तु महाबाहो गुणकर्मविभागयोः ।\nगुणा गुणेषु वर्तन्त इति मत्वा न सज्ज‍ते ॥ २८ ॥",
   "transliteration": "tattva-vit tu mahā-bāho\nguṇa-karma-vibhāgayoḥ\nguṇā guṇeṣu vartanta\niti matvā na sajjate",
-  "tamil": "குணம், செய்கை இவற்றினுடைய பிரிவுகளின் உண்மையறிந்தோன், 'குணங்கள் குணங்களில் இயலுகின்றன' என்று கருதிப் பற்றற்றிருப்பான்.",
+  "tamil": "பலம் பொருந்திய புயங்களை உடையோனே, பக்தியில் செயல்படுதல் மற்றும் பலனை நோக்கிச் செயல்படுதல் இவற்றின் வேறுபாட்டை நன்கு அறிந்திருப்பதால், பூண உண்மையின் ஞானமுடையவன், புலன்களிலும் புலனுகர்ச்சியிலும் தன்னை ஈடுபடுத்திக் கொள்வதில்லை.",
   "english": "One who is in knowledge of the Absolute Truth, O mighty-armed, does not engage himself in the senses and sense gratification, knowing well the differences between work in devotion and work for fruitive results.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.29",
@@ -350,10 +378,11 @@
   "reference": "3.29",
   "sanskrit": "प्रकृतेर्गुणसम्मूढाः सज्ज‍न्ते गुणकर्मसु ।\nतानकृत्स्नविदो मन्दान्कृत्स्नविन्न विचालयेत् ॥ २९ ॥",
   "transliteration": "prakṛter guṇa-sammūḍhāḥ\nsajjante guṇa-karmasu\ntān akṛtsna-vido mandān\nkṛtsna-vin na vicālayet",
-  "tamil": "இயற்கையில் குணங்களால் மயங்கியவர்கள் குணங்களிலும் தொழில்களிலும் பற்றுதலடைகிறார்கள். சிற்றறிவுடைய அந்த மனிதர்களை முழுதுணர்ந்த ஞானி உழல்விக்கக்கூடாது.",
+  "tamil": "ஓட இயற்கையின் குணங்களால் மதிமயங்கிய அறிவற்றோர். லெளகீகச் செயல்களில் முழுமையாக பற்றுடையோராகின்றனர். குறைவான அறிவுடன் செய்யப்படுவதால் இத்தகைய கடமைகள் கீழ்த்தரமானவை என்ற போதிலும். அறிவுடையோர் அவர்களை நிலைபிறழச் செய்யக் கூடாது.",
   "english": "Bewildered by the modes of material nature, the ignorant fully engage themselves in material activities and become attached. But the wise should not unsettle them, although these duties are inferior due to the performers’ lack of knowledge.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.30",
@@ -362,10 +391,11 @@
   "reference": "3.30",
   "sanskrit": "मयि सर्वाणि कर्माणि सन्न्यस्याध्यात्मचेतसा ।\nनिराशीर्निर्ममो भूत्वा युध्यस्व विगतज्वरः ॥ ३० ॥",
   "transliteration": "mayi sarvāṇi karmāṇi\nsannyasyādhyātma-cetasā\nnirāśīr nirmamo bhūtvā\nyudhyasva vigata-jvaraḥ",
-  "tamil": "எல்லாச் செய்கைகளையும் உள்ளறிவினால் எனக்கு அர்ப்பணமாகத் துறந்துவிட்டு, ஆசை நீங்கி, எனது என்பது அற்று, மனக் காய்ச்சல் தீர்ந்தவனாய்ப் போர் செய்யக் கடவாய்.",
+  "tamil": "எனவே, அர்ஜுனா. என்னைப் பற்றிய முழு அறிவுடன், உனது எல்லாச் செயல்களையும் எனக்கு அர்ப்பணித்து. பலனில் ஆசைகளின்றி, கு து ஆ உரிமையுணர்வையும் மனத்தளர்ச்சியையும் கைவிட்டுப் போரிடுவாயாக.",
   "english": "Therefore, O Arjuna, surrendering all your works unto Me, with full knowledge of Me, without desires for profit, with no claims to proprietorship, and free from lethargy, fight.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.31",
@@ -374,10 +404,11 @@
   "reference": "3.31",
   "sanskrit": "ये मे मतमिदं नित्यमनुतिष्ठन्ति मानवाः ।\nश्रद्धावन्तोऽनसूयन्तो मुच्यन्ते तेऽपि कर्मभिः ॥ ३१ ॥",
   "transliteration": "ye me matam idaṁ nityam\nanutiṣṭhanti mānavāḥ\nśraddhāvanto ’nasūyanto\nmucyante te ’pi karmabhiḥ",
-  "tamil": "என்னுடைய இந்த நித்தியமான கொள்கையை எந்த மனிதர் சிரத்தையுடையோராய்ப் பொறாமையின்றிப் பின்பற்றுகிறார்களோ, அவர்களும் தொழில்களிலிருந்து விடுபடுகிறார்கள்.",
+  "tamil": "யாரெல்லாம் என்னுடைய இந்த அறிவுரைகளின்படி தங்களது கடமைகளை நிறைவேற்றுகிறார்களோ. யாரெல்லாம் இவற்றை பொறமையின்றி நம்பிக்கையுடன் பின்பற்றுகிறார்களோ. அவர்கள் பலன்நோக்குச் செயல்களின் பந்தத்திலிருந்து விடுதலை அடைகின்றனர்.",
   "english": "Those persons who execute their duties according to My injunctions and who follow this teaching faithfully, without envy, become free from the bondage of fruitive actions.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.32",
@@ -386,10 +417,11 @@
   "reference": "3.32",
   "sanskrit": "ये त्वेतदभ्यसूयन्तो नानुतिष्ठन्ति मे मतम् ।\nसर्वज्ञानविमूढांस्तान्विद्धि नष्टानचेतसः ॥ ३२ ॥",
   "transliteration": "ye tv etad abhyasūyanto\nnānutiṣṭhanti me matam\nsarva-jñāna-vimūḍhāṁs tān\nviddhi naṣṭān acetasaḥ",
-  "tamil": "என்னுடைய இக்கொள்கையை யாவர் பொறாமையால் பின்பற்றாது விடுகிறார்களொ, எவ்வித ஞானமுமில்லாத அம்மூடர்களை நாசமடைந்தோராகவே தெரிந்து கொள்.",
+  "tamil": "ஆனால், யாரெருவன் பொறமையினால் இந்த அறிவுரைகளை அவமதித்து, அவற்றை முறையாகப் பின்பற்றத் தவறுகிறானோ. அவன், எவ்வித ஞானமும் இல்லாதவனாக. முட்டாளாக, பக்குவமடைவதற்கான முயற்சிகள் அனைத்திலும் நஷ்டமடைந்தவனாகக் கருதப்படுகிறான்.",
   "english": "But those who, out of envy, disregard these teachings and do not follow them regularly are to be considered bereft of all knowledge, befooled, and ruined in their endeavors for perfection.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.33",
@@ -398,10 +430,11 @@
   "reference": "3.33",
   "sanskrit": "सदृशं चेष्टते स्वस्याः प्रकृतेर्ज्ञानवानपि ।\nप्रकृतिं यान्ति भूतानि निग्रहः किं करिष्यति ॥ ३३ ॥",
   "transliteration": "sadṛśaṁ ceṣṭate svasyāḥ\nprakṛter jñānavān api\nprakṛtiṁ yānti bhūtāni\nnigrahaḥ kiṁ kariṣyati",
-  "tamil": "ஞானமுடையவன்கூடத் தன் இயற்கைக்குத் தக்கபடியே நடக்கிறான். உயிர்கள் இயற்கைப்படி நடக்கின்றன. அடக்குதல் பயன்படாது.",
+  "tamil": "ஒவ்வொருவரும் முக்குணங்களிலிருந்து பெறப்பட்ட இயற்கையையே பின்பற்றுவதால், அறிவுசான்ற ஞானியும் தனது சுய இயற்கையின்படியே செயல்படுகிறான். அடக்கு முறையினால் எதனைச் சாதிக்க முடியும்?",
   "english": "Even a man of knowledge acts according to his own nature, for everyone follows the nature he has acquired from the three modes. What can repression accomplish?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.34",
@@ -410,10 +443,11 @@
   "reference": "3.34",
   "sanskrit": "इन्द्रियस्येन्द्रियस्यार्थे रागद्वेषौ व्यवस्थितौ ।\nतयोर्न वशमागच्छेत्तौ ह्यस्य परिपन्थिनौ ॥ ३४ ॥",
   "transliteration": "indriyasyendriyasyārthe\nrāga-dveṣau vyavasthitau\ntayor na vaśam āgacchet\ntau hy asya paripanthinau",
-  "tamil": "இந்திரியத்துக்கு இந்திரிய விஷயத்தில் விருப்பு வெறுப்புக்கள் ஏற்பட்டிருக்கின்றன. இவ்விரண்டுக்கும் ஒருவன் வசப்படலாகாது. இவை இவனுக்கு வழித் தடைகளாம்.",
+  "tamil": "புலன்கள் மற்றும் புலனுகர்ச்சிப் பொருள்களின் மீதான விருப்பு வெறுப்புகளை ஒழுங்குபடுத்துவதற்கு விதிமுறைகள் உள்ளன. அத்தகு விருப்பு வெறுப்புகளின் கட்டுப்பாட்டில் ஒருவன் வந்து விடக்கூடாது: ஏனெனில், தன்னுணர்வுப் பாதையில் இவை தடைக் கற்களாகும்.",
   "english": "There are principles to regulate attachment and aversion pertaining to the senses and their objects. One should not come under the control of such attachment and aversion, because they are stumbling blocks on the path of self-realization.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.35",
@@ -422,10 +456,11 @@
   "reference": "3.35",
   "sanskrit": "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् ।\nस्वधर्मे निधनं श्रेयः परधर्मो भयावहः ॥ ३५ ॥",
   "transliteration": "śreyān sva-dharmo viguṇaḥ\npara-dharmāt sv-anuṣṭhitāt\nsva-dharme nidhanaṁ śreyaḥ\npara-dharmo bhayāvahaḥ",
-  "tamil": "நன்றாகச் செய்யப்படும் பர தர்மத்தைக் காட்டிலும் குணமற்றதெனினும், ஸ்வதர்மமே சிறந்தது. ஸ்வதர்மத்தில் இறந்துவிடினும் நன்றேயாம். பர தர்மம் பயத்துக்கிடமானது.",
+  "tamil": "பிறருடைய கடமைகளை நன்றாகச் செய்வதைவிட, குற்றங்கள் இருப்பினும் தனக்கென்று விதிக்கப்பட்ட கடமைகளைச் செய்வது சிறந்தது. பிறருடைய பாதையைப் பின்பற்றுதல் அபாயகரமானது என்பதால். பிறரது கடமைகளில் ஈடுபடுவதைவிட, தனக்கென்று உள்ள கடமையைச் செய்யும் போது அழிவடைவதும் சிறந்ததாகும்.",
   "english": "It is far better to discharge one’s prescribed duties, even though faultily, than another’s duties perfectly. Destruction in the course of performing one’s own duty is better than engaging in another’s duties, for to follow another’s path is dangerous.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.36",
@@ -434,10 +469,11 @@
   "reference": "3.36",
   "sanskrit": "अर्जुन उवाच\nअथ केन प्रयुक्तोऽयं पापं चरति पूरुषः ।\nअनिच्छन्नपि वार्ष्णेय बलादिव नियोजितः ॥ ३६ ॥",
   "transliteration": "arjuna uvāca\natha kena prayukto ’yaṁ\npāpaṁ carati pūruṣaḥ\nanicchann api vārṣṇeya\nbalād iva niyojitaḥ",
-  "tamil": "விருஷ்ணி குலத் தோன்றலே! மனிதனுக்கு இச்சையில்லாதபோதும் அவனை வலியக் கொண்டு புகுத்துவது போல் தூண்டிப் பாவம் செய்விப்பது யாது? பகவான் சொல்லுகிறான்:",
+  "tamil": "அர்ஜுனன் கூறினான்: விருஷ்ணி குலத்தவரே, விருப்பமில்லாவிட்டாலும். பலவந்தமாக ஈடுபடுத்தப்படுவதுபோல, ஒருவன் பாவ காரியங்களைச் செய்ய எதனால் தூண்டப்படுகிறான்?",
   "english": "Arjuna said: O descendant of Vṛṣṇi, by what is one impelled to sinful acts, even unwillingly, as if engaged by force?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-026",
@@ -446,12 +482,13 @@
   "reference": "3.37",
   "audioSrc": "/audio/3.37.mp3",
   "sanskrit": "श्री भगवानुवाच\n\nकाम एष क्रोध एष रजोगुणसमुद्भवः।\n\nमहाशनो महापाप्मा विद्ध्येनमिह वैरिणम्।।3.37।।",
-  "tamil": "ஸ்ரீபகவான் சொன்னான்: ரஜோ குணத்தில் பிறக்கும் ஆசையும் சினமுமே இதற்குக் காரணம். அனைத்தையும் விழுங்கும் இப்பெரும் பாவத்தை இவ்வுலகில் உன் பகைவனாக அறிந்துகொள்.",
+  "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: அர்ஜுனா. காமமே இதற்குக் காரணம். ரஜோ குணத்தில் உற்பத்தியாகி, பின்னர் கோபமாக உருவெடுக்கும் இஃது இவ்வுலகின் எல்லாவற்றையும் அழிக்கும் பாவகரமான விரோதகியாகும்.",
   "transliteration": "śrī-bhagavān uvāca\nkāma eṣa krodha eṣa\nrajo-guṇa-samudbhavaḥ\nmahāśano mahā-pāpmā\nviddhy enam iha vairiṇam",
   "english": "The Supreme Personality of Godhead said: It is lust only, Arjuna, which is born of contact with the material mode of passion and later transformed into wrath, and which is the all-devouring sinful enemy of this world.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.38",
@@ -460,10 +497,11 @@
   "reference": "3.38",
   "sanskrit": "धूमेनाव्रियते वह्निर्यथादर्शो मलेन च ।\nयथोल्बेनावृतो गर्भस्तथा तेनेदमावृत्तम् ॥ ३८ ॥",
   "transliteration": "dhūmenāvriyate vahnir\nyathādarśo malena ca\nyatholbenāvṛto garbhas\ntathā tenedam āvṛtam",
-  "tamil": "புகையினால் தீ சூழப்பட்டிருப்பது போலவும், கண்ணாடி அழுக்கால் மாசு படுவது போலவும், கர்ப்பத்தைக் கருப்பை சூழ்ந்திருப்பது போலவும் இது இவ்வுலகைச் சூழ்ந்திருக்கிறது.",
+  "tamil": "எவ்வாறு நெருப்பு புகையாலும் கண்ணாடி தூசியாலும் ௧௬ கருப்பையாலும் மறைக்கப்பட்டுள்ளதோ, அவ்வாறோ, காமத்தின் பல்வேறு நிலைகளினால் உயிர்வாழிகளும் மறைக்கப்பட்டூுள்ளனர்.",
   "english": "As fire is covered by smoke, as a mirror is covered by dust, or as the embryo is covered by the womb, the living entity is similarly covered by different degrees of this lust.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.39",
@@ -472,10 +510,11 @@
   "reference": "3.39",
   "sanskrit": "आवृतं ज्ञानमेतेन ज्ञानिनो नित्यवैरिणा ।\nकामरूपेण कौन्तेय दुष्पूरेणानलेन च ॥ ३९ ॥",
   "transliteration": "āvṛtaṁ jñānam etena\njñānino nitya-vairiṇā\nkāma-rūpeṇa kaunteya\nduṣpūreṇānalena ca",
-  "tamil": "குந்தியின் மகனே, விருப்பமெனப்படும் இந் நிரப்பொணாத் தீ, ஞானிக்கு நித்தியப் பகையாய் ஞானத்தைச் சூழ்ந்து நிற்கிறது.",
+  "tamil": "இவ்வாறாக அறிவுடைய ஜீவனின் தூய உணர்வு. என்றும் திருப்தியடையாததும் நெருப்பு போன்று எரிவதுமான காமத்தின் உருவிலான அவனது நித்திய எதிரியால் மறைக்கப்படுகின்றது.",
   "english": "Thus the wise living entity’s pure consciousness becomes covered by his eternal enemy in the form of lust, which is never satisfied and which burns like fire.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.40",
@@ -484,10 +523,11 @@
   "reference": "3.40",
   "sanskrit": "इन्द्रियाणि मनो बुद्धिरस्याधिष्ठानमुच्यते ।\nएतैर्विमोहयत्येष ज्ञानमावृत्य देहिनम् ॥ ४० ॥",
   "transliteration": "indriyāṇi mano buddhir\nasyādhiṣṭhānam ucyate\netair vimohayaty eṣa\njñānam āvṛtya dehinam",
-  "tamil": "இந்திரியங்களும், மனமும், புத்தியும் இதற்கு நிலைக்களன் என்பர். இவற்றால் இது ஞானத்தைச் சூழ்ந்து மனிதனை மயங்குவிக்கிறது.",
+  "tamil": "புலன்கள், மனம், புத்தி ஆகியவை காமம் அமரக்கூடிய இடங்களாகும். இவற்றின் மூலம், ஜீவனின் உண்மையறிவை மறைத்து காமம் அவனை மயக்குகின்றது.",
   "english": "The senses, the mind and the intelligence are the sitting places of this lust. Through them lust covers the real knowledge of the living entity and bewilders him.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.41",
@@ -496,10 +536,11 @@
   "reference": "3.41",
   "sanskrit": "तस्मात्त्वमिन्द्रियाण्यादौ नियम्य भरतर्षभ ।\nपाप्मानं प्रजहि ह्येनं ज्ञानविज्ञाननाशनम् ॥ ४१ ॥",
   "transliteration": "tasmāt tvam indriyāṇy ādau\nniyamya bharatarṣabha\npāpmānaṁ prajahi hy enaṁ\njñāna-vijñāna-nāśanam",
-  "tamil": "ஆதலால் பாரத ரேறே, நீ தொடக்கத்தில் இந்திரியங்களைக் கட்டுப்படுத்திக் கொண்டு ஞானத்தையும் விஞ்ஞானத்தையும் அழிப்பதாகிய இந்த பாவத்தைக் கொன்று விடு.",
+  "tamil": "எனவே. பரத குலத்தோரில் தலைசிறந்த அர்ஜுனா, புலன்களை ஒழுங்குபடுத்துவதால் பாவத்தின் பெரும் சின்னமான இந்த காமத்தை ஆரம்பத்திலேயே அடக்கி, ஞானத்தையும் தன்னுணர்வையும் அழிக்கும் இந்த எதிரியை அறவே ஒழித்து விடுவாயாக.",
   "english": "Therefore, O Arjuna, best of the Bhāratas, in the very beginning curb this great symbol of sin [lust] by regulating the senses, and slay this destroyer of knowledge and self-realization.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.42",
@@ -508,10 +549,11 @@
   "reference": "3.42",
   "sanskrit": "इन्द्रियाणि पराण्याहुरिन्द्रियेभ्यः परं मनः ।\nमनसस्तु परा बुद्धिर्यो बुद्धेः परतस्तु सः ॥ ४२ ॥",
   "transliteration": "indriyāṇi parāṇy āhur\nindriyebhyaḥ paraṁ manaḥ\nmanasas tu parā buddhir\nyo buddheḥ paratas tu saḥ",
-  "tamil": "இந்திரியங்களை உயர்வுடையன வென்பர். அவற்றிலும் மனம் மேல்; மனத்தைக் காட்டிலும் புத்தி மேல்; புத்திக்கு மேலே அவன் (ஆத்மா).",
+  "tamil": "செயலாற்றக்கூடிய புலன்கள், ஜடப்பொருளைவிட உயர்ந்தவை, மனம் புலன்களைவிட உயர்ந்தது: புத்தி மனதைவிடவும் உயர்ந்தது: மேலும், அவனோ (ஆத்மாவோ) புத்தியை விடவும் உயர்ந்தவன்.",
   "english": "The working senses are superior to dull matter; mind is higher than the senses; intelligence is still higher than the mind; and he [the soul] is even higher than the intelligence.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-3.43",
@@ -520,9 +562,10 @@
   "reference": "3.43",
   "sanskrit": "एवं बुद्धेः परं बुद्ध्वा संस्तभ्यात्मानमात्मना ।\nजहि शत्रुं महाबाहो कामरूपं दुरासदम् ॥ ४३ ॥",
   "transliteration": "evaṁ buddheḥ paraṁ buddhvā\nsaṁstabhyātmānam ātmanā\njahi śatruṁ mahā-bāho\nkāma-rūpaṁ durāsadam",
-  "tamil": "இங்ஙனம் புத்திக்கு மேலான பொருளை (ஆத்மாவை) உணர்ந்து, தன்னைத்தான் உறுதிப்படுத்திக் கொண்டு, வெல்லற்கரிய விருப்பமாம் பகையைக் கொல்லக் கடவாய், பெருந்தோளுடையாய்!",
+  "tamil": "இவ்வாறாக. ஜடப் புலன்கள், மனம், புத்தி ஆகியவற்றை விட உயர்ந்தவனாக தன்னை உணர்ந்து, பலம் பொருந்திய புயங்களை உடைய அர்ஜுனா, தெளிவான ஆன்மீக புத்தியினால் (கிருஷ்ண உணர்வினால்) மனதை உறுதிப்படுத்தி, காமம் எனப்படும் திருப்திப்படுத்த முடியாத எதிரியை ஆன்மீக பலத்தினால் வெற்றிக் கொள்ள வேண்டும்.",
   "english": "Thus knowing oneself to be transcendental to the material senses, mind and intelligence, O mighty-armed Arjuna, one should steady the mind by deliberate spiritual intelligence [Kṛṣṇa consciousness] and thus – by spiritual strength – conquer this insatiable enemy known as lust.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  }
 ]

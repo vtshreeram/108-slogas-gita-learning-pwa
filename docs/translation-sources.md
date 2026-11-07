@@ -8,7 +8,15 @@ The existing A.C. Bhaktivedanta Swami Prabhupada translation is retained. This c
 
 Reference edition: [Bhagavad-gītā As It Is, VedaBase](https://vedabase.io/en/library/bg/). The app links to each verse. The original selection source remains in `SHLOKA_SOURCE`.
 
-## Tamil
+## Tamil (current): the Tamil book
+
+Tamil meanings now come from the Tamil edition of *Bhagavad-gītā As It Is* in `docs/Tamil_Bhagavad_Gita/` (800 scanned pages, OCR'd), via `python3 scripts/import_tamil_book.py [--apply]`. Only the verse translation (மொழிபெயர்ப்பு) is imported; the book's purports are not. The book is a copyrighted BBT work: keep this use personal unless you hold the rights.
+
+The importer aligns each book section to the app's verse references (checked by verse number, order and speaker lines), rejects text with OCR debris, and **keeps the previous Bharati text for verses where the book text is missing or unusable**. Each verse records `tamilSource` (`book` or `bharati`) and the UI credits accordingly. The current list (36 of 657, 5 of the curated 108) is in [tamil-book-import-report.md](tamil-book-import-report.md). Displaced text boxes are accepted only for verses listed in `DISPLACED_VERIFIED`, which were read against the English by hand.
+
+Known limits: the OCR text is unproofread. Some full stops stand where the original has commas, and some words are misspelled. Treat it as needing the same expert review as the rest (see editorial-review.md). The Bharati sections below describe the fallback text.
+
+## Tamil (fallback: Bharati)
 
 The previous Tamil meanings and purports contained pervasive OCR corruption. The meanings are replaced with an **edited version of Subramania Bharati's Tamil translation**, from [Project Madurai, text 529](https://www.projectmadurai.org/pm_etexts/utf8/pmuni0529.html). Bharati's original translation is a public-domain work. This is a different translator from the English edition; the app credits the two separately.
 

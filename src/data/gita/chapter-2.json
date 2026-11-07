@@ -6,10 +6,11 @@
   "reference": "2.1",
   "sanskrit": "सञ्जय उवाच\nतं तथा कृपयाविष्टमश्रुपूर्णाकुलेक्षणम् ।\nविषीदन्तमिदं वाक्यमुवाच मधुसूदनः ॥ १ ॥",
   "transliteration": "sañjaya uvāca\ntaṁ tathā kṛpayāviṣṭam\naśru-pūrṇākulekṣaṇam\nviṣīdantam idaṁ vākyam\nuvāca madhusūdanaḥ",
-  "tamil": "அவ்வண்ணம் இரக்கமிஞ்சியவனாய் நீர் நிரம்பிய சோக விழிகளுடன் வருந்திய அர்ஜுனனை நோக்கி மதுசூதனன் சொல்லுகிறான்: ஸ்ரீ பகவான் சொல்லுகிறான்.",
+  "tamil": "சஞ்ஜயன் கூறினான்: அர்ஜுனன். இரக்கத்தினால் மூழ்கி, மனம் பவவீனமடைந்து, கண்களில் கண்ணீர் மல்கிய நிலையில் இருப்பதைக் கண்ட மதுததனரான கிருஷ்ணர் பின்வருமாறு கூறினார்.",
   "english": "Sañjaya said: Seeing Arjuna full of compassion, his mind depressed, his eyes full of tears, Madhusūdana, Kṛṣṇa, spoke the following words.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.2",
@@ -18,10 +19,11 @@
   "reference": "2.2",
   "sanskrit": "श्री भगवानुवाच\nकुतस्त्वा कश्मलमिदं विषमे समुपस्थितम् ।\nअनार्यजुष्टमस्वर्ग्यकीर्तिकरमर्जुन ॥ २ ॥",
   "transliteration": "śrī-bhagavān uvāca\nkutas tvā kaśmalam idaṁ\nviṣame samupasthitam\nanārya-juṣṭam asvargyam\nakīrti-karam arjuna",
-  "tamil": "இந்த முட்டுதலில் இவ்வுள்ளச் சோர்வை நீ எங்கிருந்து பெற்றாய்? இஃது ஆரியருக்குத் தகாது. வானுலகைத் தடுப்பது; அபகீர்த்தி தருவது அர்ஜுனா!",
+  "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: எனதருமை அர்ஜுனனே. உன்னிடம் இதுபோன்ற களங்கங்கள் எங்கிருந்து வந்தன? வாழ்வின் மதிப்பை அறிந்த மனிதனுக்கு இவை தகுதியற்றவை. இவை மேலுலகங்களுக்குக் கொண்டு செல்வதில்லை. அவமானத்தை கொடுக்கின்றன.",
   "english": "The Supreme Personality of Godhead said: My dear Arjuna, how have these impurities come upon you? They are not at all befitting a man who knows the value of life. They lead not to higher planets but to infamy.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.3",
@@ -30,10 +32,11 @@
   "reference": "2.3",
   "sanskrit": "क्ल‍ैब्यं मा स्म गमः पार्थ नैतत्त्वय्युपपद्यते ।\nक्षुद्रं हृदयदौर्बल्यं त्यक्त्वोत्तिष्ठ परन्तप ॥ ३ ॥",
   "transliteration": "klaibyaṁ mā sma gamaḥ pārtha\nnaitat tvayy upapadyate\nkṣudraṁ hṛdaya-daurbalyaṁ\ntyaktvottiṣṭha paran-tapa",
-  "tamil": "பார்த்தா! பேடித்தன்மையடையாதே! இது நினக்குப் பொருந்தது. இழிபட்ட மனத் தளர்ச்சியை நீக்கி எழுந்து நில்; பகைவரைச் சுடுவோனே!",
+  "tamil": "பிருதாவின் மகனே, இது போன்ற இழிவான தளர்ச்சிக்கு இடம் கொடுக்காதே. இஃது உனக்கு பொறுத்தமானதல்ல. இதுபோன்ற அற்பமான இதய பலவீனத்தை விட்டுவிட்டு, எதிரிகளைத் தவிக்கச் செய்பவனே. எழுவாயாக.",
   "english": "O son of Pṛthā, do not yield to this degrading impotence. It does not become you. Give up such petty weakness of heart and arise, O chastiser of the enemy.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.4",
@@ -42,10 +45,11 @@
   "reference": "2.4",
   "sanskrit": "अर्जुन उवाच\nकथं भीष्ममहं संख्ये द्रोणं च मधुसूदन ।\nइषुभिः प्रतियोत्स्यामि पूजार्हावरिसूदन ॥ ४ ॥",
   "transliteration": "arjuna uvāca\nkathaṁ bhīṣmam ahaṁ saṅkhye\ndroṇaṁ ca madhusūdana\niṣubhiḥ pratiyotsyāmi\npūjārhāv ari-sūdana",
-  "tamil": "மதுசூதனா! பீஷ்மரையும், துரோணரையும் போரில் அம்புகளால் எப்படி எதிர்ப்பேன். இவர்கள் தொழுதற்குரியவர்; பகைவரையழிப்போய்!",
+  "tamil": "அர்ஜுனன் கூறினான்: எதிரிகளைக் கொல்பவரே, மது எனும் அரக்கனை அழித்தவரே, எனது பூஜைக்கு உரியவர்களான பீஷ்மர், துரோணர் முதலியோரை போரில் எவ்வாறு என்னால் எதிர்த்து தாக்க முடியும்?",
   "english": "Arjuna said: O killer of enemies, O killer of Madhu, how can I counterattack with arrows in battle men like Bhīṣma and Droṇa, who are worthy of my worship?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.5",
@@ -54,10 +58,11 @@
   "reference": "2.5",
   "sanskrit": "गुरूनहत्वा हि महानुभावान्\nश्रेयो भोक्तुं भैक्ष्यमपीह लोके ।\nहत्वार्थकामांस्तु गुरूनिहैव\nभुज्ज‍ीय भोगान्‍रुधिरप्रदिग्धान् ॥ ५ ॥",
   "transliteration": "gurūn ahatvā hi mahānubhāvān\nśreyo bhoktuṁ bhaikṣyam apīha loke\nhatvārtha-kāmāṁs tu gurūn ihaiva\nbhuñjīya bhogān rudhira-pradigdhān",
-  "tamil": "பெரியோராகிய குருக்களைக் கொல்லாமல், உலகத்தில் பிச்சையெடுத்துண்பதும் நன்று. பொருளை விரும்பும் குருக்களைக் கொன்று நாம் துய்க்கும் இன்பங்கள் உதிரத்திற் (ரத்தத்தில்) கலந்தனவாம்.",
+  "tamil": "மகாத்மாக்களான எனது ஆச்சாரியர்களின் வாழ்வை அழித்து நான் வாழ்வதை விட இவ்வுலகில் பிச்சையெடுத்து வாழ்வதே மேல், உலக இலாபங்களை விரும்பும்போதிலும், அவர்கள் பெரியோர்களே. அவர்கள் கொல்லப்பட்டால். நாம் அனுபவிப்பவை அனைத்திலும் இரத்தக் கறை படிந்திருக்கும்.",
   "english": "It would be better to live in this world by begging than to live at the cost of the lives of great souls who are my teachers. Even though desiring worldly gain, they are superiors. If they are killed, everything we enjoy will be tainted with blood.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.6",
@@ -66,10 +71,11 @@
   "reference": "2.6",
   "sanskrit": "न चैतद्विद्मः कतरन्नो गरीयो\nयद्वा जयेम यदि वा नो जयेयुः ।\nयानेव हत्वा न जिजीविषाम-\nस्तेऽवस्थिताः प्रमुखे धार्तराष्ट्राः ॥ ६ ॥",
   "transliteration": "na caitad vidmaḥ kataran no garīyo\nyad vā jayema yadi vā no jayeyuḥ\nyān eva hatvā na jijīviṣāmas\nte ’vasthitāḥ pramukhe dhārtarāṣṭrāḥ",
-  "tamil": "மேலும், நாம் இவர்களை வெல்லுதல், இவர்கள் நம்மை வெல்லுதல் -- இவற்றுள் எது நமக்கு மேன்மையென்பது விளங்கவில்லை. எவரைக் கொன்றபின் நாம் உயிர்கொண்டு வாழ விரும்போமோ, அத்தகைய திருதராஷ்டிரக் கூட்டத்தார் போர் முனையில் வந்து நிற்கிறார்கள்.",
+  "tamil": "அவர்களை நாம் வெல்வதா அல்லது அவர்களால் வெல்லப்படுவதா, எது சிறந்ததென்று நாம் அறியோம். யாரைக் கொன்றால் நாம் வாழ விரும்ப மாட்டோமோ, அந்த தராஷ்டிரரின் மகன்கள், இப்பொழு ரூ ந ருதராவிடிர து நம் முன்பு போர்க்களத்தில் நிற்கின்றனர்.",
   "english": "Nor do we know which is better – conquering them or being conquered by them. If we killed the sons of Dhṛtarāṣṭra, we should not care to live. Yet they are now standing before us on the battlefield.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-002",
@@ -78,12 +84,13 @@
   "reference": "2.7",
   "audioSrc": "/audio/2.7.mp3",
   "sanskrit": "कार्पण्यदोषोपहतस्वभावः\n\nपृच्छामि त्वां धर्मसंमूढचेताः।\n\nयच्छ्रेयः स्यान्निश्िचतं ब्रूहि तन्मे\n\nशिष्यस्तेऽहं शाधि मां त्वां प्रपन्नम्।।2.7।।",
-  "tamil": "சிறுமையாகிய குறையால் என் இயல்பு தளர்ந்து, அறம் இன்னது என்றுணராமல் மயங்கிய அறிவுடன், யான் உன்னைக் கேட்கிறேன். எது நன்றென்பதை எனக்கு நிச்சயப்படுத்திச் சொல்லுக. நான் உன் சீடன். உன்னையே சரணமெனப் புகுந்தேன். எனக்கு உபதேசம் செய்க.",
+  "tamil": "இப்போது நான் என் கடமையைப் பற்றிக் குழப்பமடைந்து, கருமித்தனமான பலவீனத்தால் என் இயல்புகளையெல்லாம் இழந்து விட்டேன். இந்நிலையில் எனக்கு நல்லது எது என்று நிச்சயமாக கூறும்படி உம்மைக் கேட்டுக் கொள்கிறேன். இப்போது உம்மிடம் சரணடைந்த சீடன் நான். அருள் கூர்ந்து எனக்கு அறிவுரை கூறுவிராக.",
   "transliteration": "kārpaṇya-doṣopahata-svabhāvaḥ\npṛcchāmi tvāṁ dharma-sammūḍha-cetāḥ\nyac chreyaḥ syān niścitaṁ brūhi tan me\nśiṣyas te ’haṁ śādhi māṁ tvāṁ prapannam",
   "english": "Now I am confused about my duty and have lost all composure because of weakness. In this condition I am asking You to tell me clearly what is best for me. Now I am Your disciple, and a soul surrendered unto You. Please instruct me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.8",
@@ -92,10 +99,11 @@
   "reference": "2.8",
   "sanskrit": "न हि प्रपश्यामि ममापनुद्याद् -\nयच्छोकमुच्छोषणमिन्द्रियाणाम् ।\nअवाप्य भूभावसपत्‍नमृद्धं\nराज्यं सुराणामपि चाधिपत्यम् ॥ ८ ॥",
   "transliteration": "na hi prapaśyāmi mamāpanudyād\nyac chokam ucchoṣaṇam indriyāṇām\navāpya bhūmāv asapatnam ṛddhaṁ\nrājyaṁ surāṇām api cādhipatyam",
-  "tamil": "பூமியின் மேல் நிகரில்லாத செல்வமுடைய ராஜ்யம் பெறினும், அன்றி வானோர் மிசை ஆட்சி பெறினும் புலன்களை அடக்கும் இயல்புடைய இந்தத் துயர் எம்மைவிட்டு நீங்குமென்று தோன்றவில்லை.",
+  "tamil": "என் புலன்களை வறட்டுகின்ற இந்த சோகத்தைப் போக்க ஒரு வழியையும் என்னால் காண முடிவில்லை. மேலுலகில் அதிபதியாக இருக்கும் தேவர்களைப் போல, எவ்வித எதிரியுமில்லாத வளமான ராஜ்ஜியத்தை இப்பூவுலகில் நான் அடையப்பெற்றாலும், இந்த சோக நிலையினை என்னால் அகற்ற முடியாது.",
   "english": "I can find no means to drive away this grief which is drying up my senses. I will not be able to dispel it even if I win a prosperous, unrivaled kingdom on earth with sovereignty like the demigods in heaven.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.9",
@@ -104,10 +112,11 @@
   "reference": "2.9",
   "sanskrit": "सञ्जय उवाच\nएवमुक्त्वा हृषीकेशं गुडाकेशः परन्तपः ।\nन योत्स्य इति गोविन्दामुक्त्वा तूष्णीं बभूव ह ॥ ९ ॥",
   "transliteration": "sañjaya uvāca\nevam uktvā hṛṣīkeśaṁ\nguḍākeśaḥ paran-tapaḥ\nna yotsya iti govindam\nuktvā tūṣṇīṁ babhūva ha",
-  "tamil": "\"பகைவரைக் கொளுத்தும் பார்த்தனங்கு பசுநிரை காக்கும் பகவனை நோக்கிப் \"போரினிப் புரியேன்\" என்று வாய் புதைத்திருந்தான்.\"",
+  "tamil": "சஞ்ஜயன் கூறினான்: இவ்வாறு கூறிய பின். எதிரிகளைத் தவிக்கச் செய்பவனான அர்ஜுனன். கோவிந்தா, நான் போரிட மாட்டேன்' என்று கூறி அமைதியாகி விட்டான்.",
   "english": "Sañjaya said: Having spoken thus, Arjuna, chastiser of enemies, told Kṛṣṇa, “Govinda, I shall not fight,” and fell silent.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.10",
@@ -116,10 +125,11 @@
   "reference": "2.10",
   "sanskrit": "तमुवाच हृषीकेशः प्रहसन्निव भारत ।\nसेनयोरूभयोर्मध्ये विषीदन्तमिदं वचः ॥ १० ॥",
   "transliteration": "tam uvāca hṛṣīkeśaḥ\nprahasann iva bhārata\nsenayor ubhayor madhye\nviṣīdantam idaṁ vacaḥ",
-  "tamil": "பாரதா, அப்போது கண்ணன் புன்னகை பூத்து இரண்டு படைகளுக்கும் நடுவே துயருற்று நின்ற பார்த்தனை நோக்கி இவ்வசன முரைக்கிறான்:",
+  "tamil": "பரத குலத் தோன்றலே, அச்சமயத்தில், இரு தரப்புச் சேனைகளுக்கு மத்தியில், துயரத்தால் பாதிக்கப்பட்டிருந்த அர்ஜுனனிடம், கிருஷ்ணர் புன்சிரிப்புடன் பின்வருமாறு கூறினார்.",
   "english": "O descendant of Bharata, at that time Kṛṣṇa, smiling, in the midst of both the armies, spoke the following words to the grief-stricken Arjuna.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-003",
@@ -128,12 +138,13 @@
   "reference": "2.11",
   "audioSrc": "/audio/2.11.mp3",
   "sanskrit": "श्री भगवानुवाच\n\nअशोच्यानन्वशोचस्त्वं प्रज्ञावादांश्च भाषसे।\n\nगतासूनगतासूंश्च नानुशोचन्ति पण्डिताः।।2.11।।",
-  "tamil": "ஸ்ரீபகவான் சொன்னான்: துயர்ப்படத் தகாதார் பொருட்டுத் துயர்ப்படுகின்றாய்! ஞான உரைகளும் உரைக்கின்றாய்! இறந்தார்க்கேனும் இருந்தார்க்கேனும் துயர் கொளார் அறிஞர்.",
+  "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: அறிவாளியைப் போல பேசும் அதே சமயத்தில் கவலைப்பட வேண்டாதவற்றிற்காக நீ கவலைப்படுகிறாய். அறிஞர் வாழ்பவர்களுக்காகவோ., மாண்டவர்களுக்காகவோ வருந்துவதில்லை.",
   "transliteration": "śrī-bhagavān uvāca\naśocyān anvaśocas tvaṁ\nprajñā-vādāṁś ca bhāṣase\ngatāsūn agatāsūṁś ca\nnānuśocanti paṇḍitāḥ",
   "english": "The Supreme Personality of Godhead said: While speaking learned words, you are mourning for what is not worthy of grief. Those who are wise lament neither for the living nor for the dead.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-004",
@@ -142,12 +153,13 @@
   "reference": "2.12",
   "audioSrc": "/audio/2.12.mp3",
   "sanskrit": "न त्वेवाहं जातु नासं न त्वं नेमे जनाधिपाः।\n\nन चैव न भविष्यामः सर्वे वयमतः परम्।।2.12।।",
-  "tamil": "இதன் முன் எக்காலத்திலும் நான் இல்லாதிருந்திலேன். நீயும் இங்குள்ள வேந்தர் யாவரும் அப்படியே. இனி நாம் என்றைக்கும் இல்லாமற்போகவும் மாட்டோம்.",
+  "tamil": "நானோ, நீயோ. இம்மன்னர்களோ இல்லாமலிருந்த காலம் எதுவுமில்லை. எதிர்காலத்திலும் நம்மில் எவரும் இல்லாமலிருக்கப் போவதுமில்லை.",
   "transliteration": "na tv evāhaṁ jātu nāsaṁ\nna tvaṁ neme janādhipāḥ\nna caiva na bhaviṣyāmaḥ\nsarve vayam ataḥ param",
   "english": "Never was there a time when I did not exist, nor you, nor all these kings; nor in the future shall any of us cease to be.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-005",
@@ -156,12 +168,13 @@
   "reference": "2.13",
   "audioSrc": "/audio/2.13.mp3",
   "sanskrit": "देहिनोऽस्मिन्यथा देहे कौमारं यौवनं जरा।\n\nतथा देहान्तरप्राप्तिर्धीरस्तत्र न मुह्यति।।2.13।।",
-  "tamil": "ஆத்மாவுக்கு இவ்வுடலில் எங்ஙனம் பிள்ளைப் பிராயமும், இளமையும், மூப்பும் தோன்றுகின்றனவோ, அங்ஙனமே மற்றொரு சரீரப் பிறப்புத் தோன்றுகிறது. தீரன் அதில் கலங்கமாட்டான்.",
+  "tamil": "தேகத்தை உடையவனின் உடல், சிறுவயது, இளமை, முதுமை என்று கடந்துசெல்வதைப் போல. ஆத்மா, மரணத்தின் போது வேறு உடலுக்கு மாற்றம் பெறுகின்றது. நிதான புத்தியுடையவர் இதுபோன்ற மாற்றத்தால் திகைப்பதில்லை.",
   "transliteration": "dehino ’smin yathā dehe\nkaumāraṁ yauvanaṁ jarā\ntathā dehāntara-prāptir\ndhīras tatra na muhyati",
   "english": "As the embodied soul continually passes, in this body, from boyhood to youth to old age, the soul similarly passes into another body at death. The self-realized soul is not bewildered by such a change.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-006",
@@ -170,12 +183,13 @@
   "reference": "2.14",
   "audioSrc": "/audio/2.14.mp3",
   "sanskrit": "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः।\n\nआगमापायिनोऽनित्यास्तांस्तितिक्षस्व भारत।।2.14।।",
-  "tamil": "குந்தியின் மகனே, குளிரையும், வெப்பத்தையும், இன்பத்தையும், துன்பத்தையும் தரும் இயற்கையின் தீண்டுதல்கள் தோன்றி மறையும் இயல்புடையன, என்றுமிருப்பனவல்ல. பாரதா! அவற்றைப் பொறுத்துக்கொள்.",
+  "tamil": "குந்தியின் மகனே. இன்ப துன்பங்களின் நிலையற்ற தோற்றமும் காலப் போக்கில் ஏற்படும் மறைவும், கோடையும் குளிரும் பருவ காலத்தில் தோன்றி மறைவதைப் போன்றதாகும். புலன்களின் உணர்வாலேயே அவை எழுகின்றன; எனவே, பரத குலத் தோன்றலே, இவற்றால் பாதிக்கப்படாமல், பொறுத்துக் கொள்ளக் கற்றுக் கொள்.",
   "transliteration": "mātrā-sparśās tu kaunteya\nśītoṣṇa-sukha-duḥkha-dāḥ\nāgamāpāyino ’nityās\ntāṁs titikṣasva bhārata",
   "english": "O son of Kuntī, the nonpermanent appearance of happiness and distress, and their disappearance in due course, are like the appearance and disappearance of winter and summer seasons. They arise from sense perception, O scion of Bharata, and one must learn to tolerate them without being disturbed.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.15",
@@ -184,10 +198,11 @@
   "reference": "2.15",
   "sanskrit": "यं हि न व्यथयन्त्येते पुरुषं पुरुषर्षभ ।\nसमदुःखसुखं धीरं सोऽमृतत्वाय कल्पते ॥ १५ ॥",
   "transliteration": "yaṁ hi na vyathayanty ete\npuruṣaṁ puruṣarṣabha\nsama-duḥkha-sukhaṁ dhīraṁ\nso ’mṛtatvāya kalpate",
-  "tamil": "யாவன் இவற்றால் துயர்ப்படான். இன்பமுந்துன்பமும் நிகரெனக் கொள்வான், அந்த தீரன் சாகாதிருக்கத் தகுவான்.",
+  "tamil": "மனிதரில் சிறந்தோனே (அர்ஜுனனே), இன்ப துன்பங்களால் பாதிக்கப்படாதவனும் இவ்விரண்டு நிலைகளிலும் தன்னிலை மாறாது இருப்பவனுமே, நிச்சயமாக விடுதலைக்குத் தகுதி பெற்றவனாக இருக்கிறான்.",
   "english": "O best among men [Arjuna], the person who is not disturbed by happiness and distress and is steady in both is certainly eligible for liberation.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.16",
@@ -196,10 +211,11 @@
   "reference": "2.16",
   "sanskrit": "नासतो विद्यते भावो नाभावो विद्यते सतः ।\nउभयोरपि दृष्टोऽन्तस्त्वनयोस्तत्त्वदर्शिभिः ॥ १६ ॥",
   "transliteration": "nāsato vidyate bhāvo\nnābhāvo vidyate sataḥ\nubhayor api dṛṣṭo ’ntas\ntv anayos tattva-darśibhiḥ",
-  "tamil": "இல்லாதது உண்மையாகாது. உள்ளது இல்லாததாகாது. உண்மையறிவார் இவ்விரண்டுக்குமுள்ள வேற்றுமை யுணர்வார்.",
+  "tamil": "உண்மையைக் கண்டவர்கள், நிலையற்றதற்கு (உடலுக்கு) நீடிப்பும், நித்தியமானதற்கு (ஆத்மாவிற்கு) மாற்றமும் இல்லை என்று முடிவு செய்துள்ளனர். இவை இரண்டின் இயற்கையையும் ஆராய்ந்தே அவர்கள் இதைத் தீர்மானித்துள்ளனர்.",
   "english": "Those who are seers of the truth have concluded that of the nonexistent [the material body] there is no endurance and of the eternal [the soul] there is no change. This they have concluded by studying the nature of both.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.17",
@@ -208,10 +224,11 @@
   "reference": "2.17",
   "sanskrit": "अविनाशि तु तद्विद्धि येन सर्वमिदं ततम् ।\nविनाशमव्ययस्यास्य न कश्चित्कर्तुमर्हति ॥ १७ ॥",
   "transliteration": "avināśi tu tad viddhi\nyena sarvam idaṁ tatam\nvināśam avyayasyāsya\nna kaścit kartum arhati",
-  "tamil": "இவ்வுலக முழுவதிலும் பரந்து நிற்கும் பொருள் அறிவற்றதென்றறி; இது கேடற்றது; இதனை யழித்தல் யார்க்கும் இயலாது.",
+  "tamil": "உடல் முழுவதும் பரவியிருப்பதை அழிவற்றதென்று நீ அறிய வேண்டும். அந்த அழிவற்ற ஆத்மாவைக் கொல்லக்கூடியவர் எவருமில்லை.",
   "english": "That which pervades the entire body you should know to be indestructible. No one is able to destroy that imperishable soul.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.18",
@@ -220,10 +237,11 @@
   "reference": "2.18",
   "sanskrit": "अन्तवन्त इमे देहा नित्यस्योक्ताः शरीरिणः ।\nअनाशिनोऽप्रमेयस्य तस्माद्युध्यस्व भारत ॥ १८ ॥",
   "transliteration": "antavanta ime dehā\nnityasyoktāḥ śarīriṇaḥ\nanāśino ’prameyasya\ntasmād yudhyasva bhārata",
-  "tamil": "ஆத்மா நித்தியன்; அழிவற்றான்; அளவிடத்தகாதான் எனினும் அவனுடைய வடிவங்கள் கிறுதியுடையன என்பர். ஆதலால் பாரதா, போர் செய்.",
+  "tamil": "அழிவற்ற, அளக்கமுடியாத, நித்தியமான உயிர்வாழியின் இந்த ஜஓடவுடல் அழியப்போவது உறுதி. எனவே, பரத குலத் தோன்றலே போரிடூவாயாக.",
   "english": "The material body of the indestructible, immeasurable and eternal living entity is sure to come to an end; therefore, fight, O descendant of Bharata.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.19",
@@ -232,10 +250,11 @@
   "reference": "2.19",
   "sanskrit": "य एनं वेत्ति हन्तारं यश्चैनं मन्यते हतम् ।\nउभौ तौ न विजानीतो नायं हन्ति न हन्यते ॥ १९ ॥",
   "transliteration": "ya enaṁ vetti hantāraṁ\nyaś cainaṁ manyate hatam\nubhau tau na vijānīto\nnāyaṁ hanti na hanyate",
-  "tamil": "இவன் கொல்வானென்று நினைப்போனும், கொல்லப்படுவானென்று நினைப்போனும் -- இருவரும் அறியாதார். இவன் கொல்லுவதுமில்லை, கொலையுண்பதுமில்லை.",
+  "tamil": "ஜீவாத்மாவை, கொல்பவனாக நினைப்பவனும் கொல்லப்படுபவனாக நினைப்பவனும். அறிவில்லாதவன் ஆவான்: ஏனெனில். ஆத்மா கொலை செய்வதோ கொல்லப்படுவதோ இல்லை.",
   "english": "Neither he who thinks the living entity the slayer nor he who thinks it slain is in knowledge, for the self slays not nor is slain.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-007",
@@ -244,12 +263,13 @@
   "reference": "2.20",
   "audioSrc": "/audio/2.20.mp3",
   "sanskrit": "न जायते म्रियते वा कदाचि\n\nन्नायं भूत्वा भविता वा न भूयः।\n\nअजो नित्यः शाश्वतोऽयं पुराणो\n\nन हन्यते हन्यमाने शरीरे।।2.20।।",
-  "tamil": "இவன் பிறப்பதுமில்லை; எக்காலத்திலும் இறப்பதுமில்லை. இவன் ஒரு முறையிலிருந்து பின்னர் இல்லாது போவதுமில்லை. இவன் பிறப்பற்றான். அனவரதன். இவன் சாசுவதன்; பழமையோன்; உடம்பு கொல்லப்படுகையில் இவன் கொல்லப்படான்.",
+  "tamil": "ஆத்மாவிற்கு எக்காலத்திலும் பிறப்போ இறப்போ கிடையாது. அவன் தோன்றியவனும் அல்ல, தோன்றுபவனும் அல்ல, தோன்றக்கூடியவனும் அல்ல. அவன் பிறப்பற்றவன், நித்தியமானவன், என்றும் நிலைத்திருப்பவன், மிகப் பமையானவன், உடல் கொல்லப்படும்போது அவன் கொல்லப்படுவதில்லை.",
   "transliteration": "na jāyate mriyate vā kadācin\nnāyaṁ bhūtvā bhavitā vā na bhūyaḥ\najo nityaḥ śāśvato ’yaṁ purāṇo\nna hanyate hanyamāne śarīre",
   "english": "For the soul there is never birth nor death. Nor, having once been, does he ever cease to be. He is unborn, eternal, ever-existing, undying and primeval. He is not slain when the body is slain.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.21",
@@ -258,10 +278,11 @@
   "reference": "2.21",
   "sanskrit": "वेदाविनाशिनं नित्यं य एनमजमव्ययम् ।\nकथं स पुरुषः पार्थ कं घातयति हन्ति कम् ॥ २१ ॥",
   "transliteration": "vedāvināśinaṁ nityaṁ\nya enam ajam avyayam\nkathaṁ sa puruṣaḥ pārtha\nkaṁ ghātayati hanti kam",
-  "tamil": "இப்பொருள் அழிவற்றது, பிறப்பற்றது, என்றுமுளது -- இங்ஙனமுணர்வான் கொல்வதெவனை? அவன் கொல்விப்பது எவனை?",
+  "tamil": "பார்த்தனே, ஆத்மா அழிவற்றவன், நித்தயமானவன், பிறப்பற்றவன், மாற்றமில்லாதவன் என்பதை எவனொருவன் அறிந்துள்ளானோ. அவன் கொல்வகோ, கொலை செய்ய காரணமாவதோ எப்படி?",
   "english": "O Pārtha, how can a person who knows that the soul is indestructible, eternal, unborn and immutable kill anyone or cause anyone to kill?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-008",
@@ -270,12 +291,13 @@
   "reference": "2.22",
   "audioSrc": "/audio/2.22.mp3",
   "sanskrit": "वासांसि जीर्णानि यथा विहाय\n\nनवानि गृह्णाति नरोऽपराणि।\n\nतथा शरीराणि विहाय जीर्णा\n\nन्यन्यानि संयाति नवानि देही।।2.22।।",
-  "tamil": "நைந்த துணிகளைக் கழற்றியெறிந்துவிட்டு மனிதன் புதிய துணிகள் கொள்ளுமாறு போல, ஆத்மா நைந்த உடல்களைக் களைந்து புதியனவற்றை எய்துகிறது.",
+  "tamil": "பழைய ஆடைகளைப் புறக்கணித்து. புதிய ஆடைகளை ஒருவன் அணிவதைப் போன்றே, பழைய உபயோகமற்ற உடல்களை நீக்கி, புதிய உடல்களை ஆத்மா ஏற்கிறது.",
   "transliteration": "vāsāṁsi jīrṇāni yathā vihāya\nnavāni gṛhṇāti naro ’parāṇi\ntathā śarīrāṇi vihāya jīrṇāny\nanyāni saṁyāti navāni dehī",
   "english": "As a person puts on new garments, giving up old ones, similarly, the soul accepts new material bodies, giving up the old and useless ones.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-009",
@@ -284,12 +306,13 @@
   "reference": "2.23",
   "audioSrc": "/audio/2.23.mp3",
   "sanskrit": "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः।\n\nन चैनं क्लेदयन्त्यापो न शोषयति मारुतः।।2.23।।",
-  "tamil": "இவனை ஆயுதங்கள் வெட்டமாட்டா; தீ எரிக்காது; நீர் இவனை நனைக்காது; காற்று உலர்த்தாது.",
+  "tamil": "ஆத்மா எந்த ஆயுதத்தாலும் துண்டிக்கப்பட முடியாததும். நெருப்பால் எரிக்கப்பட முடியாததும். நீரால் நனைக்கப்பட முடியாததும், வீசும் காற்றால் உலர்த்தப்பட முடியாததுமாகும்.",
   "transliteration": "nainaṁ chindanti śastrāṇi\nnainaṁ dahati pāvakaḥ\nna cainaṁ kledayanty āpo\nna śoṣayati mārutaḥ",
   "english": "The soul can never be cut into pieces by any weapon, nor can he be burned by fire, nor moistened by water, nor withered by the wind.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.24",
@@ -298,10 +321,11 @@
   "reference": "2.24",
   "sanskrit": "अच्छेद्योऽयमदाह्योऽयमक्ल‍ेद्योऽशोष्य एव च ।\nनित्यः सर्वगतः स्थाणुरचलोऽयं सनातनः ॥ २४ ॥",
   "transliteration": "acchedyo ’yam adāhyo ’yam\nakledyo ’śoṣya eva ca\nnityaḥ sarva-gataḥ sthāṇur\nacalo ’yaṁ sanātanaḥ",
-  "tamil": "பிளத்தற்கரியவன்; எரித்தற்கும், நனைத்தற்கும், உலர்த்துதற்கும் அரியவன்; நித்தியன். எங்கும் நிறைந்தவன்; உறுதிய்டையான்; அசையாதான்; என்றுமிருப்பான்.",
+  "tamil": "ஜீவாத்மா வெட்ட முடியாதவன். கரைக்க முடியாதவன், எரிக்கவோ, உலர்த்தவோ முடியாதவன். அவன் நித்தியமானவன். எங்கும் நிறைந்தவன். மாற்ற இயலாதவன், அசைக்க முடியாதவன், நித்தியமாக மாற்றமின்றி இருப்பவன்.",
   "english": "This individual soul is unbreakable and insoluble, and can be neither burned nor dried. He is everlasting, present everywhere, unchangeable, immovable and eternally the same.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.25",
@@ -310,10 +334,11 @@
   "reference": "2.25",
   "sanskrit": "अव्यक्तोऽयमचिन्त्योऽयमविकार्योऽयमुच्यते ।\nतस्मादेवं विदित्वैनं नानुशोचितुमर्हसि ॥ २५ ॥",
   "transliteration": "avyakto ’yam acintyo ’yam\navikāryo ’yam ucyate\ntasmād evaṁ viditvainaṁ\nnānuśocitum arhasi",
-  "tamil": "\"தெளிதற் கரியான் சிந்தனைக் கரியான் மாறுத லில்லாதா னென்ப! ஆதலால் இவனை இங்ஙனம் அறிந்துநீ துயர்ப் படாதிருக்கக் கடவாய்.\"",
+  "tamil": "ஆத்மா பார்வைக்கு புலப்படாதவன், சிந்தனைக்கு அப்பாற்பட்டவன்: மேலும், மாற்ற முடியாதவன் என்று கூறப்படுகிறது. இதனை நன்கறிந்து. நீ உடலுக்காக வருத்தப்படக் கூடாது.",
   "english": "It is said that the soul is invisible, inconceivable and immutable. Knowing this, you should not grieve for the body.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.26",
@@ -322,10 +347,11 @@
   "reference": "2.26",
   "sanskrit": "अथ चैनं नित्यजातं नित्यं वा मन्यसे मृतम् ।\nतथापि त्वं महाबाहो नैनं शोचितुमर्हसि ॥ २६ ॥",
   "transliteration": "atha cainaṁ nitya-jātaṁ\nnityaṁ vā manyase mṛtam\ntathāpi tvaṁ mahā-bāho\nnainaṁ śocitum arhasi",
-  "tamil": "அன்றி, நீ இவனை நித்தமும் பிறந்து நித்தமும் மடிவானென்று கருதினால், அப்போதும் பெருந்தோளுடையாய், நீ இவன் பொருட்டுத் துயருறல் தகாது.",
+  "tamil": "இருப்பினும், ஆத்மா (அல்லது வாழ்வின் அறிகுறிகள்) எப்போதும் பிறந்து இறந்து கொண்டிருப்பதாக நீ எண்ணினாலும், பலம் பொருந்திய புயங்களை உடையோனே., நீ கவலைப்படுவதற்குக் காரணம் ஏதுமில்லை.",
   "english": "If, however, you think that the soul [or the symptoms of life] will always be born and die forever, you still have no reason to lament, O mighty-armed.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-010",
@@ -334,12 +360,13 @@
   "reference": "2.27",
   "audioSrc": "/audio/2.27.mp3",
   "sanskrit": "जातस्य हि ध्रुवो मृत्युर्ध्रुवं जन्म मृतस्य च।\n\nतस्मादपरिहार्येऽर्थे न त्वं शोचितुमर्हसि।।2.27।।",
-  "tamil": "பிறந்தவன் சாவது உறுதி; செத்தவன் பிறப்பதும் உறுதி. ஆதலால் தவிர்க்க முடியாத இதன் பொருட்டு நீ வருந்துதல் தகுதியன்று.",
+  "tamil": "பிறந்தவன் எவனுக்கும் மரணம் நிச்சயம், மாணமடைந்தவன் மீண்டும் பிறப்பதும் நிச்சயமே. எனவே, தவிர்க்க முடியாத உன் கடமைகளைச் செயலாற்றுவதில். நீ கவலைப்படக் கூடாது.",
   "transliteration": "jātasya hi dhruvo mṛtyur\ndhruvaṁ janma mṛtasya ca\ntasmād aparihārye ’rthe\nna tvaṁ śocitum arhasi",
   "english": "For one who has taken his birth, death is certain; and for one who is dead, birth is certain. Therefore, in the unavoidable discharge of your duty, you should not lament.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.28",
@@ -348,10 +375,11 @@
   "reference": "2.28",
   "sanskrit": "अव्यक्तादीनि भूतानि व्यक्तमध्यानि भारत ।\nअव्यक्तनिधनान्येव तत्र का परिदेवना ॥ २८ ॥",
   "transliteration": "avyaktādīni bhūtāni\nvyakta-madhyāni bhārata\navyakta-nidhanāny eva\ntatra kā paridevanā",
-  "tamil": "பாரதா! உயிர்களின் ஆரம்பம் தெளிவில்லை; நடுநிலைமை தெளிவுடையது; இவற்றின் இறுதியுந் தெளிவில்லை. இதில் துஅர்ப்படுவதென்ன?",
+  "tamil": "படைக்கப்பட்ட எல்லா உயிரினங்களும் ஆரம்பத்தில் தோன்றாமல் இருந்தன, இடையில் தோன்றுகின்றன, இறுதியில் அழிக்கப்படும்போது மீண்டும் மறைகின்றன. எனவே, ஏன் கவலைப்பட வேண்டும்?",
   "english": "All created beings are unmanifest in their beginning, manifest in their interim state, and unmanifest again when annihilated. So what need is there for lamentation?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.29",
@@ -360,10 +388,11 @@
   "reference": "2.29",
   "sanskrit": "आश्चर्यवत्पश्यति कश्चिदेन -\nमाश्चर्यवद्वदति तथैव चान्यः ।\nआश्चर्यवच्च‍ैनमन्यः श‍ृणोति\nश्रुत्वाप्येनं वेद न चैव कश्चित् ॥ २९ ॥",
   "transliteration": "āścarya-vat paśyati kaścid enam\nāścarya-vad vadati tathaiva cānyaḥ\nāścarya-vac cainam anyaḥ śṛṇoti\nśrutvāpy enaṁ veda na caiva kaścit",
-  "tamil": "இந்த ஆன்மாவை, \"வியப்பென ஒருவன் காண்கிறான், வியப்பென ஒருவன் சொல்லுகிறான், வியப்பென ஒருவன் கேட்கிறான், கேட்கினும் இதனை அறிவான் எவனுமிலன்.\"",
+  "tamil": "சிலர் ஆத்மாவை ஆச்சரியமாகப் பார்க்கின்றனர். சிலர் அவனை ஆச்சரியமானவனாக வர்ணிக்கின்றனர், மேலும் சிலர் அவனை ஆச்சரியமானவனாகக் கேட்கின்றனர். வேறு சிலரோ, அவனைப் பற்றிக் கேட்ட பின்னும். அவனைப் புரிந்துகொள்ள இயலாதவராக உள்ளனர்.",
   "english": "Some look on the soul as amazing, some describe him as amazing, and some hear of him as amazing, while others, even after hearing about him, cannot understand him at all.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-011",
@@ -372,12 +401,13 @@
   "reference": "2.30",
   "audioSrc": "/audio/2.30.mp3",
   "sanskrit": "देही नित्यमवध्योऽयं देहे सर्वस्य भारत।\n\nतस्मात्सर्वाणि भूतानि न त्वं शोचितुमर्हसि।।2.30।।",
-  "tamil": "பாரதா! எல்லாருடைய உடம்பிலுமுள்ள இந்த ஆத்மாவைக் கொல்ல முடியாது. ஆதலால் நீ எந்த உயிரின் பொருட்டும் வருந்துதல் வேண்டா!",
+  "tamil": "பரத குலத் தோன்றலே, உடலில் உறைபவன் ஒருபோதும் அழிக்கப்பட முடியாதவன், எனவே, எந்த உயிர்வாழிக்காகவும் நீ வருந்த வேண்டிய கேவையில்லை.",
   "transliteration": "dehī nityam avadhyo ’yaṁ\ndehe sarvasya bhārata\ntasmāt sarvāṇi bhūtāni\nna tvaṁ śocitum arhasi",
   "english": "O descendant of Bharata, he who dwells in the body is eternal and can never be slain. Therefore you need not grieve for any creature.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.31",
@@ -386,10 +416,11 @@
   "reference": "2.31",
   "sanskrit": "स्वधर्ममपि चावेक्ष्य न विकम्पितुमर्हसि ।\nधर्म्याद्धि युद्धाच्छ्रेयोऽन्यत्क्षत्रियस्य न विद्यते ॥ ३१ ॥",
   "transliteration": "sva-dharmam api cāvekṣya\nna vikampitum arhasi\ndharmyād dhi yuddhāc chreyo ’nyat\nkṣatriyasya na vidyate",
-  "tamil": "ஸ்வதர்மத்தைக் கருதியும் நீ நடுங்குதல் இசையாது. அறப்போரைக் காட்டிலும் உயர்ந்ததொரு நன்மை மன்னர்க்கில்லை.",
+  "tamil": "சத்திரியன் என்ற முறையில் உனக்கென்று உரிய கடமையைப் பற்றிக் கருதும்போது, தர்மத்தின் கொள்கைகளுக்காகப் போர் புரிவதைக் காட்டிலும் வேறு சிறந்த கடமை உனக்கில்லை. எனவே, தயங்கத் கேவையில்லை.",
   "english": "Considering your specific duty as a kṣatriya, you should know that there is no better engagement for you than fighting on religious principles; and so there is no need for hesitation.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.32",
@@ -398,10 +429,11 @@
   "reference": "2.32",
   "sanskrit": "यदृच्छया चोपपन्नं स्वर्गद्वारमपावृतम् ।\nसुखिनः क्षत्रियाः पार्थ लभन्ते युद्धमीदृशम् ॥ ३२ ॥",
   "transliteration": "yadṛcchayā copapannaṁ\nsvarga-dvāram apāvṛtam\nsukhinaḥ kṣatriyāḥ pārtha\nlabhante yuddham īdṛśam",
-  "tamil": "தானே வந்தெய்வது, திறந்து கிடக்கும் பொன்னுலகவாயில் போன்றது. இத்தகைய போர் கிடைக்கப் பெறும் மன்னர் இன்பமுடையார்!",
+  "tamil": "பார்த்தனே, வலியவரும் போர் வாய்ப்புகள் ஸ்வர்க லோகத்தின் கதவுகளைத் திறந்து விடூவதால், அவற்றைப் பெறும் அரச குலத்தோர் மகிழ்கின்றனர்.",
   "english": "O Pārtha, happy are the kṣatriyas to whom such fighting opportunities come unsought, opening for them the doors of the heavenly planets.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.33",
@@ -410,10 +442,11 @@
   "reference": "2.33",
   "sanskrit": "अथ चेत्त्वमिमं धर्म्यं सङ्ग्रामं न करिष्यसि ।\nततः स्वधर्मं कीर्तिं च हित्वा पापमवाप्स्यसि ॥ ३३ ॥",
   "transliteration": "atha cet tvam imaṁ dharmyaṁ\nsaṅgrāmaṁ na kariṣyasi\ntataḥ sva-dharmaṁ kīrtiṁ ca\nhitvā pāpam avāpsyasi",
-  "tamil": "அன்றி நீ இந்தத் தர்ம யுத்தத்தை நடத்தாமல் விடுவாயானால், அதனால் ஸ்வதர்மத்தையும், கீர்த்தியையும் கொன்று பாவத்தை யடைவாய்.",
+  "tamil": "எனவே, போரிடுதல் என்னும் இந்த தர்மத்தின் கடமையில் நீ ஈடுபடாவிட்டால், உன்னுடைய கடமையிலிருந்து தவறியதற்கான பாவ விளைவுகளை நிச்சயமாகப் பெறுவதோடு, சிறந்த போர் விரனெனும் புகழையும் இழப்பாய்.",
   "english": "If, however, you do not perform your religious duty of fighting, then you will certainly incur sins for neglecting your duties and thus lose your reputation as a fighter.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.34",
@@ -422,10 +455,11 @@
   "reference": "2.34",
   "sanskrit": "अकीर्तिं चापि भूतानि कथयिष्यन्ति तेऽव्ययाम् ।\nसम्भावितस्य चाकीर्तिर्मरणादतिरिच्यते ॥ ३४ ॥",
   "transliteration": "akīrtiṁ cāpi bhūtāni\nkathayiṣyanti te ’vyayām\nsambhāvitasya cākīrtir\nmaraṇād atiricyate",
-  "tamil": "உலகத்தார் உனக்கு மாறாத வசையுமுரைப்பார்கள். புகழ் கொண்டோன் பின்னரெய்தும் அபகீர்த்தி மரணத்திலுங் கொடிதன்றோ?",
+  "tamil": "மக்கள் உன்னை எப்போதும் இகழ்ந்து பேசிக் கொண்டிருப்பர். மதிக்கத்தக்க ஒருவனுக்கு அவமானம் மரணத்தை விட மோசமானது.",
   "english": "People will always speak of your infamy, and for a respectable person, dishonor is worse than death.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.35",
@@ -434,10 +468,11 @@
   "reference": "2.35",
   "sanskrit": "भयाद्रणादुपरतं मंस्यन्ते त्वां महारथाः ।\nयेषां च त्वं बहुमतो भूत्वा यास्यसि लाघवम् ॥ ३५ ॥",
   "transliteration": "bhayād raṇād uparataṁ\nmaṁsyante tvāṁ mahā-rathāḥ\nyeṣāṁ ca tvaṁ bahu-mato\nbhūtvā yāsyasi lāghavam",
-  "tamil": "நீ அச்சத்தால் போரை விட்டு விலகியதாக மகாரதர் கருதுவார்கள். அவர்களுடைய நன்மதிப்பைப் பெற்ற நீ இதனால் சிறுமையடைவாய்.",
+  "tamil": "உன்னுடைய பெயரிலும் புகழிலும் பெருமதிப்பு கொண்டிருக்கும் மிகச்சிறந்த போர்த்தலைவர்கள், நீ பயத்தால் போர்க்களத்தை விட்டு விலகிவிட்டதாக எண்ணி, உன்னை முக்கியத்துவமற்றவனாகக் கருதுவர்.",
   "english": "The great generals who have highly esteemed your name and fame will think that you have left the battlefield out of fear only, and thus they will consider you insignificant.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.36",
@@ -446,10 +481,11 @@
   "reference": "2.36",
   "sanskrit": "अवाच्यवादांश्च बहून्वदिष्यन्ति तवाहिताः ।\nनिन्दन्तस्तव सामर्थ्य ततो दुःखतरं नु किम् ॥ ३६ ॥",
   "transliteration": "avācya-vādāṁś ca bahūn\nvadiṣyanti tavāhitāḥ\nnindantas tava sāmarthyaṁ\ntato duḥkha-taraṁ nu kim",
-  "tamil": "உனக்கு வேண்டாதார் சொல்லதகாத வார்த்தைகள் பல சொல்லுவார்கள். உன் திறமையைப் பழிப்பார்கள். இதைக் காட்டிலும் அதிகமான துன்பமெது?",
+  "tamil": "அன்பில்லாத வார்த்தைகள் பலவற்றைக் கூறி உனது எதிரிகள் உனது திறமையை நிந்திப்பர். அதைவிட மிகுந்த துன்பம் தரக்கூடியது வேறு என்ன இருக்க முடியும்?",
   "english": "Your enemies will describe you in many unkind words and scorn your ability. What could be more painful for you?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.37",
@@ -458,10 +494,11 @@
   "reference": "2.37",
   "sanskrit": "हतो वा प्राप्स्यसि स्वर्ग जित्वा वा भोक्ष्यसे महीम् ।\nतस्मादुत्तिष्ठ कौन्तेय युद्धाय कृतनिश्चयः ॥ ३७ ॥",
   "transliteration": "hato vā prāpsyasi svargaṁ\njitvā vā bhokṣyase mahīm\ntasmād uttiṣṭha kaunteya\nyuddhāya kṛta-niścayaḥ",
-  "tamil": "கொல்லப்படினோ வானுலகெய்துவாய். வென்றால் பூமியாள்வாய். ஆதலால் போர் செயத் துணிந்து நீ எழுந்து நில்.",
+  "tamil": "குந்தியின் மகனே, போர்க்களத்தில் நீ கொல்லப்பட்டால் ஸ்வர்கத்தை அடையலாம். வெற்றி பெற்றால் இவ்வுலகினை அனுபவிக்கலாம். எனவே, உறுதியுடன் எழுந்து போர் புரிவாயாக.",
   "english": "O son of Kuntī, either you will be killed on the battlefield and attain the heavenly planets, or you will conquer and enjoy the earthly kingdom. Therefore, get up with determination and fight.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.38",
@@ -470,10 +507,11 @@
   "reference": "2.38",
   "sanskrit": "सुखदुःखे समे कृत्वा लाभालाभौ जयाजयौ ।\nततो युद्धाय युज्यस्व नैवं पापमवाप्स्यसि ॥ ३८ ॥",
   "transliteration": "sukha-duḥkhe same kṛtvā\nlābhālābhau jayājayau\ntato yuddhāya yujyasva\nnaivaṁ pāpam avāpsyasi",
-  "tamil": "இன்பம், துன்பம், இழவு, பேறு, வெற்றி, தோல்வி இவற்றை நிகரெனக்கொண்டு, நீ போர்க்கொருப்படுக. இவ்வண்ணம் புரிந்தால் பாவமெய்தாய்.",
+  "tamil": "இன்ப துன்பம். இலாப நஷ்டம். வெற்றி தோல்வி, இவற்றைக் கருதாது போருக்காகப் போர் புரிவாயாக- அவ்வாறு செயலாற்றினால். என்றும் நீ பாவ விளைவுகளை அடைய மாட்டாய்.",
   "english": "Do thou fight for the sake of fighting, without considering happiness or distress, loss or gain, victory or defeat – and by so doing you shall never incur sin.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.39",
@@ -485,7 +523,8 @@
   "tamil": "இங்ஙனம் உனக்கு ஸாங்கிய வழிப்படி புத்தி சொன்னேன். இனி யோக வழியால் சொல்லுகிறேன்; கேள். இந்தப் புத்தி கொண்டவன் கர்மத் தளைகளைச் சிதறி விடுவான்.",
   "english": "Thus far I have described this knowledge to you through analytical study. Now listen as I explain it in terms of working without fruitive results. O son of Pṛthā, when you act in such knowledge you can free yourself from the bondage of works.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "bharati"
  },
  {
   "id": "GS-012",
@@ -494,12 +533,13 @@
   "reference": "2.40",
   "audioSrc": "/audio/2.40.mp3",
   "sanskrit": "नेहाभिक्रमनाशोऽस्ति प्रत्यवायो न विद्यते।\n\nस्वल्पमप्यस्य धर्मस्य त्रायते महतो भयात्।।2.40।।",
-  "tamil": "இந்த நெறியில் செய்த முயற்சி வீணாவதில்லை; எதிர்மறை விளைவும் ஏற்படுவதில்லை. இந்தத் தர்மத்தைச் சிறிது கடைப்பிடித்தாலும் அது பேரச்சத்திலிருந்து காப்பாற்றும்.",
+  "tamil": "இம்முயற்சியில் குறைவோ இழப்போ இல்லை. இவ்வழியில் சிறிது முன்னேற்றமும். மிகப் பயங்கரமான பயத்திலிருந்து ஒருவனைக் காக்கும்.",
   "transliteration": "nehābhikrama-nāśo ’sti\npratyavāyo na vidyate\nsv-alpam apy asya dharmasya\ntrāyate mahato bhayāt",
   "english": "In this endeavor there is no loss or diminution, and a little advancement on this path can protect one from the most dangerous type of fear.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-013",
@@ -508,12 +548,13 @@
   "reference": "2.41",
   "audioSrc": "/audio/2.41.mp3",
   "sanskrit": "व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन।\n\nबहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम्।।2.41।।",
-  "tamil": "குருகுல தோன்றலே! உறுதியுடைய புத்தி இவ்வுலகத்தில் ஒருமையுடையது. உறுதியில்லாதோரின் மதி பல கிளைப்பட்டது, முடிவற்றது.",
+  "tamil": "இவ்வழியிலுள்ளோர் தங்களது குறிக்கோளில் திடமான உறுதியுடன் இருப்பர், இவர்களது இலட்சியம் ஒன்றே. குரு வம்சத்தின் செல்வனே, உறுதியற்றவரது அறிவோ பல கிளைகளைக் கொண்டது.",
   "transliteration": "vyavasāyātmikā buddhir\nekeha kuru-nandana\nbahu-śākhā hy anantāś ca\nbuddhayo ’vyavasāyinām",
   "english": "Those who are on this path are resolute in purpose, and their aim is one. O beloved child of the Kurus, the intelligence of those who are irresolute is many-branched.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.42-43",
@@ -522,10 +563,11 @@
   "reference": "2.42-43",
   "sanskrit": "यामिमां पुष्पितां वाचं प्रवदन्त्यविपश्चितः ।\nवेदवादरताः पार्थ नान्यदस्तीति वादिनः ॥ ४२ ॥\nकामात्मानः स्वर्गपरा जन्मकर्मफलप्रदाम् ।\nक्रियाविशेषबहुलां भोगैश्वर्यगतिं प्रति ॥ ४३ ॥",
   "transliteration": "yām imāṁ puṣpitāṁ vācaṁ\npravadanty avipaścitaḥ\nveda-vāda-ratāḥ pārtha\nnānyad astīti vādinaḥkāmātmānaḥ svarga-parā\njanma-karma-phala-pradām\nkriyā-viśeṣa-bahulāṁ\nbhogaiśvarya-gatiṁ prati",
-  "tamil": "வேதங்களின் வெளியுரையில் மகிழ்வார் சிலர், பூக்களைப் போன்ற (அலங்காரச்) சொற்கள் பேசுகிறார்கள். தமது கொள்கையொழிய மற்றது பிழையென்கிறார்கள்.\nஇவர்கள் காமிகள், சுவர்க்கத்தைப் பாரமாகக் கொண்டோர். பிறப்புக்கும் தொழிலுக்கும் பயன் வேண்டுவோர்; போகத்தையும் ஆட்சியையும் வேண்டுவோர்; பலவகையான கிரியைகளைக் காட்டிப் பேசுகிறார்கள்.",
+  "tamil": "சிற்றறிவுடைய மனிதர்கள் வேதங்களின் மலர்ச் சொற்களால் கவரப்படுகிறார்கள். இவ்வாக்கியங்கள், ஸ்வர்க லோகங்களுக்கு ஏற்றம் பெறுதல், நற்பிறவி அடைதல். பதவி பெறுதல் போன்ற பலன்களை வழங்கும் பற்பல செயல்களைப் பரிந்துரைக்கின்றன. புலனுகர்ச்சியையும் செல்வமிகு வாழ்வையும் விரும்புவர். இதைவிட உயர்ந்தது ஏதுமில்லை என்று கூறுகின்றனர்.",
   "english": "Men of small knowledge are very much attached to the flowery words of the Vedas, which recommend various fruitive activities for elevation to heavenly planets, resultant good birth, power, and so forth. Being desirous of sense gratification and opulent life, they say that there is nothing more than this.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-014",
@@ -534,12 +576,13 @@
   "reference": "2.44",
   "audioSrc": "/audio/2.44.mp3",
   "sanskrit": "भोगैश्वर्यप्रसक्तानां तयापहृतचेतसाम्।\n\nव्यवसायात्मिका बुद्धिः समाधौ न विधीयते।।2.44।।",
-  "tamil": "இவர்கள் சொல்லுவதைக் கேட்டு மதிமயங்கி போகத்திலும், ஆட்சியிலும் பற்றுறுவோருடைய நிச்சய புத்தி சமாதியில் நிலை பெறாது.",
+  "tamil": "புலனின்பத்திலும் பெளதிகச் செல்வத்திலும் மிகுந்த பற்றுதல் கொண்டு, அதனால் மயங்கி உள்ளவர்களின் மனதில், முழுமுதற் கடவுளின் பக்தித் தொண்டிற்கான திடமான உறுதி உண்டாவதில்லை.",
   "transliteration": "bhogaiśvarya-prasaktānāṁ\ntayāpahṛta-cetasām\nvyavasāyātmikā buddhiḥ\nsamādhau na vidhīyate",
   "english": "In the minds of those who are too attached to sense enjoyment and material opulence, and who are bewildered by such things, the resolute determination of devotional service to the Supreme Lord does not take place.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-015",
@@ -548,12 +591,13 @@
   "reference": "2.45",
   "audioSrc": "/audio/2.45.mp3",
   "sanskrit": "त्रैगुण्यविषया वेदा निस्त्रैगुण्यो भवार्जुन।\n\nनिर्द्वन्द्वो नित्यसत्त्वस्थो निर्योगक्षेम आत्मवान्।।2.45।।",
-  "tamil": "மூன்று குணங்களுக்குட்பட்டவற்றைக் குறித்து வேதங்கள் பேசுகின்றன. அர்ஜுனா! நீ மூன்று குணங்களையும் கடந்தவனாகுக. இருமைகளிலிருந்து விடுபட்டு, எப்போதும் தூய்மையில் நிலைத்து, அடைவதையும் காப்பதையும் பற்றிய கவலையின்றி, தன்னிலே நிலைபெற்றவனாக இரு.",
+  "tamil": "வேதங்கள். பொதுவாக பெளதிக இயற்கையின் முக்குணங்களைப் பற்றியவை. அர்ஜுனா. இம்மூன்று குணங்களுக்கு அப்பாற்பட்டவனாக ஆவாயாக. எல்லா இருமைகளிலிருந்தும் விடுபட்டு. பொருள்களை அடைதல், பாதுகாத்தல் ஆகிய கவலைகளிலிருந்தும் விடுபட்டு, தன்னில் நிலைபெறுவாயாக.",
   "transliteration": "trai-guṇya-viṣayā vedā\nnistrai-guṇyo bhavārjuna\nnirdvandvo nitya-sattva-stho\nniryoga-kṣema ātmavān",
   "english": "The Vedas mainly deal with the subject of the three modes of material nature. Rise above these modes, O Arjuna. Be transcendental to all of them. Be free from all dualities and from all anxieties for gain and safety, and be established in the Self.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-016",
@@ -562,12 +606,13 @@
   "reference": "2.46",
   "audioSrc": "/audio/2.46.mp3",
   "sanskrit": "यावानर्थ उदपाने सर्वतः संप्लुतोदके।\n\nतावान्सर्वेषु वेदेषु ब्राह्मणस्य विजानतः।।2.46।।",
-  "tamil": "எங்கும் நீர் நிரம்பிய இடத்தில் ஒரு சிறு குட்டம் என்ன பொருளுடையது; அன்ன பொருளே ஞானமுடைய பிராமணனுக்கு வேதங்களுமுடையன.",
+  "tamil": "சிறு கிணற்றால் பூர்த்தி செய்யப்படும் தேவைகள் அனைத்தும். பெரும் நீர்த்தேக்கத்தால் உடனே பூர்த்தி செய்யப்படும். அதுபோலவே வேதங்களின் நோக்கங்களெல்லாம் அவற்றிற்குப் பின்னால் உள்ள நோக்கங்களை அறிந்தவனால் அடையப் பெறும்.",
   "transliteration": "yāvān artha uda-pāne\nsarvataḥ samplutodake\ntāvān sarveṣu vedeṣu\nbrāhmaṇasya vijānataḥ",
   "english": "All purposes served by a small well can at once be served by a great reservoir of water. Similarly, all the purposes of the Vedas can be served to one who knows the purpose behind them.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-108",
@@ -576,12 +621,13 @@
   "reference": "2.47",
   "audioSrc": "/audio/2.47.mp3",
   "sanskrit": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\n\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि।।2.47।।",
-  "tamil": "தொழில் செய்யத்தான் உனக்கு அதிகாரமுண்டு. அதன் பயன்களில் எப்போதுமே உனக்கதிகாரமில்லை. செய்கையின் பயனைக் கருதாதே; தொழில் செய்யாமலுமிராதே.",
+  "tamil": "உனக்கு விதிக்கப்பட்ட கடமையைச் செய்ய மட்டுமே உனக்கு அதிகாரம் உண்டு. ஆனால் செயல்களின் பலன்களில் உனக்கு அதிகாரமில்லை. உனது செயல்களின் விளைவுகளுக்கு உன்னையே காரணமாக ஒருபோதும் எண்ணாதே. கடமையைச் செய்யாமலிருக்க ஒருபோதும் பற்றுதல் கொள்ளாதே.",
   "transliteration": "karmaṇy evādhikāras te\nmā phaleṣu kadācana\nmā karma-phala-hetur bhūr\nmā te saṅgo ’stv akarmaṇi",
   "english": "You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself to be the cause of the results of your activities, and never be attached to not doing your duty.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.48",
@@ -590,10 +636,11 @@
   "reference": "2.48",
   "sanskrit": "योगस्थः कुरु कर्माणि सङ्गं त्यक्त्वा धनञ्जय ।\nसिद्ध्यसिद्ध्योः समो भूत्वा समत्वं योग उच्यते ॥ ४८ ॥",
   "transliteration": "yoga-sthaḥ kuru karmāṇi\nsaṅgaṁ tyaktvā dhanañ-jaya\nsiddhy-asiddhyoḥ samo bhūtvā\nsamatvaṁ yoga ucyate",
-  "tamil": "தனஞ்ஜயா! யோகத்தில் நின்று பற்றை நீக்கி வெற்றி தோல்விகளை நிகரெனக்கொண்டு தொழில்களைச் செய்க. நடுநிலையே யோகமெனப்படும்.",
+  "tamil": "அர்ஜுனா, வெற்றி தோல்வியில் பற்றுதல் கொள்ளாமல், உனது கடமையை சமநிலையுடன் செய்வாயாக. இதுபோன்ற சமத்துவமே யோகம் என்று அழைக்கப்படுகிறது.",
   "english": "Perform your duty equipoised, O Arjuna, abandoning all attachment to success or failure. Such equanimity is called yoga.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.49",
@@ -602,10 +649,11 @@
   "reference": "2.49",
   "sanskrit": "दूरेण ह्यवरं कर्म बुद्धियोगाद्धनञ्जय ।\nबुद्धौ शरणमन्विच्छ कृपणाः फलहेतवः ॥ ४९ ॥",
   "transliteration": "dūreṇa hy avaraṁ karma\nbuddhi-yogād dhanañ-jaya\nbuddhau śaraṇam anviccha\nkṛpaṇāḥ phala-hetavaḥ",
-  "tamil": "தனஞ்ஜயா! *புத்தி யோகத்தைக் காட்டிலும் (புத்தியில் லயித்து நிற்றல்) கர்மம் (தொழில்) நெடுந்தொலை தாழ்ந்தது. புத்தியைச் சரணடை, பயனைக் கருதுவோர் லோபிகள்.",
+  "tamil": "தனஞ்ஜயா. அனைத்து மோசமான செயல்களையும் பக்தித் தொண்டின் உதவியினால் தூரமாக வைத்து விட்டு, சணடைவாயாக. தமது செயல்களின் பலனை அனுபவிக்க விரும்புபவர் கஞ்சர்களேயாவார்கள்.",
   "english": "O Dhanañjaya, keep all abominable activities far distant by devotional service, and in that consciousness surrender unto the Lord. Those who want to enjoy the fruits of their work are misers.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.50",
@@ -614,10 +662,11 @@
   "reference": "2.50",
   "sanskrit": "बुद्धियुक्तो जहातीह उभे सुकृतदुष्कृते ।\nतस्माद्योगाय युज्यस्व योगः कर्मसु कौशलम् ॥ ५० ॥",
   "transliteration": "buddhi-yukto jahātīha\nubhe sukṛta-duṣkṛte\ntasmād yogāya yujyasva\nyogaḥ karmasu kauśalam",
-  "tamil": "புத்தியுடையவன் இங்கு நற்செய்கை, தீச்செய்கை இரண்டையுந் துறக்கிறான். ஆதலால் நீ யோகத்திலே பொருந்திவிடு. யோகம் செயல்களில் திறமையாம்.",
+  "tamil": "பக்தித் தொண்டில் ஈடுபட்டுள்ளவன், இந்த வாழ்விலேயே, நல்ல. தீய செயல்களின் விளைவுகளிலிருந்து தப்புகின்றான். எனவே. எல்லாச் செயல்களிலும் சிறந்ததான யோகத்திற்காகப் பாடுபடுவாயாக.",
   "english": "A man engaged in devotional service rids himself of both good and bad reactions even in this life. Therefore strive for yoga, which is the art of all work.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.51",
@@ -626,10 +675,11 @@
   "reference": "2.51",
   "sanskrit": "कर्मजं बुद्धियुक्ता हि फलं त्यक्त्वा मनीषिणः ।\nजन्मबन्धविनिर्मुक्ताः पदं गच्छन्त्यनामयम् ॥ ५१ ॥",
   "transliteration": "karma-jaṁ buddhi-yuktā hi\nphalaṁ tyaktvā manīṣiṇaḥ\njanma-bandha-vinirmuktāḥ\npadaṁ gacchanty anāmayam",
-  "tamil": "புத்தியுடைய மேதாவிகள் செய்கையில் விளையும் பயனைத் துறந்து, பிறவித் தளை நீங்கி, ஆனந்தப் பதவி அடைகிறார்கள்.",
+  "tamil": "இவ்விதமான பக்தித் தொண்டில் ஈடுபட்டு, சிறந்த முனிவர்கள் (பக்தர்கள்) பெளதிக உலகின் செயல்களின் வினைகளிலிருந்து தங்களை விடுவித்துக் கொண்டுள்ளனர். இவ்வழியில் அவர்கள் பிறப்பு இறப்பின் பந்தத்திலிருந்து விடுபட்டு எல்லா துன்பங்களுக்கும் அப்பாற்பட்ட நிலையை முழுமுதற் கடவுளிடம் திரும்பிச் செல்வதன் மூலம் ) அடைகின்றனர்.",
   "english": "By thus engaging in devotional service to the Lord, great sages or devotees free themselves from the results of work in the material world. In this way they become free from the cycle of birth and death and attain the state beyond all miseries [by going back to Godhead].",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.52",
@@ -638,10 +688,11 @@
   "reference": "2.52",
   "sanskrit": "यदा ते मोहकलिलं बुद्धिर्व्यतितरिष्यति ।\nतदा गन्तासि निर्वेदं श्रोतव्यस्य श्रुतस्य च ॥ ५२ ॥",
   "transliteration": "yadā te moha-kalilaṁ\nbuddhir vyatitariṣyati\ntadā gantāsi nirvedaṁ\nśrotavyasya śrutasya ca",
-  "tamil": "உனது புத்தி மோகக் குழப்பத்தைக் கடந்து செல்லுமாயின், அப்போது கேட்கப்போவது, கேட்கப்பட்டது என்ற இரண்டிலும் உனக்கு வேதனையேற்படாது.",
+  "tamil": "எப்போதும் உன் அறிவு. மயக்கம் எனும் இவ்வடர்ந்த காட்டை தாண்டி விடுகிறதோ, அப்போது, இதுவரை கேட்டவை, இனி கேட்க வேண்டியவை இவற்றின் மீது நீ சமநிலையுடையவனாகி விடுவாய்.",
   "english": "When your intelligence has passed out of the dense forest of delusion, you shall become indifferent to all that has been heard and all that is to be heard.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.53",
@@ -650,10 +701,11 @@
   "reference": "2.53",
   "sanskrit": "श्रुतिविप्रतिपन्ना ते यदा स्थास्यति निश्चला ।\nसमाधावचला बुद्धिस्तदा योगमवाप्स्यसि ॥ ५३ ॥",
   "transliteration": "śruti-vipratipannā te\nyadā sthāsyati niścalā\nsamādhāv acalā buddhis\ntadā yogam avāpsyasi",
-  "tamil": "உனது புத்தி, கேள்வியிலே கலக்கமுறாததாய், உறுதிகொண்டு, சமாதி நிலையில் அசையாது நிற்குமாயின், அப்போது யோகத்தை அடைவாய்.",
+  "tamil": "எப்போது உன் மனம் வேதங்களின் மலர்சொற்களால் கவரப்படாத நிலையை அடைகிறதோ, எப்போது அது தன்னுணர்வின் ஸமாதியில் நிலைத்திருக்கின்றதோ. அப்போது நீ தெய்வீக உணர்வை அடைந்து விட்டவனாவாய்.",
   "english": "When your mind is no longer disturbed by the flowery language of the Vedas, and when it remains fixed in the trance of self-realization, then you will have attained the divine consciousness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.54",
@@ -662,10 +714,11 @@
   "reference": "2.54",
   "sanskrit": "अर्जुन उवाच\nस्थितप्रज्ञस्य का भाषा समाधिस्थस्य केशव ।\nस्थितधीः किं प्रभाषेत किमासीत व्रजेत किम् ॥ ५४ ॥",
   "transliteration": "arjuna uvāca\nsthita-prajñasya kā bhāṣā\nsamādhi-sthasya keśava\nsthita-dhīḥ kiṁ prabhāṣeta\nkim āsīta vrajeta kim",
-  "tamil": "கேசவா! உறுதிகொண்ட அறிவுடன் சமாதியில் நிற்போன் எவ்வாறு பேசுவான்? ஸ்திர புத்தியுடையவன் என்ன சொல்வான்? எப்படியிருப்பான்? எதனையடைவான்?",
+  "tamil": "அர்ஜுனன் வினவினான்: தெய்வீக உணர்வில் இவ்வாறு நிலை பெற்றவனின் அறிகுறிகள் யாவை? அவனது மொழி என்ன? எவ்வாறு பேசுவான்? எப்படி அமருவான், எப்படி நடப்பான்?",
   "english": "Arjuna said: O Kṛṣṇa, what are the symptoms of one whose consciousness is thus merged in transcendence? How does he speak, and what is his language? How does he sit, and how does he walk?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.55",
@@ -674,10 +727,11 @@
   "reference": "2.55",
   "sanskrit": "श्रीभगवानुवाच\nप्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान् ।\nआत्मन्येवात्मना तुष्टः स्थितप्रज्ञस्तदोच्यते ॥ ५५ ॥",
   "transliteration": "śrī-bhagavān uvāca\nprajahāti yadā kāmān\nsarvān pārtha mano-gatān\nātmany evātmanā tuṣṭaḥ\nsthita-prajñas tadocyate",
-  "tamil": "பார்த்தா! ஒருவன் தன் மனத்தில் எழும் விருப்பங்களனைத்தையும் துறந்து தன்னிலே தான் மகிழ்ச்சி பெறுவானாயின், அப்போது ஸ்திர புத்தியுடையவனென்று சொல்லப்படுகிறான்.",
+  "tamil": "புருஷோத்தமராகிய முழுமுதற் கடவுள் கூறினார்: பார்த்தனே, எப்போது ஒருவன் தமது மனக் கற்பனையினால் எழும் புலனுகர்ச்சிக்கான எல்லா ஆசைகளையும் துறந்து. தூய்மையடைந்த மனதுடன் தன்னில் திருப்தியடைகின்றானோ, அப்போது அவன் தெய்வீக உணர்வில் நிலைபெற்றவனாக அறியப்படுகிறான்.",
   "english": "The Supreme Personality of Godhead said: O Pārtha, when a man gives up all varieties of desire for sense gratification, which arise from mental concoction, and when his mind, thus purified, finds satisfaction in the self alone, then he is said to be in pure transcendental consciousness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.56",
@@ -686,10 +740,11 @@
   "reference": "2.56",
   "sanskrit": "दुःखेष्वनुद्विग्न‍मनाः सुखेषु विगतस्पृहः ।\nवीतरागभयक्रोधः स्थिधीर्मुनिरुच्यते ॥ ५६ ॥",
   "transliteration": "duḥkheṣv anudvigna-manāḥ\nsukheṣu vigata-spṛhaḥ\nvīta-rāga-bhaya-krodhaḥ\nsthita-dhīr munir ucyate",
-  "tamil": "\"துன்பங்களிலே மனங்கெடா தவனாய், இன்பங்களிலே ஆவலற் றவனாய் அச்சமும் சினமுந் தவிர்த்தவனாயின் அம்முனி, மதியிலே யுறுதி வாய்ந்தவ னென்ப.\"",
+  "tamil": "மூவகைத் துன்பங்களால் பாதிக்கப்படாத மனம் உடையவனும், இன்பத்தில் மிக்க மகிழாதவனும், பற்றுதல். பயம். கோபம் இவற்றிலிருந்து விடுபட்டவனுமான ஒருவன் 'நிலைத்த மனமுடைய முனிவன் ' என்று அழைக்கப்படுகிறான்.",
   "english": "One who is not disturbed in mind even amidst the threefold miseries or elated when there is happiness, and who is free from attachment, fear and anger, is called a sage of steady mind.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.57",
@@ -698,10 +753,11 @@
   "reference": "2.57",
   "sanskrit": "यः सर्वत्रानभिस्नेहस्तत्तत्प्राप्य श‍ुभाश‍ुभम् ।\nनाभिनन्दति न द्वेष्टि तस्य प्रज्ञा प्रतिष्ठिता ॥ ५७ ॥",
   "transliteration": "yaḥ sarvatrānabhisnehas\ntat tat prāpya śubhāśubham\nnābhinandati na dveṣṭi\ntasya prajñā pratiṣṭhitā",
-  "tamil": "எவன் நல்லதும் கெட்டதும் வருமிடத்தே எதனிலும் வீழ்ச்சியற்றவனாய், ஆவலுறுவதும் பகைப்பதுமின்றியிருப்பானோ, அவனுடைய அறிவே நிலைகொண்டது.",
+  "tamil": "இப்பெளதிக உலகில், எவனொருவன் நன்மை தீமைகளை அடையும்போது அவற்றால் பாதிக்கப்படாமல், அவற்றை புகழாமலும் இகழாமலும் இருக்கின்றானோ. அவன் பக்குவ அறிவில் நிலைபெற்றவனாவான்.",
   "english": "In the material world, one who is unaffected by whatever good or evil he may obtain, neither praising it nor despising it, is firmly fixed in perfect knowledge.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.58",
@@ -710,10 +766,11 @@
   "reference": "2.58",
   "sanskrit": "यदा संहरते चायं कूर्मोऽङ्गानीव सर्वशः ।\nइन्द्रियाणीन्द्रियार्थेभ्यस्तस्य प्रज्ञा प्रतिष्ठिता ॥ ५८ ॥",
   "transliteration": "yadā saṁharate cāyaṁ\nkūrmo ’ṅgānīva sarvaśaḥ\nindriyāṇīndriyārthebhyas\ntasya prajñā pratiṣṭhitā",
-  "tamil": "ஆமை தன் அவயவங்களை இழுத்துக் கொள்ளுவது போல், எப்புறத்தும் விஷய பதார்த்தங்களினின்று புலன்களை யொருவன் மீட்க வல்லானாயின், அவனறிவே நிலை கொண்டது.",
+  "tamil": "ஆமை தன் அங்கங்களைக் கூட்டிற்குள் இழுத்துக் கொள்வதைப் போல. எவனொருவன் தன் புலன்களைப் புலனுகர்ச்சிப் பொருள்களிலிருந்து விலகிக் கொள்கிறானோ. அவன் பக்குவ உணர்வில் நிலைபெற்றவனாவான்.",
   "english": "One who is able to withdraw his senses from sense objects, as the tortoise draws its limbs within the shell, is firmly fixed in perfect consciousness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-017",
@@ -722,12 +779,13 @@
   "reference": "2.59",
   "audioSrc": "/audio/2.59.mp3",
   "sanskrit": "विषया विनिवर्तन्ते निराहारस्य देहिनः।\n\nरसवर्जं रसोऽप्यस्य परं दृष्ट्वा निवर्तते।।2.59।।",
-  "tamil": "தம்மைக் கவராத ஜீவனிடமிருந்து விஷயங்கள் தாமே விலகிக் கொள்ளுகின்றன. எனினும் அவற்றிடமுள்ள சுவையை இவன் மறப்பதில்லை. பரம்பொருளைக் காண்பானாயின் அச்சுவையுந் தீர்ந்துவிடும்.",
+  "tamil": "உடல் பெற்ற ஆத்மாவை புலனின்பத்திலிருந்து கட்டுப்படுத்தினாலும். புலனுகர்ச்சிப் பொருள்களுக்கான சுவை அப்படியே இருக்கும். ஆனால் புலனின்ப ஈடுபாடுகளை உயர்ந்த சுவையினால் ஒழிப்பவன், தனது உணர்வில் நிலைபெற்றுள்ளான்.",
   "transliteration": "viṣayā vinivartante\nnirāhārasya dehinaḥ\nrasa-varjaṁ raso ’py asya\nparaṁ dṛṣṭvā nivartate",
   "english": "The embodied soul may be restricted from sense enjoyment, though the taste for sense objects remains. But, ceasing such engagements by experiencing a higher taste, he is fixed in consciousness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.60",
@@ -736,10 +794,11 @@
   "reference": "2.60",
   "sanskrit": "यततो ह्यपि कौन्तेय पुरुषस्य विपश्चितः ।\nइन्द्रियाणि प्रमाथीनि हरन्ति प्रसभं मनः ॥ ६० ॥",
   "transliteration": "yatato hy api kaunteya\npuruṣasya vipaścitaḥ\nindriyāṇi pramāthīni\nharanti prasabhaṁ manaḥ",
-  "tamil": "குந்தியின் மகனே! (தவ) முயற்சியுடைய புருஷனிடத்திலேகூட இந்திரியங்கள் வரம்பு கடந்து செல்லும்போது தம்முடன் மனத்தையும் வலிய வாரிச் செல்கின்றன.",
+  "tamil": "அர்ஜுனா. கட்டுப்படுத்த முயலும் பகுத்தறிவுடைய மனிதனின் மனதையும். பலவந்தமாக இழுத்துச் செல்லுமளவிற்குப் புலன்கள் சக்தி வாய்ந்ததும் அடங்காததுமாகும்.",
   "english": "The senses are so strong and impetuous, O Arjuna, that they forcibly carry away the mind even of a man of discrimination who is endeavoring to control them.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.61",
@@ -748,10 +807,11 @@
   "reference": "2.61",
   "sanskrit": "तानि सर्वाणि संयम्य युक्त आसीत मत्परः ।\nवशे हि यस्येन्द्रियाणि तस्य प्रज्ञा प्रतिष्ठिता ॥ ६१ ॥",
   "transliteration": "tāni sarvāṇi saṁyamya\nyukta āsīta mat-paraḥ\nvaśe hi yasyendriyāṇi\ntasya prajñā pratiṣṭhitā",
-  "tamil": "அவற்றையெல்லாம் நன்றாக அடக்கி, யோகத்தில் அமர்ந்தவனாய், என்னைப் பரமாகக் கொண்டு, புலன்களை வசப்படுத்தி வைத்திருப்பவன் எவனோ, அவனுடைய அறிவே நிலைகொண்டது.",
+  "tamil": "புலன்களை அடக்கி, அவற்றை முழுக் கட்டுப்பாட்டில் வைத்து, தனது உணர்வை என்னில் நிறுத்துபவன், நிலைத்த அறிவுடையவன் என்று அறியப்படுகிறான்.",
   "english": "One who restrains his senses, keeping them under full control, and fixes his consciousness upon Me, is known as a man of steady intelligence.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-018",
@@ -760,12 +820,13 @@
   "reference": "2.62",
   "audioSrc": "/audio/2.62.mp3",
   "sanskrit": "ध्यायतो विषयान्पुंसः सङ्गस्तेषूपजायते।\n\nसङ्गात् संजायते कामः कामात्क्रोधोऽभिजायते।।2.62।।",
-  "tamil": "மனிதன் விஷயங்களைக் கருதும்போது அவற்றில் பற்றுதலுண்டாகிறது. பற்றுதலால் விருப்பமுண்டாகிறது. விருப்பத்தால் சினம் பிறக்கிறது.",
+  "tamil": "புலன்நோக்குப் பொருள்களை சிந்திப்பதால், மனிதன் அதன் மேல் பற்றுதலை வளர்த்துக் கொள்கிறான். அந்தப் பற்றுதலில் இருந்து காமமும் காமத்திலிருந்து கோபமும் தோன்றுகின்றன.",
   "transliteration": "dhyāyato viṣayān puṁsaḥ\nsaṅgas teṣūpajāyate\nsaṅgāt sañjāyate kāmaḥ\nkāmāt krodho ’bhijāyate",
   "english": "While contemplating the objects of the senses, a person develops attachment for them, and from such attachment lust develops, and from lust anger arises.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-019",
@@ -774,12 +835,13 @@
   "reference": "2.63",
   "audioSrc": "/audio/2.63.mp3",
   "sanskrit": "क्रोधाद्भवति संमोहः संमोहात्स्मृतिविभ्रमः।\n\nस्मृतिभ्रंशाद् बुद्धिनाशो बुद्धिनाशात्प्रणश्यति।।2.63।।",
-  "tamil": "சினத்தால் மயக்கம்; மயக்கத்தால் நினைவு தவறுதல்; நினைவுத் தவறுதலால் புத்தி நாசம்; புத்தி நாசத்தால் அழிகிறான்.",
+  "tamil": "கோபத்திலிருந்து பூரண மயக்கமும், மயக்கத்தினால் நினைவு நிலை இழப்பும் ஏற்படுகின்றன. நுனைவு குழம்புவதால் அறிவு இழக்கப்படுகிறது, அறிவு இழக்கப்பட்டவுடன். ஒருவன் மீண்டும் ஜட வாழ்க்கையில் வீழகிறான்.",
   "transliteration": "krodhād bhavati sammohaḥ\nsammohāt smṛti-vibhramaḥ\nsmṛti-bhraṁśād buddhi-nāśo\nbuddhi-nāśāt praṇaśyati",
   "english": "From anger, delusion arises, and from delusion bewilderment of memory. When memory is bewildered, intelligence is lost, and when intelligence is lost, one falls down again into the material pool.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "GS-020",
@@ -788,12 +850,13 @@
   "reference": "2.64",
   "audioSrc": "/audio/2.64.mp3",
   "sanskrit": "रागद्वेषवियुक्तैस्तु विषयानिन्द्रियैश्चरन्।\n\nआत्मवश्यैर्विधेयात्मा प्रसादमधिगच्छति।।2.64।।",
-  "tamil": "விருப்பு வெறுப்புகளிலிருந்து விடுபட்டு, தன் வசப்பட்ட புலன்களால் பொருள்களை அனுபவிக்கும் தன்னடக்கமுள்ளவன் மன அமைதியை அடைகிறான்.",
+  "tamil": "எல்லாவிதமான விருப்பு வெறுப்புகளிலிருந்தும் விடுபட்டு, விடுதலைக்கான விதிகளால் புலன்களைக் கட்டுப்படுத்துபவன். கடவுளின் முழுக் கருணையை அடைய முடியும்.",
   "transliteration": "rāga-dveṣa-vimuktais tu\nviṣayān indriyaiś caran\nātma-vaśyair vidheyātmā\nprasādam adhigacchati",
   "english": "One who can control his senses by practicing the regulated principles of freedom can obtain the complete mercy of the Lord and thus become free from all attachment and aversion.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.65",
@@ -802,10 +865,11 @@
   "reference": "2.65",
   "sanskrit": "प्रसादे सर्वदुःखानां हानिरस्योपजायते ।\nप्रसन्नचेतसो ह्याश‍ु बुद्धिः पर्यवतिष्ठते ॥ ६५ ॥",
   "transliteration": "prasāde sarva-duḥkhānāṁ\nhānir asyopajāyate\nprasanna-cetaso hy āśu\nbuddhiḥ paryavatiṣṭhate",
-  "tamil": "சாந்தி நிலையில் மனிதனுக்கு எல்லாத் துன்பங்களும் அழிகின்றன. சித்தம் சாந்தி பெற்ற பின் ஒருவனுடைய புத்தி விரைவிலே நிலைப்படுகிறது.",
+  "tamil": "இவ்வாறு (கிருஷ்ண உணர்வில்) திருப்தியுற்றவனுக்கு, ஜட உலகின் மூவகைத் துன்பங்களால் பாதிப்பு ஏற்படுவதில்லை. இத்தகைய திருப்தியுற்ற உணர்வில் அவனது புத்தி வெகு விரைவில் நிலைபெறுகின்றது.",
   "english": "For one thus satisfied [in Kṛṣṇa consciousness], the threefold miseries of material existence exist no longer; in such satisfied consciousness, one’s intelligence is soon well established.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.66",
@@ -814,10 +878,11 @@
   "reference": "2.66",
   "sanskrit": "नास्ति बुद्धिरयुक्तस्य न चायुक्तस्य भावना ।\nन चाभावयतः शान्तिरशान्तस्य कुतः सुखम् ॥ ६६ ॥",
   "transliteration": "nāsti buddhir ayuktasya\nna cāyuktasya bhāvanā\nna cābhāvayataḥ śāntir\naśāntasya kutaḥ sukham",
-  "tamil": "யோகமில்லாதவனுக்குப் புத்தியில்லை. யோகமில்லாதவனுக்கு மனோ பாவனையில்லை. மனோ பாவனையில்லாதவனுக்குச் சாந்தியில்லை. சாந்தியில்லாதவனுக்கு இன்பமேது?",
+  "tamil": "பரமனுடன் (கிருஷ்ண உணர்வின் மூலமாக) தொடர்பு கொள்ளாமல், திவ்யமான அறிவையோ கட்டுப்பாடான மனதையோ அடைய முடியாது. இவையின்றி அமைதிக்கு வழியில்லை. அமைதி இல்லாவிடில் ஆனந்தம் எவ்வாறு உண்டாகும்?",
   "english": "One who is not connected with the Supreme [in Kṛṣṇa consciousness] can have neither transcendental intelligence nor a steady mind, without which there is no possibility of peace. And how can there be any happiness without peace?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.67",
@@ -826,10 +891,11 @@
   "reference": "2.67",
   "sanskrit": "इन्द्रियाणां हि चरतां यन्मनोऽनुविधीयते ।\nतदस्य हरति प्रज्ञां वायुर्नावमिवाम्भसि ॥ ६७ ॥",
   "transliteration": "indriyāṇāṁ hi caratāṁ\nyan mano ’nuvidhīyate\ntad asya harati prajñāṁ\nvāyur nāvam ivāmbhasi",
-  "tamil": "இந்திரியங்கள் சலிக்கையில் ஒருவனுடைய மனமும் அவற்றைப் பின்பற்றிச் செல்லுமாயின் அம்மனம் கடலில் தோணியைக் காற்று மோதுவதுபோல் அறிவை மோதுகிறது.",
+  "tamil": "நீரின் மீதுள்ள படகை கடுங்காற்று அடித்துச் செல்வதைப் போல, அலைபாயும் புலன்களில் ஏதேனும் ஒன்றின் மீது மனம் ஈர்க்கப்பட்டு விட்டால், அந்த ஒரே ஒரு புலன் கூட மனிதனின் அறிவை இழுத்துச் சென்றுவிடும்.",
   "english": "As a strong wind sweeps away a boat on the water, even one of the roaming senses on which the mind focuses can carry away a man’s intelligence.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.68",
@@ -838,10 +904,11 @@
   "reference": "2.68",
   "sanskrit": "तस्माद्यस्य महाबाहो निगृहीतानि सर्वशः ।\nइन्द्रियाणीन्द्रियार्थेभ्यस्तस्य प्रज्ञा प्रतिष्ठिता ॥ ६८ ॥",
   "transliteration": "tasmād yasya mahā-bāho\nnigṛhītāni sarvaśaḥ\nindriyāṇīndriyārthebhyas\ntasya prajñā pratiṣṭhitā",
-  "tamil": "ஆதலால், பெருந்தோளாய், யாங்கணும் விஷயங்களினின்றும் இந்திரியங்களைக் கட்டவல்லான் எவனோ, அவனறிவே நிலைகொண்டது.",
+  "tamil": "எனவே, பலம் பொருந்திய புயவங்களை உடையவனே, எவனுடைய புலன்கள் புலனுகர்ச்சிப் பொருள்களிலிருந்து முற்றிமாக விலக்கப்பட்டுள்ளதோ, அவன் நிச்சயமாக நிலைத்த அறிவுடையவனாகிறான்.",
   "english": "Therefore, O mighty-armed, one whose senses are restrained from their objects is certainly of steady intelligence.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-021",
@@ -850,12 +917,13 @@
   "reference": "2.69",
   "audioSrc": "/audio/2.69.mp3",
   "sanskrit": "या निशा सर्वभूतानां तस्यां जागर्ति संयमी।\n\nयस्यां जाग्रति भूतानि सा निशा पश्यतो मुनेः।।2.69।।",
-  "tamil": "எல்லா உயிர்களுக்கும் இரவாகிய நேரத்தில், (தன்னைக் கட்டிய) முனி விழித்திருக்கிறான். மற்ற உயிர்கள் விழித்திருக்கும் நேரமெதுவோ அதுவே முனிக்கிரவு.",
+  "tamil": "எல்லா உயிர்களுக்கும் எது இரவோ, அது சுயக் கட்டுப்பாடு உள்ளவனுக்கு விழித்தெழும் நேரமாகும். எல்லா உயிர்களுக்கும் எது விழித்தெழும் நேரமோ, அது ஆய்வறிவு கொண்ட முனிவனுக்கு இரவாகின்றது.",
   "transliteration": "yā niśā sarva-bhūtānāṁ\ntasyāṁ jāgarti saṁyamī\nyasyāṁ jāgrati bhūtāni\nsā niśā paśyato muneḥ",
   "english": "What is night for all beings is the time of awakening for the self-controlled; and the time of awakening for all beings is night for the introspective sage.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.70",
@@ -864,10 +932,11 @@
   "reference": "2.70",
   "sanskrit": "आपूर्यमाणमचलप्रतिष्ठं\nसमुद्रमापः प्रविशन्ति यद्वत् ।\nतद्वत्कामा यं प्रविशन्ति सर्वे\nस शान्तिमाप्‍नोति न कामकामी ॥ ७० ॥",
   "transliteration": "āpūryamāṇam acala-pratiṣṭhaṁ\nsamudram āpaḥ praviśanti yadvat\ntadvat kāmā yaṁ praviśanti sarve\nsa śāntim āpnoti na kāma-kāmī",
-  "tamil": "கடலில் நீர்த் தொகுதிகள் வந்து விழுகையில் அது மேன்மேலும் நிரப்புதற்குரிதாய் அசையா நிலைகொண்டிருப்பது போலே விருப்பங்கள் தன்னுள்ளே புகும்போது இயல்வான் எவனோ அவன் சாந்தியடைகிறான். விருப்பங்களை விரும்புவோன் அதனை அடையான்.",
+  "tamil": "நதிகள் கடலில் வந்து கலந்தாலும். கடல் மாறுவதில்லை. அது போல தடையின்றி வரும் ஆசைகளால் பாதிக்கப்படாதவன் மட்டுமே அமைதியை அடைய முடியும். அத்தகு ஆசைகளை நிறைவேற்றிக் கொள்ள விரும்புபவனல்ல.",
   "english": "A person who is not disturbed by the incessant flow of desires – that enter like rivers into the ocean, which is ever being filled but is always still – can alone achieve peace, and not the man who strives to satisfy such desires.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.71",
@@ -876,10 +945,11 @@
   "reference": "2.71",
   "sanskrit": "विहाय कामान्यः सर्वान्पुमांश्चरति निःस्पृहः ।\nनिर्ममो निरहङ्कार स शान्तिमधिगच्छति ॥ ७१ ॥",
   "transliteration": "vihāya kāmān yaḥ sarvān\npumāṁś carati niḥspṛhaḥ\nnirmamo nirahaṅkāraḥ\nsa śāntim adhigacchati",
-  "tamil": "இச்சையற்றான், எல்லா இன்பங்களையும் துறந்தான், எனதென்பதற்றான், யானென்பதற்றான், அவனே சாந்திநிலை அடைகிறான்.",
+  "tamil": "புலனுகர்ச்சிக்கான எல்லா விருப்பங்களைத் துறந்தவனும். ஆசைகள் இல்லாதவனும், உரிமையாளன் என்னும் எல்லா உணர்வுகளைத் துறந்திருப்பவனும். அஹங்காரம் இல்லாதவனுமான ஒருவனே உண்மை அமைகியை அடைய முடியும்.",
   "english": "A person who has given up all desires for sense gratification, who lives free from desires, who has given up all sense of proprietorship and is devoid of false ego – he alone can attain real peace.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-2.72",
@@ -888,9 +958,10 @@
   "reference": "2.72",
   "sanskrit": "एषा ब्राह्मी स्थितिःपार्थ नैनां प्राप्य विमुह्यति ।\nस्थित्वास्यामन्तकालेऽपि ब्रह्मनिर्वाणमृच्छति ॥ ७२ ॥",
   "transliteration": "eṣā brāhmī sthitiḥ pārtha\nnaināṁ prāpya vimuhyati\nsthitvāsyām anta-kāle ’pi\nbrahma-nirvāṇam ṛcchati",
-  "tamil": "பார்த்தா! இது பிரம்ம ஸ்திதி. இதையடைந்தோன் பிறகு மயங்குவதில்லை. இறுதிக் காலத்திலேனும் இதில் நிலைகொள்வோன் பிரம்ம நிர்வாண மெய்துகிறான்.",
+  "tamil": "இதுவே ஆன்மீகமான தெய்வீக வாழ்விற்கு வழி. இதனை அடைந்த மனிதன் குழப்பமடைவதில்லை. இந்த நிலையை தனது மரணத் தருவாயில் அடைபவனும்கூட. இறைவனின் திருநாட்டிற்குள் நுழைகிறான்.",
   "english": "That is the way of the spiritual and godly life, after attaining which a man is not bewildered. If one is thus situated even at the hour of death, one can enter into the kingdom of God.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  }
 ]

@@ -20,7 +20,7 @@ import { ReviewQueue } from "@/components/review-queue";
 import { LinePractice } from "@/components/line-practice";
 import { StudyTools } from "@/components/study-tools";
 import { SaveStatus } from "@/components/save-status";
-import { ChapterBrowser } from "@/components/chapter-browser";
+import { AllVerses } from "@/components/all-verses";
 
 function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
   const [signingIn, setSigningIn] = useState(false);
@@ -61,6 +61,7 @@ export default function Home() {
   const [completedOpen, setCompletedOpen] = useState(false);
   const [statsOpen, setStatsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [view, setView] = useState<"learn" | "all">("learn");
   const [audioAvailable, setAudioAvailable] = useState(true);
   const [linePracticeActive, setLinePracticeActive] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -82,13 +83,13 @@ export default function Home() {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('[role="dialog"]') || (event.target instanceof Element && event.target.closest('input,textarea,select,button,a,summary,[role="slider"],[contenteditable="true"]'))) return;
+      if (view !== "learn" || event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('[role="dialog"]') || (event.target instanceof Element && event.target.closest('input,textarea,select,button,a,summary,[role="slider"],[contenteditable="true"]'))) return;
       if (event.key === "ArrowRight") { event.preventDefault(); next(); }
       if (event.key === "ArrowLeft") { event.preventDefault(); prev(); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [next, prev]);
+  }, [next, prev, view]);
 
   if (authChecking || (!ready && user)) return <LoaderQuote />;
 
@@ -130,7 +131,7 @@ export default function Home() {
             >
               {theme === "dark" ? <Moon className="h-3.5 w-3.5" /> : <Sun className="h-3.5 w-3.5" />}
             </button>
-            <button
+            {view === "learn" && <button
               onClick={() => {
                 if (isMastered) undoLearnedForActive(active.id);
                 else setConfirmLearnedOpen(true);
@@ -139,7 +140,7 @@ export default function Home() {
             >
               {isMastered ? <Undo2 className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
               <span>{isMastered ? "Undo" : "Learned"}</span>
-            </button>
+            </button>}
           </div>
         </header>
 
@@ -157,6 +158,16 @@ export default function Home() {
           <span className="text-lg font-bold tabular-nums text-[#8f6422] dark:text-[#d4aa61]">{progressPct}%</span>
         </button>
 
+        <div className="grid grid-cols-2 gap-1 rounded-xl bg-[#fcebc4] p-1 dark:bg-[#2d2218]" role="group" aria-label="View">
+          {([["learn", "Learn 108"], ["all", "All verses"]] as const).map(([id, label]) => (
+            <button key={id} aria-pressed={view === id} onClick={() => { setView(id); window.scrollTo({ top: 0 }); }}
+              className={`min-h-9 rounded-lg px-3 text-xs font-bold transition-colors ${view === id ? "bg-white text-[#8f6422] shadow-sm dark:bg-[#1e1710] dark:text-[#d4aa61]" : "text-[#705735] dark:text-[#bda27e]"}`}>{label}</button>
+          ))}
+        </div>
+        {view === "all" ? (
+          <AllVerses onStudy={(id) => { goToShloka(id); setView("learn"); window.scrollTo({ top: 0 }); }} />
+        ) : (
+          <>
         <ShlokaCard
           active={active}
           activeGlobalIndex={activeGlobalIndex}
@@ -177,13 +188,14 @@ export default function Home() {
           <ReviewQueue due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={goToShloka} />
           <LinePractice key={active.id} shloka={active} audioRef={audioRef} cues={profile.lineCues[active.id]} onSave={(cues) => setLineCues(active.id, cues)} onActiveChange={setLinePracticeActive} />
           <VerseStudy shloka={active} />
-          <ChapterBrowser onStudy={goToShloka} />
           <OfflineLibrary reference={active.reference} />
         </StudyTools>
+          </>
+        )}
         {(storageError || syncStatus === "error" || !online) && <SaveStatus status={syncStatus} storageError={storageError} online={online} onRetry={retrySave} />}
       </div>
 
-      <AudioErrorBoundary>
+      {view === "learn" && <AudioErrorBoundary>
         <AudioPlayer
           audioSrc={audioSrc}
           elementRef={audioRef}
@@ -196,7 +208,7 @@ export default function Home() {
           onNext={next}
           onPrev={prev}
         />
-      </AudioErrorBoundary>
+      </AudioErrorBoundary>}
 
       {/* Confirm learned dialog */}
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>

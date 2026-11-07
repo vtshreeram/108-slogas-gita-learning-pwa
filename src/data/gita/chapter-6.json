@@ -6,10 +6,11 @@
   "reference": "6.1",
   "sanskrit": "श्रीभगवानुवाच\nअनाश्रित: कर्मफलं कार्यं कर्म करोति य: ।\nस सन्न्यासी च योगी च न निरग्न‍िर्न चाक्रिय: ॥ १ ॥",
   "transliteration": "śrī-bhagavān uvāca\nanāśritaḥ karma-phalaṁ\nkāryaṁ karma karoti yaḥ\nsa sannyāsī ca yogī ca\nna niragnir na cākriyaḥ",
-  "tamil": "செய்கையின் பயனில் சார்பின்றிச் செய்யத்தக்கது செய்வோன் துறவி; அவனே யோகி, தீ வளர்க்காதவனும் கிரியை செய்யாதவனும் அவன் ஆகார்.",
+  "tamil": "புருஷோத்தமரான முழு முதற்கடவுள் கூறினார்: செயலின் பலன்களில் பற்றற்று, கடமைக்காகச் செயலாற்றுபவனே சந்நியாசியும் உண்மையான யோகியுமாகிறானே தவிர, வேள்வி நெருப்பை மூட்டாதவனும் செயலற்றவனுமல்ல.",
   "english": "The Supreme Personality of Godhead said: One who is unattached to the fruits of his work and who works as he is obligated is in the renounced order of life, and he is the true mystic, not he who lights no fire and performs no duty.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.2",
@@ -18,10 +19,11 @@
   "reference": "6.2",
   "sanskrit": "यं सन्न्यासमिति प्राहुर्योगं तं विद्धि पाण्डव ।\nन ह्यसन्न्यस्तसङ्कल्पो योगी भवति कश्चन ॥ २ ॥",
   "transliteration": "yaṁ sannyāsam iti prāhur\nyogaṁ taṁ viddhi pāṇḍava\nna hy asannyasta-saṅkalpo\nyogī bhavati kaścana",
-  "tamil": "பாண்டவா! எதனை சந்நியாசமென்கிறார்களோ, அதுவே யோகமென்றறி. தன் கோட்பாடுகளைத் துறக்காத எவனும் யோகியாக மாட்டான்.",
+  "tamil": "பாண்டுவின் மகனே. புலனுகர்ச்சிக்கான இச்சைகளைத் துறக்காத எவனுமே யோகியாக முடியாது என்பதால், துறவு என்று அழைக்கப்படுவதும். யோகமும் (பரமனுடன் தொடர்பு கொள்ளுதலும்) ஒன்றே என்பதை நீ அறிய வேண்டும்.",
   "english": "What is called renunciation you should know to be the same as yoga, or linking oneself with the Supreme, O son of Pāṇḍu, for one can never become a yogī unless he renounces the desire for sense gratification.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.3",
@@ -30,10 +32,11 @@
   "reference": "6.3",
   "sanskrit": "आरुरुक्षोर्मुनेर्योगं कर्म कारणमुच्यते ।\nयोगारूढस्यतस्यैव शम: कारणमुच्यते ॥ ३ ॥",
   "transliteration": "ārurukṣor muner yogaṁ\nkarma kāraṇam ucyate\nyogārūḍhasya tasyaiva\nśamaḥ kāraṇam ucyate",
-  "tamil": "யோக நிலையில் ஏற விரும்பும் யோகிக்குத் தொழிலே கருவியாகக் கூறப்படுகிறது. அந்நிலையில் ஏறிய பின் அவனுக்கு சாந்தம் கருவியாகிறது.",
+  "tamil": "அஷ்டாங்க யோக முறையின் புது மாணவனுக்கு. செயலே. 'வழியாகக் கூறப்படுகின்றது. ஆனால் யோகத்தில் முன்னேறியவனக்கு. ஜடச் செயல்களைத் துறத்தலே, 'வழியாகக் கூறப்படுகின்றது.",
   "english": "For one who is a neophyte in the eightfold yoga system, work is said to be the means; and for one who is already elevated in yoga, cessation of all material activities is said to be the means.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.4",
@@ -42,10 +45,11 @@
   "reference": "6.4",
   "sanskrit": "यदा हि नेन्द्रियार्थेषु न कर्मस्वनुषज्ज‍ते ।\nसर्वसङ्कल्पसन्न्यासी योगारूढस्तदोच्यते ॥ ४ ॥",
   "transliteration": "yadā hi nendriyārtheṣu\nna karmasv anuṣajjate\nsarva-saṅkalpa-sannyāsī\nyogārūḍhas tadocyate",
-  "tamil": "ஒருவன் எல்லாக் கோட்பாடுகளையும் துறந்துவிட்டுப் புலன்களிலேனும், செயல்களிலேனும் பற்றுதலின்றியிருப்பானாயின், அப்போதவன் 'யோகநிலையில் ஏறியவன்' என்று சொல்லப்படுகிறான்.",
+  "tamil": "எப்போது ஒருவன் பலன்நோக்குச் செயல்களிலும் புலனுகர்ச்சியிலும் ஈடுபடாமல், எல்லா பெளதிக ஆசைகளையும் துறந்த நிலையில் உள்ளானோ. அப்போது அவன் யோகத்தில் உயர்ந்தவனாகக் கூறப்படுகிறான்.",
   "english": "A person is said to be elevated in yoga when, having renounced all material desires, he neither acts for sense gratification nor engages in fruitive activities.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.5",
@@ -54,10 +58,11 @@
   "reference": "6.5",
   "sanskrit": "उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।\nआत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मन: ॥ ५ ॥",
   "transliteration": "uddhared ātmanātmānaṁ\nnātmānam avasādayet\nātmaiva hy ātmano bandhur\nātmaiva ripur ātmanaḥ",
-  "tamil": "தன்னைத் தான் உயர்த்திக் கொள்க; தன்னைத் தன்னாலிழிவுறுத்த வேண்டா; தனக்குத் தானே நண்பன்; தனக்குத் தானே பகைவன்.",
+  "tamil": "மனதின் உதவியுடன் ஒருவன் தன்னை உயர்த்திக் கொள்ள வேண்டுமேயொழிய தாழ்த்திக் கொள்ளக் கூடாது. மனமே கட்டுண்ட ஆத்மாவின் நண்பனும் எதிரியுமாவான்.",
   "english": "One must deliver himself with the help of his mind, and not degrade himself. The mind is the friend of the conditioned soul, and his enemy as well.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.6",
@@ -66,10 +71,11 @@
   "reference": "6.6",
   "sanskrit": "बन्धुरात्मात्मनस्तस्य येनात्मैवात्मना जित: ।\nअनात्मनस्तु शत्रुत्वे वर्तेतात्मैव शत्रुवत् ॥ ६ ॥",
   "transliteration": "bandhur ātmātmanas tasya\nyenātmaivātmanā jitaḥ\nanātmanas tu śatrutve\nvartetātmaiva śatru-vat",
-  "tamil": "தன்னைத் தான் வென்றவனே தனக்குத் தான் நண்பன்; தன்னைத் தான் வெல்லாதான் தனக்குத் தான் பகைவன் போற் கேடு சூழ்கிறான்.",
+  "tamil": "மனதை வென்றவனுக்கு மனமே சிறந்த நண்பனாகும்: ஆனால் அவ்வாறு செய்யத் தவறியவனுக்கோ, அதுவே மிகப்பெரிய விரோதியாகும்.",
   "english": "For him who has conquered the mind, the mind is the best of friends; but for one who has failed to do so, his mind will remain the greatest enemy.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.7",
@@ -78,10 +84,11 @@
   "reference": "6.7",
   "sanskrit": "जितात्मन: प्रशान्तस्य परमात्मा समाहित: ।\nशीतोष्णसुखदु:खेषु तथा मानापमानयो: ॥ ७ ॥",
   "transliteration": "jitātmanaḥ praśāntasya\nparamātmā samāhitaḥ\nśītoṣṇa-sukha-duḥkheṣu\ntathā mānāpamānayoḥ",
-  "tamil": "தன்னை வென்று ஆறுதலெய்தியவனிடத்தே சீதோஷ்ணங்களிலும், சுக துக்கங்களிலும், மானாபிமானங்களிலும் சமநிலைப்பட்ட பரமாத்மா விளங்குகிறது.",
+  "tamil": "மனதை வென்றவன். அமைதியை அடைந்துவிட்டதால். பரமாத்மா அவனுக்கு ஏற்கனவே அடையப்பட்டு விடுகின்றார். அத்தகு மனிதனுக்கு இன்ப துன்பம், குளிர் வெப்பம். மான அவமானம் எல்லாம் சமமே.",
   "english": "For one who has conquered the mind, the Supersoul is already reached, for he has attained tranquillity. To such a man happiness and distress, heat and cold, honor and dishonor are all the same.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.8",
@@ -90,10 +97,11 @@
   "reference": "6.8",
   "sanskrit": "ज्ञानविज्ञानतृप्‍तात्मा कूटस्थो विजितेन्द्रिय: ।\nयुक्त इत्युच्यते योगी समलोष्ट्राश्मकाञ्चन: ॥ ८ ॥",
   "transliteration": "jñāna-vijñāna-tṛptātmā\nkūṭa-stho vijitendriyaḥ\nyukta ity ucyate yogī\nsama-loṣṭrāśma-kāñcanaḥ",
-  "tamil": "*ஞானத்திலும் விஞ்ஞானத்திலும் திருப்தி கொண்டவனாய், மலை முடிவில் நிற்பான் போன்று, புலன்களை வென்று, ஓட்டையும் கல்லையும் பொன்னையும் ஒன்று போலே காணும் யோகியே நிலையுற்றானெனப்படுவான். (*ஞானமென்பது கடவுளியலைப் பற்றிய அறிவு; விஞ்ஞானமென்பது உலகியலைப் பற்றியது)",
+  "tamil": "ஒருவன் ஞானத்தினாலும், விஞ்ஞானத்தினாலும் (அனுபவ ஞானத்தினாலும்) முழு திருப்தியடையும்போது. அவன் தன்னுணர்வில் நிலைபெற்றவன் என்றும். யோகி என்றும் அழைக்கப்படுகிறான். அத்தகையோன் உன்னதத்தில் நிலைபெற்று தன்னடக்கத்துடன் உள்ளான். கூழாங்கற்களோ. கற்களோ. தங்கமோ, அவன் அனைத்தையும் சமமாகக் காண்கிறான்.",
   "english": "A person is said to be established in self-realization and is called a yogī [or mystic] when he is fully satisfied by virtue of acquired knowledge and realization. Such a person is situated in transcendence and is self-controlled. He sees everything – whether it be pebbles, stones or gold – as the same.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.9",
@@ -105,7 +113,8 @@
   "tamil": "அன்பர், நட்பார், பகைவர், ஏதிலர், நடுவர், எதிரிகள், சுற்றத்தார், நல்லோர், தீயோர் எல்லோரிடத்தும் சமபுத்தியுடையான் மேலோனாவான்.",
   "english": "A person is considered still further advanced when he regards honest well-wishers, affectionate benefactors, the neutral, mediators, the envious, friends and enemies, the pious and the sinners all with an equal mind.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-6.10",
@@ -117,7 +126,8 @@
   "tamil": "மறைவிடத்தில் இருந்து கொண்டு, தனியனாய், உள்ளத்தைக் கட்டி, ஆசையைத் துறந்து, ஏற்பது நீக்கி எப்போதும் ஆத்மாவில் யோகமுறக் கடவான்.",
   "english": "A transcendentalist should always engage his body, mind and self in relationship with the Supreme; he should live alone in a secluded place and should always carefully control his mind. He should be free from desires and feelings of possessiveness.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "bharati"
  },
  {
   "id": "BG-6.11-12",
@@ -126,10 +136,11 @@
   "reference": "6.11-12",
   "sanskrit": "श‍ुचौ देशे प्रतिष्ठाप्य स्थिरमासनमात्मन: ।\nनात्युच्छ्रितं नातिनीचं चैलाजिनकुशोत्तरम् ॥ ११ ॥\nतत्रैकाग्रं मन: कृत्वा यतचित्तेन्द्रियक्रिय ।\nउपविश्यासने युञ्‍ज्याद्योगमात्मविश‍ुद्धये ॥ १२ ॥",
   "transliteration": "śucau deśe pratiṣṭhāpya\nsthiram āsanam ātmanaḥ\nnāty-ucchritaṁ nāti-nīcaṁ\ncailājina-kuśottaramtatraikāgraṁ manaḥ kṛtvā\nyata-cittendriya-kriyaḥ\nupaviśyāsane yuñjyād\nyogam ātma-viśuddhaye",
-  "tamil": "சுத்தமான இடத்தில் அதிக உயரமில்லாமலும், அதிகத் தாழ்வில்லாமலும், துணி, மான் தோல், தர்ப்பை, இவற்றின்மீது தனக்கோர் உறுதியான ஆசனம் சமைத்துக் கொண்டு,\nஅங்கு மனதை ஒருமுகமாக்கி, உள்ளத்தையும் புறச் செயல்களையும் நன்கு கட்டுப்படுத்தி, ஆசனத்தமர்ந்து, ஆத்மா நன்கு தூய்மையடையும்படி யோகத்திலே பொருந்தக் கடவான்.",
+  "tamil": "யோகத்தைப் பயில. தனிமையான இடத்திற்குச் சென்று. நிலத்தில் தர்பைப்புல்லைப் பரப்பி அதனை மான் தோலாலும் மென்மையான துணியினாலும் மறைக்க வேண்டும். இந்த ஆசனம் மிக உயரகமாவோ, தாழ்வாகவோ இல்லாமல் புனிதமான இடத்தில் அமைந்திருக்க வேண்டும். பின்னர், இதன்மேல் ஸ்திரமாக அமர்ந்து, மனம். புலன்கள் மற்றும் செயல்களைக் கட்டுப்படுத்தி மனதை ஒருமுகப்படுத்தி, இதயத்தைத் தூய்மைப்படுத்துவதற்காக யோகியானவன் யோகத்தைப் பயில வேண்டும்.",
   "english": "To practice yoga, one should go to a secluded place and should lay kuśa grass on the ground and then cover it with a deerskin and a soft cloth. The seat should be neither too high nor too low and should be situated in a sacred place. The yogī should then sit on it very firmly and practice yoga to purify the heart by controlling his mind, senses and activities and fixing the mind on one point.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.13-14",
@@ -138,10 +149,11 @@
   "reference": "6.13-14",
   "sanskrit": "समं कायशिरोग्रीवं धारयन्नचलं स्थिर: ।\nसम्प्रेक्ष्य नासिकाग्रं स्वं दिशश्चानवलोकयन् ॥ १३ ॥\nप्रशान्तात्मा विगतभीर्ब्रह्मचारिव्रते स्थित: ।\nमन: संयम्य मच्च‍ित्तो युक्त आसीत मत्पर: ॥ १४ ॥",
   "transliteration": "samaṁ kāya-śiro-grīvaṁ\ndhārayann acalaṁ sthiraḥ\nsamprekṣya nāsikāgraṁ svaṁ\ndiśaś cānavalokayanpraśāntātmā vigata-bhīr\nbrahmacāri-vrate sthitaḥ\nmanaḥ saṁyamya mac-citto\nyukta āsīta mat-paraḥ",
-  "tamil": "உடம்பையும் தலையையும், கழுத்தையும் சமமாக அசைவின்றி வைத்துக் கொண்டு, உறுதி சான்றவனாய், மூக்கு நுனியைப் பார்த்துக் கொண்டு, திசைகளை நோக்காமல்,\nநன்கு சாந்தமெய்தியவனாய், அச்சத்தைப் போக்கி பிரம்மச்சரிய விரதத்தில் நிலைகொண்டு, மனதை வசப்படுத்தி என்னிடத்தே சித்தத்தை இசைத்து, எனக்கு ஈடுபட்டு யோகத்திலிருக்கக் கடவான்.",
+  "tamil": "தனது உடல். கழுத்து மற்றும் தலையை நேரடியாக வைத்தமர்ந்து நாசி நுனியை ஸ்திரமாக நோக்க வேண்டும். இவ்வாறாக, கிளர்ச்சியற்ற. அடக்கப்பட்ட மனதோடு, பயமின்றி, பிரம்மசரிய விரதத்துடன், இதயத்தினுள் உள்ள என்மீது தியானம் செய்து, என்னையே வாழ்வின் இறுதிக் குறிக்கோளாகக் கொள்ள வேண்டும்.",
   "english": "One should hold one’s body, neck and head erect in a straight line and stare steadily at the tip of the nose. Thus, with an unagitated, subdued mind, devoid of fear, completely free from sex life, one should meditate upon Me within the heart and make Me the ultimate goal of life.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.15",
@@ -150,10 +162,11 @@
   "reference": "6.15",
   "sanskrit": "युञ्जन्नेवं सदात्मानं योगी नियतमानस: ।\nशान्तिं निर्वाणपरमां मत्संस्थामधिगच्छति ॥ १५ ॥",
   "transliteration": "yuñjann evaṁ sadātmānaṁ\nyogī niyata-mānasaḥ\nśāntiṁ nirvāṇa-paramāṁ\nmat-saṁsthām adhigacchati",
-  "tamil": "இங்ஙனம் எப்போதும் மனதைக் கட்டுப்படுத்தி ஆத்மாவில் யோகமுற்றிருக்கும் யோகி, என்பதால் நிலை பெற்றதாகிய மிகச் சிறந்த விடுதலையிலுள்ள ஆறுதலையறிவான்.",
+  "tamil": "இவ்வாறாக. உடல். மனம் மற்றும் செயல்களை இடையறாது கட்டுப்படுத்தப் பழகிய யோகி, தனது ஒழுங்குபடுத்தப்பட்ட மனதுடன் பெளதிக வாழ்வைக் களைந்து இறைவனின் திருநாட்டை (கிருஷ்ண லோகத்தை) அடைகிறான்.",
   "english": "Thus practicing constant control of the body, mind and activities, the mystic transcendentalist, his mind regulated, attains to the kingdom of God [or the abode of Kṛṣṇa] by cessation of material existence.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.16",
@@ -162,10 +175,11 @@
   "reference": "6.16",
   "sanskrit": "नात्यश्न‍तस्तु योगोऽस्ति न चैकान्तमनश्न‍त: ।\nन चातिस्वप्‍नशीलस्य जाग्रतो नैव चार्जुन ॥ १६ ॥",
   "transliteration": "nāty-aśnatas tu yogo ’sti\nna caikāntam anaśnataḥ\nna cāti-svapna-śīlasya\njāgrato naiva cārjuna",
-  "tamil": "மிகைபட உண்போனுக்கு யோகமில்லை; உணவற்றோனுக்கு ஏகாந்தநிலை எய்தாது. மிகுதியாக உறங்குவோனுக்குமில்லை; அர்ஜுனா! மிகுதியாக விழிப்போனுக்கும் அஃதில்லை.",
+  "tamil": "அர்ஜுனா, எவனொருவன் மிக அதிகமாக அல்லது மிகக் குறைவாக உண்கின்றானோ, மிக அதிகமாக அல்லது மிகக் குறைவாக உறங்குகின்றானோ, அத்தகையோன் யோகியாவதற்கான வாய்ப்பே இல்லை.",
   "english": "There is no possibility of one’s becoming a yogī, O Arjuna, if one eats too much or eats too little, sleeps too much or does not sleep enough.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-041",
@@ -174,12 +188,13 @@
   "reference": "6.17",
   "audioSrc": "/audio/6.17.mp3",
   "sanskrit": "युक्ताहारविहारस्य युक्तचेष्टस्य कर्मसु।\n\nयुक्तस्वप्नावबोधस्य योगो भवति दुःखहा।।6.17।।",
-  "tamil": "ஒழுங்குக்கு உட்பட்ட உணவும், விளையாட்டும் உடையோனாய், வினைகளில் ஒழுங்குக்குட்பட்ட நடைகளுடையவனாய், உறக்கத்திலும் விழிப்பிலும் ஒழுங்குக்குட்பட்டானாயின், அவனுடைய யோகம் துயரை அழிக்கிறது.",
+  "tamil": "உண்ணுதல், உறங்குதல், உழைத்தல், கேளிக்கை ஆகிய பழக்கங்களை நெறிப்படுத்தியவன். யோகப் பயிற்சியின் மூலமாக எல்லாத் துன்பங்களையும் பெருமளவில் நீக்கிவிட முடியும்.",
   "transliteration": "yuktāhāra-vihārasya\nyukta-ceṣṭasya karmasu\nyukta-svapnāvabodhasya\nyogo bhavati duḥkha-hā",
   "english": "He who is temperate in his habits of eating, sleeping, working and recreation can mitigate all material pains by practicing the yoga system.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.18",
@@ -188,10 +203,11 @@
   "reference": "6.18",
   "sanskrit": "यदा विनियतं चित्तमात्मन्येवावतिष्ठते ।\nनिस्पृह: सर्वकामेभ्यो युक्त इत्युच्यते तदा ॥ १८ ॥",
   "transliteration": "yadā viniyataṁ cittam\nātmany evāvatiṣṭhate\nnispṛhaḥ sarva-kāmebhyo\nyukta ity ucyate tadā",
-  "tamil": "உள்ளம் கட்டுக்கடங்கித் தனதுள்ளேயே நிலைபெற ஒருவன் எந்த விருப்பத்திலும் வீழ்ச்சியற்றானாயின், யோகமுற்றா னெனப்படுவான்.",
+  "tamil": "யோகியானவன், யோகப் பயிற்சியின் மூலமாக தனது மனதின் செயல்களை ஒழுங்குபடுத்தி, எல்லா ஜட ஆசைகளிலிருந்தும் விடுபட்டு, உன்னதத்தில் நிலைபெறும்போது, யோகத்தில் நன்கு நிலைபெற்றவனாகக் கூறப்படுகின்றான்.",
   "english": "When the yogī, by practice of yoga, disciplines his mental activities and becomes situated in transcendence – devoid of all material desires – he is said to be well established in yoga.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.19",
@@ -200,10 +216,11 @@
   "reference": "6.19",
   "sanskrit": "यथा दीपो निवातस्थो नेङ्गते सोपमा स्मृता ।\nयोगिनो यतचित्तस्य युञ्जतो योगमात्मन: ॥ १९ ॥",
   "transliteration": "yathā dīpo nivāta-stho\nneṅgate sopamā smṛtā\nyogino yata-cittasya\nyuñjato yogam ātmanaḥ",
-  "tamil": "சித்தத்தைக் கட்டி ஆத்ம யோகத்தில் கலந்து நிற்கும் யோகிக்குக் காற்றில்லாத இடத்தில் அசைவின்றி நிற்கும் விளக்கை முன்னோர் உவமையாகக் காட்டினர்.",
+  "tamil": "காற்று வீசாத இடத்திலுள்ள தீபம், அசையாமல் இருப்பதைப்போல. மனதை அடக்கிய யோகியும், திவ்யமான ஆத்மாவின் மீதான தனது தியானத்தில் எப்போதும் ஸ்திரமாக உள்ளான்.",
   "english": "As a lamp in a windless place does not waver, so the transcendentalist, whose mind is controlled, remains always steady in his meditation on the transcendent Self.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.20-23",
@@ -212,10 +229,11 @@
   "reference": "6.20-23",
   "sanskrit": "यत्रोपरमते चित्तं निरुद्धं योगसेवया ।\nयत्र चैवात्मनात्मानं पश्यन्नात्मनि तुष्यति ॥ २० ॥\nसुखमात्यन्तिकं यत्तद्‍बुद्धिग्राह्यमतीन्द्रियम् ।\nवेत्ति यत्र न चैवायं स्थितश्चलति तत्त्वत: ॥ २१ ॥\nयं लब्ध्वा चापरं लाभं मन्यते नाधिकं तत: ।\nयस्मिन्स्थितो न दु:खेन गुरुणापि विचाल्यते ॥ २२ ॥\nतं विद्याद्दु:खसंयोगवियोगं योगसंज्ञितम् ॥ २३ ॥",
   "transliteration": "yatroparamate cittaṁ\nniruddhaṁ yoga-sevayā\nyatra caivātmanātmānaṁ\npaśyann ātmani tuṣyatisukham ātyantikaṁ yat tad\nbuddhi-grāhyam atīndriyam\nvetti yatra na caivāyaṁ\nsthitaś calati tattvataḥyaṁ labdhvā cāparaṁ lābhaṁ\nmanyate nādhikaṁ tataḥ\nyasmin sthito na duḥkhena\nguruṇāpi vicālyatetaṁ vidyād duḥkha-saṁyoga-\nviyogaṁ yoga-saṁjñitam",
-  "tamil": "எங்கு சித்தம் யோக ஒழுக்கத்தில் பிடிப்புற்று ஆறுதலெய்துமோ, எங்கு ஆத்மாவினால் ஆத்மாவை யறிந்து ஒருவன் ஆத்மாவில் மகிழ்ச்சி யடைகிறானோ,\nபுத்தியால் தீண்டத்தக்கதும், புலன்களைக் கடந்து நிற்பதுமாகிய பேரின்பத்தை எங்குக் காண்பானோ, எங்கு நிலைபெறுவதால் இவன் உண்மையினின்றும் வழுவுவதில்லையோ,\nஎத்தனை யெய்தியபின் அதைக் காட்டிலும் பெரிய லாபம் வேறிருப்பதாகக் கருத மாட்டானோ, எங்கு நிலை பெறுவதால் பெரிய துக்கத்தாலும் சலிப்பெய்த மாட்டானோ,\nஅந்நிலையே துன்பத்துடன் கலத்தலை விடுதலாகிய யோக நிலையென்று உணர். உள்ளத்தில் ஏக்கமின்றி உறுதியுடன் அந்த யோகத்தை ஒருவன் பற்றி நிற்கக் கடவான்.",
+  "tamil": "ஸமாதி என்றழைக்கப்படும் பக்குவநிலையில், மனம் யோகப் பயிற்சியின் மூலமாக. ஜட செயல்களிலிருந்து முழுமையாக விலக்கப்படுகிறது. தூய மனதால் தன்னைக் கண்டு. தன்னில் இன்பத்தை அனுபவிப்பதற்கு ஒருவனிடம் உள்ள திறனிலிருந்து இப்பக்குவ நிலையை உணரலாம். அந்த இன்பநிலையில், அவன் திவ்யமான புலன்களின் மூலம் எல்லையற்ற திவ்யமான ஆனந்தத்தை அனுபவிக்கிறான். இவ்வாறு நிலை பெற்றவன், உண்மையிலிருந்து என்றும் வழுவுவதிலலை. இதைவிட உயர்ந்த இலாபம் ஏதுமில்லை என்று நினைக்கிறான். அத்தகு நிலையில் அமைந்தவன். மாபெரும் துயரங்களுக்கு மத்தியிலும் ஒருபோதும் அசைக்கப்படூுவதில்லை. இதுவே ஜடத் தொடர்பினால் எழும் எல்லாத் துன்பங்களிலிருந்து பெறப்படும் உண்மையான விடுதலையாகும்.",
   "english": "In the stage of perfection called trance, or samādhi, one’s mind is completely restrained from material mental activities by practice of yoga. This perfection is characterized by one’s ability to see the Self by the pure mind and to relish and rejoice in the Self. In that joyous state, one is situated in boundless transcendental happiness, realized through transcendental senses. Established thus, one never departs from the truth, and upon gaining this he thinks there is no greater gain. Being situated in such a position, one is never shaken, even in the midst of greatest difficulty. This indeed is actual freedom from all miseries arising from material contact.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.24",
@@ -224,10 +242,11 @@
   "reference": "6.24",
   "sanskrit": "स निश्चयेन योक्तव्यो योगोऽनिर्विण्णचेतसा ।\nसङ्कल्पप्रभवान्कामांस्त्यक्त्वा सर्वानशेषत: ।\nमनसैवेन्द्रियग्रामं विनियम्य समन्तत: ॥ २४ ॥",
   "transliteration": "sa niścayena yoktavyo\nyogo ’nirviṇṇa-cetasā\nsaṅkalpa-prabhavān kāmāṁs\ntyaktvā sarvān aśeṣataḥmanasaivendriya-grāmaṁ\nviniyamya samantataḥ",
-  "tamil": "*சங்கல்பத்தினின்றும் (*சங்கல்பம்=மனத்தீர்மானம்) எழும் எல்லா விருப்பங்களையும் மிச்சமறத் துறந்துவிட்டு எல்லாப் பக்கங்களிலும் மனத்தால் இந்திரியக் குழாத்தைக் கட்டுப் படுத்தி,",
+  "tamil": "யோகப் பயிற்சியில் உறுதியுடனும் நம்பிக்கையுடனும் பாதையிலிருந்து பிறழாமலும் ஈடுபட வேண்டும். மனக் கற்பனையால் பிறந்த எல்லா ஜட ஆசைகளையும் துறந்து, எல்லா பக்கங்களிலிருந்தும் அனைத்துப் புலன்களையும் மனதால் அடக்க வேண்டும்.",
   "english": "One should engage oneself in the practice of yoga with determination and faith and not be deviated from the path. One should abandon, without exception, all material desires born of mental speculation and thus control all the senses on all sides by the mind.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.25",
@@ -236,10 +255,11 @@
   "reference": "6.25",
   "sanskrit": "शनै: शनैरुपरमेद्‍बुद्ध्या धृतिगृहीतया ।\nआत्मसंस्थं मन: कृत्वा न किञ्चिदपि चिन्तयेत् ॥ २५ ॥",
   "transliteration": "śanaiḥ śanair uparamed\nbuddhyā dhṛti-gṛhītayā\nātma-saṁsthaṁ manaḥ kṛtvā\nna kiñcid api cintayet",
-  "tamil": "துணிந்த மதியுடன் மனதை ஆத்மாவில் நிறுத்தி மெல்ல மெல்ல ஆறுதல் பெறக் கடவான்; எதற்கும் கவலையுறாதிருக்கக் கடவான்.",
+  "tamil": "வலுவான நம்பிக்கையுடன் கூடிய புத்தியின் மூலம், படிப்படியாக ஸமாதியில் நிலைபெற வேண்டும். இவ்வாறு மனம் தன்னில் மட்டுமே நிலைப்படுத்தப்பட்டு வேறெதையும் சிந்திக்காமல் இருக்க வேண்டும்.",
   "english": "Gradually, step by step, one should become situated in trance by means of intelligence sustained by full conviction, and thus the mind should be fixed on the Self alone and should think of nothing else.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.26",
@@ -248,10 +268,11 @@
   "reference": "6.26",
   "sanskrit": "यतो यतो निश्चलति मनश्चञ्चलमस्थिरम् ।\nततस्ततो नियम्यैतदात्मन्येव वशं नयेत् ॥ २६ ॥",
   "transliteration": "yato yato niścalati\nmanaś cañcalam asthiram\ntatas tato niyamyaitad\nātmany eva vaśaṁ nayet",
-  "tamil": "எங்கெங்கே மனம் சஞ்சலமாய் உறுதியின்றி உழலுகிறதோ, அங்கங்கே அதைக் கட்டுப்படுத்தி ஆத்மாவுக்கு வசமாக்கிக் கொள்க.",
+  "tamil": "மனம் தனது சஞ்சலமான நிலையற்ற தன்மையால் எங்கெல்லாம் சஞ்சரிக்கின்றதோ, அங்கிருந்தெல்லாம் மனதை இழுத்து மீண்டும் தன் கட்டுப்பாட்டிற்குள் கொண்டு வர வேண்டும்.",
   "english": "From wherever the mind wanders due to its flickering and unsteady nature, one must certainly withdraw it and bring it back under the control of the Self.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.27",
@@ -260,10 +281,11 @@
   "reference": "6.27",
   "sanskrit": "प्रशान्तमनसं ह्येनं योगिनं सुखमुत्तमम् ।\nउपैति शान्तरजसं ब्रह्मभूतमकल्मषम् ॥ २७ ॥",
   "transliteration": "praśānta-manasaṁ hy enaṁ\nyoginaṁ sukham uttamam\nupaiti śānta-rajasaṁ\nbrahma-bhūtam akalmaṣam",
-  "tamil": "மனம் சாந்தமாய், ரஜோ குணம் ஆறி, மாசு நீங்கி, பிரம்மமேயாகிய இந்த யோகிக்கு மிகச் சிறந்த இன்பம் கிடைக்கிறது.",
+  "tamil": "என் மீது மனதை நிறுத்திய யோகி நிச்சயமாக உத்தம சுகம் எனும் உயர் பக்குவத்தை அடைகிறான். ரஜோ குணத்தைக் கடந்த அவன். பிரம்மனிடம் உள்ள தனது குண ஒற்றுமையை உணார்வதன் மூலம் தனது முந்தைய செயல்களின் விளைவுகளிலிருந்து விடுபடுகிறான்.",
   "english": "The yogī whose mind is fixed on Me verily attains the highest perfection of transcendental happiness. He is beyond the mode of passion, he realizes his qualitative identity with the Supreme, and thus he is freed from all reactions to past deeds.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.28",
@@ -272,10 +294,11 @@
   "reference": "6.28",
   "sanskrit": "युञ्जन्नेवं सदात्मानं योगी विगतकल्मष: ।\nसुखेन ब्रह्मसंस्पर्शमत्यन्तं सुखमश्न‍ुते ॥ २८ ॥",
   "transliteration": "yuñjann evaṁ sadātmānaṁ\nyogī vigata-kalmaṣaḥ\nsukhena brahma-saṁsparśam\natyantaṁ sukham aśnute",
-  "tamil": "குற்றங்களைப் போக்கி இங்ஙனம் எப்போதும் ஆத்மாவில் கலப்புற்றிருப்பானாயின், அந்த யோகி பிரம்மத்தைத் தொடுவதாகிய மிக உயர்ந்த இன்பத்தை எளிதில் துய்க்கிறான்.",
+  "tamil": "இவ்வாறாக. சுயக் கட்டுப்பாடுடைய யோகி, இடைவிடாத யோகப் பயிற்சியினால். எல்லா ஜடக் களங்கத்திலிருந்தும் விடுபட்டு, இறைவனின் திவ்யமான அன்புத் தொண்டில் பக்குவமான சுகத்தின் உன்னத நிலையை அடைகிறான்.",
   "english": "Thus the self-controlled yogī, constantly engaged in yoga practice, becomes free from all material contamination and achieves the highest stage of perfect happiness in transcendental loving service to the Lord.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.29",
@@ -284,10 +307,11 @@
   "reference": "6.29",
   "sanskrit": "सर्वभूतस्थमात्मानं सर्वभूतानि चात्मनि ।\nईक्षते योगयुक्तात्मा सर्वत्र समदर्शन: ॥ २९ ॥",
   "transliteration": "sarva-bhūta-stham ātmānaṁ\nsarva-bhūtāni cātmani\nīkṣate yoga-yuktātmā\nsarvatra sama-darśanaḥ",
-  "tamil": "யோகத்தில் கலந்தவன் எங்கும் சமப் பார்வையுடையவனாய், எல்லா உயிர்களிடத்தும் தானிருப்பதையும், தன்னுள் எல்லா உயிர்களுமிருப்பதையும் காணுகிறான்.",
+  "tamil": "உண்மை யோகி, என்னை எல்லா உயிர்களிலும். எண்ணில் எல்லா உயிர்களையும் காண்கிறான். உண்மையில். தன்னுணர்வுடையவன் பரம புருஷரான என்னையே எங்கும் காண்கிறான்.",
   "english": "A true yogī observes Me in all beings and also sees every being in Me. Indeed, the self-realized person sees Me, the same Supreme Lord, everywhere.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.30",
@@ -296,10 +320,11 @@
   "reference": "6.30",
   "sanskrit": "यो मां पश्यति सर्वत्र सर्वं च मयि पश्यति ।\nतस्याहं न प्रणश्यामि स च मे न प्रणश्यति ॥ ३० ॥",
   "transliteration": "yo māṁ paśyati sarvatra\nsarvaṁ ca mayi paśyati\ntasyāhaṁ na praṇaśyāmi\nsa ca me na praṇaśyati",
-  "tamil": "எவன் எங்கும் என்னைக் காண்கிறானோ, எல்லாப் பொருள்களையும் என்னிடத்தே காண்கிறானோ, அவனுக்கு நான் அழியமாட்டேன்; எனக்கவன் அழிய மாட்டான்.",
+  "tamil": "என்னை எல்லா இடங்களிலும். எல்லாவற்றையும் என்னிலும் காண்பவன் என்னை ஒருபோதும் இழப்பதில்லை. நானும் அவனை ஒருபோதும் இழப்பதில்லை.",
   "english": "For one who sees Me everywhere and sees everything in Me, I am never lost, nor is he ever lost to Me.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.31",
@@ -308,10 +333,11 @@
   "reference": "6.31",
   "sanskrit": "सर्वभूतस्थितं यो मां भजत्येकत्वमास्थित: ।\nसर्वथा वर्तमानोऽपि स योगी मयि वर्तते ॥ ३१ ॥",
   "transliteration": "sarva-bhūta-sthitaṁ yo māṁ\nbhajaty ekatvam āsthitaḥ\nsarvathā vartamāno ’pi\nsa yogī mayi vartate",
-  "tamil": "ஒருமையில் நிலை கொண்டவனாய் எல்லா உயிர்களிடத்திலுள்ள என்னைத் தொழுவோன் யாங்கணும் சென்ற போதிலும், அந்த யோகி என்னுள்ளேயே இயலுகிறான்.",
+  "tamil": "பரமாத்மாவின் தொண்டில் ஈடுபடும் அத்தகு யோகி, நானும் பரமாத்மாவும் ஒருவரே என்பதை அறிந்து, எல்லா சூழ்நிலைகளிலும் எப்போதும் என்னில் நிலைக்கிறான்.",
   "english": "Such a yogī, who engages in the worshipful service of the Supersoul, knowing that I and the Supersoul are one, remains always in Me in all circumstances.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.32",
@@ -320,10 +346,11 @@
   "reference": "6.32",
   "sanskrit": "आत्मौपम्येन सर्वत्र समं पश्यति योऽर्जुन ।\nसुखं वा यदि वा दु:खं स योगी परमो मत: ॥ ३२ ॥",
   "transliteration": "ātmaupamyena sarvatra\nsamaṁ paśyati yo ’rjuna\nsukhaṁ vā yadi vā duḥkhaṁ\nsa yogī paramo mataḥ",
-  "tamil": "இன்பமாயினும், துன்பமாயினும் -- எதிலும் ஆத்ம சமத்துவம் பற்றி சமப்பார்வை செலுத்துவானாயின், அவன் பரம யோகியாகக் கருதப்படுவான்.",
+  "tamil": "அர்ஜுனா. எவனொருவன் எல்லா உயிர்களுடைய சுக துக்கங்களை தன்னுடன் ஒப்பிட்டுக் காண்கிறானோ, அவன் பரம யோகியாகக் கருதப்படுகிறான்.",
   "english": "He is a perfect yogī who, by comparison to his own self, sees the true equality of all beings, in both their happiness and their distress, O Arjuna!",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.33",
@@ -332,10 +359,11 @@
   "reference": "6.33",
   "sanskrit": "अर्जुन उवाच\nयोऽयं योगस्त्वया प्रोक्त: साम्येन मधुसूदन ।\nएतस्याहं न पश्यामि चञ्चलत्वात्स्थितिं स्थिराम् ॥ ३३ ॥",
   "transliteration": "arjuna uvāca\nyo ’yaṁ yogas tvayā proktaḥ\nsāmyena madhusūdana\netasyāhaṁ na paśyāmi\ncañcalatvāt sthitiṁ sthirām",
-  "tamil": "மதுசூதனா! இங்ஙனம் நீ சமத்துவத்தால் ஏற்படுவதாகச் சொல்லிய யோகம், ஸ்திரமான நிலையுடையதாக எனக்குத் தோன்றவில்லை, எனது சஞ்சலத் தன்மையால்.",
+  "tamil": "அர்ஜுனன் கூறினான்: மதுததனரே, மனம் நிலையற்றதும் அமைதியற்றதும் ஆனதால், நீங்கள் இப்போது கூறிய யோக முறையானது நடைமுறைக்கு ஒத்துவராததாகவும் தாங்க முடியாததுமாகத் தோன்றுகிறது.",
   "english": "Arjuna said: O Madhusūdana, the system of yoga which You have summarized appears impractical and unendurable to me, for the mind is restless and unsteady.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.34",
@@ -344,10 +372,11 @@
   "reference": "6.34",
   "sanskrit": "चञ्चलं हि मन: कृष्ण प्रमाथि बलवद्दृढम् ।\nतस्याहं निग्रहं मन्ये वायोरिव सुदुष्करम् ॥ ३४ ॥",
   "transliteration": "cañcalaṁ hi manaḥ kṛṣṇa\npramāthi balavad dṛḍham\ntasyāhaṁ nigrahaṁ manye\nvāyor iva su-duṣkaram",
-  "tamil": "கண்ணா! மனம் சஞ்சலமுடையது; தவறும் இயல்பினது, வலியது; உரனுடையது. அதைக் கட்டுப்படுத்துதல் காற்றைக் கட்டுவதுபோல் மிகவும் கஷ்டமான செய்கையென்று நான் மதிக்கிறேன்.",
+  "tamil": "கிருஷ்ணா, மனம் அமையதியற்றதும். குழப்பம் நிறைந்ததும், அடங்காததும், சக்தி மிகுந்ததுமாயிற்றே. வீசும் காற்றை அடக்குவதைவிட மனதை அடக்குவது கடினமானதாக எனக்குத் தோன்றுகின்றது.",
   "english": "The mind is restless, turbulent, obstinate and very strong, O Kṛṣṇa, and to subdue it, I think, is more difficult than controlling the wind.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.35",
@@ -356,10 +385,11 @@
   "reference": "6.35",
   "sanskrit": "श्रीभगवानुवाच\nअसंशयं महाबाहो मनो दुर्निग्रहं चलम् ।\nअभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते ॥ ३५ ॥",
   "transliteration": "śrī-bhagavān uvāca\nasaṁśayaṁ mahā-bāho\nmano durnigrahaṁ calam\nabhyāsena tu kaunteya\nvairāgyeṇa ca gṛhyate",
-  "tamil": "பெருந்தோளாய்! மனம் கட்டுதற்கரியதுதான், சலனமுடையதுதான்; ஐயமில்லை. ஆனால் குந்தியின் மகனே! அதைப் பழக்கத்தாலும், விருப்பின்மையாலும் கட்டி விடலாம்.",
+  "tamil": "பகவான் ஸ்ரீ கிருஷ்ணர் கூறினார்: பலம் பொருந்திய புயங்களை உடைய குந்தியின் மகனே, அமைதியற்ற மனதை அடக்குவது சந்தேகமின்றி மிகவும் கடினமே. ஆனால் தகுந்த பயிற்சியினாலும் பற்றின்மையாலும் அது சாத்தியமாகும்.",
   "english": "Lord Śrī Kṛṣṇa said: O mighty-armed son of Kuntī, it is undoubtedly very difficult to curb the restless mind, but it is possible by suitable practice and by detachment.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.36",
@@ -368,10 +398,11 @@
   "reference": "6.36",
   "sanskrit": "असंयतात्मना योगो दुष्प्राप इति मे मति: ।\nवश्यात्मना तु यतता शक्योऽवाप्‍तुमुपायत: ॥ ३६ ॥",
   "transliteration": "asaṁyatātmanā yogo\nduṣprāpa iti me matiḥ\nvaśyātmanā tu yatatā\nśakyo ’vāptum upāyataḥ",
-  "tamil": "தன்னைக் கட்டாதவன் யோகமெய்துதல் அரிதென்று நான் கருதுகிறேன். தன்னைக் கட்டியவன், முயற்சியாலும் உபாயத்தாலும் அதனை எய்த வல்லான்.",
+  "tamil": "கட்டுப்படாத மனதைக் கொண்டவனுக்கு தன்னை உணாதல் கடினமானச் செயலாகும். ஆனால் மனதைக் கட்டுப்படுத்தி, சரியான வழியில் முயல்பவனுக்கு வெற்றி நிச்சயம். இதுவே என் அபிப்பிராயம்.",
   "english": "For one whose mind is unbridled, self-realization is difficult work. But he whose mind is controlled and who strives by appropriate means is assured of success. That is My opinion.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.37",
@@ -380,10 +411,11 @@
   "reference": "6.37",
   "sanskrit": "अर्जुन उवाच\nअयति: श्रद्धयोपेतो योगाच्च‍‍लितमानस: ।\nअप्राप्य योगसंसिद्धिं कां गतिं कृष्ण गच्छति ॥ ३७ ॥",
   "transliteration": "arjuna uvāca\nayatiḥ śraddhayopeto\nyogāc calita-mānasaḥ\naprāpya yoga-saṁsiddhiṁ\nkāṁ gatiṁ kṛṣṇa gacchati",
-  "tamil": "நம்பிக்கை யுடையோயெனினும், தன்னைக் கட்டாமையால் யோகத்தினின்றும் மனம் வழுவியவன் யோகத்தில் தோற்றுப்போய், அப்பால் என்ன கதியடைகிறான், கண்ணா?",
+  "tamil": "அர்ஜுனன் வினாவினான்: கிருஷ்ணா, தன்னுணர்வுப் பாதையினை நம்பிக்கையுடன் ஆரம்பத்தில் மேற்கொண்டு, பிறகு உலக எண்ணங்களினால் அதனை நிறுத்திவிடுபவன். யோகத்தின் பக்குவ நிலையை அடைவதில்லை. அத்தகு வெற்றியடையாத ஆன்மீகியின் கதி என்ன?",
   "english": "Arjuna said: O Kṛṣṇa, what is the destination of the unsuccessful transcendentalist, who in the beginning takes to the process of self-realization with faith but who later desists due to worldly-mindedness and thus does not attain perfection in mysticism?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.38",
@@ -392,10 +424,11 @@
   "reference": "6.38",
   "sanskrit": "कच्च‍िन्नोभयविभ्रष्टश्छिन्नाभ्रमिव नश्यति ।\nअप्रतिष्ठो महाबाहो विमूढो ब्रह्मण: पथि ॥ ३८ ॥",
   "transliteration": "kaccin nobhaya-vibhraṣṭaś\nchinnābhram iva naśyati\napratiṣṭho mahā-bāho\nvimūḍho brahmaṇaḥ pathi",
-  "tamil": "ஒரு வேளை அவன் இரண்டுங் கெட்டவனாய், உடைந்த மேகம்போல் அழிகிறானோ? பெருந்தோளாய்! உறுதியற்றவனாய், பிரம்ம நெறியிலே குழப்பமெய்திய மூடன் யாதாகிறான்?",
+  "tamil": "பலம் பொருந்திய புயங்களை உடைய கிருஷ்ணரே. ஆன்மீகப் பாதையிலிருந்து மயங்கிய அத்தகு மனிதன், ஆன்மீகத்திலும் வெற்றியடையாமல் பெளதிகத்திலும் வெற்றியடையாமல். சிதறிய மேகம் போன்று எங்கும் இடமின்றி அழிந்து விடுவதில்லையா?",
   "english": "O mighty-armed Kṛṣṇa, does not such a man, who is bewildered from the path of transcendence, fall away from both spiritual and material success and perish like a riven cloud, with no position in any sphere?",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.39",
@@ -404,10 +437,11 @@
   "reference": "6.39",
   "sanskrit": "एतन्मे संशयं कृष्ण छेत्तुमर्हस्यशेषत: ।\nत्वदन्य: संशयस्यास्य छेत्ता न ह्युपपद्यते ॥ ३९ ॥",
   "transliteration": "etan me saṁśayaṁ kṛṣṇa\nchettum arhasy aśeṣataḥ\ntvad-anyaḥ saṁśayasyāsya\nchettā na hy upapadyate",
-  "tamil": "கண்ணா! எனக்குள்ள இந்த ஐயத்தை நீ அறுத்து விடுக. நின்னையன்றி இந்த ஐயத்தை யறுப்போர் வேறெவருமிலர்.",
+  "tamil": "கிருஷ்ணா. இதுவே என் சந்தேகம். இதை முழுமையாகத் தீர்க்குமாறு உம்மைக் கேட்டுக் கொள்கிறேன். உம்மையன்றி இந்த சந்தேகத்தை நீக்கக்கூடிய வேறு எவரையும் நான் காணவில்லை.",
   "english": "This is my doubt, O Kṛṣṇa, and I ask You to dispel it completely. But for You, no one is to be found who can destroy this doubt.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.40",
@@ -416,10 +450,11 @@
   "reference": "6.40",
   "sanskrit": "श्रीभगवानुवाच\nपार्थ नैवेह नामुत्र विनाशस्तस्य विद्यते ।\nन हि कल्याणकृत्कश्चिद्दुर्गतिं तात गच्छति ॥ ४० ॥",
   "transliteration": "śrī-bhagavān uvāca\npārtha naiveha nāmutra\nvināśas tasya vidyate\nna hi kalyāṇa-kṛt kaścid\ndurgatiṁ tāta gacchati",
-  "tamil": "பார்த்தா! அவனுக்கு இவ்வுலகிலும், மேலுலகத்திலும் அழிவில்லை; மகனே! நன்மை செய்வோன் எவனும் கெட்ட கதியடைய மாட்டான்.",
+  "tamil": "புருஷோத்தமரான முழு முதற்கடவுள் கூறினார்: பிருதாவின் மகனே, நற்செயல்களில் ஈடுபட்ட ஆன்மீகி இவ்வுலகிலோ பரவுலகிலோ அழிவை அடைவதில்லை. என் நண்பனே, நன்மையைச் செய்பவன் தீமையை அடைவதேயில்லை.",
   "english": "The Supreme Personality of Godhead said: Son of Pṛthā, a transcendentalist engaged in auspicious activities does not meet with destruction either in this world or in the spiritual world; one who does good, My friend, is never overcome by evil.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-042",
@@ -428,12 +463,13 @@
   "reference": "6.41",
   "audioSrc": "/audio/6.41.mp3",
   "sanskrit": "प्राप्य पुण्यकृतां लोकानुषित्वा शाश्वतीः समाः।\n\nशुचीनां श्रीमतां गेहे योगभ्रष्टोऽभिजायते।।6.41।।",
-  "tamil": "யோகத்தில் தவறியவன், புண்ணியம் செய்வோரின் உலகங்களை அடைந்து, அங்கு நெடுங்காலம் வாழ்ந்து, பின்னர் தூய்மையான குடும்பத்திலோ செல்வமுடைய குடும்பத்திலோ பிறக்கிறான்.",
+  "tamil": "வெற்றியடையாத யோகி, புண்ணிய ஆத்மாக்களின் லோகங்களில் பற்பல வருடங்கள் அனுபவித்தபின். நல்லோரின் குடும்பத்தில், அல்லது பெரும் செல்வந்தரின் குடும்பத்தில் பிறக்கின்றான்.",
   "transliteration": "prāpya puṇya-kṛtāṁ lokān\nuṣitvā śāśvatīḥ samāḥ\nśucīnāṁ śrīmatāṁ gehe\nyoga-bhraṣṭo ’bhijāyate",
   "english": "The unsuccessful yogī, after many, many years of enjoyment on the planets of the pious living entities, is born into a family of righteous people, or into a family of rich aristocracy.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.42",
@@ -442,10 +478,11 @@
   "reference": "6.42",
   "sanskrit": "अथवा योगिनामेव कुले भवति धीमताम् ।\nएतद्धि दुर्लभतरं लोके जन्म यदीदृशम् ॥ ४२ ॥",
   "transliteration": "atha vā yoginām eva\nkule bhavati dhīmatām\netad dhi durlabha-taraṁ\nloke janma yad īdṛśam",
-  "tamil": "அல்லது, புத்திமான்களாகிய யோகிகளில் குலத்திலேயே பிறக்கிறான். இவ்வுலகில் இது போன்ற பிறவி யெய்துதல் மிகவும் அரிது.",
+  "tamil": "அல்லது (நீண்ட கால யோகப் பயிற்சிக்குப் பின் வெற்றி அடையாதவர்) அறிவில் சிறந்து விளங்கும் ஆன்மீகிகளின் குலத்தில் பிறப்பது உறுதி. இத்தகு பிறவி நிச்சயமாக இவ்வுலகில் மிக அரிதானதாகும்.",
   "english": "Or [if unsuccessful after long practice of yoga] he takes his birth in a family of transcendentalists who are surely great in wisdom. Certainly, such a birth is rare in this world.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.43",
@@ -454,10 +491,11 @@
   "reference": "6.43",
   "sanskrit": "तत्र तं बुद्धिसंयोगं लभते पौर्वदेहिकम् ।\nयतते च ततो भूय: संसिद्धौ कुरुनन्दन ॥ ४३ ॥",
   "transliteration": "tatra taṁ buddhi-saṁyogaṁ\nlabhate paurva-dehikam\nyatate ca tato bhūyaḥ\nsaṁsiddhau kuru-nandana",
-  "tamil": "அங்கே அவன் பூர்வ சரீரத்துக்குரிய புத்தியைப் பெறுகிறான். குருநந்தனா! அப்பால் அவன் மறுபடியும் வெற்றிக்கு முயற்சி செய்கிறான்.",
+  "tamil": "குரு மைந்தனே, அத்தகு பிறவியை அடைபவன், தனது முந்தைய பிறவியின் திவ்ய உணர்வினை மீண்டும் பெற்று, பூரண வெற்றியை அடைவதற்காக, அந்நிலையிலிருந்து மேலும் முன்னேற்றமடைய முயல்கிறான்.",
   "english": "On taking such a birth, he revives the divine consciousness of his previous life, and he again tries to make further progress in order to achieve complete success, O son of Kuru.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.44",
@@ -466,10 +504,11 @@
   "reference": "6.44",
   "sanskrit": "पूर्वाभ्यासेन तेनैव ह्रियते ह्यवशोऽपि स: ।\nजिज्ञासुरपि योगस्य शब्दब्रह्मातिवर्तते ॥ ४४ ॥",
   "transliteration": "pūrvābhyāsena tenaiva\nhriyate hy avaśo ’pi saḥ\njijñāsur api yogasya\nśabda-brahmātivartate",
-  "tamil": "பண்டைப் பழக்கத்தால் அவன் தன் வசமின்றியும் இழுக்கப்படுகிறான். யோகத்தை அறிய வேண்டுமென்ற விருப்பத்தாலேயே ஒருவன் ஒலியுலகத்தைக் கடந்து செல்லுகிறான்.",
+  "tamil": "தனது பூர்வ ஜன்ம திவ்ய உணர்வின் காரணத்தால், யோகத்தின் கொள்கைகளை நாடாமலேயே, அவன் அவற்றால் இயற்கையாகக் கவரப்படுகிறான். அத்தகைய ஆர்வமுடைய ஆன்மீகி. எப்பொழுதும் சாஸ்திரங்களின் சடங்குகளிலிருந்து உயர்ந்து நிற்கிறான்.",
   "english": "By virtue of the divine consciousness of his previous life, he automatically becomes attracted to the yogic principles – even without seeking them. Such an inquisitive transcendentalist stands always above the ritualistic principles of the scriptures.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.45",
@@ -478,10 +517,11 @@
   "reference": "6.45",
   "sanskrit": "प्रयत्‍नाद्यतमानस्तु योगी संश‍ुद्धकिल्बिष: ।\nअनेकजन्मसंसिद्धस्ततो याति परां गतिम् ॥ ४५ ॥",
   "transliteration": "prayatnād yatamānas tu\nyogī saṁśuddha-kilbiṣaḥ\naneka-janma-saṁsiddhas\ntato yāti parāṁ gatim",
-  "tamil": "பாவம் நீங்கியவனாய், ஊன்றி முயல்வானேயாயின், யோகி பல பிறவிகளின் வெற்றிப் பயனாகிய பரகதியை அப்போதடைகிறான்.",
+  "tamil": "மேலும். முன்னேற்றம் பெறுவதற்கான தீவிர முயற்சியில் ஈடுபடும் யோகி, எல்லா களங்களிலிருந்தும் தூய்மை பெற்று. இறுதியில் அனேக ஜன்மங்கள் பயின்ற பிறகு. பரம கதியை அடைகிறான்.",
   "english": "And when the yogī engages himself with sincere endeavor in making further progress, being washed of all contaminations, then ultimately, achieving perfection after many, many births of practice, he attains the supreme goal.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "BG-6.46",
@@ -490,10 +530,11 @@
   "reference": "6.46",
   "sanskrit": "तपस्विभ्योऽधिको योगी ज्ञानिभ्योऽपि मतोऽधिक: ।\nकर्मिभ्यश्चाधिको योगी तस्माद्योगी भवार्जुन ॥ ४६ ॥",
   "transliteration": "tapasvibhyo ’dhiko yogī\njñānibhyo ’pi mato ’dhikaḥ\nkarmibhyaś cādhiko yogī\ntasmād yogī bhavārjuna",
-  "tamil": "தவஞ் செய்வோரைக் காட்டிலும் யோகி சிறந்தோன்; ஞானிகளிலும் அவன் சிறந்தோனாகக் கருதப் படுகிறான்; கர்மிகளிலும் அவன் சிறந்தோன்; ஆதலால் அர்ஜுனா! யோகியாகுக.",
+  "tamil": "தவம்புரிபவன். ஞானி. மற்றும் பலனை எதிர்பார்த்து செயல்படுபவனைக் காட்டிலும். யோகி சிறந்தவனாவான். எனவே, அர்ஜுனா. எல்லாச் சூழ்நிலைகளிலும் யோகியாக இருப்பாயாக.",
   "english": "A yogī is greater than the ascetic, greater than the empiricist and greater than the fruitive worker. Therefore, O Arjuna, in all circumstances, be a yogī.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-  "important": false
+  "important": false,
+  "tamilSource": "book"
  },
  {
   "id": "GS-043",
@@ -502,11 +543,12 @@
   "reference": "6.47",
   "audioSrc": "/audio/6.47.mp3",
   "sanskrit": "योगिनामपि सर्वेषां मद्गतेनान्तरात्मना।\n\nश्रद्धावान्भजते यो मां स मे युक्ततमो मतः।।6.47।।",
-  "tamil": "மற்றெந்த யோகிகளெல்லாரிலும், எவனொருவன் அந்தராத்மாவில் என்னைப் புகுத்தி என்னை நம்பிக்கையுடன் போற்றுகிறானோ அவன், மிக மேலான யோகியென்பது என்னுடைய கொள்கை.",
+  "tamil": "மேலும், எல்லா யோகிகளுக்கு மத்தியில், எவனொருவன் பெரும் நம்பிக்கையுடன் எப்போதும் என்னில் நிலைத்து. தன்னுள் என்னை எண்ணி. எனக்கு திவ்யமான அன்புத் தொண்டு புரிகின்றானோ, அவனே யோகத்தில் என்னுடன் மிகவும் நெருங்கியவனும் எல்லாரையும்விட உயர்ந்தவனும் ஆவான். இதுவே எனது அபிப்பிராயம்.",
   "transliteration": "yoginām api sarveṣāṁ\nmad-gatenāntar-ātmanā\nśraddhāvān bhajate yo māṁ\nsa me yuktatamo mataḥ",
   "english": "And of all yogīs, he who always abides in Me with great faith, worshiping Me in transcendental loving service, is most intimately united with Me in yoga and is the highest of all.",
   "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
   "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
-  "important": true
+  "important": true,
+  "tamilSource": "book"
  }
 ]

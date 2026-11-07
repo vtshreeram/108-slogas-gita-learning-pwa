@@ -7,6 +7,8 @@ export type Shloka = {
   reference: string;
   sanskrit: string;
   tamil: string;
+  /** Where `tamil` comes from: the Tamil book (default) or Bharati's edited translation (fallback when the book's OCR text was unusable). */
+  tamilSource?: "book" | "bharati";
   transliteration: string;
   english: string;
   translationAuthor: string;
@@ -16,9 +18,18 @@ export type Shloka = {
 
 export const SHLOKA_SOURCE = "https://prabhupadagita.com/2012/10/17/108-imporant-slokas-from-the-1972-bhagavad-gita-as-it-is/";
 
-// Tamil text is an edited edition; see docs/translation-sources.md.
-export const TAMIL_TRANSLATION_AUTHOR = "சுப்பிரமணிய பாரதியார் — திருத்திய பதிப்பு";
+// Tamil text comes from the Tamil edition of Bhagavad-gītā As It Is (OCR'd book in docs/);
+// a few verses keep Subramania Bharati's edited translation. See docs/translation-sources.md.
+export const TAMIL_TRANSLATION_AUTHOR = "பகவத் கீதை உண்மையுருவில் — தமிழ் பதிப்பு";
+export const TAMIL_BHARATI_AUTHOR = "சுப்பிரமணிய பாரதியார் — திருத்திய பதிப்பு";
 export const TAMIL_TRANSLATION_SOURCE = "https://www.projectmadurai.org/pm_etexts/utf8/pmuni0529.html";
+
+/** Credit line (and link, if any) for a verse's Tamil text. */
+export function tamilCredit(s: Pick<Shloka, "tamilSource">): { label: string; href?: string } {
+  return s.tamilSource === "bharati"
+    ? { label: TAMIL_BHARATI_AUTHOR, href: TAMIL_TRANSLATION_SOURCE }
+    : { label: TAMIL_TRANSLATION_AUTHOR };
+}
 export const ENGLISH_TRANSLATION_SOURCE = "https://vedabase.io/en/library/bg/";
 
 export const SHLOKAS: Shloka[] = [
@@ -29,11 +40,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "1.1",
     "audioSrc": "/audio/1.1.mp3",
     "sanskrit": "धृतराष्ट्र उवाच\n\nधर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः।\n\nमामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय।।1.1।।",
-    "tamil": "திருதராஷ்டிரன் சொன்னான்: சஞ்ஜயா, அறநிலமாகிய குரு நிலத்தில் போர்செய்ய விரும்பித் திரண்ட நம்மவர்களும் பாண்டவரும் என்ன செய்தனர்?",
+    "tamil": "திருதராஷ்ட்டீரர் கூறினார்: புண்ணிய யாத்திரைத் தலமான குருக்ஷேத்திரத்தில் போர்ப் புரிய விருப்பம் கொண்டு ஒன்று கூடிய பிறகு, என் மகன்களும். பாண்டுவின் புதல்வரும் என்ன செய்தனர் சஞ்ஜயனே?",
     "transliteration": "dhṛtarāṣṭra uvāca\ndharma-kṣetre kuru-kṣetre\nsamavetā yuyutsavaḥ\nmāmakāḥ pāṇḍavāś caiva\nkim akurvata sañjaya",
     "english": "Dhṛtarāṣṭra said: O Sañjaya, after assembling in the place of pilgrimage at Kurukṣetra, what did my sons and the sons of Pāṇḍu do, being desirous to fight?",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-002",
@@ -42,11 +54,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.7",
     "audioSrc": "/audio/2.7.mp3",
     "sanskrit": "कार्पण्यदोषोपहतस्वभावः\n\nपृच्छामि त्वां धर्मसंमूढचेताः।\n\nयच्छ्रेयः स्यान्निश्िचतं ब्रूहि तन्मे\n\nशिष्यस्तेऽहं शाधि मां त्वां प्रपन्नम्।।2.7।।",
-    "tamil": "சிறுமையாகிய குறையால் என் இயல்பு தளர்ந்து, அறம் இன்னது என்றுணராமல் மயங்கிய அறிவுடன், யான் உன்னைக் கேட்கிறேன். எது நன்றென்பதை எனக்கு நிச்சயப்படுத்திச் சொல்லுக. நான் உன் சீடன். உன்னையே சரணமெனப் புகுந்தேன். எனக்கு உபதேசம் செய்க.",
+    "tamil": "இப்போது நான் என் கடமையைப் பற்றிக் குழப்பமடைந்து, கருமித்தனமான பலவீனத்தால் என் இயல்புகளையெல்லாம் இழந்து விட்டேன். இந்நிலையில் எனக்கு நல்லது எது என்று நிச்சயமாக கூறும்படி உம்மைக் கேட்டுக் கொள்கிறேன். இப்போது உம்மிடம் சரணடைந்த சீடன் நான். அருள் கூர்ந்து எனக்கு அறிவுரை கூறுவிராக.",
     "transliteration": "kārpaṇya-doṣopahata-svabhāvaḥ\npṛcchāmi tvāṁ dharma-sammūḍha-cetāḥ\nyac chreyaḥ syān niścitaṁ brūhi tan me\nśiṣyas te ’haṁ śādhi māṁ tvāṁ prapannam",
     "english": "Now I am confused about my duty and have lost all composure because of weakness. In this condition I am asking You to tell me clearly what is best for me. Now I am Your disciple, and a soul surrendered unto You. Please instruct me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-003",
@@ -55,11 +68,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.11",
     "audioSrc": "/audio/2.11.mp3",
     "sanskrit": "श्री भगवानुवाच\n\nअशोच्यानन्वशोचस्त्वं प्रज्ञावादांश्च भाषसे।\n\nगतासूनगतासूंश्च नानुशोचन्ति पण्डिताः।।2.11।।",
-    "tamil": "ஸ்ரீபகவான் சொன்னான்: துயர்ப்படத் தகாதார் பொருட்டுத் துயர்ப்படுகின்றாய்! ஞான உரைகளும் உரைக்கின்றாய்! இறந்தார்க்கேனும் இருந்தார்க்கேனும் துயர் கொளார் அறிஞர்.",
+    "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: அறிவாளியைப் போல பேசும் அதே சமயத்தில் கவலைப்பட வேண்டாதவற்றிற்காக நீ கவலைப்படுகிறாய். அறிஞர் வாழ்பவர்களுக்காகவோ., மாண்டவர்களுக்காகவோ வருந்துவதில்லை.",
     "transliteration": "śrī-bhagavān uvāca\naśocyān anvaśocas tvaṁ\nprajñā-vādāṁś ca bhāṣase\ngatāsūn agatāsūṁś ca\nnānuśocanti paṇḍitāḥ",
     "english": "The Supreme Personality of Godhead said: While speaking learned words, you are mourning for what is not worthy of grief. Those who are wise lament neither for the living nor for the dead.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-004",
@@ -68,11 +82,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.12",
     "audioSrc": "/audio/2.12.mp3",
     "sanskrit": "न त्वेवाहं जातु नासं न त्वं नेमे जनाधिपाः।\n\nन चैव न भविष्यामः सर्वे वयमतः परम्।।2.12।।",
-    "tamil": "இதன் முன் எக்காலத்திலும் நான் இல்லாதிருந்திலேன். நீயும் இங்குள்ள வேந்தர் யாவரும் அப்படியே. இனி நாம் என்றைக்கும் இல்லாமற்போகவும் மாட்டோம்.",
+    "tamil": "நானோ, நீயோ. இம்மன்னர்களோ இல்லாமலிருந்த காலம் எதுவுமில்லை. எதிர்காலத்திலும் நம்மில் எவரும் இல்லாமலிருக்கப் போவதுமில்லை.",
     "transliteration": "na tv evāhaṁ jātu nāsaṁ\nna tvaṁ neme janādhipāḥ\nna caiva na bhaviṣyāmaḥ\nsarve vayam ataḥ param",
     "english": "Never was there a time when I did not exist, nor you, nor all these kings; nor in the future shall any of us cease to be.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-005",
@@ -81,11 +96,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.13",
     "audioSrc": "/audio/2.13.mp3",
     "sanskrit": "देहिनोऽस्मिन्यथा देहे कौमारं यौवनं जरा।\n\nतथा देहान्तरप्राप्तिर्धीरस्तत्र न मुह्यति।।2.13।।",
-    "tamil": "ஆத்மாவுக்கு இவ்வுடலில் எங்ஙனம் பிள்ளைப் பிராயமும், இளமையும், மூப்பும் தோன்றுகின்றனவோ, அங்ஙனமே மற்றொரு சரீரப் பிறப்புத் தோன்றுகிறது. தீரன் அதில் கலங்கமாட்டான்.",
+    "tamil": "தேகத்தை உடையவனின் உடல், சிறுவயது, இளமை, முதுமை என்று கடந்துசெல்வதைப் போல. ஆத்மா, மரணத்தின் போது வேறு உடலுக்கு மாற்றம் பெறுகின்றது. நிதான புத்தியுடையவர் இதுபோன்ற மாற்றத்தால் திகைப்பதில்லை.",
     "transliteration": "dehino ’smin yathā dehe\nkaumāraṁ yauvanaṁ jarā\ntathā dehāntara-prāptir\ndhīras tatra na muhyati",
     "english": "As the embodied soul continually passes, in this body, from boyhood to youth to old age, the soul similarly passes into another body at death. The self-realized soul is not bewildered by such a change.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-006",
@@ -94,11 +110,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.14",
     "audioSrc": "/audio/2.14.mp3",
     "sanskrit": "मात्रास्पर्शास्तु कौन्तेय शीतोष्णसुखदुःखदाः।\n\nआगमापायिनोऽनित्यास्तांस्तितिक्षस्व भारत।।2.14।।",
-    "tamil": "குந்தியின் மகனே, குளிரையும், வெப்பத்தையும், இன்பத்தையும், துன்பத்தையும் தரும் இயற்கையின் தீண்டுதல்கள் தோன்றி மறையும் இயல்புடையன, என்றுமிருப்பனவல்ல. பாரதா! அவற்றைப் பொறுத்துக்கொள்.",
+    "tamil": "குந்தியின் மகனே. இன்ப துன்பங்களின் நிலையற்ற தோற்றமும் காலப் போக்கில் ஏற்படும் மறைவும், கோடையும் குளிரும் பருவ காலத்தில் தோன்றி மறைவதைப் போன்றதாகும். புலன்களின் உணர்வாலேயே அவை எழுகின்றன; எனவே, பரத குலத் தோன்றலே, இவற்றால் பாதிக்கப்படாமல், பொறுத்துக் கொள்ளக் கற்றுக் கொள்.",
     "transliteration": "mātrā-sparśās tu kaunteya\nśītoṣṇa-sukha-duḥkha-dāḥ\nāgamāpāyino ’nityās\ntāṁs titikṣasva bhārata",
     "english": "O son of Kuntī, the nonpermanent appearance of happiness and distress, and their disappearance in due course, are like the appearance and disappearance of winter and summer seasons. They arise from sense perception, O scion of Bharata, and one must learn to tolerate them without being disturbed.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-007",
@@ -107,11 +124,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.20",
     "audioSrc": "/audio/2.20.mp3",
     "sanskrit": "न जायते म्रियते वा कदाचि\n\nन्नायं भूत्वा भविता वा न भूयः।\n\nअजो नित्यः शाश्वतोऽयं पुराणो\n\nन हन्यते हन्यमाने शरीरे।।2.20।।",
-    "tamil": "இவன் பிறப்பதுமில்லை; எக்காலத்திலும் இறப்பதுமில்லை. இவன் ஒரு முறையிலிருந்து பின்னர் இல்லாது போவதுமில்லை. இவன் பிறப்பற்றான். அனவரதன். இவன் சாசுவதன்; பழமையோன்; உடம்பு கொல்லப்படுகையில் இவன் கொல்லப்படான்.",
+    "tamil": "ஆத்மாவிற்கு எக்காலத்திலும் பிறப்போ இறப்போ கிடையாது. அவன் தோன்றியவனும் அல்ல, தோன்றுபவனும் அல்ல, தோன்றக்கூடியவனும் அல்ல. அவன் பிறப்பற்றவன், நித்தியமானவன், என்றும் நிலைத்திருப்பவன், மிகப் பமையானவன், உடல் கொல்லப்படும்போது அவன் கொல்லப்படுவதில்லை.",
     "transliteration": "na jāyate mriyate vā kadācin\nnāyaṁ bhūtvā bhavitā vā na bhūyaḥ\najo nityaḥ śāśvato ’yaṁ purāṇo\nna hanyate hanyamāne śarīre",
     "english": "For the soul there is never birth nor death. Nor, having once been, does he ever cease to be. He is unborn, eternal, ever-existing, undying and primeval. He is not slain when the body is slain.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-008",
@@ -120,11 +138,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.22",
     "audioSrc": "/audio/2.22.mp3",
     "sanskrit": "वासांसि जीर्णानि यथा विहाय\n\nनवानि गृह्णाति नरोऽपराणि।\n\nतथा शरीराणि विहाय जीर्णा\n\nन्यन्यानि संयाति नवानि देही।।2.22।।",
-    "tamil": "நைந்த துணிகளைக் கழற்றியெறிந்துவிட்டு மனிதன் புதிய துணிகள் கொள்ளுமாறு போல, ஆத்மா நைந்த உடல்களைக் களைந்து புதியனவற்றை எய்துகிறது.",
+    "tamil": "பழைய ஆடைகளைப் புறக்கணித்து. புதிய ஆடைகளை ஒருவன் அணிவதைப் போன்றே, பழைய உபயோகமற்ற உடல்களை நீக்கி, புதிய உடல்களை ஆத்மா ஏற்கிறது.",
     "transliteration": "vāsāṁsi jīrṇāni yathā vihāya\nnavāni gṛhṇāti naro ’parāṇi\ntathā śarīrāṇi vihāya jīrṇāny\nanyāni saṁyāti navāni dehī",
     "english": "As a person puts on new garments, giving up old ones, similarly, the soul accepts new material bodies, giving up the old and useless ones.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-009",
@@ -133,11 +152,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.23",
     "audioSrc": "/audio/2.23.mp3",
     "sanskrit": "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः।\n\nन चैनं क्लेदयन्त्यापो न शोषयति मारुतः।।2.23।।",
-    "tamil": "இவனை ஆயுதங்கள் வெட்டமாட்டா; தீ எரிக்காது; நீர் இவனை நனைக்காது; காற்று உலர்த்தாது.",
+    "tamil": "ஆத்மா எந்த ஆயுதத்தாலும் துண்டிக்கப்பட முடியாததும். நெருப்பால் எரிக்கப்பட முடியாததும். நீரால் நனைக்கப்பட முடியாததும், வீசும் காற்றால் உலர்த்தப்பட முடியாததுமாகும்.",
     "transliteration": "nainaṁ chindanti śastrāṇi\nnainaṁ dahati pāvakaḥ\nna cainaṁ kledayanty āpo\nna śoṣayati mārutaḥ",
     "english": "The soul can never be cut into pieces by any weapon, nor can he be burned by fire, nor moistened by water, nor withered by the wind.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-010",
@@ -146,11 +166,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.27",
     "audioSrc": "/audio/2.27.mp3",
     "sanskrit": "जातस्य हि ध्रुवो मृत्युर्ध्रुवं जन्म मृतस्य च।\n\nतस्मादपरिहार्येऽर्थे न त्वं शोचितुमर्हसि।।2.27।।",
-    "tamil": "பிறந்தவன் சாவது உறுதி; செத்தவன் பிறப்பதும் உறுதி. ஆதலால் தவிர்க்க முடியாத இதன் பொருட்டு நீ வருந்துதல் தகுதியன்று.",
+    "tamil": "பிறந்தவன் எவனுக்கும் மரணம் நிச்சயம், மாணமடைந்தவன் மீண்டும் பிறப்பதும் நிச்சயமே. எனவே, தவிர்க்க முடியாத உன் கடமைகளைச் செயலாற்றுவதில். நீ கவலைப்படக் கூடாது.",
     "transliteration": "jātasya hi dhruvo mṛtyur\ndhruvaṁ janma mṛtasya ca\ntasmād aparihārye ’rthe\nna tvaṁ śocitum arhasi",
     "english": "For one who has taken his birth, death is certain; and for one who is dead, birth is certain. Therefore, in the unavoidable discharge of your duty, you should not lament.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-011",
@@ -159,11 +180,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.30",
     "audioSrc": "/audio/2.30.mp3",
     "sanskrit": "देही नित्यमवध्योऽयं देहे सर्वस्य भारत।\n\nतस्मात्सर्वाणि भूतानि न त्वं शोचितुमर्हसि।।2.30।।",
-    "tamil": "பாரதா! எல்லாருடைய உடம்பிலுமுள்ள இந்த ஆத்மாவைக் கொல்ல முடியாது. ஆதலால் நீ எந்த உயிரின் பொருட்டும் வருந்துதல் வேண்டா!",
+    "tamil": "பரத குலத் தோன்றலே, உடலில் உறைபவன் ஒருபோதும் அழிக்கப்பட முடியாதவன், எனவே, எந்த உயிர்வாழிக்காகவும் நீ வருந்த வேண்டிய கேவையில்லை.",
     "transliteration": "dehī nityam avadhyo ’yaṁ\ndehe sarvasya bhārata\ntasmāt sarvāṇi bhūtāni\nna tvaṁ śocitum arhasi",
     "english": "O descendant of Bharata, he who dwells in the body is eternal and can never be slain. Therefore you need not grieve for any creature.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-012",
@@ -172,11 +194,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.40",
     "audioSrc": "/audio/2.40.mp3",
     "sanskrit": "नेहाभिक्रमनाशोऽस्ति प्रत्यवायो न विद्यते।\n\nस्वल्पमप्यस्य धर्मस्य त्रायते महतो भयात्।।2.40।।",
-    "tamil": "இந்த நெறியில் செய்த முயற்சி வீணாவதில்லை; எதிர்மறை விளைவும் ஏற்படுவதில்லை. இந்தத் தர்மத்தைச் சிறிது கடைப்பிடித்தாலும் அது பேரச்சத்திலிருந்து காப்பாற்றும்.",
+    "tamil": "இம்முயற்சியில் குறைவோ இழப்போ இல்லை. இவ்வழியில் சிறிது முன்னேற்றமும். மிகப் பயங்கரமான பயத்திலிருந்து ஒருவனைக் காக்கும்.",
     "transliteration": "nehābhikrama-nāśo ’sti\npratyavāyo na vidyate\nsv-alpam apy asya dharmasya\ntrāyate mahato bhayāt",
     "english": "In this endeavor there is no loss or diminution, and a little advancement on this path can protect one from the most dangerous type of fear.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-013",
@@ -185,11 +208,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.41",
     "audioSrc": "/audio/2.41.mp3",
     "sanskrit": "व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन।\n\nबहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम्।।2.41।।",
-    "tamil": "குருகுல தோன்றலே! உறுதியுடைய புத்தி இவ்வுலகத்தில் ஒருமையுடையது. உறுதியில்லாதோரின் மதி பல கிளைப்பட்டது, முடிவற்றது.",
+    "tamil": "இவ்வழியிலுள்ளோர் தங்களது குறிக்கோளில் திடமான உறுதியுடன் இருப்பர், இவர்களது இலட்சியம் ஒன்றே. குரு வம்சத்தின் செல்வனே, உறுதியற்றவரது அறிவோ பல கிளைகளைக் கொண்டது.",
     "transliteration": "vyavasāyātmikā buddhir\nekeha kuru-nandana\nbahu-śākhā hy anantāś ca\nbuddhayo ’vyavasāyinām",
     "english": "Those who are on this path are resolute in purpose, and their aim is one. O beloved child of the Kurus, the intelligence of those who are irresolute is many-branched.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-014",
@@ -198,11 +222,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.44",
     "audioSrc": "/audio/2.44.mp3",
     "sanskrit": "भोगैश्वर्यप्रसक्तानां तयापहृतचेतसाम्।\n\nव्यवसायात्मिका बुद्धिः समाधौ न विधीयते।।2.44।।",
-    "tamil": "இவர்கள் சொல்லுவதைக் கேட்டு மதிமயங்கி போகத்திலும், ஆட்சியிலும் பற்றுறுவோருடைய நிச்சய புத்தி சமாதியில் நிலை பெறாது.",
+    "tamil": "புலனின்பத்திலும் பெளதிகச் செல்வத்திலும் மிகுந்த பற்றுதல் கொண்டு, அதனால் மயங்கி உள்ளவர்களின் மனதில், முழுமுதற் கடவுளின் பக்தித் தொண்டிற்கான திடமான உறுதி உண்டாவதில்லை.",
     "transliteration": "bhogaiśvarya-prasaktānāṁ\ntayāpahṛta-cetasām\nvyavasāyātmikā buddhiḥ\nsamādhau na vidhīyate",
     "english": "In the minds of those who are too attached to sense enjoyment and material opulence, and who are bewildered by such things, the resolute determination of devotional service to the Supreme Lord does not take place.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-015",
@@ -211,11 +236,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.45",
     "audioSrc": "/audio/2.45.mp3",
     "sanskrit": "त्रैगुण्यविषया वेदा निस्त्रैगुण्यो भवार्जुन।\n\nनिर्द्वन्द्वो नित्यसत्त्वस्थो निर्योगक्षेम आत्मवान्।।2.45।।",
-    "tamil": "மூன்று குணங்களுக்குட்பட்டவற்றைக் குறித்து வேதங்கள் பேசுகின்றன. அர்ஜுனா! நீ மூன்று குணங்களையும் கடந்தவனாகுக. இருமைகளிலிருந்து விடுபட்டு, எப்போதும் தூய்மையில் நிலைத்து, அடைவதையும் காப்பதையும் பற்றிய கவலையின்றி, தன்னிலே நிலைபெற்றவனாக இரு.",
+    "tamil": "வேதங்கள். பொதுவாக பெளதிக இயற்கையின் முக்குணங்களைப் பற்றியவை. அர்ஜுனா. இம்மூன்று குணங்களுக்கு அப்பாற்பட்டவனாக ஆவாயாக. எல்லா இருமைகளிலிருந்தும் விடுபட்டு. பொருள்களை அடைதல், பாதுகாத்தல் ஆகிய கவலைகளிலிருந்தும் விடுபட்டு, தன்னில் நிலைபெறுவாயாக.",
     "transliteration": "trai-guṇya-viṣayā vedā\nnistrai-guṇyo bhavārjuna\nnirdvandvo nitya-sattva-stho\nniryoga-kṣema ātmavān",
     "english": "The Vedas mainly deal with the subject of the three modes of material nature. Rise above these modes, O Arjuna. Be transcendental to all of them. Be free from all dualities and from all anxieties for gain and safety, and be established in the Self.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-016",
@@ -224,11 +250,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.46",
     "audioSrc": "/audio/2.46.mp3",
     "sanskrit": "यावानर्थ उदपाने सर्वतः संप्लुतोदके।\n\nतावान्सर्वेषु वेदेषु ब्राह्मणस्य विजानतः।।2.46।।",
-    "tamil": "எங்கும் நீர் நிரம்பிய இடத்தில் ஒரு சிறு குட்டம் என்ன பொருளுடையது; அன்ன பொருளே ஞானமுடைய பிராமணனுக்கு வேதங்களுமுடையன.",
+    "tamil": "சிறு கிணற்றால் பூர்த்தி செய்யப்படும் தேவைகள் அனைத்தும். பெரும் நீர்த்தேக்கத்தால் உடனே பூர்த்தி செய்யப்படும். அதுபோலவே வேதங்களின் நோக்கங்களெல்லாம் அவற்றிற்குப் பின்னால் உள்ள நோக்கங்களை அறிந்தவனால் அடையப் பெறும்.",
     "transliteration": "yāvān artha uda-pāne\nsarvataḥ samplutodake\ntāvān sarveṣu vedeṣu\nbrāhmaṇasya vijānataḥ",
     "english": "All purposes served by a small well can at once be served by a great reservoir of water. Similarly, all the purposes of the Vedas can be served to one who knows the purpose behind them.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-108",
@@ -237,11 +264,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.47",
     "audioSrc": "/audio/2.47.mp3",
     "sanskrit": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।\n\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि।।2.47।।",
-    "tamil": "தொழில் செய்யத்தான் உனக்கு அதிகாரமுண்டு. அதன் பயன்களில் எப்போதுமே உனக்கதிகாரமில்லை. செய்கையின் பயனைக் கருதாதே; தொழில் செய்யாமலுமிராதே.",
+    "tamil": "உனக்கு விதிக்கப்பட்ட கடமையைச் செய்ய மட்டுமே உனக்கு அதிகாரம் உண்டு. ஆனால் செயல்களின் பலன்களில் உனக்கு அதிகாரமில்லை. உனது செயல்களின் விளைவுகளுக்கு உன்னையே காரணமாக ஒருபோதும் எண்ணாதே. கடமையைச் செய்யாமலிருக்க ஒருபோதும் பற்றுதல் கொள்ளாதே.",
     "transliteration": "karmaṇy evādhikāras te\nmā phaleṣu kadācana\nmā karma-phala-hetur bhūr\nmā te saṅgo ’stv akarmaṇi",
     "english": "You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself to be the cause of the results of your activities, and never be attached to not doing your duty.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-017",
@@ -250,11 +278,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.59",
     "audioSrc": "/audio/2.59.mp3",
     "sanskrit": "विषया विनिवर्तन्ते निराहारस्य देहिनः।\n\nरसवर्जं रसोऽप्यस्य परं दृष्ट्वा निवर्तते।।2.59।।",
-    "tamil": "தம்மைக் கவராத ஜீவனிடமிருந்து விஷயங்கள் தாமே விலகிக் கொள்ளுகின்றன. எனினும் அவற்றிடமுள்ள சுவையை இவன் மறப்பதில்லை. பரம்பொருளைக் காண்பானாயின் அச்சுவையுந் தீர்ந்துவிடும்.",
+    "tamil": "உடல் பெற்ற ஆத்மாவை புலனின்பத்திலிருந்து கட்டுப்படுத்தினாலும். புலனுகர்ச்சிப் பொருள்களுக்கான சுவை அப்படியே இருக்கும். ஆனால் புலனின்ப ஈடுபாடுகளை உயர்ந்த சுவையினால் ஒழிப்பவன், தனது உணர்வில் நிலைபெற்றுள்ளான்.",
     "transliteration": "viṣayā vinivartante\nnirāhārasya dehinaḥ\nrasa-varjaṁ raso ’py asya\nparaṁ dṛṣṭvā nivartate",
     "english": "The embodied soul may be restricted from sense enjoyment, though the taste for sense objects remains. But, ceasing such engagements by experiencing a higher taste, he is fixed in consciousness.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-018",
@@ -263,11 +292,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.62",
     "audioSrc": "/audio/2.62.mp3",
     "sanskrit": "ध्यायतो विषयान्पुंसः सङ्गस्तेषूपजायते।\n\nसङ्गात् संजायते कामः कामात्क्रोधोऽभिजायते।।2.62।।",
-    "tamil": "மனிதன் விஷயங்களைக் கருதும்போது அவற்றில் பற்றுதலுண்டாகிறது. பற்றுதலால் விருப்பமுண்டாகிறது. விருப்பத்தால் சினம் பிறக்கிறது.",
+    "tamil": "புலன்நோக்குப் பொருள்களை சிந்திப்பதால், மனிதன் அதன் மேல் பற்றுதலை வளர்த்துக் கொள்கிறான். அந்தப் பற்றுதலில் இருந்து காமமும் காமத்திலிருந்து கோபமும் தோன்றுகின்றன.",
     "transliteration": "dhyāyato viṣayān puṁsaḥ\nsaṅgas teṣūpajāyate\nsaṅgāt sañjāyate kāmaḥ\nkāmāt krodho ’bhijāyate",
     "english": "While contemplating the objects of the senses, a person develops attachment for them, and from such attachment lust develops, and from lust anger arises.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-019",
@@ -276,11 +306,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.63",
     "audioSrc": "/audio/2.63.mp3",
     "sanskrit": "क्रोधाद्भवति संमोहः संमोहात्स्मृतिविभ्रमः।\n\nस्मृतिभ्रंशाद् बुद्धिनाशो बुद्धिनाशात्प्रणश्यति।।2.63।।",
-    "tamil": "சினத்தால் மயக்கம்; மயக்கத்தால் நினைவு தவறுதல்; நினைவுத் தவறுதலால் புத்தி நாசம்; புத்தி நாசத்தால் அழிகிறான்.",
+    "tamil": "கோபத்திலிருந்து பூரண மயக்கமும், மயக்கத்தினால் நினைவு நிலை இழப்பும் ஏற்படுகின்றன. நுனைவு குழம்புவதால் அறிவு இழக்கப்படுகிறது, அறிவு இழக்கப்பட்டவுடன். ஒருவன் மீண்டும் ஜட வாழ்க்கையில் வீழகிறான்.",
     "transliteration": "krodhād bhavati sammohaḥ\nsammohāt smṛti-vibhramaḥ\nsmṛti-bhraṁśād buddhi-nāśo\nbuddhi-nāśāt praṇaśyati",
     "english": "From anger, delusion arises, and from delusion bewilderment of memory. When memory is bewildered, intelligence is lost, and when intelligence is lost, one falls down again into the material pool.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-020",
@@ -289,11 +320,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.64",
     "audioSrc": "/audio/2.64.mp3",
     "sanskrit": "रागद्वेषवियुक्तैस्तु विषयानिन्द्रियैश्चरन्।\n\nआत्मवश्यैर्विधेयात्मा प्रसादमधिगच्छति।।2.64।।",
-    "tamil": "விருப்பு வெறுப்புகளிலிருந்து விடுபட்டு, தன் வசப்பட்ட புலன்களால் பொருள்களை அனுபவிக்கும் தன்னடக்கமுள்ளவன் மன அமைதியை அடைகிறான்.",
+    "tamil": "எல்லாவிதமான விருப்பு வெறுப்புகளிலிருந்தும் விடுபட்டு, விடுதலைக்கான விதிகளால் புலன்களைக் கட்டுப்படுத்துபவன். கடவுளின் முழுக் கருணையை அடைய முடியும்.",
     "transliteration": "rāga-dveṣa-vimuktais tu\nviṣayān indriyaiś caran\nātma-vaśyair vidheyātmā\nprasādam adhigacchati",
     "english": "One who can control his senses by practicing the regulated principles of freedom can obtain the complete mercy of the Lord and thus become free from all attachment and aversion.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-021",
@@ -302,11 +334,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "2.69",
     "audioSrc": "/audio/2.69.mp3",
     "sanskrit": "या निशा सर्वभूतानां तस्यां जागर्ति संयमी।\n\nयस्यां जाग्रति भूतानि सा निशा पश्यतो मुनेः।।2.69।।",
-    "tamil": "எல்லா உயிர்களுக்கும் இரவாகிய நேரத்தில், (தன்னைக் கட்டிய) முனி விழித்திருக்கிறான். மற்ற உயிர்கள் விழித்திருக்கும் நேரமெதுவோ அதுவே முனிக்கிரவு.",
+    "tamil": "எல்லா உயிர்களுக்கும் எது இரவோ, அது சுயக் கட்டுப்பாடு உள்ளவனுக்கு விழித்தெழும் நேரமாகும். எல்லா உயிர்களுக்கும் எது விழித்தெழும் நேரமோ, அது ஆய்வறிவு கொண்ட முனிவனுக்கு இரவாகின்றது.",
     "transliteration": "yā niśā sarva-bhūtānāṁ\ntasyāṁ jāgarti saṁyamī\nyasyāṁ jāgrati bhūtāni\nsā niśā paśyato muneḥ",
     "english": "What is night for all beings is the time of awakening for the self-controlled; and the time of awakening for all beings is night for the introspective sage.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-022",
@@ -315,11 +348,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "3.9",
     "audioSrc": "/audio/3.9.mp3",
     "sanskrit": "यज्ञार्थात्कर्मणोऽन्यत्र लोकोऽयं कर्मबन्धनः।\n\nतदर्थं कर्म कौन्तेय मुक्तसंगः समाचर।।3.9।।",
-    "tamil": "வேள்வியின் பொருட்டென்று செய்யப்படுவது தவிர மற்றைத் தொழில் மனிதருக்குத் தளையாகிறது. ஆதலால், குந்தி மகனே, பற்றை களைந்து தொழில் செய்து கொண்டிரு.",
+    "tamil": "விஷ்ணுவிற்கு அர்ப்பணிக்கப்படும் செயல்கள் நிறைவேற்றப்படலாம். மற்ற செயல்கள் இந்த பெளதிக உலகத்தோடு பந்தப்படுத்துபவை. எனவே, குந்தியின் மகனே, உனக்கு விதிக்கப்பட்ட கடமைகளை அவரது திருப்திக்காகச் செய். இவ்விதமாக நீ எப்போதும் பந்தத்திலிருந்து விடுபட்டு வாழ்வாய்.",
     "transliteration": "yajñārthāt karmaṇo ’nyatra\nloko ’yaṁ karma-bandhanaḥ\ntad-arthaṁ karma kaunteya\nmukta-saṅgaḥ samācara",
     "english": "Work done as a sacrifice for Viṣṇu has to be performed, otherwise work binds one to this material world. Therefore, O son of Kuntī, perform your prescribed duties for His satisfaction, and in that way you will always remain unattached and free from bondage.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-023",
@@ -328,11 +362,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "3.14",
     "audioSrc": "/audio/3.14.mp3",
     "sanskrit": "अन्नाद्भवन्ति भूतानि पर्जन्यादन्नसम्भवः।\n\nयज्ञाद्भवति पर्जन्यो यज्ञः कर्मसमुद्भवः।।3.14।।",
-    "tamil": "அன்னத்தால் உயிர்கள் சமைகின்றன. மழையால் உணவு தோன்றுகிறது. மழை வேள்வியால் ஆகிறது. வேள்வி செய்கையினின்று பிறப்பது.",
+    "tamil": "மழையால் தோற்றுவிக்கப்படும் தானியங்களால் எல்லா ஜீவன்களின் உடல்களும் வாழ்கின்றன. யாகத்தால் மழையும், விதிக்கப்பட்ட கடமைகளால் யாகமும் உண்டாக்கப் படுகின்றன.",
     "transliteration": "annād bhavanti bhūtāni\nparjanyād anna-sambhavaḥ\nyajñād bhavati parjanyo\nyajñaḥ karma-samudbhavaḥ",
     "english": "All living bodies subsist on food grains, which are produced from rain. Rains are produced by performance of yajña [sacrifice], and yajña is born of prescribed duties.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-024",
@@ -341,11 +376,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "3.21",
     "audioSrc": "/audio/3.21.mp3",
     "sanskrit": "यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः।\n\nस यत्प्रमाणं कुरुते लोकस्तदनुवर्तते।।3.21।।",
-    "tamil": "எதனையெதனை உயர்ந்தோன் செய்கிறானோ, அதையே மற்ற மனிதர் பின்பற்றுகிறார்கள். அவன் எதைப் பிரமாணமாக்குகிறானோ, அதையே உலகத்தார் தொடருகிறார்கள்.",
+    "tamil": "பெரிய மனிதன் எத்தகைய செயல்களைச் செய்கின்றானோ, அதையே பொதுமக்களும் பின்பற்றுகின்றனர். தன் செயல்களால் எந்தத் தரத்தை அவன் உவமை அமைத்துக் காட்டுகின்றானோ அதையே உலகம் முழுவதும் பின்பற்றுகின்றது.",
     "transliteration": "yad yad ācarati śreṣṭhas\ntat tad evetaro janaḥ\nsa yat pramāṇaṁ kurute\nlokas tad anuvartate",
     "english": "Whatever action is performed by a great man, common men follow in his footsteps. And whatever standards he sets by exemplary acts, all the world pursues.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-025",
@@ -354,11 +390,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "3.27",
     "audioSrc": "/audio/3.27.mp3",
     "sanskrit": "प्रकृतेः क्रियमाणानि गुणैः कर्माणि सर्वशः।\n\nअहङ्कारविमूढात्मा कर्ताऽहमिति मन्यते।।3.27।।",
-    "tamil": "எங்கும் தொழில்கள் இயற்கையின் குணங்களால் செய்யப்படுகின்றன. அகங்காரத்தால் மயங்கியவன், \"நான் செய்கிறேன்\" என்று நினைக்கிறான்.",
+    "tamil": "அஹங்காரத்தினால் பாதிக்கப்பட்டு மயங்கிய ஆத்மா, பெளதிக இயற்கையின் முக்குணங்களால் நடைபெறும் செயல்களுக்குத் தன்னையே கர்த்தா என்று எண்ணிக் கொள்கிறான்.",
     "transliteration": "prakṛteḥ kriyamāṇāni\nguṇaiḥ karmāṇi sarvaśaḥ\nahaṅkāra-vimūḍhātmā\nkartāham iti manyate",
     "english": "The bewildered spirit soul, under the influence of the three modes of material nature, thinks himself to be the doer of activities, which are in actuality carried out by nature.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-026",
@@ -367,11 +404,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "3.37",
     "audioSrc": "/audio/3.37.mp3",
     "sanskrit": "श्री भगवानुवाच\n\nकाम एष क्रोध एष रजोगुणसमुद्भवः।\n\nमहाशनो महापाप्मा विद्ध्येनमिह वैरिणम्।।3.37।।",
-    "tamil": "ஸ்ரீபகவான் சொன்னான்: ரஜோ குணத்தில் பிறக்கும் ஆசையும் சினமுமே இதற்குக் காரணம். அனைத்தையும் விழுங்கும் இப்பெரும் பாவத்தை இவ்வுலகில் உன் பகைவனாக அறிந்துகொள்.",
+    "tamil": "புருஷோத்தமரான முழுமுதற் கடவுள் கூறினார்: அர்ஜுனா. காமமே இதற்குக் காரணம். ரஜோ குணத்தில் உற்பத்தியாகி, பின்னர் கோபமாக உருவெடுக்கும் இஃது இவ்வுலகின் எல்லாவற்றையும் அழிக்கும் பாவகரமான விரோதகியாகும்.",
     "transliteration": "śrī-bhagavān uvāca\nkāma eṣa krodha eṣa\nrajo-guṇa-samudbhavaḥ\nmahāśano mahā-pāpmā\nviddhy enam iha vairiṇam",
     "english": "The Supreme Personality of Godhead said: It is lust only, Arjuna, which is born of contact with the material mode of passion and later transformed into wrath, and which is the all-devouring sinful enemy of this world.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-027",
@@ -384,7 +422,8 @@ export const SHLOKAS: Shloka[] = [
     "transliteration": "śrī-bhagavān uvāca\nimaṁ vivasvate yogaṁ\nproktavān aham avyayam\nvivasvān manave prāha\nmanur ikṣvākave ’bravīt",
     "english": "The Personality of Godhead, Lord Sri Krishna, said: I instructed this imperishable science of yoga to the sun-god, Vivasvan, and Vivasvan instructed it to Manu, the father of mankind, and Manu in turn instructed it to Iksvaku.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "bharati"
   },
   {
     "id": "GS-028",
@@ -393,11 +432,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.2",
     "audioSrc": "/audio/4.2.mp3",
     "sanskrit": "एवं परम्पराप्राप्तमिमं राजर्षयो विदुः।\n\nस कालेनेह महता योगो नष्टः परन्तप।।4.2।।",
-    "tamil": "இவ்வாறு பரம்பரையாகக் கிடைத்த இதனை ராஜரிஷிகள் உணர்ந்திருந்தனர். பார்த்தா! அந்த யோகம் கால மிகுதியால் இவ்வுலகத்தில் இழக்கப்பட்டது.",
+    "tamil": "உன்னதமான இவ்விஞ்ஞானம் சீடர்களின் சங்கிலித் தொடர் மூலமாகப் பெறப்பட்டு, அவ்வாறே புனிதமான மன்னர்களால் உணரப்பட்டது. ஆனால், காலப்போக்கில் அத்தொடர் விட்டுப்போகவே, இவ்விஞ்ஞானம் மறைந்துவிட்டதை போலத் தோன்றுகின்றது.",
     "transliteration": "evaṁ paramparā-prāptam\nimaṁ rājarṣayo viduḥ\nsa kāleneha mahatā\nyogo naṣṭaḥ parantapa",
     "english": "This supreme science was thus received through the chain of disciplic succession, and the saintly kings understood it in that way. But in course of time the succession was broken, and therefore the science as it is appears to be lost.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-029",
@@ -406,11 +446,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.3",
     "audioSrc": "/audio/4.3.mp3",
     "sanskrit": "स एवायं मया तेऽद्य योगः प्रोक्तः पुरातनः।\n\nभक्तोऽसि मे सखा चेति रहस्यं ह्येतदुत्तमम्।।4.3।।",
-    "tamil": "அந்தப் பழைய யோகத்தையே இன்று நான் உனக்குச் சொன்னேன், நீ என் பக்தனும் தோழனுமென்பது கருதி, இது மிகவும் உயர்ந்த ரகசியம்.",
+    "tamil": "பரமனுடன் உறவு கொள்வதைப் பற்றிய அதே பழம்பெரும் விஞ்ஞானத்தை நான் இன்று உனக்கு எடுத்துரைத்துள்ளேன்: ஏனெனில், நீ எனது பக்தனும் நண்பனுமாதலால் இந்த விஞ்ஞானத்தின் உத்தம இரகசியத்தை உன்னால் புரிந்துகொள்ள முடியும்.",
     "transliteration": "sa evāyaṁ mayā te ’dya\nyogaḥ proktaḥ purātanaḥ\nbhakto ’si me sakhā ceti\nrahasyaṁ hy etad uttamam",
     "english": "That very ancient science of the relationship with the Supreme is today told by Me to you because you are My devotee as well as My friend; therefore you can understand the transcendental mystery of this science.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-030",
@@ -419,11 +460,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.6",
     "audioSrc": "/audio/4.6.mp3",
     "sanskrit": "अजोऽपि सन्नव्ययात्मा भूतानामीश्वरोऽपि सन्।\n\nप्रकृतिं स्वामधिष्ठाय संभवाम्यात्ममायया।।4.6।।",
-    "tamil": "பிறப்பற்றே னெனினும், அழிவற்றே னெனினும், உயிர்களுக்கெல்லாம் ஈசனே யெனினும், யான் எனது பிரகிருதியில் நிலைபெற்று ஆத்ம மாயையால் பிறப்பெய்துகிறேன்.",
+    "tamil": "நான் பிறப்பற்றவனாக இருந்தாலும். எனது திவ்யமான உடல் அழிவற்றதாக இருந்தாலும், உயிர்வாழிகள் அனைவருக்கும் நானே இறைவனாக இருந்தாலும், நான் எனது சுயமான திவ்ய உருவில் ஒவ்வொரு யுகத்திலும் தோன்றுகின்றேன்.",
     "transliteration": "ajo ’pi sann avyayātmā\nbhūtānām īśvaro ’pi san\nprakṛtiṁ svām adhiṣṭhāya\nsambhavāmy ātma-māyayā",
     "english": "Although I am unborn and My transcendental body never deteriorates, and although I am the Lord of all sentient beings, I still appear in every millennium in My original transcendental form.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-031",
@@ -432,11 +474,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.7",
     "audioSrc": "/audio/4.7.mp3",
     "sanskrit": "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।\n\nअभ्युत्थानमधर्मस्य तदाऽऽत्मानं सृजाम्यहम्।।4.7।।",
-    "tamil": "பார்த்தா! எப்போதெப்போது தர்மம் அழிந்துபோய் அதர்மம் எழுச்சி பெறுமோ, அப்போது நான் என்னைப் பிறப்பித்துக் கொள்ளுகிறேன்.",
+    "tamil": "எப்போதெல்லாம் எங்கெல்லாம் தர்மம் சீர்குலைந்து அதர்மம் ஆதிக்கம் செலுத்துகின்றதோ. பரத குலத் தோன்றலே, அப்போதெல்லாம் நான் தோன்றுகின்றேன்.",
     "transliteration": "yadā yadā hi dharmasya\nglānir bhavati bhārata\nabhyutthānam adharmasya\ntadātmānaṁ sṛjāmy aham",
     "english": "Whenever and wherever there is a decline in religious practice, O descendant of Bharata, and a predominant rise of irreligion—at that time I descend Myself.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-032",
@@ -445,11 +488,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.8",
     "audioSrc": "/audio/4.8.mp3",
     "sanskrit": "परित्राणाय साधूनां विनाशाय च दुष्कृताम्।\n\nधर्मसंस्थापनार्थाय संभवामि युगे युगे।।4.8।।",
-    "tamil": "நல்லோரைக் காக்கவும், தீமை செய்வோரை அழிக்கவும், அறத்தை நிலைநிறுத்தவும் நான் யுகந்தோறும் பிறக்கிறேன்.",
+    "tamil": "பக்தர்களைக் காத்து, துஷ்டர்களை அழித்து, தர்மத்தின் கொள்கைகளை மீண்டும் நிலைத்துவதற்காக, நானே யுகந்தோறும் தோன்றுகிறேன்.",
     "transliteration": "paritrāṇāya sādhūnāṁ\nvināśāya ca duṣkṛtām\ndharma-saṁsthāpanārthāya\nsambhavāmi yuge yuge",
     "english": "In order to deliver the pious and to annihilate the miscreants, as well as to reestablish the principles of religion, I advent Myself millennium after millennium.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-033",
@@ -458,11 +502,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.9",
     "audioSrc": "/audio/4.9.mp3",
     "sanskrit": "जन्म कर्म च मे दिव्यमेवं यो वेत्ति तत्त्वतः।\n\nत्यक्त्वा देहं पुनर्जन्म नैति मामेति सोऽर्जुन।।4.9।।",
-    "tamil": "எனது தெய்வத்தன்மை கொண்ட பிறப்பும் செய்கையும் இங்ஙனமென்பதை உள்ளபடி யுணர்வோன் உடலைத் துறந்த பின்னர் மறு பிறப்பு எய்துவதில்லை. அர்ஜுனா! அவன் என்னை எய்துகிறான்.",
+    "tamil": "எனது தோற்றமும் செயல்களும் திவ்யமானவை என்பதை எவனொருவன் அறிகின்றானோ, அவன் இந்த உடலைவிட்ட பின், மீண்டும் இப்பெளதிக உலகில் பிறவு எடுப்பதில்லை. அர்ஜுனா, அவன் எனது நித்திய உலகை அடைகின்றான்.",
     "transliteration": "janma karma ca me divyam\nevaṁ yo vetti tattvataḥ\ntyaktvā dehaṁ punar janma\nnaiti mām eti so ’rjuna",
     "english": "One who knows the transcendental nature of My appearance and activities does not, upon leaving the body, take his birth again in this material world, but attains My eternal abode, O Arjuna.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-034",
@@ -471,11 +516,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.10",
     "audioSrc": "/audio/4.10.mp3",
     "sanskrit": "वीतरागभयक्रोधा मन्मया मामुपाश्रिताः।\n\nबहवो ज्ञानतपसा पूता मद्भावमागताः।।4.10।।",
-    "tamil": "விருப்பத்தையும் அச்சத்தையும் சினத்தையும் துறந்தோராய், என் மயமாய், என்னை அடைக்கலம் புகுந்து, ஞானத் தவத்தால் தூய்மை பெற்று, என் இயல்பை எய்தினோர் பலர்.",
+    "tamil": "பற்றுதல். பயம், கோபம் இவற்றிலிருந்து விடுபட்டு. முழுதும் என்னில்லயித்து. என்னை சரணடைந்த பற்பல நபர்கள் என்னைப் பற்றிய அறிவால் இதற்கு முன் தூய்மையடைந்துள்ளனர். இவ்வாறாக, அவர்கள் எல்லாரும் என் மீது திவ்யமான அன்புடையவர்களாயினர்.",
     "transliteration": "vīta-rāga-bhaya-krodhā\nman-mayā mām upāśritāḥ\nbahavo jñāna-tapasā\npūtā mad-bhāvam āgatāḥ",
     "english": "Being freed from attachment, fear and anger, being fully absorbed in Me and taking refuge in Me, many, many persons in the past became purified by knowledge of Me—and thus they all attained transcendental love for Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-035",
@@ -484,11 +530,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.11",
     "audioSrc": "/audio/4.11.mp3",
     "sanskrit": "ये यथा मां प्रपद्यन्ते तांस्तथैव भजाम्यहम्।\n\nमम वर्त्मानुवर्तन्ते मनुष्याः पार्थ सर्वशः।।4.11।।",
-    "tamil": "யாவர் என்னை எங்ஙனம் வேண்டுகிறார்களோ அவர்களை நான் அங்ஙனமே சார்கிறேன். பார்த்தா! மனிதர் யாங்கணும் என் வழியையே பின்பற்றுகிறார்கள்.",
+    "tamil": "என்னிடம் சரணடைவதற்கு ஏற்றாற் போல. நான் அனைவருக்கும் பலனளிக்கின்றேன். பிருதாவின் மகனே, எல்லா விதத்திலும் அனைவரும் என் வழியையே பின்பற்றுகின்றனர்.",
     "transliteration": "ye yathā māṁ prapadyante\ntāṁs tathaiva bhajāmy aham\nmama vartmānuvartante\nmanuṣyāḥ pārtha sarvaśaḥ",
     "english": "All of them—as they surrender unto Me—I reward accordingly. Everyone follows My path in all respects, O son of Pṛthā.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-036",
@@ -497,11 +544,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.13",
     "audioSrc": "/audio/4.13.mp3",
     "sanskrit": "चातुर्वर्ण्यं मया सृष्टं गुणकर्मविभागशः।\n\nतस्य कर्तारमपि मां विद्ध्यकर्तारमव्ययम्।।4.13।।",
-    "tamil": "குணத்துக்கும் செய்கைக்கும் தக்கபடி நான் நான்கு வர்ணங்களைச் சமைத்தேன். செய்கையற்றவனும் அழிவற்றவனுமாகிய யானே அவற்றைச் செய்தோனென்றுணர்.",
+    "tamil": "மூன்றுவித இயற்கை குணங்களுக்கும் அவற்றின் செயல்களுக்கும் ஏற்ப. மனித சமூகத்தின் நால்வகைப் பிரிவுகள் என்னால் ஏற்படுத்தப்பட்டன. இம்முறையைப் படைத்தவன் நானேயாயினும் மாற்றமற்ற என்னைச் செயல்களுக்கு அப்பாற்பட்டவனாக அறிந்துகொள்.",
     "transliteration": "cātur-varṇyaṁ mayā sṛṣṭaṁ\nguṇa-karma-vibhāgaśaḥ\ntasya kartāram api māṁ\nviddhy akartāram avyayam",
     "english": "According to the three modes of material nature and the work ascribed to them, the four divisions of human society were created by Me. And, although I am the creator of this system, you should know that I am yet the non-doer, being unchangeable.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-037",
@@ -510,11 +558,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "4.34",
     "audioSrc": "/audio/4.34.mp3",
     "sanskrit": "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया।\n\nउपदेक्ष्यन्ति ते ज्ञानं ज्ञानिनस्तत्त्वदर्शिनः।।4.34।।",
-    "tamil": "வணக்கத்தாலும், ஆராய்ந்து கேள்வி கேட்பதாலும், தொண்டு புரிவதாலும் அந்த ஞானத்தை அறிந்துகொள். உண்மையைக் கண்ட ஞானிகள் உனக்கு ஞானத்தை உபதேசிப்பார்கள்.",
+    "tamil": "ஆன்மீக குருவை அணுகி உண்மையை அறிய முயற்சி செய். அடக்கத்துடன் அவரிடம் கேள்விகள் கேட்டு அவருக்குத் தொண்டு செய். உண்மையைக் கண்டவர்களான தன்னுணாவு பெற்ற ஆத்மாக்கள் உனக்கு ஞானத்தை அளிக்க முடியும்.",
     "transliteration": "tad viddhi praṇipātena\nparipraśnena sevayā\nupadekṣyanti te jñānaṁ\njñāninas tattva-darśinaḥ",
     "english": "Just try to learn the truth by approaching a spiritual master. Inquire from him submissively and render service unto him. The self-realized soul can impart knowledge unto you because he has seen the truth.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-038",
@@ -523,11 +572,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "5.18",
     "audioSrc": "/audio/5.18.mp3",
     "sanskrit": "विद्याविनयसंपन्ने ब्राह्मणे गवि हस्तिनि।\n\nशुनि चैव श्वपाके च पण्डिताः समदर्शिनः।।5.18।।",
-    "tamil": "கல்வியும் பணிவும் நிறைந்த அந்தணனிடத்திலும், பசுவினிடத்திலும், யானையினிடத்திலும், நாயினிடத்திலும், நாயை உண்பவனிடத்திலும் ஞானிகள் சமமான பார்வையுடையோர்.",
+    "tamil": "அடக்கமுள்ள பண்டிதர்கள் தங்களது உண்மை ஞானத்தின் வாயிலாக, கற்றறிந்த தன்னடக்கமுள்ள பிராமணன், பசு யானை. நாய். நாயைத் தின்பவன் (கீழ் ஜாதி) என அனை வரையும் சம நோக்கில் காண்கின்றனர்.",
     "transliteration": "vidyā-vinaya-sampanne\nbrāhmaṇe gavi hastini\nśuni caiva śva-pāke ca\npaṇḍitāḥ sama-darśinaḥ",
     "english": "The humble sage, by virtue of true knowledge, sees with equal vision a learned and gentle brāhmaṇa, a cow, an elephant, a dog and a dog-eater [outcaste].",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-039",
@@ -536,11 +586,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "5.22",
     "audioSrc": "/audio/5.22.mp3",
     "sanskrit": "ये हि संस्पर्शजा भोगा दुःखयोनय एव ते।\n\nआद्यन्तवन्तः कौन्तेय न तेषु रमते बुधः।।5.22।।",
-    "tamil": "புறத் தீண்டுதல்களில் தோன்றும் இன்பங்கள் துன்பத்திற்குக் காரணங்களாகும். அவை தொடக்கமும் இறுதியுமுடையான, குந்தி மகனே, அறிவுடையோன் அவற்றில் களியுறுவதில்லை.",
+    "tamil": "ஜடப் புலன்களின் தொடர்பினால் வரும் இன்பம். துன்பங்களுக்குக் காரணமாக இருப்பதால், அறிவுடையோன் அதில் பங்கு கொள்வதில்லை. குந்தியின் மகனே, இத்தகு இன்பங்களுக்கு ஆரம்பமும் முடிவும் இருப்பதால், அறிவுடையோன் இவற்றினால் மகிழ்ச்சியடைவதில்லை.",
     "transliteration": "ye hi saṁsparśa-jā bhogā\nduḥkha-yonaya eva te\nādy-antavantaḥ kaunteya\nna teṣu ramate budhaḥ",
     "english": "An intelligent person does not take part in the sources of misery, which are due to contact with the material senses. O son of Kuntī, such pleasures have a beginning and an end, and so the wise man does not delight in them.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-040",
@@ -549,11 +600,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "5.29",
     "audioSrc": "/audio/5.29.mp3",
     "sanskrit": "भोक्तारं यज्ञतपसां सर्वलोकमहेश्वरम्।\n\nसुहृदं सर्वभूतानां ज्ञात्वा मां शान्तिमृच्छति।।5.29।।",
-    "tamil": "வேள்விகளையும் தவங்களையும் ஏற்றுக்கொள்பவனும், எல்லா உலகங்களுக்கும் உயர்ந்த தலைவனும், எல்லா உயிர்களுக்கும் நண்பனும் நானே என்று அறிந்தவன் அமைதியை அடைகிறான்.",
+    "tamil": "நானே, எல்லா யாகங்களையும், தவங்களையும். இறுதியில் அனுபவிப்பவன் என்றும். எலலா லோகங்களையும். தேவர்களையும், கட்டுப்படுத்துபவன் என்றும், எல்லா உயிர்வாழிகளின் உற்ற நண்பன் என்றும் அறிந்து, என்னைப் பற்றிய முழு உணர்வில் இருப்பவன், ஜடத்துயரங்களிலிருநது விடுபட்டு அமைதி அடைகிறான்.",
     "transliteration": "bhoktāraṁ yajña-tapasāṁ\nsarva-loka-maheśvaram\nsuhṛdaṁ sarva-bhūtānāṁ\njñātvā māṁ śāntim ṛcchati",
     "english": "The sages, knowing Me as the ultimate purpose of all sacrifices and austerities, the Supreme Lord of all planets and demigods and the benefactor and well-wisher of all living entities, attain peace from the pangs of material miseries.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-041",
@@ -562,11 +614,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "6.17",
     "audioSrc": "/audio/6.17.mp3",
     "sanskrit": "युक्ताहारविहारस्य युक्तचेष्टस्य कर्मसु।\n\nयुक्तस्वप्नावबोधस्य योगो भवति दुःखहा।।6.17।।",
-    "tamil": "ஒழுங்குக்கு உட்பட்ட உணவும், விளையாட்டும் உடையோனாய், வினைகளில் ஒழுங்குக்குட்பட்ட நடைகளுடையவனாய், உறக்கத்திலும் விழிப்பிலும் ஒழுங்குக்குட்பட்டானாயின், அவனுடைய யோகம் துயரை அழிக்கிறது.",
+    "tamil": "உண்ணுதல், உறங்குதல், உழைத்தல், கேளிக்கை ஆகிய பழக்கங்களை நெறிப்படுத்தியவன். யோகப் பயிற்சியின் மூலமாக எல்லாத் துன்பங்களையும் பெருமளவில் நீக்கிவிட முடியும்.",
     "transliteration": "yuktāhāra-vihārasya\nyukta-ceṣṭasya karmasu\nyukta-svapnāvabodhasya\nyogo bhavati duḥkha-hā",
     "english": "He who is temperate in his habits of eating, sleeping, working and recreation can mitigate all material pains by practicing the yoga system.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-042",
@@ -575,11 +628,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "6.41",
     "audioSrc": "/audio/6.41.mp3",
     "sanskrit": "प्राप्य पुण्यकृतां लोकानुषित्वा शाश्वतीः समाः।\n\nशुचीनां श्रीमतां गेहे योगभ्रष्टोऽभिजायते।।6.41।।",
-    "tamil": "யோகத்தில் தவறியவன், புண்ணியம் செய்வோரின் உலகங்களை அடைந்து, அங்கு நெடுங்காலம் வாழ்ந்து, பின்னர் தூய்மையான குடும்பத்திலோ செல்வமுடைய குடும்பத்திலோ பிறக்கிறான்.",
+    "tamil": "வெற்றியடையாத யோகி, புண்ணிய ஆத்மாக்களின் லோகங்களில் பற்பல வருடங்கள் அனுபவித்தபின். நல்லோரின் குடும்பத்தில், அல்லது பெரும் செல்வந்தரின் குடும்பத்தில் பிறக்கின்றான்.",
     "transliteration": "prāpya puṇya-kṛtāṁ lokān\nuṣitvā śāśvatīḥ samāḥ\nśucīnāṁ śrīmatāṁ gehe\nyoga-bhraṣṭo ’bhijāyate",
     "english": "The unsuccessful yogī, after many, many years of enjoyment on the planets of the pious living entities, is born into a family of righteous people, or into a family of rich aristocracy.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-043",
@@ -588,11 +642,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "6.47",
     "audioSrc": "/audio/6.47.mp3",
     "sanskrit": "योगिनामपि सर्वेषां मद्गतेनान्तरात्मना।\n\nश्रद्धावान्भजते यो मां स मे युक्ततमो मतः।।6.47।।",
-    "tamil": "மற்றெந்த யோகிகளெல்லாரிலும், எவனொருவன் அந்தராத்மாவில் என்னைப் புகுத்தி என்னை நம்பிக்கையுடன் போற்றுகிறானோ அவன், மிக மேலான யோகியென்பது என்னுடைய கொள்கை.",
+    "tamil": "மேலும், எல்லா யோகிகளுக்கு மத்தியில், எவனொருவன் பெரும் நம்பிக்கையுடன் எப்போதும் என்னில் நிலைத்து. தன்னுள் என்னை எண்ணி. எனக்கு திவ்யமான அன்புத் தொண்டு புரிகின்றானோ, அவனே யோகத்தில் என்னுடன் மிகவும் நெருங்கியவனும் எல்லாரையும்விட உயர்ந்தவனும் ஆவான். இதுவே எனது அபிப்பிராயம்.",
     "transliteration": "yoginām api sarveṣāṁ\nmad-gatenāntar-ātmanā\nśraddhāvān bhajate yo māṁ\nsa me yuktatamo mataḥ",
     "english": "And of all yogīs, he who always abides in Me with great faith, worshiping Me in transcendental loving service, is most intimately united with Me in yoga and is the highest of all.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-044",
@@ -601,11 +656,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.3",
     "audioSrc": "/audio/7.3.mp3",
     "sanskrit": "मनुष्याणां सहस्रेषु कश्िचद्यतति सिद्धये।\n\nयततामपि सिद्धानां कश्िचन्मां वेत्ति तत्त्वतः।।7.3।।",
-    "tamil": "பல்லாயிர மனிதரில் ஒருவன் சித்தி பெற முயல்கிறான். முயற்சியுடைய சித்தர் பலரில் ஒருவன் என்னை உள்ளபடி அறிகிறான்.",
+    "tamil": "ஆயிரமாயிரம் மனிதர்களில் யாரேனும் ஒருவன் பக்குவமடைய முயற்சி செய்யலாம். அவ்வாறு பக்குவமடைந்தவர்களில் கூட யாரேனும் ஒருவனே என்னை உண்மையாக அறிகிறான்.",
     "transliteration": "manuṣyāṇāṁ sahasreṣu\nkaścid yatati siddhaye\nyatatām api siddhānāṁ\nkaścin māṁ vetti tattvataḥ",
     "english": "Out of many thousands among men, one may endeavor for perfection, and of those who have achieved perfection, hardly one knows Me in truth.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-045",
@@ -614,11 +670,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.4",
     "audioSrc": "/audio/7.4.mp3",
     "sanskrit": "भूमिरापोऽनलो वायुः खं मनो बुद्धिरेव च।\n\nअहङ्कार इतीयं मे भिन्ना प्रकृतिरष्टधा।।7.4।।",
-    "tamil": "மண், நீர், தீ, காற்று, வான், மனம், மதி, அகங்காரம் என்று எட்டு வகையாக என் இயற்கை பிரிந்து தோன்றுகிறது.",
+    "tamil": "நிலம். நீர், நெருப்பு, காற்று, ஆகாயம், மனம், புத்தி, அஹங்காரம்- இந்த எட்டும் சேர்ந்ததே எனது பிரிந்த ஜட சக்திகளாகும்.",
     "transliteration": "bhūmir āpo ’nalo vāyuḥ\nkhaṁ mano buddhir eva ca\nahaṅkāra itīyaṁ me\nbhinnā prakṛtir aṣṭadhā",
     "english": "Earth, water, fire, air, ether, mind, intelligence and false ego—altogether these eight comprise My separated material energies.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-046",
@@ -627,11 +684,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.5",
     "audioSrc": "/audio/7.5.mp3",
     "sanskrit": "अपरेयमितस्त्वन्यां प्रकृतिं विद्धि मे पराम्।\n\nजीवभूतां महाबाहो ययेदं धार्यते जगत्।।7.5।।",
-    "tamil": "இது என் கீழியற்கை. இதினின்றும் வேறுபட்டதாகிய என் மேலியற்கையை அறி; அதுவே உயிராவது; பெருந்தோளாய்! அதனால் இவ்வுலகு தரிக்கப்படுகிறது.",
+    "tamil": "பலம் பொருந்திய புயங்களை உடைய அர்ஜுனா. இதற்கு அப்பால், என்னுடைய உயந்த சக்தி ஒன்று உள்ளது. இந்த தாழ்ந்த ஜட இயற்கையினை தனது சுயநலனிற்காக உபயோகிக்ககூடிய ஜீவாத்மாக்களை அஃது உள்ளடக்கியதாகும்.",
     "transliteration": "apareyam itas tv anyāṁ\nprakṛtiṁ viddhi me parām\njīva-bhūtāṁ mahā-bāho\nyayedaṁ dhāryate jagat",
     "english": "Besides this inferior nature, O mighty-armed Arjuna, there is a superior energy of Mine, which are all living entities who are struggling with material nature and are sustaining the universe.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-047",
@@ -640,11 +698,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.7",
     "audioSrc": "/audio/7.7.mp3",
     "sanskrit": "मत्तः परतरं नान्यत्किञ्चिदस्ति धनञ्जय।\n\nमयि सर्वमिदं प्रोतं सूत्रे मणिगणा इव।।7.7।।",
-    "tamil": "தனஞ்ஜயா! என்னைக் காட்டிலும் உயர்ந்த பொருள் வேறெதுவுமில்லை. நூலில் மணிகளைப் போல் இவ்வையகமெல்லாம் என்மீது கோர்க்கப்பட்டது.",
+    "tamil": "செல்வத்தை வெல்வோனே, என்னைவிட உயர்ந்த உண்மை ஏதுமில்லை. நூலில் முத்துக்கள் கோர்க்கப்பட்டுள்ளதுபோல, அனைத்தும் என்னையே சார்ந்துள்ளன.",
     "transliteration": "mattaḥ parataraṁ nānyat\nkiñcid asti dhanañjaya\nmayi sarvam idaṁ protaṁ\nsūtre maṇi-gaṇā iva",
     "english": "O conqueror of wealth [Arjuna], there is no Truth superior to Me. Everything rests upon Me, as pearls are strung on a thread.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-048",
@@ -653,11 +712,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.14",
     "audioSrc": "/audio/7.14.mp3",
     "sanskrit": "दैवी ह्येषा गुणमयी मम माया दुरत्यया।\n\nमामेव ये प्रपद्यन्ते मायामेतां तरन्ति ते।।7.14।।",
-    "tamil": "இந்த குணமயமாகிய எனது தேவமாயை கடத்தற்கரியது. என்னையே யாவர் சரணடைவரோ அவர்கள் இந்த மாயையைக் கடக்கின்றார்கள்.",
+    "tamil": "ஓட இயற்கையின் முக்குணங்களாலான எனது இந்த தெய்வீக சக்தி வெல்லுவதற்கரியது. ஆனால் என்னிடம் சரணடைந்தோர் இதனை எளிதில் கடக்கலாம்.",
     "transliteration": "daivī hy eṣā guṇa-mayī\nmama māyā duratyayā\nmām eva ye prapadyante\nmāyām etāṁ taranti te",
     "english": "This divine energy of Mine, consisting of the three modes of material nature, is difficult to overcome. But those who have surrendered unto Me can easily cross beyond it.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-049",
@@ -666,11 +726,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.15",
     "audioSrc": "/audio/7.15.mp3",
     "sanskrit": "न मां दुष्कृतिनो मूढाः प्रपद्यन्ते नराधमाः।\n\nमाययापहृतज्ञाना आसुरं भावमाश्रिताः।।7.15।।",
-    "tamil": "தீமை செய்யும் மூடர், மானிடரில் கடைப்பட்டார், மாயையால் ஞானமழிந்தோர் அசுரத் தன்மையைப் பற்றி நிற்போர், -- (இணையோர்) என்னைச் சரண் புகார்.",
+    "tamil": "சற்றும் அறிவற்ற மூடர்களும், மனிதரில் கடைநிலையோரும், மாயையால் அறிவு கவரப்பட்டவர்களும். அசுரரின் நாத்திகத் தன்மையை ஏற்றவர்களுமான துஷ்டர்கள் என்னிடம் சரணடையவதில்லை.",
     "transliteration": "na māṁ duṣkṛtino mūḍhāḥ\nprapadyante narādhamāḥ\nmāyayāpahṛta-jñānā\nāsuraṁ bhāvam āśritāḥ",
     "english": "Those miscreants who are grossly foolish, lowest among mankind, whose knowledge is stolen by illusion, and who partake of the atheistic nature of demons, do not surrender unto Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-050",
@@ -679,11 +740,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.16",
     "audioSrc": "/audio/7.16.mp3",
     "sanskrit": "चतुर्विधा भजन्ते मां जनाः सुकृतिनोऽर्जुन।\n\nआर्तो जिज्ञासुरर्थार्थी ज्ञानी च भरतर्षभ।।7.16।।",
-    "tamil": "நற்செய்கையுடைய மக்களில் நான்கு வகையார் என்னை வழிபடுகின்றனர். பரதரேறே! துன்புற்றார், அறிவை விரும்புவோர், பயனை வேண்டுவோர், ஞானிகள் என.",
+    "tamil": "பரதர்களில் சிறந்தவனே. நான்கு விதமான நல்லோர் எனக்குத் தொண்டு புரிகின்றனர்- துயருற்றோர், செல்வத்தை விரும்புவோர், கேள்வியுடையோர், பூரணத்தின் அறிவைத் தேடுவோர் என்பவர் அவர்கள்.",
     "transliteration": "catur-vidhā bhajante māṁ\njanāḥ sukṛtino ’rjuna\nārto jijñāsur arthārthī\njñānī ca bharatarṣabha",
     "english": "O best among the Bhāratas [Arjuna], four kinds of pious men render devotional service unto Me—the distressed, the desirer of wealth, the inquisitive, and he who is searching for knowledge of the Absolute.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-051",
@@ -692,11 +754,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.19",
     "audioSrc": "/audio/7.19.mp3",
     "sanskrit": "बहूनां जन्मनामन्ते ज्ञानवान्मां प्रपद्यते।\n\nवासुदेवः सर्वमिति स महात्मा सुदुर्लभः।।7.19।।",
-    "tamil": "பல பிறவிகளின் இறுதியில் ஞானவான், ‘எல்லாம் வாசுதேவனே’ என்று கருதி என்னை அடைக்கலமாகப் பற்றுகிறான். அவ்வித மகாத்மா கிடைத்தற்கரியவன்.",
+    "tamil": "பற்பல பிறவிகளுக்குப் பின் உண்மையான அறிவுடையவன். எல்லாக் காரணங்களுக்கும் காரணமாக, எல்லாமாக என்னை அறிந்து, என்னிடம் சரணடைகிறான். அத்தகைய மகாத்மா மிகவும் அரிதானவன்.",
     "transliteration": "bahūnāṁ janmanām ante\njñānavān māṁ prapadyate\nvāsudevaḥ sarvam iti\nsa mahātmā su-durlabhaḥ",
     "english": "After many births and deaths, he who is actually in knowledge surrenders unto Me, knowing Me to be the cause of all causes and all that is. Such a great soul is very rare.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-052",
@@ -705,11 +768,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.25",
     "audioSrc": "/audio/7.25.mp3",
     "sanskrit": "नाहं प्रकाशः सर्वस्य योगमायासमावृतः।\n\nमूढोऽयं नाभिजानाति लोको मामजमव्ययम्।।7.25।।",
-    "tamil": "யோகமாயையால் மறைக்கப்பட்டிருப்பதால் நான் எல்லோருக்கும் வெளிப்படுவதில்லை. பிறப்பும் அழிவுமற்ற என்னை மயங்கிய இவ்வுலகம் அறியவில்லை.",
+    "tamil": "சிற்றறிவுடையோருக்கும் முட்டாளுக்கும் நான் ஒருபோதும் தோன்றுவதில்லை. நான் எனது அந்தரங்க சக்தியால் கவரப்பட்டுள்ளேன். எனவே நான் பிறப்பற்றவன், அழிவற்றவன் என்பதை இவர்கள் அறிவதில்லை.",
     "transliteration": "nāhaṁ prakāśaḥ sarvasya\nyoga-māyā-samāvṛtaḥ\nmūḍho ’yaṁ nābhijānāti\nloko mām ajam avyayam",
     "english": "I am never manifest to the foolish and unintelligent. For them I am covered by My eternal creative potency [yoga-māyā]; and so the deluded world knows Me not, who am unborn and infallible.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-053",
@@ -718,11 +782,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.26",
     "audioSrc": "/audio/7.26.mp3",
     "sanskrit": "वेदाहं समतीतानि वर्तमानानि चार्जुन।\n\nभविष्याणि च भूतानि मां तु वेद न कश्चन।।7.26।।",
-    "tamil": "அர்ஜுனா! கடந்த காலத்தையும் நிகழ்காலத்தையும் எதிர்காலத்தையும் நான் அறிவேன். எல்லா உயிர்களையும் அறிவேன்; ஆனால் என்னை எவரும் அறியார்.",
+    "tamil": "அர்ஜுனா. முழுமுதற் கடவுளான நான், கடந்த காலத்தில் நடந்தவை, தற்போது நடப்பவை, இனி நடக்க போகின்றவை அனைத்தையும் அறிவேன். நான் எல்லா ஜீவாத்மாக்களையும் நன்கறிவேன், ஆனால் என்னை அறிந்தவர் யாருமில்லை.",
     "transliteration": "vedāhaṁ samatītāni\nvartamānāni cārjuna\nbhaviṣyāṇi ca bhūtāni\nmāṁ tu veda na kaścana",
     "english": "O Arjuna, as the Supreme Personality of Godhead, I know everything that has happened in the past, all that is happening in the present, and all things that are yet to come. I also know all living entities; but Me no one knows.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-054",
@@ -735,7 +800,8 @@ export const SHLOKAS: Shloka[] = [
     "transliteration": "icchā-dveṣa-samutthena\ndvandva-mohena bhārata\nsarva-bhūtāni sammohaṁ\nsarge yānti parantapa",
     "english": "O scion of Bharata [Arjuna], O conqueror of the foe, all living entities are born into delusion, overcome by the dualities of desire and hate.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "bharati"
   },
   {
     "id": "GS-055",
@@ -744,11 +810,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "7.28",
     "audioSrc": "/audio/7.28.mp3",
     "sanskrit": "येषां त्वन्तगतं पापं जनानां पुण्यकर्मणाम्।\n\nते द्वन्द्वमोहनिर्मुक्ता भजन्ते मां दृढव्रताः।।7.28।।",
-    "tamil": "எந்த ஜனங்கள் பாவந் தீர்ந்து புண்ணியச் செயல்கள் செய்கின்றனரோ, அவர்கள் இருமைகளின் மயக்கந்தீர்ந்து திடவிரதமுடையோராய் என்னை வழிபடுகின்றனர்.",
+    "tamil": "முற்பிறவியிலும் இப்பிறவியிலும் புண்ணிய செயல்களில் ஈடுபட்டு, எவர்களது பாவ விளைவுகள் முழுமையாக ஒழிக்கப்பட்டுவிட்டதோ, எவர்கள் மயக்கத்தின் இருமையிலிருந்து பூரணமாக விடுபட்டுள்ளார்களோ. அவர்களே எனது பக்தித் தொண்டில் மனவுறுதியுடன் ஈடுபடுவர்.",
     "transliteration": "yeṣāṁ tv anta-gataṁ pāpaṁ\njanānāṁ puṇya-karmaṇām\nte dvandva-moha-nirmuktā\nbhajante māṁ dṛḍha-vratāḥ",
     "english": "Persons who have acted piously in previous lives and in this life, whose sinful actions are completely eradicated and who are freed from the duality of delusion, engage themselves in My service with determination.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-056",
@@ -757,11 +824,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "8.5",
     "audioSrc": "/audio/8.5.mp3",
     "sanskrit": "अन्तकाले च मामेव स्मरन्मुक्त्वा कलेवरम्।\n\nयः प्रयाति स मद्भावं याति नास्त्यत्र संशयः।।8.5।।",
-    "tamil": "இறுதிக் காலத்தில் உடம்பைத் துறந்து எனது நினைவுடன் இறப்போன் எனதியல்பை எய்துவான், இதில் ஐயமில்லை.",
+    "tamil": "மேலும், தனது வாழ்வின் இறுதி காலத்தில், யாராவது என்னை மட்டும் எண்ணிக் கொண்டு உடலை விட்டால். உடனடியாக அவன் என்னுடைய இயற்கையை அடைகிறான். இதில் சிறிதும் சந்தேகம் இல்லை.",
     "transliteration": "anta-kāle ca mām eva\nsmaran muktvā kalevaram\nyaḥ prayāti sa mad-bhāvaṁ\nyāti nāsty atra saṁśayaḥ",
     "english": "And whoever, at the time of death, quits his body, remembering Me alone, at once attains My nature. Of this there is no doubt.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-057",
@@ -770,11 +838,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "8.6",
     "audioSrc": "/audio/8.6.mp3",
     "sanskrit": "यं यं वापि स्मरन्भावं त्यजत्यन्ते कलेवरम्।\n\nतं तमेवैति कौन्तेय सदा तद्भावभावितः।।8.6।।",
-    "tamil": "ஒருவன் முடிவில் எவ்வெத் தன்மையை நினைப்பனாய் உடலைத் துறக்கின்றானோ, அவன் எப்போதும் அத்தன்மையிலே கருத்துடையவனாய் அதனையே எய்துவான்.",
+    "tamil": "ஒருவன் தனது உடலை விடும்போது எந்த நிலையை எண்ணுகின்றானோ, ஐயமின்றி அந்நிலையை அவன்அடைகிறான்.",
     "transliteration": "yaṁ yaṁ vāpi smaran bhāvaṁ\ntyajaty ante kalevaram\ntaṁ tam evaiti kaunteya\nsadā tad-bhāva-bhāvitaḥ",
     "english": "Whatever state of being one remembers when he quits his body, that state he will attain without fail.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-058",
@@ -783,11 +852,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "8.7",
     "audioSrc": "/audio/8.7.mp3",
     "sanskrit": "तस्मात्सर्वेषु कालेषु मामनुस्मर युध्य च।\n\nमय्यर्पितमनोबुद्धिर्मामेवैष्यस्यसंशयम्।।8.7।।",
-    "tamil": "ஆதலால் எல்லாக் காலங்களிலும் என்னை நினை, போர் செய். என்னிடத்தே மனத்தையும், புத்தியையும் அர்ப்பணம் செய்வதனால் என்னையே பெறுவாய்.",
+    "tamil": "எனவே, அர்ஜுனா, என்னை இந்த (கிருஷ்ண) உருவில் எப்போதும் எண்ணிக் கொண்டு, அதே சமயம் உனக்கு விதிக்கப்பட்ட கடமையான போரிடுதலையும் செய்வாயாக. உன்னுடைய செயல்களை எனக்கு அர்ப்பணித்து, உன்னுடைய மனதையும் புத்தியையும் என்னில் நிலைநிறுத்துவதன் மூலம். நீ என்னையே அடைவாய் என்பதில் ஐயமில்லை.",
     "transliteration": "tasmāt sarveṣu kāleṣu\nmām anusmara yudhya ca\nmayy arpita-mano-buddhir\nmām evaiṣyasy asaṁśayaḥ",
     "english": "Therefore, Arjuna, you should always think of Me in the form of Kṛṣṇa and at the same time carry out your prescribed duty of fighting. With your activities dedicated to Me and your mind and intelligence fixed on Me, you will attain Me without doubt.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-059",
@@ -796,11 +866,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "8.14",
     "audioSrc": "/audio/8.14.mp3",
     "sanskrit": "अनन्यचेताः सततं यो मां स्मरति नित्यशः।\n\nतस्याहं सुलभः पार्थ नित्ययुक्तस्य योगिनः।।8.14।।",
-    "tamil": "வேறு நினைப்பின்றி என்னை எப்போதும் நினைக்கும், யோகத்தில் தொடர்ந்து நிலைத்திருக்கும் யோகிக்கு நான் எளிதில் கிடைப்பேன், பார்த்தா!",
+    "tamil": "பிருதாவின் மகனே, பிறழாத மனதுடன் என்னை எப்போதும் நினைப்பவன், சுலபமாக என்னை அடைகிறான்: ஏனெனில், அவன் பக்தித் தொண்டில் இடையறாது ஈடுபட்டுள்ளான்.",
     "transliteration": "ananya-cetāḥ satataṁ\nyo māṁ smarati nityaśaḥ\ntasyāhaṁ sulabhaḥ pārtha\nnitya-yuktasya yoginaḥ",
     "english": "For one who remembers Me without deviation, I am easy to obtain, O son of Pṛthā, because of his constant engagement in devotional service.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-060",
@@ -809,11 +880,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "8.15",
     "audioSrc": "/audio/8.15.mp3",
     "sanskrit": "मामुपेत्य पुनर्जन्म दुःखालयमशाश्वतम्।\n\nनाप्नुवन्ति महात्मानः संसिद्धिं परमां गताः।।8.15।।",
-    "tamil": "என்னை யடைந்து பரம சித்தி பெற்ற மகாத்மாக்கள், மறுபடி நிலையற்றதும் துன்பத்தின் ஆலயமும் ஆகிய மறுபிறப்பை யடையமாட்டார்.",
+    "tamil": "பக்தியில் யோகிகளான மகாத்மாக்கள் என்னை அடைந்த பிறகு, முற்றிலும் துன்பம் நிறைந்த இந்த தற்காலிகமான உலகத்திற்குத் திரும்பி வருவதே இல்லை, ஏனெனில், அவர்கள் மிகவுயர்ந்த பக்குவத்தை அடைந்துவிட்டனர்.",
     "transliteration": "mām upetya punar janma\nduḥkhālayam aśāśvatam\nnāpnuvanti mahātmānaḥ\nsaṁsiddhiṁ paramāṁ gatāḥ",
     "english": "After attaining Me, the great souls, who are yogīs in devotion, never return to this temporary world, which is full of miseries, because they have attained the highest perfection.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-061",
@@ -822,11 +894,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "8.16",
     "audioSrc": "/audio/8.16.mp3",
     "sanskrit": "आब्रह्मभुवनाल्लोकाः पुनरावर्तिनोऽर्जुन।\n\nमामुपेत्य तु कौन्तेय पुनर्जन्म न विद्यते।।8.16।।",
-    "tamil": "அர்ஜுனா! பிரம்மலோகம் வரை எல்லா உலகங்களும் மறுபிறப்பு உடையன. குந்தி மகனே! என்னை அடைந்தவனுக்கு மறுபிறப்பு இல்லை.",
+    "tamil": "ஜடவுலகின் மிகவுயர்ந்த லோகத்திலிருந்து மிகவும் தாழ்ந்த லோகம் வரை, அனைத்தும் பிறப்பும் இறப்பும் மாறி மாறி நடைபெறும் துன்பம் நிறைந்த இடங்களே. ஆனால் குந்தியின் மகனே. என்னுடைய இடத்தை அடைபவன் என்றும் மறுபிறவி எடுப்பதில்லை.",
     "transliteration": "ā-brahma-bhuvanāl lokāḥ\npunar āvartino ’rjuna\nmām upetya tu kaunteya\npunar janma na vidyate",
     "english": "From the highest planet in the material world down to the lowest, all are places of misery wherein repeated birth and death take place. But one who attains to My abode, O son of Kuntī, never takes birth again.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-062",
@@ -835,11 +908,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "8.28",
     "audioSrc": "/audio/8.28.mp3",
     "sanskrit": "वेदेषु यज्ञेषु तपःसु चैव\n\nदानेषु यत्पुण्यफलं प्रदिष्टम्।\n\nअत्येति तत्सर्वमिदं विदित्वा\n\nयोगी परं स्थानमुपैति चाद्यम्।।8.28।।",
-    "tamil": "இதனை அறிந்த யோகி, வேதப் படிப்பு, வேள்விகள், தவங்கள், தானங்கள் ஆகியவற்றுக்குச் சொல்லப்பட்ட புண்ணியப் பயன்களையெல்லாம் கடந்து, ஆதியான உயர்ந்த நிலையை அடைகிறான்.",
+    "tamil": "பக்தித் தொண்டின் பாதையை ஏற்பவன். வேதங்களைப் படித்தல், யாகங்களைச் செய்தல், தவம் புரிதல், தானம் கொடுத்தல், கர்ம, ஞானப் பாதைகளை மேற்கொள்ளுதல் ஆகியவற்றால் அடையப்படும் பலன்களை இழப்பதில்லை. பக்தித் கொண்டை செய்வதன் மூலமாகவே இவையனைத்தையும் பெற்று. இறுதியில் நித்தியமான உன்னத இடத்தை அவன் அடைகிறான்.",
     "transliteration": "vedeṣu yajñeṣu tapaḥsu caiva\ndāneṣu yat puṇya-phalaṁ pradiṣṭam\natyeti tat sarvam idaṁ viditvā\nyogī paraṁ sthānam upaiti cādyam",
     "english": "A person who accepts the path of devotional service is not bereft of the results derived from studying the Vedas, performing austere sacrifices, giving charity or pursuing philosophical and fruitive activities. At the end he reaches the supreme abode.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-063",
@@ -848,11 +922,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.2",
     "audioSrc": "/audio/9.2.mp3",
     "sanskrit": "राजविद्या राजगुह्यं पवित्रमिदमुत्तमम्।\n\nप्रत्यक्षावगमं धर्म्यं सुसुखं कर्तुमव्ययम्।।9.2।।",
-    "tamil": "ராஜவித்தை, ராஜரகசியம், தூய்மை தருவதில் மிக மாண்புடையது, கண்ணெதிரே காண்டற்குரியது. அறத்துக் கிசைந்தது, செய்தற்கு மிக எளிது, அழிவற்றது.",
+    "tamil": "இந்த அறிவு. கல்வியின் அரசனும், எல்லா இரகசியங்களிலும் மிக இரகசியமானதும், மிகத் தூய்மையானதுமாகும். தன்னுணர்வின் அனுபவத்தை நேரடியாக அளிப்பதால் இதுவே தர்மத்தின் பக்குவ நிலையாகும். இஃது அழிவற்றதும், பேரின்பத்துடன் செயலாற்றப்படுவதும் ஆகும்.",
     "transliteration": "rāja-vidyā rāja-guhyaṁ\npavitram idam uttamam\npratyakṣāvagamaṁ dharmyaṁ\nsu-sukhaṁ kartum avyayam",
     "english": "This knowledge is the king of education, the most secret of all secrets. It is the purest knowledge, and because it gives direct perception of the self by realization, it is the perfection of religion. It is everlasting, and it is joyfully performed.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-064",
@@ -861,11 +936,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.4",
     "audioSrc": "/audio/9.4.mp3",
     "sanskrit": "मया ततमिदं सर्वं जगदव्यक्तमूर्तिना।\n\nमत्स्थानि सर्वभूतानि न चाहं तेष्ववस्थितः।।9.4।।",
-    "tamil": "அவ்யக்த வடிவாய் நான் இவ்வுலக முழுமையும் சூழ்ந்திருக்கிறேன். என்னிடத்தே பூதங்களெல்லாம் நிலைபெற்றன. அவற்றுட்பட்டதன்று என் நிலை.",
+    "tamil": "நான் எனது தோன்றாத உருவின் மூலம் இந்த அகிலம் முழுவதும் பரவியுள்ளேன். எல்லா ஜீவன்களும் என்னில் இருக்கின்றன்; ஆனால் அவர்களில் நான் இல்லை.",
     "transliteration": "mayā tatam idaṁ sarvaṁ\njagad avyakta-mūrtinā\nmat-sthāni sarva-bhūtāni\nna cāhaṁ teṣv avasthitaḥ",
     "english": "By Me, in My unmanifested form, this entire universe is pervaded. All beings are in Me, but I am not in them.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-065",
@@ -874,11 +950,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.10",
     "audioSrc": "/audio/9.10.mp3",
     "sanskrit": "मयाऽध्यक्षेण प्रकृतिः सूयते सचराचरम्।\n\nहेतुनाऽनेन कौन्तेय जगद्विपरिवर्तते।।9.10।।",
-    "tamil": "என் மேற்பார்வையில் இயற்கை அசையும் உயிர்களையும் அசையாதவற்றையும் தோற்றுவிக்கிறது. குந்தியின் மகனே! இதனாலேயே உலகம் மீண்டும் மீண்டும் தோன்றி மறைகிறது.",
+    "tamil": "குந்தியின் மகனே. எனது சக்திகளில் ஒன்றான இந்த ஜட இயற்கை, எனது மேற்பார்வையில் செயல்பட்டு, அசைகின்ற மற்றும் அசையாதவற்றை எல்லாம் உண்டாக்குகின்றது. அதன் ஆணைப்படி, இந்தத் தோற்றம் மீண்டும் மீண்டும் படைக்கப்பட்டு அழிக்கப்படுகின்றது.",
     "transliteration": "mayādhyakṣeṇa prakṛtiḥ\nsūyate sa-carācaram\nhetunānena kaunteya\njagad viparivartate",
     "english": "This material nature is working under My direction, O son of Kuntī, and it is producing all moving and unmoving beings. By its rule this manifestation is created and annihilated again and again.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-066",
@@ -887,11 +964,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.11",
     "audioSrc": "/audio/9.11.mp3",
     "sanskrit": "अवजानन्ति मां मूढा मानुषीं तनुमाश्रितम्।\n\nपरं भावमजानन्तो मम भूतमहेश्वरम्।।9.11।।",
-    "tamil": "மனித சரீரந் தரித்த என்னை மூடர் புறக்கணிக்கிறார்கள். உயிர்களுக்கெல்லாம் உயர் தலைவன் நான் என்ற என் பரம நிலையை அவர்கள் அறிகிலர்.",
+    "tamil": "மனித உருவில் நான் தோன்றும்போது முட்டாள்கள் என்னை ஏளனம் செய்கின்றனர். எனது பரம இயற்கையை, அதாவது, இருப்பவை அனைத்திற்கும் நானே உன்னத உரிமையாளன் என்பதை அவர்கள் அறியார்கள்.",
     "transliteration": "avajānanti māṁ mūḍhā\nmānuṣīṁ tanum āśritam\nparaṁ bhāvam ajānanto\nmama bhūta-maheśvaram",
     "english": "Fools deride Me when I descend in the human form. They do not know My transcendental nature and My supreme dominion over all that be.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-067",
@@ -900,11 +978,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.12",
     "audioSrc": "/audio/9.12.mp3",
     "sanskrit": "मोघाशा मोघकर्माणो मोघज्ञाना विचेतसः।\n\nराक्षसीमासुरीं चैव प्रकृतिं मोहिनीं श्रिताः।।9.12।।",
-    "tamil": "வீணாசையுடையோர், வீண் செயலாளர், வீணறிவாளர், மதியற்றோர், மயக்கத்துக்கு இடமான ராக்ஷத ஆசுர மோகினி சக்திகளைச் சார்ந்து நிற்கின்றனர். (ராக்ஷத, ஆசுர, மோகினி சக்திகளாவன -- அவா, குரூரம், மயக்கம் என்ற சித்த இயல்புகள்)",
+    "tamil": "இவ்வாறு குழம்பியவர்கள், ராட்சசத்தனமாக கருத்துக்களாலும் நாத்திகக் கருத்துக்களாலும் கவரப்படுகின்றனர். அத்தகு மயங்கிய நிலையில். அவர்களது முக்திக்கான ஆவல்கள். பலன் நோக்குச் செயல்கள், அறிவுப் பயிற்சிகள் ஆகிய அனைத்தும் கோல்வியடைகின்றன.",
     "transliteration": "moghāśā mogha-karmāṇo\nmogha-jñānā vicetasaḥ\nrākṣasīm āsurīṁ caiva\nprakṛtiṁ mohinīṁ śritāḥ",
     "english": "Those who are thus bewildered are attracted by demonic and atheistic views. In that deluded condition, their hopes for liberation, their fruitive activities, and their culture of knowledge are all defeated.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-068",
@@ -913,11 +992,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.13",
     "audioSrc": "/audio/9.13.mp3",
     "sanskrit": "महात्मानस्तु मां पार्थ दैवीं प्रकृतिमाश्रिताः।\n\nभजन्त्यनन्यमनसो ज्ञात्वा भूतादिमव्ययम्।।9.13।।",
-    "tamil": "பார்த்தா! மகாத்மாக்கள் தெய்வீக இயல்பைச் சார்ந்து, உயிர்களின் ஆதியும் அழிவற்றவனுமாகிய என்னை அறிந்து, வேறு மனமின்றி வழிபடுகின்றனர்.",
+    "tamil": "பிருதாவின் மகனே, குழப்பமடையாத மகாத்மாக்களோ தெய்வீக இயற்கையின் பாதுகாப்பில் உள்ளனர். அவர்கள். பரம புருஷ பகவானான என்னை. ஆதிபுருஷனாகவும் அழிவற்றவனாகவும் அறிந்து, எனது பக்தித் தொண்டில் பூரணமாக ஈடுபட்டுள்ளனர்.",
     "transliteration": "mahātmānas tu māṁ pārtha\ndaivīṁ prakṛtim āśritāḥ\nbhajanty ananya-manaso\njñātvā bhūtādim avyayam",
     "english": "O son of Pṛthā, those who are not deluded, the great souls, are under the protection of the divine nature. They are fully engaged in devotional service because they know Me as the Supreme Personality of Godhead, original and inexhaustible.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-069",
@@ -926,11 +1006,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.14",
     "audioSrc": "/audio/9.14.mp3",
     "sanskrit": "सततं कीर्तयन्तो मां यतन्तश्च दृढव्रताः।\n\nनमस्यन्तश्च मां भक्त्या नित्ययुक्ता उपासते।।9.14।।",
-    "tamil": "திட விரதத்துடன் முயற்சி புரிவோராய், எப்போதும் என்னைப் புகழ்வோராய், என்னைப் பக்தியால் வணங்குவோராய் நித்திய யோகிகள் உபாசிக்கிறார்கள்.",
+    "tamil": "எப்போதும் எனது புகழை கீர்த்தனம் செய்து கொண்டு, திடமான உறுதியுடன் முயன்று கொண்டு, எனக்கு வந்தனை செய்தபடி. இந்த மகாத்மாக்கள் பக்தியுடன் நித்தியமாக என்னை வழிபடுகின்றனர்.",
     "transliteration": "satataṁ kīrtayanto māṁ\nyatantaś ca dṛḍha-vratāḥ\nnamasyantaś ca māṁ bhaktyā\nnitya-yuktā upāsate",
     "english": "Always chanting My glories, endeavoring with great determination, bowing down before Me, these great souls perpetually worship Me with devotion.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-070",
@@ -939,11 +1020,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.22",
     "audioSrc": "/audio/9.22.mp3",
     "sanskrit": "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते।\n\nतेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम्।।9.22।।",
-    "tamil": "வேறு நினைப்பின்றி என்னைத் தியானித்து வழிபடும், எப்போதும் என்னுடன் இணைந்திருப்போருக்குத் தேவையானதை அளித்து, அவர்களிடம் உள்ளதைக் காப்பாற்றுகிறேன்.",
+    "tamil": "ஆனால் எனது திவ்ய ரூபத்தின் மீது தியானம் செய்துகொண்டு, களங்கமற்ற (அனன்ய) பக்தியுடன் என்னை நித்தியமாக வழிபடுபவர்களுக்கோ, அவர்களுக்கு வேண்டியவற்றைக் கொடுத்தும், அவர்களிடம் இருப்பவற்றை காத்தும் நான் பாலிக்கின்றேன்.",
     "transliteration": "ananyāś cintayanto māṁ\nye janāḥ paryupāsate\nteṣāṁ nityābhiyuktānāṁ\nyoga-kṣemaṁ vahāmy aham",
     "english": "But those who worship Me with devotion, meditating on My transcendental form—to them I carry what they lack and preserve what they have.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-071",
@@ -952,11 +1034,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.25",
     "audioSrc": "/audio/9.25.mp3",
     "sanskrit": "यान्ति देवव्रता देवान् पितृ़न्यान्ति पितृव्रताः।\n\nभूतानि यान्ति भूतेज्या यान्ति मद्याजिनोऽपि माम्।।9.25।।",
-    "tamil": "தேவ விரதிகள் தேவரை எய்துவார்; பிதிர்க்களை நோற்பார் பிதிர்க்களை யடைவார்; பூதங்களைத் தொழுவார் பூதங்களை யடைவார்; என்னை வேட்போர் என்னை எய்துவார்.",
+    "tamil": "தேவர்களை வழிபடுபவர்கள் தேவர்களிடையே பிறப்பவர்: முன்னோர்களை வழிபடுபவர்கள் முன்னோர்களிடம் செல்வர்: பூதங்களை வழிபடுபவர்கள் பூதங்களிடையே பிறப்பர்; மேலும். என்னை வழிபடுபவர்கள் என்னுடனே வாழ்வர்.",
     "transliteration": "yānti deva-vratā devān\npitṝn yānti pitṛ-vratāḥ\nbhūtāni yānti bhūtejyā\nyānti mad-yājino ’pi mām",
     "english": "Those who worship the demigods will take birth among the demigods; those who worship ghosts and spirits will take birth among such beings; those who worship ancestors go to the ancestors; and those who worship Me will live with Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-072",
@@ -965,11 +1048,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.26",
     "audioSrc": "/audio/9.26.mp3",
     "sanskrit": "पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति।\n\nतदहं भक्त्युपहृतमश्नामि प्रयतात्मनः।।9.26।।",
-    "tamil": "இலையேனும், பூவேனும், கனியேனும், நீரேனும் அன்புடனே எனக்கு அளிப்பவன் ஆயின், முயற்சியுடைய அன்னவன் அன்புடன் அளித்ததை உண்பேன் யான்.",
+    "tamil": "அன்புடனும் பக்தியுடனும் ஒருவன் எனக்கு ஓர் இலையோ, ஒரு பூவோ, ஒரு பழமோ. நீரோ அளித்தால் அதனை நான் ஏற்கின்றேன்.",
     "transliteration": "patraṁ puṣpaṁ phalaṁ toyaṁ\nyo me bhaktyā prayacchati\ntad ahaṁ bhakty-upahṛtam\naśnāmi prayatātmanaḥ",
     "english": "If one offers Me with love and devotion a leaf, a flower, fruit or water, I will accept it.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-073",
@@ -978,11 +1062,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.27",
     "audioSrc": "/audio/9.27.mp3",
     "sanskrit": "यत्करोषि यदश्नासि यज्जुहोषि ददासि यत्।\n\nयत्तपस्यसि कौन्तेय तत्कुरुष्व मदर्पणम्।।9.27।।",
-    "tamil": "நீ எதைச் செய்தாலும், எதை உண்டாலும், எதை வேள்வியில் அளித்தாலும், எதைக் கொடுத்தாலும், எந்தத் தவத்தைச் செய்தாலும், குந்தியின் மகனே! அதை எனக்கு அர்ப்பணமாகச் செய்.",
+    "tamil": "குந்தியின் மகனே. எதையெல்லாம் நீ செய்கின்றாயோ, எதையெல்லாம் நீ உண்கின்றாயோ, எதையெல்லாம் நீ படைக்கின்றாயோ, எதையெல்லாம் நீ கொடுக்கின்றாயோ, எந்த தவங்களையெல்லாம் நீ செய்கின்றாயோ. அதனை எனக்கு அர்ப்பணமாக செய்வாயாக.",
     "transliteration": "yat karoṣi yad aśnāsi\nyaj juhoṣi dadāsi yat\nyat tapasyasi kaunteya\ntat kuruṣva mad-arpaṇam",
     "english": "O son of Kuntī, all that you do, all that you eat, all that you offer and give away, as well as all austerities that you may perform, should be done as an offering unto Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-074",
@@ -991,11 +1076,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.29",
     "audioSrc": "/audio/9.29.mp3",
     "sanskrit": "समोऽहं सर्वभूतेषु न मे द्वेष्योऽस्ति न प्रियः।\n\nये भजन्ति तु मां भक्त्या मयि ते तेषु चाप्यहम्।।9.29।।",
-    "tamil": "நான் எல்லா உயிர்களிடத்தும் சமமானவன். எனக்குப் பகைவனுமில்லை, நண்பனுமில்லை, ஆனால், என்னை அன்புடன் தொழுவோர் -- அன்னவர் என்னகத் தமர்ந்தார்; அவரகத்து நான் உளேன்.",
+    "tamil": "நான் யாரிடமும் பொறாமை கொள்வதோ. பாரபட்சம் காட்டுவதோ இல்லை. நான் அனைவருக்கும் சமமானவன். ஆயினும் பக்தியுடன் எனக்கு அன்புத் தொண்டு புரிபவன் யாராயினும். அவன் எனது நண்பன். அவன் என்னில் இருக்கிறான். நானும் அவனுக்கு நண்பனாகிறேன்.",
     "transliteration": "samo ’haṁ sarva-bhūteṣu\nna me dveṣyo ’sti na priyaḥ\nye bhajanti tu māṁ bhaktyā\nmayi te teṣu cāpy aham",
     "english": "I envy no one, nor am I partial to anyone. I am equal to all. But whoever renders service unto Me in devotion is a friend, is in Me, and I am also a friend to him.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-075",
@@ -1004,11 +1090,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.30",
     "audioSrc": "/audio/9.30.mp3",
     "sanskrit": "अपि चेत्सुदुराचारो भजते मामनन्यभाक्।\n\nसाधुरेव स मन्तव्यः सम्यग्व्यवसितो हि सः।।9.30।।",
-    "tamil": "மிகவும் தீய நடத்தையுடையவனாயினும், வேறு நினைப்பின்றி என்னை வழிபடுபவனை நல்லவனாகவே கருத வேண்டும்; ஏனெனில் அவன் சரியான உறுதி கொண்டிருக்கிறான்.",
+    "tamil": "ஒருவன் மிகவும் மோசமான செயலைச் செய்தாலும், அவன் பக்தித் தொண்டில் பிறழாது ஈடுபட்டிருந்தால், அவனை சாதுவாகவே கருத வேண்டும்; ஏனெனில், அவன் தனது தீர்மானத்தில் திடமாக உள்ளான்.",
     "transliteration": "api cet su-durācāro\nbhajate mām ananya-bhāk\nsādhur eva sa mantavyaḥ\nsamyag vyavasito hi saḥ",
     "english": "Even if one commits the most abominable actions, if he is engaged in devotional service, he is to be considered saintly because he is properly situated.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-076",
@@ -1017,11 +1104,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.32",
     "audioSrc": "/audio/9.32.mp3",
     "sanskrit": "मां हि पार्थ व्यपाश्रित्य येऽपि स्युः पापयोनयः।\n\nस्त्रियो वैश्यास्तथा शूद्रास्तेऽपि यान्ति परां गतिम्।।9.32।।",
-    "tamil": "பாவிகளென்னைப் பணிவாராயினும் மாதரேனும், வைசியரேனும் சூத்திரரும் பரகதி பெறுவார்.",
+    "tamil": "பிருதாவின் மகனே. பெண்கள், வைசியர்கள், சூத்திரர்கள் என கீழ் குலத்தைச் சார்ந்தவர்கள் யாராக இருந்தாலும், என்னிடம் சரணடைபவர்கள் பரமகதியை அடைய முடியும்.",
     "transliteration": "māṁ hi pārtha vyapāśritya\nye ’pi syuḥ pāpa-yonayaḥ\nstriyo vaiśyās tathā śūdrās\nte ’pi yānti parāṁ gatim",
     "english": "O son of Pṛthā, those who take shelter in Me, though they be of lower birth—women, vaiśyas [merchants], as well as śūdras [workers]—can approach the supreme destination.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-077",
@@ -1030,11 +1118,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "9.34",
     "audioSrc": "/audio/9.34.mp3",
     "sanskrit": "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु।\n\nमामेवैष्यसि युक्त्वैवमात्मानं मत्परायणः।।9.34।।",
-    "tamil": "மனத்தை எனக்காக்கிவிடு; பக்தியை எனக்காக்கு, என்னைத் தொழு. என்னைப் பரமாகக் கொள். இங்ஙனமியற்றும் தற்கலப்பு யோகத்தால் என்னையே எய்துவாய்.",
+    "tamil": "உனது மனதை எப்பொழுதும் என்னைப் பற்றிச் சிந்திப்பதில் ஈடுபடுத்தி, எனது பக்தனாகி, எனக்கு வந்தனை செய்து, என்னை வழிபடுவாயாக இவ்வாறாக என்னில் முழுமையாக லயித்து, நிச்சயமாக நீ என்னிடமே வருவாய்.",
     "transliteration": "man-manā bhava mad-bhakto\nmad-yājī māṁ namaskuru\nmām evaiṣyasi yuktvaivam\nātmānaṁ mat-parāyaṇaḥ",
     "english": "Engage your mind always in thinking of Me, offer obeisances and worship Me. Being completely absorbed in Me, surely you will come to Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-078",
@@ -1043,11 +1132,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "10.8",
     "audioSrc": "/audio/10.8.mp3",
     "sanskrit": "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते।\n\nइति मत्वा भजन्ते मां बुधा भावसमन्विताः।।10.8।।",
-    "tamil": "நான் அனைத்திற்கும் தொடக்கம். என்னிடமிருந்தே எல்லாம் இயலும். இங்ஙன முணர்ந்த புலவர் என்னை அன்புடன் தொழுவார்.",
+    "tamil": "ஓட, ஆன்மீக உலகங்கள் அனைத்திற்கும் மூலம் நானே. எல்லாம் என்னிடமிருந்தே தோன்றுகின்றன. இதனை நன்றாக அறிந்த அறிஞர்கள், எனது பக்தித் தொண்டில் ஈடுபட்டு, இதயப்பூர்வமாக என்னை வழிபடுகின்றனர்.",
     "transliteration": "ahaṁ sarvasya prabhavo\nmattaḥ sarvaṁ pravartate\niti matvā bhajante māṁ\nbudhā bhāva-samanvitāḥ",
     "english": "I am the source of all spiritual and material worlds. Everything emanates from Me. The wise who know this perfectly engage in My devotional service and worship Me with all their hearts.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-079",
@@ -1060,7 +1150,8 @@ export const SHLOKAS: Shloka[] = [
     "transliteration": "mac-cittā mad-gata-prāṇā\nbodhayantaḥ parasparam\nkathayantaś ca māṁ nityaṁ\ntuṣyanti ca ramanti ca",
     "english": "The thoughts of My pure devotees dwell in Me, their lives are surrendered to Me, and they derive great satisfaction and bliss enlightening one another and conversing about Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "bharati"
   },
   {
     "id": "GS-080",
@@ -1069,11 +1160,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "10.10",
     "audioSrc": "/audio/10.10.mp3",
     "sanskrit": "तेषां सततयुक्तानां भजतां प्रीतिपूर्वकम्।\n\nददामि बुद्धियोगं तं येन मामुपयान्ति ते।।10.10।।",
-    "tamil": "எப்போதும் யோகத் திருப்பாராகில் அன்புடன் என்னை வழிபடும் அன்னோர்க்கு யான் புத்தியோகம் அளிப்பேன். இதனால் என்னையவர் எய்துவார்.",
+    "tamil": "எனக்கு அன்புடன் தொண்டு செய்வதில் இடையறாது ஈடுபட்டுள்ளவர்களுக்கு. என்னிடம் வந்தடைவதற்குத் தேவையான அறிவை நானே வழங்குகிறேன்.",
     "transliteration": "teṣāṁ satata-yuktānāṁ\nbhajatāṁ prīti-pūrvakam\ndadāmi buddhi-yogaṁ taṁ\nyena mām upayānti te",
     "english": "To those who are constantly devoted and worship Me with love, I give the understanding by which they can come to Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-081",
@@ -1082,11 +1174,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "10.11",
     "audioSrc": "/audio/10.11.mp3",
     "sanskrit": "तेषामेवानुकम्पार्थमहमज्ञानजं तमः।\n\nनाशयाम्यात्मभावस्थो ज्ञानदीपेन भास्वता।।10.11।।",
-    "tamil": "அன்னவர்க்கிரங்கி யான் அன்னவர் ஆத்ம இயல்புயானாகி ஒளியுடை ஞானவிளக்கால் அவரிடை அஞ்ஞானத்தால் தோன்றுமிருளைத் தொலைப்பேன்.",
+    "tamil": "அவர்களிடம் விஷேச கருணையைக் காட்டுவதற்காக. அவர்களது இதயத்தினுள் வசிக்கும் நான். அறியாமையினால் பிறந்த இருளை ஞானமெனும் சுடர்விடும் தீபத்தினால் அழிக்கின்றேன்.",
     "transliteration": "teṣām evānukampārtham\naham ajñāna-jaṁ tamaḥ\nnāśayāmy ātma-bhāva-stho\njñāna-dīpena bhāsvatā",
     "english": "Out of compassion for them, I, dwelling in their hearts, destroy with the shining lamp of knowledge the darkness born of ignorance.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-082",
@@ -1095,11 +1188,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "10.12-13",
     "audioSrc": "/audio/10.12.mp3",
     "sanskrit": "अर्जुन उवाच\n\nपरं ब्रह्म परं धाम पवित्रं परमं भवान्।\n\nपुरुषं शाश्वतं दिव्यमादिदेवमजं विभुम्।।10.12।।\n\nआहुस्त्वामृषयः सर्वे देवर्षिर्नारदस्तथा।\n\nअसितो देवलो व्यासः स्वयं चैव ब्रवीषि मे।।10.13।।",
-    "tamil": "அர்ஜுனன் சொன்னான்: நீயே பரப்பிரம்மம், நீயே பரவீடு, தூய்மையனைத்தினும் சிறப்புடைய தூய்மை நீ. நித்திய புருஷன், தெய்வீகமானவன், ஆதிதேவன், பிறப்பிலான், எங்கும் நிறைந்தவன் என்று நின்னை\nமுனிவரெல்லாரும் மொழிகிறார்; தேவரிஷி நாரதருமங்ஙனமே நவில்கிறார். அசிதரும் தேவலரும் வியாசரும் அங்ஙனமே செப்புகிறார். இங்கு நீ நேரே எனக்கு அதை உரைக்கின்றாய்.",
+    "tamil": "அர்ஜுனன் கூறினான்: நீரே பரபிரம்மன். உன்னத இருப்பிடம். மிகவும் தூய்மையானவர். பரம சத்தியம், நீரே நித்தியமானவர். திவ்யமானவர், ஆதி தேவர், பிறப்பற்றவர். மிகப் பெரியவர். உம்மைப் பற்றிய இந்த உண்மையினை, நாரதர். அஸிதர், தேவலர். வியாசர் போன்ற மிகச்சிறந்த ரிஷிகளும் உறுதி செய்துள்ளனர், இப்பொழுது நீரே இதனை எனக்கு அறிவித்துள்ளீர்.",
     "transliteration": "arjuna uvāca\nparaṁ brahma paraṁ dhāma\npavitraṁ paramaṁ bhavān\npuruṣaṁ śāśvataṁ divyam\nādi-devam ajaṁ vibhum\n\nāhus tvām ṛṣayaḥ sarve\ndevarṣir nāradas tathā\nasito devalo vyāsaḥ\nsvayaṁ caiva bravīṣi me",
     "english": "Arjuna said: You are the Supreme Personality of Godhead, the ultimate abode, the purest, the Absolute Truth. You are the eternal, transcendental, original person, the unborn, the greatest. All the great sages such as Narada, Asita, Devala and Vyasa confirm this truth about You, and now You Yourself are declaring it to me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-083",
@@ -1108,11 +1202,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "10.41",
     "audioSrc": "/audio/10.41.mp3",
     "sanskrit": "यद्यद्विभूतिमत्सत्त्वं श्रीमदूर्जितमेव वा।\n\nतत्तदेवावगच्छ त्वं मम तेजोंऽशसंभवम्।।10.41।।",
-    "tamil": "பெருமையும் அழகும் வலிமையும் கொண்ட எதுவாயினும் அது என் ஒளியின் ஓர் அம்சத்திலிருந்து தோன்றியது என்று அறிந்துகொள்.",
+    "tamil": "அழகான, புகழத்தக்க வைபவங்கள் அனைத்தும், என்னுடைய தேஜஸின் சிறு பொறியிலிருந்து தோன்றுபவையே என்பதை அறிவாயாக.",
     "transliteration": "yad yad vibhūtimat sattvaṁ\nśrīmad ūrjitam eva vā\ntat tad evāvagaccha tvaṁ\nmama tejo-’ṁśa-sambhavam",
     "english": "Know that all beautiful, glorious, and mighty creations spring from but a spark of My splendor.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-084",
@@ -1121,11 +1216,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "11.54",
     "audioSrc": "/audio/11.54.mp3",
     "sanskrit": "भक्त्या त्वनन्यया शक्यमहमेवंविधोऽर्जुन।\n\nज्ञातुं दृष्टुं च तत्त्वेन प्रवेष्टुं च परंतप।।11.54।।",
-    "tamil": "பிறிதிடஞ் செல்லாத பக்தியால் மாத்திரமே என்னை இவ்விதமாக அறிதலும், உள்ளபடி காணுதலும், என்னுட் புகுதலும் இயலும்.",
+    "tamil": "எனதன்பு அர்ஜுனா, உன் முன் நிற்கும் என்னை. கலப்பற்ற பக்தித் தொண்டினால் மட்டுமே இதுபோன்று நேரடியாகக் காணவும் புரிந்து கொள்ளவும் முடியும். இவ்வழியில் மட்டுமே என்னைப் பற்றிய உண்மையின் இரகசியங்களிலே உன்னால் நுழைய முடியும்.",
     "transliteration": "bhaktyā tv ananyayā śakya\naham evaṁ-vidho ’rjuna\njñātuṁ draṣṭuṁ ca tattvena\npraveṣṭuṁ ca parantapa",
     "english": "My dear Arjuna, only by undivided devotional service can I be understood as I am, standing before you, and can thus be seen directly. Only in this way can you enter into the mysteries of My understanding.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-085",
@@ -1134,11 +1230,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "11.55",
     "audioSrc": "/audio/11.55.mp3",
     "sanskrit": "मत्कर्मकृन्मत्परमो मद्भक्तः सङ्गवर्जितः।\n\nनिर्वैरः सर्वभूतेषु यः स मामेति पाण्डव।।11.55।।",
-    "tamil": "என் தொழில் செய்வான், எனைத்தலைக் கொண்டோன் என்னுடை அடியான், பற்றெலாம் இற்றான் எவ்வுயிரி டத்தும் பகைமை யிலாதான் யாவன், பாண்டவ! அவனென்னை எய்துவான்.",
+    "tamil": "எனதன்பு அர்ஜுனா, எவனொருவன், எனது தூய பக்தித் தொண்டில் ஈடுபட்டுள்ளானோ, பலன்நோக்குச் செயல்கள் மற்றும் மனக்கற்பனைகளின் களங்கங்களிலிருந்து முற்றிலும் விடுபட்டுள்ளானோ, எனக்காக செயல்படுகிறானோ. என்னை தனது வாழ்வின் பரம இலக்காக வைத்துல்லானோ. மற்றும் எல்லா உயிர்களிடத்திலும் நண்பனாக உள்ளானோ., அவன் நிச்சயமாக என்னை வந்தடைகின்றான்.",
     "transliteration": "mat-karma-kṛn mat-paramo\nmad-bhaktaḥ saṅga-varjitaḥ\nnirvairaḥ sarva-bhūteṣu\nyaḥ sa mām eti pāṇḍava",
     "english": "My dear Arjuna, one who is engaged in My pure devotional service, free from the contaminations of previous activities and from mental speculation, who is friendly to every living entity, certainly comes to Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-086",
@@ -1147,11 +1244,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "12.5",
     "audioSrc": "/audio/12.5.mp3",
     "sanskrit": "क्लेशोऽधिकतरस्तेषामव्यक्तासक्तचेतसाम्।\n\nअव्यक्ता हि गतिर्दुःखं देहवद्भिरवाप्यते।।12.5।।",
-    "tamil": "ஆனால், 'அவ்யக்த'த்தில் மனம் ஈடுபட்டோர்க்குத் தொல்லை யதிகம். உடம்பெடுத்தோர் 'அவ்யக்த' நெறியெய்துதல் மிகவும் கஷ்டம்.",
+    "tamil": "எவரது மனம், பரமனின் தோன்றாத அருவத்தன்மையிடம் பற்றுதல் கொண்டுள்ளதோ, அவர்களது வளர்ச்சி மிகவும் கடினமானதாகும். அவ்வழியில் முன்னேற்றம் காண்பது உடலை உடையவர்களுக்கு எப்போதும் சிரமமானதாகும்.",
     "transliteration": "kleśo ’dhikataras teṣām\navyaktāsakta-cetasām\navyaktā hi gatir duḥkhaṁ\ndehavadbhir avāpyate",
     "english": "For those whose minds are attached to the unmanifested, impersonal feature of the Supreme, advancement is very troublesome. To make progress in that discipline is always difficult for those who are embodied.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-087",
@@ -1160,11 +1258,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "12.8",
     "audioSrc": "/audio/12.8.mp3",
     "sanskrit": "मय्येव मन आधत्स्व मयि बुद्धिं निवेशय।निवसिष्यसि मय्येव अत ऊर्ध्वं न संशयः।।12.8।।",
-    "tamil": "மனதை என்பால் நிறுத்தி; மதியை என்னுட் புகுத்து; இனி நீ என்னுள்ளே உறைவாய்; ஐயமில்லை.",
+    "tamil": "முழுமுதற் கடவுளான என்மீது உனது மனதை நிறுத்தி. உன்னுடைய முழு அறிவையும் என்னில் ஈடுபடுத்துவாயாக. இவ்வாறு நீ எப்போதும் என்னிலேயே வாழ்வாய் என்பதில் ஐயமில்லை.",
     "transliteration": "mayy eva mana ādhatsva\nmayi buddhiṁ niveśaya\nnivasiṣyasi mayy eva\nata ūrdhvaṁ na saṁśayaḥ",
     "english": "Just fix your mind upon Me, the Supreme Personality of Godhead, and engage all your intelligence in Me. Thus you will live in Me always, without a doubt.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-088",
@@ -1173,11 +1272,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "12.9",
     "audioSrc": "/audio/12.9.mp3",
     "sanskrit": "अथ चित्तं समाधातुं न शक्नोषि मयि स्थिरम्।अभ्यासयोगेन ततो मामिच्छाप्तुं धनञ्जय।।12.9।।",
-    "tamil": "என்னிடம் ஸ்திரமாக நின் சித்தத்தைச் செலுத்த நின்னால் முடியாதென்றால், பழகிப் பழகி என்னை யடைய விரும்பு.",
+    "tamil": "செல்வத்தை வெல்பவனான எனதன்பு அர்ஜுனா. உனது மனதை என்மீது பிறழாது நிலைநிறுத்த முடியாவிடில், பக்தி யோகத்தின் ஒழுக்க நெறிகளைப் பின்பற்றுவாயாக. என்னை அடைவதற்கான விருப்பத்தினை இதன் மூலம் விருத்தி செய்வாயாக.",
     "transliteration": "atha cittaṁ samādhātuṁ\nna śaknoṣi mayi sthiram\nabhyāsa-yogena tato\nmām icchāptuṁ dhanañjaya",
     "english": "My dear Arjuna, O winner of wealth, if you cannot fix your mind upon Me without deviation, then follow the regulated principles of bhakti-yoga. In this way you will develop a desire to attain to Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-089",
@@ -1185,11 +1285,12 @@ export const SHLOKAS: Shloka[] = [
     "verse": 10,
     "reference": "12.10",
     "sanskrit": "अभ्यासेऽप्यसमर्थोऽसि मत्कर्मपरमो भव।मदर्थमपि कर्माणि कुर्वन् सिद्धिमवाप्स्यसि।।12.10।।",
-    "tamil": "பழகுவதிலும் நீ திறமையற்றவனாயின், என் பொருட்டுத் தொழில் செய்வதை மேலாகக் கொண்டிரு. என் பொருட்டுத் தொழில்கள் செய்து கொண்டிருப்பதனாலும் சித்தி பெறுவாய்.",
+    "tamil": "பக்தி யோகத்தின் விதிகளை உன்னால் பயிற்சி செய்ய முடியாவிடில், எனக்காக மட்டும் செயலாற்ற முயல்வாயாக. ஏனெனில், எனக்காக செயல்படுவதன் மூலம் நீ பக்குவ நிலைக்கு வந்தடைவாய்.",
     "transliteration": "abhyāse ’py asamartho ’si\nmat-karma-paramo bhava\nmad-artham api karmāṇi\nkurvan siddhim avāpsyasi",
     "english": "If you cannot practice the regulations of bhakti-yoga, then just try to work for Me, because by working for Me you will come to the perfect stage.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-090",
@@ -1198,11 +1299,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "14.4",
     "audioSrc": "/audio/14.4.mp3",
     "sanskrit": "सर्वयोनिषु कौन्तेय मूर्तयः सम्भवन्ति याः।तासां ब्रह्म महद्योनिरहं बीजप्रदः पिता।।14.4।।",
-    "tamil": "எல்லாக் கருக்களிலும் பிறக்கும் வடிவங்களனைத்திற்கும் பிரம்மமே பெரிய காரணம். நான் விதை தரும் பிதா.",
+    "tamil": "குந்தியின் மைந்தனே. எல்லா உயிரினங்களும் இவ்வுலகில் பிறப்பினால் சாத்தியமாக்கப்படுகின்றன. மேலும், நானே விதை அளிக்கும் தந்தை என்பதும் புரிந்து கொள்ளப்பட வேண்டும்.",
     "transliteration": "sarva-yoniṣu kaunteya\nmūrtayaḥ sambhavanti yāḥ\ntāsāṁ brahma mahad yonir\nahaṁ bīja-pradaḥ pitā",
     "english": "It should be understood that all species of life, O son of Kuntī, are made possible by birth in this material nature, and that I am the seed-giving father.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-091",
@@ -1211,11 +1313,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "14.26",
     "audioSrc": "/audio/14.26.mp3",
     "sanskrit": "मां च योऽव्यभिचारेण भक्ितयोगेन सेवते।स गुणान्समतीत्यैतान् ब्रह्मभूयाय कल्पते।।14.26।।",
-    "tamil": "வேறுபாடில்லாத பக்தி யோகத்தால் என்னை வழிபடுவோனும் குணங்களைக் கடந்து பிரம்மத் தன்மை பெறத் தகுவான்.",
+    "tamil": "எந்தச் சூழ்நிலையிலும் தவறாமல், எனது பூரண பக்தித் தொண்டில் ஈடுபடுபவன். ஜட இயற்கையின் குணங்களை உடனடியாகக் கடந்து, பிரம்மன் நிலைக்கு வந்தடைகின்றான்.",
     "transliteration": "māṁ ca yo ’vyabhicāreṇa\nbhakti-yogena sevate\nsa guṇān samatītyaitān\nbrahma-bhūyāya kalpate",
     "english": "One who engages in full devotional service, who does not fall down in any circumstance, at once transcends the modes of material nature and thus comes to the level of Brahman.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-092",
@@ -1224,11 +1327,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "14.27",
     "audioSrc": "/audio/14.27.mp3",
     "sanskrit": "ब्रह्मणो हि प्रतिष्ठाऽहममृतस्याव्ययस्य च।शाश्वतस्य च धर्मस्य सुखस्यैकान्तिकस्य च।।14.27।।",
-    "tamil": "அழிவற்றதும் இறப்பற்றதுமான பிரம்மத்திற்கும், நிலையான அறத்திற்கும், ஒப்பற்ற பேரின்பத்திற்கும் நானே ஆதாரம்.",
+    "tamil": "மேலும், மரணமற்றதும், அழிவற்றதும்,. நித்தியமானதும், இறுதி இன்பத்தின் தர்மமுமான அருவ பிரம்மனின் ஆதாரம் நானே.",
     "transliteration": "brahmaṇo hi pratiṣṭhāham\namṛtasyāvyayasya ca\nśāśvatasya ca dharmasya\nsukhasyaikāntikasya ca",
     "english": "And I am the basis of the impersonal Brahman, which is the constitutional position of ultimate happiness, and which is immortal, imperishable and eternal.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-093",
@@ -1237,11 +1341,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "15.5",
     "audioSrc": "/audio/15.5.mp3",
     "sanskrit": "निर्मानमोहा जितसङ्गदोषा    अध्यात्मनित्या विनिवृत्तकामाः।द्वन्द्वैर्विमुक्ताः सुखदुःखसंज्ञै    र्गच्छन्त्यमूढाः पदमव्ययं तत्।।15.5।।",
-    "tamil": "செருக்கும் மயக்கமு மற்றோர், சார்புக் குற்றங்களையெல்லாம் வென்றோர், ஆத்ம ஞானத்தில் எப்போதும் நிற்போர், விருப்பங்களினின்றும் நீங்கியோர், சுக துக்கக் குறிப்புக்களையுடைய இரட்டைகளினின்றும் விடுபட்டோர், மடமையற்றோர் - இன்னோர் அந்த நாசமற்ற பதத்தை எய்துகின்றனர்.",
+    "tamil": "பொய் கெளரவம். மயக்கம் மற்றும் தவறான சங்கத்திலிருந்து விடுபட்டு, நித்தியத்தைப் புரிந்து கொண்டு. பெளதிக காமத்தை நிறுத்திவிட்டு, இன்ப துன்பம் என்னும் இருமையை ஒழித்து, மயக்கமுறாமல் இருப்பவர்கள். பரம புருஷரிடம் சரணடைவது எவ்வாறு என்பதை அறிந்து, அந்த நித்திய ராஜ்ஜியத்தை அடைகின்றனர்.",
     "transliteration": "nirmāna-mohā jita-saṅga-doṣā\nadhyātma-nityā vinivṛtta-kāmāḥ\ndvandvair vimuktāḥ sukha-duḥkha-saṁjñair\ngacchanty amūḍhāḥ padam avyayaṁ tat",
     "english": "One who is free from illusion, false prestige, and false association, who understands the eternal, who is done with material lust and is freed from the duality of happiness and distress, and who knows how to surrender unto the Supreme Person, attains to that eternal kingdom.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-094",
@@ -1250,11 +1355,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "15.6",
     "audioSrc": "/audio/15.6.mp3",
     "sanskrit": "न तद्भासयते सूर्यो न शशाङ्को न पावकः।यद्गत्वा न निवर्तन्ते तद्धाम परमं मम।।15.6।।",
-    "tamil": "அதற்கு சூரியனும் சந்திரனும் தீயும் ஒளியேற்றுவதில்லை. எதனை யெய்தினோர் மீள்வதில்லையோ அதுவே என் பரமபதம்.",
+    "tamil": "எனது அந்த பரம வாசஸ்தலம் சரியனாலோ. சந்திரனாலோ, நெருப்பினாலோ. மின்சாரத்தினாலோ ஒளியூட்டப்படூுவது இல்லை. அதனை அடைபவர்கள் ஒருபோதும் இந்த ஜட உலகிற்குத் திரும்புவதில்லை.",
     "transliteration": "na tad bhāsayate sūryo\nna śaśāṅko na pāvakaḥ\nyad gatvā na nivartante\ntad dhāma paramaṁ mama",
     "english": "That abode of Mine is not illumined by the sun or moon, nor by electricity. One who reaches it never returns to this material world.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-095",
@@ -1263,11 +1369,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "15.7",
     "audioSrc": "/audio/15.7.mp3",
     "sanskrit": "ममैवांशो जीवलोके जीवभूतः सनातनः।मनःषष्ठानीन्द्रियाणि प्रकृतिस्थानि कर्षति।।15.7।।",
-    "tamil": "எனது அம்சமே ஜீவலோகத்தில் என்றுமுள்ள ஜீவனாகி, இயற்கையிலுள்ளனவாகிய மனதுட்பட்ட ஆறு இந்திரியங்களையும் கவர்கிறது.",
+    "tamil": "இந்தக் கட்டுண்ட உலகில் இருக்கும் ஜீவாத்மாக்கள் எல்லாரும் எனது நித்தியமான அம்சங்களாவர். கட்டுண்ட வாழ்வின் காரணத்தால், மனம் உட்பட ஆறு புலன்களுடன் இவர்கள் மிகவும் கடினமாக சிரமப்படுகின்றனர்.",
     "transliteration": "mamaivāṁśo jīva-loke\njīva-bhūtaḥ sanātanaḥ\nmanaḥ-ṣaṣṭhānīndriyāṇi\nprakṛti-sthāni karṣati",
     "english": "The living entities in this conditioned world are My eternal, fragmental parts. Due to conditioned life, they are struggling very hard with the six senses, which include the mind.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-096",
@@ -1276,11 +1383,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "15.15",
     "audioSrc": "/audio/15.15.mp3",
     "sanskrit": "सर्वस्य चाहं हृदि सन्निविष्टो    मत्तः स्मृतिर्ज्ञानमपोहनं च।वेदैश्च सर्वैरहमेव वेद्यो    वेदान्तकृद्वेदविदेव चाहम्।।15.15।।",
-    "tamil": "எல்லாருடைய அகத்திலும் நான் இருக்கிறேன். நினைவும் ஞானமும் மறதியும் என்னிடமிருந்து பிறக்கின்றன. எல்லா வேதங்களாலும் அறியப்பட வேண்டியவன் யான்; வேதாந்தத்தை ஆக்கியோன் யான்; வேதங்களை அறிந்தோனும் யானே.",
+    "tamil": "நான் எல்லாருடைய இதயத்திலும் வீற்றுள்ளேன், என்னிடமிருந்தே ஞாபகசக்தியும் அறிவும் மறகியும் உண்டாகின்றன. எல்லா வேதங்களாலும் அறியப்பட வேண்டியவன் நானே. உண்மையில். வேதாந்தத்தை தொகுத்தவனும் வேதங்களை அறிபவனும் நானே.",
     "transliteration": "sarvasya cāhaṁ hṛdi sanniviṣṭo\nmattaḥ smṛtir jñānam apohanaṁ ca\nvedaiś ca sarvair aham eva vedyo\nvedānta-kṛd veda-vid eva cāham",
     "english": "I am seated in everyone’s heart, and from Me come remembrance, knowledge and forgetfulness. By all the Vedas am I to be known; indeed I am the compiler of Vedānta, and I am the knower of the Vedas.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-097",
@@ -1289,11 +1397,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "15.19",
     "audioSrc": "/audio/15.19.mp3",
     "sanskrit": "यो मामेवमसम्मूढो जानाति पुरुषोत्तमम्।स सर्वविद्भजति मां सर्वभावेन भारत।।15.19।।",
-    "tamil": "மடமை தீர்ந்தவனாய், எவன் யானே புருஷோத்தமனென்பதை அறிவானோ, அவனே எல்லா மறிந்தோன். அவன் என்னை எல்லாத் தன்மையாலும் வழிபடுகிறான்.",
+    "tamil": "எவனொருவன் என்னை பரம் புருஷ பகவானாக ஐயமின்றி அறிகின்றானோ, அவன் எல்லாவற்றையும் அறிந்தவனாவான். எனவே, பரதனின் மைந்தனே, அவன் எனது பக்தித் தொண்டில் தன்னை முழுமையாக ஈடுபடுத்திக் கொள்கின்றான்.",
     "transliteration": "yo mām evam asammūḍho\njānāti puruṣottamam\nsa sarva-vid bhajati māṁ\nsarva-bhāvena bhārata",
     "english": "Whoever knows Me as the Supreme Personality of Godhead, without doubting, is to be understood as the knower of everything, and he therefore engages himself in full devotional service, O son of Bharata.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-098",
@@ -1306,7 +1415,8 @@ export const SHLOKAS: Shloka[] = [
     "transliteration": "śamo damas tapaḥ śaucaṁ\nkṣāntir ārjavam eva ca\njñānaṁ vijñānam āstikyaṁ\nbrahma-karma svabhāva-jam",
     "english": "Peacefulness, self-control, austerity, purity, tolerance, honesty, wisdom, knowledge, and religiousness—these are the qualities by which the brāhmaṇas work.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "bharati"
   },
   {
     "id": "GS-099",
@@ -1315,11 +1425,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "18.54",
     "audioSrc": "/audio/18.54.mp3",
     "sanskrit": "ब्रह्मभूतः प्रसन्नात्मा न शोचति न काङ्क्षति।समः सर्वेषु भूतेषु मद्भक्तिं लभते पराम्।।18.54।।",
-    "tamil": "பிரம்மநிலை பெற்றோன், ஆனந்த முடையோன், துயரற்றோன், விருப்பற்றோன், எல்லா உயிர்களையும் சமமாக நினைப்போன், உயர்ந்ததாகிய என் பக்தியை அடைகிறான்.",
+    "tamil": "இவ்வாறு தெய்வீகமாக நிலைபெற்றவன், உடனடியாக பரபிரம்மனை உணர்ந்து இன்பம் நிறைந்தவனாகின்றான். அவன் என்றும் கவலைப்படுவதில்லை. எகையும் அடைய வேண்டும் என்று விரும்புவதுமில்லை. எல்லா உயிர்வாழிகளிடமும் அவன் சமநோக்கு கொள்கிறான். அத்தகு நிலையில் அவன் எனது தூய பக்தித் கொண்டை அடைகின்றான்.",
     "transliteration": "brahma-bhūtaḥ prasannātmā\nna śocati na kāṅkṣati\nsamaḥ sarveṣu bhūteṣu\nmad-bhaktiṁ labhate parām",
     "english": "One who is thus transcendentally situated at once realizes the Supreme Brahman. He never laments nor desires to have anything; he is equally disposed to every living entity. In that state he attains pure devotional service unto Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-100",
@@ -1328,11 +1439,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "18.55",
     "audioSrc": "/audio/18.55.mp3",
     "sanskrit": "भक्त्या मामभिजानाति यावान्यश्चास्मि तत्त्वतः।ततो मां तत्त्वतो ज्ञात्वा विशते तदनन्तरम्।।18.55।।",
-    "tamil": "யான் எத்தன்மையுடையவன், யார் என்பதை ஒருவன் பக்தியால் உள்ளபடி அறிகிறான். இவ்வாறு என்னை உண்மையாக அறிந்த பின்னர் அவன் என்னுள் புகுகிறான்.",
+    "tamil": "பக்தித்தொண்டால் மட்டுமே என்னை, முழுமுதற் கடவுளாக, உள்ளது உள்ளபடி, அறிந்துகொள்ள முடியும். என்னைப் பற்றிய முழுமையான உணர்வை அத்தகு பக்தியினால் அடையும்போது இறைவனின் திருநாட்டிற்குள் நுழைய முடியும்.",
     "transliteration": "bhaktyā mām abhijānāti\nyāvān yaś cāsmi tattvataḥ\ntato māṁ tattvato jñātvā\nviśate tad-anantaram",
     "english": "One can understand the Supreme Personality as He is only by devotional service. And when one is in full consciousness of the Supreme Lord by such devotion, he can enter into the kingdom of God.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-101",
@@ -1341,11 +1453,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "18.58",
     "audioSrc": "/audio/18.58.mp3",
     "sanskrit": "मच्चित्तः सर्वदुर्गाणि मत्प्रसादात्तरिष्यसि।अथ चेत्त्वमहङ्कारान्न श्रोष्यसि विनङ्क्ष्यसि।।18.58।।",
-    "tamil": "என்னை சித்தத்தில் கொண்டிருப்போனாய் எல்லாத் தடைகளையும் எனதருளால் கடந்து செல்வாய், அன்றி நீ அகங்காரத்தால் இதனைக் கேளாது விடுவாயெனில் பெரிய நாசத்தை அடைவாய்.",
+    "tamil": "நீ என்னைப் பற்றிய உணர்வில் நிலைபெற்றால். எனது கருணையின் மூலம், கட்டுண்ட வாழ்வின் எல்லாத் தடங்கல்களையும் கடந்துவிடுவாய். ஆனால், அத்தகு உணர்வின்றி, அஹங்காரத்துடன், நான் சொல்வதைக் கேட்காமல் செயல்பட்டால், நீ அழிந்துவிடுவாய்.",
     "transliteration": "mac-cittaḥ sarva-durgāṇi\nmat-prasādāt tariṣyasi\natha cet tvam ahaṅkārān\nna śroṣyasi vinaṅkṣyasi",
     "english": "If you become conscious of Me, you will pass over all the obstacles of conditional life by My grace. If, however, you do not work in such consciousness but act through false ego, not hearing Me, you will be lost.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-102",
@@ -1354,11 +1467,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "18.61",
     "audioSrc": "/audio/18.61.mp3",
     "sanskrit": "ईश्वरः सर्वभूतानां हृद्देशेऽर्जुन तिष्ठति।भ्रामयन्सर्वभूतानि यन्त्रारूढानि मायया।।18.61।।",
-    "tamil": "அர்ஜுனா! எல்லா உயிர்களுக்கும் ஈசன் உள்ளத்தில் நிற்கிறான்; மாயையால் அவன் எல்லா உயிர்களையும் சக்கரத்திலேற்றிச் சுழற்றுகிறான்.",
+    "tamil": "ஓ அர்ஜுனா, ஜட சக்தியால் செய்யப்பட்ட இயந்திரத்தில் அமர்ந்துள்ள எல்லா உயிர்வாழிகளின் பயணங்களையும். அவரவர் இதயத்தில் வீற்றுள்ள முழுமுதற்க கடவுளே வழிநடத்துகின்றார்.",
     "transliteration": "īśvaraḥ sarva-bhūtānāṁ\nhṛd-deśe ’rjuna tiṣṭhati\nbhrāmayan sarva-bhūtāni\nyantrārūḍhāni māyayā",
     "english": "The Supreme Lord is situated in everyone’s heart, O Arjuna, and is directing the wanderings of all living entities, who are seated as on a machine, made of the material energy.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-103",
@@ -1367,11 +1481,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "18.65",
     "audioSrc": "/audio/18.65.mp3",
     "sanskrit": "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु।मामेवैष्यसि सत्यं ते प्रतिजाने प्रियोऽसि मे।।18.65।।",
-    "tamil": "உன் மனத்தை எனக்காக்குக. என் பக்தனாகுக. என்னை வழிபடு; என்னை வணங்கு. நீ என்னையே எய்துவாய். இது உண்மை; உனக்கு உறுதி கூறுகிறேன். நீ எனக்குப் பிரியமானவன்.",
+    "tamil": "எப்போதும் என்னைப் பற்றி நினைத்து. எனது பக்தனாக ஆகி, என்னை வழிபட்டு, உனது வணக்கங்களை எனக்கு சமர்பிப்பாயாக. இவ்வாறு நீ என்னை வந்தடைவாய் என்பதில் ஐயமில்லை. நீ எனக்கு மிகவும் பிரியமான நண்பன் என்பதால், இந்த சத்தியத்தை நான் உனக்கு அளிக்கிறேன்.",
     "transliteration": "man-manā bhava mad-bhakto\nmad-yājī māṁ namaskuru\nmām evaiṣyasi satyaṁ te\npratijāne priyo ’si me",
     "english": "Always think of Me and become My devotee. Worship Me and offer your homage unto Me. Thus you will come to Me without fail. I promise you this because you are My very dear friend.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-104",
@@ -1380,11 +1495,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "18.66",
     "audioSrc": "/audio/18.66.mp3",
     "sanskrit": "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज।अहं त्वा सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः।।18.66।।",
-    "tamil": "எல்லா அறங்களையும் விட்டுவிட்டு என்னையே சரண் புகு. எல்லாப் பாவங்களிலிருந்தும் நான் உன்னை விடுவிக்கிறேன்; துயரப்படாதே.",
+    "tamil": "எல்லாவிதமான தர்மங்களையும் துறந்து, என்னிடம் மட்டுமே சரணடையவாயாக. உன்னை எல்லா பாவ விளைவுகளிலிருந்தும் நான் விடுவிக்கின்றேன். பயப்படாதே.",
     "transliteration": "sarva-dharmān parityajya\nmām ekaṁ śaraṇaṁ vraja\nahaṁ tvāṁ sarva-pāpebhyo\nmokṣayiṣyāmi mā śucaḥ",
     "english": "Abandon all varieties of religion and just surrender unto Me. I shall deliver you from all sinful reaction. Do not fear.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-105",
@@ -1393,11 +1509,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "18.68",
     "audioSrc": "/audio/18.68.mp3",
     "sanskrit": "य इमं परमं गुह्यं मद्भक्तेष्वभिधास्यति।भक्ितं मयि परां कृत्वा मामेवैष्यत्यसंशयः।।18.68।।",
-    "tamil": "இந்தப் பரம இரகசியத்தை என் பக்தர்களுக்கு எடுத்துரைப்பவன், என்னிடம் உயர்ந்த பக்தி கொண்டு, என்னையே அடைவான்; இதில் ஐயமில்லை.",
+    "tamil": "இந்த பரம இரகசியத்தை எனது பக்தர்களிடம் விளக்குபவனுக்கு. தூய பக்தித் தொண்டு உறுதிப்படுத்தப்படுவதோடு, அவன் இறுதியில் நிச்சயமாக என்னிடம் திரும்பி வருகின்றான்.",
     "transliteration": "ya idaṁ paramaṁ guhyaṁ\nmad-bhakteṣv abhidhāsyati\nbhaktiṁ mayi parāṁ kṛtvā\nmām evaiṣyaty asaṁśayaḥ",
     "english": "For one who explains the supreme secret to the devotees, devotional service is guaranteed, and at the end he will come back to Me.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   },
   {
     "id": "GS-106",
@@ -1410,7 +1527,8 @@ export const SHLOKAS: Shloka[] = [
     "transliteration": "na ca tasmān manuṣyeṣu\nkaścin me priya-kṛttamaḥ\nbhavitā na ca me tasmād\nanyaḥ priyataro bhuvi",
     "english": "There is no servant in this world more dear to Me than he, nor will there ever be one more dear.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "bharati"
   },
   {
     "id": "GS-107",
@@ -1419,11 +1537,12 @@ export const SHLOKAS: Shloka[] = [
     "reference": "18.78",
     "audioSrc": "/audio/18.78.mp3",
     "sanskrit": "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः।\n\nतत्र श्रीर्विजयो भूतिर्ध्रुवा नीतिर्मतिर्मम।।18.78।",
-    "tamil": "யோகத்தின் தலைவனாகிய கண்ணனும், வில்லேந்திய அர்ஜுனனும் எங்கிருக்கிறார்களோ, அங்கு செல்வமும் வெற்றியும் வளமும் நிலையான நீதியும் இருக்கும் என்பது என் கருத்து.",
+    "tamil": "யோகிகளின் இறைவனான கிருஷ்ணர் எங்கெல்லாம் இருக்கின்றாரோ. உன்னத வில்லாளியான அர்ஜுனன் எங்கெல்லாம் இருக்கின்றானோ. அங்கெல்லாம் நிச்சயமாகச் செல்வமும் வெற்றியும் அசாதாரணமான வலிமையும் நியாயமும் இருக்கும் என்பது எனது அபிப்பிராயம்.",
     "transliteration": "yatra yogeśvaraḥ kṛṣṇo\nyatra pārtho dhanur-dharaḥ\ntatra śrīr vijayo bhūtir\ndhruvā nītir matir mama",
     "english": "Wherever there is Kṛṣṇa, the master of all mystics, and wherever there is Arjuna, the supreme archer, there will also certainly be opulence, victory, extraordinary power, and morality. That is my opinion.",
     "translationAuthor": "A.C. Bhaktivedanta Swami Prabhupada",
-    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today."
+    "reflectionPrompt": "Summarize this teaching in your own words and apply it once today.",
+    "tamilSource": "book"
   }
 ];
 

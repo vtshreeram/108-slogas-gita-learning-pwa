@@ -10,7 +10,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { AlertCircle, Eye, ChevronDown, Star } from "lucide-react";
 import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, StepProgress } from "@/lib/constants";
-import { Shloka, SHLOKAS, TAMIL_TRANSLATION_AUTHOR, TAMIL_TRANSLATION_SOURCE, ENGLISH_TRANSLATION_SOURCE } from "@/lib/shlokas";
+import { Shloka, SHLOKAS, tamilCredit, ENGLISH_TRANSLATION_SOURCE } from "@/lib/shlokas";
 
 type ShlokaCardProps = {
   active: Shloka;
@@ -174,9 +174,13 @@ export function ShlokaCard({
               {contentMode === "tamil" && (
                 <div className="overflow-y-auto max-h-[350px] w-full pr-2 text-left custom-scrollbar">
                   <p className="whitespace-pre-wrap text-[17px] sm:text-[18px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto text-center" lang="ta">{active.tamil}</p>
-                  <a href={TAMIL_TRANSLATION_SOURCE} target="_blank" rel="noopener noreferrer" lang="ta" className="mt-4 block text-center text-xs text-[#8a6b3d] dark:text-[#bda27e] underline underline-offset-4">
-                    {TAMIL_TRANSLATION_AUTHOR} · மூலம்
-                  </a>
+                  {(() => {
+                    const credit = tamilCredit(active);
+                    const cls = "mt-4 block text-center text-xs text-[#8a6b3d] dark:text-[#bda27e]";
+                    return credit.href
+                      ? <a href={credit.href} target="_blank" rel="noopener noreferrer" lang="ta" className={`${cls} underline underline-offset-4`}>{credit.label} · மூலம்</a>
+                      : <p lang="ta" className={cls}>{credit.label}</p>;
+                  })()}
                 </div>
               )}
             </>

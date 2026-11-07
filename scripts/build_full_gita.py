@@ -23,6 +23,7 @@ from fetch_tamil_data import SOURCE as TAMIL_SOURCE, parse_verses as parse_tamil
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "scripts" / ".cache" / "vedabase"
 OUT = ROOT / "src" / "data" / "gita"
+TAMIL_BOOK = ROOT / "scripts" / "data" / "tamil-book.json"
 BASE = "https://vedabase.io/en/library/bg"
 CRAWL_DELAY = 10  # seconds, from https://vedabase.io/robots.txt
 UA = "gita-learning-pwa personal study build (respecting Crawl-delay)"
@@ -121,6 +122,12 @@ def cmd_build():
                 "english": raw["translation"], "translationAuthor": PRABHUPADA,
                 "important": False,
             }
+        # Tamil comes from the OCR'd book (scripts/import_tamil_book.py); Bharati stays for verses
+        # whose book text failed the quality gate. Re-run that importer after rebuilding.
+        book = json.loads(TAMIL_BOOK.read_text()).get(ref) if TAMIL_BOOK.exists() else None
+        if book:
+            entry["tamil"] = book["text"]
+            entry["tamilSource"] = "book" if book["status"] == "ok" else "bharati"
         chapters.setdefault(chapter, []).append(entry)
     for chapter, entries in chapters.items():
         (OUT / f"chapter-{chapter}.json").write_text(json.dumps(entries, ensure_ascii=False, indent=1) + "\n")
