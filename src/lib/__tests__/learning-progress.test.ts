@@ -3,7 +3,7 @@ import { SCHEMA_VERSION, STORAGE_KEY } from "@/lib/constants";
 import { SHLOKAS } from "@/lib/shlokas";
 import {
   initialState, parseState, parseBackupText, loadState, saveState, createMemoryStorage,
-  markStep, markAsLearned, undoLearned, goTo, goNext, goPrev, goToShloka, deriveStats,
+  markStep, markAsLearned, undoLearned, recallMissed, goTo, goNext, goPrev, goToShloka, deriveStats,
 } from "@/lib/learning-progress";
 
 const id0 = SHLOKAS[0].id;
@@ -152,5 +152,24 @@ describe("local dates", () => {
     const { localDateIso } = await import("@/lib/constants");
     expect(localDateIso(new Date(2026, 3, 10, 0, 30))).toBe("2026-04-10");
     expect(localDateIso(new Date(2026, 11, 31, 23, 59))).toBe("2026-12-31");
+  });
+});
+
+describe("recallMissed", () => {
+  it("counts an attempt without a win and leaves streak and steps alone", () => {
+    const base = markStep(initialState(TODAY), id0, "understand", TODAY);
+    const s = recallMissed(base);
+    expect(s.recallAttempts).toBe(1);
+    expect(s.recallWins).toBe(0);
+    expect(s.streakCount).toBe(0);
+    expect(s.lastPracticeDate).toBe("");
+    expect(s.completed[id0].recall).toBe(false);
+    expect(deriveStats(s).winRatePct).toBe(0);
+  });
+
+  it("lowers the win rate after a success", () => {
+    let s = markStep(initialState(TODAY), id0, "recall", TODAY);
+    s = recallMissed(s);
+    expect(deriveStats(s).winRatePct).toBe(50);
   });
 });

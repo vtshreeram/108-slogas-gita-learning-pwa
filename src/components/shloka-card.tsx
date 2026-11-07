@@ -21,6 +21,7 @@ type ShlokaCardProps = {
   audioAvailable: boolean;
   activeProgress: StepProgress;
   onMarkStep: (id: string, step: import("@/lib/constants").LoopStep) => void;
+  onRecallMissed: () => void;
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
   onJumpTo: (index: number) => void;
@@ -31,7 +32,7 @@ type ShlokaCardProps = {
 export function ShlokaCard({
   active, activeGlobalIndex,
   contentMode, setContentMode, audioAvailable,
-  activeProgress, onMarkStep, onSwipeLeft, onSwipeRight, onJumpTo,
+  activeProgress, onMarkStep, onRecallMissed, onSwipeLeft, onSwipeRight, onJumpTo,
   isFavorite, onToggleFavorite
 }: ShlokaCardProps) {
   const touchStartX = useRef<number | null>(null);
@@ -214,6 +215,15 @@ export function ShlokaCard({
           );
         })}
       </div>
+
+      {activeProgress.understand && !activeProgress.recall && !isHidden && (
+        <button
+          onClick={() => { onRecallMissed(); setIsRevealed(false); }}
+          className="mt-2 self-center rounded-full px-3 py-1 text-[11px] font-semibold text-[#a88d63] dark:text-[#bda27e] underline underline-offset-4 hover:text-[#8f6422] dark:hover:text-[#d4aa61]"
+        >
+          Missed it? Try again
+        </button>
+      )}
     </article>
   );
 }

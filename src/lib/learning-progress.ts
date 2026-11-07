@@ -189,6 +189,14 @@ export function markStep(prev: AppState, id: string, step: LoopStep, today: stri
   };
 }
 
+/**
+ * A recall attempt that failed: counts as an attempt but not a win, and leaves
+ * the Recall step (and the streak) untouched.
+ */
+export function recallMissed(prev: AppState): AppState {
+  return { ...prev, recallAttempts: prev.recallAttempts + 1 };
+}
+
 export function markAsLearned(prev: AppState, id: string): AppState {
   return {
     ...prev,

@@ -30,6 +30,7 @@ export function useShlokaState() {
   const update = useCallback((fn: (s: AppState) => AppState) => setState(fn), []);
 
   const markStep = useCallback((id: string, step: LoopStep) => update((s) => progress.markStep(s, id, step)), [update]);
+  const recallMissed = useCallback(() => update(progress.recallMissed), [update]);
   const markAsLearned = useCallback((id: string) => update((s) => progress.markAsLearned(s, id)), [update]);
   const undoLearnedForActive = useCallback((id: string) => update((s) => progress.undoLearned(s, id)), [update]);
   const goTo = useCallback((index: number) => update((s) => progress.goTo(s, index)), [update]);
@@ -43,7 +44,7 @@ export function useShlokaState() {
 
   return {
     ready, state,
-    markStep, markAsLearned, undoLearnedForActive,
+    markStep, recallMissed, markAsLearned, undoLearnedForActive,
     goTo, goToShloka, next, prev, setContentMode, setActiveMode,
     ...stats,
     // not memoized: must follow the clock if the app stays open past midnight

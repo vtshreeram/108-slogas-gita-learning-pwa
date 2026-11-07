@@ -63,7 +63,7 @@ export default function Home() {
 
   const {
     ready, state,
-    markStep, markAsLearned, undoLearnedForActive,
+    markStep, recallMissed, markAsLearned, undoLearnedForActive,
     goTo, goToShloka, next, prev, setContentMode, setActiveMode,
     completedCount, completedShlokas, streak, progressPct, winRatePct,
     active, activeProgress, activeGlobalIndex,
@@ -161,6 +161,7 @@ export default function Home() {
           audioAvailable={audioAvailable}
           activeProgress={activeProgress}
           onMarkStep={markStep}
+          onRecallMissed={recallMissed}
           onSwipeLeft={next}
           onSwipeRight={prev}
           onJumpTo={goTo}
