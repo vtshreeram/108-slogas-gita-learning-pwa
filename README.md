@@ -25,7 +25,7 @@ Turbopack remains available with `pnpm dev:turbo`. If an old tab reports a missi
 module factory after a server restart, reload the page to discard its previous runtime.
 
 Run one development server per checkout. Development uses `.next/`; `npm run build`
-and `npm start` use `.next-build/`, so a production build can run without overwriting
+and `npm start` use `.next-build/` (on Vercel the default `.next/` is used), so a production build can run without overwriting
 the development server's generated files.
 
 ## PWA

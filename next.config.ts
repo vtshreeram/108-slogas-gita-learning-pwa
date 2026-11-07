@@ -46,8 +46,9 @@ const nextConfig: NextConfig = {
 
 const configForPhase = (phase: string): NextConfig => ({
   ...nextConfig,
-  // A production build must not overwrite a running Turbopack dev server.
-  distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next" : ".next-build",
+  // Locally, a production build must not overwrite a running Turbopack dev server, so it uses its
+  // own folder. Vercel (which sets VERCEL=1) expects the default ".next" output directory.
+  distDir: phase === PHASE_DEVELOPMENT_SERVER || process.env.VERCEL ? ".next" : ".next-build",
 });
 
 export default configForPhase;
