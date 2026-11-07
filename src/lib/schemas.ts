@@ -19,7 +19,8 @@ export const appStateBackupSchema = z.object({
   schemaVersion: z.literal(SCHEMA_VERSION),
   startedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid date format"),
   lastActiveDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid date format").optional(),
-  lastPracticeDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid date format"),
+  // "" means "never practiced" (the initial state).
+  lastPracticeDate: z.union([z.literal(""), z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid date format")]),
   streakCount: z.number().int().min(0).max(36500),
   activeMode: z.enum(["normal", "lite"]),
   completed: z.record(z.string(), stepProgressSchema),

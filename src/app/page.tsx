@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { CheckCircle, Undo2, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
+import { TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
 import { useProfile } from "@/hooks/use-profile";
@@ -13,16 +13,15 @@ import { LoaderQuote } from "@/components/loader-quote";
 import { DialogCard } from "@/components/dialog-card";
 import { AudioErrorBoundary } from "@/components/audio-error-boundary";
 import { ProfileSheet } from "@/components/profile-sheet";
-import { auth, signInWithGoogle } from "@/lib/firebase";
-import { getRedirectResult, onAuthStateChanged, User } from "firebase/auth";
+import { useSession } from "@/hooks/use-session";
 
-function LoginScreen() {
+function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
   const [signingIn, setSigningIn] = useState(false);
 
   const handleLogin = async () => {
     setSigningIn(true);
     try {
-      await signInWithGoogle();
+      await onSignIn();
     } catch (error: unknown) {
       console.error("Login failed", error);
       alert("Login failed: " + ((error as Error)?.message || "Unknown error"));
@@ -58,17 +57,17 @@ export default function Home() {
   const [audioAvailable, setAudioAvailable] = useState(true);
   const { theme, setTheme } = useTheme();
 
-  const [user, setUser] = useState<User | null>(null);
-  const [authChecking, setAuthChecking] = useState(true);
+  const { user, checking: authChecking, signIn, signOut } = useSession();
 
-  const { isFavorite, toggleFavorite } = useProfile(user);
+  const { isFavorite, toggleFavorite, displayName, setCustomName } = useProfile(user);
 
   const {
-    ready, state, setState,
+    ready, state,
     markStep, markAsLearned, undoLearnedForActive,
-    completedCount, completedShlokas, streak, progressPct,
+    goTo, goToShloka, next, prev, setContentMode, setActiveMode,
+    completedCount, completedShlokas, streak, progressPct, winRatePct,
     active, activeProgress, activeGlobalIndex,
-    isFirst, isLast, isMastered, dailyGoal, chapterList
+    isFirst, isLast, isMastered, dailyGoal, practicedToday, chapterList
   } = useShlokaState();
 
   useEffect(() => {
@@ -78,36 +77,22 @@ export default function Home() {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") { event.preventDefault(); setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) })); }
-      if (event.key === "ArrowLeft") { event.preventDefault(); setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) })); }
+      if (event.key === "ArrowRight") { event.preventDefault(); next(); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); prev(); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [setState]);
-
-  useEffect(() => {
-    // Handle redirect result after Google sign-in redirect returns
-    getRedirectResult(auth).catch((error) => {
-      console.error("Redirect sign-in error:", error);
-    });
-
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setAuthChecking(false);
-    });
-    return () => unsubscribe();
-  }, []);
+  }, [next, prev]);
 
   if (authChecking || (!ready && user)) return <LoaderQuote />;
 
-  if (!user) return <LoginScreen />;
+  if (!user) return <LoginScreen onSignIn={signIn} />;
 
   if (!active) return null;
 
   const audioSrc = `/audio/${active.reference}.mp3`;
 
-  const todayIso = () => new Date().toISOString().slice(0, 10);
-  const todayLearnedStr = state.lastPracticeDate === todayIso() ? `${dailyGoal} / ${dailyGoal}` : `0 / ${dailyGoal}`;
+  const todayLearnedStr = practicedToday ? `${dailyGoal} / ${dailyGoal}` : `0 / ${dailyGoal}`;
 
   return (
     <main className="min-h-screen overflow-y-auto bg-background text-foreground px-3 pb-40" style={{ paddingTop: "calc(env(safe-area-inset-top) + 20px)" }}>
@@ -172,13 +157,13 @@ export default function Home() {
           activeGlobalIndex={activeGlobalIndex}
           isMastered={isMastered}
           contentMode={state.contentMode}
-          setContentMode={(m) => setState((p) => ({ ...p, contentMode: m }))}
+          setContentMode={setContentMode}
           audioAvailable={audioAvailable}
           activeProgress={activeProgress}
           onMarkStep={markStep}
-          onSwipeLeft={() => !isLast && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex + 1 }))}
-          onSwipeRight={() => !isFirst && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex - 1 }))}
-          onJumpTo={(index) => setState((prev) => ({ ...prev, activeIndex: index }))}
+          onSwipeLeft={next}
+          onSwipeRight={prev}
+          onJumpTo={goTo}
           isFavorite={isFavorite(active.id)}
           onToggleFavorite={() => toggleFavorite(active.id)}
         />
@@ -192,8 +177,8 @@ export default function Home() {
           isLast={isLast}
           audioAvailable={audioAvailable}
           setAudioAvailable={setAudioAvailable}
-          onNext={() => setState(p => ({ ...p, activeIndex: Math.min(SHLOKAS.length - 1, p.activeIndex + 1) }))}
-          onPrev={() => setState(p => ({ ...p, activeIndex: Math.max(0, p.activeIndex - 1) }))}
+          onNext={next}
+          onPrev={prev}
         />
       </AudioErrorBoundary>
 
@@ -247,7 +232,7 @@ export default function Home() {
                         {chCompleted.map((s) => (
                           <button
                             key={s.id}
-                            onClick={() => { setCompletedOpen(false); setState(prev => ({ ...prev, activeIndex: SHLOKAS.findIndex(x => x.id === s.id) })); }}
+                            onClick={() => { setCompletedOpen(false); goToShloka(s.id); }}
                             className="flex flex-col items-center justify-center rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] py-2 transition-colors hover:bg-[#ebd6ab]"
                           >
                             <span className="text-[10px] font-semibold text-[#8f6422] dark:text-[#d4aa61]">{s.chapter}.{s.verse}</span>
@@ -282,7 +267,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">
-                {state.recallAttempts > 0 ? Math.round((state.recallWins / state.recallAttempts) * 100) : 0}%
+                {winRatePct}%
               </span>
               <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Win Rate</span>
             </div>
@@ -303,10 +288,15 @@ export default function Home() {
         open={profileOpen}
         onOpenChange={setProfileOpen}
         user={user}
-        state={state}
-        setState={setState}
+        onSignOut={signOut}
+        startedAt={state.startedAt}
+        activeMode={state.activeMode}
+        setActiveMode={setActiveMode}
         completedCount={completedCount}
         streak={streak}
+        winRatePct={winRatePct}
+        displayName={displayName}
+        setCustomName={setCustomName}
       />
     </main>
   );

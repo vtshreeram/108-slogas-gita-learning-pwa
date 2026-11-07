@@ -1,11 +1,9 @@
-import { z } from "zod";
-import { STORAGE_KEY } from "@/lib/constants";
-import { appStateBackupSchema } from "@/lib/schemas";
+import { localStorageAdapter, parseBackupText, saveState } from "@/lib/learning-progress";
 
 export function useBackupRestore() {
   const handleExportBackup = () => {
     try {
-      const data = localStorage.getItem(STORAGE_KEY);
+      const data = localStorageAdapter.read();
       if (!data) {
         console.warn("No backup data found");
         return;
@@ -34,21 +32,17 @@ export function useBackupRestore() {
       if (!file) return;
       const reader = new FileReader();
       reader.onload = () => {
+        const result = parseBackupText(reader.result as string);
+        if (!result.ok) {
+          alert(`Invalid backup file: ${result.error}`);
+          return;
+        }
         try {
-          const parsed = JSON.parse(reader.result as string);
-          // Validate backup structure against Zod schema
-          const validated = appStateBackupSchema.parse(parsed);
-          // Write validated data to storage and reload
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(validated));
+          saveState(localStorageAdapter, result.state);
           window.location.reload();
         } catch (err) {
-          if (err instanceof z.ZodError) {
-            const issues = err.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`).join("; ");
-            alert(`Invalid backup file: ${issues}`);
-          } else {
-            console.error("Backup import failed", err);
-            alert("Invalid backup file. Check console for details.");
-          }
+          console.error("Backup import failed", err);
+          alert("Failed to save backup. Check console for details.");
         }
       };
       reader.readAsText(file);

@@ -36,11 +36,11 @@ export const SWIPE_THRESHOLD_PX = 50; // Minimum distance in pixels to register 
 // Content display modes for shlokas
 // - "transliteration": Roman transliteration of Sanskrit
 // - "english": English translation by Prabhupada
-// - "tamil": Tamil translation with purport explanation
+// - "tamil": Tamil meaning, edited from Bharathiyar's translation
 export const CONTENT_TABS: { mode: AppState["contentMode"]; label: string }[] = [
-  { mode: "transliteration", label: "Roman" },
-  { mode: "english",         label: "Meaning" },
-  { mode: "tamil",            label: "Tamil" },
+  { mode: "transliteration", label: "Chant (Roman)" },
+  { mode: "english",         label: "English meaning" },
+  { mode: "tamil",            label: "தமிழ் பொருள்" },
 ];
 
 export const defaultStepProgress = (): StepProgress => ({

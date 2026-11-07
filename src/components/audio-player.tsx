@@ -12,9 +12,11 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause, Square, Repeat, Loader2, AlertCircle, SkipBack, SkipForward, Gauge } from "lucide-react";
 
-type LoopMode = "off" | "repeat" | "advance";
-const REPEAT_COUNTS = [1, 2, 3, 5, 10, Infinity] as const;
-const SPEED_OPTIONS = [0.5, 0.75, 1, 1.25, 1.5] as const;
+import { LoopMode, REPEAT_COUNTS, SPEED_OPTIONS, decideOnEnded, cycleLoop, cycleOption, formatTime } from "@/lib/audio-playback";
+
+const setMediaPlaybackState = (state: "playing" | "paused") => {
+  if ("mediaSession" in navigator) navigator.mediaSession.playbackState = state;
+};
 
 type AudioPlayerProps = {
   audioSrc: string;
@@ -50,17 +52,13 @@ export function AudioPlayer({
     const p = el.play();
     if (p) p.then(() => {
       setAudioState("playing");
-      if ("mediaSession" in navigator) {
-        navigator.mediaSession.playbackState = "playing";
-      }
+      setMediaPlaybackState("playing");
     }).catch(() => {
       el.load();
       el.addEventListener("canplay", () => {
         el.play().then(() => {
           setAudioState("playing");
-          if ("mediaSession" in navigator) {
-            navigator.mediaSession.playbackState = "playing";
-          }
+          setMediaPlaybackState("playing");
         }).catch(() => {
           setAudioAvailable(false);
           setAudioState("unavailable");
@@ -73,9 +71,7 @@ export function AudioPlayer({
     if (!audioRef.current || !audioAvailable) return;
     audioRef.current.pause();
     setAudioState("paused");
-    if ("mediaSession" in navigator) {
-      navigator.mediaSession.playbackState = "paused";
-    }
+    setMediaPlaybackState("paused");
   };
 
   const stopAudio = () => {
@@ -83,9 +79,7 @@ export function AudioPlayer({
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
     setAudioState("idle");
-    if ("mediaSession" in navigator) {
-      navigator.mediaSession.playbackState = "paused";
-    }
+    setMediaPlaybackState("paused");
   };
 
   const togglePlayPause = () => {
@@ -100,30 +94,25 @@ export function AudioPlayer({
     setAudioCurrentTime(nextTime);
   };
 
-  const cycleLoopMode = () => {
-    if (loopMode === "off") setLoopMode("repeat");
-    else if (loopMode === "repeat") setLoopMode("advance");
-    else setLoopMode("off");
-  };
+  const cycleLoopMode = () => setLoopMode(cycleLoop(loopMode));
 
   const cycleRepeatCount = () => {
-    const idx = REPEAT_COUNTS.indexOf(repeatCount as typeof REPEAT_COUNTS[number]);
-    setRepeatCount(REPEAT_COUNTS[(idx + 1) % REPEAT_COUNTS.length]);
+    setRepeatCount(cycleOption(REPEAT_COUNTS, repeatCount));
     setCurrentRepeat(0);
   };
 
   const cycleSpeed = () => {
-    const idx = SPEED_OPTIONS.indexOf(playbackRate as typeof SPEED_OPTIONS[number]);
-    const next = SPEED_OPTIONS[(idx + 1) % SPEED_OPTIONS.length];
-    setPlaybackRate(next);
-    if (audioRef.current) audioRef.current.playbackRate = next;
+    const nextRate = cycleOption(SPEED_OPTIONS, playbackRate);
+    setPlaybackRate(nextRate);
+    if (audioRef.current) audioRef.current.playbackRate = nextRate;
   };
 
-  const formatTime = (secs: number) => {
-    const total = Math.max(0, Math.floor(secs));
-    const m = Math.floor(total / 60);
-    const s = total % 60;
-    return `${m}:${String(s).padStart(2, "0")}`;
+  /** Back to the start, idle, lock-screen paused. */
+  const resetToIdle = () => {
+    if (audioRef.current) audioRef.current.currentTime = 0;
+    setAudioCurrentTime(0);
+    setAudioState("idle");
+    setMediaPlaybackState("paused");
   };
 
   // Reset on source change
@@ -185,59 +174,20 @@ export function AudioPlayer({
   }, [title, isFirst, isLast]);
 
   const handleEnded = () => {
-    if (loopMode === "off") {
-      // Reset audio position so user can replay from the start
-      if (audioRef.current) {
-        audioRef.current.currentTime = 0;
-      }
-      setAudioCurrentTime(0);
-      setAudioState("idle");
-      if ("mediaSession" in navigator) {
-        navigator.mediaSession.playbackState = "paused";
-      }
+    const action = decideOnEnded({ loopMode, repeatCount, currentRepeat, isLast });
+    if (action.type === "replay") {
+      setCurrentRepeat(action.currentRepeat);
+      if (audioRef.current) audioRef.current.currentTime = 0;
+      playAudio();
       return;
     }
-
-    const nextRepeat = currentRepeat + 1;
-
-    if (loopMode === "repeat") {
-      if (repeatCount === Infinity || nextRepeat < repeatCount) {
-        setCurrentRepeat(nextRepeat);
-        audioRef.current!.currentTime = 0;
-        playAudio();
-      } else {
-        setCurrentRepeat(0);
-        // Reset audio position when repeat count reached
-        if (audioRef.current) {
-          audioRef.current.currentTime = 0;
-        }
-        setAudioCurrentTime(0);
-        setAudioState("idle");
-        if ("mediaSession" in navigator) {
-          navigator.mediaSession.playbackState = "paused";
-        }
-      }
-    } else if (loopMode === "advance") {
-      if (repeatCount === Infinity || nextRepeat < repeatCount) {
-        setCurrentRepeat(nextRepeat);
-        audioRef.current!.currentTime = 0;
-        playAudio();
-      } else {
-        setCurrentRepeat(0);
-        if (!isLast) { setPendingAutoPlay(true); onNext(); }
-        else {
-          // Reset audio position when done with advance repeats on last shloka
-          if (audioRef.current) {
-            audioRef.current.currentTime = 0;
-          }
-          setAudioCurrentTime(0);
-          setAudioState("idle");
-          if ("mediaSession" in navigator) {
-            navigator.mediaSession.playbackState = "paused";
-          }
-        }
-      }
+    setCurrentRepeat(0);
+    if (action.type === "advance") {
+      setPendingAutoPlay(true);
+      onNext();
+      return;
     }
+    resetToIdle();
   };
 
   const repeatLabel = repeatCount === Infinity ? "∞" : `${repeatCount}x`;
@@ -255,16 +205,12 @@ export function AudioPlayer({
           onCanPlay={() => setIsLoading(false)}
           onPlay={() => {
             setAudioState("playing");
-            if ("mediaSession" in navigator) {
-              navigator.mediaSession.playbackState = "playing";
-            }
+            setMediaPlaybackState("playing");
           }}
           onPause={() => {
             const newState = (prev: typeof audioState) => prev === "unavailable" ? prev : "paused";
             setAudioState(newState);
-            if ("mediaSession" in navigator) {
-              navigator.mediaSession.playbackState = "paused";
-            }
+            setMediaPlaybackState("paused");
           }}
           onTimeUpdate={(e) => setAudioCurrentTime(e.currentTarget.currentTime)}
           onDurationChange={(e) => setAudioDuration(e.currentTarget.duration)}

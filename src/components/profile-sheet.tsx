@@ -1,24 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { User, signOut } from "firebase/auth";
+import type { User } from "firebase/auth";
 import { Download, Upload, LogOut } from "lucide-react";
-import { auth } from "@/lib/firebase";
-import { AppState } from "@/lib/constants";
+import type { AppState } from "@/lib/constants";
 import { TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
-import { useProfile } from "@/hooks/use-profile";
 import { useBackupRestore } from "@/hooks/use-backup-restore";
 
 type ProfileSheetProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   user: User | null;
-  state: AppState;
-  setState: (fn: (prev: AppState) => AppState) => void;
+  onSignOut: () => Promise<void>;
+  startedAt: string;
+  activeMode: AppState["activeMode"];
+  setActiveMode: (mode: AppState["activeMode"]) => void;
   completedCount: number;
   streak: number;
+  winRatePct: number;
+  displayName: string;
+  setCustomName: (name: string | null) => void;
 };
 
 function getInitials(name: string): string {
@@ -50,19 +53,22 @@ export function ProfileSheet({
   open,
   onOpenChange,
   user,
-  state,
-  setState,
+  onSignOut,
+  startedAt,
+  activeMode,
+  setActiveMode,
   completedCount,
   streak,
+  winRatePct,
+  displayName,
+  setCustomName,
 }: ProfileSheetProps) {
-  const { displayName, setCustomName } = useProfile(user);
   const { handleExportBackup, handleImportBackup } = useBackupRestore();
   const [isEditingName, setIsEditingName] = useState(false);
   const [tempName, setTempName] = useState(displayName);
 
   const achievements = getAchievements(completedCount, streak);
-  const joinedDate = state.startedAt ? new Date(state.startedAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "Unknown";
-  const winRate = state.recallAttempts > 0 ? Math.round((state.recallWins / state.recallAttempts) * 100) : 0;
+  const joinedDate = startedAt ? new Date(startedAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "Unknown";
 
   const handleSaveName = () => {
     setCustomName(tempName);
@@ -71,7 +77,7 @@ export function ProfileSheet({
 
   const handleSignOut = async () => {
     try {
-      await signOut(auth);
+      await onSignOut();
       onOpenChange(false);
     } catch (error) {
       console.error("Sign out failed:", error);
@@ -149,7 +155,7 @@ export function ProfileSheet({
             <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Streak</span>
           </div>
           <div className="flex flex-col items-center p-3 rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321]">
-            <span className="text-xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{winRate}%</span>
+            <span className="text-xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{winRatePct}%</span>
             <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Win Rate</span>
           </div>
           <div className="flex flex-col items-center p-3 rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321]">
@@ -183,9 +189,9 @@ export function ProfileSheet({
             {["normal", "lite"].map((mode) => (
               <button
                 key={mode}
-                onClick={() => setState((prev) => ({ ...prev, activeMode: mode as "normal" | "lite" }))}
+                onClick={() => setActiveMode(mode as AppState["activeMode"])}
                 className={`flex-1 rounded-lg px-3 py-2 text-xs font-semibold transition-colors ${
-                  state.activeMode === mode
+                  activeMode === mode
                     ? "bg-[#8a6b3d] text-white"
                     : "border border-[#ccb385] dark:border-[#423321] bg-white dark:bg-[#1e1710] text-[#5c482a] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:hover:bg-[#2d2218]"
                 }`}

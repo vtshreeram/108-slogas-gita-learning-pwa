@@ -10,7 +10,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { AlertCircle, Eye, ChevronDown, Star } from "lucide-react";
 import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, StepProgress } from "@/lib/constants";
-import { Shloka, SHLOKAS } from "@/lib/shlokas";
+import { Shloka, SHLOKAS, TAMIL_TRANSLATION_AUTHOR, TAMIL_TRANSLATION_SOURCE, ENGLISH_TRANSLATION_SOURCE } from "@/lib/shlokas";
 
 type ShlokaCardProps = {
   active: Shloka;
@@ -159,22 +159,19 @@ export function ShlokaCard({
                 </p>
               )}
               {contentMode === "english" && (
-                <p className="text-[18px] sm:text-[20px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
+                <div lang="en">
+                  <p className="text-[18px] sm:text-[20px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
+                  <a href={`${ENGLISH_TRANSLATION_SOURCE}${active.chapter}/${active.reference.split(".")[1]}/`} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-xs text-[#8a6b3d] dark:text-[#bda27e] underline underline-offset-4">
+                    {active.translationAuthor} · Source
+                  </a>
+                </div>
               )}
               {contentMode === "tamil" && (
                 <div className="overflow-y-auto max-h-[350px] w-full pr-2 text-left custom-scrollbar">
                   <p className="whitespace-pre-wrap text-[17px] sm:text-[18px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto text-center" lang="ta">{active.tamil}</p>
-                  <hr className="my-4 border-[#ebd6ab] dark:border-[#423321]" />
-                  <h3 className="text-lg font-bold text-[#8a6b3d] dark:text-[#bda27e] mb-2">Purport / பொருளுரை</h3>
-                  {active.tamilPurport && active.tamilPurport.length > 0 ? (
-                    active.tamilPurport.map((paragraph, idx) => (
-                      <p key={idx} className="mb-3 text-[16px] sm:text-[17px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-[family-name:var(--font-noto-sans-tamil)]">
-                        {paragraph}
-                      </p>
-                    ))
-                  ) : (
-                    <p className="italic text-[#a88d63] dark:text-[#bda27e]">No Purport found</p>
-                  )}
+                  <a href={TAMIL_TRANSLATION_SOURCE} target="_blank" rel="noopener noreferrer" lang="ta" className="mt-4 block text-center text-xs text-[#8a6b3d] dark:text-[#bda27e] underline underline-offset-4">
+                    {TAMIL_TRANSLATION_AUTHOR} · மூலம்
+                  </a>
                 </div>
               )}
             </>
