@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
 // Loader path from orchids-visual-edits - use direct resolve to get the actual file
 const loaderPath = require.resolve('orchids-visual-edits/loader.js');
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/api/chapters/*": ["./src/data/gita/*.json"],
+  },
   turbopack: {
     rules: {
       "*.{jsx,tsx}": {
@@ -40,4 +44,11 @@ const nextConfig: NextConfig = {
   ],
 } as NextConfig;
 
-export default nextConfig;
+const configForPhase = (phase: string): NextConfig => ({
+  ...nextConfig,
+  // Locally, a production build must not overwrite a running Turbopack dev server, so it uses its
+  // own folder. Vercel (which sets VERCEL=1) expects the default ".next" output directory.
+  distDir: phase === PHASE_DEVELOPMENT_SERVER || process.env.VERCEL ? ".next" : ".next-build",
+});
+
+export default configForPhase;

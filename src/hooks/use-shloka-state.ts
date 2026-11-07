@@ -1,143 +1,136 @@
-import { useState, useEffect, useMemo } from "react";
-import { SHLOKAS, TOTAL_SHLOKAS, DAILY_TARGET, LoopStep } from "@/lib/shlokas";
-import { AppState, STORAGE_KEY, SCHEMA_VERSION, defaultStepProgress, todayIso, fullDone, daysBetween } from "@/lib/constants";
-import { appStateBackupSchema } from "@/lib/schemas";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { LoopStep } from "@/lib/shlokas";
+import { AppState, RecallRating, todayIso } from "@/lib/constants";
+import * as progress from "@/lib/learning-progress";
+import { saveState, initialState, deriveStats, CHAPTER_LIST } from "@/lib/learning-progress";
+import { localKV, loadForUser, progressStoreFor, touchMeta, ProgressStore, SyncMeta } from "@/lib/progress-store";
+import { createProgressSync } from "@/lib/progress-sync";
+import { createFirestoreRemote } from "@/lib/firestore-remote";
 
-export function useShlokaState() {
-  const [ready, setReady] = useState(false);
-  const [state, setState] = useState<AppState>({
-    schemaVersion: SCHEMA_VERSION,
-    startedAt: todayIso(),
-    lastActiveDate: todayIso(),
-    lastPracticeDate: "",
-    streakCount: 0,
-    activeMode: "normal",
-    completed: {},
-    recallWins: 0,
-    recallAttempts: 0,
-    activeIndex: 0,
-    contentMode: "transliteration",
-  });
+/**
+ * Thin React wrapper over the Learning progress module.
+ * Progress is stored per user id; with cloud sync enabled it also follows the account.
+ */
+export function useShlokaState(uid: string | null) {
+  const [state, setState] = useState<AppState>(() => initialState());
+  // Which uid `state` was loaded for. Saves only happen when it matches the current uid,
+  // so one account's progress can never be written under another's key.
+  const [loadedUid, setLoadedUid] = useState<string | null>(null);
+  const [today, setToday] = useState(todayIso);
+  const [syncStatus, setSyncStatus] = useState<"local" | "pending" | "syncing" | "synced" | "error">("local");
+  const [storageError, setStorageError] = useState(false);
+  const [online, setOnline] = useState(true);
+  const stateRef = useRef(state);
+  const metaRef = useRef<SyncMeta>({ updatedAt: 0, linked: false });
+  const storeRef = useRef<ProgressStore | null>(null);
+  const syncRef = useRef<ReturnType<typeof createProgressSync> | null>(null);
+
+  const ready = uid !== null && loadedUid === uid;
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        const validated = appStateBackupSchema.safeParse(parsed);
-
-        if (!validated.success) {
-          console.warn("Failed to validate saved state:", validated.error);
-          setReady(true);
-          return;
-        }
-
-        const data = validated.data;
-        const safeIndex = Math.max(0, Math.min(SHLOKAS.length - 1, Number(data.activeIndex ?? 0) || 0));
-
-        // Migration: "sanskrit" mode (Devanagari) was replaced with "tamil" mode (Tamil translation)
-        let migratedContentMode: "transliteration" | "english" | "tamil" = "transliteration";
-        if ((data.contentMode as string) === "sanskrit") {
-          migratedContentMode = "tamil";
-        } else if (data.contentMode === "transliteration" || data.contentMode === "english" || data.contentMode === "tamil") {
-          migratedContentMode = data.contentMode;
-        }
-
-        setState({
-          schemaVersion: SCHEMA_VERSION,
-          startedAt: data.startedAt ?? todayIso(),
-          lastActiveDate: todayIso(),
-          lastPracticeDate: data.lastPracticeDate ?? "",
-          streakCount: Number(data.streakCount ?? 0) || 0,
-          activeMode: data.activeMode === "lite" ? "lite" : "normal",
-          completed: data.completed ?? {},
-          recallWins: Number(data.recallWins ?? 0) || 0,
-          recallAttempts: Number(data.recallAttempts ?? 0) || 0,
-          activeIndex: safeIndex,
-          contentMode: migratedContentMode,
-        });
-      }
-    } catch (e) { console.warn("Failed to load saved state:", e); } finally {
-      setReady(true);
-    }
+    const refresh = () => { setToday(todayIso()); setOnline(navigator.onLine); };
+    refresh();
+    const timer = setInterval(refresh, 30_000);
+    window.addEventListener("focus", refresh);
+    window.addEventListener("online", refresh);
+    window.addEventListener("offline", refresh);
+    return () => { clearInterval(timer); window.removeEventListener("focus", refresh); window.removeEventListener("online", refresh); window.removeEventListener("offline", refresh); };
   }, []);
 
   useEffect(() => {
-    if (!ready) return;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  }, [ready, state]);
+    syncRef.current = null;
+    storeRef.current = null;
+    setSyncStatus("local");
+    setStorageError(false);
+    if (!uid) { setLoadedUid(null); return; }
 
-  const markStep = (id: string, step: LoopStep) => {
-    setState((prev) => {
-      const current = prev.completed[id] ?? defaultStepProgress();
-      const isMarkingTrue = !current[step];
-      const updated = { ...current, [step]: isMarkingTrue };
-      let { lastPracticeDate, streakCount } = prev;
-      if (step === "recall" && isMarkingTrue) {
-        const today = todayIso();
-        if (lastPracticeDate === today) {
-          // User already practiced today, don't change streak
-        } else {
-          // Calculate days since last practice
-          const daysSinceLast = daysBetween(lastPracticeDate, today);
-          if (daysSinceLast === 1) {
-            // Practiced yesterday, continue the streak
-            streakCount = (prev.streakCount || 0) + 1;
-          } else {
-            // Skipped one or more days, start a new streak
-            streakCount = 1;
-          }
-        }
-        lastPracticeDate = today;
+    let cleanup: (() => void) | undefined;
+    try {
+      const store = progressStoreFor(localKV, uid);
+      const result = loadForUser(localKV, uid);
+      if (result.status === "invalid") console.warn("Failed to load saved state (stashed, not overwritten):", result.error);
+      storeRef.current = store;
+      metaRef.current = store.readMeta();
+      stateRef.current = result.state;
+      setState(result.state);
+
+      const remote = createFirestoreRemote();
+      if (remote) {
+        const sync = createProgressSync({
+          uid,
+          remote,
+          getLocal: () => ({ state: stateRef.current, meta: metaRef.current }),
+          apply: (next, meta) => { stateRef.current = next; metaRef.current = meta; store.writeMeta(meta); setState(next); },
+          setMeta: (meta) => { metaRef.current = meta; store.writeMeta(meta); },
+          onStatus: setSyncStatus,
+        });
+        syncRef.current = sync;
+        const onOnline = () => { void sync.syncNow(); };
+        window.addEventListener("online", onOnline);
+        void sync.syncNow();
+        cleanup = () => { window.removeEventListener("online", onOnline); sync.dispose(); };
       }
-      return {
-        ...prev,
-        completed: { ...prev.completed, [id]: updated },
-        recallAttempts: step === "recall" && isMarkingTrue ? prev.recallAttempts + 1 : prev.recallAttempts,
-        recallWins: step === "recall" && isMarkingTrue ? prev.recallWins + 1 : prev.recallWins,
-        lastPracticeDate,
-        streakCount,
-      };
-    });
-  };
+    } catch (e) {
+      setStorageError(true);
+      console.warn("Failed to load saved state:", e);
+    } finally {
+      setLoadedUid(uid);
+    }
+    return () => { cleanup?.(); };
+  }, [uid]);
 
-  const markAsLearned = (id: string) => {
-    setState((prev) => ({
-      ...prev,
-      completed: { ...prev.completed, [id]: { listen: true, repeat: true, understand: true, recall: true } },
-      activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1),
-    }));
-  };
+  useEffect(() => {
+    if (!uid || loadedUid !== uid || !storeRef.current) return;
+    try { saveState(storeRef.current, state); setStorageError(false); } catch (e) { setStorageError(true); console.warn("Failed to save state:", e); }
+  }, [uid, loadedUid, state]);
 
-  const undoLearnedForActive = (id: string) => {
-    setState((prev) => {
-      const completed = { ...prev.completed };
-      delete completed[id];
-      return { ...prev, completed };
-    });
-  };
+  /**
+   * Every user action goes through here: this is the only place `updatedAt` advances.
+   * `quiet` edits (browsing: position, content tab) are saved locally but neither bump
+   * `updatedAt` nor trigger a push, so merely looking around can never beat newer progress
+   * from another device; they travel with the next real edit.
+   */
+  const update = useCallback((fn: (s: AppState) => AppState, opts?: { quiet?: boolean }) => {
+    const next = fn(stateRef.current);
+    stateRef.current = next;
+    if (!opts?.quiet) {
+      const meta = touchMeta(metaRef.current, Date.now());
+      metaRef.current = meta;
+      try { storeRef.current?.writeMeta(meta); } catch { /* best effort */ }
+      syncRef.current?.markDirty();
+    }
+    setState(next);
+  }, []);
 
-  const completedCount = useMemo(() => SHLOKAS.filter((item) => fullDone(state.completed[item.id])).length, [state.completed]);
-  const completedShlokas = useMemo(() => SHLOKAS.filter((item) => fullDone(state.completed[item.id])), [state.completed]);
-  const streak = state.streakCount;
-  const progressPct = Math.round((completedCount / TOTAL_SHLOKAS) * 100);
+  const markStep = useCallback((id: string, step: LoopStep) => update((s) => progress.markStep(s, id, step)), [update]);
+  const recallMissed = useCallback(() => update(progress.recallMissed), [update]);
+  const markAsLearned = useCallback((id: string) => update((s) => progress.markAsLearned(s, id)), [update]);
+  const undoLearnedForActive = useCallback((id: string) => update((s) => progress.undoLearned(s, id)), [update]);
+  const goTo = useCallback((index: number) => update((s) => progress.goTo(s, index), { quiet: true }), [update]);
+  const goToShloka = useCallback((id: string) => update((s) => progress.goToShloka(s, id), { quiet: true }), [update]);
+  const next = useCallback(() => update(progress.goNext, { quiet: true }), [update]);
+  const prev = useCallback(() => update(progress.goPrev, { quiet: true }), [update]);
+  const setContentMode = useCallback((m: AppState["contentMode"]) => update((s) => progress.setContentMode(s, m), { quiet: true }), [update]);
+  const setActiveMode = useCallback((m: AppState["activeMode"]) => update((s) => progress.setActiveMode(s, m)), [update]);
+  const rateRecall = useCallback((id: string, rating: RecallRating) => update((s) => progress.rateRecall(s, id, rating)), [update]);
+  const retrySave = useCallback(() => {
+    try {
+      if (!storeRef.current) return;
+      saveState(storeRef.current, stateRef.current);
+      setStorageError(false);
+      void syncRef.current?.syncNow();
+    } catch { setStorageError(true); }
+  }, []);
 
-  const safeActiveIndex = Math.max(0, Math.min(SHLOKAS.length - 1, state.activeIndex));
-  const active = SHLOKAS[safeActiveIndex];
-  const activeProgress = active ? state.completed[active.id] ?? defaultStepProgress() : defaultStepProgress();
-  const activeGlobalIndex = safeActiveIndex + 1;
-  const isFirst = activeGlobalIndex === 1;
-  const isLast = activeGlobalIndex === TOTAL_SHLOKAS;
-  const isMastered = fullDone(activeProgress);
-  const dailyGoal = state.activeMode === "lite" ? 1 : DAILY_TARGET;
-  const firstPending = Math.max(0, SHLOKAS.findIndex((item) => !fullDone(state.completed[item.id])));
-  const chapterList = useMemo(() => [...new Set(SHLOKAS.map((s) => s.chapter))].sort((a, b) => a - b), []);
+  const stats = useMemo(() => deriveStats(state, today), [state, today]);
 
   return {
-    ready, state, setState,
-    markStep, markAsLearned, undoLearnedForActive,
-    completedCount, completedShlokas, streak, progressPct,
-    active, safeActiveIndex, activeProgress, activeGlobalIndex,
-    isFirst, isLast, isMastered, dailyGoal, firstPending, chapterList
+    ready, state, syncStatus, storageError, online, retrySave, rateRecall,
+    markStep, recallMissed, markAsLearned, undoLearnedForActive,
+    goTo, goToShloka, next, prev, setContentMode, setActiveMode,
+    ...stats,
+    // not memoized: must follow the clock if the app stays open past midnight
+    practicedToday: state.lastPracticeDate === todayIso(),
+    chapterList: CHAPTER_LIST,
   };
 }

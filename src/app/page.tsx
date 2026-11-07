@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { CheckCircle, Undo2, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { SHLOKAS, TOTAL_SHLOKAS } from "@/lib/shlokas";
+import { TOTAL_SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useShlokaState } from "@/hooks/use-shloka-state";
 import { useProfile } from "@/hooks/use-profile";
@@ -13,16 +13,23 @@ import { LoaderQuote } from "@/components/loader-quote";
 import { DialogCard } from "@/components/dialog-card";
 import { AudioErrorBoundary } from "@/components/audio-error-boundary";
 import { ProfileSheet } from "@/components/profile-sheet";
-import { auth, signInWithGoogle } from "@/lib/firebase";
-import { getRedirectResult, onAuthStateChanged, User } from "firebase/auth";
+import { useSession } from "@/hooks/use-session";
+import { OfflineLibrary } from "@/components/offline-library";
+import { VerseStudy } from "@/components/verse-study";
+import { ReviewQueue } from "@/components/review-queue";
+import { LinePractice } from "@/components/line-practice";
+import { StudyTools } from "@/components/study-tools";
+import { SaveStatus } from "@/components/save-status";
+import { useAllVerses } from "@/hooks/use-all-verses";
+import type { GitaVerse } from "@/lib/gita-verses";
 
-function LoginScreen() {
+function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
   const [signingIn, setSigningIn] = useState(false);
 
   const handleLogin = async () => {
     setSigningIn(true);
     try {
-      await signInWithGoogle();
+      await onSignIn();
     } catch (error: unknown) {
       console.error("Login failed", error);
       alert("Login failed: " + ((error as Error)?.message || "Unknown error"));
@@ -36,7 +43,7 @@ function LoginScreen() {
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-3xl text-[#4a3615]">ॐ</div>
         <div>
           <h1 className="font-serif text-2xl font-bold text-[#4a3615] dark:text-[#f0e3ce] leading-tight">Bhagavad Gita</h1>
-          <p className="text-sm text-[#a88d63] dark:text-[#bda27e] mt-2">Sign in to start learning</p>
+          <p className="text-sm text-[#705735] dark:text-[#bda27e] mt-2">Sign in to start learning</p>
         </div>
         <button
           onClick={handleLogin}
@@ -55,59 +62,62 @@ export default function Home() {
   const [completedOpen, setCompletedOpen] = useState(false);
   const [statsOpen, setStatsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [browse, setBrowse] = useState<GitaVerse | null>(null);
   const [audioAvailable, setAudioAvailable] = useState(true);
+  const [linePracticeActive, setLinePracticeActive] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const { theme, setTheme } = useTheme();
 
-  const [user, setUser] = useState<User | null>(null);
-  const [authChecking, setAuthChecking] = useState(true);
+  const { user, checking: authChecking, signIn, signOut } = useSession();
 
-  const { isFavorite, toggleFavorite } = useProfile(user);
+  const { isFavorite, toggleFavorite, displayName, setCustomName, profile, setLineCues } = useProfile(user);
 
   const {
-    ready, state, setState,
-    markStep, markAsLearned, undoLearnedForActive,
-    completedCount, completedShlokas, streak, progressPct,
+    ready, state,
+    markStep, recallMissed, markAsLearned, undoLearnedForActive,
+    goTo, goToShloka, next, prev, setContentMode, setActiveMode,
+    completedCount, completedShlokas, streak, progressPct, winRatePct,
     active, activeProgress, activeGlobalIndex,
-    isFirst, isLast, isMastered, dailyGoal, chapterList
-  } = useShlokaState();
+    isFirst, isLast, isMastered, dailyGoal, learnedToday, dueReviews, chapterList,
+    rateRecall, syncStatus, storageError, online, retrySave
+  } = useShlokaState(user?.uid ?? null);
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
-    navigator.serviceWorker.register("/sw.js").catch((e) => console.warn("SW registration failed:", e));
-  }, []);
+  const { verses: allVerses } = useAllVerses(ready);
+
+  // Any jump to one of the 108 (review queue, completed list, picker) returns to the learning card.
+  const activeId = active?.id;
+  useEffect(() => { setBrowse(null); }, [activeId]);
+
+  /** Reading mode steps through all 657; learning mode keeps stepping through the 108. */
+  const stepBrowse = useCallback((delta: number) => {
+    if (!browse || !allVerses) return;
+    const i = allVerses.findIndex((v) => v.id === browse.id) + delta;
+    const target = allVerses[i];
+    if (!target) return;
+    if (target.important) { setBrowse(null); goToShloka(target.id); } else setBrowse(target);
+  }, [browse, allVerses, goToShloka]);
+  const onNext = useCallback(() => (browse ? stepBrowse(1) : next()), [browse, stepBrowse, next]);
+  const onPrev = useCallback(() => (browse ? stepBrowse(-1) : prev()), [browse, stepBrowse, prev]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") { event.preventDefault(); setState((prev) => ({ ...prev, activeIndex: Math.min(SHLOKAS.length - 1, prev.activeIndex + 1) })); }
-      if (event.key === "ArrowLeft") { event.preventDefault(); setState((prev) => ({ ...prev, activeIndex: Math.max(0, prev.activeIndex - 1) })); }
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('[role="dialog"]') || (event.target instanceof Element && event.target.closest('input,textarea,select,button,a,summary,[role="slider"],[contenteditable="true"]'))) return;
+      if (event.key === "ArrowRight") { event.preventDefault(); onNext(); }
+      if (event.key === "ArrowLeft") { event.preventDefault(); onPrev(); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [setState]);
-
-  useEffect(() => {
-    // Handle redirect result after Google sign-in redirect returns
-    getRedirectResult(auth).catch((error) => {
-      console.error("Redirect sign-in error:", error);
-    });
-
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setAuthChecking(false);
-    });
-    return () => unsubscribe();
-  }, []);
+  }, [onNext, onPrev]);
 
   if (authChecking || (!ready && user)) return <LoaderQuote />;
 
-  if (!user) return <LoginScreen />;
+  if (!user) return <LoginScreen onSignIn={signIn} />;
 
   if (!active) return null;
 
   const audioSrc = `/audio/${active.reference}.mp3`;
 
-  const todayIso = () => new Date().toISOString().slice(0, 10);
-  const todayLearnedStr = state.lastPracticeDate === todayIso() ? `${dailyGoal} / ${dailyGoal}` : `0 / ${dailyGoal}`;
+  const todayLearnedStr = `${learnedToday} / ${dailyGoal}`;
 
   return (
     <main className="min-h-screen overflow-y-auto bg-background text-foreground px-3 pb-40" style={{ paddingTop: "calc(env(safe-area-inset-top) + 20px)" }}>
@@ -118,7 +128,7 @@ export default function Home() {
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#ebd6ab] to-[#dbba84] border border-[#c4a062] dark:border-[#423321] text-sm">ॐ</span>
               Bhagavad Gita
             </h1>
-            <p className="text-xs text-[#a88d63] dark:text-[#bda27e] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
+            <p className="text-xs text-[#705735] dark:text-[#bda27e] mt-0.5">Daily Goal: {todayLearnedStr} completed</p>
           </div>
           <div className="flex items-center gap-1.5">
             <button
@@ -139,7 +149,7 @@ export default function Home() {
             >
               {theme === "dark" ? <Moon className="h-3.5 w-3.5" /> : <Sun className="h-3.5 w-3.5" />}
             </button>
-            <button
+            {!browse && <button
               onClick={() => {
                 if (isMastered) undoLearnedForActive(active.id);
                 else setConfirmLearnedOpen(true);
@@ -148,20 +158,19 @@ export default function Home() {
             >
               {isMastered ? <Undo2 className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
               <span>{isMastered ? "Undo" : "Learned"}</span>
-            </button>
+            </button>}
           </div>
         </header>
 
         <button
           onClick={() => setStatsOpen(true)}
-          aria-label="View session progress and stats"
           className="flex items-center justify-between rounded-2xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 sm:p-4 shadow-[0_2px_8px_rgba(143,100,34,0.06)] relative overflow-hidden group w-full text-left"
         >
           <div className="relative z-20">
-            <p className="text-[10px] font-bold tracking-widest text-[#a88d63] dark:text-[#bda27e] uppercase mb-0.5">Session Progress</p>
+            <p className="text-[10px] font-bold tracking-widest text-[#705735] dark:text-[#bda27e] uppercase mb-0.5">Session Progress</p>
             <div className="flex items-baseline gap-1.5">
               <span className="text-sm font-semibold text-[#4a3615] dark:text-[#f0e3ce] tabular-nums">{completedCount} / {TOTAL_SHLOKAS}</span>
-              <span className="text-[10px] font-medium text-[#c0a986] dark:text-[#bda27e]">verses learned</span>
+              <span className="text-[10px] font-medium text-[#705735] dark:text-[#bda27e]">verses learned</span>
             </div>
           </div>
           <span className="text-lg font-bold tabular-nums text-[#8f6422] dark:text-[#d4aa61]">{progressPct}%</span>
@@ -172,30 +181,43 @@ export default function Home() {
           activeGlobalIndex={activeGlobalIndex}
           isMastered={isMastered}
           contentMode={state.contentMode}
-          setContentMode={(m) => setState((p) => ({ ...p, contentMode: m }))}
+          setContentMode={setContentMode}
           audioAvailable={audioAvailable}
           activeProgress={activeProgress}
           onMarkStep={markStep}
-          onSwipeLeft={() => !isLast && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex + 1 }))}
-          onSwipeRight={() => !isFirst && setState((prev) => ({ ...prev, activeIndex: prev.activeIndex - 1 }))}
-          onJumpTo={(index) => setState((prev) => ({ ...prev, activeIndex: index }))}
+          onRecallMissed={recallMissed}
+          onSwipeLeft={onNext}
+          onSwipeRight={onPrev}
+          onJumpTo={goTo}
           isFavorite={isFavorite(active.id)}
           onToggleFavorite={() => toggleFavorite(active.id)}
+          allVerses={allVerses}
+          browse={browse}
+          onBrowse={setBrowse}
         />
+        {!browse && <StudyTools dueCount={dueReviews.length}>
+          <ReviewQueue due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={goToShloka} />
+          <LinePractice key={active.id} shloka={active} audioRef={audioRef} cues={profile.lineCues[active.id]} onSave={(cues) => setLineCues(active.id, cues)} onActiveChange={setLinePracticeActive} />
+          <VerseStudy shloka={active} />
+          <OfflineLibrary reference={active.reference} />
+        </StudyTools>}
+        {(storageError || syncStatus === "error" || !online) && <SaveStatus status={syncStatus} storageError={storageError} online={online} onRetry={retrySave} />}
       </div>
 
-      <AudioErrorBoundary>
+      {!browse && <AudioErrorBoundary>
         <AudioPlayer
           audioSrc={audioSrc}
+          elementRef={audioRef}
+          linePracticeActive={linePracticeActive}
           title={`Ch ${active.chapter} · V ${active.verse}`}
           isFirst={isFirst}
           isLast={isLast}
           audioAvailable={audioAvailable}
           setAudioAvailable={setAudioAvailable}
-          onNext={() => setState(p => ({ ...p, activeIndex: Math.min(SHLOKAS.length - 1, p.activeIndex + 1) }))}
-          onPrev={() => setState(p => ({ ...p, activeIndex: Math.max(0, p.activeIndex - 1) }))}
+          onNext={next}
+          onPrev={prev}
         />
-      </AudioErrorBoundary>
+      </AudioErrorBoundary>}
 
       {/* Confirm learned dialog */}
       <Dialog open={confirmLearnedOpen} onOpenChange={setConfirmLearnedOpen}>
@@ -242,12 +264,12 @@ export default function Home() {
                   if (chCompleted.length === 0) return null;
                   return (
                     <div key={ch}>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] mb-2 border-b border-[#f0d498] dark:border-[#423321] pb-1">Chapter {ch}</h4>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#705735] dark:text-[#bda27e] mb-2 border-b border-[#f0d498] dark:border-[#423321] pb-1">Chapter {ch}</h4>
                       <div className="grid grid-cols-5 sm:grid-cols-6 gap-2">
                         {chCompleted.map((s) => (
                           <button
                             key={s.id}
-                            onClick={() => { setCompletedOpen(false); setState(prev => ({ ...prev, activeIndex: SHLOKAS.findIndex(x => x.id === s.id) })); }}
+                            onClick={() => { setCompletedOpen(false); goToShloka(s.id); }}
                             className="flex flex-col items-center justify-center rounded-lg bg-[#fcebc4] dark:bg-[#2d2218] border border-[#f0d498] dark:border-[#423321] py-2 transition-colors hover:bg-[#ebd6ab]"
                           >
                             <span className="text-[10px] font-semibold text-[#8f6422] dark:text-[#d4aa61]">{s.chapter}.{s.verse}</span>
@@ -270,21 +292,21 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-4 my-4">
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{streak}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Day Streak</span>
+              <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Day Streak</span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{completedCount}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Mastered</span>
+              <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Mastered</span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">{state.recallAttempts}</span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Total Attempts</span>
+              <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Total Attempts</span>
             </div>
             <div className="flex flex-col items-center p-3 rounded-xl bg-[#fffaf0] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321]">
               <span className="text-2xl font-bold text-[#8f6422] dark:text-[#d4aa61]">
-                {state.recallAttempts > 0 ? Math.round((state.recallWins / state.recallAttempts) * 100) : 0}%
+                {winRatePct}%
               </span>
-              <span className="text-[10px] uppercase font-bold text-[#a88d63] dark:text-[#bda27e]">Win Rate</span>
+              <span className="text-[10px] uppercase font-bold text-[#705735] dark:text-[#bda27e]">Win Rate</span>
             </div>
           </div>
           <DialogFooter className="flex gap-2">
@@ -303,10 +325,15 @@ export default function Home() {
         open={profileOpen}
         onOpenChange={setProfileOpen}
         user={user}
-        state={state}
-        setState={setState}
+        onSignOut={signOut}
+        startedAt={state.startedAt}
+        activeMode={state.activeMode}
+        setActiveMode={setActiveMode}
         completedCount={completedCount}
         streak={streak}
+        winRatePct={winRatePct}
+        displayName={displayName}
+        setCustomName={setCustomName}
       />
     </main>
   );

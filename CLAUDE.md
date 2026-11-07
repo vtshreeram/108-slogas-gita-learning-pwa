@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-A PWA for memorizing 108 Bhagavad Gita shlokas through a 4-step learning loop: listen, repeat, understand, recall. Built as a single-page Next.js app with offline support via service worker. All state lives in localStorage (no backend database).
+A PWA for memorizing 108 Bhagavad Gita shlokas through a 4-step learning loop: listen, repeat, understand, recall. Built as a single-page Next.js app with offline support via service worker. State lives in localStorage per user (optional Firestore sync, off by default).
 
 ## Commands
 
@@ -31,7 +31,9 @@ Run a single test file: `npx vitest run src/lib/server/__tests__/route.test.ts`
 ## Architecture
 
 ### State Management
-`useShlokaState()` hook (`src/hooks/use-shloka-state.ts`) is the single source of truth. It reads/writes `AppState` to localStorage under key `gita-learning-state-v4` with schema migration logic. State tracks: active shloka index, per-shloka step completion, streak, recall stats, content mode, and normal/lite mode.
+`src/lib/learning-progress.ts` is the Learning progress module: pure state, schema/migration, transitions, streak/recall rules and derived stats (unit-tested in node). `useShlokaState(uid)` (`src/hooks/use-shloka-state.ts`) is a thin React wrapper. Progress is stored **per user id** in localStorage (`gita-learning-state-v4:<uid>`, via `src/lib/progress-store.ts`); the first account on a device adopts the legacy shared key once. Browsing edits (position, content tab) are "quiet": saved locally but never bump `updatedAt`.
+
+Optional cloud sync (`src/lib/progress-sync.ts`, Firestore adapter in `src/lib/firestore-remote.ts`) is off unless `NEXT_PUBLIC_PROGRESS_SYNC=1` (build-time). Rules: first sync on a device merges, afterwards newest-`updatedAt` wins. Rules file: `firestore.rules`. Audio loop policy is pure in `src/lib/audio-playback.ts`.
 
 ### Main Page (`src/app/page.tsx`)
 Single-page app. Composes `ShlokaCard` (content display with swipe navigation and 4 progress pills) and `AudioPlayer` (fixed bottom bar with loop modes and iOS autoplay handling). Keyboard arrow keys and touch swipes navigate between shlokas.

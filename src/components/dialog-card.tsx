@@ -28,7 +28,7 @@ export function DialogCard({
 
   return (
     <DialogContent
-      className={`${maxWidth} border-[#ccb385] dark:border-[#423321] !bg-white !dark:bg-[#1e1710] ${paddingClass} shadow-2xl ${roundedClass}`}
+      className={`${maxWidth} max-h-[calc(100dvh-2rem)] overflow-y-auto border-[var(--study-border)] bg-[var(--study-surface)] text-[var(--study-ink)] ${paddingClass} shadow-2xl ${roundedClass}`}
     >
       {children}
     </DialogContent>

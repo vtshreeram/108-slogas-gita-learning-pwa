@@ -4,6 +4,8 @@ import { Headphones, RotateCcw, BookOpen, Brain } from "lucide-react";
 export type LoopStep = "listen" | "repeat" | "understand" | "recall";
 export type StepProgress = Record<LoopStep, boolean>;
 export type ItemProgress = Record<string, StepProgress>;
+export type RecallRating = "forgot" | "difficult" | "easy";
+export type ReviewSchedule = { dueDate: string; lastReviewed: string; intervalDays: number; lastRating: RecallRating };
 
 export type AppState = {
   schemaVersion: number;
@@ -13,6 +15,8 @@ export type AppState = {
   streakCount: number;
   activeMode: "normal" | "lite";
   completed: ItemProgress;
+  completionDates: Record<string, string>;
+  reviews: Record<string, ReviewSchedule>;
   recallWins: number;
   recallAttempts: number;
   activeIndex: number;
@@ -36,11 +40,11 @@ export const SWIPE_THRESHOLD_PX = 50; // Minimum distance in pixels to register 
 // Content display modes for shlokas
 // - "transliteration": Roman transliteration of Sanskrit
 // - "english": English translation by Prabhupada
-// - "tamil": Tamil translation with purport explanation
+// - "tamil": Tamil meaning, edited from Bharathiyar's translation
 export const CONTENT_TABS: { mode: AppState["contentMode"]; label: string }[] = [
-  { mode: "transliteration", label: "Roman" },
-  { mode: "english",         label: "Meaning" },
-  { mode: "tamil",            label: "Tamil" },
+  { mode: "transliteration", label: "Chant (Roman)" },
+  { mode: "english",         label: "English meaning" },
+  { mode: "tamil",            label: "தமிழ் பொருள்" },
 ];
 
 export const defaultStepProgress = (): StepProgress => ({
@@ -50,7 +54,12 @@ export const defaultStepProgress = (): StepProgress => ({
   recall: false,
 });
 
-export const todayIso = () => new Date().toISOString().slice(0, 10);
+/** Local calendar date (YYYY-MM-DD), so streaks follow the user's own midnight, not UTC. */
+export const localDateIso = (d: Date = new Date()) => {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+};
+export const todayIso = () => localDateIso();
 export const fullDone = (step?: StepProgress) => Boolean(step?.listen && step.repeat && step.understand && step.recall);
 export const daysBetween = (a: string, b: string) => {
   const oneDay = 24 * 60 * 60 * 1000;

@@ -12,9 +12,11 @@
 
 # testing
 /coverage
+/test-results/
 
 # next.js
 /.next/
+/.next-build/
 /out/
 
 # production
@@ -36,3 +38,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated from scripts/service-worker-template.js during production builds
+/public/offline-worker.js
+
+scripts/.cache/
+scripts/.cache-fetch.log

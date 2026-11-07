@@ -10,7 +10,10 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { AlertCircle, Eye, ChevronDown, Star } from "lucide-react";
 import { CONTENT_TABS, LOOP_STEPS, STEP_CONFIG, SWIPE_THRESHOLD_PX, StepProgress } from "@/lib/constants";
-import { Shloka, SHLOKAS } from "@/lib/shlokas";
+import { Shloka, SHLOKAS, tamilCredit, ENGLISH_TRANSLATION_SOURCE } from "@/lib/shlokas";
+import type { GitaVerse } from "@/lib/gita-verses";
+import { Purport } from "@/components/purport";
+import { filterVerses, parseReference } from "@/lib/verse-search";
 
 type ShlokaCardProps = {
   active: Shloka;
@@ -21,38 +24,63 @@ type ShlokaCardProps = {
   audioAvailable: boolean;
   activeProgress: StepProgress;
   onMarkStep: (id: string, step: import("@/lib/constants").LoopStep) => void;
+  onRecallMissed: () => void;
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
   onJumpTo: (index: number) => void;
   isFavorite: boolean;
   onToggleFavorite: () => void;
+  /** Every verse of the Gita (null while loading). The picker lists these; the 108 are tinted. */
+  allVerses: GitaVerse[] | null;
+  /** A verse outside the 108 shown read-only in place of the learning card content. */
+  browse: GitaVerse | null;
+  onBrowse: (verse: GitaVerse | null) => void;
 };
+
+const SHLOKA_INDEX = new Map(SHLOKAS.map((s, i) => [s.id, i]));
 
 export function ShlokaCard({
   active, activeGlobalIndex,
   contentMode, setContentMode, audioAvailable,
-  activeProgress, onMarkStep, onSwipeLeft, onSwipeRight, onJumpTo,
-  isFavorite, onToggleFavorite
+  activeProgress, onMarkStep, onRecallMissed, onSwipeLeft, onSwipeRight, onJumpTo,
+  isFavorite, onToggleFavorite, allVerses, browse, onBrowse
 }: ShlokaCardProps) {
+  const current: Shloka = browse ?? active;
+  const [goTo, setGoTo] = useState("");
+  const [goToError, setGoToError] = useState("");
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
 
   const chapters = useMemo(() => {
-    const map = new Map<number, { verse: number; index: number }[]>();
-    SHLOKAS.forEach((s, i) => {
-      if (!map.has(s.chapter)) map.set(s.chapter, []);
-      map.get(s.chapter)!.push({ verse: s.verse, index: i });
-    });
+    const source: GitaVerse[] = allVerses ?? SHLOKAS.map((v) => ({ ...v, important: true }));
+    const map = new Map<number, GitaVerse[]>();
+    for (const v of source) {
+      if (!map.has(v.chapter)) map.set(v.chapter, []);
+      map.get(v.chapter)!.push(v);
+    }
     return map;
-  }, []);
+  }, [allVerses]);
+
+  const pick = (v: GitaVerse) => {
+    const index = SHLOKA_INDEX.get(v.id);
+    if (v.important && index !== undefined) { onBrowse(null); onJumpTo(index); } else onBrowse(v);
+    setPickerOpen(false);
+  };
+
+  const submitGoTo = (event: React.FormEvent) => {
+    event.preventDefault();
+    const found = allVerses && parseReference(goTo) ? filterVerses(allVerses, { text: goTo, filter: "all", chapter: null })[0] : undefined;
+    if (!found) { setGoToError(allVerses ? "Try a reference like 2.47" : "Still loading all verses…"); return; }
+    setGoToError(""); setGoTo(""); pick(found);
+  };
 
   useEffect(() => {
     setIsRevealed(false);
-  }, [active.id]);
+  }, [active.id, browse?.id]);
 
-  const isHidden = activeProgress.listen && activeProgress.repeat && activeProgress.understand && !activeProgress.recall && !isRevealed;
+  const isHidden = !browse && activeProgress.listen && activeProgress.repeat && activeProgress.understand && !activeProgress.recall && !isRevealed;
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -76,49 +104,71 @@ export function ShlokaCard({
       className="flex flex-col rounded-3xl bg-white dark:bg-[#1e1710] shadow-[0_4px_16px_rgba(143,100,34,0.1)] border border-[#f0d498] dark:border-[#423321] p-4 sm:p-6 min-h-[400px]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onKeyDown={(event) => { if (event.key === "Escape") setPickerOpen(false); }}
     >
       <div className="flex items-center justify-between mb-4 relative">
         <button
           onClick={() => setPickerOpen(!pickerOpen)}
-          className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] hover:text-[#8f6422] dark:hover:text-[#d4aa61] transition-colors"
+          aria-expanded={pickerOpen}
+          aria-controls="verse-picker"
+          className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-[#705735] dark:text-[#bda27e] hover:text-[#8f6422] dark:hover:text-[#d4aa61] transition-colors"
         >
-          Ch {active.chapter} • Shloka {active.verse}
+          Ch {current.chapter} • Shloka {current.verse}
           <ChevronDown className={`h-3.5 w-3.5 transition-transform ${pickerOpen ? "rotate-180" : ""}`} />
         </button>
         <div className="flex items-center gap-2">
+          {browse ? (
+            <span className="rounded-full border border-[#ebd6ab] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#705735] dark:border-[#423321] dark:text-[#bda27e]">Read only</span>
+          ) : (<>
           <button
             onClick={onToggleFavorite}
             aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
-            className="flex h-6 w-6 items-center justify-center rounded transition-colors hover:opacity-80"
+            className="flex h-11 w-11 items-center justify-center rounded transition-colors hover:opacity-80"
           >
             <Star
               className={`h-4 w-4 transition-colors ${
                 isFavorite
                   ? "fill-[#d4aa61] text-[#d4aa61]"
-                  : "text-[#a88d63] dark:text-[#bda27e]"
+                  : "text-[#705735] dark:text-[#bda27e]"
               }`}
             />
           </button>
-          <span className="text-xs font-medium text-[#c0a986] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
+          <span className="text-xs font-medium text-[#705735] dark:text-[#bda27e]">#{activeGlobalIndex}</span>
+          </>)}
         </div>
 
         {pickerOpen && (
           <>
             <div className="fixed inset-0 z-30" onClick={() => setPickerOpen(false)} />
-            <div className="absolute top-full left-0 mt-2 z-40 w-72 max-h-80 overflow-y-auto rounded-2xl bg-white dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] shadow-xl p-3">
+            <div id="verse-picker" role="region" aria-label="Choose a verse" tabIndex={0} className="absolute top-full left-0 mt-2 z-40 w-[min(18rem,calc(100vw-4rem))] max-h-80 overflow-y-auto rounded-2xl bg-white dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] shadow-xl p-3">
+              <form onSubmit={submitGoTo} className="mb-2">
+                <label className="sr-only" htmlFor="verse-goto">Go to verse</label>
+                <input id="verse-goto" value={goTo} onChange={(e) => { setGoTo(e.target.value); setGoToError(""); }} inputMode="decimal" placeholder="Go to… 2.47"
+                  className="min-h-9 w-full rounded-lg border border-[#ebd6ab] bg-white px-3 text-base text-[#4a3615] dark:border-[#423321] dark:bg-[#15100a] dark:text-[#f0e3ce]" />
+                {goToError && <p role="status" className="mt-1 text-[11px] text-[#8f6422] dark:text-[#d4aa61]">{goToError}</p>}
+              </form>
+              <p className="mb-2 flex items-center gap-1.5 text-[10px] text-[#705735] dark:text-[#bda27e]">
+                <span className="inline-block h-3 w-3 rounded bg-[#fcebc4] ring-1 ring-[#d4aa61] dark:bg-[#3a2c14]" aria-hidden /> the 108 you learn
+                {!allVerses && <span className="ml-auto">Loading all verses…</span>}
+              </p>
               {[...chapters.entries()].map(([ch, verses]) => (
                 <div key={ch} className="mb-3 last:mb-0">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#a88d63] dark:text-[#bda27e] mb-1.5 border-b border-[#f4e9cb] dark:border-[#423321] pb-1">Chapter {ch}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-[#705735] dark:text-[#bda27e] mb-1.5 border-b border-[#f4e9cb] dark:border-[#423321] pb-1">Chapter {ch}</p>
                   <div className="flex flex-wrap gap-1.5">
-                    {verses.map((v) => (
-                      <button
-                        key={v.index}
-                        onClick={() => { onJumpTo(v.index); setPickerOpen(false); }}
-                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors ${v.index === activeGlobalIndex - 1 ? "bg-[#8f6422] text-white dark:bg-[#d4aa61] dark:text-[#1e1710]" : "bg-[#fcebc4] dark:bg-[#2d2218] text-[#8f6422] dark:text-[#d4aa61] hover:bg-[#ebd6ab] dark:hover:bg-[#423321]"}`}
-                      >
-                        {ch}.{v.verse}
-                      </button>
-                    ))}
+                    {verses.map((v) => {
+                      const isActive = browse ? browse.id === v.id : v.id === active.id;
+                      return (
+                        <button
+                          key={v.id}
+                          onClick={() => pick(v)}
+                          aria-current={isActive ? "true" : undefined}
+                          aria-label={v.important ? `${v.reference}, one of the 108` : v.reference}
+                          className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold transition-colors ${isActive ? "bg-[#8f6422] text-white dark:bg-[#d4aa61] dark:text-[#1e1710]" : v.important ? "bg-[#fcebc4] text-[#5c431b] ring-1 ring-[#d4aa61] dark:bg-[#3a2c14] dark:text-[#f0e3ce]" : "border border-[#ebd6ab] text-[#705735] dark:border-[#423321] dark:text-[#bda27e]"}`}
+                        >
+                          {v.reference}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
@@ -132,8 +182,9 @@ export function ShlokaCard({
         {CONTENT_TABS.map((tab) => (
           <button
             key={tab.mode}
+            aria-pressed={contentMode === tab.mode}
             onClick={() => setContentMode(tab.mode)}
-            className={`flex-1 rounded-full py-1.5 text-xs font-semibold transition-colors ${contentMode === tab.mode ? "bg-white dark:bg-[#1e1710] text-[#5c431b] dark:text-[#f0e3ce] shadow-sm border border-[#e2cca4] dark:border-[#423321]" : "text-[#b0976e] dark:text-[#bda27e]"}`}
+            className={`flex-1 rounded-full py-1.5 text-xs font-semibold transition-colors ${contentMode === tab.mode ? "bg-white dark:bg-[#1e1710] text-[#5c431b] dark:text-[#f0e3ce] shadow-sm border border-[#e2cca4] dark:border-[#423321]" : "text-[#705735] dark:text-[#bda27e]"}`}
           >{tab.label}</button>
         ))}
       </div>
@@ -155,42 +206,54 @@ export function ShlokaCard({
             <>
               {contentMode === "transliteration" && (
                 <p className="whitespace-pre-wrap text-center text-[18px] sm:text-[20px] leading-[1.8] font-medium text-[#4a3615] dark:text-[#f0e3ce] break-words hyphens-auto">
-                  {active.transliteration}
+                  {current.transliteration}
                 </p>
               )}
               {contentMode === "english" && (
-                <p className="text-[18px] sm:text-[20px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{active.english}</p>
+                <div lang="en">
+                  <p className="text-[18px] sm:text-[20px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-medium">{current.english}</p>
+                  <a href={`${ENGLISH_TRANSLATION_SOURCE}${current.chapter}/${current.reference.split(".")[1]}/`} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-xs text-[#8a6b3d] dark:text-[#bda27e] underline underline-offset-4">
+                    {current.translationAuthor} · Source
+                  </a>
+                  <Purport chapter={current.chapter} reference={current.reference} language="en" />
+                </div>
               )}
               {contentMode === "tamil" && (
-                <div className="overflow-y-auto max-h-[350px] w-full pr-2 text-left custom-scrollbar">
-                  <p className="whitespace-pre-wrap text-[17px] sm:text-[18px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto text-center" lang="ta">{active.tamil}</p>
-                  <hr className="my-4 border-[#ebd6ab] dark:border-[#423321]" />
-                  <h3 className="text-lg font-bold text-[#8a6b3d] dark:text-[#bda27e] mb-2">Purport / பொருளுரை</h3>
-                  {active.tamilPurport && active.tamilPurport.length > 0 ? (
-                    active.tamilPurport.map((paragraph, idx) => (
-                      <p key={idx} className="mb-3 text-[16px] sm:text-[17px] leading-[1.8] text-[#5c431b] dark:text-[#f0e3ce] font-[family-name:var(--font-noto-sans-tamil)]">
-                        {paragraph}
-                      </p>
-                    ))
-                  ) : (
-                    <p className="italic text-[#a88d63] dark:text-[#bda27e]">No Purport found</p>
-                  )}
+                <>
+                <div role="region" aria-label="Tamil meaning" tabIndex={0} className="overflow-y-auto max-h-[350px] w-full pr-2 text-left custom-scrollbar">
+                  <p className="whitespace-pre-wrap text-[17px] sm:text-[18px] leading-[1.8] font-[family-name:var(--font-noto-sans-tamil)] font-bold text-[#3d2c10] dark:text-[#f0e3ce] break-words hyphens-auto text-center" lang="ta">{current.tamil}</p>
+                  {(() => {
+                    const credit = tamilCredit(current);
+                    const cls = "mt-4 block text-center text-xs text-[#8a6b3d] dark:text-[#bda27e]";
+                    return credit.href
+                      ? <a href={credit.href} target="_blank" rel="noopener noreferrer" lang="ta" className={`${cls} underline underline-offset-4`}>{credit.label} · மூலம்</a>
+                      : <p lang="ta" className={cls}>{credit.label}</p>;
+                  })()}
                 </div>
+                <Purport chapter={current.chapter} reference={current.reference} language="ta" />
+                </>
               )}
             </>
           )}
         </div>
       </div>
 
-      {!audioAvailable && (
+      {!browse && !audioAvailable && (
         <div className="mb-4 flex items-center gap-2 rounded-xl bg-[#fffcf5] dark:bg-[#1e1710] border border-[#f0d498] dark:border-[#423321] p-3 text-sm text-[#8f6422] dark:text-[#d4aa61]">
           <AlertCircle className="h-4 w-4 shrink-0" />
           <p>Audio currently unavailable</p>
         </div>
       )}
 
+      {browse && (
+        <div className="mt-auto flex flex-col items-center gap-2 border-t border-[#f4e9cb] pt-4 dark:border-[#423321]">
+          <p className="text-center text-xs text-[#705735] dark:text-[#bda27e]">Not one of your 108. Read it here; swipe or use the arrow keys to move through all 657.</p>
+          <button onClick={() => onBrowse(null)} className="rounded-full bg-[#8f6422] px-4 py-2 text-xs font-semibold text-white dark:bg-[#d4aa61] dark:text-[#1e1710]">Back to my 108</button>
+        </div>
+      )}
+
       {/* Progress Pills */}
-      <div className="grid grid-cols-4 gap-2 mt-auto pt-4 border-t border-[#f4e9cb]">
+      {!browse && <div className="grid grid-cols-4 gap-2 mt-auto pt-4 border-t border-[#f4e9cb]">
         {LOOP_STEPS.map((step) => {
           const { Icon, label } = STEP_CONFIG[step];
           const isDone = activeProgress[step];
@@ -209,14 +272,23 @@ export function ShlokaCard({
               }}
               disabled={!isUnlocked}
               aria-label={`${label} step: ${isDone ? "completed" : isUnlocked ? "not completed" : "locked"}`}
-              className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] dark:bg-[#142610] border-[#c1e0b0] dark:border-[#284f1d] text-[#2c5d1f] dark:text-[#88c775]" : isUnlocked ? "bg-white dark:bg-[#1e1710] border-[#e2cca4] dark:border-[#423321] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]" : "bg-[#f4e9cb] dark:bg-[#2d2218]/50 border-transparent text-[#c0a986] dark:text-[#bda27e] opacity-50 cursor-not-allowed"}`}
+              className={`flex flex-col items-center justify-center py-2.5 rounded-xl border transition-all ${isDone ? "bg-[#e8f5df] dark:bg-[#142610] border-[#c1e0b0] dark:border-[#284f1d] text-[#2c5d1f] dark:text-[#88c775]" : isUnlocked ? "bg-white dark:bg-[#1e1710] border-[#e2cca4] dark:border-[#423321] text-[#8a6b3d] dark:text-[#bda27e] hover:bg-[#fcf5e3] dark:bg-[#2d2218]" : "bg-[#f4e9cb] dark:bg-[#2d2218]/50 border-transparent text-[#705735] dark:text-[#bda27e] opacity-50 cursor-not-allowed"}`}
             >
               <Icon className="mb-1 h-5 w-5" />
               <span className="text-[10px] font-semibold">{label}</span>
             </button>
           );
         })}
-      </div>
+      </div>}
+
+      {!browse && activeProgress.understand && !activeProgress.recall && !isHidden && (
+        <button
+          onClick={() => { onRecallMissed(); setIsRevealed(false); }}
+          className="mt-2 self-center rounded-full px-3 py-1 text-[11px] font-semibold text-[#705735] dark:text-[#bda27e] underline underline-offset-4 hover:text-[#8f6422] dark:hover:text-[#d4aa61]"
+        >
+          Missed it? Try again
+        </button>
+      )}
     </article>
   );
 }
