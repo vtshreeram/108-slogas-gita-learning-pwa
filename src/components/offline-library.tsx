@@ -67,7 +67,7 @@ export function OfflineLibrary({ reference }: { reference: string }) {
         <button className="study-button" disabled={busy || !supported} onClick={() => setSelected(SHLOKAS.filter((s) => !downloads.some((d) => d.url === audioUrl(s.reference))).map((s) => s.reference))}>Select missing</button>
         <button className="study-button" disabled={busy} onClick={() => setSelected([])}>Clear selection</button>
       </div>
-      <div className="max-h-48 overflow-y-auto rounded-lg border border-[var(--study-border)] p-2">
+      <div className="rounded-lg border border-[var(--study-border)] p-2">
         {SHLOKAS.map((s) => <label key={s.id} className="flex min-h-11 items-center gap-3 px-2 text-sm">
           <input type="checkbox" disabled={busy || !supported} checked={selected.includes(s.reference)} onChange={(e) => setSelected((prev) => e.target.checked ? [...prev, s.reference] : prev.filter((r) => r !== s.reference))} />
           <span className="flex-1">Verse {s.reference}</span><span className="study-muted text-xs">{downloads.some((d) => d.url === audioUrl(s.reference)) ? "Downloaded" : "Online"}</span>

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { fullDone } from "../constants";
-import { initialState, markAsLearned, markStep, undoLearned, deriveStats, rateRecall, parseState, addDays } from "../learning-progress";
+import { initialState, markAsLearned, markStep, undoLearned, deriveStats, rateRecall, parseState, addDays, completeLearningRecall } from "../learning-progress";
 import { createBackup, readBackup, mergeProfiles } from "../backup";
 import { mergeProgress } from "../progress-sync";
 import { tamilChant } from "../tamil-chant";
@@ -47,6 +47,22 @@ describe("daily completion counts", () => {
 });
 
 describe("revision schedule", () => {
+  it("counts a guided self-assessment once and schedules its chosen interval", () => {
+    let base = initialState(day);
+    for (const step of ["listen", "repeat", "understand"] as const) base = markStep(base, id, step, day);
+    const forgot = completeLearningRecall(base, id, "forgot", day);
+    expect(forgot.recallAttempts).toBe(1);
+    expect(deriveStats(forgot, day).completedCount).toBe(0);
+    const difficult = completeLearningRecall(forgot, id, "difficult", day);
+    expect(difficult.recallAttempts).toBe(2);
+    expect(difficult.recallWins).toBe(1);
+    expect(difficult.reviews[id].dueDate).toBe("2026-11-08");
+    const easy = completeLearningRecall(base, id, "easy", day);
+    expect(easy.recallAttempts).toBe(1);
+    expect(easy.reviews[id].dueDate).toBe("2026-11-10");
+    expect(completeLearningRecall(easy, id, "easy", day)).toBe(easy);
+    expect(completeLearningRecall(initialState(day), id, "easy", day)).toEqual(initialState(day));
+  });
   it("starts tomorrow, and ratings alter dates without inflating learning totals", () => {
     const base = markAsLearned(initialState(day), id, day);
     expect(deriveStats(base, day).dueReviews).toHaveLength(0);

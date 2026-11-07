@@ -23,17 +23,17 @@ export function Purport({ chapter, reference, language }: Props) {
   const tamil = language === "ta";
 
   return (
-    <div className="mt-4 w-full border-t border-[#f4e9cb] pt-3 text-left dark:border-[#423321]">
+    <div className="purport mt-6 w-full border-t border-[var(--study-border)] pt-3 text-left">
       <button
         onClick={() => setOpen(!open)} aria-expanded={open} aria-controls={`purport-${reference}`}
-        className="mx-auto flex min-h-11 items-center gap-1.5 rounded-full px-4 text-xs font-bold uppercase tracking-wider text-[#6b4a14] hover:opacity-80 dark:text-[#d4aa61]"
+        className="flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--study-ink)]"
       >
-        <span lang={tamil ? "ta" : "en"}>{open ? `Hide ${label}` : `Read ${label}`}</span>
+        <span lang={tamil ? "ta" : "en"}>{tamil ? (open ? "பொருளுரையை மறைக்க" : "பொருளுரையைப் படிக்க") : (open ? "Hide purport" : "Read purport")}</span>
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} aria-hidden />
       </button>
       {open && (
-        <div id={`purport-${reference}`} role="region" aria-label={label} tabIndex={0} lang={tamil ? "ta" : "en"}
-          className={`mt-2 max-h-[420px] space-y-3 overflow-y-auto pr-2 leading-[1.8] text-[#4a3615] dark:text-[#f0e3ce] custom-scrollbar ${tamil ? "text-[17px] sm:text-[18px] font-[family-name:var(--font-noto-sans-tamil)]" : "text-[18px] sm:text-[20px] font-medium"}`}>
+        <div id={`purport-${reference}`} role="region" aria-label={label} lang={tamil ? "ta" : "en"}
+          className={`mt-4 space-y-5 leading-[1.9] text-[var(--study-ink)] ${tamil ? "text-[17px] sm:text-[18px] tamil-text" : "text-lg"}`}>
           {paragraphs.map((p, i) => <p key={i}>{p.text}</p>)}
           {paragraphs.some((p) => !p.verified) && (
             <p lang="en" className="rounded-lg bg-[#fcebc4]/60 px-3 py-2 text-[12px] leading-snug text-[#6b4a14] dark:bg-[#2d2218] dark:text-[#bda27e]">

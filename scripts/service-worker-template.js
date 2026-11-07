@@ -5,12 +5,15 @@ const CHAPTER_CACHE = "gita-chapters-v1"; // survives app updates, refreshed whe
 
 async function cacheShell() {
   const cache = await caches.open(SHELL_CACHE);
-  const response = await fetch(new Request(new URL("/", self.location.origin), { cache: "reload" }));
-  if (!response.ok) throw new Error("Could not download the app shell");
-  const html = await response.clone().text();
-  await cache.put("/", response);
   const assets = new Set(["/manifest.webmanifest", "/icon.svg", "/icon-192.png", "/icon-512.png"]);
-  for (const match of html.matchAll(/(?:src|href)=["'](\/_next\/static\/[^"']+)["']/g)) assets.add(match[1].replaceAll("&amp;", "&"));
+  // Both routes and their distinct chunks must be ready for a cold offline launch.
+  for (const path of ["/", "/profile"]) {
+    const response = await fetch(new Request(new URL(path, self.location.origin), { cache: "reload" }));
+    if (!response.ok) throw new Error("Could not download the app shell");
+    const html = await response.clone().text();
+    await cache.put(path, response);
+    for (const match of html.matchAll(/(?:src|href)=["'](\/_next\/static\/[^"']+)["']/g)) assets.add(match[1].replaceAll("&amp;", "&"));
+  }
   await cache.addAll([...assets]);
 }
 
@@ -71,17 +74,18 @@ async function chapterData(request) {
 }
 
 async function navigation(request) {
+  const path = new URL(request.url).pathname;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
   try {
     const response = await fetch(request, { signal: controller.signal });
     if (response.ok) {
       const cache = await caches.open(SHELL_CACHE);
-      await cache.put("/", response.clone());
+      await cache.put(path, response.clone());
     }
     return response;
   } catch {
-    return (await (await caches.open(SHELL_CACHE)).match("/")) ?? new Response("Connect once to download Gita 108 for offline use.", { status: 503 });
+    return (await (await caches.open(SHELL_CACHE)).match(path)) ?? new Response("Connect once to download Gita 108 for offline use.", { status: 503 });
   } finally { clearTimeout(timeout); }
 }
 

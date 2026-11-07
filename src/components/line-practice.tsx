@@ -74,7 +74,12 @@ export function LinePractice({ shloka, audioRef, cues, onSave, onActiveChange }:
   }
   return <details className="study-panel" onToggle={(e) => { if (!e.currentTarget.open && mode !== "off") { stop(); audioRef.current?.pause(); } }}>
     <summary className="min-h-11 cursor-pointer py-2 font-semibold text-sm">Line-by-line practice</summary>
-    <p className="study-muted my-2 text-sm">Listen to a line, then chant during the quiet pause.</p>
+    <p className="study-muted my-2 text-sm">Follow the recording and chant aloud. Optional line timings add a quiet pause after each line.</p>
+    {!usable && mode === "off" && <button className="study-button study-primary mb-3" onClick={async () => {
+      window.dispatchEvent(new Event(AUDIO_TRANSPORT_EVENT));
+      try { if (!audioRef.current?.src) throw new Error("Not ready"); await audioRef.current.play(); setMessage("Follow the words as the full verse plays. Pause the player whenever you want to repeat a line."); }
+      catch { setMessage("Could not start the recording. Try Play in the audio player."); }
+    }}>Listen and follow along</button>}
     <div className="mb-3 flex flex-wrap gap-2">
       <button className="study-button" aria-pressed={script === "roman"} onClick={() => setScript("roman")}>Roman</button>
       <button className="study-button" aria-pressed={script === "tamil"} onClick={() => setScript("tamil")}>தமிழ் உச்சரிப்பு</button>
@@ -90,10 +95,12 @@ export function LinePractice({ shloka, audioRef, cues, onSave, onActiveChange }:
       <label className="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" checked={advance} disabled={mode !== "off"} onChange={(e) => setAdvance(e.target.checked)} />Continue to next line</label>
       {mode === "off" ? <button className="study-button study-primary" onClick={() => void start()}>Practise from line {selected + 1}</button> : <button className="study-button" onClick={() => { stop(); audioRef.current?.pause(); }}>Stop practice</button>}
     </div>}
-    {!usable && mode === "off" && <p className="my-3 text-sm">Set timings once for this recording: play the verse and mark where each line ends. This keeps the highlighting matched to the actual chant.</p>}
+    <details className="mt-3" onToggle={(event) => { if (!event.currentTarget.open && mode === "marking") { stop(); audioRef.current?.pause(); setMessage("Timing setup stopped. You can start again when you are ready."); } }}><summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">Adjust line timings (optional)</summary>
+    {!usable && mode === "off" && <p className="my-3 text-sm">For automatic line repetition, play the verse and mark where each line ends once. You can follow the full recording above without setup.</p>}
     {mode === "marking" ? <div className="flex flex-wrap gap-2"><button className="study-button study-primary" onClick={markEnd}>Mark end of line {draft.length}</button><button className="study-button" onClick={() => { stop(); audioRef.current?.pause(); }}>Cancel</button></div> : mode === "off" && <div className="flex flex-wrap gap-2">
       <button className="study-button" disabled={!duration} onClick={() => { const audio = audioRef.current; if (!audio) return; audio.pause(); audio.currentTime = 0; setDraft([0]); setMode("marking"); setMessage(""); void audio.play().catch(() => { setMode("off"); setMessage("Press Play in the audio player, then try setting timings again."); }); }}>{usable ? "Record new line timings" : "Set line timings"}</button>
       {cues && <button className="study-button" onClick={() => { stop(); onSave(null); }}>Reset timings</button>}
     </div>}
+    </details>
   </details>;
 }

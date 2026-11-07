@@ -60,5 +60,16 @@ describe("offline audio and app updates", () => {
     fetch.mockResolvedValue(new Response('<script src="/_next/static/app.js"></script><link href="/_next/static/style.css"><link href="/_next/static/font.woff2">'));
     await api.cacheShell();
     expect(cache.addAll.mock.calls[0][0]).toEqual(expect.arrayContaining(["/_next/static/app.js", "/_next/static/style.css", "/_next/static/font.woff2"]));
+    expect(cache.put.mock.calls.map((call) => call[0])).toEqual(["/", "/profile"]);
+  });
+  it("keeps the profile page separate from the reader shell online and offline", async () => {
+    const { api, fetch, cache } = worker();
+    fetch.mockResolvedValueOnce(new Response("profile"));
+    await api.navigation(new Request("https://gita.test/profile"));
+    expect(cache.put.mock.calls[0][0]).toBe("/profile");
+    fetch.mockRejectedValue(new Error("offline"));
+    cache.match.mockImplementation(async (path) => new Response(path === "/profile" ? "profile" : "reader"));
+    expect(await (await api.navigation(new Request("https://gita.test/profile"))).text()).toBe("profile");
+    expect(await (await api.navigation(new Request("https://gita.test/?verse=GS-001"))).text()).toBe("reader");
   });
 });

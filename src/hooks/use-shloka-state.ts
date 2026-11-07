@@ -104,6 +104,7 @@ export function useShlokaState(uid: string | null) {
 
   const markStep = useCallback((id: string, step: LoopStep) => update((s) => progress.markStep(s, id, step)), [update]);
   const recallMissed = useCallback(() => update(progress.recallMissed), [update]);
+  const completeRecall = useCallback((id: string, rating: RecallRating) => update((s) => progress.completeLearningRecall(s, id, rating)), [update]);
   const markAsLearned = useCallback((id: string) => update((s) => progress.markAsLearned(s, id)), [update]);
   const undoLearnedForActive = useCallback((id: string) => update((s) => progress.undoLearned(s, id)), [update]);
   const goTo = useCallback((index: number) => update((s) => progress.goTo(s, index), { quiet: true }), [update]);
@@ -125,7 +126,7 @@ export function useShlokaState(uid: string | null) {
   const stats = useMemo(() => deriveStats(state, today), [state, today]);
 
   return {
-    ready, state, syncStatus, storageError, online, retrySave, rateRecall,
+    ready, state, syncStatus, storageError, online, retrySave, rateRecall, completeRecall,
     markStep, recallMissed, markAsLearned, undoLearnedForActive,
     goTo, goToShloka, next, prev, setContentMode, setActiveMode,
     ...stats,

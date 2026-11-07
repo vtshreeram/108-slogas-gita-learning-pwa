@@ -10,6 +10,7 @@ import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PwaUpdates } from "@/components/pwa-updates";
+import { LearningProvider } from "@/components/learning-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,8 +77,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <PwaUpdates />
-          {children}
+          <a className="skip-link" href="#main-content">Skip to content</a>
+          <LearningProvider>
+            <PwaUpdates />
+            {children}
+          </LearningProvider>
           {process.env.NODE_ENV === "development" && <VisualEditsMessenger />}
         </ThemeProvider>
       </body>

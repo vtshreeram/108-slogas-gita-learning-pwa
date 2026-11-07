@@ -44,9 +44,9 @@ export async function signInWithGoogle(): Promise<void> {
   } catch (error: unknown) {
     const errorCode = (error as { code?: string }).code;
 
-    // If popup was blocked or closed, try redirect flow
-    if (errorCode === "auth/popup-blocked" || errorCode === "auth/popup-closed-by-user") {
-      signInWithRedirect(auth, googleProvider);
+    // A blocked popup can use redirect; closing a popup is an intentional cancellation.
+    if (errorCode === "auth/popup-blocked") {
+      await signInWithRedirect(auth, googleProvider);
       return;
     }
 
