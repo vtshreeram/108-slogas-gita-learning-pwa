@@ -1,16 +1,18 @@
 "use client";
-import { ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
+import { ReactNode, useState } from "react";
+import { BookOpen, ChevronDown } from "lucide-react";
 
-/** One collapsed row under the shloka card. Holds every extra tool so the core screen stays untouched. */
-export function StudyTools({ dueCount, children }: { dueCount: number; children: ReactNode }) {
-  return (
-    <details className="group rounded-2xl border border-[#f0d498] bg-[#fffaf0] dark:border-[#423321] dark:bg-[#1e1710]">
-      <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#705735] dark:text-[#bda27e] [&::-webkit-details-marker]:hidden">
-        <span>Study tools{dueCount > 0 && <span className="ml-2 rounded-full bg-[#fcebc4] px-2 py-0.5 text-[10px] text-[#8f6422] dark:bg-[#2d2218] dark:text-[#d4aa61]">{dueCount} due</span>}</span>
-        <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
-      </summary>
-      <div className="flex flex-col gap-2 px-2 pb-3">{children}</div>
-    </details>
-  );
+/**
+ * The tools mount the first time the section is opened and then stay mounted, so collapsing it never
+ * loses line-practice marks. Until then nothing inside is rendered (or downloaded).
+ */
+export function StudyTools({ children, onClose }: { children: ReactNode; onClose: () => void }) {
+  const [opened, setOpened] = useState(false);
+  return <details className="tools-disclosure group" onToggle={(event) => {
+    if (event.target !== event.currentTarget) return;
+    if (event.currentTarget.open) setOpened(true); else onClose();
+  }}>
+    <summary className="practice-summary"><span className="tool-symbol"><BookOpen className="h-4 w-4" aria-hidden="true" /></span><span className="min-w-0 flex-1 font-semibold">Pronunciation & offline tools</span><ChevronDown className="disclosure-chevron h-4 w-4 shrink-0" aria-hidden="true" /></summary>
+    <div className="mt-3 space-y-4">{opened && children}</div>
+  </details>;
 }

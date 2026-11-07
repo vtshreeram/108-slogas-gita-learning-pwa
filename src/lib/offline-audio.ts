@@ -14,7 +14,8 @@ export async function listDownloads() {
   return result;
 }
 
-export async function downloadAudio(reference: string, signal?: AbortSignal) {
+/** Saves one verse and returns its size in bytes. */
+export async function downloadAudio(reference: string, signal?: AbortSignal): Promise<number> {
   const url = audioUrl(reference);
   const response = await fetch(url, { signal, cache: "no-store" });
   if (!response.ok || response.status === 206) throw new Error(`Could not download ${reference}. Connect and try again.`);
@@ -23,6 +24,13 @@ export async function downloadAudio(reference: string, signal?: AbortSignal) {
   if (signal?.aborted) throw new DOMException("Download cancelled", "AbortError");
   const cache = await caches.open(AUDIO_CACHE);
   await cache.put(url, new Response(blob, { headers: { "Content-Type": "audio/mpeg", "Content-Length": String(blob.size) } }));
+  return blob.size;
+}
+
+/** Cheap presence check (no body is read), so callers only build an object URL when they will really use it. */
+export async function hasDownloadedAudio(reference: string) {
+  if (!("caches" in window)) return false;
+  return Boolean(await (await caches.open(AUDIO_CACHE)).match(audioUrl(reference)));
 }
 
 /** Object URLs also support offline playback when no service worker controls the page. */

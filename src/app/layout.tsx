@@ -7,9 +7,10 @@ const notoSansTamil = Noto_Sans_Tamil({
   subsets: ["tamil"],
 });
 import "./globals.css";
-import { VisualEditsMessenger } from "orchids-visual-edits";
+import { DevTools } from "@/components/dev-tools";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PwaUpdates } from "@/components/pwa-updates";
+import { LearningProvider } from "@/components/learning-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,9 +77,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <PwaUpdates />
-          {children}
-          {process.env.NODE_ENV === "development" && <VisualEditsMessenger />}
+          <a className="skip-link" href="#main-content">Skip to content</a>
+          <LearningProvider>
+            <PwaUpdates />
+            {children}
+          </LearningProvider>
+          <DevTools />
         </ThemeProvider>
       </body>
     </html>

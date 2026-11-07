@@ -5,6 +5,7 @@ import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 const loaderPath = require.resolve('orchids-visual-edits/loader.js');
 
 const nextConfig: NextConfig = {
+  outputFileTracingRoot: process.cwd(),
   outputFileTracingIncludes: {
     "/api/chapters/*": ["./src/data/gita/*.json"],
   },

@@ -213,6 +213,16 @@ export function recallMissed(prev: AppState): AppState {
   return { ...prev, recallAttempts: prev.recallAttempts + 1 };
 }
 
+/** One self-assessment is one attempt, whether it succeeds or needs another practice. */
+export function completeLearningRecall(prev: AppState, id: string, rating: RecallRating, today = todayIso()): AppState {
+  const steps = prev.completed[id];
+  if (!steps?.listen || !steps.repeat || !steps.understand || steps.recall) return prev;
+  if (rating === "forgot") return recallMissed(prev);
+  const next = markStep(prev, id, "recall", today);
+  const intervalDays = rating === "easy" ? 3 : 1;
+  return { ...next, reviews: { ...next.reviews, [id]: { dueDate: addDays(today, intervalDays), lastReviewed: today, intervalDays, lastRating: rating } } };
+}
+
 export function markAsLearned(prev: AppState, id: string, today: string = todayIso()): AppState {
   const next = {
     ...prev,

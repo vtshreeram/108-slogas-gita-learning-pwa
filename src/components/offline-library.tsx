@@ -14,12 +14,12 @@ export function OfflineLibrary({ reference }: { reference: string }) {
   const controller = useRef<AbortController | null>(null);
   const mounted = useRef(true);
   const downloaded = downloads.some((item) => item.url === audioUrl(reference));
-  async function refresh() {
+  async function refresh(notify = true) {
     const items = await listDownloads();
     if (mounted.current) setDownloads(items);
     const estimate = await navigator.storage?.estimate?.().catch(() => undefined);
     if (mounted.current) setQuota(estimate?.quota === undefined ? undefined : Math.max(0, estimate.quota - (estimate.usage ?? 0)));
-    window.dispatchEvent(new Event("gita-downloads-changed"));
+    if (notify) window.dispatchEvent(new Event("gita-downloads-changed"));
   }
   useEffect(() => {
     mounted.current = true;
@@ -38,13 +38,18 @@ export function OfflineLibrary({ reference }: { reference: string }) {
         if (aborter.signal.aborted) break;
         if (downloads.some((item) => item.url === audioUrl(ref))) continue;
         setMessage(`Downloading ${ref} (${saved + 1} of ${refs.length})…`);
-        await downloadAudio(ref, aborter.signal); saved++;
-        await refresh();
+        const bytes = await downloadAudio(ref, aborter.signal); saved++;
+        // One cache listing per batch, not per file: show the new file straight away and re-read storage at the end.
+        if (mounted.current) setDownloads((prev) => [...prev.filter((item) => item.url !== audioUrl(ref)), { url: audioUrl(ref), bytes }]);
+        if (ref === reference) window.dispatchEvent(new Event("gita-downloads-changed")); // the verse on screen can switch to its saved copy now
       }
       if (mounted.current) setMessage(aborter.signal.aborted ? `Cancelled. ${saved} new download(s) kept.` : `${saved} new verse(s) saved for offline playback.`);
     } catch (e) {
       if (mounted.current) setMessage(aborter.signal.aborted ? `Cancelled. ${saved} new download(s) kept.` : e instanceof Error ? e.message : "Download failed. Check your connection and available storage.");
-    } finally { if (mounted.current) { setBusy(false); setSelected([]); } }
+    } finally {
+      if (saved) await refresh().catch(() => {}); // after a cancel or error, re-sync with what was really saved
+      if (mounted.current) { setBusy(false); setSelected([]); }
+    }
   }
   async function remove(url?: string) {
     try {
@@ -67,7 +72,7 @@ export function OfflineLibrary({ reference }: { reference: string }) {
         <button className="study-button" disabled={busy || !supported} onClick={() => setSelected(SHLOKAS.filter((s) => !downloads.some((d) => d.url === audioUrl(s.reference))).map((s) => s.reference))}>Select missing</button>
         <button className="study-button" disabled={busy} onClick={() => setSelected([])}>Clear selection</button>
       </div>
-      <div className="max-h-48 overflow-y-auto rounded-lg border border-[var(--study-border)] p-2">
+      <div className="rounded-lg border border-[var(--study-border)] p-2">
         {SHLOKAS.map((s) => <label key={s.id} className="flex min-h-11 items-center gap-3 px-2 text-sm">
           <input type="checkbox" disabled={busy || !supported} checked={selected.includes(s.reference)} onChange={(e) => setSelected((prev) => e.target.checked ? [...prev, s.reference] : prev.filter((r) => r !== s.reference))} />
           <span className="flex-1">Verse {s.reference}</span><span className="study-muted text-xs">{downloads.some((d) => d.url === audioUrl(s.reference)) ? "Downloaded" : "Online"}</span>

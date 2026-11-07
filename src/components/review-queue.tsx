@@ -7,7 +7,7 @@ import { DialogCard } from "./dialog-card";
 import { addDays } from "@/lib/learning-progress";
 import { todayIso } from "@/lib/constants";
 
-export function ReviewQueue({ due, reviews, onRate, onJump }: { due: Shloka[]; reviews: Record<string, ReviewSchedule>; onRate: (id: string, rating: RecallRating) => void; onJump: (id: string) => void }) {
+export function ReviewQueue({ due, reviews, onRate, onJump, hideWhenEmpty = false }: { due: Shloka[]; reviews: Record<string, ReviewSchedule>; onRate: (id: string, rating: RecallRating) => void; onJump: (id: string) => void; hideWhenEmpty?: boolean }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
@@ -24,6 +24,7 @@ export function ReviewQueue({ due, reviews, onRate, onJump }: { due: Shloka[]; r
     if (rating === "forgot" && due.length > 1) setIndex((Math.min(index, due.length - 1) + 1) % due.length);
     else setIndex(0);
   }
+  if (hideWhenEmpty && !due.length && !open) return null;
   return <section className="study-panel">
     <div className="flex flex-wrap items-center justify-between gap-3">
       <div><h2 className="text-sm font-semibold">Review today <span className="study-muted">({due.length})</span></h2><p className="study-muted mt-1 text-xs">{due.length ? "Recall learned verses before starting new ones." : nextDates.length ? `All caught up. Next review: ${nextDates[0]}.` : "Learn a verse to start your revision schedule."}</p></div>
@@ -35,7 +36,7 @@ export function ReviewQueue({ due, reviews, onRate, onJump }: { due: Shloka[]; r
       {active ? <div className="space-y-4">
         <h3 className="font-semibold">Verse {active.reference} · {due.length} due</h3>
         {!revealed ? <button className="study-button study-primary w-full" onClick={() => setRevealed(true)}>Reveal verse</button> : <>
-          <p className="max-h-52 overflow-y-auto whitespace-pre-line text-center text-lg leading-loose" lang="sa-Latn" tabIndex={0} role="region" aria-label="Verse text">{active.transliteration}</p>
+          <p className="whitespace-pre-line text-center text-lg leading-loose" lang="sa-Latn">{active.transliteration}</p>
           <p className="text-sm leading-relaxed">{active.english}</p>
           <div className="grid grid-cols-3 gap-2">
             <button className="study-button" onClick={() => rate("forgot")}>Forgot<br />Again today</button>

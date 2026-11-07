@@ -30,7 +30,7 @@ export const LOOP_STEPS: LoopStep[] = ["listen", "repeat", "understand", "recall
 export const STEP_CONFIG: Record<LoopStep, { Icon: ComponentType<{ className?: string }>; label: string }> = {
   listen:     { Icon: Headphones, label: "Listen" },
   repeat:     { Icon: RotateCcw,  label: "Repeat" },
-  understand: { Icon: BookOpen,   label: "Grasp"  },
+  understand: { Icon: BookOpen,   label: "Understand"  },
   recall:     { Icon: Brain,      label: "Recall" },
 };
 
