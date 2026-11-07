@@ -467,3 +467,18 @@ input.study-input { padding-inline: .75rem; }
 .dark select.study-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9b391' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
 /* Reserve room for the text so switching tabs doesn't make the page jump. */
 .verse-body { min-height: 14rem; }
+
+/* Verse picker: plain fixed sheet at the top of the visible viewport (keyboard-safe). */
+.vp-sheet { position: fixed; z-index: 50; left: .75rem; right: .75rem; margin-inline: auto; max-width: 32rem; --vp-top: max(env(safe-area-inset-top, 0px), 3.5rem); top: calc(var(--vvt, 0px) + var(--vp-top)); height: min(40rem, calc(var(--vvh, 100dvh) - var(--vp-top) - .5rem)); display: flex; flex-direction: column; gap: .625rem; padding: 1rem; overflow: hidden; border: 1px solid var(--study-border); border-radius: 1.5rem; background: var(--study-surface); color: var(--study-ink); box-shadow: 0 20px 50px #0006; }
+.vp-sheet { gap: .5rem; padding: .75rem .75rem 0; }
+.vp-bar { display: flex; align-items: center; gap: .5rem; }
+.vp-field { flex: 1; display: flex; align-items: center; gap: .5rem; min-height: 44px; padding-inline: .75rem; border: 1px solid var(--study-border); border-radius: 999px; background: var(--study-accent); }
+.vp-input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; font-size: 1rem; color: inherit; }
+.vp-cancel { min-height: 44px; padding-inline: .25rem; font-weight: 600; }
+.vp-chips { display: flex; gap: .375rem; overflow-x: auto; scrollbar-width: none; flex: none; }
+.vp-chips::-webkit-scrollbar { display: none; }
+.vp-chip { flex: none; min-height: 34px; padding-inline: .875rem; border: 1px solid var(--study-border); border-radius: 999px; font-size: .875rem; white-space: nowrap; }
+.vp-chip[aria-pressed=true] { background: var(--study-ink); color: var(--study-surface); border-color: var(--study-ink); }
+.vp-sheet .study-input { min-height: 44px; }
+.vp-sheet .verse-results { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.vp-sheet .verse-result { padding-block: .625rem; }
