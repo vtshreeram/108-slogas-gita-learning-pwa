@@ -22,7 +22,18 @@ export function createMemoryKV(initial: Record<string, string> = {}) {
   };
 }
 
-export type SyncMeta = { updatedAt: number; synced: boolean };
+/**
+ * `updatedAt`: time of the last user edit (device clock).
+ * `linked`: this device has been reconciled with the account's cloud copy at least once.
+ * Before that, the first sync merges; after it, newest-wins is safe (and undo propagates).
+ */
+export type SyncMeta = { updatedAt: number; linked: boolean };
+
+/** Meta after a user edit: advances `updatedAt` only, never touches `linked`. */
+export const touchMeta = (meta: SyncMeta, now: number): SyncMeta => ({
+  updatedAt: Math.max(now, meta.updatedAt + 1),
+  linked: meta.linked,
+});
 
 export type ProgressStore = ProgressStorage & {
   stashCorrupt(raw: string): void;
@@ -44,9 +55,9 @@ export function progressStoreFor(kv: KV, uid: string): ProgressStore {
     readMeta: () => {
       try {
         const m = JSON.parse(kv.get(metaKey) ?? "null");
-        if (m && typeof m.updatedAt === "number") return { updatedAt: m.updatedAt, synced: Boolean(m.synced) };
+        if (m && typeof m.updatedAt === "number") return { updatedAt: m.updatedAt, linked: Boolean(m.linked) };
       } catch { /* fall through */ }
-      return { updatedAt: 0, synced: false };
+      return { updatedAt: 0, linked: false };
     },
     writeMeta: (m) => kv.set(metaKey, JSON.stringify(m)),
   };

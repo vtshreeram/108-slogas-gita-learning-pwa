@@ -3,7 +3,7 @@ import { LoopStep } from "@/lib/shlokas";
 import { AppState, todayIso } from "@/lib/constants";
 import * as progress from "@/lib/learning-progress";
 import { saveState, initialState, deriveStats, CHAPTER_LIST } from "@/lib/learning-progress";
-import { localKV, loadForUser, progressStoreFor, ProgressStore, SyncMeta } from "@/lib/progress-store";
+import { localKV, loadForUser, progressStoreFor, touchMeta, ProgressStore, SyncMeta } from "@/lib/progress-store";
 import { createProgressSync } from "@/lib/progress-sync";
 import { createFirestoreRemote } from "@/lib/firestore-remote";
 
@@ -17,7 +17,7 @@ export function useShlokaState(uid: string | null) {
   // so one account's progress can never be written under another's key.
   const [loadedUid, setLoadedUid] = useState<string | null>(null);
   const stateRef = useRef(state);
-  const metaRef = useRef<SyncMeta>({ updatedAt: 0, synced: false });
+  const metaRef = useRef<SyncMeta>({ updatedAt: 0, linked: false });
   const storeRef = useRef<ProgressStore | null>(null);
   const syncRef = useRef<ReturnType<typeof createProgressSync> | null>(null);
 
@@ -66,26 +66,33 @@ export function useShlokaState(uid: string | null) {
     try { saveState(storeRef.current, state); } catch (e) { console.warn("Failed to save state:", e); }
   }, [uid, loadedUid, state]);
 
-  /** Every user action goes through here: this is the only place `updatedAt` advances. */
-  const update = useCallback((fn: (s: AppState) => AppState) => {
+  /**
+   * Every user action goes through here: this is the only place `updatedAt` advances.
+   * `quiet` edits (browsing: position, content tab) are saved locally but neither bump
+   * `updatedAt` nor trigger a push, so merely looking around can never beat newer progress
+   * from another device; they travel with the next real edit.
+   */
+  const update = useCallback((fn: (s: AppState) => AppState, opts?: { quiet?: boolean }) => {
     const next = fn(stateRef.current);
     stateRef.current = next;
-    const meta: SyncMeta = { updatedAt: Math.max(Date.now(), metaRef.current.updatedAt + 1), synced: false };
-    metaRef.current = meta;
-    try { storeRef.current?.writeMeta(meta); } catch { /* best effort */ }
+    if (!opts?.quiet) {
+      const meta = touchMeta(metaRef.current, Date.now());
+      metaRef.current = meta;
+      try { storeRef.current?.writeMeta(meta); } catch { /* best effort */ }
+      syncRef.current?.markDirty();
+    }
     setState(next);
-    syncRef.current?.markDirty();
   }, []);
 
   const markStep = useCallback((id: string, step: LoopStep) => update((s) => progress.markStep(s, id, step)), [update]);
   const recallMissed = useCallback(() => update(progress.recallMissed), [update]);
   const markAsLearned = useCallback((id: string) => update((s) => progress.markAsLearned(s, id)), [update]);
   const undoLearnedForActive = useCallback((id: string) => update((s) => progress.undoLearned(s, id)), [update]);
-  const goTo = useCallback((index: number) => update((s) => progress.goTo(s, index)), [update]);
-  const goToShloka = useCallback((id: string) => update((s) => progress.goToShloka(s, id)), [update]);
-  const next = useCallback(() => update(progress.goNext), [update]);
-  const prev = useCallback(() => update(progress.goPrev), [update]);
-  const setContentMode = useCallback((m: AppState["contentMode"]) => update((s) => progress.setContentMode(s, m)), [update]);
+  const goTo = useCallback((index: number) => update((s) => progress.goTo(s, index), { quiet: true }), [update]);
+  const goToShloka = useCallback((id: string) => update((s) => progress.goToShloka(s, id), { quiet: true }), [update]);
+  const next = useCallback(() => update(progress.goNext, { quiet: true }), [update]);
+  const prev = useCallback(() => update(progress.goPrev, { quiet: true }), [update]);
+  const setContentMode = useCallback((m: AppState["contentMode"]) => update((s) => progress.setContentMode(s, m), { quiet: true }), [update]);
   const setActiveMode = useCallback((m: AppState["activeMode"]) => update((s) => progress.setActiveMode(s, m)), [update]);
 
   const stats = useMemo(() => deriveStats(state), [state]);

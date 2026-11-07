@@ -1,6 +1,6 @@
 import { localDateIso } from "@/lib/constants";
 import { saveState, parseBackupText } from "@/lib/learning-progress";
-import { localKV, progressStoreFor } from "@/lib/progress-store";
+import { localKV, progressStoreFor, touchMeta } from "@/lib/progress-store";
 
 /** Backup export/import for one user's progress (same per-user key the app reads). */
 export function useBackupRestore(uid: string | null) {
@@ -46,7 +46,7 @@ export function useBackupRestore(uid: string | null) {
           const store = progressStoreFor(localKV, uid);
           saveState(store, result.state);
           // An import is a user edit: make it newer than the cloud copy so it syncs up.
-          store.writeMeta({ updatedAt: Math.max(Date.now(), store.readMeta().updatedAt + 1), synced: store.readMeta().synced });
+          store.writeMeta(touchMeta(store.readMeta(), Date.now()));
           window.location.reload();
         } catch (err) {
           console.error("Backup import failed", err);

@@ -66,7 +66,7 @@ export function reconcile(local: { state: AppState; meta: SyncMeta }, remote: Re
   if (!remote) {
     return { state: local.state, updatedAt: local.meta.updatedAt || now, applyLocally: false, push: true };
   }
-  if (!local.meta.synced) {
+  if (!local.meta.linked) {
     // First sync of this device/account: merge, then publish the union.
     return { state: mergeProgress(local.state, remote.state), updatedAt: now, applyLocally: true, push: true };
   }
@@ -104,13 +104,15 @@ export function createProgressSync(opts: ProgressSyncOptions) {
     const snapshot = await remote.pull(uid);
     if (disposed) return;
     const d = reconcile(getLocal(), snapshot, now());
-    if (d.applyLocally) apply(d.state, { updatedAt: d.updatedAt, synced: d.push ? false : true });
+    // After a merge/adopt, local holds the union, so the device counts as linked from here on.
+    if (d.applyLocally) apply(d.state, { updatedAt: d.updatedAt, linked: true });
     if (d.push) {
       await remote.push(uid, { state: d.state, updatedAt: d.updatedAt });
       if (disposed) return;
-      // Only mark synced if the user did not edit while the push was in flight.
-      if (getLocal().meta.updatedAt === d.updatedAt) setMeta({ updatedAt: d.updatedAt, synced: true });
-      else rerun = true;
+      const now2 = getLocal();
+      // Linked from now on; keep whatever updatedAt a mid-flight edit set.
+      setMeta({ updatedAt: Math.max(now2.meta.updatedAt, d.updatedAt), linked: true });
+      if (now2.state !== d.state) rerun = true; // edited while pushing: go again
     }
   }
 
