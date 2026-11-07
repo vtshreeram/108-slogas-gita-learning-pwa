@@ -63,7 +63,7 @@ export function ProfileSheet({
   displayName,
   setCustomName,
 }: ProfileSheetProps) {
-  const { handleExportBackup, handleImportBackup } = useBackupRestore();
+  const { handleExportBackup, handleImportBackup } = useBackupRestore(user?.uid ?? null);
   const [isEditingName, setIsEditingName] = useState(false);
   const [tempName, setTempName] = useState(displayName);
 

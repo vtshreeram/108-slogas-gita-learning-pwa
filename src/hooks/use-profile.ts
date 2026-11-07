@@ -8,6 +8,7 @@ export type ProfileData = {
 };
 
 const PROFILE_STORAGE_KEY = "gita-profile-v1";
+const PROFILE_CLAIM_KEY = `${PROFILE_STORAGE_KEY}-claimed-by`;
 
 const defaultProfile = (): ProfileData => ({
   customName: null,
@@ -15,36 +16,53 @@ const defaultProfile = (): ProfileData => ({
 });
 
 export function useProfile(user: User | null) {
-  const [ready, setReady] = useState(false);
+  const uid = user?.uid ?? null;
   const [profile, setProfile] = useState<ProfileData>(defaultProfile());
+  // Which uid `profile` was loaded for; saves only happen when it matches the current uid.
+  const [loadedUid, setLoadedUid] = useState<string | null>(null);
+  const ready = uid !== null && loadedUid === uid;
 
-  // Load from localStorage on mount
+  // Load this user's profile. The first account on a device adopts the legacy shared copy.
   useEffect(() => {
+    if (!uid) {
+      setProfile(defaultProfile());
+      setLoadedUid(null);
+      return;
+    }
+    let next = defaultProfile();
     try {
-      if (user) {
-        const raw = localStorage.getItem(PROFILE_STORAGE_KEY);
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          const validated = profileSchema.safeParse(parsed);
-          if (validated.success) {
-            setProfile(validated.data);
-          } else {
-            console.warn("Failed to validate profile data:", validated.error);
-          }
+      const key = `${PROFILE_STORAGE_KEY}:${uid}`;
+      let raw = localStorage.getItem(key);
+      let adopted = false;
+      if (raw === null && !localStorage.getItem(PROFILE_CLAIM_KEY)) {
+        raw = localStorage.getItem(PROFILE_STORAGE_KEY);
+        adopted = raw !== null;
+      }
+      if (raw) {
+        const validated = profileSchema.safeParse(JSON.parse(raw));
+        if (validated.success) {
+          next = validated.data;
+          if (adopted) localStorage.setItem(PROFILE_CLAIM_KEY, uid);
+        } else {
+          console.warn("Failed to validate profile data:", validated.error);
         }
       }
     } catch (e) {
       console.warn("Failed to load profile:", e);
-    } finally {
-      setReady(true);
     }
-  }, [user]);
+    setProfile(next);
+    setLoadedUid(uid);
+  }, [uid]);
 
-  // Save to localStorage whenever profile changes
+  // Save whenever the profile changes (only for the user it was loaded for)
   useEffect(() => {
-    if (!ready || !user) return;
-    localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profile));
-  }, [ready, profile, user]);
+    if (!uid || loadedUid !== uid) return;
+    try {
+      localStorage.setItem(`${PROFILE_STORAGE_KEY}:${uid}`, JSON.stringify(profile));
+    } catch (e) {
+      console.warn("Failed to save profile:", e);
+    }
+  }, [uid, loadedUid, profile]);
 
   const setCustomName = (name: string | null) => {
     setProfile((prev) => ({ ...prev, customName: name && name.trim() ? name.trim() : null }));

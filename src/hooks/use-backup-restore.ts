@@ -1,10 +1,13 @@
 import { localDateIso } from "@/lib/constants";
-import { localStorageAdapter, parseBackupText, saveState } from "@/lib/learning-progress";
+import { saveState, parseBackupText } from "@/lib/learning-progress";
+import { localKV, progressStoreFor } from "@/lib/progress-store";
 
-export function useBackupRestore() {
+/** Backup export/import for one user's progress (same per-user key the app reads). */
+export function useBackupRestore(uid: string | null) {
   const handleExportBackup = () => {
+    if (!uid) return;
     try {
-      const data = localStorageAdapter.read();
+      const data = progressStoreFor(localKV, uid).read();
       if (!data) {
         console.warn("No backup data found");
         return;
@@ -25,6 +28,7 @@ export function useBackupRestore() {
   };
 
   const handleImportBackup = () => {
+    if (!uid) return;
     const input = document.createElement("input");
     input.type = "file";
     input.accept = ".json";
@@ -39,7 +43,10 @@ export function useBackupRestore() {
           return;
         }
         try {
-          saveState(localStorageAdapter, result.state);
+          const store = progressStoreFor(localKV, uid);
+          saveState(store, result.state);
+          // An import is a user edit: make it newer than the cloud copy so it syncs up.
+          store.writeMeta({ updatedAt: Math.max(Date.now(), store.readMeta().updatedAt + 1), synced: store.readMeta().synced });
           window.location.reload();
         } catch (err) {
           console.error("Backup import failed", err);

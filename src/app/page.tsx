@@ -68,7 +68,7 @@ export default function Home() {
     completedCount, completedShlokas, streak, progressPct, winRatePct,
     active, activeProgress, activeGlobalIndex,
     isFirst, isLast, isMastered, dailyGoal, practicedToday, chapterList
-  } = useShlokaState();
+  } = useShlokaState(user?.uid ?? null);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
