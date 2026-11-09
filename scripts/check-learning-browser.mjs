@@ -38,7 +38,7 @@ async function axeCheck(name) {
 }
 async function findVerse(reference) {
  await page.getByRole('button',{name:'Find a verse',exact:true}).click();
- await page.getByLabel('Search all chapters',{exact:true}).fill(reference);
+ await page.getByLabel('Search verses',{exact:true}).fill(reference);
  await page.locator('.verse-result').filter({hasText:`Verse ${reference}`}).first().click();
 }
 async function openTools() {

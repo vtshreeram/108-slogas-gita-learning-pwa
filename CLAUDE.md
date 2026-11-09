@@ -16,6 +16,7 @@ npm run test         # Vitest (run once)
 npm run test:watch   # Vitest (watch mode)
 npm run audio:fetch  # Fetch missing audio from YouTube via Python/yt-dlp
 npm run audio:verify # Verify audio file integrity
+node scripts/build-chapter-audio.mjs # Re-encode audio-src/ chapter masters to 64 kbps and rebuild src/data/chapter-audio.json
 ```
 
 Run a single test file: `npx vitest run src/lib/server/__tests__/route.test.ts`
@@ -25,7 +26,7 @@ Run a single test file: `npx vitest run src/lib/server/__tests__/route.test.ts`
 - **Next.js 15** (App Router, React 19, TypeScript 5, Turbopack)
 - **Tailwind CSS 4** with **shadcn/ui** (New York style, Radix primitives)
 - **Vitest** with Node environment (not jsdom)
-- **Zod** for validation; **Framer Motion** for animations; **next-themes** for dark/light mode
+- **Zod** for validation; **next-themes** for dark/light mode (no animation library: use CSS)
 - Path alias: `@/*` maps to `./src/*`
 
 ## Architecture
@@ -47,6 +48,9 @@ The picker, go-to box, previous/next and the purport button read `src/data/verse
 ### API Routes
 Minimal demo endpoints at `/api/echo` and `/api/status`. Server helpers in `src/lib/server/` provide `routeHandler()` wrapper, JSON envelope helpers (`jsonOk`/`jsonError`), and Zod validation utilities. Tests cover these server utilities.
 
+### Chapter audio (`/chapters`)
+"All Chapter Audios": full-screen player + chapter list (`src/components/chapter-audios.tsx`, pure rules in `src/lib/chapter-audio.ts`, durations in `src/data/chapter-audio.json`). Resume positions are per user in localStorage (`gita-chapter-audio-v1:<uid>`). The 18 files (64 kbps mono, ~400 MB) are **not in git**: they live in the Cloudflare R2 bucket `bhagavad-gita-audio` behind `https://108-imp-slogas-audio.peacockindia.in` and are selected by `NEXT_PUBLIC_CHAPTER_AUDIO_BASE` (build-time; set in Vercel, falls back to `/chapter-audio` in dev). Masters live in gitignored `audio-src/`; encoded copies in gitignored `public/chapter-audio/`. The service worker only handles same-origin `/audio/`, so chapter audio streams and is not available offline.
+
 ### PWA
 Service worker (`public/sw.js`) caches shell assets and uses network-first for audio. Manifest at `public/manifest.webmanifest`. App is installable with offline fallback.
 
@@ -55,6 +59,8 @@ Three display modes toggled at runtime: transliteration (Roman), English (with t
 
 ## Build Notes
 
-- `next.config.ts` has `ignoreBuildErrors` and `ignoreDuringBuilds` set to true for TS/ESLint
-- shadcn/ui components are in `src/components/ui/` — many are pre-generated and unused
+- The build type-checks and lints (no `ignoreBuildErrors`); keep `npx tsc --noEmit` and `npm run lint` clean
+- Package manager is **pnpm** (`pnpm-lock.yaml`); add or remove packages with `pnpm`, never `npm`, or the Vercel frozen install fails
+- `src/components/ui/` holds only what the app imports (`dialog.tsx`). Add shadcn components when needed rather than keeping unused ones
+- `/api/chapters/[chapter]` and `/api/purports/[chapter]` are static (`generateStaticParams`, chapters 1-18)
 - Audio fetch script is Python (`scripts/fetch_audio_from_links.py`) requiring yt-dlp
