@@ -48,4 +48,4 @@ scripts/.cache-fetch.log
 # Chapter audio: masters and local dev copies (served from R2 in production)
 /audio-src/
 /public/chapter-audio/
-.env*
+.env.local
