@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- Document navigation allows the service worker to serve cached route HTML offline. */
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { BookOpen, ChevronDown, Gauge, ListMusic, Loader2, Pause, Play, RotateCcw, RotateCw, SkipBack, SkipForward, AlertCircle } from "lucide-react";
+import { ArrowLeft, BookOpen, ChevronDown, Gauge, ListMusic, Loader2, Pause, Play, RotateCcw, RotateCw, SkipBack, SkipForward, AlertCircle } from "lucide-react";
 import { CHAPTER_AUDIO, chapterAudioUrl, formatLength, neighbour, parsePositions, resumeAt, withPosition, type ChapterAudio, type Positions } from "@/lib/chapter-audio";
 import { SPEED_OPTIONS, cycleOption, formatTime } from "@/lib/audio-playback";
 
@@ -134,9 +134,9 @@ export function ChapterAudios({ uid }: { uid: string }) {
       <button className="chapter-collapse icon-button" aria-label="Open chapter list" onClick={() => setView("list")}><ChevronDown className="h-5 w-5 rotate-180" /></button>
     </main> : <main id="main-content" className="chapter-list-page">
       <div className="reading-shell">
-        <header className="app-header"><a className="study-button" href="/">Back to reading</a><span className="eyebrow">{chapters.length} chapters</span></header>
+        <header className="app-header"><a className="study-button" href="/"><ArrowLeft className="h-4 w-4" aria-hidden="true" />Back to reading</a><span className="eyebrow">{chapters.length} chapters</span></header>
         <h1 className="font-serif text-3xl">All Chapter Audios</h1>
-        <p className="study-muted mb-4 mt-1 text-sm">Full-length narration for each of the 18 chapters. Your place is saved for every chapter.</p>
+        <p className="study-muted mb-4 mt-1 text-sm">Full-length Tamil narration for each of the 18 chapters. Your place is saved for every chapter.</p>
         <ol className="chapter-list">
           {chapters.map((c) => {
             const current = c.chapter === chapter.chapter;
@@ -152,7 +152,7 @@ export function ChapterAudios({ uid }: { uid: string }) {
       </div>
       <section className="chapter-mini" aria-label="Now playing">
         <button className="chapter-mini-open" onClick={() => setView("player")}><Art chapter={chapter.chapter} className="chapter-art-small" /><span className="min-w-0 flex-1 text-left"><span className="block truncate text-sm font-semibold">{label} · {chapter.title}<span className="sr-only"> (open player)</span></span><span className="study-muted block text-xs tabular-nums">{formatTime(position)} / {formatTime(duration)}</span></span></button>
-        <button className="player-play" aria-label={playing ? "Pause audio" : "Play audio"} onClick={toggle} disabled={!src}>{loading ? <Loader2 className="h-5 w-5 animate-spin" /> : playing ? <Pause className="h-5 w-5 fill-current" /> : <Play className="h-5 w-5 fill-current" />}</button>
+        <button className="player-play" aria-label={error ? "Retry audio" : playing ? "Pause audio" : "Play audio"} onClick={() => { if (error) { setError(""); audioRef.current?.load(); } toggle(); }} disabled={!src}>{error ? <AlertCircle className="h-5 w-5" /> : loading ? <Loader2 className="h-5 w-5 animate-spin" /> : playing ? <Pause className="h-5 w-5 fill-current" /> : <Play className="h-5 w-5 fill-current" />}</button>
         <button className="icon-button" aria-label="Next chapter" disabled={!next} onClick={() => choose(next, playing || loading)}><SkipForward className="h-5 w-5" /></button>
       </section>
     </main>}
