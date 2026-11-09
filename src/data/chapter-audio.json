@@ -1,0 +1,110 @@
+[
+ {
+  "chapter": 1,
+  "key": "chapter-01.mp3",
+  "seconds": 2400,
+  "bytes": 19198789
+ },
+ {
+  "chapter": 2,
+  "key": "chapter-02.mp3",
+  "seconds": 2613,
+  "bytes": 20908660
+ },
+ {
+  "chapter": 3,
+  "key": "chapter-03.mp3",
+  "seconds": 2761,
+  "bytes": 22090648
+ },
+ {
+  "chapter": 4,
+  "key": "chapter-04.mp3",
+  "seconds": 2804,
+  "bytes": 22436509
+ },
+ {
+  "chapter": 5,
+  "key": "chapter-05.mp3",
+  "seconds": 2943,
+  "bytes": 23541385
+ },
+ {
+  "chapter": 6,
+  "key": "chapter-06.mp3",
+  "seconds": 2822,
+  "bytes": 22572764
+ },
+ {
+  "chapter": 7,
+  "key": "chapter-07.mp3",
+  "seconds": 2672,
+  "bytes": 21380536
+ },
+ {
+  "chapter": 8,
+  "key": "chapter-08.mp3",
+  "seconds": 3337,
+  "bytes": 26695723
+ },
+ {
+  "chapter": 9,
+  "key": "chapter-09.mp3",
+  "seconds": 1822,
+  "bytes": 14576160
+ },
+ {
+  "chapter": 10,
+  "key": "chapter-10.mp3",
+  "seconds": 1642,
+  "bytes": 13136918
+ },
+ {
+  "chapter": 11,
+  "key": "chapter-11.mp3",
+  "seconds": 1783,
+  "bytes": 14265825
+ },
+ {
+  "chapter": 12,
+  "key": "chapter-12.mp3",
+  "seconds": 1526,
+  "bytes": 12204869
+ },
+ {
+  "chapter": 13,
+  "key": "chapter-13.mp3",
+  "seconds": 1738,
+  "bytes": 13907425
+ },
+ {
+  "chapter": 14,
+  "key": "chapter-14.mp3",
+  "seconds": 1550,
+  "bytes": 12404026
+ },
+ {
+  "chapter": 15,
+  "key": "chapter-15.mp3",
+  "seconds": 2488,
+  "bytes": 19902423
+ },
+ {
+  "chapter": 16,
+  "key": "chapter-16.mp3",
+  "seconds": 2842,
+  "bytes": 22734305
+ },
+ {
+  "chapter": 17,
+  "key": "chapter-17.mp3",
+  "seconds": 2510,
+  "bytes": 20077757
+ },
+ {
+  "chapter": 18,
+  "key": "chapter-18.mp3",
+  "seconds": 9230,
+  "bytes": 73841309
+ }
+]

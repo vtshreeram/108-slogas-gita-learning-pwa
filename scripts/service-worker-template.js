@@ -10,7 +10,7 @@ async function cacheShell() {
   const cache = await caches.open(SHELL_CACHE);
   const assets = new Set(["/manifest.webmanifest", "/icon.svg", "/icon-192.png", "/icon-512.png"]);
   // Both routes and their distinct chunks must be ready for a cold offline launch.
-  for (const path of ["/", "/profile"]) {
+  for (const path of ["/", "/profile", "/chapters"]) {
     const response = await fetch(new Request(new URL(path, self.location.origin), { cache: "reload" }));
     if (!response.ok) throw new Error("Could not download the app shell");
     const html = await response.clone().text();
