@@ -151,7 +151,7 @@ export function ChapterAudios({ uid }: { uid: string }) {
         </ol>
       </div>
       <section className="chapter-mini" aria-label="Now playing">
-        <button className="chapter-mini-open" onClick={() => setView("player")} aria-label={`Open player for ${label}`}><Art chapter={chapter.chapter} className="chapter-art-small" /><span className="min-w-0 flex-1 text-left"><span className="block truncate text-sm font-semibold">{label} · {chapter.title}</span><span className="study-muted block text-xs tabular-nums">{formatTime(position)} / {formatTime(duration)}</span></span></button>
+        <button className="chapter-mini-open" onClick={() => setView("player")}><Art chapter={chapter.chapter} className="chapter-art-small" /><span className="min-w-0 flex-1 text-left"><span className="block truncate text-sm font-semibold">{label} · {chapter.title}<span className="sr-only"> (open player)</span></span><span className="study-muted block text-xs tabular-nums">{formatTime(position)} / {formatTime(duration)}</span></span></button>
         <button className="player-play" aria-label={playing ? "Pause audio" : "Play audio"} onClick={toggle} disabled={!src}>{loading ? <Loader2 className="h-5 w-5 animate-spin" /> : playing ? <Pause className="h-5 w-5 fill-current" /> : <Play className="h-5 w-5 fill-current" />}</button>
         <button className="icon-button" aria-label="Next chapter" disabled={!next} onClick={() => choose(next, playing || loading)}><SkipForward className="h-5 w-5" /></button>
       </section>

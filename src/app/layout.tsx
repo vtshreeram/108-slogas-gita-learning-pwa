@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import { Noto_Sans_Tamil } from "next/font/google";
 
 const notoSansTamil = Noto_Sans_Tamil({
   variable: "--font-noto-sans-tamil",
   subsets: ["tamil"],
+  // Only the Tamil tab uses it, so do not preload it on every page.
+  preload: false,
 });
 import "./globals.css";
 import { DevTools } from "@/components/dev-tools";
@@ -15,11 +17,6 @@ import { LearningProvider } from "@/components/learning-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -78,7 +75,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansTamil.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${notoSansTamil.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
