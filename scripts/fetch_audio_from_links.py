@@ -34,13 +34,29 @@ def parse_links(path: Path) -> list[tuple[str, str]]:
     return pairs
 
 
+def yt_dlp_command() -> list[str]:
+    """The Python module when installed, otherwise a yt-dlp executable on PATH (e.g. Homebrew)."""
+    import importlib.util
+    import shutil
+
+    if importlib.util.find_spec("yt_dlp"):
+        return [sys.executable, "-m", "yt_dlp"]
+    exe = shutil.which("yt-dlp")
+    return [exe] if exe else [sys.executable, "-m", "yt_dlp"]
+
+
+YT_DLP = yt_dlp_command()
+
+
 def get_ffmpeg_path() -> str | None:
     try:
         import imageio_ffmpeg  # type: ignore
 
         return imageio_ffmpeg.get_ffmpeg_exe()
     except Exception:
-        return None
+        import shutil
+
+        return shutil.which("ffmpeg")
 
 
 def run_cmd(cmd: list[str]) -> tuple[int, str]:
@@ -100,16 +116,17 @@ def main() -> int:
             continue
 
         cmd = [
-            sys.executable,
-            "-m",
-            "yt_dlp",
+            *YT_DLP,
             "--ffmpeg-location",
             ffmpeg_path,
             "-x",
             "--audio-format",
             "mp3",
+            # Same encoding as the rest of public/audio: 64 kbps mono keeps chanting clear at about half the size.
             "--audio-quality",
-            "0",
+            "64K",
+            "--postprocessor-args",
+            "ffmpeg:-ac 1 -ar 44100",
             "--no-playlist",
             "-o",
             str(out_dir / f"{ref}.%(ext)s"),
