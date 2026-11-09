@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { Moon, Sun } from "lucide-react";
+import { Headphones, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -134,6 +134,7 @@ export default function Home() {
           <button aria-pressed={!readAll} onClick={leaveReading}>Learn 108</button>
           <button aria-pressed={readAll} onClick={() => { requestSeq.current++; lastRequested.current = null; setReadingVerse({ ...active, important: true }); setReadAll(true); }}>Read all</button>
         </div>
+        <a className="study-button" href="/chapters"><Headphones className="h-4 w-4" aria-hidden="true" />All Chapter Audios</a>
       </div>
       {!readAll && <ReviewQueue hideWhenEmpty due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={jumpToLearn} />}
       {learnedToday >= dailyGoal && !keepReading && <aside className="session-complete" role="status"><p className="font-semibold">Today’s practice is complete.</p><p className="study-muted mt-1 text-sm">Rest here, or stay with the verses a little longer.</p><div className="mt-3 flex flex-wrap gap-2"><button className="study-button" onClick={() => setKeepReading(true)}>Keep reading</button><a className="study-button" href="/profile">Finish for today</a></div></aside>}

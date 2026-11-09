@@ -482,3 +482,37 @@ input.study-input { padding-inline: .75rem; }
 .vp-sheet .study-input { min-height: 44px; }
 .vp-sheet .verse-results { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 .vp-sheet .verse-result { padding-block: .625rem; }
+/* All Chapter Audios: full-screen player + chapter list (parchment tokens, shared with the verse player) */
+.chapter-art { position: relative; display: grid; place-items: center; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--study-border); background: linear-gradient(145deg, hsl(var(--h) 60% 86%), hsl(var(--h) 45% 66%)); color: var(--study-ink); }
+.dark .chapter-art { background: linear-gradient(145deg, hsl(var(--h) 32% 26%), hsl(var(--h) 36% 14%)); }
+.chapter-art-om { position: absolute; inset: 0; display: grid; place-items: start center; padding-top: 1.1em; font-size: 2.5em; line-height: 1; opacity: .35; }
+.chapter-art-small .chapter-art-om { display: none; }
+.chapter-art-no { position: relative; font-family: Georgia, serif; font-weight: 700; line-height: 1; }
+.chapter-art-small { width: 2.75rem; flex-shrink: 0; border-radius: .75rem; font-size: .5rem; }
+.chapter-art-small .chapter-art-no { font-size: 1.25rem; }
+.chapter-art-large { width: min(68vw, 17rem, 38dvh); border-radius: 1.75rem; font-size: 1rem; box-shadow: 0 8px 32px #241a1220, 0 1px 4px #241a1208; }
+.chapter-art-large .chapter-art-no { font-size: clamp(3rem, 14vw, 5rem); }
+.chapter-stage { position: fixed; inset: 0; z-index: 30; display: flex; flex-direction: column; align-items: center; overflow-y: auto; padding: max(.5rem, env(safe-area-inset-top, 0px)) 1rem calc(.5rem + env(safe-area-inset-bottom, 0px)); background: radial-gradient(120% 70% at 50% 0, var(--study-accent), var(--background) 70%); color: var(--study-ink); }
+.chapter-stage-bar { display: flex; align-items: center; justify-content: space-between; width: min(100%, 28rem); }
+.chapter-stage-body { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; width: min(100%, 28rem); padding-block: .5rem; }
+.chapter-stage-title { text-align: center; }
+.chapter-stage-title h1 { margin-block: .25rem; font-size: clamp(1.375rem, 6vw, 1.75rem); line-height: 1.25; }
+.chapter-seek-wrap { width: 100%; }
+.chapter-seek { display: block; width: 100%; height: 1.5rem; margin: 0; appearance: none; background: transparent; cursor: pointer; }
+.chapter-seek::-webkit-slider-runnable-track { height: .375rem; border-radius: .5rem; background: linear-gradient(to right, var(--study-ink) var(--pct), var(--study-border) var(--pct)); }
+.chapter-seek::-moz-range-track { height: .375rem; border-radius: .5rem; background: var(--study-border); }
+.chapter-seek::-moz-range-progress { height: .375rem; border-radius: .5rem; background: var(--study-ink); }
+.chapter-seek::-webkit-slider-thumb { appearance: none; width: 1.125rem; height: 1.125rem; margin-top: -.375rem; border: 2px solid var(--study-surface); border-radius: 50%; background: var(--study-ink); box-shadow: 0 1px 4px #241a1240; }
+.chapter-seek::-moz-range-thumb { width: 1.125rem; height: 1.125rem; border: 2px solid var(--study-surface); border-radius: 50%; background: var(--study-ink); }
+.chapter-seek:disabled { cursor: default; opacity: .5; }
+.chapter-times { display: flex; justify-content: space-between; margin-top: .25rem; color: var(--study-muted); font-size: .75rem; }
+.chapter-controls { display: flex; align-items: center; justify-content: center; gap: .25rem; }
+.chapter-play { width: 4.25rem; height: 4.25rem; }
+.chapter-collapse { margin-top: .25rem; color: var(--study-muted); }
+.chapter-list-page { padding: 1rem 0 calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
+.chapter-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--study-border); }
+.chapter-row { display: flex; align-items: center; gap: .75rem; width: 100%; min-height: 3.75rem; padding: .5rem; border-bottom: 1px solid var(--study-border); color: var(--study-ink); }
+.chapter-row:hover, .chapter-row[aria-current=true] { background: var(--study-accent); border-radius: .5rem; }
+.chapter-row-no { width: 1.5rem; flex-shrink: 0; color: var(--study-muted); font-size: .8125rem; font-weight: 600; }
+.chapter-mini { position: fixed; bottom: calc(.5rem + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); z-index: 40; display: flex; align-items: center; gap: .5rem; width: min(100% - 1.5rem, 36rem); padding: .5rem .75rem; border: 1px solid var(--study-border); border-radius: 1.25rem; background: var(--study-surface); color: var(--study-ink); box-shadow: 0 8px 32px #241a1220, 0 1px 4px #241a1208; }
+.chapter-mini-open { display: flex; flex: 1; align-items: center; gap: .75rem; min-width: 0; min-height: 44px; }
