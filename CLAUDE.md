@@ -64,4 +64,4 @@ Three display modes toggled at runtime: transliteration (Roman), English (with t
 - `src/components/ui/` holds only what the app imports (`dialog.tsx`). Add shadcn components when needed rather than keeping unused ones
 - `/api/chapters/[chapter]` and `/api/purports/[chapter]` are static (`generateStaticParams`, chapters 1-18)
 - `next.config.ts` sends a `Content-Security-Policy-Report-Only` header (violations only log to the console). Add new third-party origins to it, and switch it to enforcing once a release runs clean
-- Audio fetch script is Python (`scripts/fetch_audio_from_links.py`, links in `requested-youtube-links.txt`); it uses the `yt_dlp` module or a `yt-dlp` binary on PATH and system ffmpeg, and writes 64 kbps mono like the rest of `public/audio`. Verse 12.10 has no link yet, so it has no recording
+- Audio fetch script is Python (`scripts/fetch_audio_from_links.py`, links in `requested-youtube-links.txt`); it uses the `yt_dlp` module or a `yt-dlp` binary on PATH and system ffmpeg, and writes 64 kbps mono like the rest of `public/audio`. All 108 shlokas now have a recording
