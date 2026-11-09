@@ -33,6 +33,7 @@ const page = await context.newPage(); page.setDefaultTimeout(15000); if(process.
 const assert = (value, message) => { if (!value) throw new Error(message); };
 async function capture(name) { await page.screenshot({path:`test-results/${name}.png`,fullPage:true}); }
 async function axeCheck(name) {
+ await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
  const audit = await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
  assert(!audit.violations.length,`${name}: ${JSON.stringify(audit.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,failure:n.failureSummary}))})))}`);
 }
@@ -59,17 +60,17 @@ for(const width of [320,390,768,1024,1440]) {
 }
 await page.setViewportSize({width:390,height:844});await axeCheck('Reader');
 await page.getByRole('button',{name:'Read all',exact:true}).click();await findVerse('2.6');
-for(const ref of ['2.6','2.7','2.8']) {assert((await page.locator('#verse-heading').innerText()).includes(ref.split('.')[1]),`Reading skipped ${ref}`);await page.getByRole('button',{name:'Next verse',exact:true}).click();}
+for(const ref of ['2.6','2.7','2.8']) {await page.locator('#verse-heading').filter({hasText:new RegExp(`^Sloka ${ref.split('.')[1]}$`)}).waitFor().catch(()=>{throw new Error(`Reading skipped ${ref}`);});await page.getByRole('button',{name:'Next',exact:true}).click();}
 assert(await page.getByRole('button',{name:'Read all',exact:true}).getAttribute('aria-pressed')==='true','Reading silently switched collections');
 await page.getByRole('button',{name:'Learn 108',exact:true}).click();await findVerse('1.1');
-await page.getByRole('button',{name:'English meaning',exact:true}).click();await page.getByRole('button',{name:'Read purport',exact:true}).click();
+await page.getByRole('button',{name:'English',exact:true}).click();await page.getByRole('button',{name:'Read purport',exact:true}).click();
 const purport=page.getByRole('region',{name:'Purport',exact:true});
 assert(await purport.evaluate(el=>getComputedStyle(el).maxHeight==='none'&&getComputedStyle(el).overflowY==='visible'),'Purport has a nested scroll container');
 await purport.locator('p').first().scrollIntoViewIfNeeded();const before=await page.evaluate(()=>scrollY);await page.mouse.move(195,420);await page.mouse.wheel(0,500);await page.waitForTimeout(200);assert(await page.evaluate(()=>scrollY)>before,'Scrolling the purport does not move the page');
 await capture('reading-purport');await axeCheck('Expanded purport');
-await page.getByRole('button',{name:'தமிழ் பொருள்',exact:true}).click();await page.getByRole('button',{name:'பொருளுரையைப் படிக்க',exact:true}).click();
+await page.getByRole('button',{name:'Tamil',exact:true}).click();await page.getByRole('button',{name:'பொருளுரையைப் படிக்க',exact:true}).click();
 assert(await page.getByRole('region',{name:'பொருளுரை',exact:true}).evaluate(el=>getComputedStyle(el).overflowY==='visible'),'Tamil purport traps scrolling');
-await page.getByRole('button',{name:'Chant (Roman)',exact:true}).click();
+await page.getByRole('button',{name:'Sloka',exact:true}).click();
 await page.locator('summary').filter({hasText:'Memorize this verse'}).click();await page.getByRole('button',{name:'Play recording',exact:true}).click();
 await page.waitForFunction(()=>document.querySelector('audio').currentTime>0.1);
 assert(!await page.evaluate(uid=>JSON.parse(localStorage.getItem(`gita-learning-state-v4:${uid}`)).completed['GS-001']?.listen,uid),'Playing incorrectly marks Listen complete');
@@ -77,7 +78,7 @@ await page.getByRole('button',{name:'I’ve listened',exact:true}).click();await
 await page.getByRole('button',{name:'Reveal verse',exact:true}).click();await page.getByRole('button',{name:'Forgot',exact:true}).click();await page.getByRole('button',{name:'Reveal verse',exact:true}).click();await page.getByRole('button',{name:'Easy',exact:true}).click();
 assert(await page.getByText('Verse learned. Review it in 3 days.',{exact:true}).isVisible(),'Recall result missing');
 const recall=await page.evaluate(uid=>JSON.parse(localStorage.getItem(`gita-learning-state-v4:${uid}`)),uid);assert(recall.recallAttempts===2&&recall.recallWins===1,'Guided recall double-counts attempts');
-await page.getByRole('button',{name:'Next verse',exact:true}).click();await page.locator('summary').filter({hasText:'Memorize this verse'}).click();await page.getByRole('button',{name:'Already know this verse? Mark as learned',exact:true}).click();await page.getByRole('button',{name:'Mark learned',exact:true}).click();await page.getByText('Today’s practice is complete.',{exact:true}).waitFor();await capture('reading-goal-complete');
+await page.getByRole('button',{name:'Next',exact:true}).click();await page.locator('summary').filter({hasText:'Memorize this verse'}).click();await page.getByRole('button',{name:'Already know this verse? Mark as learned',exact:true}).click();await page.getByRole('button',{name:'Mark learned',exact:true}).click();await page.getByText('Today’s practice is complete.',{exact:true}).waitFor();await capture('reading-goal-complete');
 await page.reload();await page.getByText('Today’s practice is complete.',{exact:true}).waitFor();
 console.log('Learning actions, single-count recall, daily completion and reading-mode continuity passed');
 await page.evaluate(async()=>{await navigator.serviceWorker.ready;});await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
@@ -88,7 +89,7 @@ const lineDetails=page.locator('details').filter({has:page.locator('summary').fi
 for(let i=0;i<n;i++){await page.evaluate(time=>{const audio=document.querySelector('audio');audio.pause();audio.currentTime=time;},(i+1)*0.5);await page.waitForFunction(()=>!document.querySelector('audio').seeking);await page.getByRole('button',{name:`Mark end of line ${i+1}`,exact:true}).click();}
 await page.getByText('Line timings saved for this recording.',{exact:false}).waitFor();await page.getByLabel('Repetitions',{exact:false}).selectOption('1');await page.getByLabel('Continue to next line',{exact:true}).uncheck();await page.getByRole('button',{name:'Practise from line 1',exact:true}).click();await page.getByText('Your turn — chant this line',{exact:true}).waitFor();
 await page.getByRole('button',{name:'Expand audio controls',exact:true}).click();await page.getByRole('button',{name:'Stop playback',exact:true}).click();await page.waitForTimeout(1400);assert(await page.locator('audio').evaluate(a=>a.paused),'Stopped line practice restarted audio');
-const seek=page.getByRole('slider',{name:'Audio position',exact:true});await seek.focus();await page.keyboard.press('ArrowRight');assert(await page.locator('#verse-heading').innerText()==='Shloka 11','Seeking navigated away');
+const seek=page.getByRole('slider',{name:'Audio position',exact:true});await seek.focus();await page.keyboard.press('ArrowRight');assert(await page.locator('#verse-heading').innerText()==='Sloka 11','Seeking navigated away');
 await page.getByRole('button',{name:'Collapse audio controls',exact:true}).click();
 await page.locator('summary').filter({hasText:'Pronunciation & word meanings'}).click();await axeCheck('Expanded tools');
 await page.evaluate(uid=>{const key=`gita-learning-state-v4:${uid}`;const s=JSON.parse(localStorage.getItem(key));s.reviews['GS-001'].dueDate='2000-01-01';localStorage.setItem(key,JSON.stringify(s));},uid);await page.reload();

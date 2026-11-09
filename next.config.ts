@@ -4,6 +4,24 @@ import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 // Loader path from orchids-visual-edits - use direct resolve to get the actual file
 const loaderPath = require.resolve('orchids-visual-edits/loader.js');
 
+const audioOrigin = (() => { try { return new URL(process.env.NEXT_PUBLIC_CHAPTER_AUDIO_BASE ?? "").origin; } catch { return ""; } })();
+const CSP = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://*.googleusercontent.com",
+  "font-src 'self' data:",
+  `media-src 'self' blob: ${audioOrigin}`.trim(),
+  `connect-src 'self' ${audioOrigin} https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://*.firebaseapp.com`.replace(/\s+/g, " "),
+  "frame-src https://*.firebaseapp.com https://accounts.google.com",
+  "worker-src 'self'",
+  "manifest-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+].join("; ");
+
 const nextConfig: NextConfig = {
   outputFileTracingRoot: process.cwd(),
   outputFileTracingIncludes: {
@@ -36,10 +54,10 @@ const nextConfig: NextConfig = {
         {
           key: "Permissions-Policy",
           value: "geolocation=(), microphone=(), camera=()"
-        }
-        // TODO: Add Content-Security-Policy header when Firebase and other third-party integrations are tested
-        // For now, the policy would need to allow: googleapis.com, firebase.com, Google Fonts, and similar
-        // Consider enabling in report-only mode first: Content-Security-Policy-Report-Only: ...
+        },
+        // Report-only: violations show in the browser console without blocking anything. Tighten and switch
+        // to "Content-Security-Policy" once a release has run clean. Next.js hydration and next-themes need inline scripts.
+        { key: "Content-Security-Policy-Report-Only", value: CSP },
       ],
     },
   ],

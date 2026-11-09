@@ -40,7 +40,7 @@ Optional cloud sync (`src/lib/progress-sync.ts`, Firestore adapter in `src/lib/f
 Single-page app. Composes `ShlokaCard` (content display with swipe navigation and 4 progress pills) and `AudioPlayer` (fixed bottom bar with loop modes and iOS autoplay handling). Keyboard arrow keys and touch swipes navigate between shlokas.
 
 ### Data Layer (`src/lib/shlokas.ts`)
-108 shloka objects with: id (GS-001..GS-108), chapter/verse reference, Sanskrit (Devanagari), transliteration, English translation, audio path, and reflection prompt. Audio files live in `public/audio/` as `<chapter>.<verse>.mp3`.
+108 shloka objects with: id (GS-001..GS-108), chapter/verse reference, Sanskrit (Devanagari), transliteration, English translation, audio path, and reflection prompt. Audio files live in `public/audio/` as `<chapter>.<verse>.mp3` (64 kbps mono, re-encoded from the originals, which are kept in gitignored `audio-src/verses-original/`; durations match so saved line cues still line up).
 
 ### Lazy data loading
 The picker, go-to box, previous/next and the purport button read `src/data/verse-index.json` (via `src/lib/verse-index.ts`): a 7 KB reference-only index of all 657 verses with purport availability. Regenerate it with `node scripts/build-verse-index.mjs` after editing `src/data/`; a unit test fails when it is stale. Chapter text and purports download only when a verse/purport is opened, through `createChapterLoader` in `src/lib/gita-verses.ts` (de-duplicated, 3 at a time, failures retry). The service worker precaches only the app shell; chapters and purports a learner has opened are saved in `gita-chapters-v1` and work offline. The line-practice, verse-study and offline-download tools are a separate chunk loaded on first open and prefetched at idle once the worker controls the page (so they are also cached offline).
@@ -63,4 +63,5 @@ Three display modes toggled at runtime: transliteration (Roman), English (with t
 - Package manager is **pnpm** (`pnpm-lock.yaml`); add or remove packages with `pnpm`, never `npm`, or the Vercel frozen install fails
 - `src/components/ui/` holds only what the app imports (`dialog.tsx`). Add shadcn components when needed rather than keeping unused ones
 - `/api/chapters/[chapter]` and `/api/purports/[chapter]` are static (`generateStaticParams`, chapters 1-18)
+- `next.config.ts` sends a `Content-Security-Policy-Report-Only` header (violations only log to the console). Add new third-party origins to it, and switch it to enforcing once a release runs clean
 - Audio fetch script is Python (`scripts/fetch_audio_from_links.py`) requiring yt-dlp
