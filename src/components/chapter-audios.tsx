@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, BookOpen, ChevronDown, Gauge, ListMusic, Loader2, Pause, Play, RotateCcw, RotateCw, SkipBack, SkipForward, AlertCircle } from "lucide-react";
 import { CHAPTER_AUDIO, chapterAudioUrl, formatLength, neighbour, parsePositions, resumeAt, withPosition, type ChapterAudio, type Positions } from "@/lib/chapter-audio";
 import { SPEED_OPTIONS, cycleOption, formatTime } from "@/lib/audio-playback";
+import { mediaPosition } from "@/components/audio-player";
 
 const SAVE_EVERY_S = 5;
 const SKIP_S = 15;
@@ -57,11 +58,11 @@ export function ChapterAudios({ uid }: { uid: string }) {
   const play = useCallback(async () => {
     const audio = audioRef.current;
     if (!audio?.src) return;
-    try { setError(""); setLoading(true); await audio.play(); }
+    try { setError(""); setLoading(true); if (audio.error) audio.load(); await audio.play(); }
     catch (e) { if (e instanceof DOMException && e.name === "AbortError") return; setLoading(false); setPlaying(false); setError("Playback did not start. Tap Play to try again."); }
   }, []);
   const pause = useCallback(() => { audioRef.current?.pause(); setLoading(false); }, []);
-  const seek = useCallback((to: number) => { const a = audioRef.current; if (!a) return; const clamped = Math.max(0, Math.min(to, Number.isFinite(a.duration) ? a.duration : to)); a.currentTime = clamped; setPosition(clamped); }, []);
+  const seek = useCallback((to: number) => { const a = audioRef.current; if (!a) return; const clamped = Math.max(0, Math.min(to, Number.isFinite(a.duration) ? a.duration : to)); a.currentTime = clamped; setPosition(clamped); mediaPosition(a); }, []);
 
   const choose = useCallback((next: ChapterAudio | undefined, startPlaying: boolean) => {
     if (!next) return;
@@ -75,7 +76,7 @@ export function ChapterAudios({ uid }: { uid: string }) {
   const next = neighbour(chapters, chapter?.chapter ?? 0, 1);
   const toggle = useCallback(() => { if (playing || loading) pause(); else void play(); }, [playing, loading, pause, play]);
 
-  useEffect(() => { if (audioRef.current) audioRef.current.playbackRate = rate; }, [rate, chapter]);
+  useEffect(() => { if (audioRef.current) { audioRef.current.playbackRate = rate; mediaPosition(audioRef.current); } }, [rate, chapter]);
   useEffect(() => {
     if (!chapter || !("mediaSession" in navigator) || !("MediaMetadata" in window)) return;
     navigator.mediaSession.metadata = new MediaMetadata({ title: `Chapter ${chapter.chapter} · ${chapter.title}`, artist: "Bhagavad Gita", album: "All chapters", artwork: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png" }] });
@@ -99,11 +100,11 @@ export function ChapterAudios({ uid }: { uid: string }) {
 
   return <>
     <audio ref={audioRef} src={src} preload="metadata"
-      onLoadedMetadata={(e) => { const a = e.currentTarget; setDuration(Number.isFinite(a.duration) ? a.duration : chapter.seconds); const at = resumeAt(positions.current, chapter.chapter); if (at && at < a.duration) { a.currentTime = at; setPosition(at); } }}
+      onLoadedMetadata={(e) => { const a = e.currentTarget; setDuration(Number.isFinite(a.duration) ? a.duration : chapter.seconds); const at = resumeAt(positions.current, chapter.chapter); if (at && at < a.duration) { a.currentTime = at; setPosition(at); } mediaPosition(a); }}
       onWaiting={() => setLoading(true)} onCanPlay={() => { setLoading(false); if (autoplay.current) { autoplay.current = false; void play(); } }}
-      onPlay={() => { setPlaying(true); setLoading(false); }} onPause={() => { setPlaying(false); const a = audioRef.current; if (a) persist(a.currentTime, a.duration); }}
+      onPlay={(e) => { setPlaying(true); setLoading(false); mediaPosition(e.currentTarget); }} onPause={(e) => { setPlaying(false); const a = e.currentTarget; persist(a.currentTime, a.duration); mediaPosition(a); }}
       onTimeUpdate={(e) => { const t = e.currentTarget.currentTime; setPosition(t); if (Math.abs(t - lastSaved.current) >= SAVE_EVERY_S) { lastSaved.current = t; persist(t, e.currentTarget.duration); } }}
-      onDurationChange={(e) => { if (Number.isFinite(e.currentTarget.duration)) setDuration(e.currentTarget.duration); }}
+      onDurationChange={(e) => { if (Number.isFinite(e.currentTarget.duration)) setDuration(e.currentTarget.duration); mediaPosition(e.currentTarget); }}
       onEnded={() => { persist(duration, duration); if (next) choose(next, true); else { setPlaying(false); setPosition(0); } }}
       onError={() => { if (!src) return; setPlaying(false); setLoading(false); setError("This chapter could not be loaded. Check your connection and try again."); }} />
 
