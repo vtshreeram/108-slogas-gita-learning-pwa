@@ -45,7 +45,7 @@ Individuals (adult self-learners, parents of children) are the user base, not th
 
 - **Budget capacity:** low; prefers free pilot, then annual flat fee or sponsorship. Assumption.
 - **Buying cycle:** 2 to 8 weeks for coordinator-led pilots; 2 to 4 months if a trust meeting is needed. Assumption.
-- **Technical requirements:** works offline, installs without an app store, low-bandwidth audio, Android Chrome and iOS Safari, Tamil, English and Devanagari display. Observed in repo.
+- **Technical requirements:** works offline, installs without an app store, low-bandwidth audio, Android Chrome and iOS Safari, Roman transliteration, English and Tamil display (Devanagari is stored for search but not displayed). Observed in repo.
 - **Compliance:** child data privacy matters (India DPDP Act 2023 covers children's data; verify requirements before onboarding under-18 cohorts). Today progress is local-only by default, which is a selling point.
 - **Content sensitivity:** institutions follow specific traditions and commentaries. Content accuracy and translation sourcing (see `docs/translation-sources.md`) affect trust.
 - **Current challenges:** no way for a teacher to see class progress. This is the main gap, since the product has no teacher or class view today. Product implication: an institution tier needs a cohort or class dashboard.

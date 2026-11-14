@@ -51,7 +51,11 @@ export function progressStoreFor(kv: KV, uid: string): ProgressStore {
   return {
     read: () => kv.get(key),
     write: (v) => kv.set(key, v),
-    stashCorrupt: (raw) => kv.set(userKey(`${STORAGE_KEY}-corrupt`, uid), raw),
+    // Two slots: the first unreadable copy is never overwritten; later ones go to "-latest".
+    stashCorrupt: (raw) => {
+      const first = userKey(`${STORAGE_KEY}-corrupt`, uid);
+      kv.set(kv.get(first) === null ? first : `${first}-latest`, raw);
+    },
     readMeta: () => {
       try {
         const m = JSON.parse(kv.get(metaKey) ?? "null");

@@ -16,6 +16,8 @@ export const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid date 
   return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === s;
 }, "Invalid calendar date");
 const verseId = z.string().regex(/^GS-(?:00[1-9]|0[1-9]\d|10[0-8])$/);
+/** Keeps only real verse ids, without duplicates, within the 108-verse cap. */
+export const cleanFavorites = (ids: readonly string[]): string[] => [...new Set(ids.filter((id) => verseId.safeParse(id).success))].slice(0, 108);
 export const reviewSchema = z.object({
   dueDate: dateSchema,
   lastReviewed: dateSchema,

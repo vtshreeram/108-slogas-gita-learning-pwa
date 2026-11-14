@@ -5,9 +5,11 @@ import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 const loaderPath = require.resolve('orchids-visual-edits/loader.js');
 
 const audioOrigin = (() => { try { return new URL(process.env.NEXT_PUBLIC_CHAPTER_AUDIO_BASE ?? "").origin; } catch { return ""; } })();
+// 'unsafe-eval' is only needed by the dev server (React refresh); production does not allow it.
+const scriptEval = process.env.NODE_ENV === "production" ? "" : " 'unsafe-eval'";
 const CSP = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com`,
+  `script-src 'self' 'unsafe-inline'${scriptEval} https://apis.google.com`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://*.googleusercontent.com",
   "font-src 'self' data:",

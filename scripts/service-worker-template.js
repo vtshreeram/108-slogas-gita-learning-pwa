@@ -11,7 +11,10 @@ async function cacheShell() {
   const assets = new Set(["/manifest.webmanifest", "/icon.svg", "/icon-192.png", "/icon-512.png"]);
   // Both routes and their distinct chunks must be ready for a cold offline launch.
   for (const path of ["/", "/profile", "/chapters"]) {
-    const response = await fetch(new Request(new URL(path, self.location.origin), { cache: "reload" }));
+    const request = () => new Request(new URL(path, self.location.origin), { cache: "reload" });
+    // One retry rides out a flaky connection; a partial shell is never accepted, so offline support is never half-installed.
+    let response = await fetch(request()).catch(() => null);
+    if (!response?.ok) response = await fetch(request());
     if (!response.ok) throw new Error("Could not download the app shell");
     const html = await response.clone().text();
     await cache.put(path, response);
@@ -60,18 +63,29 @@ async function chapterData(request) {
   const url = new URL(request.url);
   const key = new Request(url.origin + url.pathname); // one entry per chapter, whatever query string the page adds
   const cache = await caches.open(CHAPTER_CACHE);
+  let saved;
+  try { saved = await cache.match(key); } catch { /* an unreadable cache must not stop a good network response */ }
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), CHAPTER_TIMEOUT_MS); // a stalled network falls back to what is saved
+  // A stalled network falls back to a saved copy. With nothing saved there is nothing to fall back to, so wait for the network.
+  const timeout = saved ? setTimeout(() => controller.abort(), CHAPTER_TIMEOUT_MS) : undefined;
   try {
     const response = await fetch(request, { signal: controller.signal });
     // The timer guards only the wait for the first byte. Aborting later would cut a slow but healthy body download short.
-    clearTimeout(timeout);
+    if (timeout) clearTimeout(timeout);
     // Only a good response is stored; an error page must never replace a saved chapter.
     if (response.ok) await cache.put(key, response.clone()).catch(() => {}); // a full disk must not fail a good response
     return response;
   } catch {
-    return (await cache.match(key)) ?? new Response(JSON.stringify({ error: "Offline" }), { status: 504, headers: { "Content-Type": "application/json" } });
-  } finally { clearTimeout(timeout); }
+    return saved ?? new Response(JSON.stringify({ error: "Offline" }), { status: 504, headers: { "Content-Type": "application/json" } });
+  } finally { if (timeout) clearTimeout(timeout); }
+}
+
+async function saveChunks(cache, response) {
+  try {
+    const html = await response.text();
+    const chunks = [...html.matchAll(/(?:src|href)=["'](\/_next\/static\/[^"']+)["']/g)].map((m) => m[1].replaceAll("&amp;", "&"));
+    for (const chunk of chunks) { try { if (!(await cache.match(chunk))) await cache.add(chunk); } catch { /* one failed chunk must not stop the rest */ } }
+  } catch { /* best effort: the page itself is already served */ }
 }
 
 async function navigation(request) {
@@ -83,6 +97,8 @@ async function navigation(request) {
     if (response.ok) {
       const cache = await caches.open(SHELL_CACHE);
       await cache.put(path, response.clone());
+      // A page fetched from a newer release also needs its own chunks saved, or an offline launch before the update activates fails.
+      void saveChunks(cache, response.clone());
     }
     return response;
   } catch {
