@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { AppState } from "./constants";
 import { parseState } from "./learning-progress";
-import { profileSchema } from "./schemas";
+import { cleanFavorites, profileSchema } from "./schemas";
 
 export type BackupProfile = z.infer<typeof profileSchema>;
 export type LearningBackup = { kind: "gita108"; version: 1; exportedAt: string; progress: AppState; profile?: BackupProfile };
@@ -24,5 +24,5 @@ export function readBackup(text: string): LearningBackup {
 
 export function mergeProfiles(local: BackupProfile, incoming?: BackupProfile): BackupProfile {
   if (!incoming) return local;
-  return { customName: local.customName || incoming.customName, favorites: [...new Set([...local.favorites, ...incoming.favorites])], lineCues: { ...incoming.lineCues, ...local.lineCues } };
+  return { customName: local.customName || incoming.customName, favorites: cleanFavorites([...local.favorites, ...incoming.favorites]), lineCues: { ...incoming.lineCues, ...local.lineCues } };
 }

@@ -12,7 +12,8 @@ async function files(dir) {
   return result;
 }
 const inputs = [...await files("src"), ...await files("public"), "next.config.ts", "package.json", "scripts/service-worker-template.js"]
-  .filter((path) => path !== "public/offline-worker.js").sort();
+  // Recordings are cached separately by name and never part of the app shell, so they must not invalidate it (or slow the build).
+  .filter((path) => path !== "public/offline-worker.js" && !path.startsWith("public/audio/") && !path.startsWith("public/chapter-audio/")).sort();
 const hash = createHash("sha256");
 for (const path of inputs) { hash.update(path); hash.update(await readFile(path)); }
 const release = hash.digest("hex").slice(0, 16);

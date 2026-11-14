@@ -1,11 +1,13 @@
 // Run against a production server: pnpm start --port 3002, then pnpm test:browser.
 // All authentication is mocked in an isolated browser context; Firestore is blocked.
 import { readFile, mkdir } from 'node:fs/promises';
-const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const { chromium, webkit } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+// GITA_BROWSER=webkit runs the same flow in WebKit (Safari's engine).
+const engine = process.env.GITA_BROWSER === 'webkit' ? webkit : chromium;
 const { default: AxeBuilder } = await import(process.env.AXE_MODULE || '@axe-core/playwright');
 await mkdir('test-results', { recursive: true });
 const base = process.env.GITA_BASE_URL || 'http://localhost:3002';
-const browser = await chromium.launch({ headless: true });
+const browser = await engine.launch({ headless: true, args: ['--disable-features=HardwareMediaKeyHandling,MediaSessionService'] });
 const context = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true });
 const uid = 'local-e2e-learner';
 const apiKey = (await readFile('src/lib/firebase.ts', 'utf8')).match(/apiKey: "([^"]+)/)[1];
@@ -48,6 +50,8 @@ async function openTools() {
 }
 try {
 await page.goto(base);await page.reload();await page.getByRole('heading',{name:'Bhagavad Gita',exact:true}).waitFor({timeout:30000});
+// Signed-in UI appears once the mocked auth session is restored; WebKit restores it slower than Chromium.
+await page.getByRole('link',{name:'Open profile',exact:true}).waitFor({timeout:30000}).catch(()=>{throw new Error('Mocked sign-in was not restored (login screen still showing)');});
 assert(!(await page.getByText('Session Progress',{exact:true}).count()),'Session progress still occupies the reader');
 assert(await page.getByRole('link',{name:'Open profile',exact:true}).count()===1,'Separate profile navigation missing');
 assert((await page.getByRole('region',{name:'Audio player',exact:true}).boundingBox()).height<=80,'Collapsed player is too tall');
@@ -65,6 +69,7 @@ assert(await page.getByRole('button',{name:'Read all',exact:true}).getAttribute(
 await page.getByRole('button',{name:'Learn 108',exact:true}).click();await findVerse('1.1');
 await page.getByRole('button',{name:'English',exact:true}).click();await page.getByRole('button',{name:'Read purport',exact:true}).click();
 const purport=page.getByRole('region',{name:'Purport',exact:true});
+await purport.getByText('Purport by A.C. Bhaktivedanta Swami Prabhupada').waitFor();
 assert(await purport.evaluate(el=>getComputedStyle(el).maxHeight==='none'&&getComputedStyle(el).overflowY==='visible'),'Purport has a nested scroll container');
 await purport.locator('p').first().scrollIntoViewIfNeeded();const before=await page.evaluate(()=>scrollY);await page.mouse.move(195,420);await page.mouse.wheel(0,500);await page.waitForTimeout(200);assert(await page.evaluate(()=>scrollY)>before,'Scrolling the purport does not move the page');
 await capture('reading-purport');await axeCheck('Expanded purport');

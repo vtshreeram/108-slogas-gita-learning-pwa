@@ -6,6 +6,14 @@ import { downloadedAudio, hasDownloadedAudio } from "@/lib/offline-audio";
 import { AUDIO_TRANSPORT_EVENT } from "@/lib/line-practice";
 
 const mediaState = (state: "playing" | "paused") => { if ("mediaSession" in navigator) navigator.mediaSession.playbackState = state; };
+const LOAD_TIMEOUT_MS = 15_000;
+export const mediaPosition = (audio: HTMLAudioElement | null) => {
+  if (!audio || !("mediaSession" in navigator) || typeof navigator.mediaSession.setPositionState !== "function") return;
+  if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
+  try {
+    navigator.mediaSession.setPositionState({ duration: audio.duration, playbackRate: audio.playbackRate || 1, position: Math.min(Math.max(0, audio.currentTime), audio.duration) });
+  } catch { /* optional browser capability */ }
+};
 const userTransport = () => window.dispatchEvent(new Event(AUDIO_TRANSPORT_EVENT));
 type Props = {
   audioSrc: string; title: string; isFirst: boolean; isLast: boolean; audioAvailable: boolean;
@@ -26,7 +34,24 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
   const [repeatCount, setRepeatCount] = useState(1);
   const repetition = useRef(0);
   const autoplay = useRef(false);
+  const playingRef = useRef(false);
+  const navRef = useRef({ onNext, onPrev });
+  playingRef.current = playing;
+  navRef.current = { onNext, onPrev };
   const [error, setError] = useState("");
+
+  // A recording that never starts must end in a message and a retry, not an endless spinner.
+  // Only while a recording has not started playing: normal buffering mid-chant must never be cut off.
+  useEffect(() => {
+    if (!loading || playing) return;
+    const timer = setTimeout(() => {
+      autoplay.current = false;
+      elementRef.current?.pause();
+      setLoading(false); setPlaying(false);
+      setError("This recording is taking too long. Check your connection, then tap Play to try again.");
+    }, LOAD_TIMEOUT_MS);
+    return () => clearTimeout(timer);
+  }, [loading, playing, elementRef]);
 
   useEffect(() => {
     let alive = true;
@@ -62,16 +87,21 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
   const play = useCallback(async () => {
     const audio = elementRef.current;
     if (!audio || !audio.src) return;
-    try { setError(""); setLoading(true); await audio.play(); }
+    try {
+      setError(""); setLoading(true);
+      if (audio.error) { setAudioAvailable(true); audio.load(); }
+      await audio.play();
+    }
     catch (e) {
       if (e instanceof DOMException && e.name === "AbortError") return;
       setLoading(false); setPlaying(false); setError("Playback did not start. Tap Play to try again.");
     }
-  }, [elementRef]);
-  const pause = useCallback(() => { elementRef.current?.pause(); setLoading(false); mediaState("paused"); }, [elementRef]);
-  const stop = useCallback(() => { userTransport(); pause(); if (elementRef.current) elementRef.current.currentTime = 0; setPosition(0); repetition.current = 0; autoplay.current = false; }, [pause, elementRef]);
-  const next = useCallback(() => { userTransport(); if (!isLast) { autoplay.current = playing; onNext(); } }, [isLast, onNext, playing]);
-  const prev = useCallback(() => { userTransport(); autoplay.current = false; if (!isFirst) onPrev(); }, [isFirst, onPrev]);
+  }, [elementRef, setAudioAvailable]);
+  const pause = useCallback(() => { elementRef.current?.pause(); setLoading(false); mediaState("paused"); mediaPosition(elementRef.current); }, [elementRef]);
+  const stop = useCallback(() => { userTransport(); pause(); if (elementRef.current) elementRef.current.currentTime = 0; setPosition(0); repetition.current = 0; autoplay.current = false; mediaPosition(elementRef.current); }, [pause, elementRef]);
+  // Keep MediaSession action handlers stable across play/pause transitions so iOS Lock Screen never loses the play handler while backgrounded.
+  const next = useCallback(() => { userTransport(); if (!isLast) { autoplay.current = playingRef.current; navRef.current.onNext(); } }, [isLast]);
+  const prev = useCallback(() => { userTransport(); autoplay.current = false; if (!isFirst) navRef.current.onPrev(); }, [isFirst]);
   const toggle = useCallback(() => {
     userTransport();
     if (playing || loading) pause();
@@ -90,7 +120,7 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
     for (const [action, handler] of actions) { try { navigator.mediaSession.setActionHandler(action, handler); } catch { /* optional browser capability */ } }
     return () => { for (const [action] of actions) { try { navigator.mediaSession.setActionHandler(action, null); } catch { /* optional */ } } };
   }, [title, isFirst, isLast, prev, next, play, pause, stop]);
-  useEffect(() => { if (elementRef.current) elementRef.current.playbackRate = rate; }, [rate, source, elementRef]);
+  useEffect(() => { if (elementRef.current) { elementRef.current.playbackRate = rate; mediaPosition(elementRef.current); } }, [rate, source, elementRef]);
 
   useEffect(() => {
     const player = playerRef.current;
@@ -120,9 +150,9 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
       <div className="player-inner">
         <audio ref={elementRef} src={source} preload="metadata"
           onWaiting={() => setLoading(true)} onCanPlay={() => { setLoading(false); if (autoplay.current) { autoplay.current = false; void play(); } }}
-          onPlay={() => { setPlaying(true); setLoading(false); mediaState("playing"); }} onPause={() => { setPlaying(false); mediaState("paused"); }}
-          onTimeUpdate={(e) => setPosition(e.currentTarget.currentTime)} onDurationChange={(e) => setDuration(Number.isFinite(e.currentTarget.duration) ? e.currentTarget.duration : 0)}
-          onEnded={ended} onError={() => { if (!source) return; userTransport(); setAudioAvailable(false); setPlaying(false); setLoading(false); setError("Audio unavailable. Check your connection or download this verse for offline use."); }} />
+          onPlay={(e) => { setPlaying(true); setLoading(false); mediaState("playing"); mediaPosition(e.currentTarget); }} onPause={(e) => { setPlaying(false); mediaState("paused"); mediaPosition(e.currentTarget); }}
+          onTimeUpdate={(e) => setPosition(e.currentTarget.currentTime)} onDurationChange={(e) => { setDuration(Number.isFinite(e.currentTarget.duration) ? e.currentTarget.duration : 0); mediaPosition(e.currentTarget); }}
+          onEnded={ended} onError={() => { if (!source) return; autoplay.current = false; userTransport(); setAudioAvailable(false); setPlaying(false); setLoading(false); setError("Audio unavailable. Check your connection or download this verse for offline use."); }} />
         <div className="player-main">
           <button className="icon-button" aria-label={expanded ? "Collapse audio controls" : "Expand audio controls"} aria-expanded={expanded} aria-controls="audio-options" onClick={() => setExpanded(!expanded)}>{expanded ? <ChevronDown className="h-5 w-5" /> : <ChevronUp className="h-5 w-5" />}</button>
           <div className="min-w-0 flex-1"><p className="truncate text-sm font-semibold">{title}</p><p className="study-muted text-xs tabular-nums">{loading ? "Loading recording…" : `${formatTime(position)} / ${formatTime(duration)}`}</p></div>
@@ -132,7 +162,7 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
         </div>
         {expanded && <div id="audio-options" className="player-options">
           <div className="relative flex h-11 items-center">
-            <input className="peer absolute inset-0 z-10 h-full w-full cursor-pointer opacity-0" aria-label="Audio position" aria-valuetext={`${formatTime(position)} of ${formatTime(duration)}`} type="range" min={0} max={duration || 1} step={0.05} value={Math.min(position, duration || 1)} disabled={!duration} onChange={(e) => { userTransport(); if (elementRef.current) elementRef.current.currentTime = Number(e.target.value); setPosition(Number(e.target.value)); }} />
+            <input className="peer absolute inset-0 z-10 h-full w-full cursor-pointer opacity-0" aria-label="Audio position" aria-valuetext={`${formatTime(position)} of ${formatTime(duration)}`} type="range" min={0} max={duration || 1} step={0.05} value={Math.min(position, duration || 1)} disabled={!duration} onChange={(e) => { userTransport(); if (elementRef.current) { elementRef.current.currentTime = Number(e.target.value); mediaPosition(elementRef.current); } setPosition(Number(e.target.value)); }} />
             <div className="pointer-events-none h-1.5 w-full overflow-hidden rounded-full bg-[var(--study-accent)] peer-focus-visible:ring-2 peer-focus-visible:ring-[var(--study-ink)]"><div className="h-full bg-[var(--study-ink)]" style={{ width: `${pct}%` }} /></div>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-2">
