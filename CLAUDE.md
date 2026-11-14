@@ -40,22 +40,22 @@ Optional cloud sync (`src/lib/progress-sync.ts`, Firestore adapter in `src/lib/f
 Single-page app. Composes `ShlokaCard` (content display with swipe navigation and 4 progress pills) and `AudioPlayer` (fixed bottom bar with loop modes and iOS autoplay handling). Keyboard arrow keys and touch swipes navigate between shlokas.
 
 ### Data Layer (`src/lib/shlokas.ts`)
-108 shloka objects with: id (GS-001..GS-108), chapter/verse reference, Sanskrit (Devanagari), transliteration, English translation, audio path, and reflection prompt. Audio files live in `public/audio/` as `<chapter>.<verse>.mp3` (64 kbps mono, re-encoded from the originals, which are kept in gitignored `audio-src/verses-original/`; durations match so saved line cues still line up).
+108 shloka objects with: id (GS-001..GS-108), chapter/verse reference, Sanskrit (Devanagari, search only), transliteration, English translation, audio path, and reflection prompt. Audio files live in `public/audio/` as `<chapter>.<verse>.mp3` (64 kbps mono, re-encoded from the originals, which are kept in gitignored `audio-src/verses-original/`; durations match so saved line cues still line up).
 
 ### Lazy data loading
 The picker, go-to box, previous/next and the purport button read `src/data/verse-index.json` (via `src/lib/verse-index.ts`): a 7 KB reference-only index of all 657 verses with purport availability. Regenerate it with `node scripts/build-verse-index.mjs` after editing `src/data/`; a unit test fails when it is stale. Chapter text and purports download only when a verse/purport is opened, through `createChapterLoader` in `src/lib/gita-verses.ts` (de-duplicated, 3 at a time, failures retry). The service worker precaches only the app shell; chapters and purports a learner has opened are saved in `gita-chapters-v1` and work offline. The line-practice, verse-study and offline-download tools are a separate chunk loaded on first open and prefetched at idle once the worker controls the page (so they are also cached offline).
 
 ### API Routes
-Minimal demo endpoints at `/api/echo` and `/api/status`. Server helpers in `src/lib/server/` provide `routeHandler()` wrapper, JSON envelope helpers (`jsonOk`/`jsonError`), and Zod validation utilities. Tests cover these server utilities.
+The only routes are the static `/api/chapters/[chapter]` and `/api/purports/[chapter]` data endpoints. Server helpers in `src/lib/server/` provide `routeHandler()` wrapper, JSON envelope helpers (`jsonOk`/`jsonError`), and Zod validation utilities. Tests cover these server utilities.
 
 ### Chapter audio (`/chapters`)
 "All Chapter Audios": full-screen player + chapter list (`src/components/chapter-audios.tsx`, pure rules in `src/lib/chapter-audio.ts`, durations in `src/data/chapter-audio.json`). Resume positions are per user in localStorage (`gita-chapter-audio-v1:<uid>`). The 18 files (64 kbps mono, ~400 MB) are **not in git**: they live in the Cloudflare R2 bucket `bhagavad-gita-audio` behind `https://108-imp-slogas-audio.peacockindia.in` and are selected by `NEXT_PUBLIC_CHAPTER_AUDIO_BASE` (build-time; set in Vercel, falls back to `/chapter-audio` in dev). Masters live in gitignored `audio-src/`; encoded copies in gitignored `public/chapter-audio/`. The service worker only handles same-origin `/audio/`, so chapter audio streams and is not available offline.
 
 ### PWA
-Service worker (`public/sw.js`) caches shell assets and uses network-first for audio. Manifest at `public/manifest.webmanifest`. App is installable with offline fallback.
+Service worker (`public/sw.js`) caches shell assets and serves audio cache-first when a verse was downloaded for offline use, otherwise streams it from the network. Manifest at `public/manifest.webmanifest`. App is installable with offline fallback.
 
 ### Content Modes
-Three display modes toggled at runtime: transliteration (Roman), English (with translation author), Sanskrit (Devanagari via Noto Sans Devanagari font).
+Three display modes toggled at runtime (`CONTENT_TABS` in `src/lib/constants.ts`): transliteration (Roman), English (with translation author) and Tamil. A saved legacy `sanskrit` mode is migrated to Tamil. The Devanagari text exists in the data and is used for search only; it is not displayed.
 
 ## Build Notes
 

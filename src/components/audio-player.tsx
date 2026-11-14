@@ -6,6 +6,7 @@ import { downloadedAudio, hasDownloadedAudio } from "@/lib/offline-audio";
 import { AUDIO_TRANSPORT_EVENT } from "@/lib/line-practice";
 
 const mediaState = (state: "playing" | "paused") => { if ("mediaSession" in navigator) navigator.mediaSession.playbackState = state; };
+const LOAD_TIMEOUT_MS = 15_000;
 export const mediaPosition = (audio: HTMLAudioElement | null) => {
   if (!audio || !("mediaSession" in navigator) || typeof navigator.mediaSession.setPositionState !== "function") return;
   if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
@@ -38,6 +39,19 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
   playingRef.current = playing;
   navRef.current = { onNext, onPrev };
   const [error, setError] = useState("");
+
+  // A recording that never starts must end in a message and a retry, not an endless spinner.
+  // Only while a recording has not started playing: normal buffering mid-chant must never be cut off.
+  useEffect(() => {
+    if (!loading || playing) return;
+    const timer = setTimeout(() => {
+      autoplay.current = false;
+      elementRef.current?.pause();
+      setLoading(false); setPlaying(false);
+      setError("This recording is taking too long. Check your connection, then tap Play to try again.");
+    }, LOAD_TIMEOUT_MS);
+    return () => clearTimeout(timer);
+  }, [loading, playing, elementRef]);
 
   useEffect(() => {
     let alive = true;
@@ -138,7 +152,7 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
           onWaiting={() => setLoading(true)} onCanPlay={() => { setLoading(false); if (autoplay.current) { autoplay.current = false; void play(); } }}
           onPlay={(e) => { setPlaying(true); setLoading(false); mediaState("playing"); mediaPosition(e.currentTarget); }} onPause={(e) => { setPlaying(false); mediaState("paused"); mediaPosition(e.currentTarget); }}
           onTimeUpdate={(e) => setPosition(e.currentTarget.currentTime)} onDurationChange={(e) => { setDuration(Number.isFinite(e.currentTarget.duration) ? e.currentTarget.duration : 0); mediaPosition(e.currentTarget); }}
-          onEnded={ended} onError={() => { if (!source) return; userTransport(); setAudioAvailable(false); setPlaying(false); setLoading(false); setError("Audio unavailable. Check your connection or download this verse for offline use."); }} />
+          onEnded={ended} onError={() => { if (!source) return; autoplay.current = false; userTransport(); setAudioAvailable(false); setPlaying(false); setLoading(false); setError("Audio unavailable. Check your connection or download this verse for offline use."); }} />
         <div className="player-main">
           <button className="icon-button" aria-label={expanded ? "Collapse audio controls" : "Expand audio controls"} aria-expanded={expanded} aria-controls="audio-options" onClick={() => setExpanded(!expanded)}>{expanded ? <ChevronDown className="h-5 w-5" /> : <ChevronUp className="h-5 w-5" />}</button>
           <div className="min-w-0 flex-1"><p className="truncate text-sm font-semibold">{title}</p><p className="study-muted text-xs tabular-nums">{loading ? "Loading recording…" : `${formatTime(position)} / ${formatTime(duration)}`}</p></div>

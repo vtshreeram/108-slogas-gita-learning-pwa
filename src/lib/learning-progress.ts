@@ -163,7 +163,7 @@ export function loadState(storage: Stashable, today: string = todayIso()): LoadR
 function stash(storage: Stashable, raw: string) {
   try {
     if (storage.stashCorrupt) storage.stashCorrupt(raw);
-    else if (typeof localStorage !== "undefined") localStorage.setItem(CORRUPT_STORAGE_KEY, raw);
+    else if (typeof localStorage !== "undefined" && localStorage.getItem(CORRUPT_STORAGE_KEY) === null) localStorage.setItem(CORRUPT_STORAGE_KEY, raw);
   } catch { /* best effort */ }
 }
 
@@ -177,25 +177,25 @@ export function markStep(prev: AppState, id: string, step: LoopStep, today: stri
   const current = prev.completed[id] ?? defaultStepProgress();
   const isMarkingTrue = !current[step];
   const updated = { ...current, [step]: isMarkingTrue };
-  let { lastPracticeDate, streakCount } = prev;
-  const isRecall = step === "recall" && isMarkingTrue;
-  if (isRecall) {
+  let { lastPracticeDate, streakCount, recallAttempts, recallWins } = prev;
+  const isRecall = step === "recall";
+  if (isRecall && isMarkingTrue) {
     if (lastPracticeDate !== today) {
-      streakCount = daysBetween(lastPracticeDate, today) === 1 ? (prev.streakCount || 0) + 1 : 1;
+      const gap = daysBetween(lastPracticeDate, today);
+      streakCount = gap === 1 ? (prev.streakCount || 0) + 1 : gap < 0 ? Math.max(1, prev.streakCount) : 1;
     }
     lastPracticeDate = today;
+    // A verse already completed on an earlier day is a repeat, not a new attempt, so re-checking it cannot inflate the win rate.
+    if (!prev.completionDates[id]) { recallAttempts += 1; recallWins += 1; }
+  } else if (isRecall && (!prev.completionDates[id] || prev.completionDates[id] === today)) {
+    // Unchecking Recall reverses the attempt it earned: on a verse not yet completed, or completed today.
+    recallAttempts = Math.max(0, recallAttempts - 1);
+    recallWins = Math.max(0, recallWins - 1);
   }
-  const next = {
-    ...prev,
-    completed: { ...prev.completed, [id]: updated },
-    recallAttempts: isRecall ? prev.recallAttempts + 1 : prev.recallAttempts,
-    recallWins: isRecall ? prev.recallWins + 1 : prev.recallWins,
-    lastPracticeDate,
-    streakCount,
-  };
+  const next = { ...prev, completed: { ...prev.completed, [id]: updated }, recallAttempts, recallWins, lastPracticeDate, streakCount };
   if (fullDone(updated) && !fullDone(current)) return recordCompletion(next, id, today);
-  // Unchecking a completed step also undoes today's earned completion.
-  if (!fullDone(updated) && fullDone(current)) {
+  // Unchecking only undoes a completion earned today; an older verse keeps its schedule.
+  if (!fullDone(updated) && fullDone(current) && prev.completionDates[id] === today) {
     const completionDates = { ...next.completionDates };
     const reviews = { ...next.reviews };
     delete completionDates[id];
@@ -249,7 +249,11 @@ export function addDays(today: string, days: number): string {
 }
 
 function recordPractice(prev: AppState, today: string): AppState {
-  return { ...prev, lastPracticeDate: today, streakCount: prev.lastPracticeDate === today ? prev.streakCount : daysBetween(prev.lastPracticeDate, today) === 1 ? prev.streakCount + 1 : 1 };
+  if (prev.lastPracticeDate === today) return prev;
+  const gap = daysBetween(prev.lastPracticeDate, today);
+  // A negative gap means the clock moved backwards (travel, manual change): keep the streak.
+  const streakCount = gap === 1 ? prev.streakCount + 1 : gap < 0 ? Math.max(1, prev.streakCount) : 1;
+  return { ...prev, lastPracticeDate: today, streakCount };
 }
 
 function recordCompletion(prev: AppState, id: string, today: string): AppState {

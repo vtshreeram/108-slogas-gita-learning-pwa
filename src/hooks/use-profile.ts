@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { User } from "firebase/auth";
-import { profileSchema } from "@/lib/schemas";
+import { cleanFavorites, profileSchema } from "@/lib/schemas";
 
 export type ProfileData = {
   customName: string | null;
@@ -43,7 +43,7 @@ export function useProfile(user: User | null) {
       if (raw) {
         const validated = profileSchema.safeParse(JSON.parse(raw));
         if (validated.success) {
-          next = validated.data;
+          next = { ...validated.data, favorites: cleanFavorites(validated.data.favorites) };
           if (adopted) localStorage.setItem(PROFILE_CLAIM_KEY, uid);
         } else {
           console.warn("Failed to validate profile data:", validated.error);

@@ -135,4 +135,28 @@ describe("offline audio and app updates", () => {
       expect(await response.text()).toBe("[slow but whole]");
     } finally { vi.useRealTimers(); }
   });
+  it("waits for a slow network when no copy is saved instead of reporting offline", async () => {
+    vi.useFakeTimers();
+    try {
+      const { api, fetch, cache } = worker();
+      cache.match.mockResolvedValue(undefined);
+      cache.put.mockResolvedValue(undefined);
+      fetch.mockImplementation((_: unknown, init?: { signal?: AbortSignal }) => new Promise((resolve, reject) => {
+        init?.signal?.addEventListener("abort", () => reject(new Error("aborted")));
+        setTimeout(() => resolve(new Response("[late]")), 9000);
+      }));
+      const pending = api.chapterData(new Request("https://gita.test/api/chapters/5"));
+      await vi.advanceTimersByTimeAsync(9100);
+      const response = await pending;
+      expect(response.status).toBe(200);
+      expect(await response.text()).toBe("[late]");
+    } finally { vi.useRealTimers(); }
+  });
+  it("retries a failed shell download once before giving up", async () => {
+    const { api, fetch } = worker();
+    fetch.mockRejectedValueOnce(new Error("flaky")).mockResolvedValue(new Response("<html></html>"));
+    await expect(api.cacheShell()).resolves.toBeUndefined();
+    fetch.mockReset(); fetch.mockRejectedValue(new Error("down"));
+    await expect(api.cacheShell()).rejects.toThrow();
+  });
 });

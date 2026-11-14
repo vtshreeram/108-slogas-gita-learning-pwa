@@ -25,7 +25,7 @@ export function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
         {["Listen", "Repeat", "Understand", "Recall"].map((step, index) => <li key={step}><span>{index + 1}</span>{step}</li>)}
       </ol>
       <button className="study-button study-primary w-full" disabled={signingIn} onClick={() => void login()}>{signingIn ? "Signing in…" : "Sign in with Google"}</button>
-      <p className="study-muted mt-3 text-sm">Your learning progress is saved to your account on this device.</p>
+      <p className="study-muted mt-3 text-sm">{process.env.NEXT_PUBLIC_PROGRESS_SYNC === "1" ? "Your learning progress is saved to your account and kept in sync across your devices." : "Your learning progress is saved on this device only. Use Export backup in your profile to keep a copy."}</p>
       {error && <p className="mt-3 text-sm" role="alert">{error}</p>}
       <details className="sample-verse mt-8">
         <summary className="min-h-11 cursor-pointer py-3 font-semibold">Read a sample · Verse 2.47</summary>
