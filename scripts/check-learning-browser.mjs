@@ -5,7 +5,7 @@ const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright')
 const { default: AxeBuilder } = await import(process.env.AXE_MODULE || '@axe-core/playwright');
 await mkdir('test-results', { recursive: true });
 const base = process.env.GITA_BASE_URL || 'http://localhost:3002';
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, args: ['--disable-features=HardwareMediaKeyHandling,MediaSessionService'] });
 const context = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true });
 const uid = 'local-e2e-learner';
 const apiKey = (await readFile('src/lib/firebase.ts', 'utf8')).match(/apiKey: "([^"]+)/)[1];
@@ -65,6 +65,7 @@ assert(await page.getByRole('button',{name:'Read all',exact:true}).getAttribute(
 await page.getByRole('button',{name:'Learn 108',exact:true}).click();await findVerse('1.1');
 await page.getByRole('button',{name:'English',exact:true}).click();await page.getByRole('button',{name:'Read purport',exact:true}).click();
 const purport=page.getByRole('region',{name:'Purport',exact:true});
+await purport.getByText('Purport by A.C. Bhaktivedanta Swami Prabhupada').waitFor();
 assert(await purport.evaluate(el=>getComputedStyle(el).maxHeight==='none'&&getComputedStyle(el).overflowY==='visible'),'Purport has a nested scroll container');
 await purport.locator('p').first().scrollIntoViewIfNeeded();const before=await page.evaluate(()=>scrollY);await page.mouse.move(195,420);await page.mouse.wheel(0,500);await page.waitForTimeout(200);assert(await page.evaluate(()=>scrollY)>before,'Scrolling the purport does not move the page');
 await capture('reading-purport');await axeCheck('Expanded purport');
