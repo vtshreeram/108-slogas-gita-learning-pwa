@@ -11,6 +11,7 @@ const notoSansTamil = Noto_Sans_Tamil({
 });
 import "./globals.css";
 import { DevTools } from "@/components/dev-tools";
+import { ErrorReporter } from "@/components/error-reporter";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PwaUpdates } from "@/components/pwa-updates";
 import { LearningProvider } from "@/components/learning-provider";
@@ -82,6 +83,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ErrorReporter />
           <a className="skip-link" href="#main-content">Skip to content</a>
           <LearningProvider>
             <PwaUpdates />

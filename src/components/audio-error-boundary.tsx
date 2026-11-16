@@ -2,6 +2,7 @@
 
 import React, { ReactNode } from "react";
 import { AlertCircle } from "lucide-react";
+import { reportError } from "@/lib/report-error";
 
 type Props = {
   children: ReactNode;
@@ -28,6 +29,7 @@ export class AudioErrorBoundary extends React.Component<Props, State> {
 
   componentDidCatch(error: Error) {
     console.error("AudioErrorBoundary caught an error:", error);
+    reportError(error, "audio-boundary");
   }
 
   render() {
