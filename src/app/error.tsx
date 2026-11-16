@@ -1,9 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
+import { reportError } from "@/lib/report-error";
 import { requiresPageReload } from "@/lib/runtime-recovery";
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   const needsReload = requiresPageReload(error);
+  useEffect(() => { reportError(error, "route-boundary"); }, [error]);
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#f2e8d0] dark:bg-[#15100a] px-4">
       <div className="max-w-sm w-full text-center space-y-4">
