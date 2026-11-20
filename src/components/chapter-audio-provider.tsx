@@ -110,6 +110,7 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current;
     if (!audio?.src) return;
     setEngaged(true);
+    setSleep((t) => (sleepExpired(t, Date.now()) ? null : t)); // a timer that ran out while paused must not stop this Play
     try { setError(""); setLoading(true); if (audio.error) { loaded.current = false; audio.load(); } await audio.play(); }
     catch (e) { if (e instanceof DOMException && e.name === "AbortError") return; setLoading(false); setPlaying(false); setError("Playback did not start. Tap Play to try again."); }
   }, []);
