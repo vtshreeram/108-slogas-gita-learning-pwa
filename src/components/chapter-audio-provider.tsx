@@ -81,8 +81,8 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     loaded.current = false;
     audioRef.current?.pause();
+    if (audioOwner() === "chapter" && "mediaSession" in navigator) navigator.mediaSession.metadata = null;
     releaseAudioFocus("chapter");
-    if ("mediaSession" in navigator) navigator.mediaSession.metadata = null;
     setPlaying(false); setLoading(false); setEngaged(false); setError(""); setSleep(null); setPosition(0);
     autoplay.current = false;
     if (!positionsKey || !lastKey) { setReady(false); return; }
@@ -110,11 +110,10 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current;
     if (!audio?.src) return;
     setEngaged(true);
-    try { setError(""); setLoading(true); if (audio.error) audio.load(); await audio.play(); }
+    try { setError(""); setLoading(true); if (audio.error) { loaded.current = false; audio.load(); } await audio.play(); }
     catch (e) { if (e instanceof DOMException && e.name === "AbortError") return; setLoading(false); setPlaying(false); setError("Playback did not start. Tap Play to try again."); }
   }, []);
-  // A paused timed sleep would expire while paused and stop the next Play at once, so pausing cancels it ("end of chapter" stays).
-  const pause = useCallback(() => { autoplay.current = false; audioRef.current?.pause(); setLoading(false); setSleep((s) => (s?.choice === "end" ? s : null)); }, []);
+  const pause = useCallback(() => { autoplay.current = false; audioRef.current?.pause(); setLoading(false); }, []);
   const seek = useCallback((to: number) => {
     const a = audioRef.current;
     if (!a) return;
@@ -132,11 +131,13 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
     setError(""); setPosition(resumeAt(positionsRef.current, target.chapter)); setDuration(target.seconds); setPlaying(false); setLoading(startPlaying);
     setChapter(target);
   }, [chapter, persist, play]);
-  const retry = useCallback(() => { setError(""); audioRef.current?.load(); void play(); }, [play]);
+  const retry = useCallback(() => { setError(""); loaded.current = false; audioRef.current?.load(); void play(); }, [play]);
   const toggle = useCallback(() => { if (error) retry(); else if (playing || loading) pause(); else void play(); }, [error, retry, playing, loading, pause, play]);
   const dismiss = useCallback(() => {
-    pause(); setEngaged(false); setSleep(null); releaseAudioFocus("chapter");
-    if ("mediaSession" in navigator) navigator.mediaSession.metadata = null;
+    pause(); setEngaged(false); setSleep(null);
+    // Only clear the Lock Screen when it shows this chapter, never while a verse owns it.
+    if (audioOwner() === "chapter" && "mediaSession" in navigator) navigator.mediaSession.metadata = null;
+    releaseAudioFocus("chapter");
   }, [pause]);
   const cycleRate = useCallback(() => setRate((r) => cycleOption(SPEED_OPTIONS, r)), []);
   const cycleSleep = useCallback(() => setSleep((s) => nextSleep(s, Date.now())), []);
@@ -195,7 +196,8 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
       onLoadedMetadata={(e) => { const a = e.currentTarget; loaded.current = true; lastSaved.current = resumeAt(positionsRef.current, chapter.chapter); setDuration(Number.isFinite(a.duration) ? a.duration : chapter.seconds); const at = resumeAt(positionsRef.current, chapter.chapter); if (at && at < a.duration) { a.currentTime = at; setPosition(at); } chapterPosition(a); }}
       onWaiting={() => setLoading(true)} onCanPlay={() => { setLoading(false); if (autoplay.current) { autoplay.current = false; void play(); } }}
       onPlay={(e) => { claimAudioFocus("chapter"); setPlaying(true); setLoading(false); chapterPosition(e.currentTarget); }}
-      onPause={(e) => { setPlaying(false); const a = e.currentTarget; if (a.currentTime) persist(a.currentTime, a.duration); chapterPosition(a); }}
+      // Any pause (button, Lock Screen, phone call) cancels a timed sleep: it would expire while paused and stop the next Play at once. "End of chapter" stays.
+      onPause={(e) => { setPlaying(false); setSleep((s) => (s?.choice === "end" ? s : null)); const a = e.currentTarget; if (a.currentTime) persist(a.currentTime, a.duration); chapterPosition(a); }}
       onTimeUpdate={(e) => {
         const t = e.currentTarget.currentTime;
         setPosition(t);
