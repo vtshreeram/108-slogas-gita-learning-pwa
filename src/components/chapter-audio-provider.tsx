@@ -196,8 +196,9 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
       onLoadedMetadata={(e) => { const a = e.currentTarget; loaded.current = true; lastSaved.current = resumeAt(positionsRef.current, chapter.chapter); setDuration(Number.isFinite(a.duration) ? a.duration : chapter.seconds); const at = resumeAt(positionsRef.current, chapter.chapter); if (at && at < a.duration) { a.currentTime = at; setPosition(at); } chapterPosition(a); }}
       onWaiting={() => setLoading(true)} onCanPlay={() => { setLoading(false); if (autoplay.current) { autoplay.current = false; void play(); } }}
       onPlay={(e) => { claimAudioFocus("chapter"); setPlaying(true); setLoading(false); chapterPosition(e.currentTarget); }}
-      // Any pause (button, Lock Screen, phone call) cancels a timed sleep: it would expire while paused and stop the next Play at once. "End of chapter" stays.
-      onPause={(e) => { setPlaying(false); setSleep((s) => (s?.choice === "end" ? s : null)); const a = e.currentTarget; if (a.currentTime) persist(a.currentTime, a.duration); chapterPosition(a); }}
+      // A real pause (button, Lock Screen, phone call) cancels a timed sleep: it would expire while paused and stop the next Play at once.
+      // Not the pause browsers fire at the end of a chapter or while switching chapters, and never "end of chapter".
+      onPause={(e) => { setPlaying(false); if (!e.currentTarget.ended && loaded.current) setSleep((s) => (s?.choice === "end" ? s : null)); const a = e.currentTarget; if (a.currentTime) persist(a.currentTime, a.duration); chapterPosition(a); }}
       onTimeUpdate={(e) => {
         const t = e.currentTarget.currentTime;
         setPosition(t);
