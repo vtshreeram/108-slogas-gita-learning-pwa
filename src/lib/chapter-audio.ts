@@ -70,3 +70,29 @@ export function formatLength(seconds: number) {
   const minutes = Math.round(seconds / 60);
   return minutes >= 60 ? `${Math.floor(minutes / 60)} h ${minutes % 60} min` : `${minutes} min`;
 }
+
+/** How far into a chapter the learner is (0-100), from the saved resume position. */
+export function chapterProgress(positions: Positions, chapter: number, seconds: number) {
+  const at = resumeAt(positions, chapter);
+  return seconds > 0 && at > 0 ? Math.min(100, Math.round((at / seconds) * 100)) : 0;
+}
+
+/** Sleep timer: minutes, or "end" to stop when the current chapter finishes. */
+export type SleepChoice = 15 | 30 | 60 | "end";
+export const SLEEP_OPTIONS: readonly (SleepChoice | null)[] = [null, 15, 30, 60, "end"];
+export type SleepTimer = { choice: Exclude<SleepChoice, "end">; until: number } | { choice: "end" } | null;
+
+/** The next timer when the learner taps the sleep button (off → 15 → 30 → 60 min → end of chapter → off). */
+export function nextSleep(timer: SleepTimer, now: number): SleepTimer {
+  const choice = SLEEP_OPTIONS[(SLEEP_OPTIONS.indexOf(timer?.choice ?? null) + 1) % SLEEP_OPTIONS.length];
+  if (choice === null) return null;
+  return choice === "end" ? { choice } : { choice, until: now + choice * 60_000 };
+}
+export const sleepExpired = (timer: SleepTimer, now: number) => !!timer && timer.choice !== "end" && now >= timer.until;
+
+/** Short label for the sleep button: "Sleep", "12 min", "End of chapter". */
+export function sleepLabel(timer: SleepTimer, now: number) {
+  if (!timer) return "Sleep";
+  if (timer.choice === "end") return "End of chapter";
+  return `${Math.max(1, Math.ceil((timer.until - now) / 60_000))} min`;
+}

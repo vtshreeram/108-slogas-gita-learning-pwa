@@ -2,13 +2,14 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { Headphones, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SHLOKAS } from "@/lib/shlokas";
 import { Dialog, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ShlokaCard } from "@/components/shloka-card";
 import { AudioPlayer } from "@/components/audio-player";
-import { LoaderQuote } from "@/components/loader-quote";
+import { AppLoader } from "@/components/app-loader";
 import { LoginScreen } from "@/components/login-screen";
 import { DialogCard } from "@/components/dialog-card";
 import { AudioErrorBoundary } from "@/components/audio-error-boundary";
@@ -116,7 +117,7 @@ export default function Home() {
     return () => window.removeEventListener("keydown", onKey);
   }, [navigate]);
 
-  if (checking || (user && !ready)) return <LoaderQuote />;
+  if (checking || (user && !ready)) return <AppLoader />;
   if (!user) return <LoginScreen onSignIn={signIn} />;
 
   return <main id="main-content" className="reading-page">
@@ -126,7 +127,7 @@ export default function Home() {
         <div className="header-actions">
           <VersePicker current={current} favorites={profile.profile.favorites} completed={state.completed} onPick={pick} />
           <button className="icon-button theme-button" aria-label="Toggle theme" onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}>{resolvedTheme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}</button>
-          <a href="/profile" className="icon-button profile-avatar" aria-label="Open profile"><span aria-hidden="true">{profile.displayName.charAt(0).toUpperCase()}</span></a>
+          <Link href="/profile" className="icon-button profile-avatar" aria-label="Open profile"><span aria-hidden="true">{profile.displayName.charAt(0).toUpperCase()}</span></Link>
         </div>
       </header>
       <div className="reader-toolbar">
@@ -134,10 +135,10 @@ export default function Home() {
           <button aria-pressed={!readAll} onClick={leaveReading}>Learn 108</button>
           <button aria-pressed={readAll} onClick={() => { requestSeq.current++; lastRequested.current = null; setReadingVerse({ ...active, important: true }); setReadAll(true); }}>Read all</button>
         </div>
-        <a className="study-button" href="/chapters"><Headphones className="h-4 w-4" aria-hidden="true" />All Chapter Audios</a>
+        <Link className="study-button" href="/chapters"><Headphones className="h-4 w-4" aria-hidden="true" />All Chapter Audios</Link>
       </div>
       {!readAll && <ReviewQueue hideWhenEmpty due={dueReviews} reviews={state.reviews} onRate={rateRecall} onJump={jumpToLearn} />}
-      {learnedToday >= dailyGoal && !keepReading && <aside className="session-complete" role="status"><p className="font-semibold">Today’s practice is complete.</p><p className="study-muted mt-1 text-sm">Rest here, or stay with the verses a little longer.</p><div className="mt-3 flex flex-wrap gap-2"><button className="study-button" onClick={() => setKeepReading(true)}>Keep reading</button><a className="study-button" href="/profile">Finish for today</a></div></aside>}
+      {learnedToday >= dailyGoal && !keepReading && <aside className="session-complete" role="status"><p className="font-semibold">Today’s practice is complete.</p><p className="study-muted mt-1 text-sm">Rest here, or stay with the verses a little longer.</p><div className="mt-3 flex flex-wrap gap-2"><button className="study-button" onClick={() => setKeepReading(true)}>Keep reading</button><Link className="study-button" href="/profile">Finish for today</Link></div></aside>}
       {readAll && navStatus.state === "loading" && <p className="study-muted text-sm" role="status">Opening verse…</p>}
       {readAll && navStatus.state === "error" && <p className="text-sm" role="alert">{navStatus.message} <button className="underline underline-offset-4" onClick={() => void openVerse(navStatus.retryIndex ?? 0)}>Try again</button></p>}
       <ShlokaCard verse={current} contentMode={state.contentMode} setContentMode={setContentMode} isFavorite={profile.isFavorite(current.id)} onToggleFavorite={() => profile.toggleFavorite(current.id)} isFirst={readAll ? readFirst : isFirst} isLast={readAll ? readLast : isLast} onNext={() => navigate(1)} onPrev={() => navigate(-1)} />
