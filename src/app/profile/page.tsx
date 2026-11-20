@@ -1,13 +1,14 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- Document navigation allows the service worker to serve cached route HTML offline. */
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useTheme } from "next-themes";
-import { ArrowLeft, Download, Upload, LogOut, Star, BookOpen } from "lucide-react";
+import { Download, Upload, LogOut, Star, BookOpen } from "lucide-react";
 import { useLearning } from "@/components/learning-provider";
 import { LoginScreen } from "@/components/login-screen";
-import { LoaderQuote } from "@/components/loader-quote";
+import { AppLoader } from "@/components/app-loader";
+import { PageHeader } from "@/components/page-header";
 import { SaveStatus } from "@/components/save-status";
 import { ReviewQueue } from "@/components/review-queue";
 import { useBackupRestore } from "@/hooks/use-backup-restore";
@@ -41,7 +42,7 @@ export default function ProfilePage() {
     ...(streak >= 30 ? ["30-day practice streak"] : []),
   ];
 
-  if (checking || (user && !ready)) return <LoaderQuote />;
+  if (checking || (user && !ready)) return <AppLoader />;
   if (!user) return <LoginScreen onSignIn={signIn} />;
 
   async function logout() {
@@ -50,14 +51,15 @@ export default function ProfilePage() {
     catch { setSignOutError("Could not sign out. Please try again."); setSigningOut(false); }
   }
 
-  return <main id="main-content" className="profile-page">
+  return <main id="main-content" className="inner-page profile-page">
+    <PageHeader title="Your profile" />
     <div className="reading-shell">
-      <header className="app-header"><a className="study-button" href="/"><ArrowLeft className="h-4 w-4" aria-hidden="true" />Back to reading</a><span className="eyebrow">Your practice</span></header>
       <section className="profile-intro">
         <div className="profile-initial" aria-hidden="true">{displayName.charAt(0).toUpperCase()}</div>
-        <h1 className="font-serif text-3xl">Your profile</h1>
-        {editing ? <form className="my-3 space-y-3" onSubmit={(e) => { e.preventDefault(); setCustomName(name); setEditing(false); }}><label htmlFor="display-name" className="block text-sm">Display name</label><input id="display-name" className="study-input w-full" value={name} maxLength={80} onChange={(e) => setName(e.target.value)} autoFocus /><div className="flex gap-2"><button className="study-button study-primary" type="submit">Save name</button><button className="study-button" type="button" onClick={() => setEditing(false)}>Cancel</button></div></form> : <div className="mt-2 flex flex-wrap items-center gap-2"><p className="font-semibold">{displayName}</p><button className="text-action" onClick={() => { setName(displayName); setEditing(true); }}>Edit name</button></div>}
-        <p className="study-muted break-words text-sm">{user.email}</p><p className="study-muted mt-2 text-sm">Practicing since {joined}</p>
+        <div className="min-w-0 flex-1">
+        {editing ? <form className="my-3 space-y-3" onSubmit={(e) => { e.preventDefault(); setCustomName(name); setEditing(false); }}><label htmlFor="display-name" className="block text-sm">Display name</label><input id="display-name" className="study-input w-full" value={name} maxLength={80} onChange={(e) => setName(e.target.value)} autoFocus /><div className="flex gap-2"><button className="study-button study-primary" type="submit">Save name</button><button className="study-button" type="button" onClick={() => setEditing(false)}>Cancel</button></div></form> : <div className="flex flex-wrap items-center gap-x-2"><p className="text-lg font-semibold">{displayName}</p><button className="text-action" onClick={() => { setName(displayName); setEditing(true); }}>Edit name</button></div>}
+        <p className="study-muted break-words text-sm">{user.email}</p><p className="study-muted mt-1 text-sm">Practicing since {joined}</p>
+        </div>
       </section>
       <section className="profile-section" aria-labelledby="progress-heading">
         <h2 id="progress-heading" className="section-title">Your learning journey</h2>
@@ -74,7 +76,7 @@ export default function ProfilePage() {
       <section className="profile-section" aria-labelledby="library-heading">
         <h2 id="library-heading" className="section-title">Your verse library</h2>
         <div className="mode-switch my-4" role="group" aria-label="Your verse library"><button aria-pressed={collection === "learned"} onClick={() => setCollection("learned")}><BookOpen className="h-4 w-4" aria-hidden="true" />Learned ({completedCount})</button><button aria-pressed={collection === "favorites"} onClick={() => setCollection("favorites")}><Star className="h-4 w-4" aria-hidden="true" />Favorites ({favorites.length})</button></div>
-        {verses.length ? <ul className="divide-y divide-[var(--study-border)]">{verses.map((verse) => <li key={verse.id}><a href={`/?verse=${verse.id}`} className="verse-result"><span className="font-semibold">Verse {verse.reference}</span><span lang="sa-Latn" className="study-muted block text-sm">{verse.transliteration.split("\n")[0]}</span></a></li>)}</ul> : <p className="study-muted py-4 text-sm">{collection === "learned" ? "Your learned verses will appear here after practice." : "Tap the star beside a selected verse to save it here."}</p>}
+        {verses.length ? <ul className="divide-y divide-[var(--study-border)]">{verses.map((verse) => <li key={verse.id}><Link href={`/?verse=${verse.id}`} className="verse-result"><span className="font-semibold">Verse {verse.reference}</span><span lang="sa-Latn" className="study-muted block text-sm">{verse.transliteration.split("\n")[0]}</span></Link></li>)}</ul> : <p className="study-muted py-4 text-sm">{collection === "learned" ? "Your learned verses will appear here after practice." : "Tap the star beside a selected verse to save it here."}</p>}
       </section>
       <section className="profile-section" aria-labelledby="preferences-heading">
         <h2 id="preferences-heading" className="section-title">Practice preferences</h2>

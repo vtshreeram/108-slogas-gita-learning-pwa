@@ -15,6 +15,7 @@ import { ErrorReporter } from "@/components/error-reporter";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PwaUpdates } from "@/components/pwa-updates";
 import { LearningProvider } from "@/components/learning-provider";
+import { ChapterAudioProvider } from "@/components/chapter-audio-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -87,7 +88,7 @@ export default function RootLayout({
           <a className="skip-link" href="#main-content">Skip to content</a>
           <LearningProvider>
             <PwaUpdates />
-            {children}
+            <ChapterAudioProvider>{children}</ChapterAudioProvider>
           </LearningProvider>
           <DevTools />
         </ThemeProvider>
