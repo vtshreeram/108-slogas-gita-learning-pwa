@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { buildVerseIndex } from "../../../scripts/build-verse-index.mjs";
 import { SHLOKAS } from "../shlokas";
@@ -34,5 +34,10 @@ describe("verse index", () => {
     expect(hasPurport("1.1", "en")).toBe(true);
     expect(hasPurport("1.1", "ta")).toBe(true);
     expect(hasPurport("nope", "en")).toBe(false);
+  });
+
+  it("has a recording in public/audio for every verse, since the player shows on all of them", () => {
+    const missing = VERSE_INDEX.filter((v) => !existsSync(join(process.cwd(), "public/audio", `${v.reference}.mp3`))).map((v) => v.reference);
+    expect(missing).toEqual([]);
   });
 });
