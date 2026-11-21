@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { SHLOKAS, TOTAL_SHLOKAS, DAILY_TARGET, tamilCredit, TAMIL_TRANSLATION_AUTHOR } from "../shlokas";
 
@@ -39,11 +39,10 @@ describe("shloka dataset", () => {
     });
   });
 
-  it("has audio paths in /audio/*.mp3 format", () => {
+  it("has an audioSrc matching its reference and an existing file for every shloka", () => {
     for (const s of SHLOKAS) {
-      if (s.audioSrc) {
-        expect(s.audioSrc).toMatch(/^\/audio\/[\d.]+\.mp3$/);
-      }
+      expect(s.audioSrc, s.id).toBe(`/audio/${s.reference}.mp3`);
+      expect(existsSync(join(process.cwd(), "public", s.audioSrc!)), s.audioSrc).toBe(true);
     }
   });
 
