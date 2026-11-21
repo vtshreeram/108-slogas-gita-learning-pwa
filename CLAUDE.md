@@ -16,6 +16,7 @@ npm run test         # Vitest (run once)
 npm run test:watch   # Vitest (watch mode)
 npm run audio:fetch  # Fetch missing audio from YouTube via Python/yt-dlp
 npm run audio:verify # Verify audio file integrity
+npm run audio:fetch:all # Fetch per-verse audio for all 657 verses (links in requested-youtube-links-all.txt), then join verse ranges such as 1.16-18
 node scripts/build-chapter-audio.mjs # Re-encode audio-src/ chapter masters to 64 kbps and rebuild src/data/chapter-audio.json
 ```
 
