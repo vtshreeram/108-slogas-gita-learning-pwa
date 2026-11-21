@@ -34,6 +34,14 @@ def parse_links(path: Path) -> list[tuple[str, str]]:
     return pairs
 
 
+SHLOKA_REF_RE = re.compile(r'"reference":\s*"([^"]+)"')
+
+
+def shloka_references(path: Path) -> list[str]:
+    """References of the 108 shlokas; the app plays /audio/<reference>.mp3 for each."""
+    return SHLOKA_REF_RE.findall(path.read_text(encoding="utf-8"))
+
+
 def yt_dlp_command() -> list[str]:
     """The Python module when installed, otherwise a yt-dlp executable on PATH (e.g. Homebrew)."""
     import importlib.util
@@ -70,6 +78,7 @@ def main() -> int:
     parser.add_argument("--out-dir", default="public/audio", help="Destination directory")
     parser.add_argument("--missing-only", action="store_true", help="Skip files that already exist")
     parser.add_argument("--verify", action="store_true", help="Only verify expected files exist")
+    parser.add_argument("--shlokas", default="src/lib/shlokas.ts", help="Shloka data file checked by --verify")
     args = parser.parse_args()
 
     links_path = Path(args.links)
@@ -93,11 +102,21 @@ def main() -> int:
             missing.append(ref)
 
     if args.verify:
-        if missing:
-            print(f"missing files: {len(missing)}")
-            print(",".join(missing))
+        shlokas_path = Path(args.shlokas)
+        refs = shloka_references(shlokas_path) if shlokas_path.exists() else []
+        if not refs:
+            print(f"error: no shloka references found in {shlokas_path}")
+            return 2
+        missing_shlokas = [r for r in refs if not (out_dir / f"{r}.mp3").is_file() or (out_dir / f"{r}.mp3").stat().st_size == 0]
+        if missing or missing_shlokas:
+            if missing:
+                print(f"missing linked files: {len(missing)}")
+                print(",".join(missing))
+            if missing_shlokas:
+                print(f"missing shloka audio: {len(missing_shlokas)}")
+                print(",".join(missing_shlokas))
             return 1
-        print(f"ok: all {len(pairs)} files exist in {out_dir}")
+        print(f"ok: all {len(refs)} shlokas and {len(pairs)} linked files have audio in {out_dir}")
         return 0
 
     ffmpeg_path = get_ffmpeg_path()
