@@ -21,7 +21,7 @@ import { SaveStatus } from "@/components/save-status";
 import { useLearning } from "@/components/learning-provider";
 import { loadChapter, type GitaVerse } from "@/lib/gita-verses";
 import { VERSE_INDEX, indexOfReference } from "@/lib/verse-index";
-import { AUDIO_TRANSPORT_EVENT } from "@/lib/line-practice";
+import { AUDIO_TRANSPORT_EVENT } from "@/lib/audio-transport";
 
 const SHLOKA_BY_REFERENCE = new Map(SHLOKAS.map((s) => [s.reference, s]));
 
