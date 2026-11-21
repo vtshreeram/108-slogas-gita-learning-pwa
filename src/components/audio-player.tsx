@@ -3,7 +3,7 @@ import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { Play, Pause, Square, Repeat, Loader2, AlertCircle, SkipBack, SkipForward, Gauge, ChevronUp, ChevronDown } from "lucide-react";
 import { LoopMode, REPEAT_COUNTS, SPEED_OPTIONS, decideOnEnded, cycleLoop, cycleOption, formatTime } from "@/lib/audio-playback";
 import { downloadedAudio, hasDownloadedAudio } from "@/lib/offline-audio";
-import { AUDIO_TRANSPORT_EVENT } from "@/lib/line-practice";
+import { AUDIO_TRANSPORT_EVENT } from "@/lib/audio-transport";
 import { audioOwner, claimAudioFocus, onAudioFocus } from "@/lib/audio-focus";
 
 const mediaState = (state: "playing" | "paused") => { if ("mediaSession" in navigator && audioOwner() !== "chapter") navigator.mediaSession.playbackState = state; };

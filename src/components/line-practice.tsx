@@ -2,10 +2,11 @@
 import { RefObject, useEffect, useRef, useState } from "react";
 import { Shloka } from "@/lib/shlokas";
 import { tamilChant } from "@/lib/tamil-chant";
-import { AUDIO_TRANSPORT_EVENT, currentLine, nextLineTurn, validLineCues } from "@/lib/line-practice";
+import { AUDIO_TRANSPORT_EVENT } from "@/lib/audio-transport";
+import { currentLine, nextLineTurn, resolveLineCues, validLineCues } from "@/lib/line-practice";
 
-type Props = { shloka: Shloka; audioRef: RefObject<HTMLAudioElement | null>; cues?: number[]; onSave: (cues: number[] | null) => void; onActiveChange: (active: boolean) => void };
-export function LinePractice({ shloka, audioRef, cues, onSave, onActiveChange }: Props) {
+type Props = { shloka: Shloka; audioRef: RefObject<HTMLAudioElement | null>; userCues?: number[]; onSave: (cues: number[] | null) => void; onActiveChange: (active: boolean) => void };
+export function LinePractice({ shloka, audioRef, userCues, onSave, onActiveChange }: Props) {
   const lines = shloka.transliteration.split("\n").filter((line) => line.trim());
   const [script, setScript] = useState<"roman" | "tamil">("roman");
   const [duration, setDuration] = useState(0);
@@ -20,6 +21,8 @@ export function LinePractice({ shloka, audioRef, cues, onSave, onActiveChange }:
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const turn = useRef({ line: 0, repetition: 0 });
   const waitingRef = useRef(false);
+  // Own timings win, but a stale/mismatched saved set must not shadow the built-in cues.
+  const cues = validLineCues(userCues, lines.length, duration) ? userCues : resolveLineCues(undefined, shloka.id);
   const usable = validLineCues(cues, lines.length, duration);
   const activeLine = mode === "marking" ? draft.length - 1 : usable ? currentLine(cues, position) : -1;
   const clearWait = () => { if (timer.current) clearTimeout(timer.current); timer.current = null; waitingRef.current = false; setWaiting(false); };
@@ -98,8 +101,8 @@ export function LinePractice({ shloka, audioRef, cues, onSave, onActiveChange }:
     <details className="mt-3" onToggle={(event) => { if (!event.currentTarget.open && mode === "marking") { stop(); audioRef.current?.pause(); setMessage("Timing setup stopped. You can start again when you are ready."); } }}><summary className="min-h-11 cursor-pointer py-3 text-sm font-semibold">Adjust line timings (optional)</summary>
     {!usable && mode === "off" && <p className="my-3 text-sm">For automatic line repetition, play the verse and mark where each line ends once. You can follow the full recording above without setup.</p>}
     {mode === "marking" ? <div className="flex flex-wrap gap-2"><button className="study-button study-primary" onClick={markEnd}>Mark end of line {draft.length}</button><button className="study-button" onClick={() => { stop(); audioRef.current?.pause(); }}>Cancel</button></div> : mode === "off" && <div className="flex flex-wrap gap-2">
-      <button className="study-button" disabled={!duration} onClick={() => { const audio = audioRef.current; if (!audio) return; audio.currentTime = 0; setDraft([0]); setMode("marking"); setMessage(""); void audio.play().catch(() => { audio.pause(); setMode("off"); setMessage("Press Play in the audio player, then try setting timings again."); }); }}>{usable ? "Record new line timings" : "Set line timings"}</button>
-      {cues && <button className="study-button" onClick={() => { stop(); onSave(null); }}>Reset timings</button>}
+      <button className="study-button" disabled={!duration} onClick={() => { const audio = audioRef.current; if (!audio) return; audio.currentTime = 0; setDraft([0]); setMode("marking"); setMessage(""); void audio.play().catch(() => { audio.pause(); setMode("off"); setMessage("Press Play in the audio player, then try setting timings again."); }); }}>{userCues ? "Record new line timings" : "Set line timings"}</button>
+      {userCues && <button className="study-button" onClick={() => { stop(); onSave(null); }}>Reset timings</button>}
     </div>}
     </details>
   </details>;

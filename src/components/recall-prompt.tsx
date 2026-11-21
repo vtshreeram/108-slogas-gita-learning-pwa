@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import type { Shloka } from "@/lib/shlokas";
-import { recallHintLines } from "@/lib/line-practice";
+import { recallHintLines } from "@/lib/recall-hints";
 
 type Props = {
   verse: Shloka;
