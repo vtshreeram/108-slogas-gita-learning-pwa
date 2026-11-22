@@ -15,7 +15,11 @@ const LABELS: Record<Lang, { title: string; overview: string; quick: string; ver
 
 // ~95 KB of text: loaded only when a player is opened, then kept in memory.
 let briefsPromise: Promise<ChapterBrief[]> | undefined;
-const loadBriefs = () => (briefsPromise ??= import("@/data/chapter-briefs.json").then((m) => m.default as ChapterBrief[]));
+// A failed download is forgotten, so the next open (or coming back online) tries again.
+const loadBriefs = () => (briefsPromise ??= import("@/data/chapter-briefs.json").then(
+  (m) => m.default as ChapterBrief[],
+  (e) => { briefsPromise = undefined; throw e; },
+));
 
 /** Overview, quick read, key verses and action points for a chapter, shown under the full-screen player. */
 export function ChapterBriefPanel({ chapter }: { chapter: number }) {
@@ -23,7 +27,13 @@ export function ChapterBriefPanel({ chapter }: { chapter: number }) {
   const router = useRouter();
   const [briefs, setBriefs] = useState<ChapterBrief[]>();
   const [lang, setLang] = useState<Lang>(learner.state.contentMode === "tamil" ? "ta" : "en");
-  useEffect(() => { let live = true; loadBriefs().then((b) => live && setBriefs(b)).catch(() => {}); return () => { live = false; }; }, []);
+  useEffect(() => {
+    let live = true;
+    const load = () => { loadBriefs().then((b) => { if (live) setBriefs(b); }).catch(() => {}); };
+    load();
+    window.addEventListener("online", load);
+    return () => { live = false; window.removeEventListener("online", load); };
+  }, []);
 
   const brief = briefs?.find((b) => b.chapter === chapter)?.[lang];
   if (!brief) return null;
