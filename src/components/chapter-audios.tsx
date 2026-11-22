@@ -1,11 +1,12 @@
 "use client";
 import type { CSSProperties } from "react";
-import { AlertCircle, AudioLines, ChevronRight, Gauge, ListMusic, Loader2, Moon, Pause, Play, RotateCcw, RotateCw, SkipBack, SkipForward } from "lucide-react";
+import { AlertCircle, AudioLines, BookOpen, ChevronRight, Gauge, ListMusic, Loader2, Moon, Pause, Play, RotateCcw, RotateCw, SkipBack, SkipForward } from "lucide-react";
 import { chapterProgress, formatLength, resumeAt, sleepLabel } from "@/lib/chapter-audio";
 import { formatTime } from "@/lib/audio-playback";
 import { SKIP_S, useChapterAudio } from "@/components/chapter-audio-provider";
 import { ChapterArt } from "@/components/chapter-art";
 import { PageHeader } from "@/components/page-header";
+import { ChapterBriefPanel } from "@/components/chapter-brief";
 
 /** The "All Chapter Audios" screen: a full-screen player and the chapter list. Playback itself lives in ChapterAudioProvider. */
 export function ChapterAudios() {
@@ -42,6 +43,7 @@ export function ChapterAudios() {
       <div className="chapter-actions">
         <button className="chapter-action" onClick={cycleRate} aria-label={`Playback speed ${rate}x`}><Gauge className="h-4 w-4" aria-hidden="true" />{rate}x</button>
         <button className="chapter-action" onClick={cycleSleep} aria-pressed={!!sleep} aria-label={sleep ? `Sleep timer: ${sleepLabel(sleep, Date.now())}. Tap to change` : "Sleep timer off. Tap to set"}><Moon className="h-4 w-4" aria-hidden="true" />{sleepLabel(sleep, Date.now())}</button>
+        <button className="chapter-action" onClick={() => document.getElementById("chapter-brief")?.scrollIntoView({ behavior: "smooth", block: "start" })} aria-label="Read the chapter brief"><BookOpen className="h-4 w-4" aria-hidden="true" />Brief</button>
       </div>
       {next ? <button className="chapter-up-next" onClick={() => choose(next, busy)}>
         <ChapterArt chapter={next.chapter} className="chapter-art-small" />
@@ -49,6 +51,7 @@ export function ChapterAudios() {
         <ChevronRight className="h-5 w-5 shrink-0 opacity-60" aria-hidden="true" />
       </button> : <button className="chapter-up-next" onClick={() => setView("list")}><span className="flex-1 text-left text-sm font-semibold">Last chapter · see all chapters</span><ChevronRight className="h-5 w-5 opacity-60" aria-hidden="true" /></button>}
     </div>
+    <ChapterBriefPanel chapter={chapter.chapter} />
   </main>;
 
   return <main id="main-content" className="inner-page chapter-list-page">
