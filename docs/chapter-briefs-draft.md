@@ -1,0 +1,798 @@
+# Chapter briefs: draft for review
+
+Shown in a "Chapter brief" panel under the full-screen chapter player, in English or Tamil (follows the app's language tab).
+Interpretation follows *Bhagavad-gītā As It Is*. ★ = one of the app's 108 shlokas (will link into the learning loop).
+
+---
+
+## 1 · Arjuna Viṣāda Yoga: The yoga of Arjuna's dejection
+
+**Overview.** On the battlefield of Kurukṣetra, Arjuna asks Kṛṣṇa to drive his chariot between the two armies. Seeing his teachers, cousins and friends ready to fight, he loses his nerve and puts down his bow. The whole Gita answers this crisis.
+
+**Quick read**
+- Blind king Dhṛtarāṣṭra asks Sañjaya what is happening on the field
+- Duryodhana surveys both armies: confident outwardly, anxious inside
+- Conch shells sound and the battle is about to begin
+- Arjuna asks to see who he must fight
+- Overcome by attachment and grief, he argues that the war is wrong
+- He drops his bow and sits down in the chariot
+
+**Key verses:** ★1.1 (the question that opens the dialogue) · 1.47 (Arjuna sits down, overwhelmed)
+
+**Action points**
+1. When you feel stuck, write down what you are afraid of losing.
+2. Notice when emotion is dressed up as a moral argument.
+3. Pray honestly about your confusion. It is the first step to receiving guidance.
+
+**Remember:** Confusion is where wisdom begins.
+
+**தமிழ்**
+
+**சுருக்கம்.** குருக்ஷேத்திரப் போர்க்களத்தில், இரு படைகளுக்கும் நடுவே தேரை நிறுத்தும்படி அர்ஜுனன் கிருஷ்ணரிடம் கேட்கிறான். எதிரே தன் குருமார்கள், உறவினர்கள், நண்பர்களைக் கண்டு மனம் தளர்ந்து வில்லைக் கீழே வைக்கிறான். கீதை முழுவதும் இந்தக் குழப்பத்திற்கான விடையே.
+
+**விரைவாகப் படிக்க**
+- பார்வையற்ற மன்னன் திருதராஷ்டிரன், போர்க்களத்தில் நடப்பதை சஞ்சயனிடம் கேட்கிறான்
+- துரியோதனன் இரு படைகளையும் பார்வையிடுகிறான்: வெளியே தைரியம், உள்ளே கவலை
+- சங்குகள் முழங்குகின்றன; போர் தொடங்கவிருக்கிறது
+- யாருடன் போரிட வேண்டும் என்று பார்க்க அர்ஜுனன் விரும்புகிறான்
+- பாசமும் துயரமும் மேலிட, போர் தவறு என்று வாதிடுகிறான்
+- வில்லைக் கீழே போட்டுத் தேரில் அமர்ந்துவிடுகிறான்
+
+**முக்கிய ஸ்லோகங்கள்:** ★1.1 (உரையாடலைத் தொடங்கும் கேள்வி) · 1.47 (அர்ஜுனன் மனம் உடைந்து அமர்கிறான்)
+
+**செயல் குறிப்புகள்**
+1. மனம் தடுமாறும்போது, எதை இழந்துவிடுவோமோ என்று அஞ்சுகிறீர்கள் என்பதை எழுதிப் பாருங்கள்.
+2. உணர்ச்சி, நியாய வாதமாக வேடமிடும் தருணங்களைக் கவனியுங்கள்.
+3. உங்கள் குழப்பத்தை நேர்மையாக இறைவனிடம் சொல்லுங்கள்; வழிகாட்டுதல் பெறுவதன் முதல் படி அதுவே.
+
+**நினைவில் கொள்ள:** குழப்பமே ஞானத்தின் தொடக்கம்.
+
+---
+
+## 2 · Sāṅkhya Yoga: The yoga of knowledge
+
+**Overview.** Arjuna surrenders as a student and Kṛṣṇa begins teaching. The self (ātmā) is eternal and different from the body, so grief over the body is misplaced. Kṛṣṇa then introduces doing one's duty without attachment to results, and describes a person of steady wisdom.
+
+**Quick read**
+- Arjuna admits his confusion and accepts Kṛṣṇa as his teacher
+- The soul is never born and never dies; the body is like a garment
+- Do your duty: avoiding it brings dishonour and no peace
+- You have a right to act, never to the fruits of action
+- Desire leads to anger, anger to delusion, and delusion to ruin
+- The steady person controls the senses, like a tortoise drawing in its limbs
+
+**Key verses:** ★2.7 (surrender as a student) · ★2.13 & ★2.20 (the eternal soul) · ★2.47 (action without attachment) · ★2.62–63 (the chain from desire to ruin)
+
+**Action points**
+1. In a loss or setback, remind yourself: "I am not this body or this situation."
+2. Pick one task today and do it fully, without checking how it will be judged.
+3. Catch the first spark of a craving before it grows into anger.
+
+**Remember:** Do your part; leave the results to God.
+
+**தமிழ்**
+
+**சுருக்கம்.** அர்ஜுனன் சீடனாகச் சரணடைகிறான்; கிருஷ்ணர் உபதேசம் தொடங்குகிறார். ஆத்மா நித்தியமானது, உடலிலிருந்து வேறுபட்டது; எனவே உடலுக்காக வருந்துவது தேவையற்றது. பலனில் பற்றின்றிக் கடமையைச் செய்வதையும், உறுதியான அறிவுடையவனின் இயல்பையும் கிருஷ்ணர் விளக்குகிறார்.
+
+**விரைவாகப் படிக்க**
+- அர்ஜுனன் தன் குழப்பத்தை ஒப்புக்கொண்டு கிருஷ்ணரைக் குருவாக ஏற்கிறான்
+- ஆத்மா பிறப்பதுமில்லை, இறப்பதுமில்லை; உடல் ஓர் உடை போன்றது
+- கடமையைச் செய்: அதைத் தவிர்த்தால் அவமானமே, அமைதி இல்லை
+- செயல்படுவதில் மட்டுமே உனக்கு உரிமை; பலனில் அல்ல
+- ஆசை கோபமாகவும், கோபம் மயக்கமாகவும், மயக்கம் அழிவாகவும் மாறுகிறது
+- நிலைத்த அறிவுடையவன், ஆமை உறுப்புகளை உள்ளிழுப்பதுபோல் புலன்களை அடக்குகிறான்
+
+**முக்கிய ஸ்லோகங்கள்:** ★2.7 (சீடனாகச் சரணடைதல்) · ★2.13, ★2.20 (நித்திய ஆத்மா) · ★2.47 (பற்றற்ற செயல்) · ★2.62–63 (ஆசையிலிருந்து அழிவு வரை)
+
+**செயல் குறிப்புகள்**
+1. இழப்போ பின்னடைவோ வரும்போது, "நான் இந்த உடலும் அல்ல, இந்தச் சூழலும் அல்ல" என்று நினைவுபடுத்துங்கள்.
+2. இன்று ஒரு வேலையை, பிறர் மதிப்பீட்டைப் பற்றி யோசிக்காமல் முழு மனதுடன் செய்யுங்கள்.
+3. ஓர் ஆசை கோபமாக வளரும் முன், அதன் முதல் பொறியிலேயே கவனியுங்கள்.
+
+**நினைவில் கொள்ள:** உன் கடமையைச் செய்; பலனை இறைவனிடம் விட்டுவிடு.
+
+---
+
+## 3 · Karma Yoga: The yoga of action
+
+**Overview.** Arjuna asks why he should act at all if knowledge is higher. Kṛṣṇa explains that no one can stop acting, even for a moment. The answer is to offer every action as sacrifice (yajña) to the Supreme, set a good example, and conquer the real enemy, lust.
+
+**Quick read**
+- No one can remain without acting; even the body needs work
+- Work done as an offering frees you; work for selfish ends binds you
+- Sacrifice sustains the cycle of nature: rain, food and life
+- Leaders must act well because others follow their example
+- The ego thinks "I am the doer", but nature carries out the actions
+- Lust, which turns into anger, is the main enemy of the world
+
+**Key verses:** ★3.9 (work as sacrifice) · ★3.14 (the cycle of sacrifice) · ★3.21 (people follow leaders) · ★3.27 (the false ego) · ★3.37 (lust is the enemy)
+
+**Action points**
+1. Before starting work, offer it mentally: "Let this be for You."
+2. Do one thing today because others are watching and will learn from it.
+3. When a desire won't let go, name it ("this is lust or greed") and step away.
+
+**Remember:** Act, but offer the action.
+
+**தமிழ்**
+
+**சுருக்கம்.** ஞானமே உயர்ந்தது என்றால் ஏன் செயல்பட வேண்டும் என்று அர்ஜுனன் கேட்கிறான். ஒரு கணம்கூட யாரும் செயலின்றி இருக்க முடியாது என்கிறார் கிருஷ்ணர். எல்லாச் செயல்களையும் பரமனுக்கு யாகமாக அர்ப்பணிப்பதும், நல்ல முன்னுதாரணமாக இருப்பதும், உண்மையான எதிரியான காமத்தை வெல்வதுமே வழி.
+
+**விரைவாகப் படிக்க**
+- யாரும் செயலின்றி இருக்க முடியாது; உடலைப் பேணவும் உழைப்பு தேவை
+- அர்ப்பணமாகச் செய்யும் செயல் விடுவிக்கிறது; சுயநலச் செயல் பிணைக்கிறது
+- யாகம் இயற்கையின் சுழற்சியைத் தாங்குகிறது: மழை, உணவு, உயிர்
+- மற்றவர்கள் பின்பற்றுவதால், தலைவர்கள் சரியாக நடக்க வேண்டும்
+- "நானே செய்பவன்" என்று அகங்காரம் நினைக்கிறது; செயல்களைச் செய்வது இயற்கையே
+- கோபமாக மாறும் காமமே உலகின் முதன்மை எதிரி
+
+**முக்கிய ஸ்லோகங்கள்:** ★3.9 (யாகமாக வேலை) · ★3.14 (யாகச் சுழற்சி) · ★3.21 (தலைவரை மக்கள் பின்பற்றுவர்) · ★3.27 (பொய் அகங்காரம்) · ★3.37 (காமமே எதிரி)
+
+**செயல் குறிப்புகள்**
+1. வேலையைத் தொடங்கும் முன் மனதில் அர்ப்பணியுங்கள்: "இது உமக்காக."
+2. மற்றவர்கள் பார்த்துக் கற்றுக்கொள்வார்கள் என்பதற்காக இன்று ஒரு நல்ல செயலைச் செய்யுங்கள்.
+3. ஓர் ஆசை விடாமல் இழுக்கும்போது, "இது காமம் / பேராசை" என்று பெயரிட்டு விலகுங்கள்.
+
+**நினைவில் கொள்ள:** செயல்படு; ஆனால் அதை அர்ப்பணி.
+
+---
+
+## 4 · Jñāna Karma Sannyāsa Yoga: Knowledge and the renunciation of action
+
+**Overview.** Kṛṣṇa reveals that this teaching is ancient, handed down through a line of saintly kings, and that He Himself descends age after age to protect the good and re-establish dharma. Action done with transcendental knowledge does not bind. That knowledge is received by humbly approaching a realized teacher.
+
+**Quick read**
+- The teaching was first given to the sun-god and passed down by disciplic succession
+- Kṛṣṇa appears whenever dharma declines, by His own will
+- Whoever understands His appearance and activities is not born again
+- Society is divided by quality and work, not by birth alone
+- Wise people act without selfish desire, and their actions don't bind them
+- Approach a realized teacher with humility, questions and service
+
+**Key verses:** ★4.2 (the disciplic line) · ★4.7–8 (why the Lord descends) · ★4.9 (knowing Him frees you) · ★4.13 (quality and work) · ★4.34 (approach a teacher)
+
+**Action points**
+1. Learn from a living, realized person, not only from books or videos.
+2. Ask one sincere question this week, and listen fully to the answer.
+3. Read or hear one pastime of Kṛṣṇa's appearance, and reflect on it.
+
+**Remember:** Knowledge comes down through humble hearing.
+
+**தமிழ்**
+
+**சுருக்கம்.** இந்த உபதேசம் பழமையானது, ராஜரிஷிகளின் பரம்பரை வழியாக வந்தது; தர்மத்தைக் காக்க யுகந்தோறும் தாமே அவதரிக்கிறார் என்று கிருஷ்ணர் வெளிப்படுத்துகிறார். தெய்வீக ஞானத்துடன் செய்யும் செயல் பிணைப்பதில்லை. அந்த ஞானம், உணர்ந்த குருவை அடக்கத்துடன் அணுகுவதால் கிடைக்கிறது.
+
+**விரைவாகப் படிக்க**
+- இந்த உபதேசம் முதலில் சூரிய தேவனுக்கு அளிக்கப்பட்டு, சீடப் பரம்பரையில் வந்தது
+- தர்மம் குன்றும்போதெல்லாம் கிருஷ்ணர் தம் சுய விருப்பத்தால் அவதரிக்கிறார்
+- அவரது அவதாரத்தையும் செயல்களையும் உணர்ந்தவன் மீண்டும் பிறப்பதில்லை
+- சமூகம் பிறப்பால் மட்டுமல்ல, குணம் மற்றும் தொழிலால் பிரிக்கப்படுகிறது
+- ஞானிகள் சுயநல ஆசையின்றிச் செயல்படுவதால், செயல்கள் அவர்களைப் பிணைப்பதில்லை
+- உணர்ந்த குருவை அடக்கம், கேள்வி, சேவையுடன் அணுகு
+
+**முக்கிய ஸ்லோகங்கள்:** ★4.2 (சீடப் பரம்பரை) · ★4.7–8 (இறைவன் ஏன் அவதரிக்கிறார்) · ★4.9 (அவரை அறிவதே விடுதலை) · ★4.13 (குணமும் தொழிலும்) · ★4.34 (குருவை அணுகுதல்)
+
+**செயல் குறிப்புகள்**
+1. புத்தகங்கள், காணொளிகள் மட்டுமல்லாமல், உணர்ந்த ஒருவரிடம் நேரில் கற்றுக்கொள்ளுங்கள்.
+2. இந்த வாரம் ஒரு நேர்மையான கேள்வியைக் கேட்டு, பதிலை முழுமையாகக் கேளுங்கள்.
+3. கிருஷ்ணரின் அவதாரம் பற்றிய ஒரு லீலையைப் படித்தோ கேட்டோ சிந்தியுங்கள்.
+
+**நினைவில் கொள்ள:** அடக்கத்துடன் கேட்பதால் ஞானம் இறங்கி வருகிறது.
+
+---
+
+## 5 · Karma Sannyāsa Yoga: The yoga of renunciation
+
+**Overview.** Arjuna asks which is better, renouncing work or working with devotion. Kṛṣṇa says both lead to the same goal, but working in devotion is easier and better. A wise person sees everyone equally and finds peace by knowing God as the true owner, enjoyer and friend of all.
+
+**Quick read**
+- Renunciation and devotional work reach the same goal; devotional work is easier
+- Act like a lotus leaf, which stays in the water but is never wet
+- The wise see a scholar, a cow, an elephant, a dog and an outcaste equally, as souls
+- Pleasures from the senses have a beginning and an end, so the wise don't chase them
+- Real happiness is found within
+- Peace comes from knowing God as the enjoyer, owner and friend of all
+
+**Key verses:** 5.10 (the lotus leaf) · ★5.18 (equal vision) · ★5.22 (sense pleasure ends in pain) · ★5.29 (the formula for peace)
+
+**Action points**
+1. Do your work fully, but put it down when it's done; don't carry it home in your mind.
+2. Greet someone you usually overlook as a soul, an equal.
+3. When anxious, say: "God owns this, enjoys this, and is my friend."
+
+**Remember:** In the world, but not of it, like a lotus leaf.
+
+**தமிழ்**
+
+**சுருக்கம்.** செயலைத் துறப்பதா, பக்தியுடன் செயல்படுவதா, எது சிறந்தது என்று அர்ஜுனன் கேட்கிறான். இரண்டும் ஒரே இலக்கை அடைகின்றன, ஆனால் பக்தியுடன் செயல்படுவது எளிதும் சிறந்ததும் என்கிறார் கிருஷ்ணர். ஞானி அனைவரையும் சமமாகப் பார்க்கிறான்; இறைவனே உண்மையான உரிமையாளர், அனுபவிப்பவர், அனைவரின் நண்பர் என்று அறிவதால் அமைதி பெறுகிறான்.
+
+**விரைவாகப் படிக்க**
+- துறவும் பக்திச் செயலும் ஒரே இலக்கை அடைகின்றன; பக்திச் செயல் எளிதானது
+- தண்ணீரில் இருந்தும் நனையாத தாமரை இலை போல் செயல்படு
+- கற்றறிந்தவர், பசு, யானை, நாய், தாழ்ந்தவர் எனப்படுபவர் அனைவரையும் ஞானி ஆத்மாவாகச் சமமாகப் பார்க்கிறான்
+- புலன் இன்பங்களுக்குத் தொடக்கமும் முடிவும் உண்டு; ஞானி அவற்றின் பின் ஓடுவதில்லை
+- உண்மையான மகிழ்ச்சி உள்ளேயே இருக்கிறது
+- இறைவனே அனுபவிப்பவர், உரிமையாளர், அனைவரின் நண்பர் என்று அறிவதால் அமைதி கிடைக்கிறது
+
+**முக்கிய ஸ்லோகங்கள்:** 5.10 (தாமரை இலை) · ★5.18 (சம நோக்கு) · ★5.22 (புலன் இன்பம் துன்பத்தில் முடிகிறது) · ★5.29 (அமைதிக்கான சூத்திரம்)
+
+**செயல் குறிப்புகள்**
+1. வேலையை முழுமையாகச் செய்யுங்கள்; முடிந்ததும் அதை மனதில் வீட்டுக்குச் சுமந்து செல்லாதீர்கள்.
+2. வழக்கமாகக் கவனிக்காத ஒருவரை, சமமான ஓர் ஆத்மாவாக மதித்து வணங்குங்கள்.
+3. கவலை வரும்போது சொல்லுங்கள்: "இது இறைவனுடையது; அவரே அனுபவிப்பவர்; அவரே என் நண்பர்."
+
+**நினைவில் கொள்ள:** தாமரை இலை போல், உலகில் இரு; உலகமாகிவிடாதே.
+
+---
+
+## 6 · Ātma Saṃyama Yoga: The yoga of self-control
+
+**Overview.** Kṛṣṇa describes meditation: a quiet place, a steady posture and a controlled mind. The mind can be your best friend or your worst enemy, and it is tamed by practice and detachment. No effort on this path is ever lost, and the highest yogī is the one who always thinks of Kṛṣṇa with love.
+
+**Quick read**
+- Raise yourself by your own mind; don't let it drag you down
+- Be moderate in eating, sleeping, work and recreation
+- The restless mind is controlled by steady practice and detachment
+- Someone who falls from the path is not lost and gets another chance in a good birth
+- The yogī is greater than the ascetic, the scholar and the worker
+- The greatest yogī is the one who worships Kṛṣṇa with faith and love
+
+**Key verses:** 6.5 (the mind as friend or enemy) · ★6.17 (moderation) · 6.35 (practice and detachment) · ★6.41 (no effort is lost) · ★6.47 (the highest yogī)
+
+**Action points**
+1. Set a fixed daily time for chanting or meditation, even 10 minutes.
+2. Check one habit (food, sleep or screens) and bring it back to moderation.
+3. When the mind wanders, gently bring it back, without scolding yourself.
+
+**Remember:** Make the mind your friend.
+
+**தமிழ்**
+
+**சுருக்கம்.** தியானத்தைக் கிருஷ்ணர் விவரிக்கிறார்: அமைதியான இடம், நிலையான ஆசனம், அடக்கிய மனம். மனம் சிறந்த நண்பனாகவும் இருக்கலாம், மோசமான எதிரியாகவும் இருக்கலாம்; பயிற்சியும் வைராக்கியமும் அதை அடக்குகின்றன. இந்தப் பாதையில் எந்த முயற்சியும் வீணாவதில்லை; அன்புடன் எப்போதும் கிருஷ்ணரை நினைப்பவனே உயர்ந்த யோகி.
+
+**விரைவாகப் படிக்க**
+- உன் மனதால் உன்னை உயர்த்திக்கொள்; அது உன்னைக் கீழே இழுக்க விடாதே
+- உணவு, உறக்கம், உழைப்பு, பொழுதுபோக்கு எல்லாவற்றிலும் அளவோடு இரு
+- அலைபாயும் மனம் தொடர்ந்த பயிற்சியாலும் வைராக்கியத்தாலும் அடங்குகிறது
+- பாதையிலிருந்து விழுந்தவன் அழிவதில்லை; நல்ல பிறவியில் மீண்டும் வாய்ப்பு பெறுகிறான்
+- தவசி, அறிஞர், கர்மி அனைவரையும் விட யோகி உயர்ந்தவன்
+- நம்பிக்கையுடனும் அன்புடனும் கிருஷ்ணரை வழிபடுபவனே உயர்ந்த யோகி
+
+**முக்கிய ஸ்லோகங்கள்:** 6.5 (மனம்: நண்பன் / எதிரி) · ★6.17 (அளவோடு வாழ்தல்) · 6.35 (பயிற்சியும் வைராக்கியமும்) · ★6.41 (முயற்சி வீணாவதில்லை) · ★6.47 (உயர்ந்த யோகி)
+
+**செயல் குறிப்புகள்**
+1. ஜபம் அல்லது தியானத்திற்குத் தினமும் ஒரு நிலையான நேரம் வையுங்கள்; பத்து நிமிடமாக இருந்தாலும் சரி.
+2. உணவு, உறக்கம், திரை நேரம் இவற்றில் ஒரு பழக்கத்தை அளவுக்குக் கொண்டுவாருங்கள்.
+3. மனம் அலையும்போது, உங்களைத் திட்டாமல், மெதுவாக மீண்டும் கொண்டுவாருங்கள்.
+
+**நினைவில் கொள்ள:** மனதை நண்பனாக்கு.
+
+---
+
+## 7 · Jñāna Vijñāna Yoga: Knowledge and realization
+
+**Overview.** Kṛṣṇa explains His energies: the material energy (earth, water, fire, air, ether, mind, intelligence and ego) and the superior energy, the living beings. Everything rests on Him like pearls on a thread. His illusory energy is hard to cross, but those who surrender to Him cross it easily.
+
+**Quick read**
+- Out of many thousands, hardly one truly knows Kṛṣṇa
+- He has eight material energies and a superior, spiritual one: the living beings
+- Nothing is higher than Him; everything rests on Him like pearls on a thread
+- Māyā is hard to overcome, but surrender to Him crosses it
+- Four kinds of people don't surrender, and four kinds of pious people do
+- After many births, the wise person surrenders, knowing "Vāsudeva is everything"
+
+**Key verses:** ★7.3 (one in thousands) · ★7.4–5 (the two energies) · ★7.7 (pearls on a thread) · ★7.14 (crossing māyā) · ★7.16 (four who come to Him) · ★7.19 (after many births)
+
+**Action points**
+1. Today, see God's energy in one ordinary thing: taste in water, light in the sun.
+2. Notice whether you turn to God only in distress; also turn to Him in gratitude.
+3. When illusion pulls you, pause and say His name.
+
+**Remember:** Everything is His energy, and I am too.
+
+**தமிழ்**
+
+**சுருக்கம்.** கிருஷ்ணர் தம் சக்திகளை விளக்குகிறார்: பூமி, நீர், நெருப்பு, காற்று, ஆகாயம், மனம், புத்தி, அகங்காரம் என்ற ஜட சக்தியும், உயிர்களான உயர்ந்த சக்தியும். நூலில் கோர்த்த முத்துக்கள் போல் அனைத்தும் அவரைச் சார்ந்தே உள்ளன. அவரது மாயா சக்தியைக் கடப்பது கடினம்; ஆனால் அவரிடம் சரணடைபவர்கள் எளிதில் கடக்கிறார்கள்.
+
+**விரைவாகப் படிக்க**
+- ஆயிரக்கணக்கானோரில் ஒருவர்கூட கிருஷ்ணரை உண்மையில் அறிவதில்லை
+- அவருக்கு எட்டு ஜட சக்திகளும், உயிர்கள் என்ற உயர்ந்த ஆன்மீக சக்தியும் உண்டு
+- அவரைவிட உயர்ந்தது எதுவுமில்லை; நூலில் முத்துக்கள் போல் அனைத்தும் அவரைச் சார்ந்தவை
+- மாயையை வெல்வது கடினம்; ஆனால் அவரிடம் சரணடைந்தால் கடக்கலாம்
+- நான்கு வகையினர் சரணடைவதில்லை; நான்கு வகைப் புண்ணியவான்கள் சரணடைகிறார்கள்
+- பல பிறவிகளுக்குப் பின், "வாசுதேவனே எல்லாம்" என்று அறிந்து ஞானி சரணடைகிறான்
+
+**முக்கிய ஸ்லோகங்கள்:** ★7.3 (ஆயிரத்தில் ஒருவர்) · ★7.4–5 (இரு சக்திகள்) · ★7.7 (நூலில் முத்துக்கள்) · ★7.14 (மாயையைக் கடத்தல்) · ★7.16 (அவரை அணுகும் நால்வர்) · ★7.19 (பல பிறவிகளுக்குப் பின்)
+
+**செயல் குறிப்புகள்**
+1. இன்று ஓர் எளிய பொருளில் இறைவனின் சக்தியைக் காணுங்கள்: நீரின் சுவையில், சூரியனின் ஒளியில்.
+2. துன்பத்தில் மட்டும்தான் இறைவனை நாடுகிறீர்களா என்று கவனியுங்கள்; நன்றியுடனும் நாடுங்கள்.
+3. மாயை இழுக்கும்போது, ஒரு கணம் நின்று அவர் நாமத்தைச் சொல்லுங்கள்.
+
+**நினைவில் கொள்ள:** அனைத்தும் அவரது சக்தி; நானும் அப்படியே.
+
+---
+
+## 8 · Akṣara Brahma Yoga: The imperishable Brahman
+
+**Overview.** Arjuna asks about Brahman, karma and the moment of death. Kṛṣṇa says that whatever you remember when you leave the body, you attain. So remember Him always, while doing your duty, and you will reach His eternal abode, from which no one returns.
+
+**Quick read**
+- Whoever remembers Kṛṣṇa at death goes to Him, without doubt
+- What you think of at death depends on what you think of through life
+- "Remember Me and fight": devotion and duty together
+- For one who always remembers Him, He is easy to reach
+- All material worlds involve repeated birth and death
+- Reaching His abode means never returning to suffering
+
+**Key verses:** ★8.5 (remembering Him at death) · ★8.6 (what you think of, you become) · ★8.7 (remember Me and fight) · ★8.14 (easy to reach) · ★8.15–16 (no return)
+
+**Action points**
+1. Link His name to something you do every day: waking, eating, travelling.
+2. Ask yourself: "If today were my last, what would my mind be on?"
+3. Practise remembering, not only during formal prayer but while working.
+
+**Remember:** Life is practice for the last moment.
+
+**தமிழ்**
+
+**சுருக்கம்.** பிரம்மம், கர்மா, மரணத் தருணம் பற்றி அர்ஜுனன் கேட்கிறான். உடலை விடும்போது எதை நினைக்கிறாயோ அதையே அடைகிறாய் என்கிறார் கிருஷ்ணர். எனவே கடமையைச் செய்துகொண்டே எப்போதும் அவரை நினைத்தால், யாரும் திரும்பாத அவரது நித்திய தாமத்தை அடையலாம்.
+
+**விரைவாகப் படிக்க**
+- மரணத்தின்போது கிருஷ்ணரை நினைப்பவன் சந்தேகமின்றி அவரை அடைகிறான்
+- மரணத்தில் எதை நினைக்கிறோம் என்பது வாழ்நாள் முழுவதும் எதை நினைத்தோம் என்பதைப் பொறுத்தது
+- "என்னை நினைத்துப் போரிடு": பக்தியும் கடமையும் இணைந்து
+- எப்போதும் அவரை நினைப்பவனுக்கு அவர் எளிதில் கிடைக்கிறார்
+- எல்லா ஜட உலகங்களிலும் பிறப்பும் இறப்பும் மாறி மாறி வருகின்றன
+- அவரது தாமத்தை அடைந்தவன் மீண்டும் துன்பத்திற்குத் திரும்புவதில்லை
+
+**முக்கிய ஸ்லோகங்கள்:** ★8.5 (மரணத்தில் அவரை நினைத்தல்) · ★8.6 (நினைப்பதையே அடைகிறோம்) · ★8.7 (என்னை நினைத்துப் போரிடு) · ★8.14 (எளிதில் அடையலாம்) · ★8.15–16 (திரும்புவதில்லை)
+
+**செயல் குறிப்புகள்**
+1. தினமும் செய்யும் ஒரு செயலோடு அவர் நாமத்தை இணையுங்கள்: விழிக்கும்போது, உண்ணும்போது, பயணிக்கும்போது.
+2. "இன்றே கடைசி நாள் என்றால், என் மனம் எதில் இருக்கும்?" என்று கேட்டுப் பாருங்கள்.
+3. வழிபாட்டு நேரத்தில் மட்டுமல்ல, வேலை செய்யும்போதும் நினைவுகூரப் பழகுங்கள்.
+
+**நினைவில் கொள்ள:** வாழ்க்கை, கடைசித் தருணத்திற்கான பயிற்சி.
+
+---
+
+## 9 · Rāja Vidyā Rāja Guhya Yoga: The king of knowledge, the king of secrets
+
+**Overview.** Kṛṣṇa shares the most confidential knowledge: pure devotion. He pervades everything yet stays independent. He accepts even a leaf, a flower, fruit or water offered with love, and His devotee never perishes. Anyone, from any background, can reach Him.
+
+**Quick read**
+- Devotional knowledge is the king of knowledge, joyful and eternal
+- He pervades the universe, yet everything is not Him
+- Fools mock Him in human form; great souls worship Him
+- He carries what His devotees lack and preserves what they have
+- Offer anything with love, even a leaf or water, and He accepts it
+- Even someone with bad conduct who turns to Him becomes righteous; His devotee never perishes
+
+**Key verses:** ★9.2 (the king of knowledge) · ★9.4 (He pervades all) · ★9.22 (He provides) · ★9.26–27 (offer with love) · ★9.30 (even the worst) · ★9.34 (think of Me, become My devotee)
+
+**Action points**
+1. Offer your food before eating, even silently.
+2. Do your daily work as an offering: "Whatever I do, I offer to You."
+3. Don't judge anyone's past; anyone can turn to God.
+
+**Remember:** He wants your love, not your wealth.
+
+**தமிழ்**
+
+**சுருக்கம்.** தூய பக்தி என்ற மிக ரகசியமான ஞானத்தைக் கிருஷ்ணர் வழங்குகிறார். அவர் அனைத்திலும் பரவியிருந்தாலும் தனித்து நிற்கிறார். அன்புடன் அளிக்கப்படும் இலை, பூ, பழம், நீர் எதையும் ஏற்கிறார்; அவரது பக்தன் ஒருபோதும் அழிவதில்லை. எந்தப் பின்னணியைச் சேர்ந்தவரும் அவரை அடையலாம்.
+
+**விரைவாகப் படிக்க**
+- பக்தி ஞானமே ஞானங்களின் அரசன்; ஆனந்தமானது, நித்தியமானது
+- அவர் பிரபஞ்சம் முழுவதும் பரவியுள்ளார், ஆனாலும் அனைத்தும் அவர் அல்ல
+- மனித உருவில் இருக்கும் அவரை மூடர்கள் இகழ்கிறார்கள்; மகாத்மாக்கள் வழிபடுகிறார்கள்
+- பக்தர்களிடம் இல்லாததைக் கொண்டு சேர்க்கிறார்; இருப்பதைக் காக்கிறார்
+- இலையோ நீரோ, அன்புடன் எதைக் கொடுத்தாலும் ஏற்கிறார்
+- தீய நடத்தை உள்ளவனும் அவரை நாடினால் நல்லவனாகிறான்; அவர் பக்தன் அழிவதில்லை
+
+**முக்கிய ஸ்லோகங்கள்:** ★9.2 (ஞானங்களின் அரசன்) · ★9.4 (அனைத்திலும் பரவியவர்) · ★9.22 (அவரே வழங்குகிறார்) · ★9.26–27 (அன்புடன் அர்ப்பணி) · ★9.30 (மிகத் தாழ்ந்தவனும்) · ★9.34 (என்னை நினை, என் பக்தனாகு)
+
+**செயல் குறிப்புகள்**
+1. உண்ணும் முன், மனதிலாவது உணவை இறைவனுக்கு அர்ப்பணியுங்கள்.
+2. அன்றாட வேலையை அர்ப்பணமாகச் செய்யுங்கள்: "நான் செய்வதெல்லாம் உமக்கே."
+3. யாருடைய கடந்த காலத்தையும் வைத்து மதிப்பிடாதீர்கள்; யார் வேண்டுமானாலும் இறைவனை நாடலாம்.
+
+**நினைவில் கொள்ள:** அவர் விரும்புவது உன் அன்பை, உன் செல்வத்தை அல்ல.
+
+---
+
+## 10 · Vibhūti Yoga: The opulence of the Absolute
+
+**Overview.** Kṛṣṇa declares that He is the source of everything, and that the wise who know this worship Him with all their hearts. To help Arjuna think of Him, He lists His opulences: among lights He is the sun, among rivers the Ganges. Whatever is glorious is only a spark of His splendour.
+
+**Quick read**
+- Kṛṣṇa is the source of all spiritual and material worlds
+- The wise, knowing this, devote their minds and lives to Him
+- He gives them the understanding by which they come to Him
+- From within their hearts He destroys the darkness of ignorance
+- He lists His opulences across nature, people and powers
+- All beauty, power and glory is only a spark of His splendour
+
+**Key verses:** ★10.8 (the source of all) · ★10.9 (minds fixed on Him) · ★10.10 (He gives understanding) · ★10.11 (He removes darkness) · ★10.41 (a spark of His splendour)
+
+**Action points**
+1. When something amazes you (a sunrise, music, a skill), remember whose spark it is.
+2. Talk about God with others; enjoy that conversation.
+3. Pray for the understanding to come closer to Him, not only for things.
+
+**Remember:** Everything wonderful points back to Him.
+
+**தமிழ்**
+
+**சுருக்கம்.** அனைத்திற்கும் மூலம் தாமே என்றும், இதை அறிந்த ஞானிகள் முழு மனதுடன் தம்மை வழிபடுகிறார்கள் என்றும் கிருஷ்ணர் அறிவிக்கிறார். அர்ஜுனன் தம்மை நினைக்க உதவும்படி தம் சிறப்புகளைப் பட்டியலிடுகிறார்: ஒளிகளில் சூரியன், நதிகளில் கங்கை. மகிமையுள்ள அனைத்தும் அவரது ஒளியின் ஒரு பொறி மட்டுமே.
+
+**விரைவாகப் படிக்க**
+- ஆன்மீக மற்றும் ஜட உலகங்கள் அனைத்திற்கும் கிருஷ்ணரே மூலம்
+- இதை அறிந்த ஞானிகள் தம் மனதையும் வாழ்வையும் அவருக்கே அர்ப்பணிக்கிறார்கள்
+- தம்மை அடையும் புத்தியை அவரே அவர்களுக்கு அளிக்கிறார்
+- அவர்கள் இதயத்திலிருந்து அறியாமை இருளை அவரே அழிக்கிறார்
+- இயற்கை, மனிதர்கள், சக்திகள் என அனைத்திலும் தம் சிறப்புகளைப் பட்டியலிடுகிறார்
+- அழகு, ஆற்றல், மகிமை அனைத்தும் அவரது ஒளியின் ஒரு பொறியே
+
+**முக்கிய ஸ்லோகங்கள்:** ★10.8 (அனைத்தின் மூலம்) · ★10.9 (அவரில் நிலைத்த மனம்) · ★10.10 (புத்தியை அளிக்கிறார்) · ★10.11 (இருளை அகற்றுகிறார்) · ★10.41 (அவர் ஒளியின் பொறி)
+
+**செயல் குறிப்புகள்**
+1. ஏதாவது வியக்க வைக்கும்போது (சூரிய உதயம், இசை, திறமை), அது யாருடைய பொறி என்று நினைவுகூருங்கள்.
+2. மற்றவர்களுடன் இறைவனைப் பற்றிப் பேசி, அந்த உரையாடலை அனுபவியுங்கள்.
+3. பொருள்களுக்காக மட்டுமல்ல, அவரை நெருங்கும் புத்திக்காகவும் பிரார்த்தியுங்கள்.
+
+**நினைவில் கொள்ள:** அதிசயமான அனைத்தும் அவரையே சுட்டுகின்றன.
+
+---
+
+## 11 · Viśvarūpa Darśana Yoga: The vision of the universal form
+
+**Overview.** Arjuna asks to see Kṛṣṇa's cosmic form. Given divine eyes, he sees countless faces, all the worlds, and time itself devouring the warriors. Terrified, he begs Kṛṣṇa to return to His gentle two-armed form, and learns that this personal form is seen only through pure devotion.
+
+**Quick read**
+- Arjuna asks to see the universal form and receives divine vision
+- He sees the whole universe, with countless faces, arms and eyes, in one place
+- Kṛṣṇa appears as Time, the destroyer of the worlds
+- "These warriors are already slain; be merely My instrument"
+- Arjuna, afraid, apologises for treating Kṛṣṇa casually as a friend
+- Kṛṣṇa's two-armed form is the highest, reached only by pure devotion
+
+**Key verses:** 11.33 (be My instrument) · ★11.54 (only by devotion) · ★11.55 (whoever works for Me comes to Me)
+
+**Action points**
+1. When outcomes feel huge and frightening, see yourself as an instrument, not the controller.
+2. Value the closeness of your relationship with God over spectacular experiences.
+3. Do one act today purely as service, expecting nothing.
+
+**Remember:** Be His instrument.
+
+**தமிழ்**
+
+**சுருக்கம்.** கிருஷ்ணரின் விஸ்வரூபத்தைக் காண அர்ஜுனன் விரும்புகிறான். தெய்வீகக் கண்கள் பெற்று, எண்ணற்ற முகங்களையும், எல்லா உலகங்களையும், வீரர்களை விழுங்கும் காலத்தையும் காண்கிறான். அஞ்சி நடுங்கி, கிருஷ்ணரை மென்மையான இரு கர உருவுக்குத் திரும்பும்படி வேண்டுகிறான்; அந்த உருவம் தூய பக்தியால் மட்டுமே காணக்கூடியது என்று அறிகிறான்.
+
+**விரைவாகப் படிக்க**
+- விஸ்வரூபத்தைக் காண அர்ஜுனன் கேட்கிறான்; தெய்வீகப் பார்வை பெறுகிறான்
+- எண்ணற்ற முகங்கள், கரங்கள், கண்களுடன் பிரபஞ்சம் முழுவதையும் ஓரிடத்தில் காண்கிறான்
+- உலகங்களை அழிக்கும் காலமாகக் கிருஷ்ணர் தோன்றுகிறார்
+- "இந்த வீரர்கள் ஏற்கனவே கொல்லப்பட்டுவிட்டனர்; நீ என் கருவியாக மட்டும் இரு"
+- அஞ்சிய அர்ஜுனன், கிருஷ்ணரைச் சாதாரண நண்பனாக நடத்தியதற்கு மன்னிப்புக் கேட்கிறான்
+- கிருஷ்ணரின் இரு கர உருவமே உயர்ந்தது; தூய பக்தியால் மட்டுமே அடையக்கூடியது
+
+**முக்கிய ஸ்லோகங்கள்:** 11.33 (என் கருவியாக இரு) · ★11.54 (பக்தியால் மட்டுமே) · ★11.55 (எனக்காகச் செயல்படுபவன் என்னை அடைகிறான்)
+
+**செயல் குறிப்புகள்**
+1. விளைவுகள் பெரிதாகவும் பயமாகவும் தோன்றும்போது, உங்களைக் கட்டுப்படுத்துபவராக அல்ல, கருவியாகப் பாருங்கள்.
+2. அதிசய அனுபவங்களைவிட, இறைவனுடனான நெருக்கமான உறவை மதியுங்கள்.
+3. இன்று எதையும் எதிர்பாராமல், முழுக்க சேவையாக ஒரு செயலைச் செய்யுங்கள்.
+
+**நினைவில் கொள்ள:** அவரது கருவியாக இரு.
+
+---
+
+## 12 · Bhakti Yoga: The yoga of devotion
+
+**Overview.** Arjuna asks who is more perfect: those who worship Kṛṣṇa personally, or those who meditate on the impersonal. Kṛṣṇa says personal devotion is best and easier. He gives step-by-step options for any level, then describes the qualities that make a devotee dear to Him.
+
+**Quick read**
+- Those who worship Him with faith and fixed minds are the most perfect
+- The impersonal path is very difficult for embodied beings
+- Step 1: fix your mind on Him. If you can't, practise regularly
+- If you can't practise, work for Him; if you can't, give up the fruits of work
+- A dear devotee is free of envy, kind, forgiving, content and self-controlled
+- They are steady in honour and dishonour, praise and blame
+
+**Key verses:** ★12.5 (the impersonal path is hard) · ★12.8 (fix your mind on Me) · ★12.9–10 (steps for any level) · 12.13–14 (qualities of a dear devotee)
+
+**Action points**
+1. Choose the step that fits you now (mind, practice, work or giving), and start there.
+2. Forgive one person today, inwardly or in words.
+3. When praised or blamed, stay steady: "This doesn't change who I am to God."
+
+**Remember:** Start where you are; love grows with practice.
+
+**தமிழ்**
+
+**சுருக்கம்.** கிருஷ்ணரை உருவத்துடன் வழிபடுபவரா, உருவமற்றதைத் தியானிப்பவரா, யார் சிறந்தவர் என்று அர்ஜுனன் கேட்கிறான். உருவ வழிபாடான பக்தியே சிறந்தது, எளிதானது என்கிறார் கிருஷ்ணர். எந்த நிலையில் இருப்பவருக்கும் படிப்படியான வழிகளைக் கொடுத்து, தமக்குப் பிரியமான பக்தனின் குணங்களை விவரிக்கிறார்.
+
+**விரைவாகப் படிக்க**
+- நம்பிக்கையுடனும் நிலைத்த மனதுடனும் அவரை வழிபடுபவர்களே மிகச் சிறந்தவர்கள்
+- உருவமற்ற பாதை உடல் தாங்கியவர்களுக்கு மிகக் கடினமானது
+- படி 1: மனதை அவரில் நிறுத்து; முடியாவிட்டால், தொடர்ந்து பயிற்சி செய்
+- பயிற்சி முடியாவிட்டால் அவருக்காக உழை; அதுவும் முடியாவிட்டால் செயலின் பலனைத் துற
+- பிரியமான பக்தன் பொறாமையற்றவன், இரக்கமுள்ளவன், மன்னிப்பவன், திருப்தியானவன், புலனடக்கமுள்ளவன்
+- மானம் அவமானம், புகழ் இகழ் இரண்டிலும் நிலையாக இருக்கிறான்
+
+**முக்கிய ஸ்லோகங்கள்:** ★12.5 (உருவமற்ற பாதை கடினம்) · ★12.8 (மனதை என்னில் நிறுத்து) · ★12.9–10 (எந்த நிலைக்குமான படிகள்) · 12.13–14 (பிரியமான பக்தனின் குணங்கள்)
+
+**செயல் குறிப்புகள்**
+1. இப்போதுள்ள உங்கள் நிலைக்குப் பொருந்தும் படியைத் (மனம், பயிற்சி, உழைப்பு, கொடை) தேர்ந்தெடுத்து அங்கிருந்து தொடங்குங்கள்.
+2. இன்று ஒருவரை, மனதிலோ வார்த்தையிலோ மன்னியுங்கள்.
+3. புகழோ இகழோ வரும்போது நிலையாக இருங்கள்: "இது இறைவனுக்கு நான் யார் என்பதை மாற்றாது."
+
+**நினைவில் கொள்ள:** இருக்கும் இடத்திலிருந்து தொடங்கு; பயிற்சியால் அன்பு வளரும்.
+
+---
+
+## 13 · Kṣetra Kṣetrajña Vibhāga Yoga: Nature, the enjoyer and consciousness
+
+**Overview.** Kṛṣṇa distinguishes the field (the body) from the knower of the field (the soul), and reveals a second knower in every body: the Supersoul, Himself. He lists the qualities that make up real knowledge, beginning with humility. Seeing the soul and Supersoul in every body is true vision.
+
+**Quick read**
+- The body is the "field" where actions are sown and their results harvested
+- The soul knows its own body; the Supersoul knows all bodies
+- Real knowledge begins with humility, non-violence, tolerance, simplicity and service to a teacher
+- Material nature and the living being are both beginningless
+- The soul, tangled in the modes of nature, experiences good and bad births
+- Whoever sees the Supersoul equally in every body sees truly
+
+**Key verses:** 13.3 (the knower in all bodies) · 13.8–12 (the qualities of knowledge) · 13.23 (the Supersoul as witness) · 13.28 (seeing equally)
+
+**Action points**
+1. Read the list of knowledge qualities (13.8–12) and pick one to work on this week.
+2. When you're hurt or angry, remember: "This is the field, not the knower."
+3. Before reacting to someone, recall that God is present in their heart too.
+
+**Remember:** I am the knower, not the field.
+
+**தமிழ்**
+
+**சுருக்கம்.** களம் (உடல்), களத்தை அறிபவன் (ஆத்மா) இரண்டையும் கிருஷ்ணர் வேறுபடுத்துகிறார்; ஒவ்வொரு உடலிலும் இரண்டாவது அறிபவர் இருக்கிறார், அவரே பரமாத்மா என்று வெளிப்படுத்துகிறார். அடக்கத்தில் தொடங்கும் உண்மை ஞானத்தின் குணங்களைப் பட்டியலிடுகிறார். ஒவ்வொரு உடலிலும் ஆத்மாவையும் பரமாத்மாவையும் காண்பதே உண்மையான பார்வை.
+
+**விரைவாகப் படிக்க**
+- செயல்கள் விதைக்கப்பட்டு பலன்கள் அறுவடையாகும் "களம்" உடலே
+- ஆத்மா தன் உடலை அறிகிறது; பரமாத்மா எல்லா உடல்களையும் அறிகிறார்
+- உண்மை ஞானம் அடக்கம், அகிம்சை, பொறுமை, எளிமை, குரு சேவையில் தொடங்குகிறது
+- ஜட இயற்கையும் உயிரும் தொடக்கமற்றவை
+- இயற்கையின் குணங்களில் சிக்கிய ஆத்மா நல்ல, தீய பிறவிகளை அனுபவிக்கிறது
+- எல்லா உடல்களிலும் பரமாத்மாவைச் சமமாகக் காண்பவனே உண்மையில் காண்கிறான்
+
+**முக்கிய ஸ்லோகங்கள்:** 13.3 (எல்லா உடல்களிலும் அறிபவர்) · 13.8–12 (ஞானத்தின் குணங்கள்) · 13.23 (சாட்சியான பரமாத்மா) · 13.28 (சமமாகக் காணுதல்)
+
+**செயல் குறிப்புகள்**
+1. ஞானத்தின் குணங்கள் பட்டியலைப் (13.8–12) படித்து, இந்த வாரம் ஒன்றைப் பயிற்சி செய்யுங்கள்.
+2. மனம் புண்படும்போதோ கோபம் வரும்போதோ நினையுங்கள்: "இது களம்; அறிபவன் அல்ல."
+3. ஒருவருக்கு எதிர்வினை செய்யும் முன், அவர் இதயத்திலும் இறைவன் இருக்கிறார் என்று நினைவுகூருங்கள்.
+
+**நினைவில் கொள்ள:** நான் அறிபவன், களம் அல்ல.
+
+---
+
+## 14 · Guṇatraya Vibhāga Yoga: The three modes of material nature
+
+**Overview.** Kṛṣṇa explains the three modes that condition every living being: goodness (sattva), passion (rajas) and ignorance (tamas). Each binds in its own way and shows its own signs. Through unwavering devotion, a person rises above all three to the spiritual platform.
+
+**Quick read**
+- Kṛṣṇa is the seed-giving father of all beings
+- Goodness binds through happiness and knowledge
+- Passion binds through craving and endless work
+- Ignorance binds through laziness, sleep and confusion
+- Each mode leads to its own kind of future birth
+- Unwavering devotion takes one beyond all three modes
+
+**Key verses:** ★14.4 (the father of all) · 14.5 (the three modes bind) · ★14.26 (devotion transcends the modes) · ★14.27 (He is the basis of Brahman)
+
+**Action points**
+1. Notice which mode is running you right now: clarity, restlessness or dullness.
+2. Choose one goodness habit: early rising, clean food or calm speech.
+3. Don't stop at being "good"; offer that goodness in devotion.
+
+**Remember:** Rise through goodness to go beyond it.
+
+**தமிழ்**
+
+**சுருக்கம்.** எல்லா உயிர்களையும் கட்டுப்படுத்தும் மூன்று குணங்களைக் கிருஷ்ணர் விளக்குகிறார்: சத்வம் (நன்மை), ரஜஸ் (ஆசை வேகம்), தமஸ் (அறியாமை). ஒவ்வொன்றும் தனக்கே உரிய வழியில் பிணைக்கிறது, தனக்கே உரிய அடையாளங்களைக் காட்டுகிறது. அசையாத பக்தியால் மனிதன் மூன்றையும் கடந்து ஆன்மீக நிலைக்கு உயர்கிறான்.
+
+**விரைவாகப் படிக்க**
+- எல்லா உயிர்களுக்கும் விதையளிக்கும் தந்தை கிருஷ்ணரே
+- சத்வம் மகிழ்ச்சியாலும் அறிவாலும் பிணைக்கிறது
+- ரஜஸ் ஏக்கத்தாலும் முடிவற்ற உழைப்பாலும் பிணைக்கிறது
+- தமஸ் சோம்பல், உறக்கம், குழப்பத்தால் பிணைக்கிறது
+- ஒவ்வொரு குணமும் அதற்கேற்ற அடுத்த பிறவிக்கு வழிவகுக்கிறது
+- அசையாத பக்தி மூன்று குணங்களையும் கடக்கச் செய்கிறது
+
+**முக்கிய ஸ்லோகங்கள்:** ★14.4 (அனைவரின் தந்தை) · 14.5 (மூன்று குணங்கள் பிணைக்கின்றன) · ★14.26 (பக்தி குணங்களைக் கடக்கிறது) · ★14.27 (பிரம்மத்தின் ஆதாரம் அவரே)
+
+**செயல் குறிப்புகள்**
+1. இந்தக் கணம் எந்தக் குணம் உங்களை இயக்குகிறது என்று கவனியுங்கள்: தெளிவா, பரபரப்பா, மந்தமா?
+2. ஒரு சத்வப் பழக்கத்தைத் தேர்ந்தெடுங்கள்: அதிகாலை எழுதல், தூய உணவு, அமைதியான பேச்சு.
+3. "நல்லவனாக" இருப்பதோடு நிற்காதீர்கள்; அந்த நன்மையைப் பக்தியில் அர்ப்பணியுங்கள்.
+
+**நினைவில் கொள்ள:** சத்வத்தின் வழியே உயர்ந்து, அதையும் கடந்து செல்.
+
+---
+
+## 15 · Puruṣottama Yoga: The yoga of the Supreme Person
+
+**Overview.** Kṛṣṇa compares the material world to an upside-down banyan tree with its roots above, which must be cut down with the axe of detachment. Living beings are His eternal parts. He lives in every heart, gives memory and forgetfulness, and is the Supreme Person beyond both the fallible and the infallible.
+
+**Quick read**
+- The material world is like a banyan tree reflected upside down in water
+- Cut it with detachment and seek the place from which there is no return
+- Free from pride, illusion and false association, the wise reach that abode
+- Living beings are His eternal fragmental parts, struggling with the mind and senses
+- He is in everyone's heart and gives remembrance, knowledge and forgetfulness
+- Whoever knows Him as the Supreme Person worships Him with everything
+
+**Key verses:** 15.1 (the banyan tree) · ★15.5 (reaching the eternal) · ★15.6 (His self-luminous abode) · ★15.7 (eternal parts) · ★15.15 (in every heart) · ★15.19 (knowing the Supreme Person)
+
+**Action points**
+1. Identify one attachment that keeps you tied to the "tree," and loosen it this week.
+2. Before studying or deciding, pray to the Lord in your heart for remembrance and guidance.
+3. Choose company that strengthens your devotion.
+
+**Remember:** I am His part; my home is with Him.
+
+**தமிழ்**
+
+**சுருக்கம்.** வேர்கள் மேலே இருக்கும் தலைகீழான ஆலமரத்திற்கு ஜட உலகைக் கிருஷ்ணர் ஒப்பிடுகிறார்; அதை வைராக்கியம் என்ற கோடரியால் வெட்ட வேண்டும். உயிர்கள் அவரது நித்திய அம்சங்கள். அவர் ஒவ்வொரு இதயத்திலும் இருந்து நினைவையும் மறதியையும் அளிக்கிறார்; அழியக்கூடியது, அழியாதது இரண்டையும் கடந்த புருஷோத்தமர் அவரே.
+
+**விரைவாகப் படிக்க**
+- ஜட உலகம் நீரில் தலைகீழாகத் தெரியும் ஆலமரம் போன்றது
+- வைராக்கியத்தால் அதை வெட்டி, திரும்ப வேண்டாத இடத்தைத் தேடு
+- கர்வம், மயக்கம், தீய சேர்க்கை இவற்றிலிருந்து விடுபட்ட ஞானிகள் அந்தத் தாமத்தை அடைகிறார்கள்
+- உயிர்கள் அவரது நித்திய அம்சங்கள்; மனதுடனும் புலன்களுடனும் போராடுகிறார்கள்
+- அவர் அனைவர் இதயத்திலும் இருந்து நினைவு, ஞானம், மறதி அளிக்கிறார்
+- அவரைப் புருஷோத்தமராக அறிபவன் முழுமையாக அவரை வழிபடுகிறான்
+
+**முக்கிய ஸ்லோகங்கள்:** 15.1 (ஆலமரம்) · ★15.5 (நித்தியத்தை அடைதல்) · ★15.6 (சுயஒளியுள்ள தாமம்) · ★15.7 (நித்திய அம்சங்கள்) · ★15.15 (ஒவ்வொரு இதயத்திலும்) · ★15.19 (புருஷோத்தமரை அறிதல்)
+
+**செயல் குறிப்புகள்**
+1. உங்களை "மரத்துடன்" பிணைக்கும் ஒரு பற்றைக் கண்டறிந்து, இந்த வாரம் அதைத் தளர்த்துங்கள்.
+2. படிக்கும் அல்லது முடிவெடுக்கும் முன், இதயத்தில் இருக்கும் இறைவனிடம் நினைவுக்கும் வழிகாட்டலுக்கும் பிரார்த்தியுங்கள்.
+3. உங்கள் பக்தியை வளர்க்கும் நட்பைத் தேர்ந்தெடுங்கள்.
+
+**நினைவில் கொள்ள:** நான் அவரது அம்சம்; என் வீடு அவரிடமே.
+
+---
+
+## 16 · Daivāsura Sampad Vibhāga Yoga: The divine and demoniac natures
+
+**Overview.** Kṛṣṇa contrasts two kinds of nature. Divine qualities (fearlessness, purity, charity, self-control, truthfulness, compassion) lead to freedom. Demoniac qualities (pride, arrogance, anger, harshness) lead to bondage. Lust, anger and greed are the three gates to hell, and scripture is the safe guide.
+
+**Quick read**
+- Divine qualities include fearlessness, purity, charity, honesty, gentleness and humility
+- Demoniac qualities include pride, arrogance, conceit, anger and harshness
+- Demoniac people say the world has no God and exists only for pleasure
+- Endless desires and plans for wealth leave them anxious and lost
+- Lust, anger and greed are the three gates to hell, so give them up
+- Follow scripture to know what to do and what to avoid
+
+**Key verses:** 16.1–3 (divine qualities) · 16.4 (demoniac qualities) · 16.21 (three gates to hell) · 16.24 (scripture as authority)
+
+**Action points**
+1. Read the list of divine qualities and mark one you already have and one to grow.
+2. When lust, anger or greed rises, recognise it as a "gate" and don't walk through.
+3. Settle one decision this week by checking it against scripture, not only against your feelings.
+
+**Remember:** Guard the three gates.
+
+**தமிழ்**
+
+**சுருக்கம்.** இரண்டு வகை இயல்புகளைக் கிருஷ்ணர் ஒப்பிடுகிறார். தெய்வீகக் குணங்கள் (அச்சமின்மை, தூய்மை, கொடை, புலனடக்கம், சத்தியம், இரக்கம்) விடுதலைக்கு வழிவகுக்கின்றன. அசுரக் குணங்கள் (கர்வம், ஆணவம், கோபம், கடுமை) பிணைப்பில் ஆழ்த்துகின்றன. காமம், கோபம், பேராசை மூன்றும் நரகத்தின் வாயில்கள்; சாஸ்திரமே பாதுகாப்பான வழிகாட்டி.
+
+**விரைவாகப் படிக்க**
+- தெய்வீகக் குணங்கள்: அச்சமின்மை, தூய்மை, கொடை, நேர்மை, மென்மை, அடக்கம்
+- அசுரக் குணங்கள்: கர்வம், ஆணவம், தற்பெருமை, கோபம், கடுமை
+- உலகுக்கு இறைவன் இல்லை, இன்பத்திற்காக மட்டுமே இருக்கிறது என்று அசுர இயல்பினர் சொல்கிறார்கள்
+- முடிவற்ற ஆசைகளும் செல்வத் திட்டங்களும் அவர்களைக் கவலையிலும் குழப்பத்திலும் ஆழ்த்துகின்றன
+- காமம், கோபம், பேராசை நரகத்தின் மூன்று வாயில்கள்; அவற்றைக் கைவிடு
+- செய்ய வேண்டியதையும் தவிர்க்க வேண்டியதையும் அறிய சாஸ்திரத்தைப் பின்பற்று
+
+**முக்கிய ஸ்லோகங்கள்:** 16.1–3 (தெய்வீகக் குணங்கள்) · 16.4 (அசுரக் குணங்கள்) · 16.21 (நரகத்தின் மூன்று வாயில்கள்) · 16.24 (சாஸ்திரமே அதிகாரம்)
+
+**செயல் குறிப்புகள்**
+1. தெய்வீகக் குணங்கள் பட்டியலைப் படித்து, உங்களிடம் இருக்கும் ஒன்றையும், வளர்க்க வேண்டிய ஒன்றையும் குறியுங்கள்.
+2. காமம், கோபம், பேராசை எழும்போது, அதை ஒரு "வாயில்" என்று அடையாளம் கண்டு உள்ளே நுழையாதீர்கள்.
+3. இந்த வாரம் ஒரு முடிவை, உணர்வுகளை மட்டும் வைத்து அல்லாமல், சாஸ்திரத்துடன் ஒப்பிட்டு எடுங்கள்.
+
+**நினைவில் கொள்ள:** மூன்று வாயில்களையும் காவல் காத்திடு.
+
+---
+
+## 17 · Śraddhātraya Vibhāga Yoga: The divisions of faith
+
+**Overview.** Arjuna asks about people who worship with faith but ignore scripture. Kṛṣṇa explains that faith, food, sacrifice, austerity and charity each come in three kinds, matching the three modes. He ends with "oṁ tat sat", the words that make any act an offering to the Supreme.
+
+**Quick read**
+- Everyone has faith; its quality follows the mode of nature they are in
+- Food in goodness is fresh, wholesome and pleasing; spoiled or stale food is in ignorance
+- Austerity of body means cleanliness, simplicity and non-violence
+- Austerity of speech means words that are true, pleasing, beneficial and not disturbing
+- Austerity of mind means calm, gentleness, silence and self-control
+- Charity in goodness is given at the right time and place, to a worthy person, expecting nothing back
+
+**Key verses:** 17.3 (faith follows nature) · 17.8–10 (three kinds of food) · 17.15 (austerity of speech) · 17.20 (charity in goodness) · 17.23 (oṁ tat sat)
+
+**Action points**
+1. Eat fresh, simple food offered to God, and notice how your mind changes.
+2. Before speaking, check: is it true, kind and helpful?
+3. Give something this week quietly, at the right time, expecting nothing in return.
+
+**Remember:** Your faith is shaped by what you eat, say and give.
+
+**தமிழ்**
+
+**சுருக்கம்.** சாஸ்திரத்தைப் புறக்கணித்து நம்பிக்கையுடன் வழிபடுபவர்களைப் பற்றி அர்ஜுனன் கேட்கிறான். நம்பிக்கை, உணவு, யாகம், தவம், தானம் ஒவ்வொன்றும் மூன்று குணங்களுக்கு ஏற்ப மூன்று வகைப்படும் என்று கிருஷ்ணர் விளக்குகிறார். எந்தச் செயலையும் பரமனுக்கு அர்ப்பணமாக்கும் "ஓம் தத் ஸத்" என்ற சொற்களுடன் நிறைவு செய்கிறார்.
+
+**விரைவாகப் படிக்க**
+- அனைவருக்கும் நம்பிக்கை உண்டு; அதன் தன்மை அவரவர் குணத்தைப் பொறுத்தது
+- சத்வ உணவு புதியது, சத்தானது, இனிமையானது; கெட்டுப்போன, பழைய உணவு தமஸ்
+- உடலின் தவம்: தூய்மை, எளிமை, அகிம்சை
+- பேச்சின் தவம்: உண்மையான, இனிமையான, நன்மை தரும், மனம் புண்படுத்தாத சொற்கள்
+- மனதின் தவம்: அமைதி, மென்மை, மௌனம், சுயகட்டுப்பாடு
+- சத்வ தானம்: சரியான நேரத்தில், சரியான இடத்தில், தகுதியானவருக்கு, எதிர்பார்ப்பின்றி
+
+**முக்கிய ஸ்லோகங்கள்:** 17.3 (நம்பிக்கை இயல்பைப் பின்பற்றுகிறது) · 17.8–10 (மூன்று வகை உணவு) · 17.15 (பேச்சின் தவம்) · 17.20 (சத்வ தானம்) · 17.23 (ஓம் தத் ஸத்)
+
+**செயல் குறிப்புகள்**
+1. இறைவனுக்கு அர்ப்பணித்த புதிய, எளிய உணவை உண்டு, மனம் எப்படி மாறுகிறது என்று கவனியுங்கள்.
+2. பேசும் முன் சரிபாருங்கள்: இது உண்மையா, அன்பானதா, பயனுள்ளதா?
+3. இந்த வாரம் சரியான நேரத்தில், அமைதியாக, பதிலுக்கு எதையும் எதிர்பாராமல் ஏதாவது கொடுங்கள்.
+
+**நினைவில் கொள்ள:** நீ உண்பதும், பேசுவதும், கொடுப்பதும் உன் நம்பிக்கையை வடிவமைக்கின்றன.
+
+---
+
+## 18 · Mokṣa Sannyāsa Yoga: The perfection of renunciation
+
+**Overview.** The final chapter summarises the Gita. Real renunciation means giving up selfish attachment to results, not giving up duty. Knowledge, action, intelligence and happiness all appear in three modes. Kṛṣṇa gives His most confidential instruction, "Abandon all varieties of religion and just surrender unto Me", and Arjuna, his doubts gone, rises to act.
+
+**Quick read**
+- Renunciation (tyāga) means giving up attachment to results, not duty itself
+- Knowledge, work, the worker, intelligence and happiness each have three kinds
+- Do your own duty, even imperfectly, rather than another's perfectly
+- One who is joyful in the spirit attains pure devotion to Kṛṣṇa
+- The Lord in the heart directs everyone's wanderings, as if on a machine
+- "Surrender unto Me; I will free you from all sins. Do not fear"
+- Arjuna: "My illusion is gone. I will act on Your word."
+
+**Key verses:** ★18.54–55 (from joy to devotion) · ★18.58 (by My grace) · ★18.61 (the Lord in the heart) · ★18.65 (always think of Me) · ★18.66 (surrender) · ★18.68–69 (sharing this teaching is dearest to Him) · ★18.78 (where Kṛṣṇa is, there is victory)
+
+**Action points**
+1. Write down one worry and hand it over in prayer: "I surrender this to You."
+2. Return to your own duty, the one in front of you, and do it well.
+3. Share one verse or idea from the Gita with someone this week.
+
+**Remember:** Surrender, and do not fear.
+
+**தமிழ்**
+
+**சுருக்கம்.** இறுதி அத்தியாயம் கீதையைச் சுருக்கித் தருகிறது. கடமையைத் துறப்பது அல்ல, பலனில் உள்ள சுயநலப் பற்றைத் துறப்பதே உண்மையான துறவு. ஞானம், செயல், புத்தி, மகிழ்ச்சி அனைத்தும் மூன்று குணங்களில் வெளிப்படுகின்றன. "எல்லா தர்மங்களையும் விட்டு என்னிடம் மட்டும் சரணடை" என்ற மிக ரகசியமான உபதேசத்தைக் கிருஷ்ணர் வழங்குகிறார்; சந்தேகம் நீங்கிய அர்ஜுனன் செயல்பட எழுகிறான்.
+
+**விரைவாகப் படிக்க**
+- துறவு (தியாகம்) என்பது கடமையை அல்ல, பலன் மீதான பற்றைத் துறப்பது
+- ஞானம், செயல், செய்பவன், புத்தி, மகிழ்ச்சி ஒவ்வொன்றும் மூன்று வகைப்படும்
+- பிறர் கடமையை முழுமையாகச் செய்வதைவிட, உன் கடமையைக் குறையுடன் செய்வதே மேல்
+- ஆன்மாவில் மகிழ்ந்திருப்பவன் கிருஷ்ணரிடம் தூய பக்தியை அடைகிறான்
+- இயந்திரத்தில் ஏற்றியது போல், இதயத்தில் இருக்கும் இறைவன் அனைவரின் பயணத்தையும் வழிநடத்துகிறார்
+- "என்னிடம் சரணடை; எல்லாப் பாவங்களிலிருந்தும் உன்னை விடுவிப்பேன். அஞ்சாதே"
+- அர்ஜுனன்: "என் மயக்கம் நீங்கியது. உம் சொல்படி செயல்படுவேன்."
+
+**முக்கிய ஸ்லோகங்கள்:** ★18.54–55 (மகிழ்ச்சியிலிருந்து பக்தி) · ★18.58 (என் அருளால்) · ★18.61 (இதயத்தில் இறைவன்) · ★18.65 (எப்போதும் என்னை நினை) · ★18.66 (சரணாகதி) · ★18.68–69 (இந்த உபதேசத்தைப் பகிர்வதே அவருக்கு மிகப் பிரியமானது) · ★18.78 (கிருஷ்ணர் உள்ள இடத்தில் வெற்றி)
+
+**செயல் குறிப்புகள்**
+1. ஒரு கவலையை எழுதி, பிரார்த்தனையில் ஒப்படையுங்கள்: "இதை உம்மிடம் சரணடைகிறேன்."
+2. உங்கள் முன் இருக்கும் உங்கள் சொந்தக் கடமைக்குத் திரும்பி, அதை நன்றாகச் செய்யுங்கள்.
+3. இந்த வாரம் கீதையிலிருந்து ஒரு ஸ்லோகத்தை அல்லது கருத்தை ஒருவருடன் பகிருங்கள்.
+
+**நினைவில் கொள்ள:** சரணடை; அஞ்சாதே.
