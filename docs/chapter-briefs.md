@@ -1,4 +1,4 @@
-# Chapter briefs: draft for review
+# Chapter briefs
 
 Shown in a "Chapter brief" panel under the full-screen chapter player, in English or Tamil (follows the app's language tab).
 Interpretation follows *Bhagavad-gītā As It Is*. ★ = one of the app's 108 shlokas (will link into the learning loop).

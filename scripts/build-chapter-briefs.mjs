@@ -1,8 +1,9 @@
-// Parse docs/chapter-briefs-draft.md into src/data/chapter-briefs.json (English + Tamil brief per chapter).
-// Run: node scripts/build-chapter-briefs.mjs
+// Parse docs/chapter-briefs.md into src/data/chapter-briefs.json (English + Tamil brief per chapter).
+// Run: node scripts/build-chapter-briefs.mjs (a unit test fails when the JSON is stale)
 import { readFileSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
-const src = readFileSync(new URL("../docs/chapter-briefs-draft.md", import.meta.url), "utf8");
+const src = readFileSync(new URL("../docs/chapter-briefs.md", import.meta.url), "utf8");
 // reference -> shloka id for the 108, so key verses can open the learning loop
 const shlokas = readFileSync(new URL("../src/lib/shlokas.ts", import.meta.url), "utf8");
 const idByRef = new Map([...shlokas.matchAll(/"id": "(GS-\d+)",[\s\S]*?"reference": "([^"]+)"/g)].map((m) => [m[2], m[1]]));
@@ -36,7 +37,8 @@ function parse(text) {
   };
 }
 
-const briefs = chapters.map((block) => {
+export function buildChapterBriefs() {
+  const briefs = chapters.map((block) => {
   const chapter = Number(block.match(/^(\d+)/)[1]);
   const [en, ta] = block.split("**தமிழ்**");
   const brief = { chapter, en: parse(en), ta: parse(ta) };
@@ -46,6 +48,12 @@ const briefs = chapters.map((block) => {
   }
   return brief;
 });
-if (briefs.length !== 18) throw new Error(`Expected 18 chapters, found ${briefs.length}`);
-writeFileSync(new URL("../src/data/chapter-briefs.json", import.meta.url), JSON.stringify(briefs, null, 1) + "\n");
-console.log(`Wrote ${briefs.length} chapter briefs`);
+  if (briefs.length !== 18) throw new Error(`Expected 18 chapters, found ${briefs.length}`);
+  return briefs;
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const briefs = buildChapterBriefs();
+  writeFileSync(new URL("../src/data/chapter-briefs.json", import.meta.url), JSON.stringify(briefs, null, 1) + "\n");
+  console.log(`Wrote ${briefs.length} chapter briefs`);
+}
