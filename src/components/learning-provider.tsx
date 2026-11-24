@@ -26,3 +26,7 @@ export function useLearning() {
   if (!value) throw new Error("LearningProvider is required");
   return value;
 }
+
+export function useLearningSession() {
+  return useLearning().session;
+}

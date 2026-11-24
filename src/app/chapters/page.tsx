@@ -1,14 +1,11 @@
 "use client";
 
-import { useLearning } from "@/components/learning-provider";
-import { LoginScreen } from "@/components/login-screen";
-import { AppLoader } from "@/components/app-loader";
-import { ChapterAudios } from "@/components/chapter-audios";
+import { lazy } from "react";
+import { AuthenticatedPage } from "@/components/authenticated-page";
+
+const loadChapters = () => import("@/components/chapter-audios").then((m) => ({ default: m.ChapterAudios }));
+const ChapterAudios = lazy(loadChapters);
 
 export default function ChaptersPage() {
-  const { session } = useLearning();
-  const { user, checking, signIn } = session;
-  if (checking) return <AppLoader />;
-  if (!user) return <LoginScreen onSignIn={signIn} />;
-  return <ChapterAudios />;
+  return <AuthenticatedPage><ChapterAudios /></AuthenticatedPage>;
 }

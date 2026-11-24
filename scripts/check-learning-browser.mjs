@@ -7,9 +7,34 @@ const engine = process.env.GITA_BROWSER === 'webkit' ? webkit : chromium;
 const { default: AxeBuilder } = await import(process.env.AXE_MODULE || '@axe-core/playwright');
 await mkdir('test-results', { recursive: true });
 const base = process.env.GITA_BASE_URL || 'http://localhost:3002';
-const browser = await engine.launch({ headless: true, args: ['--disable-features=HardwareMediaKeyHandling,MediaSessionService'] });
+const browser = await engine.launch({ headless: true, ...(engine === chromium && { args: ['--disable-features=HardwareMediaKeyHandling,MediaSessionService'] }) });
 const context = await browser.newContext({ viewport: { width: 390, height: 844 }, acceptDownloads: true });
 const uid = 'local-e2e-learner';
+const chapterFixture = await readFile('public/audio/1.1.mp3');
+const chapterRequests = [];
+context.on('request', request => {
+ if (/\/chapter-\d+\.mp3$/.test(new URL(request.url()).pathname)) chapterRequests.push(request.url());
+});
+await context.route(/\/chapter-\d+\.mp3(?:\?.*)?$/, route => {
+ const range = /^bytes=(\d+)-(\d*)$/.exec(route.request().headers().range || '');
+ const headers = {'Content-Type':'audio/mpeg','Accept-Ranges':'bytes'};
+ if (!range) return route.fulfill({headers,body:chapterFixture});
+ const start = Number(range[1]);
+ const end = Math.min(range[2] ? Number(range[2]) : chapterFixture.length - 1, chapterFixture.length - 1);
+ if (start > end) return route.fulfill({status:416,headers:{...headers,'Content-Range':`bytes */${chapterFixture.length}`}});
+ return route.fulfill({status:206,headers:{...headers,'Content-Range':`bytes ${start}-${end}/${chapterFixture.length}`},body:chapterFixture.subarray(start,end+1)});
+});
+await context.addInitScript(() => {
+ // Headless browsers exercise the app's callbacks with real audio elements. A phone drives the system widget.
+ const actions = new Map();
+ const media = {
+  actions, metadata:null, playbackState:'none', position:null,
+  setActionHandler(action, handler) { if (handler) actions.set(action,handler); else actions.delete(action); },
+  setPositionState(position) { this.position = position ?? null; },
+ };
+ Object.defineProperty(navigator,'mediaSession',{configurable:true,value:media});
+ if (!window.MediaMetadata) window.MediaMetadata = class { constructor(value) { Object.assign(this,value); } };
+});
 const apiKey = (await readFile('src/lib/firebase.ts', 'utf8')).match(/apiKey: "([^"]+)/)[1];
 const token = ['eyJhbGciOiJub25lIn0', Buffer.from(JSON.stringify({ sub: uid, user_id: uid, aud: 'bhagavad-gita-pwa', iss: 'https://securetoken.google.com/bhagavad-gita-pwa', exp: Math.floor(Date.now()/1000)+86400, iat: Math.floor(Date.now()/1000), auth_time: Math.floor(Date.now()/1000), firebase: { sign_in_provider: 'google.com' } })).toString('base64url'), 'test'].join('.');
 await context.route('**/identitytoolkit.googleapis.com/**', route => route.fulfill({headers:{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'*','Access-Control-Allow-Methods':'GET, POST, OPTIONS'},contentType:'application/json',body:JSON.stringify({ users:[{localId:uid,email:'learner@example.test',emailVerified:true,displayName:'Test Learner',providerUserInfo:[],lastLoginAt:String(Date.now()),createdAt:String(Date.now())}]})}));
@@ -63,6 +88,76 @@ for(const width of [320,390,768,1024,1440]) {
  await capture(`reading-${width}`);
 }
 await page.setViewportSize({width:390,height:844});await axeCheck('Reader');
+
+assert(chapterRequests.length === 0,'Opening the reader requested chapter audio');
+assert(await page.evaluate(()=>navigator.mediaSession.metadata === null),'An idle reader published media metadata');
+const mediaAction = action => page.evaluate(name => {
+ const handler = navigator.mediaSession.actions.get(name);
+ if (!handler) throw new Error(`Media action unavailable: ${name}`);
+ handler({action:name});
+}, action);
+async function checkMediaResume(selector, title) {
+ const album = selector.startsWith('.compact-player') ? 'Gita 108' : 'All chapters';
+ await page.waitForFunction(({selector,title,album})=>{
+  const audio = document.querySelector(selector);
+  const metadata = navigator.mediaSession.metadata;
+  return audio && !audio.paused && audio.currentTime>0.2 && metadata?.album === album && metadata.title.includes(title);
+ }, {selector,title,album});
+ await mediaAction('pause');
+ await page.waitForFunction(selector=>document.querySelector(selector).paused, selector);
+ const pausedAt = await page.locator(selector).evaluate(audio=>audio.currentTime);
+ assert(await page.evaluate(()=>navigator.mediaSession.playbackState==='paused'&&navigator.mediaSession.actions.has('play')),'Pause dropped the active media session');
+ await mediaAction('play');
+ await page.waitForFunction(({selector,pausedAt})=>{
+  const audio = document.querySelector(selector);
+  return audio && !audio.paused && audio.currentTime>pausedAt+0.1 && navigator.mediaSession.playbackState==='playing';
+ }, {selector,pausedAt});
+}
+await page.getByRole('button',{name:'Play audio',exact:true}).click();
+await checkMediaResume('.compact-player audio','Verse 1');
+await page.getByRole('link',{name:'All Chapter Audios',exact:true}).click();
+await page.getByRole('heading',{name:'Now playing',exact:true}).waitFor();
+assert(chapterRequests.length===0,'Opening the chapter player requested an unplayed track');
+assert(await page.evaluate(()=>navigator.mediaSession.metadata===null&&!navigator.mediaSession.actions.has('play')),'Leaving the reader kept stale verse actions');
+await page.getByRole('button',{name:'Play audio',exact:true}).click();
+await checkMediaResume('audio','Chapter 1');
+await page.getByRole('link',{name:'Back to reading',exact:true}).click();
+await page.getByRole('region',{name:'Now playing',exact:true}).waitFor();
+await checkMediaResume('audio[preload="none"]','Chapter 1');
+await page.getByRole('button',{name:'Play audio',exact:true}).click();
+await checkMediaResume('.compact-player audio','Verse 1');
+assert(await page.evaluate(()=>document.querySelector('audio[preload="none"]').paused&&!navigator.mediaSession.actions.has('seekto')),'Chapter media controls survived the verse handoff');
+await page.getByRole('button',{name:'Play chapter audio',exact:true}).click();
+await checkMediaResume('audio[preload="none"]','Chapter 1');
+await mediaAction('pause');
+await page.reload();
+const resumedChapter = page.getByRole('region',{name:'Now playing',exact:true});
+await resumedChapter.getByRole('button',{name:/Chapter 1: .*open player/}).waitFor();
+assert(await page.locator('audio[preload="none"]').evaluate(audio=>!audio.hasAttribute('src')),'Reopening auto-loaded chapter media');
+await resumedChapter.getByRole('button',{name:'Stop chapter audio',exact:true}).click();
+console.log('Deferred chapter audio, Media Session pause/resume, player handoff and reopen passed');
+
+const searchRequests = [];
+const trackSearch = (request) => {
+ const path = new URL(request.url()).pathname;
+ if (path.startsWith('/api/chapters/')) searchRequests.push(path);
+};
+page.on('request', trackSearch);
+await page.getByRole('button',{name:'Find a verse',exact:true}).click();
+const searchInput = page.getByLabel('Search verses',{exact:true});
+for (const reference of ['2', '2.', '2.4', '2.47']) {
+ await searchInput.fill(reference);
+ await page.waitForTimeout(250); // Exercise each prefix after the word-search debounce window.
+}
+assert(searchRequests.length === 0, `Reference search downloaded chapter data: ${searchRequests.join(', ')}`);
+await page.locator('.verse-result').filter({hasText:'Verse 2.47'}).first().waitFor();
+await searchInput.fill('eyes full of tears');
+const searchResult = page.locator('.verse-result').filter({has:page.getByText('Verse 2.1',{exact:true})});
+await searchResult.getByText('Read · sañjaya uvāca',{exact:true}).waitFor();
+assert(searchRequests.join(',') === '/api/chapters/search', `Word search requested unexpected data: ${searchRequests.join(', ')}`);
+await page.getByRole('button',{name:'Cancel',exact:true}).click();
+page.off('request', trackSearch);
+
 await page.getByRole('button',{name:'Read all',exact:true}).click();await findVerse('2.6');
 for(const ref of ['2.6','2.7','2.8']) {await page.locator('#verse-heading').filter({hasText:new RegExp(`^Sloka ${ref.split('.')[1]}$`)}).waitFor().catch(()=>{throw new Error(`Reading skipped ${ref}`);});await page.getByRole('button',{name:'Next',exact:true}).click();}
 assert(await page.getByRole('button',{name:'Read all',exact:true}).getAttribute('aria-pressed')==='true','Reading silently switched collections');
@@ -88,7 +183,7 @@ await page.reload();await page.getByText('Today’s practice is complete.',{exac
 console.log('Learning actions, single-count recall, daily completion and reading-mode continuity passed');
 await page.evaluate(async()=>{await navigator.serviceWorker.ready;});await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
 await openTools();await page.getByRole('button',{name:'Download 2.11',exact:true}).click();await page.getByText('1 new verse(s) saved for offline playback.',{exact:true}).waitFor();
-await page.locator('summary').filter({hasText:'Line-by-line practice'}).click();await page.getByRole('button',{name:'Listen and follow along',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.compact-player audio').paused);
+await page.locator('summary').filter({hasText:'Line-by-line practice'}).click();await page.getByRole('button',{name:'Practise from line 1',exact:true}).waitFor();
 await page.locator('summary').filter({hasText:'Adjust line timings (optional)'}).click();await page.getByRole('button',{name:'Set line timings',exact:true}).click();await page.waitForFunction(()=>document.querySelector('.compact-player audio').currentTime>0.1&&!document.querySelector('.compact-player audio').paused);
 const lineDetails=page.locator('details').filter({has:page.locator('summary').filter({hasText:'Line-by-line practice'})}).last();const n=await lineDetails.locator('ol li').count();
 for(let i=0;i<n;i++){await page.evaluate(time=>{const audio=document.querySelector('.compact-player audio');audio.pause();audio.currentTime=time;},(i+1)*0.5);await page.waitForFunction(()=>!document.querySelector('.compact-player audio').seeking);await page.getByRole('button',{name:`Mark end of line ${i+1}`,exact:true}).click();}

@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { SHLOKAS } from "@/lib/shlokas";
+import sample from "@/data/welcome-verse.json";
 
 export function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
   const [signingIn, setSigningIn] = useState(false);
   const [error, setError] = useState("");
-  const sample = SHLOKAS.find((verse) => verse.reference === "2.47")!;
 
   async function login() {
     setSigningIn(true); setError("");
@@ -28,7 +27,7 @@ export function LoginScreen({ onSignIn }: { onSignIn: () => Promise<void> }) {
       <p className="study-muted mt-3 text-sm">{process.env.NEXT_PUBLIC_PROGRESS_SYNC === "1" ? "Your learning progress is saved to your account and kept in sync across your devices." : "Your learning progress is saved on this device only. Use Export backup in your profile to keep a copy."}</p>
       {error && <p className="mt-3 text-sm" role="alert">{error}</p>}
       <details className="sample-verse mt-8">
-        <summary className="min-h-11 cursor-pointer py-3 font-semibold">Read a sample · Verse 2.47</summary>
+        <summary className="min-h-11 cursor-pointer py-3 font-semibold">Read a sample · Verse {sample.reference}</summary>
         <p className="my-4 whitespace-pre-line text-lg leading-loose" lang="sa-Latn">{sample.transliteration}</p>
         <p className="study-muted text-base leading-relaxed">{sample.english}</p>
         <p className="study-muted mt-4 text-sm">Listen to a recording, repeat the verse, read its meaning, then try reciting without looking. You choose when to mark it learned.</p>
