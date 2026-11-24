@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development next dev",
     "dev:turbo": "NODE_ENV=development next dev --turbopack",
-    "build": "node scripts/build-service-worker.mjs && next build",
+    "build": "next build && node scripts/build-service-worker.mjs",
     "start": "next start",
     "lint": "eslint",
     "audio:fetch": "python3 scripts/fetch_audio_from_links.py --missing-only",

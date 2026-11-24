@@ -2,11 +2,16 @@ import { describe, it, expect } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { SHLOKAS, TOTAL_SHLOKAS, DAILY_TARGET, tamilCredit, TAMIL_TRANSLATION_AUTHOR } from "../shlokas";
+import sample from "@/data/welcome-verse.json";
 
 describe("shloka dataset", () => {
   it("has the expected number of entries", () => {
     expect(SHLOKAS.length).toBe(TOTAL_SHLOKAS);
     expect(TOTAL_SHLOKAS).toBe(108);
+  });
+
+  it("keeps the lightweight welcome sample in sync with the learning collection", () => {
+    expect(SHLOKAS.find((verse) => verse.reference === sample.reference)).toMatchObject(sample);
   });
 
   it("has no duplicate IDs", () => {

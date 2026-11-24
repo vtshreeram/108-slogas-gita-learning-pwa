@@ -4,19 +4,10 @@ import { Play, Pause, Square, Repeat, Loader2, AlertCircle, SkipBack, SkipForwar
 import { LoopMode, REPEAT_COUNTS, SPEED_OPTIONS, decideOnEnded, cycleLoop, cycleOption, formatTime } from "@/lib/audio-playback";
 import { downloadedAudio, hasDownloadedAudio } from "@/lib/offline-audio";
 import { AUDIO_TRANSPORT_EVENT } from "@/lib/audio-transport";
-import { audioOwner, claimAudioFocus, onAudioFocus } from "@/lib/audio-focus";
+import { audioOwner, claimAudioFocus, onAudioFocus, releaseAudioFocus, removeMediaPlayer, setMediaPlayback, setMediaPosition, updateMediaPlayer } from "@/lib/audio-focus";
 
-const mediaState = (state: "playing" | "paused") => { if ("mediaSession" in navigator && audioOwner() !== "chapter") navigator.mediaSession.playbackState = state; };
 const LOAD_TIMEOUT_MS = 15_000;
-export const mediaPosition = (audio: HTMLAudioElement | null) => {
-  if (!audio || !("mediaSession" in navigator) || typeof navigator.mediaSession.setPositionState !== "function") return;
-  if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
-  try {
-    navigator.mediaSession.setPositionState({ duration: audio.duration, playbackRate: audio.playbackRate || 1, position: Math.min(Math.max(0, audio.currentTime), audio.duration) });
-  } catch { /* optional browser capability */ }
-};
-/** The verse player only drives the Lock Screen scrubber while chapter audio does not own it. */
-const versePosition = (audio: HTMLAudioElement | null) => { if (audioOwner() !== "chapter") mediaPosition(audio); };
+const versePosition = (audio: HTMLAudioElement | null) => setMediaPosition("verse", audio);
 const userTransport = () => window.dispatchEvent(new Event(AUDIO_TRANSPORT_EVENT));
 type Props = {
   audioSrc: string; title: string; isFirst: boolean; isLast: boolean; audioAvailable: boolean;
@@ -42,9 +33,14 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
   playingRef.current = playing;
   navRef.current = { onNext, onPrev };
   const [error, setError] = useState("");
-  const [owner, setOwner] = useState(audioOwner);
   // Chapter audio started elsewhere: stop the verse and leave the Lock Screen controls to it.
-  useEffect(() => onAudioFocus((next) => { setOwner(next); if (next === "chapter" && elementRef.current && !elementRef.current.paused) { userTransport(); elementRef.current.pause(); } }), [elementRef]);
+  useEffect(() => onAudioFocus((next) => {
+    if (next !== "chapter") return;
+    autoplay.current = false;
+    userTransport();
+    elementRef.current?.pause();
+  }), [elementRef]);
+  useEffect(() => () => removeMediaPlayer("verse"), []);
 
   // A recording that never starts must end in a message and a retry, not an endless spinner.
   // Only while a recording has not started playing: normal buffering mid-chant must never be cut off.
@@ -64,6 +60,7 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
     let objectUrl: string | null = null;
     let generation = 0;
     let resolved = false;
+    if (!autoplay.current) releaseAudioFocus("verse");
     setSource(undefined); setPosition(0); setDuration(0); setPlaying(false); setLoading(false); setError(""); setAudioAvailable(true); repetition.current = 0;
     const reference = audioSrc.replace(/^\/audio\//, "").replace(/\.mp3$/, "");
     const resolve = async (onlyWhenPaused = false) => {
@@ -76,8 +73,8 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
       let nextUrl: string | null = null;
       if (saved) { try { nextUrl = await downloadedAudio(reference); } catch { /* stream instead */ } }
       if (!alive || current !== generation) { if (nextUrl) URL.revokeObjectURL(nextUrl); return; }
-      // A download may finish while the learner starts playback; never replace its source mid-chant.
-      if (onlyWhenPaused && elementRef.current && !elementRef.current.paused) { if (nextUrl) URL.revokeObjectURL(nextUrl); return; }
+      // Keep the active media element's source and position even while the system has it paused.
+      if (onlyWhenPaused && (audioOwner() === "verse" || elementRef.current?.paused === false)) { if (nextUrl) URL.revokeObjectURL(nextUrl); return; }
       if (resolved && Boolean(nextUrl) === Boolean(objectUrl)) { if (nextUrl) URL.revokeObjectURL(nextUrl); return; }
       if (objectUrl) URL.revokeObjectURL(objectUrl);
       objectUrl = nextUrl;
@@ -103,9 +100,8 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
       setLoading(false); setPlaying(false); setError("Playback did not start. Tap Play to try again.");
     }
   }, [elementRef, setAudioAvailable]);
-  const pause = useCallback(() => { elementRef.current?.pause(); setLoading(false); mediaState("paused"); versePosition(elementRef.current); }, [elementRef]);
-  const stop = useCallback(() => { userTransport(); pause(); if (elementRef.current) elementRef.current.currentTime = 0; setPosition(0); repetition.current = 0; autoplay.current = false; versePosition(elementRef.current); }, [pause, elementRef]);
-  // Keep MediaSession action handlers stable across play/pause transitions so iOS Lock Screen never loses the play handler while backgrounded.
+  const pause = useCallback(() => { autoplay.current = false; elementRef.current?.pause(); setLoading(false); setMediaPlayback("verse", "paused"); versePosition(elementRef.current); }, [elementRef]);
+  const stop = useCallback(() => { userTransport(); pause(); if (elementRef.current) elementRef.current.currentTime = 0; setPosition(0); repetition.current = 0; releaseAudioFocus("verse"); }, [pause, elementRef]);
   const next = useCallback(() => { userTransport(); if (!isLast) { autoplay.current = playingRef.current; navRef.current.onNext(); } }, [isLast]);
   const prev = useCallback(() => { userTransport(); autoplay.current = false; if (!isFirst) navRef.current.onPrev(); }, [isFirst]);
   const toggle = useCallback(() => {
@@ -118,14 +114,12 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
   }, [playing, loading, pause, audioAvailable, setAudioAvailable, elementRef, play]);
 
   useEffect(() => {
-    if (owner === "chapter" || !("mediaSession" in navigator) || !("MediaMetadata" in window)) return;
-    navigator.mediaSession.metadata = new MediaMetadata({ title, artist: "Bhagavad Gita", album: "Gita 108", artwork: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png" }] });
-    const actions: [MediaSessionAction, MediaSessionActionHandler | null][] = [
-      ["play", () => { userTransport(); void play(); }], ["pause", () => { userTransport(); pause(); }], ["stop", stop], ["previoustrack", isFirst ? null : prev], ["nexttrack", isLast ? null : next],
-    ];
-    for (const [action, handler] of actions) { try { navigator.mediaSession.setActionHandler(action, handler); } catch { /* optional browser capability */ } }
-    return () => { for (const [action] of actions) { try { navigator.mediaSession.setActionHandler(action, null); } catch { /* optional */ } } };
-  }, [owner, title, isFirst, isLast, prev, next, play, pause, stop]);
+    updateMediaPlayer("verse", { metadata: { title, album: "Gita 108" }, actions: {
+      play: () => { userTransport(); void play(); },
+      pause: () => { userTransport(); pause(); },
+      stop, previoustrack: isFirst ? undefined : prev, nexttrack: isLast ? undefined : next,
+    } });
+  }, [title, isFirst, isLast, prev, next, play, pause, stop]);
   useEffect(() => { if (elementRef.current) { elementRef.current.playbackRate = rate; versePosition(elementRef.current); } }, [rate, source, elementRef]);
 
   useEffect(() => {
@@ -146,7 +140,7 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
       if (elementRef.current) elementRef.current.currentTime = 0;
       void play();
     } else if (action.type === "advance") { repetition.current = 0; autoplay.current = true; onNext(); }
-    else { pause(); setPlaying(false); repetition.current = 0; if (elementRef.current) elementRef.current.currentTime = 0; setPosition(0); }
+    else { pause(); setPlaying(false); repetition.current = 0; if (elementRef.current) elementRef.current.currentTime = 0; setPosition(0); releaseAudioFocus("verse"); }
   }
   const loopLabel = loopMode === "off" ? "Off" : loopMode === "repeat" ? "Loop" : "Next";
   const repeatLabel = repeatCount === Infinity ? "∞" : `${repeatCount}x`;
@@ -156,9 +150,9 @@ export function AudioPlayer({ audioSrc, title, isFirst, isLast, audioAvailable, 
       <div className="player-inner">
         <audio ref={elementRef} src={source} preload="metadata"
           onWaiting={() => setLoading(true)} onCanPlay={() => { setLoading(false); if (autoplay.current) { autoplay.current = false; void play(); } }}
-          onPlay={(e) => { claimAudioFocus("verse"); setPlaying(true); setLoading(false); mediaState("playing"); versePosition(e.currentTarget); }} onPause={(e) => { setPlaying(false); mediaState("paused"); versePosition(e.currentTarget); }}
+          onPlay={(e) => { claimAudioFocus("verse"); setPlaying(true); setLoading(false); setMediaPlayback("verse", "playing"); versePosition(e.currentTarget); }} onPause={(e) => { setPlaying(false); setMediaPlayback("verse", "paused"); versePosition(e.currentTarget); }}
           onTimeUpdate={(e) => setPosition(e.currentTarget.currentTime)} onDurationChange={(e) => { setDuration(Number.isFinite(e.currentTarget.duration) ? e.currentTarget.duration : 0); versePosition(e.currentTarget); }}
-          onEnded={ended} onError={() => { if (!source) return; autoplay.current = false; userTransport(); setAudioAvailable(false); setPlaying(false); setLoading(false); setError("Audio unavailable. Check your connection or download this verse for offline use."); }} />
+          onEnded={ended} onError={() => { if (!source) return; autoplay.current = false; userTransport(); setMediaPlayback("verse", "paused"); setAudioAvailable(false); setPlaying(false); setLoading(false); setError("Audio unavailable. Check your connection or download this verse for offline use."); }} />
         <div className="player-main">
           <button className="icon-button" aria-label={expanded ? "Collapse audio controls" : "Expand audio controls"} aria-expanded={expanded} aria-controls="audio-options" onClick={() => setExpanded(!expanded)}>{expanded ? <ChevronDown className="h-5 w-5" /> : <ChevronUp className="h-5 w-5" />}</button>
           <div className="min-w-0 flex-1"><p className="truncate text-sm font-semibold">{title}</p><p className="study-muted text-xs tabular-nums">{loading ? "Loading recording…" : `${formatTime(position)} / ${formatTime(duration)}`}</p></div>

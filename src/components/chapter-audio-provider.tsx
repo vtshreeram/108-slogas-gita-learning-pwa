@@ -6,9 +6,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { CHAPTER_AUDIO, chapterAudioUrl, neighbour, nextSleep, parsePositions, resumeAt, sleepExpired, withPosition, type ChapterAudio, type Positions, type SleepTimer } from "@/lib/chapter-audio";
 import { SPEED_OPTIONS, cycleOption } from "@/lib/audio-playback";
-import { audioOwner, claimAudioFocus, onAudioFocus, releaseAudioFocus } from "@/lib/audio-focus";
-import { mediaPosition } from "@/components/audio-player";
-import { useLearning } from "@/components/learning-provider";
+import { claimAudioFocus, onAudioFocus, releaseAudioFocus, removeMediaPlayer, setMediaPlayback, setMediaPosition, updateMediaPlayer } from "@/lib/audio-focus";
+import { useLearningSession } from "@/components/learning-provider";
 import { ChapterMiniPlayer } from "@/components/chapter-mini-player";
 
 const SAVE_EVERY_S = 5;
@@ -19,7 +18,7 @@ const readStore = (key: string) => { try { return localStorage.getItem(key); } c
 const writeStore = (key: string, value: string) => { try { localStorage.setItem(key, value); } catch { /* resume is a convenience */ } };
 const finite = (n: number) => (Number.isFinite(n) ? n : 0);
 
-const chapterPosition = (audio: HTMLAudioElement | null) => { if (audioOwner() === "chapter") mediaPosition(audio); };
+const chapterPosition = (audio: HTMLAudioElement | null) => setMediaPosition("chapter", audio);
 
 export type ChapterView = "player" | "list";
 type ChapterAudioContextValue = {
@@ -36,7 +35,7 @@ type ChapterAudioContextValue = {
   error: string;
   sleep: SleepTimer;
   ready: boolean;
-  /** The learner has started chapter audio in this visit, so other screens show the mini player. */
+  /** The learner can continue chapter audio from other screens. */
   engaged: boolean;
   view: ChapterView;
   setView: (view: ChapterView) => void;
@@ -51,15 +50,17 @@ type ChapterAudioContextValue = {
 const ChapterAudioContext = createContext<ChapterAudioContextValue | null>(null);
 
 export function ChapterAudioProvider({ children }: { children: ReactNode }) {
-  const { session } = useLearning();
-  const uid = session.user?.uid ?? null;
+  const { user } = useLearningSession();
+  const uid = user?.uid ?? null;
   const chapters = CHAPTER_AUDIO;
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const sourceTrack = useRef<ChapterAudio | undefined>(undefined);
   const positionsRef = useRef<Positions>({});
   const lastSaved = useRef(0);
   /** True once the current src has loaded its metadata: until then currentTime belongs to no chapter and must not be saved. */
   const loaded = useRef(false);
-  const autoplay = useRef(false);
+  const pendingSeek = useRef<number | null>(null);
+  const playRequest = useRef(0);
   const [positions, setPositions] = useState<Positions>({});
   const [chapter, setChapter] = useState<ChapterAudio | undefined>(chapters[0]);
   const [view, setView] = useState<ChapterView>("player");
@@ -72,74 +73,102 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
   const [sleep, setSleep] = useState<SleepTimer>(null);
   const [ready, setReady] = useState(false);
   const [engaged, setEngaged] = useState(false);
-  const [owner, setOwner] = useState(audioOwner);
-  const keys = uid ? { positions: `gita-chapter-audio-v1:${uid}`, last: `gita-chapter-audio-last:${uid}` } : null;
-  const positionsKey = keys?.positions;
-  const lastKey = keys?.last;
+  const positionsKey = uid ? `gita-chapter-audio-v1:${uid}` : null;
+  const lastKey = uid ? `gita-chapter-audio-last:${uid}` : null;
+  const miniPlayerKey = uid ? `gita-chapter-audio-mini:${uid}` : null;
 
   // Per account: restore the last chapter and every saved position; signing out stops playback.
   useEffect(() => {
     loaded.current = false;
-    audioRef.current?.pause();
-    if (audioOwner() === "chapter" && "mediaSession" in navigator) navigator.mediaSession.metadata = null;
+    sourceTrack.current = undefined;
+    pendingSeek.current = null;
+    playRequest.current++;
+    const audio = audioRef.current;
+    if (audio?.hasAttribute("src")) {
+      audio.pause(); audio.removeAttribute("src"); audio.load();
+    }
     releaseAudioFocus("chapter");
     setPlaying(false); setLoading(false); setEngaged(false); setError(""); setSleep(null); setPosition(0);
-    autoplay.current = false;
-    if (!positionsKey || !lastKey) { setReady(false); return; }
+    if (!positionsKey || !lastKey || !miniPlayerKey) { setReady(false); return; }
     positionsRef.current = parsePositions(readStore(positionsKey));
     setPositions(positionsRef.current);
     const found = chapters.find((c) => c.chapter === Number(readStore(lastKey))) ?? chapters[0];
     setChapter(found); setDuration(found?.seconds ?? 0); setPosition(found ? resumeAt(positionsRef.current, found.chapter) : 0);
+    setEngaged(readStore(miniPlayerKey) === "1");
     setReady(true);
-  }, [positionsKey, lastKey, chapters]);
+  }, [positionsKey, lastKey, miniPlayerKey, chapters]);
+  useEffect(() => () => removeMediaPlayer("chapter"), []);
 
   const persist = useCallback((seconds: number, total: number) => {
-    if (!chapter || !positionsKey || !lastKey || !loaded.current) return;
-    positionsRef.current = withPosition(positionsRef.current, chapter.chapter, seconds, finite(total));
+    const track = sourceTrack.current;
+    if (!track || !positionsKey || !lastKey || !loaded.current) return;
+    positionsRef.current = withPosition(positionsRef.current, track.chapter, seconds, finite(total));
     setPositions(positionsRef.current);
     writeStore(positionsKey, JSON.stringify(positionsRef.current));
-    writeStore(lastKey, String(chapter.chapter));
-  }, [chapter, positionsKey, lastKey]);
+    writeStore(lastKey, String(track.chapter));
+  }, [positionsKey, lastKey]);
   useEffect(() => {
     const save = () => { const a = audioRef.current; if (a && a.currentTime) persist(a.currentTime, a.duration); };
     window.addEventListener("pagehide", save);
     return () => window.removeEventListener("pagehide", save);
   }, [persist]);
 
-  const play = useCallback(async () => {
+  const play = useCallback(async (track = chapter) => {
     const audio = audioRef.current;
-    if (!audio?.src) return;
+    if (!audio || !track) return;
+    const request = ++playRequest.current;
+    const source = chapterAudioUrl(track.key);
     setEngaged(true);
     setSleep((t) => (sleepExpired(t, Date.now()) ? null : t)); // a timer that ran out while paused must not stop this Play
-    try { setError(""); setLoading(true); if (audio.error) { loaded.current = false; audio.load(); } await audio.play(); }
-    catch (e) { if (e instanceof DOMException && e.name === "AbortError") return; setLoading(false); setPlaying(false); setError("Playback did not start. Tap Play to try again."); }
+    try {
+      setError(""); setLoading(true);
+      // Attach the source and start playback in the same click or system media action.
+      sourceTrack.current = track;
+      if (audio.getAttribute("src") !== source) { loaded.current = false; audio.src = source; }
+      else if (audio.error) { loaded.current = false; audio.load(); }
+      await audio.play();
+    } catch (error) {
+      if (request !== playRequest.current) return;
+      setLoading(false); setPlaying(false); setMediaPlayback("chapter", "paused");
+      if (!(error instanceof DOMException && error.name === "AbortError")) setError("Playback did not start. Tap Play to try again.");
+    }
+  }, [chapter]);
+  const pause = useCallback(() => {
+    playRequest.current++;
+    audioRef.current?.pause(); setLoading(false); setMediaPlayback("chapter", "paused");
   }, []);
-  const pause = useCallback(() => { autoplay.current = false; audioRef.current?.pause(); setLoading(false); }, []);
   const seek = useCallback((to: number) => {
     const a = audioRef.current;
     if (!a) return;
-    const clamped = Math.max(0, Math.min(to, Number.isFinite(a.duration) ? a.duration : to));
-    a.currentTime = clamped; setPosition(clamped); chapterPosition(a);
-  }, []);
+    const total = loaded.current && Number.isFinite(a.duration) ? a.duration : duration;
+    const clamped = Math.max(0, Math.min(to, total || to));
+    if (loaded.current) a.currentTime = clamped;
+    else pendingSeek.current = clamped;
+    setPosition(clamped); chapterPosition(a);
+  }, [duration]);
   const choose = useCallback((target: ChapterAudio | undefined, startPlaying: boolean) => {
     if (!target) return;
     const a = audioRef.current;
     if (a && a.currentTime) persist(a.currentTime, a.duration);
-    if (startPlaying) setEngaged(true);
-    if (target.chapter === chapter?.chapter) { if (startPlaying && a?.paused) void play(); return; }
-    autoplay.current = startPlaying;
+    if (target.chapter === chapter?.chapter) { if (startPlaying && a?.paused) void play(target); return; }
+    pause();
     loaded.current = false;
+    pendingSeek.current = null;
     setError(""); setPosition(resumeAt(positionsRef.current, target.chapter)); setDuration(target.seconds); setPlaying(false); setLoading(startPlaying);
     setChapter(target);
-  }, [chapter, persist, play]);
-  const retry = useCallback(() => { setError(""); loaded.current = false; audioRef.current?.load(); void play(); }, [play]);
-  const toggle = useCallback(() => { if (error) retry(); else if (playing || loading) pause(); else void play(); }, [error, retry, playing, loading, pause, play]);
+    if (startPlaying) void play(target);
+    else {
+      sourceTrack.current = undefined;
+      if (a?.hasAttribute("src")) { a.removeAttribute("src"); a.load(); }
+      releaseAudioFocus("chapter");
+    }
+  }, [chapter, pause, persist, play]);
+  const toggle = useCallback(() => { if (playing || loading) pause(); else void play(); }, [playing, loading, pause, play]);
   const dismiss = useCallback(() => {
     pause(); setEngaged(false); setSleep(null);
-    // Only clear the Lock Screen when it shows this chapter, never while a verse owns it.
-    if (audioOwner() === "chapter" && "mediaSession" in navigator) navigator.mediaSession.metadata = null;
+    if (miniPlayerKey) writeStore(miniPlayerKey, "");
     releaseAudioFocus("chapter");
-  }, [pause]);
+  }, [miniPlayerKey, pause]);
   const cycleRate = useCallback(() => setRate((r) => cycleOption(SPEED_OPTIONS, r)), []);
   const cycleSleep = useCallback(() => setSleep((s) => nextSleep(s, Date.now())), []);
   const prev = neighbour(chapters, chapter?.chapter ?? 0, -1);
@@ -147,19 +176,19 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
 
   // Hand-off with the verse player: whoever starts playing owns the speaker and the Lock Screen controls.
   useEffect(() => onAudioFocus((nextOwner) => {
-    setOwner(nextOwner);
-    if (nextOwner === "verse") pause();
-  }), [pause]);
+    if (nextOwner !== "verse") return;
+    pause();
+    if (miniPlayerKey) writeStore(miniPlayerKey, "");
+  }), [miniPlayerKey, pause]);
 
   useEffect(() => {
     if (!loading || playing) return;
     const timer = setTimeout(() => {
-      autoplay.current = false; audioRef.current?.pause();
-      setLoading(false); setPlaying(false);
+      pause(); setPlaying(false);
       setError("This chapter is taking too long to load. Check your connection, then tap Play to try again.");
     }, LOAD_TIMEOUT_MS);
     return () => clearTimeout(timer);
-  }, [loading, playing]);
+  }, [loading, playing, pause]);
 
   // Timed sleep: checked on every progress tick (works in the background) and by a timer as a fallback.
   useEffect(() => {
@@ -170,20 +199,19 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => { if (audioRef.current) { audioRef.current.playbackRate = rate; chapterPosition(audioRef.current); } }, [rate, chapter]);
   useEffect(() => {
-    if (owner !== "chapter" || !chapter || !("mediaSession" in navigator) || !("MediaMetadata" in window)) return;
-    navigator.mediaSession.metadata = new MediaMetadata({ title: `Chapter ${chapter.chapter} · ${chapter.title}`, artist: "Bhagavad Gita", album: "All chapters", artwork: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png" }] });
-    const handlers: [MediaSessionAction, MediaSessionActionHandler | null][] = [
-      ["play", () => void play()], ["pause", pause],
-      ["previoustrack", prev ? () => choose(prev, true) : null], ["nexttrack", next ? () => choose(next, true) : null],
-      ["seekbackward", () => seek((audioRef.current?.currentTime ?? 0) - SKIP_S)], ["seekforward", () => seek((audioRef.current?.currentTime ?? 0) + SKIP_S)],
-      ["seekto", (d) => { if (typeof d.seekTime === "number") seek(d.seekTime); }],
-    ];
-    for (const [action, handler] of handlers) { try { navigator.mediaSession.setActionHandler(action, handler); } catch { /* optional browser capability */ } }
-    return () => { for (const [action] of handlers) { try { navigator.mediaSession.setActionHandler(action, null); } catch { /* optional */ } } };
-  }, [owner, chapter, prev, next, play, pause, choose, seek]);
-  useEffect(() => { if (owner === "chapter" && "mediaSession" in navigator) navigator.mediaSession.playbackState = playing ? "playing" : "paused"; }, [owner, playing]);
-
-  const src = useMemo(() => (chapter && ready ? chapterAudioUrl(chapter.key) : undefined), [chapter, ready]);
+    if (!chapter) return;
+    updateMediaPlayer("chapter", {
+      metadata: { title: `Chapter ${chapter.chapter} · ${chapter.title}`, album: "All chapters" },
+      actions: {
+        play: () => void play(), pause,
+        previoustrack: prev ? () => choose(prev, true) : undefined,
+        nexttrack: next ? () => choose(next, true) : undefined,
+        seekbackward: () => seek((audioRef.current?.currentTime ?? 0) - SKIP_S),
+        seekforward: () => seek((audioRef.current?.currentTime ?? 0) + SKIP_S),
+        seekto: ({ seekTime }) => { if (typeof seekTime === "number") seek(seekTime); },
+      },
+    });
+  }, [chapter, prev, next, play, pause, choose, seek]);
 
   const value = useMemo<ChapterAudioContextValue>(() => ({
     chapters, chapter, prev, next, positions, playing, loading, position, duration, rate, error, sleep, ready, engaged, view,
@@ -193,13 +221,38 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
   // The shared <audio> comes after the page, so a screen's own player stays its first audio element.
   return <ChapterAudioContext.Provider value={value}>
     {children}
-    {uid && chapter && <audio ref={audioRef} src={src} preload="metadata"
-      onLoadedMetadata={(e) => { const a = e.currentTarget; loaded.current = true; lastSaved.current = resumeAt(positionsRef.current, chapter.chapter); setDuration(Number.isFinite(a.duration) ? a.duration : chapter.seconds); const at = resumeAt(positionsRef.current, chapter.chapter); if (at && at < a.duration) { a.currentTime = at; setPosition(at); } chapterPosition(a); }}
-      onWaiting={() => setLoading(true)} onCanPlay={() => { setLoading(false); if (autoplay.current) { autoplay.current = false; void play(); } }}
-      onPlay={(e) => { claimAudioFocus("chapter"); setPlaying(true); setLoading(false); chapterPosition(e.currentTarget); }}
-      // A real pause (button, Lock Screen, phone call) cancels a timed sleep: it would expire while paused and stop the next Play at once.
-      // Not the pause browsers fire at the end of a chapter or while switching chapters, and never "end of chapter".
-      onPause={(e) => { setPlaying(false); if (!e.currentTarget.ended && loaded.current) setSleep((s) => (s?.choice === "end" ? s : null)); const a = e.currentTarget; if (a.currentTime) persist(a.currentTime, a.duration); chapterPosition(a); }}
+    {uid && chapter && <audio ref={audioRef} preload="none"
+      onLoadedMetadata={(e) => {
+        const audio = e.currentTarget;
+        const track = sourceTrack.current;
+        if (!track || audio.currentSrc !== audio.src || audio.readyState < audio.HAVE_METADATA) return;
+        loaded.current = true;
+        const total = Number.isFinite(audio.duration) ? audio.duration : track.seconds;
+        const saved = resumeAt(positionsRef.current, track.chapter);
+        const at = pendingSeek.current === null ? (saved < total ? saved : 0) : Math.min(pendingSeek.current, total);
+        pendingSeek.current = null;
+        lastSaved.current = at;
+        if (at !== audio.currentTime) audio.currentTime = at;
+        setDuration(total); setPosition(at);
+        chapterPosition(audio);
+      }}
+      onWaiting={() => setLoading(true)} onPlaying={() => { setPlaying(true); setLoading(false); }}
+      onPlay={(e) => {
+        const audio = e.currentTarget;
+        const track = sourceTrack.current;
+        if (audio.paused || !track) return;
+        claimAudioFocus("chapter"); setMediaPlayback("chapter", "playing"); chapterPosition(audio);
+        if (lastKey) writeStore(lastKey, String(track.chapter));
+        if (miniPlayerKey) writeStore(miniPlayerKey, "1");
+      }}
+      onPause={(e) => {
+        const audio = e.currentTarget;
+        if (!audio.paused) return;
+        setPlaying(false); setLoading(false); setMediaPlayback("chapter", "paused");
+        if (!audio.ended && loaded.current) setSleep((s) => (s?.choice === "end" ? s : null));
+        if (audio.currentTime) persist(audio.currentTime, audio.duration);
+        chapterPosition(audio);
+      }}
       onTimeUpdate={(e) => {
         const t = e.currentTarget.currentTime;
         setPosition(t);
@@ -209,10 +262,13 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
       onDurationChange={(e) => { if (Number.isFinite(e.currentTarget.duration)) setDuration(e.currentTarget.duration); chapterPosition(e.currentTarget); }}
       onEnded={() => {
         persist(duration, duration);
-        if (sleep?.choice === "end") { setSleep(null); setPlaying(false); return; }
-        if (next) choose(next, true); else { setPlaying(false); setPosition(0); }
+        if (next && sleep?.choice !== "end") { choose(next, true); return; }
+        setSleep(null); setPlaying(false); setLoading(false);
+        if (!next) setPosition(0);
+        if (miniPlayerKey) writeStore(miniPlayerKey, "");
+        releaseAudioFocus("chapter");
       }}
-      onError={() => { if (!src) return; autoplay.current = false; setPlaying(false); setLoading(false); setError("This chapter could not be loaded. Check your connection and try again."); }} />}
+      onError={(e) => { if (!e.currentTarget.hasAttribute("src")) return; setPlaying(false); setLoading(false); setMediaPlayback("chapter", "paused"); setError("This chapter could not be loaded. Check your connection and try again."); }} />}
     {uid && <ChapterMiniPlayer />}
   </ChapterAudioContext.Provider>;
 }

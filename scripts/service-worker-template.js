@@ -1,15 +1,26 @@
 // Keep audio downloads across app updates. Only shell caches are versioned per release.
 const SHELL_CACHE = "gita-shell-__RELEASE__";
+const NEXT_BUILD_ID = __NEXT_BUILD_ID__;
+const REQUIRED_LAZY_ASSETS = __REQUIRED_LAZY_ASSETS__;
 const AUDIO_CACHE = "gita-audio-v3";
 // Chapter text and purports a learner has opened. Survives app updates and is refreshed whenever online.
-// Bounded by construction: only the 18 chapter and 18 purport URLs are ever stored (query strings are dropped).
+// Bounded by construction: the chapter and purport URLs and the search index use one entry each.
 const CHAPTER_CACHE = "gita-chapters-v1";
 const CHAPTER_TIMEOUT_MS = 4000;
 
+function appAssets(html) {
+  return Array.from(html.matchAll(/(?:src|href)=["'](\/_next\/static\/[^"']+)["']/g), ([, path]) => path.replaceAll("&amp;", "&"));
+}
+
+function matchesBuild(html) {
+  // Next.js embeds the original build ID as `b` in the inline App Router data.
+  const build = /self\.__next_f\.push\(\[1,"0:\{[^<]*?\\"b\\":\\"([^"\\]+)\\"/.exec(html)?.[1];
+  return build === NEXT_BUILD_ID;
+}
+
 async function cacheShell() {
-  const cache = await caches.open(SHELL_CACHE);
-  const assets = new Set(["/manifest.webmanifest", "/icon.svg", "/icon-192.png", "/icon-512.png"]);
-  // Both routes and their distinct chunks must be ready for a cold offline launch.
+  const documents = [];
+  const assets = new Set(["/manifest.webmanifest", "/icon.svg", "/icon-192.png", "/icon-512.png", ...REQUIRED_LAZY_ASSETS]);
   for (const path of ["/", "/profile", "/chapters"]) {
     const request = () => new Request(new URL(path, self.location.origin), { cache: "reload" });
     // One retry rides out a flaky connection; a partial shell is never accepted, so offline support is never half-installed.
@@ -17,10 +28,13 @@ async function cacheShell() {
     if (!response?.ok) response = await fetch(request());
     if (!response.ok) throw new Error("Could not download the app shell");
     const html = await response.clone().text();
-    await cache.put(path, response);
-    for (const match of html.matchAll(/(?:src|href)=["'](\/_next\/static\/[^"']+)["']/g)) assets.add(match[1].replaceAll("&amp;", "&"));
+    if (!matchesBuild(html)) throw new Error("The app shell changed during installation");
+    documents.push([path, response]);
+    for (const asset of appAssets(html)) assets.add(asset);
   }
+  const cache = await caches.open(SHELL_CACHE);
   await cache.addAll([...assets]);
+  await Promise.all(documents.map(([path, response]) => cache.put(path, response)));
 }
 
 self.addEventListener("install", (event) => event.waitUntil(cacheShell()));
@@ -59,69 +73,70 @@ async function serveAudio(request) {
   return audioRange(full, request.headers.get("Range"));
 }
 
-async function chapterData(request) {
-  const url = new URL(request.url);
-  const key = new Request(url.origin + url.pathname); // one entry per chapter, whatever query string the page adds
-  const cache = await caches.open(CHAPTER_CACHE);
-  let saved;
-  try { saved = await cache.match(key); } catch { /* an unreadable cache must not stop a good network response */ }
+async function fetchForCache(request, timeoutMs) {
   const controller = new AbortController();
-  // A stalled network falls back to a saved copy. With nothing saved there is nothing to fall back to, so wait for the network.
-  const timeout = saved ? setTimeout(() => controller.abort(), CHAPTER_TIMEOUT_MS) : undefined;
+  const timeout = timeoutMs ? setTimeout(() => controller.abort(), timeoutMs) : undefined;
   try {
     const response = await fetch(request, { signal: controller.signal });
-    // The timer guards only the wait for the first byte. Aborting later would cut a slow but healthy body download short.
-    if (timeout) clearTimeout(timeout);
-    // Only a good response is stored; an error page must never replace a saved chapter.
-    if (response.ok) await cache.put(key, response.clone()).catch(() => {}); // a full disk must not fail a good response
-    return response;
-  } catch {
-    return saved ?? new Response(JSON.stringify({ error: "Offline" }), { status: 504, headers: { "Content-Type": "application/json" } });
+    // Clone before either the browser or the cache starts reading the body.
+    return { response, copy: response.ok ? response.clone() : undefined };
   } finally { if (timeout) clearTimeout(timeout); }
 }
 
-async function saveChunks(cache, response) {
-  try {
-    const html = await response.text();
-    const chunks = [...html.matchAll(/(?:src|href)=["'](\/_next\/static\/[^"']+)["']/g)].map((m) => m[1].replaceAll("&amp;", "&"));
-    for (const chunk of chunks) { try { if (!(await cache.match(chunk))) await cache.add(chunk); } catch { /* one failed chunk must not stop the rest */ } }
-  } catch { /* best effort: the page itself is already served */ }
+function cacheFetch(event, cache, key, network) {
+  event.waitUntil(network.then(async (result) => {
+    if (result?.copy) await (await cache).put(key, result.copy);
+  }).catch(() => { /* Cache errors must not affect the response. */ }));
 }
 
-async function navigation(request) {
-  const path = new URL(request.url).pathname;
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 5000);
-  try {
-    const response = await fetch(request, { signal: controller.signal });
-    if (response.ok) {
-      const cache = await caches.open(SHELL_CACHE);
-      await cache.put(path, response.clone());
-      // A page fetched from a newer release also needs its own chunks saved, or an offline launch before the update activates fails.
-      void saveChunks(cache, response.clone());
-    }
-    return response;
-  } catch {
-    return (await (await caches.open(SHELL_CACHE)).match(path)) ?? new Response("Connect once to download Gita 108 for offline use.", { status: 503 });
-  } finally { clearTimeout(timeout); }
+function chapterData(event) {
+  const url = new URL(event.request.url);
+  const key = new Request(url.origin + url.pathname); // one entry per chapter, whatever query string the page adds
+  const cache = caches.open(CHAPTER_CACHE);
+  const saved = cache.then((entries) => entries.match(key)).catch(() => undefined);
+  // Serve a saved chapter immediately. Bound the refresh's wait for headers only when a copy exists.
+  const network = saved.then((hit) => fetchForCache(event.request, hit ? CHAPTER_TIMEOUT_MS : undefined)).catch(() => undefined);
+  event.respondWith(saved.then(async (hit) => hit ?? (await network)?.response
+    ?? new Response(JSON.stringify({ error: "Offline" }), { status: 504, headers: { "Content-Type": "application/json" } })));
+  cacheFetch(event, cache, key, network);
 }
 
-async function staticAsset(request) {
-  const cache = await caches.open(SHELL_CACHE);
-  const hit = await cache.match(request);
-  if (hit) return hit;
-  const response = await fetch(request);
-  if (response.ok) await cache.put(request, response.clone());
-  return response;
+function navigation(event) {
+  const path = new URL(event.request.url).pathname;
+  const network = fetchForCache(event.request, 5000).catch(() => undefined);
+  event.respondWith(network.then(async (result) => result?.response
+    ?? await caches.open(SHELL_CACHE).then((cache) => cache.match(path)).catch(() => undefined)
+    ?? new Response("Connect once to download Gita 108 for offline use.", { status: 503 })));
+  event.waitUntil(network.then(async (result) => {
+    if (!result?.copy) return;
+    const html = await result.copy.clone().text();
+    // A newer deployment has different lazy chunks. Preserve the complete offline shell until its worker takes over.
+    if (!matchesBuild(html)) return;
+    const cache = await caches.open(SHELL_CACHE);
+    const chunks = new Set(appAssets(html));
+    const missing = (await Promise.all([...chunks].map(async (chunk) => await cache.match(chunk) ? null : chunk))).filter(Boolean);
+    if (missing.length) await cache.addAll(missing);
+    // Keep the previous offline page if any chunk for the new page could not be cached.
+    await cache.put(path, result.copy);
+  }).catch(() => { /* A failed cache write must not discard a good network response. */ }));
+}
+
+function staticAsset(event) {
+  const { request } = event;
+  const cache = caches.open(SHELL_CACHE);
+  const saved = cache.then((entries) => entries.match(request)).catch(() => undefined);
+  const network = saved.then((hit) => hit ? undefined : fetchForCache(request));
+  event.respondWith(saved.then(async (hit) => hit ?? (await network).response));
+  cacheFetch(event, cache, request, network);
 }
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
   if (request.method !== "GET" || url.origin !== self.location.origin) return;
-  if (/^\/api\/(?:chapters|purports)\/\d+$/.test(url.pathname)) { event.respondWith(chapterData(request)); return; }
+  if (/^\/api\/(?:chapters|purports)\/\d+$/.test(url.pathname) || url.pathname === "/api/chapters/search") { chapterData(event); return; }
   if (url.pathname.startsWith("/api/")) return;
   if (url.pathname.startsWith("/audio/")) { event.respondWith(serveAudio(request)); return; }
-  if (request.mode === "navigate") { event.respondWith(navigation(request)); return; }
-  if (url.pathname.startsWith("/_next/static/") || /\.(?:png|svg|ico|webmanifest)$/.test(url.pathname)) event.respondWith(staticAsset(request));
+  if (request.mode === "navigate") { navigation(event); return; }
+  if (url.pathname.startsWith("/_next/static/") || /\.(?:png|svg|ico|webmanifest)$/.test(url.pathname)) staticAsset(event);
 });

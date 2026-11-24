@@ -77,14 +77,6 @@ export const loadChapter = createChapterLoader<GitaVerse[]>({
   offlineMessage: "You are offline and this chapter has not been downloaded yet. Connect once to use it offline.",
 });
 
-/** Load every chapter (at most three at a time). Nothing in the learning flow needs this; it is for future full-text search. */
-export async function loadAllChapters(): Promise<{ verses: GitaVerse[]; failed: number[] }> {
-  const results = await Promise.allSettled(GITA_CHAPTERS.map((c) => loadChapter(c)));
-  const failed = GITA_CHAPTERS.filter((_, i) => results[i].status === "rejected");
-  const verses = results.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
-  return { verses, failed };
-}
-
 export type Purport = {
   /** English purport paragraphs (Prabhupada). */
   en?: string[];
