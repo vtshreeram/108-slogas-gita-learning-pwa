@@ -22,7 +22,7 @@ const loadBriefs = () => (briefsPromise ??= import("@/data/chapter-briefs.json")
 ));
 
 /** Overview, quick read, key verses and action points for a chapter, shown under the full-screen player. */
-export function ChapterBriefPanel({ chapter }: { chapter: number }) {
+export function ChapterBriefPanel({ chapter, variant = "player" }: { chapter: number; variant?: "player" | "dialog" }) {
   const { learner } = useLearning();
   const router = useRouter();
   const [briefs, setBriefs] = useState<ChapterBrief[]>();
@@ -40,9 +40,9 @@ export function ChapterBriefPanel({ chapter }: { chapter: number }) {
   const t = LABELS[lang];
   const open = (id: string) => { learner.goToShloka(id); router.push("/"); };
 
-  return <section id="chapter-brief" className="chapter-brief" aria-labelledby="chapter-brief-title" lang={lang === "ta" ? "ta" : "en"}>
+  return <section id={variant === "player" ? "chapter-brief" : undefined} className="chapter-brief" data-variant={variant} aria-labelledby={`chapter-brief-title-${variant}`} lang={lang === "ta" ? "ta" : "en"}>
     <div className="chapter-brief-head">
-      <h3 id="chapter-brief-title" className="font-serif">{t.title}</h3>
+      <h3 id={`chapter-brief-title-${variant}`} className="font-serif">{t.title}</h3>
       <div className="chapter-brief-lang" role="group" aria-label="Language">
         {(["en", "ta"] as const).map((l) => <button key={l} aria-pressed={lang === l} onClick={() => setLang(l)} lang={l}>{l === "en" ? "English" : "தமிழ்"}</button>)}
       </div>
