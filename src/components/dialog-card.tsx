@@ -6,6 +6,8 @@ type DialogCardProps = {
   maxWidth?: "max-w-xs sm:max-w-sm" | "max-w-sm" | "max-w-md" | "max-w-lg";
   responsiveRounded?: boolean;
   responsivePadding?: boolean;
+  /** Focus the dialog itself on open instead of its first button (avoids a focus ring on the close button for reading-only dialogs). */
+  focusContent?: boolean;
 };
 
 /**
@@ -22,12 +24,14 @@ export function DialogCard({
   maxWidth = "max-w-sm",
   responsiveRounded = false,
   responsivePadding = false,
+  focusContent = false,
 }: DialogCardProps) {
   const roundedClass = responsiveRounded ? "rounded-2xl sm:rounded-3xl" : "rounded-3xl";
   const paddingClass = responsivePadding ? "p-4 sm:p-6" : "p-5";
 
   return (
     <DialogContent
+      onOpenAutoFocus={focusContent ? (e) => { e.preventDefault(); (e.currentTarget as HTMLElement | null)?.focus(); } : undefined}
       className={`${maxWidth} w-[calc(100%-2rem)] max-h-[calc(100dvh-2rem)] overflow-y-auto border-[var(--study-border)] bg-[var(--study-surface)] text-[var(--study-ink)] ${paddingClass} shadow-2xl ${roundedClass}`}
     >
       {children}

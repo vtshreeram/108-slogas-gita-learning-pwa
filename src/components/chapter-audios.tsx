@@ -1,16 +1,19 @@
 "use client";
-import type { CSSProperties } from "react";
-import { AlertCircle, AudioLines, BookOpen, ChevronRight, Gauge, ListMusic, Loader2, Moon, Pause, Play, RotateCcw, RotateCw, SkipBack, SkipForward } from "lucide-react";
+import { useState, type CSSProperties } from "react";
+import { AlertCircle, AudioLines, BookOpen, Info, ChevronRight, Gauge, ListMusic, Loader2, Moon, Pause, Play, RotateCcw, RotateCw, SkipBack, SkipForward } from "lucide-react";
 import { chapterProgress, formatLength, resumeAt, sleepLabel } from "@/lib/chapter-audio";
 import { formatTime } from "@/lib/audio-playback";
 import { SKIP_S, useChapterAudio } from "@/components/chapter-audio-provider";
 import { ChapterArt } from "@/components/chapter-art";
 import { PageHeader } from "@/components/page-header";
 import { ChapterBriefPanel } from "@/components/chapter-brief";
+import { Dialog, DialogTitle } from "@/components/ui/dialog";
+import { DialogCard } from "@/components/dialog-card";
 
 /** The "All Chapter Audios" screen: a full-screen player and the chapter list. Playback itself lives in ChapterAudioProvider. */
 export function ChapterAudios() {
   const audio = useChapterAudio();
+  const [briefFor, setBriefFor] = useState<number | null>(null);
   const { chapters, chapter, prev, next, positions, playing, loading, position, duration, rate, error, sleep, ready, view, setView, toggle, seek, choose, cycleRate, cycleSleep } = audio;
   if (!chapter) return <main id="main-content" className="inner-page"><p className="study-muted p-6 text-center text-sm" role="status">No chapter audio is available yet.</p></main>;
   const pct = duration ? Math.min(100, (position / duration) * 100) : 0;
@@ -74,9 +77,17 @@ export function ChapterAudios() {
               {done > 0 && <span className="chapter-row-progress" aria-hidden="true"><span style={{ width: `${done}%` }} /></span>}
             </span>
             <span className="chapter-row-meta tabular-nums">{done ? `${left} left` : formatLength(c.seconds)}</span>
-          </button></li>;
+          </button>
+          <button className="icon-button chapter-row-info" aria-label={`Chapter ${c.chapter} brief`} onClick={() => setBriefFor(c.chapter)}><Info className="h-5 w-5" aria-hidden="true" /></button></li>;
         })}
       </ol>
     </div>
+    {/* Reading a brief from the list never changes what is playing. */}
+    <Dialog open={briefFor !== null} onOpenChange={(open) => { if (!open) setBriefFor(null); }}>
+      <DialogCard maxWidth="max-w-lg" responsivePadding focusContent>
+        <DialogTitle className="eyebrow pr-8">Chapter {briefFor} · {chapters.find((c) => c.chapter === briefFor)?.title}</DialogTitle>
+        {briefFor !== null && <ChapterBriefPanel chapter={briefFor} variant="dialog" />}
+      </DialogCard>
+    </Dialog>
   </main>;
 }

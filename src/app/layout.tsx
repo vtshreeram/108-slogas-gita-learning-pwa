@@ -16,6 +16,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { PwaUpdates } from "@/components/pwa-updates";
 import { LearningProvider } from "@/components/learning-provider";
 import { ChapterAudioProvider } from "@/components/chapter-audio-provider";
+import { ThemeColor } from "@/components/theme-color";
+import { THEME_COLORS } from "@/lib/theme-colors";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,7 +51,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#f4e9cb",
+  // Status bar / Android navigation bar colour: the page background, per theme (ThemeColor keeps it right when the theme is chosen in Profile).
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: THEME_COLORS.light },
+    { media: "(prefers-color-scheme: dark)", color: THEME_COLORS.dark },
+  ],
   viewportFit: "cover",
   width: "device-width",
   initialScale: 1,
@@ -84,6 +90,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ThemeColor />
           <ErrorReporter />
           <a className="skip-link" href="#main-content">Skip to content</a>
           <LearningProvider>
