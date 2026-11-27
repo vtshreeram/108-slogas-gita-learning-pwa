@@ -8,14 +8,18 @@ import {
   signInWithRedirect,
 } from "firebase/auth";
 
+// Firebase web configuration. These values identify the project; they are not secrets (every visitor's browser
+// receives them), and access is controlled by Firebase Auth, the Firestore rules and the key's referrer restriction.
+// Each one can be supplied at build time (for example synced from Infisical into Vercel); the project's current
+// values are the fallback, so a missing variable never breaks sign-in. Redeploy after changing a variable.
 const firebaseConfig = {
-  apiKey: "AIzaSyDLecXV97GpSFjbReKspPD6XdVHWhLW_J4",
-  authDomain: "bhagavad-gita-pwa.firebaseapp.com",
-  projectId: "bhagavad-gita-pwa",
-  storageBucket: "bhagavad-gita-pwa.firebasestorage.app",
-  messagingSenderId: "669306804260",
-  appId: "1:669306804260:web:1e90997c92b344b20520b1",
-  measurementId: "G-LBCGN8Y37Q"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyDLecXV97GpSFjbReKspPD6XdVHWhLW_J4",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "bhagavad-gita-pwa.firebaseapp.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "bhagavad-gita-pwa",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "bhagavad-gita-pwa.firebasestorage.app",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "669306804260",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:669306804260:web:1e90997c92b344b20520b1",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-LBCGN8Y37Q",
 };
 
 export const app = initializeApp(firebaseConfig);
