@@ -24,6 +24,10 @@ const CSP = [
   "frame-ancestors 'none'",
 ].join("; ");
 
+// Enforced now: the directives that cannot break sign-in or playback. They stop the app being framed (clickjacking),
+// plugins, a hijacked <base>, and forms posting to another site. The full policy above stays report-only until a release runs clean.
+const CSP_ENFORCED = ["object-src 'none'", "base-uri 'self'", "form-action 'self'", "frame-ancestors 'none'"].join("; ");
+
 const nextConfig: NextConfig = {
   outputFileTracingRoot: process.cwd(),
   outputFileTracingIncludes: {
@@ -59,6 +63,7 @@ const nextConfig: NextConfig = {
         },
         // Report-only: violations show in the browser console without blocking anything. Tighten and switch
         // to "Content-Security-Policy" once a release has run clean. Next.js hydration and next-themes need inline scripts.
+        { key: "Content-Security-Policy", value: CSP_ENFORCED },
         { key: "Content-Security-Policy-Report-Only", value: CSP },
       ],
     },
