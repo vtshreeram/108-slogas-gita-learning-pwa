@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { buildVerseIndex } from "../../../scripts/build-verse-index.mjs";
 import { SHLOKAS } from "../shlokas";
@@ -34,6 +34,12 @@ describe("verse index", () => {
     expect(hasPurport("1.1", "en")).toBe(true);
     expect(hasPurport("1.1", "ta")).toBe(true);
     expect(hasPurport("nope", "en")).toBe(false);
+  });
+
+  it("ships no recording that no verse plays (pieces joined into a range file are removed)", () => {
+    const wanted = new Set(VERSE_INDEX.map((v) => `${v.reference}.mp3`));
+    const unused = readdirSync(join(process.cwd(), "public/audio")).filter((file) => file.endsWith(".mp3") && !wanted.has(file));
+    expect(unused).toEqual([]);
   });
 
   it("has a recording in public/audio for every verse, since the player shows on all of them", () => {
