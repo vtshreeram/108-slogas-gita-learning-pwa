@@ -40,6 +40,8 @@ async function cacheShell() {
 self.addEventListener("install", (event) => event.waitUntil(cacheShell()));
 self.addEventListener("message", (event) => {
   if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
+  // The page asks before handing downloads to Background Fetch: an older worker has no handlers to file them.
+  if (event.data?.type === "gita-capabilities") event.ports?.[0]?.postMessage({ backgroundDownloads: 1 });
 });
 self.addEventListener("activate", (event) => event.waitUntil((async () => {
   const keys = await caches.keys();

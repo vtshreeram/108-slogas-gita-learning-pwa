@@ -74,7 +74,7 @@ function JobBanner({ state }: { state: Snapshot }) {
 }
 
 function PackCard({ pack, status, state, compact = false }: { pack: Pack; status: PackStatus; state: Snapshot; compact?: boolean }) {
-  const running = state.job?.status === "running" && state.job.pack === pack.id;
+  const running = state.job?.status === "running" && (state.job.pack === pack.id || Boolean(state.job.packs?.includes(pack.id)));
   const queued = state.queue.includes(pack.id);
   const partial = status.savedCount > 0 && !status.complete;
   const left = Math.max(0, status.totalBytes - status.savedBytes);

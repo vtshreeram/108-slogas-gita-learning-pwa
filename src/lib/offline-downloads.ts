@@ -16,7 +16,9 @@ const PARALLEL = 3;
 export type JobStatus = "running" | "paused" | "error" | "done";
 export type Job = { pack: PackId; title: string; done: number; total: number; bytesDone: number; bytesTotal: number; status: JobStatus; message?: string; quiet?: boolean;
   /** Handed to the browser's download manager (Background Fetch): continues after the app is closed. */
-  background?: boolean };
+  background?: boolean;
+  /** Every pack in this job: a background download takes everything that was waiting, so closing the app loses nothing. */
+  packs?: PackId[] };
 export type Snapshot = { ready: boolean; supported: boolean; saved: ReadonlyMap<string, number>; job?: Job; queue: readonly PackId[]; persisted?: boolean; estimate?: { quota?: number; usage?: number } };
 
 let packs: Pack[] | undefined;
@@ -115,7 +117,7 @@ function friendly(error: unknown) {
 /** Queue a pack (or start it now if nothing is running). `quiet` jobs are the automatic Essentials download. */
 export function start(id: PackId, options: { quiet?: boolean } = {}) {
   if (!snapshot.supported) return;
-  if (snapshot.job?.pack === id && snapshot.job.status === "running") return;
+  if (snapshot.job?.status === "running" && (snapshot.job.pack === id || snapshot.job.packs?.includes(id))) return;
   if (snapshot.job?.status === "running") {
     if (!snapshot.queue.includes(id)) set({ queue: [...snapshot.queue, id] });
     return;
@@ -129,16 +131,24 @@ async function run(id: PackId, quiet = false, options: { inApp?: boolean } = {})
   // Claim the slot before the first await, so a second tap queues instead of starting a parallel job.
   set({ job: { pack: id, title: pack.title, done: 0, total: 0, bytesDone: 0, bytesTotal: 0, status: "running", quiet } });
   await refresh();
-  const items = toDownload(packStatus(pack, snapshot.saved));
-  if (!items.length) { set({ job: quiet ? undefined : { pack: id, title: pack.title, done: 0, total: 0, bytesDone: 0, bytesTotal: 0, status: "done", message: `${pack.title} is already saved.` } }); return next(); }
+  // Downloads a learner starts go to the browser's download manager where it has one, so they survive closing the app.
+  // Everything waiting in the queue joins the same background download: the in-app queue would stop with the app.
+  const manager = !quiet && !options.inApp ? await backgroundManager() : undefined;
+  const group = manager ? [pack, ...snapshot.queue.flatMap((q) => packById(q) ?? [])] : [pack];
+  if (group.length > 1) set({ queue: [] });
+  const seen = new Set<string>();
+  const items = group.flatMap((p) => toDownload(packStatus(p, snapshot.saved))).filter((item) => !seen.has(item.url) && seen.add(item.url));
+  const title = group.length > 1 ? `${pack.title} and ${group.length - 1} more` : pack.title;
+  if (!items.length) { set({ job: quiet ? undefined : { pack: id, title, done: 0, total: 0, bytesDone: 0, bytesTotal: 0, status: "done", message: `${title} ${group.length > 1 ? "are" : "is"} already saved.` } }); return next(); }
   const bytesTotal = bytesNeeded(items);
   if (!fitsInStorage(bytesTotal, snapshot.estimate)) {
-    set({ job: { pack: id, title: pack.title, done: 0, total: items.length, bytesDone: 0, bytesTotal, status: "error", quiet, message: `${pack.title} needs about ${formatMB(bytesTotal)}, which is more than this browser allows the app to store right now. Remove another pack or free some space on the device.` } });
+    if (group.length > 1) set({ queue: group.slice(1).map((p) => p.id) }); // try the rest one by one
+    set({ job: { pack: id, title: pack.title, done: 0, total: items.length, bytesDone: 0, bytesTotal, status: "error", quiet, message: `${title} needs about ${formatMB(bytesTotal)}, which is more than this browser allows the app to store right now. Remove another pack or free some space on the device.` } });
     return next();
   }
   if (!quiet) await askToPersist();
-  // Downloads a learner starts go to the browser's download manager where it has one, so they survive closing the app.
-  if (!quiet && !options.inApp && await startInBackground(pack, items, bytesTotal)) return;
+  if (manager && await startInBackground(manager, group, title, items, bytesTotal)) return;
+  if (group.length > 1) set({ queue: group.slice(1).map((p) => p.id) }); // the browser refused: download them in the app, one by one
   controller = new AbortController();
   const { signal } = controller;
   let done = 0, bytesDone = 0, failure: unknown;
@@ -182,7 +192,14 @@ export function pause() {
   }
   controller?.abort();
 }
-export function resume() { if (snapshot.job) start(snapshot.job.pack); }
+/** Resume every pack of the job (a background download can hold several, e.g. after Download all). */
+export function resume() {
+  const job = snapshot.job;
+  if (!job) return;
+  const packs = job.packs ?? [job.pack];
+  start(packs[0]);
+  for (const id of packs.slice(1)) start(id); // queued now, then joined to the same download
+}
 export function dequeue(id: PackId) { set({ queue: snapshot.queue.filter((q) => q !== id) }); }
 
 /** Remove a pack's files. A file shared with another pack (the 108 are inside the 657) is removed from both. */
@@ -211,37 +228,59 @@ type BackgroundFetchManagerLike = {
   get(id: string): Promise<BackgroundFetchRegistrationLike | undefined>;
 };
 
-/** The browser's background download manager, when this browser has one and the service worker runs this page. */
+/**
+ * The browser's background download manager, when this browser has one and the worker running this page can file
+ * the results. After an app update the previous worker can stay in charge until the learner taps Update now; it has
+ * no background handlers, so it is asked first and the in-app downloader is used unless it answers.
+ */
 async function backgroundManager(): Promise<BackgroundFetchManagerLike | undefined> {
   if (typeof window === "undefined" || !("BackgroundFetchManager" in window) || !navigator.serviceWorker?.controller) return undefined;
+  if (!await workerFilesBackgroundDownloads()) return undefined;
   const registration = await navigator.serviceWorker.ready.catch(() => undefined);
   return (registration as (ServiceWorkerRegistration & { backgroundFetch?: BackgroundFetchManagerLike }) | undefined)?.backgroundFetch;
 }
 
-const packOfBackgroundId = (id: string) => id.startsWith(BACKGROUND_PREFIX) ? id.slice(BACKGROUND_PREFIX.length).split("@")[0] as PackId : undefined;
+let handshake: { worker: ServiceWorker; answer: Promise<boolean> } | undefined;
+/** Ask the controlling worker whether it handles background downloads (asked once per worker). */
+function workerFilesBackgroundDownloads(): Promise<boolean> {
+  const worker = navigator.serviceWorker.controller;
+  if (!worker) return Promise.resolve(false);
+  if (handshake?.worker === worker) return handshake.answer;
+  const answer = new Promise<boolean>((resolve) => {
+    const channel = new MessageChannel();
+    const timer = setTimeout(() => resolve(false), 1500);
+    channel.port1.onmessage = (event) => { clearTimeout(timer); resolve(event.data?.backgroundDownloads === 1); };
+    try { worker.postMessage({ type: "gita-capabilities" }, [channel.port2]); } catch { clearTimeout(timer); resolve(false); }
+  });
+  handshake = { worker, answer };
+  return answer;
+}
+
+/** Background download ids are `gita:<pack>+<pack>…@<time>`. */
+const packsOfBackgroundId = (id: string) => id.startsWith(BACKGROUND_PREFIX) ? id.slice(BACKGROUND_PREFIX.length).split("@")[0].split("+").flatMap((p) => packById(p as PackId) ?? []) : [];
 
 /** Hand the files to the browser. False when that is not possible here, so the in-app downloader runs instead. */
-async function startInBackground(pack: Pack, items: PackItem[], bytesTotal: number): Promise<boolean> {
-  const manager = await backgroundManager();
-  if (!manager) return false;
+async function startInBackground(manager: BackgroundFetchManagerLike, group: Pack[], title: string, items: PackItem[], bytesTotal: number): Promise<boolean> {
+  const pack = group[0];
   const requests = items.map((item) => {
     const url = new URL(item.url, location.href);
     return new Request(url.href, { mode: url.origin === location.origin ? "same-origin" : "cors" });
   });
   try {
     // The total only drives the progress bar, but the browser stops a download that goes past it: keep a margin.
-    const registration = await manager.fetch(`${BACKGROUND_PREFIX}${pack.id}@${Date.now()}`, requests, {
-      title: `Gita 108 · ${pack.title}`,
+    const registration = await manager.fetch(`${BACKGROUND_PREFIX}${group.map((p) => p.id).join("+")}@${Date.now()}`, requests, {
+      title: `Gita 108 · ${title}`,
       icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }],
       downloadTotal: Math.ceil(bytesTotal * 1.1),
     });
-    follow(registration, pack, items.length, bytesTotal);
+    follow(registration, group, title, items.length, bytesTotal);
     // Some browsers accept a background download but never run it (no download manager, e.g. headless). If nothing
     // arrives at all, take the pack back and download it in the app instead.
     setTimeout(() => {
       if (backgroundJob !== registration || registration.downloaded > 0 || registration.result !== "") return;
       backgroundJob = undefined;
       void registration.abort().catch(() => {});
+      set({ queue: [...group.slice(1).map((p) => p.id), ...snapshot.queue] });
       void run(pack.id, false, { inApp: true });
     }, BACKGROUND_STALL_MS);
     return true;
@@ -250,9 +289,9 @@ async function startInBackground(pack: Pack, items: PackItem[], bytesTotal: numb
   }
 }
 
-function follow(registration: BackgroundFetchRegistrationLike, pack: Pack, total: number, bytesTotal: number) {
+function follow(registration: BackgroundFetchRegistrationLike, group: Pack[], title: string, total: number, bytesTotal: number) {
   backgroundJob = registration;
-  set({ job: { pack: pack.id, title: pack.title, done: 0, total, bytesDone: registration.downloaded, bytesTotal, status: "running", background: true,
+  set({ job: { pack: group[0].id, packs: group.map((p) => p.id), title, done: 0, total, bytesDone: registration.downloaded, bytesTotal, status: "running", background: true,
     message: "Downloading in the background. You can close the app: progress shows in your notifications." } });
   registration.addEventListener("progress", () => {
     if (backgroundJob !== registration || !snapshot.job) return;
@@ -266,27 +305,28 @@ async function reattachBackground() {
   const manager = await backgroundManager();
   if (!manager || snapshot.job?.status === "running") return;
   for (const id of await manager.getIds().catch(() => [] as string[])) {
-    const pack = packById(packOfBackgroundId(id) ?? "essentials");
-    const registration = packOfBackgroundId(id) && pack ? await manager.get(id).catch(() => undefined) : undefined;
-    if (!registration || registration.result !== "" || !pack) continue;
-    const status = packStatus(pack, snapshot.saved);
-    follow(registration, pack, toDownload(status).length, bytesNeeded(toDownload(status)));
+    const group = packsOfBackgroundId(id);
+    const registration = group.length ? await manager.get(id).catch(() => undefined) : undefined;
+    if (!registration || registration.result !== "") continue;
+    const left = group.flatMap((p) => toDownload(packStatus(p, snapshot.saved)));
+    follow(registration, group, group.length > 1 ? `${group[0].title} and ${group.length - 1} more` : group[0].title, left.length, bytesNeeded(left));
     return;
   }
 }
 
 /** The service worker finished filing a background download (or kept what finished before a pause or failure). */
 async function backgroundFinished(message: { id: string; result: "success" | "failure" | "abort"; saved: number }) {
-  if (!packOfBackgroundId(message.id)) return;
+  const group = packsOfBackgroundId(message.id);
+  if (!group.length) return;
   const current = backgroundJob?.id === message.id;
   if (current) backgroundJob = undefined;
   await refresh();
   window.dispatchEvent(new Event(DOWNLOADS_CHANGED));
-  const pack = packById(packOfBackgroundId(message.id)!);
-  if (!current || !pack || !snapshot.job) return;
-  const left = toDownload(packStatus(pack, snapshot.saved)).length;
+  if (!current || !snapshot.job) return;
+  const title = snapshot.job.title;
+  const left = group.reduce((sum, p) => sum + toDownload(packStatus(p, snapshot.saved)).length, 0);
   const status: JobStatus = message.result === "abort" ? "paused" : message.result === "failure" || left ? "error" : "done";
-  const text = status === "done" ? `${pack.title} saved for offline use.`
+  const text = status === "done" ? `${title} saved for offline use.`
     : status === "paused" ? `Paused. ${message.saved} file${message.saved === 1 ? "" : "s"} saved; ${left} to go.`
       : `The download did not finish (${left} file${left === 1 ? "" : "s"} left). Tap Resume to continue.`;
   set({ job: { ...snapshot.job, status, done: message.saved, background: true, message: text } });

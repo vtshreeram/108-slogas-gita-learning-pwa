@@ -83,6 +83,13 @@ describe("background downloads in the service worker", () => {
     expect(page.postMessage).toHaveBeenCalledWith(expect.objectContaining({ result: "abort", saved: 0 }));
   });
 
+  it("answers the page's capability question, so pages know this worker files background downloads", async () => {
+    const { handlers } = worker();
+    const reply = vi.fn();
+    handlers.get("message")!({ data: { type: "gita-capabilities" }, ports: [{ postMessage: reply }] });
+    expect(reply).toHaveBeenCalledWith({ backgroundDownloads: 1 });
+  });
+
   it("opens the offline library when the notification is tapped", async () => {
     const { handlers, page, clients } = worker();
     const tasks: Promise<unknown>[] = [];
