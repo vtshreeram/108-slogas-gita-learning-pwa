@@ -1,11 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { useLearningSession } from "@/components/learning-provider";
 
 export function PwaUpdates() {
   const [waiting, setWaiting] = useState<ServiceWorker | null>(null);
   const [updating, setUpdating] = useState(false);
   const prompted = useRef(false);
   useOutdatedDownloadRefresh();
+  useAutoEssentials();
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
     let mounted = true;
@@ -66,4 +68,24 @@ function useOutdatedDownloadRefresh() {
     }, 15_000);
     return () => { window.clearTimeout(timer); controller.abort(); };
   }, []);
+}
+
+/**
+ * Essentials (all chapter text, purports and search, about 5 MB) download on their own once a learner is
+ * signed in, so every verse can be read offline. Skipped when offline or when the device asks to save data.
+ */
+function useAutoEssentials() {
+  const { user } = useLearningSession();
+  const signedIn = Boolean(user);
+  useEffect(() => {
+    if (!signedIn || process.env.NODE_ENV !== "production" || !("caches" in window) || !navigator.onLine) return;
+    if ((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData) return;
+    const timer = window.setTimeout(() => {
+      void import("@/lib/offline-downloads").then((m) => {
+        const unsubscribe = m.subscribe(() => {});
+        void m.refresh().then(() => { m.start("essentials", { quiet: true }); unsubscribe(); });
+      }).catch(() => { /* a later visit tries again */ });
+    }, 20_000);
+    return () => window.clearTimeout(timer);
+  }, [signedIn]);
 }

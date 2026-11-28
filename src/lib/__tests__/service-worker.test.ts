@@ -91,7 +91,7 @@ describe("offline audio and app updates", () => {
     fetch.mockResolvedValue(new Response(pageHtml('<script src="/_next/static/app.js"></script><link href="/_next/static/style.css"><link href="/_next/static/font.woff2">')));
     await api.cacheShell();
     expect(cache.addAll.mock.calls[0][0]).toEqual(expect.arrayContaining(["/_next/static/app.js", "/_next/static/style.css", "/_next/static/font.woff2", ...REQUIRED_LAZY_ASSETS]));
-    expect(cache.put.mock.calls.map((call) => call[0])).toEqual(["/", "/profile", "/chapters"]);
+    expect(cache.put.mock.calls.map((call) => call[0])).toEqual(["/", "/profile", "/chapters", "/offline"]);
   });
   it("keeps the profile page separate from the reader shell online and offline", async () => {
     const { request, fetch, cache } = worker();

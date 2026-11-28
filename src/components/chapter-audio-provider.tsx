@@ -4,6 +4,7 @@
  * while the learner moves between reading, profile and the chapter list (and when the app is in the background).
  */
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { savedChapterAudio, savedChapterUrls } from "@/lib/chapter-audio-cache";
 import { CHAPTER_AUDIO, chapterAudioUrl, neighbour, nextSleep, parsePositions, resumeAt, sleepExpired, withPosition, type ChapterAudio, type Positions, type SleepTimer } from "@/lib/chapter-audio";
 import { SPEED_OPTIONS, cycleOption } from "@/lib/audio-playback";
 import { claimAudioFocus, onAudioFocus, releaseAudioFocus, removeMediaPlayer, setMediaPlayback, setMediaPosition, updateMediaPlayer } from "@/lib/audio-focus";
@@ -73,6 +74,9 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
   const [sleep, setSleep] = useState<SleepTimer>(null);
   const [ready, setReady] = useState(false);
   const [engaged, setEngaged] = useState(false);
+  /** Recordings saved in the Offline library (full URLs), and the current chapter's saved copy as an object URL. */
+  const [savedUrls, setSavedUrls] = useState<ReadonlySet<string>>(new Set());
+  const prepared = useRef<{ key: string; url: string } | null>(null);
   const positionsKey = uid ? `gita-chapter-audio-v1:${uid}` : null;
   const lastKey = uid ? `gita-chapter-audio-last:${uid}` : null;
   const miniPlayerKey = uid ? `gita-chapter-audio-mini:${uid}` : null;
@@ -99,6 +103,33 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
   }, [positionsKey, lastKey, miniPlayerKey, chapters]);
   useEffect(() => () => removeMediaPlayer("chapter"), []);
 
+  // Know which chapters are saved; re-check whenever the Offline library changes something.
+  useEffect(() => {
+    let alive = true;
+    const check = () => { void savedChapterUrls().then((urls) => { if (alive) setSavedUrls(urls); }).catch(() => {}); };
+    check();
+    window.addEventListener("gita-downloads-changed", check);
+    return () => { alive = false; window.removeEventListener("gita-downloads-changed", check); };
+  }, []);
+  const isSaved = useCallback((track: ChapterAudio) => savedUrls.has(new URL(chapterAudioUrl(track.key), location.href).href), [savedUrls]);
+  /** Read a saved chapter into an object URL ahead of time, so Play can attach it inside the tap (iOS requires that). */
+  const prepare = useCallback(async (track: ChapterAudio) => {
+    if (prepared.current?.key === track.key) return prepared.current.url;
+    const url = await savedChapterAudio(chapterAudioUrl(track.key)).catch(() => null);
+    if (!url) return null;
+    const old = prepared.current;
+    prepared.current = { key: track.key, url };
+    // Never pull a file out from under the element while it is still attached.
+    if (old && audioRef.current?.getAttribute("src") !== old.url) URL.revokeObjectURL(old.url);
+    return url;
+  }, []);
+  useEffect(() => {
+    if (chapter && isSaved(chapter)) void prepare(chapter);
+  }, [chapter, isSaved, prepare]);
+  useEffect(() => () => { if (prepared.current) URL.revokeObjectURL(prepared.current.url); }, []);
+  /** The saved copy when it is ready, otherwise the streamed file. */
+  const sourceFor = useCallback((track: ChapterAudio) => prepared.current?.key === track.key ? prepared.current.url : chapterAudioUrl(track.key), []);
+
   const persist = useCallback((seconds: number, total: number) => {
     const track = sourceTrack.current;
     if (!track || !positionsKey || !lastKey || !loaded.current) return;
@@ -117,7 +148,10 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current;
     if (!audio || !track) return;
     const request = ++playRequest.current;
-    const source = chapterAudioUrl(track.key);
+    // Normally prepared already; if a saved chapter was picked from the list before it was read, read it now.
+    if (isSaved(track) && prepared.current?.key !== track.key) await prepare(track);
+    if (request !== playRequest.current) return;
+    const source = sourceFor(track);
     setEngaged(true);
     setSleep((t) => (sleepExpired(t, Date.now()) ? null : t)); // a timer that ran out while paused must not stop this Play
     try {
@@ -132,7 +166,7 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
       setLoading(false); setPlaying(false); setMediaPlayback("chapter", "paused");
       if (!(error instanceof DOMException && error.name === "AbortError")) setError("Playback did not start. Tap Play to try again.");
     }
-  }, [chapter]);
+  }, [chapter, isSaved, prepare, sourceFor]);
   const pause = useCallback(() => {
     playRequest.current++;
     audioRef.current?.pause(); setLoading(false); setMediaPlayback("chapter", "paused");
@@ -268,7 +302,7 @@ export function ChapterAudioProvider({ children }: { children: ReactNode }) {
         if (miniPlayerKey) writeStore(miniPlayerKey, "");
         releaseAudioFocus("chapter");
       }}
-      onError={(e) => { if (!e.currentTarget.hasAttribute("src")) return; setPlaying(false); setLoading(false); setMediaPlayback("chapter", "paused"); setError("This chapter could not be loaded. Check your connection and try again."); }} />}
+      onError={(e) => { if (!e.currentTarget.hasAttribute("src")) return; setPlaying(false); setLoading(false); setMediaPlayback("chapter", "paused"); setError(navigator.onLine ? "This chapter could not be loaded. Check your connection and try again." : "You are offline and this chapter is not saved on this device. Save chapters in the Offline library (Profile) to play them without internet."); }} />}
     {uid && <ChapterMiniPlayer />}
   </ChapterAudioContext.Provider>;
 }
