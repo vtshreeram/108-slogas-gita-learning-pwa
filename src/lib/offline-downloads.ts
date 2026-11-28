@@ -14,7 +14,9 @@ export const DOWNLOADS_CHANGED = "gita-downloads-changed";
 const PARALLEL = 3;
 
 export type JobStatus = "running" | "paused" | "error" | "done";
-export type Job = { pack: PackId; title: string; done: number; total: number; bytesDone: number; bytesTotal: number; status: JobStatus; message?: string; quiet?: boolean };
+export type Job = { pack: PackId; title: string; done: number; total: number; bytesDone: number; bytesTotal: number; status: JobStatus; message?: string; quiet?: boolean;
+  /** Handed to the browser's download manager (Background Fetch): continues after the app is closed. */
+  background?: boolean };
 export type Snapshot = { ready: boolean; supported: boolean; saved: ReadonlyMap<string, number>; job?: Job; queue: readonly PackId[]; persisted?: boolean; estimate?: { quota?: number; usage?: number } };
 
 let packs: Pack[] | undefined;
@@ -27,6 +29,10 @@ let snapshot: Snapshot = { ready: false, supported: false, saved: new Map(), que
 const listeners = new Set<() => void>();
 const set = (next: Partial<Snapshot>) => { snapshot = { ...snapshot, ...next }; listeners.forEach((l) => l()); };
 let controller: AbortController | undefined;
+/** The running background download, when the browser is doing it. */
+let backgroundJob: BackgroundFetchRegistrationLike | undefined;
+const BACKGROUND_PREFIX = "gita:";
+const BACKGROUND_STALL_MS = 20_000;
 
 export function subscribe(listener: () => void) {
   listeners.add(listener);
@@ -46,7 +52,10 @@ function init() {
   if (!supported) { set({ ready: true }); return; }
   // The study-tools download list and the background refresh change the same caches.
   window.addEventListener(DOWNLOADS_CHANGED, () => { if (snapshot.job?.status !== "running") void refresh(); });
-  void refresh();
+  navigator.serviceWorker?.addEventListener("message", (event: MessageEvent) => {
+    if (event.data?.type === "gita-background-fetch") void backgroundFinished(event.data);
+  });
+  void refresh().then(reattachBackground);
 }
 
 /** Same-origin cache keys are compared by pathname (the service worker keys text by pathname too). */
@@ -114,7 +123,7 @@ export function start(id: PackId, options: { quiet?: boolean } = {}) {
   void run(id, options.quiet);
 }
 
-async function run(id: PackId, quiet = false) {
+async function run(id: PackId, quiet = false, options: { inApp?: boolean } = {}) {
   const pack = packById(id);
   if (!pack) return;
   // Claim the slot before the first await, so a second tap queues instead of starting a parallel job.
@@ -128,6 +137,8 @@ async function run(id: PackId, quiet = false) {
     return next();
   }
   if (!quiet) await askToPersist();
+  // Downloads a learner starts go to the browser's download manager where it has one, so they survive closing the app.
+  if (!quiet && !options.inApp && await startInBackground(pack, items, bytesTotal)) return;
   controller = new AbortController();
   const { signal } = controller;
   let done = 0, bytesDone = 0, failure: unknown;
@@ -159,7 +170,18 @@ function next() {
 }
 
 /** Stop after the files in flight; saved files are kept, and Resume continues with the rest. */
-export function pause() { controller?.abort(); }
+export function pause() {
+  if (backgroundJob) {
+    const job = backgroundJob;
+    // The worker files whatever finished, then reports back (backgroundFinished).
+    set({ job: snapshot.job && { ...snapshot.job, message: "Pausing…" } });
+    void job.abort().catch(() => {});
+    // If the worker never reports back (it was stopped, or the browser dropped the event), settle from what is saved.
+    setTimeout(() => { if (backgroundJob === job) void backgroundFinished({ id: job.id, result: "abort", saved: 0 }); }, 10_000);
+    return;
+  }
+  controller?.abort();
+}
 export function resume() { if (snapshot.job) start(snapshot.job.pack); }
 export function dequeue(id: PackId) { set({ queue: snapshot.queue.filter((q) => q !== id) }); }
 
@@ -175,4 +197,98 @@ export async function remove(id: PackId) {
   if (snapshot.job?.pack === id) set({ job: undefined });
   await refresh();
   window.dispatchEvent(new Event(DOWNLOADS_CHANGED));
+}
+
+// ---- Background downloads (Background Fetch) ----
+// Chrome (Android and desktop) can download a pack with its own download manager: it keeps going when the app is
+// closed or the phone is locked, and shows progress in the notification shade. The service worker files the
+// results (backgroundfetchsuccess / fail / abort in service-worker-template.js) and tells open pages.
+
+type BackgroundFetchRegistrationLike = EventTarget & { id: string; downloaded: number; downloadTotal: number; result: "" | "success" | "failure"; abort(): Promise<boolean> };
+type BackgroundFetchManagerLike = {
+  fetch(id: string, requests: Request[], options: { title: string; icons: { src: string; sizes: string; type: string }[]; downloadTotal: number }): Promise<BackgroundFetchRegistrationLike>;
+  getIds(): Promise<string[]>;
+  get(id: string): Promise<BackgroundFetchRegistrationLike | undefined>;
+};
+
+/** The browser's background download manager, when this browser has one and the service worker runs this page. */
+async function backgroundManager(): Promise<BackgroundFetchManagerLike | undefined> {
+  if (typeof window === "undefined" || !("BackgroundFetchManager" in window) || !navigator.serviceWorker?.controller) return undefined;
+  const registration = await navigator.serviceWorker.ready.catch(() => undefined);
+  return (registration as (ServiceWorkerRegistration & { backgroundFetch?: BackgroundFetchManagerLike }) | undefined)?.backgroundFetch;
+}
+
+const packOfBackgroundId = (id: string) => id.startsWith(BACKGROUND_PREFIX) ? id.slice(BACKGROUND_PREFIX.length).split("@")[0] as PackId : undefined;
+
+/** Hand the files to the browser. False when that is not possible here, so the in-app downloader runs instead. */
+async function startInBackground(pack: Pack, items: PackItem[], bytesTotal: number): Promise<boolean> {
+  const manager = await backgroundManager();
+  if (!manager) return false;
+  const requests = items.map((item) => {
+    const url = new URL(item.url, location.href);
+    return new Request(url.href, { mode: url.origin === location.origin ? "same-origin" : "cors" });
+  });
+  try {
+    // The total only drives the progress bar, but the browser stops a download that goes past it: keep a margin.
+    const registration = await manager.fetch(`${BACKGROUND_PREFIX}${pack.id}@${Date.now()}`, requests, {
+      title: `Gita 108 · ${pack.title}`,
+      icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }],
+      downloadTotal: Math.ceil(bytesTotal * 1.1),
+    });
+    follow(registration, pack, items.length, bytesTotal);
+    // Some browsers accept a background download but never run it (no download manager, e.g. headless). If nothing
+    // arrives at all, take the pack back and download it in the app instead.
+    setTimeout(() => {
+      if (backgroundJob !== registration || registration.downloaded > 0 || registration.result !== "") return;
+      backgroundJob = undefined;
+      void registration.abort().catch(() => {});
+      void run(pack.id, false, { inApp: true });
+    }, BACKGROUND_STALL_MS);
+    return true;
+  } catch {
+    return false; // e.g. the user blocked background downloads: fall back to the in-app downloader
+  }
+}
+
+function follow(registration: BackgroundFetchRegistrationLike, pack: Pack, total: number, bytesTotal: number) {
+  backgroundJob = registration;
+  set({ job: { pack: pack.id, title: pack.title, done: 0, total, bytesDone: registration.downloaded, bytesTotal, status: "running", background: true,
+    message: "Downloading in the background. You can close the app: progress shows in your notifications." } });
+  registration.addEventListener("progress", () => {
+    if (backgroundJob !== registration || !snapshot.job) return;
+    const finished = registration.result !== "";
+    set({ job: { ...snapshot.job, bytesDone: Math.min(registration.downloaded, bytesTotal), ...(finished ? { message: "Saving…" } : {}) } });
+  });
+}
+
+/** After the app is reopened, show a background download that is still running. */
+async function reattachBackground() {
+  const manager = await backgroundManager();
+  if (!manager || snapshot.job?.status === "running") return;
+  for (const id of await manager.getIds().catch(() => [] as string[])) {
+    const pack = packById(packOfBackgroundId(id) ?? "essentials");
+    const registration = packOfBackgroundId(id) && pack ? await manager.get(id).catch(() => undefined) : undefined;
+    if (!registration || registration.result !== "" || !pack) continue;
+    const status = packStatus(pack, snapshot.saved);
+    follow(registration, pack, toDownload(status).length, bytesNeeded(toDownload(status)));
+    return;
+  }
+}
+
+/** The service worker finished filing a background download (or kept what finished before a pause or failure). */
+async function backgroundFinished(message: { id: string; result: "success" | "failure" | "abort"; saved: number }) {
+  if (!packOfBackgroundId(message.id)) return;
+  const current = backgroundJob?.id === message.id;
+  if (current) backgroundJob = undefined;
+  await refresh();
+  window.dispatchEvent(new Event(DOWNLOADS_CHANGED));
+  const pack = packById(packOfBackgroundId(message.id)!);
+  if (!current || !pack || !snapshot.job) return;
+  const left = toDownload(packStatus(pack, snapshot.saved)).length;
+  const status: JobStatus = message.result === "abort" ? "paused" : message.result === "failure" || left ? "error" : "done";
+  const text = status === "done" ? `${pack.title} saved for offline use.`
+    : status === "paused" ? `Paused. ${message.saved} file${message.saved === 1 ? "" : "s"} saved; ${left} to go.`
+      : `The download did not finish (${left} file${left === 1 ? "" : "s"} left). Tap Resume to continue.`;
+  set({ job: { ...snapshot.job, status, done: message.saved, background: true, message: text } });
+  if (status !== "paused") next();
 }

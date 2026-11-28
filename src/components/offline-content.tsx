@@ -63,7 +63,7 @@ function JobBanner({ state }: { state: Snapshot }) {
     <p className="text-sm font-semibold">{job.status === "running" ? `Downloading ${job.title}…` : job.title}</p>
     {job.status === "running" || job.status === "paused" ? <>
       <progress className="learning-progress mt-2 w-full" value={pct} max={100} aria-label={`${job.title} download progress`} />
-      <p className="study-muted mt-1 text-xs tabular-nums">{job.done} of {job.total} files · {formatMB(job.bytesDone)} of {formatMB(job.bytesTotal)}{state.queue.length ? ` · ${state.queue.length} more waiting` : ""}</p>
+      <p className="study-muted mt-1 text-xs tabular-nums">{job.background && job.status === "running" ? `${job.total} files` : `${job.done} of ${job.total} files`} · {formatMB(job.bytesDone)} of {formatMB(job.bytesTotal)}{state.queue.length ? ` · ${state.queue.length} more waiting` : ""}</p>
     </> : null}
     {job.message && <p className="mt-1 text-sm" role={job.status === "error" ? "alert" : undefined}>{job.message}</p>}
     <div className="mt-2 flex gap-2">
