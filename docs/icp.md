@@ -29,7 +29,7 @@ Individuals (adult self-learners, parents of children) are the user base, not th
 - **Verticals:** religious/spiritual education, Sanskrit education, supplementary (weekend) schools.
 - **Geography:** Tier 1: Tamil Nadu, Karnataka, Maharashtra, Gujarat, Delhi NCR. Tier 2: US, UK, Singapore, UAE diaspora centres.
 - **Growth stage:** established programs with a recurring annual event, not new start-ups.
-- **Tech maturity:** low to medium. Uses WhatsApp groups, YouTube, Google Forms. Learners on Android phones with patchy data, which suits offline PWA and 64 kbps audio.
+- **Tech maturity:** low to medium. Uses WhatsApp groups, YouTube, Google Forms. Learners on Android phones with patchy data, which suits offline PWA and 32 kbps audio.
 - **Business model:** non-profit or trust, donation or fee funded.
 
 ## 3. Decision-making unit

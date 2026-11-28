@@ -73,6 +73,20 @@ def run_cmd(cmd: list[str]) -> tuple[int, str]:
     return proc.returncode, proc.stdout
 
 
+def joined_parts(index_path: Path, out_dir: Path) -> set[str]:
+    """Per-verse references already inside a joined range file (e.g. 1.16 once 1.16-18.mp3 exists)."""
+    if not index_path.is_file():
+        return set()
+    covered: set[str] = set()
+    for ref, _ in json.loads(index_path.read_text(encoding="utf-8")):
+        if "-" not in ref or not (out_dir / f"{ref}.mp3").is_file():
+            continue
+        chapter, verses = ref.split(".")
+        first, last = (int(n) for n in verses.split("-"))
+        covered.update(f"{chapter}.{n}" for n in range(first, last + 1))
+    return covered
+
+
 def join_ranges(index_path: Path, out_dir: Path, ffmpeg: str) -> tuple[int, list[str]]:
     """Build <ch>.<a>-<b>.mp3 for each verse range in the index by joining its per-verse files."""
     joined = 0
@@ -95,7 +109,7 @@ def join_ranges(index_path: Path, out_dir: Path, ffmpeg: str) -> tuple[int, list
         inputs = "".join(f"[{i}:a]" for i in range(len(parts)))
         cmd += [
             "-filter_complex", f"{inputs}concat=n={len(parts)}:v=0:a=1[a]", "-map", "[a]",
-            "-ac", "1", "-ar", "44100", "-b:a", "64k", "-map_metadata", "-1", str(dest),
+            "-ac", "1", "-ar", "22050", "-b:a", "32k", "-map_metadata", "-1", str(dest),
         ]
         code, output = run_cmd(cmd)
         if code != 0:
@@ -103,6 +117,9 @@ def join_ranges(index_path: Path, out_dir: Path, ffmpeg: str) -> tuple[int, list
             incomplete.append(ref)
         else:
             joined += 1
+            # The app only plays the joined file; the per-verse pieces would just add to the download.
+            for part in parts:
+                part.unlink(missing_ok=True)
     return joined, incomplete
 
 
@@ -146,6 +163,10 @@ def main() -> int:
         return 2
 
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    # Pieces of a verse range are only needed until the range file is joined.
+    covered = joined_parts(Path(args.index), out_dir)
+    pairs = [(ref, url) for ref, url in pairs if ref not in covered]
 
     missing = []
     for ref, _ in pairs:
@@ -193,11 +214,11 @@ def main() -> int:
             "-x",
             "--audio-format",
             "mp3",
-            # Same encoding as the rest of public/audio: 64 kbps mono keeps chanting clear at about half the size.
+            # Same encoding as the rest of public/audio: 32 kbps mono MP3 at 22.05 kHz, plenty for chanting and speech.
             "--audio-quality",
-            "64K",
+            "32K",
             "--postprocessor-args",
-            "ffmpeg:-ac 1 -ar 44100",
+            "ffmpeg:-ac 1 -ar 22050",
             "--no-playlist",
             "-o",
             str(out_dir / f"{ref}.%(ext)s"),

@@ -5,6 +5,7 @@ export function PwaUpdates() {
   const [waiting, setWaiting] = useState<ServiceWorker | null>(null);
   const [updating, setUpdating] = useState(false);
   const prompted = useRef(false);
+  useOutdatedDownloadRefresh();
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
     let mounted = true;
@@ -47,4 +48,22 @@ export function PwaUpdates() {
     <p className="font-semibold">An update is ready</p><p className="text-sm">Reload when you finish this verse. Your saved progress stays here.</p>
     <div className="mt-2 flex gap-2"><button className="study-button study-primary" disabled={updating} onClick={() => { prompted.current = true; setUpdating(true); waiting.postMessage({ type: "SKIP_WAITING" }); }}>{updating ? "Updating…" : "Update now"}</button><button className="study-button" onClick={() => setWaiting(null)}>Later</button></div>
   </aside>;
+}
+
+/**
+ * Audio saved for offline use before the recordings were re-encoded stays playable, but takes about twice
+ * the space. A while after the app opens online, swap those copies for the current files in the background.
+ */
+function useOutdatedDownloadRefresh() {
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "production" || !("caches" in window) || !navigator.onLine) return;
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => {
+      void import("@/lib/offline-audio").then(async ({ AUDIO_CACHE, refreshOutdatedDownloads }) => {
+        const replaced = await refreshOutdatedDownloads({ cache: await caches.open(AUDIO_CACHE), signal: controller.signal });
+        if (replaced && !controller.signal.aborted) window.dispatchEvent(new Event("gita-downloads-changed"));
+      }).catch(() => { /* a later visit tries again */ });
+    }, 15_000);
+    return () => { window.clearTimeout(timer); controller.abort(); };
+  }, []);
 }
