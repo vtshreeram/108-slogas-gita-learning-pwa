@@ -55,6 +55,8 @@ export async function refreshOutdatedDownloads({ cache, fetchFn = fetch, signal 
       if (!response.ok || response.status === 206 || !/audio\//i.test(response.headers.get("Content-Type") ?? "")) break;
       const blob = await response.blob();
       if (!blob.size || signal?.aborted) break;
+      // The learner may have removed this download while its replacement was on the way: do not bring it back.
+      if (!(await cache.match(key))) continue;
       await saveAudio(cache, path, blob);
       replaced++;
     } catch { break; }

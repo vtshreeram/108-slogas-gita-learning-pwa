@@ -35,6 +35,13 @@ describe("refreshOutdatedDownloads", () => {
     expect((await cache.store.get("/audio/1.1.mp3")!.clone().blob()).size).toBe(100);
   });
 
+  it("does not restore a download the learner removed while its replacement was downloading", async () => {
+    const cache = fakeCache({ "/audio/2.47.mp3": saved(100) });
+    const fetchFn = vi.fn(async () => { cache.store.delete("/audio/2.47.mp3"); return served(40); });
+    expect(await refreshOutdatedDownloads({ cache, fetchFn: fetchFn as unknown as typeof fetch })).toBe(0);
+    expect(cache.store.has("/audio/2.47.mp3")).toBe(false);
+  });
+
   it("stops when cancelled", async () => {
     const cache = fakeCache({ "/audio/1.1.mp3": saved(100) });
     const controller = new AbortController(); controller.abort();
