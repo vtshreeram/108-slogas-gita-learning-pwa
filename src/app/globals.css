@@ -556,6 +556,20 @@ input.study-input { padding-inline: .75rem; }
 .chapter-brief-remember { margin: 1.5rem 0 0; padding: 1rem 1.125rem; border-radius: 1rem; background: var(--study-accent); text-align: center; }
 .chapter-brief-remember blockquote { margin: .25rem 0 0; font-size: 1.125rem; font-weight: 600; line-height: 1.45; }
 
+/* Offline library: storage meter, the current download, then one card per pack. */
+.offline-page { padding-bottom: calc(var(--chapter-mini-height, 0px) + env(safe-area-inset-bottom, 0px) + 2rem); }
+.offline-storage, .offline-job { margin-bottom: .75rem; padding: 1rem 1.125rem; border: 1px solid var(--study-border); border-radius: 1.25rem; background: var(--study-surface); }
+.offline-job { border-color: var(--study-muted); }
+.offline-packs, .offline-chapters { display: grid; gap: .625rem; margin: 0; padding: 0; list-style: none; }
+.offline-pack { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; padding: .875rem 1rem; border: 1px solid var(--study-border); border-radius: 1.25rem; background: var(--study-surface); }
+.offline-pack[data-compact] { padding: .625rem .75rem; border-radius: 1rem; }
+.offline-pack[data-complete] { background: var(--study-accent); }
+.offline-pack-title { font-weight: 600; line-height: 1.35; }
+.offline-pack[data-compact] .offline-pack-title { font-size: .9375rem; }
+.offline-pack-meta { display: flex; align-items: center; gap: .25rem; margin-top: .125rem; color: var(--study-muted); font-size: .8125rem; }
+.offline-pack-actions { display: flex; align-items: center; gap: .25rem; margin-left: auto; }
+.offline-pack-actions .icon-button { border-radius: 50%; color: var(--study-muted); }
+
 /* Chapter list: one tile per row, title can wrap, one right-hand column, a thin progress line for chapters in progress. */
 .chapter-list { margin: 0; padding: 0; list-style: none; }
 .chapter-row { display: flex; align-items: center; gap: .875rem; width: 100%; min-height: 4.5rem; padding: .625rem .5rem; border-bottom: 1px solid var(--study-border); color: var(--study-ink); text-align: left; }

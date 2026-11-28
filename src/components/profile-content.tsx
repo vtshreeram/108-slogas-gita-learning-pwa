@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useTheme } from "next-themes";
-import { Download, Upload, LogOut, Star, BookOpen } from "lucide-react";
+import { Download, Upload, LogOut, Star, BookOpen, CloudDownload } from "lucide-react";
 import { useLearning, useLearningSession } from "@/components/learning-provider";
 import { AppLoader } from "@/components/app-loader";
 import { PageHeader } from "@/components/page-header";
@@ -80,6 +80,11 @@ export default function ProfileContent() {
         <h2 id="preferences-heading" className="section-title">Practice preferences</h2>
         <fieldset className="mt-4"><legend className="mb-2 text-sm font-semibold">Daily pace</legend><div className="flex flex-wrap gap-3">{(["normal", "lite"] as const).map((mode) => <label key={mode} className="pace-option"><input type="radio" name="pace" value={mode} checked={state.activeMode === mode} onChange={() => setActiveMode(mode)} /><span>{mode === "normal" ? "Normal · 2 verses a day" : "Lite · 1 verse a day"}</span></label>)}</div></fieldset>
         <label htmlFor="theme" className="mt-5 block text-sm font-semibold">Appearance</label><select id="theme" className="study-input mt-2" value={theme ?? "system"} onChange={(e) => setTheme(e.target.value)}><option value="system">Use device setting</option><option value="light">Light</option><option value="dark">Dark</option></select>
+      </section>
+      <section className="profile-section" aria-labelledby="offline-heading">
+        <h2 id="offline-heading" className="section-title">Use without internet</h2>
+        <p className="study-muted mt-2 text-sm">Save verse text, verse audio and chapter recordings on this device so the app works offline.</p>
+        <Link href="/offline" className="study-button mt-4 inline-flex"><CloudDownload className="h-4 w-4" aria-hidden="true" />Open offline library</Link>
       </section>
       <section className="profile-section" aria-labelledby="backup-heading">
         <h2 id="backup-heading" className="section-title">Saved progress & backups</h2>

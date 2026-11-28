@@ -21,7 +21,7 @@ function matchesBuild(html) {
 async function cacheShell() {
   const documents = [];
   const assets = new Set(["/manifest.webmanifest", "/icon.svg", "/icon-192.png", "/icon-512.png", ...REQUIRED_LAZY_ASSETS]);
-  for (const path of ["/", "/profile", "/chapters"]) {
+  for (const path of ["/", "/profile", "/chapters", "/offline"]) {
     const request = () => new Request(new URL(path, self.location.origin), { cache: "reload" });
     // One retry rides out a flaky connection; a partial shell is never accepted, so offline support is never half-installed.
     let response = await fetch(request()).catch(() => null);

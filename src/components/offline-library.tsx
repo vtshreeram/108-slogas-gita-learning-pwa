@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { SHLOKAS } from "@/lib/shlokas";
 import { AUDIO_CACHE, audioUrl, downloadAudio, formatBytes, listDownloads } from "@/lib/offline-audio";
 
@@ -68,6 +69,7 @@ export function OfflineLibrary({ reference }: { reference: string }) {
     <details className="mt-2">
       <summary className="min-h-11 cursor-pointer py-3 text-sm underline underline-offset-4">Manage downloads</summary>
       <p className="study-muted text-xs">Saved on this device. Browsers may clear downloads when storage is low.{quota !== undefined && ` About ${formatBytes(quota)} available for this site.`}</p>
+      <p className="mt-2 text-xs"><Link className="underline underline-offset-4" href="/offline">Open the offline library</Link> to save all verse text, every verse recording or the chapter recordings at once.</p>
       <div className="my-3 flex flex-wrap gap-2">
         <button className="study-button" disabled={busy || !supported} onClick={() => setSelected(SHLOKAS.filter((s) => !downloads.some((d) => d.url === audioUrl(s.reference))).map((s) => s.reference))}>Select missing</button>
         <button className="study-button" disabled={busy} onClick={() => setSelected([])}>Clear selection</button>
