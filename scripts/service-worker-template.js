@@ -40,6 +40,8 @@ async function cacheShell() {
 self.addEventListener("install", (event) => event.waitUntil(cacheShell()));
 self.addEventListener("message", (event) => {
   if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
+  // The page asks before handing downloads to Background Fetch: an older worker has no handlers to file them.
+  if (event.data?.type === "gita-capabilities") event.ports?.[0]?.postMessage({ backgroundDownloads: 1 });
 });
 self.addEventListener("activate", (event) => event.waitUntil((async () => {
   const keys = await caches.keys();
@@ -140,3 +142,64 @@ self.addEventListener("fetch", (event) => {
   if (request.mode === "navigate") { navigation(event); return; }
   if (url.pathname.startsWith("/_next/static/") || /\.(?:png|svg|ico|webmanifest)$/.test(url.pathname)) staticAsset(event);
 });
+
+// ---- Background downloads (Background Fetch: Chrome on Android and desktop) ----
+// The Offline library hands large packs to the browser's download manager, which keeps going after the app is
+// closed and shows progress in the notification shade. When it finishes (or partly fails, or is paused), each
+// downloaded file is filed into the cache the app already reads. Keep these names in step with offline-audio.ts,
+// offline-packs.ts and chapter-audio-cache.ts (a unit test checks).
+const CHAPTER_AUDIO_CACHE = "gita-chapter-audio-v1";
+const AUDIO_ENCODING = "mp3-32k-mono";
+
+/** Where a downloaded file belongs, under the same key the app and this worker look it up by. */
+function backgroundTarget(url) {
+  const u = new URL(url);
+  if (u.origin === self.location.origin && /^\/api\/(?:chapters|purports)\/(?:\d+|search)$/.test(u.pathname)) return { cache: CHAPTER_CACHE, key: u.origin + u.pathname, audio: false };
+  if (u.origin === self.location.origin && u.pathname.startsWith("/audio/")) return { cache: AUDIO_CACHE, key: u.origin + u.pathname, audio: true, verse: true };
+  if (u.pathname.endsWith(".mp3")) return { cache: CHAPTER_AUDIO_CACHE, key: u.origin + u.pathname, audio: true };
+  return null;
+}
+
+/** File every finished download of a background fetch. Returns how many were saved. */
+async function saveBackgroundRecords(registration) {
+  let saved = 0;
+  for (const record of await registration.matchAll()) {
+    try {
+      const response = await record.responseReady;
+      const target = backgroundTarget(record.request.url);
+      if (!target || !response.ok || response.status === 206) continue;
+      const type = response.headers.get("Content-Type") || "";
+      if (target.audio ? !/audio\//i.test(type) : !/json/i.test(type)) continue;
+      const blob = await response.blob();
+      if (!blob.size) continue;
+      const headers = { "Content-Type": target.audio ? "audio/mpeg" : "application/json; charset=utf-8", "Content-Length": String(blob.size) };
+      if (target.verse) headers["X-Gita-Audio-Encoding"] = AUDIO_ENCODING;
+      await (await caches.open(target.cache)).put(target.key, new Response(blob, { headers }));
+      saved++;
+    } catch { /* a file that did not finish is downloaded again on Resume */ }
+  }
+  return saved;
+}
+
+async function tellPages(message) {
+  for (const client of await self.clients.matchAll({ type: "window", includeUncontrolled: true })) client.postMessage(message);
+}
+
+function backgroundDone(result, title) {
+  return (event) => event.waitUntil((async () => {
+    // Records may already be gone after an abort; whatever can be read is kept.
+    const saved = await saveBackgroundRecords(event.registration).catch(() => 0);
+    await tellPages({ type: "gita-background-fetch", id: event.registration.id, result, saved });
+    if (title && event.updateUI) await event.updateUI({ title: title(saved) }).catch(() => {});
+  })());
+}
+
+self.addEventListener("backgroundfetchsuccess", backgroundDone("success", (n) => `Saved for offline use · ${n} file${n === 1 ? "" : "s"}`));
+self.addEventListener("backgroundfetchfail", backgroundDone("failure", () => "Download incomplete · open Gita 108 to resume"));
+self.addEventListener("backgroundfetchabort", backgroundDone("abort"));
+self.addEventListener("backgroundfetchclick", (event) => event.waitUntil((async () => {
+  const pages = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+  const open = pages.find((page) => new URL(page.url).pathname === "/offline") ?? pages[0];
+  if (open) { await open.focus(); if (new URL(open.url).pathname !== "/offline" && open.navigate) await open.navigate("/offline").catch(() => {}); }
+  else await self.clients.openWindow("/offline");
+})()));

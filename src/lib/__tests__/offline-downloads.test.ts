@@ -4,7 +4,26 @@ import sizes from "@/data/audio-sizes.json";
 const ORIGIN = "https://gita.test";
 type Store = Map<string, Map<string, Response>>;
 
-function installBrowser(options: { quota?: number; usage?: number; fail?: (url: string) => boolean; slow?: boolean } = {}) {
+type FakeRegistration = EventTarget & { id: string; downloaded: number; downloadTotal: number; result: string; abort: ReturnType<typeof vi.fn> };
+function fakeBackground(running: FakeRegistration[] = [], answers = true) {
+  const registrations = new Map(running.map((r) => [r.id, r]));
+  const manager = {
+    fetch: vi.fn(async (id: string, requests: Request[], options: { downloadTotal: number }) => {
+      const registration = Object.assign(new EventTarget(), { id, downloaded: 0, downloadTotal: options.downloadTotal, result: "", requests, abort: vi.fn(async () => true) });
+      registrations.set(id, registration);
+      return registration;
+    }),
+    getIds: vi.fn(async () => [...registrations.keys()]),
+    get: vi.fn(async (id: string) => registrations.get(id)),
+  };
+  let onMessage: ((event: { data: unknown }) => void) | undefined;
+  // The current worker answers the capability question; an older one (answers = false) stays silent.
+  const controller = { postMessage: (message: { type: string }, ports: MessagePort[]) => { if (answers && message.type === "gita-capabilities") ports[0].postMessage({ backgroundDownloads: 1 }); } };
+  const serviceWorker = { controller, ready: Promise.resolve({ backgroundFetch: manager }), addEventListener: (_: string, fn: (event: { data: unknown }) => void) => { onMessage = fn; } };
+  return { manager, serviceWorker, message: (data: unknown) => onMessage?.({ data }) };
+}
+
+function installBrowser(options: { quota?: number; usage?: number; fail?: (url: string) => boolean; slow?: boolean; background?: ReturnType<typeof fakeBackground> } = {}) {
   const store: Store = new Map();
   const open = async (name: string) => {
     if (!store.has(name)) store.set(name, new Map());
@@ -31,8 +50,8 @@ function installBrowser(options: { quota?: number; usage?: number; fail?: (url: 
   vi.stubGlobal("caches", { open });
   vi.stubGlobal("fetch", fetchFn);
   vi.stubGlobal("location", new URL(`${ORIGIN}/offline`));
-  vi.stubGlobal("navigator", { onLine: true, storage: { estimate: async () => ({ quota: options.quota, usage: options.usage ?? 0 }), persisted: async () => false, persist: vi.fn(async () => true) } });
-  vi.stubGlobal("window", Object.assign(events, { isSecureContext: true, caches: {} }));
+  vi.stubGlobal("navigator", { onLine: true, storage: { estimate: async () => ({ quota: options.quota, usage: options.usage ?? 0 }), persisted: async () => false, persist: vi.fn(async () => true) }, ...(options.background ? { serviceWorker: options.background.serviceWorker } : {}) });
+  vi.stubGlobal("window", Object.assign(events, { isSecureContext: true, caches: {} }, options.background ? { BackgroundFetchManager: class {} } : {}));
   return { store, fetchFn };
 }
 
@@ -120,5 +139,111 @@ describe("offline downloads", () => {
     expect(store.get("gita-chapter-audio-v1")!.size).toBe(1);
     await m.remove("chapter-3");
     expect(store.get("gita-chapter-audio-v1")!.size).toBe(0);
+  });
+
+  describe("background downloads (Background Fetch)", () => {
+    it("hands a pack to the browser's download manager and finishes when the worker has filed it", async () => {
+      const background = fakeBackground();
+      const { store } = installBrowser({ background });
+      const m = await load();
+      m.start("chapter-2");
+      await vi.waitFor(() => expect(m.getSnapshot().job?.background).toBe(true));
+      const [id, requests, options] = background.manager.fetch.mock.calls[0];
+      expect(id).toMatch(/^gita:chapter-2@\d+$/);
+      expect(requests).toHaveLength(1);
+      expect(options.downloadTotal).toBeGreaterThan(m.getSnapshot().job!.bytesTotal); // margin, so the browser never stops early
+      // progress from the browser
+      const registration = await background.manager.get(id);
+      registration!.downloaded = 1234; registration!.dispatchEvent(new Event("progress"));
+      expect(m.getSnapshot().job?.bytesDone).toBe(1234);
+      // the worker files the download, then reports
+      const url = new URL(requests[0].url);
+      if (!store.has("gita-chapter-audio-v1")) store.set("gita-chapter-audio-v1", new Map());
+      store.get("gita-chapter-audio-v1")!.set(url.href, new Response(new Uint8Array(5), { headers: { "Content-Length": String(m.getSnapshot().job!.bytesTotal) } }));
+      background.message({ type: "gita-background-fetch", id, result: "success", saved: 1 });
+      await vi.waitFor(() => expect(m.getSnapshot().job?.status).toBe("done"));
+    });
+
+    it("pauses by aborting the browser download and keeps what finished", async () => {
+      const background = fakeBackground();
+      installBrowser({ background });
+      const m = await load();
+      m.start("verses108");
+      await vi.waitFor(() => expect(m.getSnapshot().job?.background).toBe(true));
+      const id = background.manager.fetch.mock.calls[0][0];
+      m.pause();
+      expect((await background.manager.get(id))!.abort).toHaveBeenCalled();
+      background.message({ type: "gita-background-fetch", id, result: "abort", saved: 0 });
+      await vi.waitFor(() => expect(m.getSnapshot().job?.status).toBe("paused"));
+    });
+
+    it("shows a background download that is still running when the app is reopened", async () => {
+      const running = Object.assign(new EventTarget(), { id: "gita:verses657@1", downloaded: 500, downloadTotal: 1000, result: "", abort: vi.fn() });
+      installBrowser({ background: fakeBackground([running]) });
+      const m = await load();
+      await vi.waitFor(() => expect(m.getSnapshot().job).toMatchObject({ pack: "verses657", status: "running", background: true, bytesDone: 500 }));
+    });
+
+    it("takes the pack back and downloads it in the app when the browser never starts the background download", async () => {
+      vi.useFakeTimers({ shouldAdvanceTime: true });
+      try {
+        const background = fakeBackground();
+        installBrowser({ background });
+        const m = await load();
+        m.start("chapter-4");
+        await vi.waitFor(() => expect(m.getSnapshot().job?.background).toBe(true));
+        const registration = await background.manager.get(background.manager.fetch.mock.calls[0][0]);
+        await vi.advanceTimersByTimeAsync(21_000);
+        expect(registration!.abort).toHaveBeenCalled();
+        await vi.waitFor(() => expect(m.getSnapshot().job).toMatchObject({ pack: "chapter-4", status: "done" }));
+        expect(m.getSnapshot().job?.background).toBeFalsy();
+      } finally { vi.useRealTimers(); }
+    });
+
+    it("downloads in the app while an older worker (without background handlers) still runs the page", async () => {
+      const background = fakeBackground([], false);
+      installBrowser({ background });
+      const m = await load();
+      m.start("chapter-5");
+      // the page waits up to 1.5 s for an answer before using the in-app downloader
+      await vi.waitFor(() => expect(m.getSnapshot().job?.status).toBe("done"), { timeout: 5000 });
+      expect(m.getSnapshot().job).toMatchObject({ pack: "chapter-5", status: "done" });
+      expect(m.getSnapshot().job?.background).toBeFalsy();
+      expect(background.manager.fetch).not.toHaveBeenCalled();
+    });
+
+    it("hands everything waiting (Download all) to one background download, so closing the app loses nothing", async () => {
+      const background = fakeBackground();
+      installBrowser({ background });
+      const m = await load();
+      m.start("chapter-1"); m.start("chapter-2"); m.start("chapter-3");
+      await vi.waitFor(() => expect(m.getSnapshot().job?.background).toBe(true));
+      expect(background.manager.fetch).toHaveBeenCalledTimes(1);
+      const [id, requests] = background.manager.fetch.mock.calls[0];
+      expect(id).toMatch(/^gita:chapter-1\+chapter-2\+chapter-3@/);
+      expect(requests).toHaveLength(3);
+      expect(m.getSnapshot().queue).toEqual([]);
+      expect(m.getSnapshot().job).toMatchObject({ title: expect.stringMatching(/and 2 more$/), packs: ["chapter-1", "chapter-2", "chapter-3"] });
+      // tapping one of them again does not start a second download
+      m.start("chapter-2");
+      expect(background.manager.fetch).toHaveBeenCalledTimes(1);
+      // pause, then Resume restarts all three, again as one background download
+      m.pause();
+      background.message({ type: "gita-background-fetch", id, result: "abort", saved: 0 });
+      await vi.waitFor(() => expect(m.getSnapshot().job?.status).toBe("paused"));
+      m.resume();
+      await vi.waitFor(() => expect(background.manager.fetch).toHaveBeenCalledTimes(2));
+      expect(background.manager.fetch.mock.calls[1][1]).toHaveLength(3);
+    });
+
+    it("keeps the small automatic Essentials download in the app", async () => {
+      const background = fakeBackground();
+      installBrowser({ background });
+      const m = await load();
+      m.start("essentials", { quiet: true });
+      await vi.waitFor(() => expect(m.getSnapshot().job).toMatchObject({ status: "done", quiet: true }));
+      expect(m.getSnapshot().job?.background).toBeFalsy();
+      expect(background.manager.fetch).not.toHaveBeenCalled();
+    });
   });
 });
